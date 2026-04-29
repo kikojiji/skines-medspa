@@ -1,8 +1,31 @@
-# Videos — deployed directly to Netlify, too large for GitHub
-assets/*.mp4
-assets/*.mov
-assets/*.webm
+.netlify/
+.vercel/
 
-# System
-.DS_Store
-assets/.DS_Store
+# Original oversized videos (replaced by compressed)
+assets/avis1.mov
+assets/avis3.mov
+assets/avis4-comp.mp4
+assets/avis2-comp.mp4
+assets/hook-comp.mp4
+assets/hero-video.mp4
+assets/FFF\ 1.mp4
+
+# Unused junk
+assets/Firefly_*
+assets/Gemini_*
+assets/Capture*
+assets/lazer\ photo\ .png
+assets/lips2.png
+assets/men\ nek\ 2.png
+assets/clarity\ 2.png
+assets/head-spa-card.png
+assets/laser-areole.png
+assets/laser-armpit.png
+assets/laser-arms-legs.png
+assets/laser-bikini-m.png
+assets/laser-bikini.png
+assets/laser-body-men.png
+assets/laser-cheeks.png
+assets/laser-full-body.png
+assets/laser-lips-chin.png
+assets/laser-neck.png
