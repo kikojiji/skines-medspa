@@ -321,6 +321,135 @@
     border-bottom: 1px solid var(--gold);
     padding-bottom: 0.22rem;
   }
+  /* ── BELA MD FEATURE ─────────────────────────────────────── */
+  .bela-feature {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .bela-slider-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .bela-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+  }
+  .bela-slide.active { opacity: 1; }
+  .bela-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.72) brightness(0.65);
+  }
+  .bela-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(100deg, rgba(34,31,29,0.90) 0%, rgba(34,31,29,0.55) 52%, rgba(34,31,29,0.18) 100%),
+      linear-gradient(180deg, rgba(34,31,29,0.35) 0%, transparent 40%, rgba(34,31,29,0.55) 100%);
+    z-index: 1;
+  }
+  .bela-content {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 5rem;
+    max-width: 640px;
+    color: var(--cream);
+  }
+  .bela-eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.44em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .bela-eyebrow::after { content: ""; width: 30px; height: 1px; background: currentColor; }
+  .bela-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3.8rem, 8vw, 7rem);
+    font-weight: 300;
+    color: #d4aa6a;
+    letter-spacing: 0.2em;
+    line-height: 0.95;
+    margin-bottom: 2rem;
+  }
+  .bela-desc {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.22rem;
+    font-style: italic;
+    color: rgba(245,240,234,0.82);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 440px;
+  }
+  .bela-chips {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.6rem;
+  }
+  .bela-chip {
+    border: 1px solid rgba(212,170,106,0.42);
+    color: #d4aa6a;
+    font-family: "Inter", sans-serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+  }
+  .bela-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    border: 1px solid rgba(245,240,234,0.5);
+    padding: 1rem 1.8rem;
+    transition: all 0.25s ease;
+  }
+  .bela-cta:hover { background: #d4aa6a; border-color: #d4aa6a; color: var(--ink); }
+  .bela-dots {
+    position: absolute;
+    bottom: 2.2rem;
+    right: 2.5rem;
+    z-index: 3;
+    display: flex;
+    gap: 0.55rem;
+  }
+  .bela-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(245,240,234,0.3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+  }
+  .bela-dot.active { background: #d4aa6a; }
+  @media (max-width: 980px) {
+    .bela-content { padding: 4rem 1.4rem; max-width: 100%; }
+    .bela-overlay {
+      background: linear-gradient(180deg, rgba(34,31,29,0.55) 0%, rgba(34,31,29,0.82) 60%, rgba(34,31,29,0.92) 100%);
+    }
+    .bela-dots { bottom: 1.2rem; right: 1.4rem; }
+  }
+  /* ────────────────────────────────────────────────────────── */
   .booking-band {
     padding: 3.3rem 4rem;
     background: var(--cream-light);
@@ -421,9 +550,9 @@
     gap: 0.75rem;
   }
   .review-circle-wrap {
-    width: 195px;
-    height: 195px;
-    border-radius: 50%;
+    width: 200px;
+    height: 340px;
+    border-radius: 10px;
     overflow: hidden;
     border: 1.5px solid var(--line);
     background: var(--cream);
@@ -437,6 +566,7 @@
     display: block;
   }
   /* placeholder shown when video file not yet added */
+  .review-circle-wrap { cursor: pointer; }
   .review-circle-wrap::after {
     content: "▶";
     position: absolute;
@@ -444,11 +574,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: var(--terracotta-dark);
-    opacity: 0.35;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(34,31,29,0.5);
+    opacity: 0.85;
     pointer-events: none;
+    transition: opacity 0.2s ease;
   }
+  .review-circle-wrap.playing::after { opacity: 0; }
   .review-circle-name {
     font-family: "Inter", sans-serif;
     font-size: 0.65rem;
@@ -660,7 +793,7 @@
     .stats { grid-template-columns: repeat(2, 1fr); }
     .service-grid, .philosophy, .contact { grid-template-columns: 1fr; }
     .review-circles { gap: 1.2rem; }
-    .review-circle-wrap { width: 145px; height: 145px; }
+    .review-circle-wrap { width: 150px; height: 260px; }
     .service-card { min-height: 430px; }
     .section-head, .booking-band { display: block; }
     .section-copy, .booking-actions { margin-top: 1.2rem; }
@@ -792,15 +925,47 @@
         </div>
       </a>
       <a class="service-card" href="facial.html">
-        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85" alt="Soin du visage">
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=85" alt="Traitement Bela MD">
         <div class="service-content">
-          <div class="tag">Soin personnalisé</div>
-          <h3>Soins du visage</h3>
-          <p>Hydratation, éclat et peau apaisée avec des traitements adaptés à vos besoins.</p>
-          <div class="chips"><span class="chip">Glow</span><span class="chip">Hydration</span></div>
-          <span class="card-link">Voir le soin</span>
+          <div class="tag">Bela MD</div>
+          <h3>Advanced Skin Therapy</h3>
+          <p>Hydro-dermabrasion, infusion de sérums et soin personnalisé pour une peau lumineuse.</p>
+          <div class="chips"><span class="chip">Glow</span><span class="chip">Hydration</span><span class="chip">Deep Clean</span></div>
+          <span class="card-link">Découvrir le traitement</span>
         </div>
       </a>
+    </div>
+  </section>
+
+  <section class="bela-feature">
+    <div class="bela-slider-wrap">
+      <div class="bela-slide active">
+        <img src="assets/bela-facial.png" alt="Traitement Bela MD — hydro-dermabrasion">
+      </div>
+      <div class="bela-slide">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=88" alt="Bela MD infusion de sérums">
+      </div>
+      <div class="bela-slide">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1600&q=88" alt="Éclat peau Bela MD">
+      </div>
+    </div>
+    <div class="bela-overlay"></div>
+    <div class="bela-content">
+      <div class="bela-eyebrow">BELA MD</div>
+      <h2 class="bela-title">Advanced<br>Facial<br><em style="font-style:italic;font-size:0.85em;letter-spacing:0.12em">Treatments</em></h2>
+      <p class="bela-desc">Luxury Facial · HydraDermabrasion · Chemical Peel · Back Facial — des soins avancés conçus pour purifier, hydrater et révéler l'éclat naturel de votre peau.</p>
+      <div class="bela-chips">
+        <span class="bela-chip">Glow</span>
+        <span class="bela-chip">Hydration</span>
+        <span class="bela-chip">Deep Clean</span>
+        <span class="bela-chip">Skin Renewal</span>
+      </div>
+      <a class="bela-cta" href="facial.html">Voir les soins →</a>
+    </div>
+    <div class="bela-dots">
+      <button class="bela-dot active" aria-label="Image 1"></button>
+      <button class="bela-dot" aria-label="Image 2"></button>
+      <button class="bela-dot" aria-label="Image 3"></button>
     </div>
   </section>
 
@@ -855,36 +1020,36 @@
     <div class="review-circles">
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video autoplay muted loop playsinline>
-            <source src="assets/avis1.mp4" type="video/mp4">
+          <video loop playsinline>
+            <source src="assets/avis1.mov" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video autoplay muted loop playsinline>
+          <video loop playsinline>
             <source src="assets/avis2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video autoplay muted loop playsinline>
-            <source src="assets/avis3.mp4" type="video/mp4">
+          <video loop playsinline>
+            <source src="assets/avis3.mov" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video autoplay muted loop playsinline>
+          <video loop playsinline>
             <source src="assets/avis4.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video autoplay muted loop playsinline>
-            <source src="assets/avis5.mp4" type="video/mp4">
+          <video loop playsinline>
+            <source src="assets/avis 5.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -991,6 +1156,43 @@
 
     mobileNav.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", closeMenu);
+    });
+
+    const belaSlides = document.querySelectorAll(".bela-slide");
+    const belaDots   = document.querySelectorAll(".bela-dot");
+    if (belaSlides.length > 1) {
+      let belaIdx = 0;
+      const belaNext = () => {
+        belaSlides[belaIdx].classList.remove("active");
+        belaDots[belaIdx].classList.remove("active");
+        belaIdx = (belaIdx + 1) % belaSlides.length;
+        belaSlides[belaIdx].classList.add("active");
+        belaDots[belaIdx].classList.add("active");
+      };
+      let belaTimer = setInterval(belaNext, 4800);
+      belaDots.forEach((dot, i) => dot.addEventListener("click", () => {
+        clearInterval(belaTimer);
+        belaSlides[belaIdx].classList.remove("active");
+        belaDots[belaIdx].classList.remove("active");
+        belaIdx = i;
+        belaSlides[belaIdx].classList.add("active");
+        belaDots[belaIdx].classList.add("active");
+        belaTimer = setInterval(belaNext, 4800);
+      }));
+    }
+
+    document.querySelectorAll(".review-circle-wrap").forEach(wrap => {
+      const vid = wrap.querySelector("video");
+      wrap.addEventListener("click", () => {
+        if (vid.paused) {
+          document.querySelectorAll(".review-circle-wrap video").forEach(v => { v.pause(); v.closest(".review-circle-wrap").classList.remove("playing"); });
+          vid.play();
+          wrap.classList.add("playing");
+        } else {
+          vid.pause();
+          wrap.classList.remove("playing");
+        }
+      });
     });
   </script>
 </body>

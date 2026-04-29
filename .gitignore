@@ -1,0 +1,8 @@
+# Videos — deployed directly to Netlify, too large for GitHub
+assets/*.mp4
+assets/*.mov
+assets/*.webm
+
+# System
+.DS_Store
+assets/.DS_Store
