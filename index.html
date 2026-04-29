@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skine's Spa · Japanese Head Spa Montréal</title>
+<meta name="description" content="Skine's Spa à Montréal: Japanese Head Spa, Scalpcial, épilation laser et soins du visage. Réservez votre rituel bien-être.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #f5f0ea;
+    --cream-light: #fbf7f2;
+    --terracotta: #c68b6e;
+    --terracotta-dark: #a95f45;
+    --terracotta-soft: #ead4c7;
+    --sage: #78836f;
+    --stone: #8f8078;
+    --charcoal: #332e2a;
+    --ink: #221f1d;
+    --gold: #c9a878;
+    --line: rgba(143, 128, 120, 0.22);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Inter, sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245, 240, 234, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding: 1.15rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .logo, .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+  .logo-stones { width: 36px; height: 43px; position: relative; flex: 0 0 auto; }
+  .stone { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 50%; }
+  .stone-top { width: 12px; height: 8px; background: var(--sage); top: 0; }
+  .stone-mid { width: 23px; height: 14px; background: var(--terracotta-dark); top: 10px; }
+  .stone-bot { width: 33px; height: 19px; background: var(--terracotta); top: 25px; }
+  .logo-video { height: 48px; width: auto; display: block; }
+  .logo-text, .footer-logo-text {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: 0.36em;
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .logo-brand { display: flex; flex-direction: column; gap: 0.06rem; }
+  .logo-sub {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
+    color: var(--stone);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    transition: color 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--terracotta-dark); }
+  .nav-cta, .btn-dark {
+    background: var(--charcoal);
+    color: var(--cream);
+    border: 1px solid var(--charcoal);
+    padding: 0.9rem 1.6rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-cta:hover, .btn-dark:hover { background: var(--terracotta-dark); border-color: var(--terracotta-dark); }
+  .hero {
+    min-height: 92vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--charcoal);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.88) contrast(0.95);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 52%, rgba(34,31,29,0.0) 10%, rgba(34,31,29,0.70) 100%),
+      linear-gradient(180deg, rgba(34,31,29,0.42) 0%, rgba(34,31,29,0.0) 42%, rgba(34,31,29,0.50) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2.5rem;
+    color: var(--cream);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+  }
+  .sound-toggle {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(245,240,234,0.55);
+    background: rgba(34,31,29,0.45);
+    color: var(--cream);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.25s ease;
+  }
+  .sound-toggle:hover { background: var(--cream); color: var(--charcoal); }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.34em;
+    font-weight: 500;
+    margin-bottom: 1.4rem;
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+  .hero .eyebrow { justify-content: center; }
+  .hero .eyebrow::after { content: ""; width: 34px; height: 1px; background: currentColor; }
+  h1, h2, h3 { font-family: "Cormorant Garamond", serif; font-weight: 400; line-height: 1.05; }
+  h1 { font-size: clamp(2.8rem, 5.8vw, 5rem); margin-bottom: 1.2rem; }
+  .hero p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.18rem;
+    font-style: italic;
+    max-width: 480px;
+    margin: 0 auto 2.6rem;
+    opacity: 0.85;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+  }
+  .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+  .booking-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .btn-light, .btn-line, .btn-warm {
+    padding: 1rem 1.7rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.74rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+  }
+  .btn-light { background: var(--cream); color: var(--charcoal); border: 1px solid var(--cream); }
+  .btn-light:hover { background: var(--gold); border-color: var(--gold); }
+  .btn-line { border: 1px solid rgba(245,240,234,0.62); color: var(--cream); }
+  .btn-line:hover { background: var(--cream); color: var(--charcoal); }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--cream-light);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat {
+    padding: 2.2rem 1.4rem;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: 0; }
+  .stat strong {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--terracotta-dark);
+    font-size: 2.8rem;
+    line-height: 1;
+    font-weight: 400;
+  }
+  .stat span {
+    display: block;
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.68rem;
+    margin-top: 0.6rem;
+    font-weight: 500;
+  }
+  .marquee {
+    background: var(--charcoal);
+    color: var(--cream);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 1rem 0;
+  }
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 34s linear infinite;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    font-style: italic;
+  }
+  .marquee span { margin: 0 1.8rem; }
+  .marquee b { color: var(--terracotta); font-weight: 400; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  section { padding: 6rem 4rem; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .section-title { font-size: clamp(2.7rem, 5vw, 4.6rem); color: var(--ink); }
+  .section-title em { color: var(--terracotta-dark); font-style: italic; font-weight: 300; }
+  .section-copy { max-width: 470px; color: var(--stone); }
+  .services { background: var(--cream); }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+  }
+  .service-card {
+    position: relative;
+    min-height: 540px;
+    overflow: hidden;
+    text-decoration: none;
+    background: var(--terracotta-soft);
+    border-radius: 16px;
+  }
+  .service-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+    filter: saturate(0.9) contrast(0.94);
+  }
+  .service-card:hover img { transform: scale(1.05); }
+  .service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(34,31,29,0.88), rgba(34,31,29,0.12) 58%);
+  }
+  .service-content {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    padding: 2rem;
+    color: var(--cream);
+  }
+  .tag {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.66rem;
+    font-weight: 600;
+    margin-bottom: 0.65rem;
+  }
+  .service-card h3 { font-size: 2.1rem; margin-bottom: 0.6rem; font-style: italic; }
+  .service-card p { color: rgba(245,240,234,0.84); font-size: 0.9rem; margin-bottom: 1.15rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.2rem; }
+  .chip {
+    border: 1px solid rgba(245,240,234,0.38);
+    color: rgba(245,240,234,0.9);
+    padding: 0.24rem 0.56rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.62rem;
+    font-weight: 500;
+  }
+  .card-link {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 0.22rem;
+  }
+  .booking-band {
+    padding: 3.3rem 4rem;
+    background: var(--cream-light);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .booking-band h2 { font-size: 2.55rem; color: var(--ink); }
+  .booking-band p { color: var(--stone); max-width: 560px; margin-top: 0.5rem; }
+  .btn-warm { border: 1px solid rgba(169,95,69,0.45); color: var(--terracotta-dark); }
+  .btn-warm:hover { background: var(--terracotta-soft); }
+  .philosophy {
+    background: var(--charcoal);
+    color: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .philosophy .section-title { color: var(--cream); margin-bottom: 1.2rem; }
+  .philosophy p { color: rgba(245,240,234,0.72); margin-bottom: 1rem; }
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2.2rem;
+  }
+  .feature {
+    border-left: 1px solid var(--gold);
+    padding-left: 1rem;
+  }
+  .feature strong {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    color: var(--cream);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  .feature span { color: rgba(245,240,234,0.58); font-size: 0.82rem; }
+  .philosophy img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    filter: saturate(0.86) contrast(0.94);
+    border-radius: 16px;
+  }
+  .gallery { background: var(--cream); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr 1fr;
+    grid-auto-rows: 230px;
+    gap: 1rem;
+  }
+  .gallery-item { position: relative; overflow: hidden; background: var(--terracotta-soft); border-radius: 12px; }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(0.95);
+    transition: transform 0.7s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-item::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    bottom: 0.85rem;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.66rem;
+    text-shadow: 0 1px 12px rgba(34,31,29,0.55);
+  }
+  .tall { grid-row: span 2; }
+  .wide { grid-column: span 2; }
+  .reviews {
+    background: var(--cream-light);
+    text-align: center;
+  }
+  .reviews .eyebrow { justify-content: center; }
+  .reviews .eyebrow::before { display: none; }
+  .rating { color: var(--terracotta-dark); letter-spacing: 0.22em; margin: 1rem 0 2.8rem; }
+  .review-circles {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+  }
+  .review-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .review-circle-wrap {
+    width: 195px;
+    height: 195px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid var(--line);
+    background: var(--cream);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .review-circle-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* placeholder shown when video file not yet added */
+  .review-circle-wrap::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--terracotta-dark);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .review-circle-name {
+    font-family: "Inter", sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--stone);
+  }
+  /* keep for any remaining card usage */
+  .review-card span {
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.68rem;
+    font-weight: 600;
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 4rem;
+    background: var(--cream);
+  }
+  .contact h2 { font-size: clamp(2.7rem, 5vw, 4rem); margin-bottom: 1rem; }
+  .contact h2 em { color: var(--terracotta-dark); font-style: italic; }
+  .contact-intro { color: var(--stone); margin-bottom: 1.8rem; max-width: 520px; }
+  .contact-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--line);
+    padding: 1rem 0;
+  }
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--terracotta-soft);
+    color: var(--terracotta-dark);
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    font-weight: 600;
+  }
+  .label {
+    display: block;
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.66rem;
+    font-weight: 600;
+    margin-bottom: 0.18rem;
+  }
+  .value a { text-decoration: none; color: var(--ink); }
+  .value a:hover { color: var(--terracotta-dark); }
+  .map {
+    min-height: 520px;
+    background: var(--terracotta-soft);
+    overflow: hidden;
+  }
+  .map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    border: 0;
+    filter: saturate(0.78) contrast(0.94);
+  }
+  footer {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 4rem 4rem 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.8rem;
+  }
+  .footer-logo-text { color: var(--cream); }
+  .footer-logo .logo-sub { color: rgba(245,240,234,0.48); }
+  .footer-tagline {
+    max-width: 330px;
+    margin-top: 1.1rem;
+    color: rgba(245,240,234,0.65);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+  .footer-col h4 {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.68rem;
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.55rem; color: rgba(245,240,234,0.62); font-size: 0.86rem; }
+  .footer-col a { text-decoration: none; color: rgba(245,240,234,0.62); }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(245,240,234,0.12);
+    padding-top: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: rgba(245,240,234,0.45);
+    font-size: 0.78rem;
+  }
+  .menu-btn {
+    display: none;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 1.35rem;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    transition: all 0.2s ease;
+  }
+  .menu-btn:hover { border-color: var(--terracotta); color: var(--terracotta-dark); }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 0;
+    overflow-y: auto;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.15rem 1.4rem;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: rgba(245,240,234,0.96);
+    backdrop-filter: blur(14px);
+  }
+  .mobile-nav-close {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-nav-links {
+    list-style: none;
+    padding: 0.6rem 1.4rem;
+    flex: 1;
+  }
+  .mobile-nav-links li { border-bottom: 1px solid var(--line); }
+  .mobile-nav-links a {
+    display: block;
+    padding: 1.15rem 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+  .mobile-nav-links a:hover { color: var(--terracotta-dark); }
+  .mobile-nav-links .nav-sub {
+    color: var(--stone);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    padding-left: 1rem;
+  }
+  .mobile-nav-footer {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-top: 1px solid var(--line);
+  }
+  .mobile-nav-footer .btn-dark {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.76rem;
+  }
+  .mobile-nav-footer .mobile-contact {
+    color: var(--stone);
+    font-size: 0.78rem;
+    text-align: center;
+  }
+  .mobile-nav-footer .mobile-contact a {
+    color: var(--terracotta-dark);
+    text-decoration: none;
+  }
+  @media (max-width: 980px) {
+    nav, section, .booking-band, footer { padding-left: 1.4rem; padding-right: 1.4rem; }
+    nav { gap: 1rem; }
+    .nav-links { display: none; }
+    .menu-btn { display: flex; }
+    .logo-text { font-size: 1.35rem; letter-spacing: 0.28em; }
+    .hero { min-height: 84vh; }
+    .hero-content { padding-left: 1.4rem; padding-right: 1.4rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .service-grid, .philosophy, .contact { grid-template-columns: 1fr; }
+    .review-circles { gap: 1.2rem; }
+    .review-circle-wrap { width: 145px; height: 145px; }
+    .service-card { min-height: 430px; }
+    .section-head, .booking-band { display: block; }
+    .section-copy, .booking-actions { margin-top: 1.2rem; }
+    .features { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+    .tall, .wide { grid-row: auto; grid-column: auto; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .hero-actions, .booking-actions { flex-direction: column; align-items: stretch; }
+    .btn-light, .btn-line, .btn-dark, .btn-warm, .nav-cta { width: 100%; text-align: center; }
+    .nav-cta { width: auto; padding: 0.8rem 1rem; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: 0; border-bottom: 1px solid var(--line); }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="index.html">
+      <div class="logo-stones">
+        <span class="stone stone-top"></span>
+        <span class="stone stone-mid"></span>
+        <span class="stone stone-bot"></span>
+      </div>
+      <div class="logo-brand">
+        <span class="logo-text">SKINE'S</span>
+        <span class="logo-sub">Med Spa</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#treatments">Soins</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#reviews">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Book Now</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
+    <div class="mobile-nav-header">
+      <a class="logo" href="index.html">
+        <div class="logo-stones">
+          <span class="stone stone-top"></span>
+          <span class="stone stone-mid"></span>
+          <span class="stone stone-bot"></span>
+        </div>
+        <div class="logo-brand">
+          <span class="logo-text">SKINE'S</span>
+          <span class="logo-sub">Med Spa</span>
+        </div>
+      </a>
+      <button class="mobile-nav-close" id="menuClose" aria-label="Fermer le menu">×</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="head-spa.html">Head Spa & Scalpcial</a></li>
+      <li><a href="laser.html">Épilation Laser</a></li>
+      <li><a href="facial.html">Soins du Visage</a></li>
+      <li><a href="#treatments" class="nav-sub">Tous les soins</a></li>
+      <li><a href="#gallery" class="nav-sub">Galerie</a></li>
+      <li><a href="#reviews" class="nav-sub">Avis</a></li>
+      <li><a href="#contact" class="nav-sub">Contact & Adresse</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a class="btn-dark" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Book Now · Fresha</a>
+      <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
+    </div>
+  </div>
+
+  <header class="hero">
+    <video id="heroVideo" class="hero-bg" autoplay muted loop playsinline aria-label="Ambiance spa chaleureuse">
+      <source src="assets/hook.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <div class="eyebrow">Japanese Inspired · Montréal</div>
+      <h1>L'art de<br>prendre <em>soin.</em></h1>
+      <p>Head Spa · Épilation Laser · Soins du Visage</p>
+      <div class="hero-actions">
+        <a class="btn-light" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver</a>
+        <a class="btn-line" href="#treatments">Découvrir</a>
+      </div>
+    </div>
+    <button class="sound-toggle" type="button" aria-label="Activer le son" aria-pressed="false">♪</button>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><strong>4.8</strong><span>Note Fresha</span></div>
+    <div class="stat"><strong>481+</strong><span>Avis vérifiés</span></div>
+    <div class="stat"><strong>29K</strong><span>Instagram</span></div>
+    <div class="stat"><strong>360°</strong><span>Luxury Experience</span></div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Japanese Head Spa</span><b>◆</b><span>Épilation Laser Clarity II</span><b>◆</b><span>Soins du Visage</span><b>◆</b><span>Scalpcial Signature</span><b>◆</b><span>Reçu d'assurance disponible</span><b>◆</b>
+      <span>Japanese Head Spa</span><b>◆</b><span>Épilation Laser Clarity II</span><b>◆</b><span>Soins du Visage</span><b>◆</b><span>Scalpcial Signature</span><b>◆</b><span>Reçu d'assurance disponible</span><b>◆</b>
+    </div>
+  </div>
+
+  <section class="services" id="treatments">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Nos soins</div>
+        <h2 class="section-title">Trois univers<br>de <em>bien-être</em>.</h2>
+      </div>
+      <p class="section-copy">Des soins pensés pour le cuir chevelu, la peau et la détente complète: précis, doux et réservables en ligne.</p>
+    </div>
+    <div class="service-grid">
+      <a class="service-card" href="head-spa.html">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=85" alt="Soin head spa">
+        <div class="service-content">
+          <div class="tag">Soin signature</div>
+          <h3>Head Spa & Scalpcial</h3>
+          <p>Nettoyage du cuir chevelu, massage relaxant et rituel inspiré du Japon.</p>
+          <div class="chips"><span class="chip">60-90 min</span><span class="chip">Scalp care</span></div>
+          <span class="card-link">Voir le soin</span>
+        </div>
+      </a>
+      <a class="service-card" href="laser.html">
+        <img src="assets/laser-areole.png" alt="Soin esthétique laser de l'aréole">
+        <div class="service-content">
+          <div class="tag">Clarity II</div>
+          <h3>Épilation laser</h3>
+          <p>Technologie moderne, plusieurs zones disponibles et accompagnement personnalisé.</p>
+          <div class="chips"><span class="chip">30+ zones</span><span class="chip">Laser</span></div>
+          <span class="card-link">Voir la page laser</span>
+        </div>
+      </a>
+      <a class="service-card" href="facial.html">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85" alt="Soin du visage">
+        <div class="service-content">
+          <div class="tag">Soin personnalisé</div>
+          <h3>Soins du visage</h3>
+          <p>Hydratation, éclat et peau apaisée avec des traitements adaptés à vos besoins.</p>
+          <div class="chips"><span class="chip">Glow</span><span class="chip">Hydration</span></div>
+          <span class="card-link">Voir le soin</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="booking-band">
+    <div>
+      <h2>Réservez votre pause Skine's.</h2>
+      <p>Choisissez votre soin sur Fresha ou appelez directement le studio de Montréal.</p>
+    </div>
+    <div class="booking-actions">
+      <a class="btn-dark" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Book Now</a>
+      <a class="btn-warm" href="tel:+14382605660">Call</a>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div>
+      <div class="eyebrow">Notre philosophie</div>
+      <h2 class="section-title">Plus qu'un soin, une vraie <em>expérience</em>.</h2>
+      <p>Inspirés des rituels japonais, les soins Skine's créent une pause calme, enveloppante et précise au coeur de Montréal.</p>
+      <p>Chaque détail compte: le nettoyage, le toucher, la température, l'ambiance et le rythme du soin.</p>
+      <div class="features">
+        <div class="feature"><strong>Deep Clean</strong><span>Purifie le cuir chevelu et retire les impuretés.</span></div>
+        <div class="feature"><strong>Tension Relief</strong><span>Relâche les tensions du visage, du cou et de la tête.</span></div>
+        <div class="feature"><strong>Healthy Flow</strong><span>Stimule la circulation et soutient la vitalité capillaire.</span></div>
+        <div class="feature"><strong>Total Reset</strong><span>Une parenthèse douce pour le corps et l'esprit.</span></div>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1000&q=85" alt="Salle spa chaleureuse">
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Galerie</div>
+        <h2 class="section-title">Un aperçu du<br><em>rituel</em>.</h2>
+      </div>
+      <p class="section-copy">Une ambiance douce, des soins précis et des détails pensés pour transformer chaque rendez-vous en pause complète.</p>
+    </div>
+    <div class="gallery-grid">
+      <a class="gallery-item tall" data-label="Head Spa" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85" alt="Ambiance head spa"></a>
+      <a class="gallery-item" data-label="Scalpcial" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=85" alt="Soin relaxant"></a>
+      <a class="gallery-item" data-label="Facial" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=85" alt="Soin facial"></a>
+      <a class="gallery-item wide" data-label="Montréal Sanctuary" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1100&q=85" alt="Intérieur spa"></a>
+      <a class="gallery-item" data-label="Laser Care" href="laser.html"><img src="assets/laser-bikini.png" alt="Zone esthétique laser bikini"></a>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="eyebrow">Vos expériences</div>
+    <h2 class="section-title">Ce que disent<br>nos <em>clientes</em>.</h2>
+    <div class="rating">★★★★★ · 4.8 sur Fresha · 481 avis vérifiés</div>
+    <div class="review-circles">
+      <div class="review-circle">
+        <div class="review-circle-wrap">
+          <video autoplay muted loop playsinline>
+            <source src="assets/avis1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="review-circle">
+        <div class="review-circle-wrap">
+          <video autoplay muted loop playsinline>
+            <source src="assets/avis2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="review-circle">
+        <div class="review-circle-wrap">
+          <video autoplay muted loop playsinline>
+            <source src="assets/avis3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="review-circle">
+        <div class="review-circle-wrap">
+          <video autoplay muted loop playsinline>
+            <source src="assets/avis4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="review-circle">
+        <div class="review-circle-wrap">
+          <video autoplay muted loop playsinline>
+            <source src="assets/avis5.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <div class="eyebrow">Nous trouver</div>
+      <h2>Commencez votre <em>voyage</em>.</h2>
+      <p class="contact-intro">Votre sanctuaire à Montréal. Contactez-nous, passez nous voir, ou réservez en ligne.</p>
+      <div class="contact-row"><div class="contact-icon">A</div><div><span class="label">Adresse</span><div class="value">19 Av. Shamrock, Montréal, QC H2S 1A3</div></div></div>
+      <div class="contact-row"><div class="contact-icon">T</div><div><span class="label">Téléphone</span><div class="value"><a href="tel:+14382605660">+1 (438) 260-5660</a></div></div></div>
+      <div class="contact-row"><div class="contact-icon">M</div><div><span class="label">Email</span><div class="value"><a href="mailto:Info@skines.ca">Info@skines.ca</a></div></div></div>
+      <div class="contact-row"><div class="contact-icon">H</div><div><span class="label">Horaires</span><div class="value">Tous les jours · À partir de 09h00</div></div></div>
+      <div class="contact-row"><div class="contact-icon">B</div><div><span class="label">Réservation</span><div class="value"><a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver sur Fresha</a></div></div></div>
+    </div>
+    <div class="map" aria-label="Carte vers Skine's Spa">
+      <iframe title="Skine's Spa on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=19%20Av.%20Shamrock%2C%20Montr%C3%A9al%2C%20QC%20H2S%201A3&output=embed"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a class="footer-logo" href="index.html">
+          <div class="logo-stones">
+            <span class="stone stone-top"></span>
+            <span class="stone stone-mid"></span>
+            <span class="stone stone-bot"></span>
+          </div>
+          <div class="logo-brand">
+            <span class="footer-logo-text">SKINE'S</span>
+            <span class="logo-sub">Med Spa</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Japanese inspired head spa in Montréal, où le bien-être devient rituel.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Soins</h4>
+        <ul>
+          <li><a href="head-spa.html">Head Spa</a></li>
+          <li><a href="laser.html">Épilation laser</a></li>
+          <li><a href="facial.html">Soins du visage</a></li>
+          <li><a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visite</h4>
+        <ul>
+          <li><a href="#contact">Adresse</a></li>
+          <li>Stationnement disponible</li>
+          <li>Assurance disponible</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Réseaux</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer">Instagram · 29K</a></li>
+          <li><a href="https://www.threads.com/@skines.ca" target="_blank" rel="noreferrer">Threads</a></li>
+          <li><a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Fresha · 4.8</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Skine's Spa · All rights reserved</span>
+      <span>19 Av. Shamrock, Montréal, QC H2S 1A3</span>
+    </div>
+  </footer>
+  <script>
+    const heroVideo = document.getElementById("heroVideo");
+    const soundToggle = document.querySelector(".sound-toggle");
+
+    function updateSoundButton() {
+      soundToggle.setAttribute("aria-pressed", String(!heroVideo.muted));
+      soundToggle.setAttribute("aria-label", heroVideo.muted ? "Activer le son" : "Couper le son");
+      soundToggle.textContent = heroVideo.muted ? "♪" : "×";
+    }
+
+    soundToggle.addEventListener("click", () => {
+      heroVideo.muted = !heroVideo.muted;
+      heroVideo.play();
+      updateSoundButton();
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const menuClose = document.getElementById("menuClose");
+    const mobileNav = document.getElementById("mobileNav");
+
+    function openMenu() {
+      mobileNav.classList.add("open");
+      menuBtn.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      mobileNav.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
+    menuBtn.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+
+    mobileNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", closeMenu);
+    });
+  </script>
+</body>
+</html>
