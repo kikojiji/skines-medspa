@@ -1,0 +1,4837 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartes Cadeaux · Skines Med Spa Montréal</title>
+<meta name="description" content="Offrez une expérience Skines Med Spa — Head Spa, soins du visage ou épilation laser. Cartes cadeaux disponibles en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F0E6C8;
+    --brown: #684034;
+    --brown-dark: #3A1E14;
+    --brown-mid: #8B5E3C;
+    --gold: #C9A96E;
+    --text: #3D2B1F;
+    --text-soft: rgba(61,43,31,0.68);
+    --line: rgba(61,43,31,0.10);
+  }
+
+  html, body { background: var(--cream); color: var(--text); font-family: "DM Sans", sans-serif; scroll-behavior: smooth; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--brown-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(245,237,227,0.07);
+  }
+  .nav-back {
+    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,237,227,0.65); text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-back:hover { color: #F5EDE3; }
+  .logo {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    text-decoration: none; display: flex; align-items: center;
+  }
+  .logo-brand { display: flex; flex-direction: column; align-items: center; gap: 0.05rem; }
+  .logo-text {
+    font-family: "Cormorant Garamond", serif; font-size: 1.5rem;
+    letter-spacing: 0.42em; font-weight: 400; color: #F5EDE3;
+    padding-left: 0.42em; line-height: 1;
+  }
+  .logo-sub {
+    font-size: 0.52rem; letter-spacing: 0.28em; padding-left: 0.28em;
+    color: rgba(245,237,227,0.50); text-transform: uppercase;
+  }
+  .nav-right { width: 60px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 58vh; background: var(--brown-dark);
+    display: flex; align-items: flex-end;
+    padding: 0 1.6rem 3.5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 30%, rgba(201,169,110,0.10) 0%, transparent 70%),
+      linear-gradient(160deg, #3A1E14 0%, #5C3020 50%, #1a0f0a 100%);
+  }
+  .hero-deco {
+    position: absolute; top: 2.5rem; right: 2rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 9rem; font-weight: 300; font-style: italic;
+    color: rgba(201,169,110,0.06); line-height: 1; pointer-events: none;
+    user-select: none;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 0.9rem;
+  }
+  .hero-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    font-weight: 300; font-style: italic; color: #F5EDE3;
+    line-height: 1.05; margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 0.88rem; color: rgba(245,237,227,0.65);
+    line-height: 1.7; max-width: 360px;
+  }
+
+  /* ── SECTION SHARED ── */
+  .section { padding: 4rem 1.6rem; }
+  .eyebrow {
+    font-size: 0.60rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--brown-mid); font-weight: 600; margin-bottom: 0.7rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+  h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 400; font-style: italic; color: var(--text);
+    line-height: 1.2; margin-bottom: 0.5rem;
+  }
+  .section-lead { font-size: 0.88rem; color: var(--text-soft); line-height: 1.75; margin-bottom: 2.5rem; }
+
+  /* ── GIFT CARDS GRID ── */
+  .cards-grid {
+    display: grid; grid-template-columns: 1fr; gap: 1.4rem; margin-top: 2rem;
+  }
+
+  .gift-card {
+    border-radius: 12px; overflow: hidden;
+    background: #fff; box-shadow: 0 4px 28px rgba(61,43,31,0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; display: block;
+    border: 1px solid var(--line);
+  }
+  .gift-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(61,43,31,0.14); }
+
+  .gift-card-banner {
+    height: 140px; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .gift-card-banner-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 4.5rem; font-weight: 300; font-style: italic;
+    color: rgba(255,255,255,0.18); line-height: 1; user-select: none;
+    position: absolute; bottom: -0.5rem; right: 1rem;
+  }
+  .gift-card-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; position: relative; z-index: 2;
+  }
+
+  .gift-card-body { padding: 1.4rem 1.4rem 1.6rem; }
+  .gift-card-tag {
+    font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--brown-mid); font-weight: 600; margin-bottom: 0.5rem;
+  }
+  .gift-card-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.55rem; font-weight: 400; font-style: italic;
+    color: var(--text); margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .gift-card-desc { font-size: 0.82rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 1.2rem; }
+
+  .gift-card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 0.2rem;
+  }
+  .gift-card-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--brown-mid);
+  }
+  .gift-card-price span { font-size: 0.72rem; color: var(--text-soft); display: block; margin-top: 1px; font-family: "DM Sans"; }
+  .gift-card-btn {
+    background: var(--brown-dark); color: #F5EDE3;
+    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.7rem 1.2rem; border-radius: 3px; text-decoration: none;
+    font-family: "DM Sans"; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .gift-card-btn:hover { background: var(--brown); }
+
+  /* Card colors */
+  .banner-headspa { background: linear-gradient(135deg, #3A1E14, #6B3D2E); }
+  .banner-laser   { background: linear-gradient(135deg, #1a1a2e, #2d3a6b); }
+  .banner-facial  { background: linear-gradient(135deg, #2e1a2e, #5c3a5c); }
+  .banner-custom  { background: linear-gradient(135deg, #1a2a1a, #3a5c3a); }
+
+  /* ── CUSTOM AMOUNT ── */
+  /* ── CUSTOM SECTION ── */
+  .custom-section {
+    background: #2C1810; padding: 4rem 1.6rem 5rem; margin-top: 0;
+  }
+  .custom-section h2 { color: #F5EDE3 !important; font-style: italic; }
+  .custom-section .eyebrow { color: var(--gold) !important; }
+  .custom-section .eyebrow::before { background: var(--gold); }
+  .custom-section .section-lead { color: rgba(245,237,227,0.60) !important; margin-bottom: 2.5rem; }
+
+  /* ── SERVICE CATEGORIES ── */
+  .svc-category { margin-bottom: 2.5rem; }
+
+  .svc-cat-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid rgba(201,169,110,0.18);
+  }
+  .svc-cat-icon { font-size: 1rem; }
+
+  /* ── SERVICE CARDS GRID ── */
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+  }
+  @media (max-width: 700px) {
+    .svc-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+
+  /* ── INDIVIDUAL SERVICE CARD ── */
+  .svc-card {
+    background: #3D1F15;
+    border: 1.5px solid rgba(201,169,110,0.12);
+    border-radius: 8px;
+    padding: 1.2rem 1.1rem 1rem;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 0.22s ease, background 0.22s ease, transform 0.18s ease;
+    min-height: 90px;
+    width: 100%;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .svc-card:hover {
+    border-color: rgba(201,169,110,0.45);
+    background: #4a2519;
+    transform: translateY(-1px);
+  }
+  .svc-card.selected {
+    border-color: #C9A96E;
+    background: rgba(201,169,110,0.10);
+    box-shadow: 0 0 0 1px #C9A96E;
+  }
+
+  .svc-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .svc-card-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #F5EDE3;
+    line-height: 1.25;
+    flex: 1;
+  }
+  .svc-card-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #C9A96E;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .svc-card-meta {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    color: rgba(245,237,227,0.45);
+    letter-spacing: 0.04em;
+  }
+  .svc-card.selected .svc-card-meta { color: rgba(201,169,110,0.70); }
+
+  /* ── CUSTOM AMOUNT INPUT ── */
+  .custom-input-row {
+    display: flex; gap: 0.7rem; margin: 1.8rem 0 0;
+  }
+  .custom-input {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(245,237,227,0.15);
+    color: #F5EDE3;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .custom-input::placeholder { color: rgba(245,237,227,0.30); }
+  .custom-input:focus { border-color: var(--gold); }
+
+  /* ── ORDER FORM ── */
+  .order-form {
+    display: flex; flex-direction: column; gap: 0.85rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201,169,110,0.14);
+  }
+  .form-row { display: flex; gap: 0.7rem; }
+  @media (max-width: 600px) { .form-row { flex-direction: column; } }
+
+  .form-field {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(245,237,227,0.15);
+    color: #F5EDE3;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+    min-height: 52px;
+    transition: border-color 0.2s;
+  }
+  .form-field::placeholder { color: rgba(245,237,227,0.30); }
+  .form-field:focus { border-color: #C9A96E; }
+
+  .cta-order {
+    background: #C9A96E;
+    color: #1A0D07;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 1.2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.4rem;
+    transition: background 0.2s;
+    width: 100%;
+  }
+  .cta-order:hover { background: #b8935a; }
+
+  .form-note {
+    font-size: 0.70rem;
+    color: rgba(245,237,227,0.35);
+    text-align: center;
+    margin-top: 0.3rem;
+    line-height: 1.65;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { padding: 4rem 1.6rem; background: var(--cream); }
+  .steps { display: flex; flex-direction: column; gap: 1.8rem; margin-top: 2rem; }
+  .step { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .step-num {
+    font-family: "Cormorant Garamond", serif; font-size: 2.5rem;
+    font-weight: 300; color: rgba(61,43,31,0.15); line-height: 1;
+    flex-shrink: 0; width: 44px;
+  }
+  .step-body h3 {
+    font-family: "Cormorant Garamond", serif; font-size: 1.2rem;
+    font-weight: 400; color: var(--text); margin-bottom: 0.3rem; font-style: italic;
+  }
+  .step-body p { font-size: 0.82rem; color: var(--text-soft); line-height: 1.65; }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 3rem 1.6rem 5rem; background: var(--cream); border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+  .faq-q { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 0.5rem; }
+  .faq-a { font-size: 0.82rem; color: var(--text-soft); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brown-dark); color: rgba(245,237,227,0.65);
+    padding: 2.5rem 1.6rem; text-align: center;
+  }
+  footer .footer-logo-text {
+    font-family: "Cormorant Garamond", serif; font-size: 1.3rem;
+    letter-spacing: 0.4em; color: #F5EDE3; display: block; margin-bottom: 0.5rem;
+  }
+  footer p { font-size: 0.75rem; color: rgba(245,237,227,0.40); margin-top: 1rem; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: var(--brown-dark); color: #F5EDE3;
+    padding: 0.9rem 1.6rem; border-radius: 6px; border: 1px solid var(--gold);
+    font-size: 0.82rem; font-family: "DM Sans"; z-index: 999;
+    transition: transform 0.3s ease; white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ══════════════════════════════════════════════════════════
+     GLOBAL DARK THEME LOCK — no beige/cream anywhere in nav or footer
+     All dark sections → #3A1E14  |  text → #F5EDE3  |  gold → #F5C06A
+     ══════════════════════════════════════════════════════════ */
+
+  /* Fix CSS variable remaps that accidentally set charcoal/ink to cream */
+  :root {
+    --charcoal: #3A1E14 !important;
+    --ink:      #3A1E14 !important;
+    --color-dark: #3A1E14 !important;
+    --bg:        #3A1E14 !important;
+    --cream-pale: #3A1E14 !important;
+    --cream-light: #4A2218 !important;
+    --brown:     #4A2218 !important;
+    --brown-dark: #3A1E14 !important;
+    --terracotta-dark: #3A1E14 !important;
+    --color-light: #3A1E14 !important;
+    --color-primary: #4A2218 !important;
+  }
+
+  /* Nav — always deep dark brown when scrolled */
+  nav.nav-scrolled,
+  nav.nav-scrolled * { background: #3A1E14 !important; }
+  nav.nav-scrolled { background: #3A1E14 !important; border-bottom: 1px solid rgba(245,192,106,0.10) !important; }
+
+  /* Mobile nav — deep dark throughout */
+  .mobile-nav,
+  .mobile-nav-header,
+  .mobile-nav-footer { background: #3A1E14 !important; }
+
+  /* Footer — deep dark */
+  footer { background: #3A1E14 !important; }
+  footer * { color: rgba(245,237,227,0.72) !important; }
+  footer h3, footer h4, .footer-logo-text { color: #F5EDE3 !important; }
+  footer a:hover { color: #F5C06A !important; }
+
+  /* Service nav strip between pages */
+  .service-nav { background: #3A1E14 !important; border-color: rgba(245,192,106,0.10) !important; }
+  .service-nav-btn { border-color: rgba(245,192,106,0.12) !important; }
+  .service-nav-btn.active { background: #4A2218 !important; }
+  .service-nav-name { color: rgba(245,237,227,0.80) !important; }
+  .service-nav-btn.active .service-nav-name { color: #F5EDE3 !important; }
+  .service-nav-tag { color: rgba(245,192,106,0.65) !important; }
+
+  /* Social bar */
+  .social-bar { background: #2A1208 !important; }
+  .social-link { color: rgba(245,237,227,0.40) !important; }
+  .social-link:hover { color: #F5C06A !important; }
+
+  /* Booking band — keep it dark */
+  .booking-band, .band { background: #4A2218 !important; }
+  .booking-band *, .band * { color: #F5EDE3 !important; }
+
+  /* Scroll-to-top button */
+  .scroll-top { background: #F5C06A !important; color: #3A1E14 !important; }
+
+  /* Make sure body/html background stays dark (not cream) unless section overrides */
+  html, body { background: #3A1E14 !important; }
+  /* nav * background fix — children shouldn't inherit dark bg */
+  nav.nav-scrolled * { background: transparent !important; }
+  nav.nav-scrolled { background: #3A1E14 !important; }
+
+
+  /* ══════════════════════════════════════════════════════════
+     FINAL TEXT & COLOR FIX — definitive, highest specificity
+     Resolves all cream-on-cream and light-on-dark conflicts
+     ══════════════════════════════════════════════════════════ */
+
+  /* 1 ─ DARK SECTIONS: force dark bg using element+class (beats section:not selector) */
+  section.booking-band, div.booking-band, .booking-band { background: #3A1E14 !important; }
+  section.booking-band h2, .booking-band h2 { color: #F5EDE3 !important; font-size: clamp(1.8rem,4vw,2.55rem); }
+  section.booking-band p, .booking-band p  { color: rgba(245,237,227,0.80) !important; }
+  section.booking-band .eyebrow, .booking-band .eyebrow { color: #F5C06A !important; }
+  section.booking-band .btn-dark, .booking-band .btn-dark { background: #F5C06A !important; color: #3A1E14 !important; border-color: #F5C06A !important; }
+  section.booking-band .btn-line, .booking-band .btn-line { color: rgba(245,237,227,0.65) !important; border-color: rgba(245,237,227,0.35) !important; }
+  section.band, div.band, .band { background: #3A1E14 !important; }
+  section.band h2, .band h2    { color: #F5EDE3 !important; }
+  section.band p, .band p      { color: rgba(245,237,227,0.78) !important; }
+
+  section.gallery-carousel { background: #3A1E14 !important; }
+  section.laser-fullslider  { background: #3A1E14 !important; }
+
+  /* 2 ─ CREAM SECTIONS: force dark readable text (beats earlier cream-on-cream bugs) */
+
+  /* Contact */
+  section.contact h2, .contact h2         { color: #3D2B1F !important; }
+  section.contact h2 em, .contact h2 em   { color: #8B5E3C !important; font-style: italic; }
+  section.contact p, .contact p,
+  .contact-intro                           { color: rgba(61,43,31,0.78) !important; }
+  .contact-label                           { color: rgba(61,43,31,0.50) !important; font-size: 0.62rem; }
+  .contact-value, .contact .value,
+  .contact .value a, .contact-row p        { color: #3D2B1F !important; }
+  .contact-icon                            { background: rgba(61,43,31,0.10) !important; color: #3D2B1F !important; }
+  .contact-row, .contact-item              { border-color: rgba(61,43,31,0.10) !important; }
+
+  /* Reviews */
+  section.reviews h2, .reviews h2,
+  section.reviews .section-title, .reviews .section-title { color: #3D2B1F !important; }
+  section.reviews p, .reviews p,
+  .reviews-intro, .reviews .eyebrow + p   { color: rgba(61,43,31,0.75) !important; }
+  .reviews .eyebrow                        { color: #8B5E3C !important; }
+  .reviews .rating-summary, .reviews .rating-line { color: #3D2B1F !important; }
+  .rating-stars, .star-filled              { color: #C8913A !important; }
+  .reviews-cta-btn                         { color: #3D2B1F !important; border-color: rgba(61,43,31,0.28) !important; background: transparent !important; }
+  .reviews-cta-btn:hover                   { background: #3D2B1F !important; color: #F5EDE3 !important; }
+  .testimonial-card                        { background: rgba(255,255,255,0.70) !important; border-color: rgba(61,43,31,0.08) !important; }
+  .testimonial-text, .testimonial-body     { color: #3D2B1F !important; }
+  .testimonial-author, .testimonial-name   { color: #3D2B1F !important; }
+  .testimonial-stars                       { color: #C8913A !important; }
+  .testimonial-source                      { color: rgba(61,43,31,0.45) !important; }
+
+  /* Services section */
+  section.services h2, .services h2,
+  .services .section-title                 { color: #3D2B1F !important; }
+  section.services p, .services p          { color: rgba(61,43,31,0.75) !important; }
+  .services .eyebrow                       { color: #8B5E3C !important; }
+
+  /* Ritual tags strip (head-spa) */
+  .ritual-tags                             { background: rgba(240,230,200,0.95) !important; }
+  .ritual-pill                             { color: rgba(61,43,31,0.65) !important; border-color: rgba(61,43,31,0.18) !important; }
+
+  /* 3 ─ NAV always dark */
+  nav, nav.nav-scrolled                    { background: #3A1E14 !important; }
+  nav *, nav.nav-scrolled *                { background: transparent !important; }
+  nav .logo-text, nav .logo-sub            { color: #F5EDE3 !important; background: transparent !important; }
+  nav .nav-links a, nav.nav-scrolled .nav-links a { color: rgba(245,237,227,0.80) !important; }
+  nav .nav-cta                             { background: rgba(245,237,227,0.10) !important; color: #F5EDE3 !important; border-color: rgba(245,237,227,0.25) !important; }
+  nav .menu-btn, nav .nav-search-btn       { color: #F5EDE3 !important; }
+
+  /* 4 ─ FOOTER always dark */
+  footer                                   { background: #3A1E14 !important; }
+  footer h3, footer h4, .footer-logo-text  { color: #F5EDE3 !important; }
+  footer p, footer li, footer a            { color: rgba(245,237,227,0.65) !important; }
+  footer a:hover                           { color: #F5C06A !important; }
+  .footer-tagline                          { color: rgba(245,237,227,0.55) !important; }
+
+  /* 5 ─ SOCIAL BAR always dark */
+  .social-bar                              { background: #2A1208 !important; }
+  .social-link, .social-link span          { color: rgba(245,237,227,0.40) !important; }
+  .social-link:hover, .social-link:hover span { color: #F5C06A !important; }
+
+  /* 6 ─ HERO always light text */
+  .hero *, header.hero *                   { color: #F5EDE3 !important; }
+
+  /* 7 ─ DARK CONTENT sections */
+  .technology-section, .technology-section * { color: #F5EDE3 !important; }
+  .products-section, .products-section *   { color: #F5EDE3 !important; }
+  .ritual-close, .ritual-close *           { color: #F5EDE3 !important; }
+
+  /* 8 ─ SCROLL TOP */
+  .scroll-top { background: #F5C06A !important; color: #3A1E14 !important; }
+
+
+  /* ── BOOK buttons gold everywhere + no beige gaps ── */
+  .price-card-cta, .svc-book-btn, .product-cta {
+    background: #F5C06A !important;
+    color: #3A1E14 !important;
+    border-color: #F5C06A !important;
+    font-weight: 600 !important;
+  }
+  .price-card-cta:hover, .svc-book-btn:hover, .product-cta:hover {
+    background: #D4913A !important;
+    border-color: #D4913A !important;
+    color: #3A1E14 !important;
+  }
+  .price-card-img-placeholder {
+    background: linear-gradient(135deg, rgba(58,30,20,0.60) 0%, rgba(74,34,24,0.80) 100%) !important;
+    opacity: 1 !important;
+    color: #F5C06A !important;
+  }
+
+
+  /* ══ MOBILE NAV — unified medium brown, cream text, gold button ══ */
+
+  /* 1. Header bar — same bg as menu body (no dark stripe at top) */
+  .mobile-nav,
+  .mobile-nav-header,
+  .mobile-nav-links,
+  .mobile-nav-body,
+  .mobile-nav-footer        { background: #684034 !important; }
+
+  /* Remove any border between header and links */
+  .mobile-nav-header        { border-bottom: none !important; box-shadow: none !important; }
+  .mobile-nav-footer        { border-top: 1px solid rgba(245,237,227,0.10) !important; }
+
+  /* Close button (×) — cream */
+  .mobile-nav-close         { color: rgba(245,237,227,0.70) !important; }
+  .mobile-nav-close:hover   { color: #F5EDE3 !important; }
+
+  /* Logo in header */
+  .mobile-nav-header .logo-text { color: #F5EDE3 !important; }
+  .mobile-nav-header .logo-sub  { color: rgba(245,237,227,0.50) !important; }
+
+  /* 2. Nav links — cream text (was dark/black) */
+  .mobile-nav-links a       { color: rgba(245,237,227,0.88) !important; }
+  .mobile-nav-links a:hover { color: #F5C06A !important; }
+  .mobile-nav-links li      { border-bottom-color: rgba(245,237,227,0.08) !important; }
+
+  /* Sub labels (CLIENT REVIEWS, CONTACT & ADDRESS) */
+  .mobile-nav-links .nav-sub { color: rgba(245,237,227,0.40) !important; }
+
+  /* 3. Hide language switcher completely */
+  .mobile-lang-switcher,
+  .mobile-nav-footer .lang-switcher,
+  .mobile-nav-footer .mobile-lang-switcher { display: flex !important; }
+
+  /* 4. BOOK NOW button → gold */
+  .mobile-nav-footer .btn-dark {
+    background: #F5C06A !important;
+    border-color: #F5C06A !important;
+    color: #3A1E14 !important;
+    font-weight: 600 !important;
+  }
+  .mobile-nav-footer .btn-dark:hover {
+    background: #D4913A !important;
+    border-color: #D4913A !important;
+    color: #3A1E14 !important;
+  }
+
+  /* Contact info in footer */
+  .mobile-nav-footer .mobile-contact       { color: rgba(245,237,227,0.40) !important; }
+  .mobile-nav-footer .mobile-contact a     { color: rgba(245,237,227,0.65) !important; }
+  .mobile-nav-footer .mobile-contact a:hover { color: #F5C06A !important; }
+
+
+  /* ══ CREAM BACKGROUND RESTORE + CARD TEXT FIX ══
+     Content sections → cream #F0E6C8
+     Dark sections (nav/footer/hero/slider/booking) → stay dark
+     Price card text → visible cream on dark card bg
+  ════════════════════════════════════════════════ */
+
+  /* 1. Restore cream for ALL content sections */
+  html, body { background: #F0E6C8 !important; }
+  section:not(.laser-fullslider):not(.gallery-carousel):not(.booking-band):not(.band):not(.technology-section):not(.products-section):not(.ritual-close):not(.hero):not(.family-section):not(.gc-page):not(.social-bar) {
+    background: #F0E6C8 !important;
+  }
+
+  /* 2. Dark sections stay dark */
+  section.laser-fullslider,
+  section.gallery-carousel,
+  section.booking-band,
+  section.band,
+  section.technology-section,
+  section.products-section    { background: #3A1E14 !important; }
+
+  /* 3. Price cards — dark bg with VISIBLE cream text */
+  .price-card                 { background: #4A2218 !important; border-color: rgba(245,192,106,0.14) !important; }
+  .price-card-img             { background: #3A1E14 !important; }
+  .price-card-cat,
+  .price-card-duration        { color: rgba(245,237,227,0.52) !important; }
+  .price-card-name            { color: #F5EDE3 !important; font-family: "Cormorant Garamond", serif !important; font-size: 1.15rem !important; }
+  .price-card-price,
+  .fpl-curr                   { color: #F5C06A !important; }
+  .price-original,
+  .fpl-orig                   { color: rgba(245,237,227,0.35) !important; text-decoration: line-through; }
+  .price-card-discount        { color: rgba(245,192,106,0.75) !important; font-size: 0.72rem !important; }
+  .price-card-cta             { background: #F5C06A !important; color: #3A1E14 !important; border-color: #F5C06A !important; font-weight: 600 !important; }
+
+  /* 4. Tab panel area stays dark (price cards live here) */
+  .price-tab-panel,
+  .prices-section,
+  #panel-bundles,
+  #panel-zones                { background: #3A1E14 !important; }
+
+  /* 5. Fix contact section empty space — remove extra height */
+  .contact                    { background: #F0E6C8 !important; padding-bottom: 3rem !important; }
+
+  /* 6. Reviews section cream */
+  .reviews                    { background: #F0E6C8 !important; }
+
+  /* 7. Ritual tags strip (head-spa) */
+  .ritual-tags                { background: rgba(240,230,200,0.95) !important; }
+  .ritual-pill                { color: rgba(61,43,31,0.65) !important; border-color: rgba(61,43,31,0.18) !important; }
+
+
+  /* ══════════════════════════════════════════════════════
+     GLOBAL READABILITY OVERHAUL — contrast + visibility
+     No layout changes. Colors, opacity, text only.
+  ══════════════════════════════════════════════════════ */
+
+  /* ─ 1. DARK BACKGROUNDS → force bright readable text ─ */
+  .band h2, .band p,
+  section.band h2, section.band p               { color: #F5EDE3 !important; }
+  .band p                                        { color: rgba(245,237,227,0.82) !important; }
+
+  /* Booking/Reserve button inside dark band — cream bg INVISIBLE fix */
+  section.band .btn-dark,
+  .band .btn-dark,
+  section.booking-band .btn-dark,
+  .booking-band .btn-dark {
+    background: #E0B46A !important;
+    color: #1A0D07 !important;
+    border-color: #E0B46A !important;
+    font-weight: 600 !important;
+  }
+  section.band .btn-dark:hover,
+  .band .btn-dark:hover,
+  section.booking-band .btn-dark:hover,
+  .booking-band .btn-dark:hover {
+    background: #C99A4D !important;
+    border-color: #C99A4D !important;
+    color: #1A0D07 !important;
+  }
+  /* CALL / btn-line in dark section */
+  section.band .btn-line, .band .btn-line,
+  section.booking-band .btn-line, .booking-band .btn-line {
+    color: rgba(245,237,227,0.75) !important;
+    border-color: rgba(245,237,227,0.35) !important;
+  }
+
+  /* ─ 2. REMOVE ritual tags strips ─ */
+  .ritual-tags { display: none !important; }
+
+  /* ─ 3. SEARCH MODAL — light text on dark bg ─ */
+  .search-overlay-inner      { background: #3A1E14 !important; }
+  .search-input              { 
+    background: rgba(255,255,255,0.08) !important;
+    color: #F5EDE3 !important;
+    border-color: rgba(245,192,106,0.30) !important;
+  }
+  .search-input::placeholder { color: rgba(245,237,227,0.40) !important; }
+  .search-result-item        { border-bottom-color: rgba(245,237,227,0.07) !important; }
+  .search-result-item:hover  { background: rgba(245,237,227,0.06) !important; }
+  .search-result-icon        { background: rgba(245,237,227,0.08) !important; color: #F5C06A !important; }
+  .search-result-name        { color: #F5EDE3 !important; font-weight: 500 !important; }
+  .search-result-meta        { color: rgba(245,237,227,0.60) !important; }
+  .search-result-price       { color: #F5C06A !important; font-weight: 600 !important; }
+  .search-result-arrow       { color: rgba(245,237,227,0.40) !important; }
+
+  /* ─ 4. BEIGE BACKGROUND → dark text hierarchy ─ */
+
+  /* Primary headings on cream */
+  .contact h2, .reviews h2, .services h2,
+  .section-title, h1:not(.hero-copy h1),
+  h2:not(.hero-copy h2):not(.band h2):not(.booking-band h2):not(.ritual-close h2) {
+    color: #3A1F14 !important;
+    font-weight: 500 !important;
+  }
+
+  /* Body text on cream — strong readable */
+  .contact-intro, .reviews-intro,
+  .section-head p, .section-copy       { color: rgba(58,31,20,0.80) !important; }
+
+  /* Secondary labels on cream */
+  .contact-label, .eyebrow:not(.hero .eyebrow):not(.band .eyebrow):not(.booking-band .eyebrow) {
+    color: #8B5E3C !important;
+    opacity: 1 !important;
+  }
+
+  /* ─ 5. TAGS on cream background (facial/head-spa pills) ─ */
+  .ritual-pill {
+    border: 1px solid #9A4A2A !important;
+    color: #5C1E09 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  /* ─ 6. SERVICE NAV strip (between pages) ─ */
+  .service-nav-name  { color: rgba(245,237,227,0.88) !important; }
+  .service-nav-tag   { color: rgba(245,192,106,0.80) !important; }
+  .service-nav-btn.active .service-nav-name { color: #F5EDE3 !important; }
+
+  /* ─ 7. TYPOGRAPHY WEIGHT BOOST on mobile ─ */
+  @media (max-width: 768px) {
+    .svc-name, .price-card-name { font-weight: 500 !important; }
+    .price-card-cat, .svc-duration { font-weight: 500 !important; letter-spacing: 0.18em !important; }
+  }
+
+  /* ─ 8. HERO — stronger contrast overlays ─ */
+  .hero::before, header.hero::before {
+    background:
+      linear-gradient(to bottom,
+        rgba(10,4,2,0.28) 0%,
+        rgba(10,4,2,0.0)  40%,
+        rgba(10,4,2,0.60) 75%,
+        rgba(10,4,2,0.90) 100%
+      ) !important;
+  }
+
+  /* ─ 9. REMOVE empty / broken blank blocks ─ */
+  .btn-dark:empty, .btn-light:empty,
+  section:empty, div[class]:empty:not(input):not(br) {
+    display: none !important;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     GIFT CARD FORM — full readability fix
+  ══════════════════════════════════════════════════════════ */
+
+  /* ─ Page & section headings ─ */
+  .section-title, .section-title em { color: #3A1F14 !important; opacity: 1 !important; }
+  .section-lead { color: #5C1E09 !important; opacity: 0.85 !important; }
+
+  /* ─ Service cards — override any stale light rules ─ */
+  .svc-card { background: #3D1F15 !important; border-color: rgba(201,169,110,0.12) !important; }
+  .svc-card.selected { border-color: #C9A96E !important; background: rgba(201,169,110,0.10) !important; }
+  .svc-card-name { color: #F5EDE3 !important; }
+  .svc-card-price { color: #C9A96E !important; }
+  .svc-card-meta { color: rgba(245,237,227,0.45) !important; }
+
+  /* ─ Inputs — keep readable on dark background ─ */
+  .form-field, .custom-input {
+    background: rgba(255,255,255,0.06) !important;
+    color: #F5EDE3 !important;
+    border: 1px solid rgba(245,237,227,0.18) !important;
+    opacity: 1 !important;
+  }
+  .form-field::placeholder, .custom-input::placeholder {
+    color: #8A6A5A !important;
+    opacity: 1 !important;
+  }
+  .form-field:focus, .custom-input:focus {
+    border-color: #E0B46A !important;
+    outline: none !important;
+  }
+
+  /* ─ Form labels ─ */
+  label, .form-label, .order-form label {
+    color: #5C1E09 !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+  }
+
+  /* ─ CTA submit button ─ */
+  .cta-order {
+    background: #E0B46A !important;
+    color: #1A1A1A !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+  }
+  .cta-order:hover { background: #C99A4D !important; }
+
+  /* ─ Form notes / helper text ─ */
+  .form-note { color: rgba(58,31,20,0.65) !important; opacity: 1 !important; }
+
+
+  /* ══════════════════════════════════════════════════════════
+     MOBILE FIX — alignment, symmetry, hero, family, buttons
+  ══════════════════════════════════════════════════════════ */
+
+  /* ─ 1. MOBILE: center all text, auto margins ─ */
+  @media (max-width: 768px) {
+    /* General centering */
+    .section-head, .section-head h2, .section-head p,
+    .eyebrow:not(.hero .eyebrow):not(.hero-copy .eyebrow) {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    /* Service / price cards centered */
+    .svc-card, .price-card { text-align: center !important; }
+    .svc-book-btn, .price-card-cta {
+      display: block !important;
+      margin: 0.8rem auto 0 !important;
+      text-align: center !important;
+    }
+
+    /* Booking band centered */
+    .booking-band, .band { text-align: center !important; }
+    .booking-band .btn-dark, .booking-band .btn-line,
+    .band .btn-dark, .band .btn-line {
+      display: inline-block !important;
+      margin: 0.5rem auto !important;
+    }
+
+    /* ─ 2. NAV icons aligned ─ */
+    nav { align-items: center !important; }
+    .menu-btn, .nav-search-btn {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    /* ─ 3. Mobile menu: BOOK NOW gold, centered ─ */
+    .mobile-nav-footer .btn-dark {
+      display: block !important;
+      width: 100% !important;
+      text-align: center !important;
+      background: #F5C06A !important;
+      border-color: #F5C06A !important;
+      color: #3A1E14 !important;
+      font-weight: 700 !important;
+      padding: 1rem !important;
+    }
+    .mobile-nav-links a { color: #F5EDE6 !important; }
+    .mobile-nav-links a .nav-sub { color: rgba(245,237,230,0.50) !important; }
+
+    /* ─ 4. Hero centered + full visible on mobile ─ */
+    .hero, header.hero {
+      align-items: flex-end !important;
+      min-height: 75vh !important;
+    }
+    .hero-copy {
+      padding: 0 1.2rem 3rem !important;
+      text-align: center !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .hero-copy h1 {
+      font-size: clamp(2.1rem, 9vw, 3rem) !important;
+      word-break: break-word !important;
+    }
+
+    /* ─ 5. Family Ritual — content at very bottom ─ */
+    .family-section {
+      align-items: flex-end !important;
+      min-height: 80vh !important;
+    }
+    .family-content {
+      padding: 0 1.4rem 3.5rem !important;
+      text-align: center !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .family-overlay {
+      background:
+        linear-gradient(180deg,
+          rgba(10,4,2,0.20) 0%,
+          rgba(10,4,2,0.0)  30%,
+          rgba(10,4,2,0.75) 65%,
+          rgba(10,4,2,0.96) 100%
+        ) !important;
+    }
+
+    /* ─ 6. Ritual tags — completely hidden ─ */
+    .ritual-tags, section.ritual-tags { display: none !important; }
+
+    /* ─ 7. Empty invisible rectangles ─ */
+    section:empty, div:empty,
+    [class*="pill"]:empty, [class*="tag"]:empty { display: none !important; }
+
+    /* ─ 8. All BOOK buttons — equal padding, centered ─ */
+    .btn-dark, .price-card-cta, .svc-book-btn,
+    .ritual-close-cta, .family-cta {
+      padding: 0.9rem 2rem !important;
+      text-align: center !important;
+      min-width: 160px !important;
+    }
+
+    /* ─ 9. Color consistency ─ */
+    nav, footer { background: #3A1E14 !important; }
+    .booking-band, section.booking-band,
+    .band, section.band,
+    .technology-section, .products-section {
+      background: #3A1E14 !important;
+    }
+    .family-section { background: transparent !important; }
+  }
+
+
+  /* ══ LANGUAGE SWITCHER — gold circle on active ══ */
+  .mobile-lang-switcher {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin-top: 0.8rem !important;
+    justify-content: center !important;
+  }
+  .mobile-lang-sep { color: rgba(245,237,227,0.25) !important; font-size: 0.7rem !important; padding: 0 2px; }
+  .mobile-lang-btn {
+    background: none !important;
+    border: 1.5px solid transparent !important;
+    border-radius: 50% !important;
+    width: 34px !important; height: 34px !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    cursor: pointer !important;
+    font-family: "DM Sans", Inter, sans-serif !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.18em !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    color: rgba(245,237,227,0.50) !important;
+    transition: color 0.2s ease, border-color 0.2s ease !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+  .mobile-lang-btn.active {
+    color: #C9A96E !important;
+    border-color: #C9A96E !important;
+    background: rgba(201,169,110,0.10) !important;
+  }
+  .mobile-lang-btn:hover:not(.active) {
+    color: rgba(245,237,227,0.80) !important;
+    border-color: rgba(245,237,227,0.25) !important;
+  }
+  /* Override the hide rule */
+  .mobile-nav-footer .mobile-lang-switcher,
+  .mobile-lang-switcher { display: flex !important; }
+
+  /* ══════════════════════════════════════════════════════════
+     GC-* GIFT CARD PAGE SYSTEM
+  ══════════════════════════════════════════════════════════ */
+
+  /* Page wrapper */
+  .gc-page {
+    background: #2C1810;
+    padding: 3.5rem 1.4rem 4rem;
+  }
+
+  /* Header */
+  .gc-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .gc-eyebrow {
+    font-size: 0.60rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .gc-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: #F5EDE3;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .gc-title em { color: #C9A96E; font-style: italic; }
+  .gc-subtitle {
+    font-size: 0.85rem;
+    color: rgba(245,237,227,0.60);
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Category label */
+  .gc-cat-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.60rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    margin: 2.2rem 0 1rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(201,169,110,0.18);
+  }
+
+  /* 3-column grid */
+  .gc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  @media (max-width: 700px) {
+    .gc-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+
+  /* Individual card */
+  .gc-card {
+    background: #3D1F15;
+    border: 1.5px solid rgba(201,169,110,0.12);
+    border-radius: 10px;
+    padding: 1.3rem 1.2rem 1rem;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    transition: border-color 0.22s, background 0.22s, transform 0.18s;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .gc-card:hover {
+    border-color: rgba(201,169,110,0.45);
+    background: #4a2519;
+    transform: translateY(-2px);
+  }
+  .gc-card.selected {
+    border-color: #C9A96E;
+    background: rgba(201,169,110,0.10);
+    box-shadow: 0 0 0 1px #C9A96E;
+  }
+
+  /* Card header: tag + badge */
+  .gc-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .gc-card-tag {
+    font-size: 0.57rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(201,169,110,0.60);
+    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
+  }
+  .gc-card-badge {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,237,227,0.50);
+    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(245,237,227,0.12);
+    border-radius: 3px;
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
+  .gc-badge-gold {
+    color: #C9A96E !important;
+    border-color: rgba(201,169,110,0.30) !important;
+    background: rgba(201,169,110,0.08) !important;
+  }
+
+  /* Card price */
+  .gc-card-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #C9A96E;
+    line-height: 1;
+  }
+
+  /* Feature list */
+  .gc-card-features {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+  }
+  .gc-card-features li {
+    font-size: 0.75rem;
+    color: rgba(245,237,227,0.68);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.45;
+    padding-left: 0.9rem;
+    position: relative;
+  }
+  .gc-card-features li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: #C9A96E;
+    font-size: 1rem;
+    line-height: 1;
+    top: 0.05rem;
+  }
+
+  /* Duration */
+  .gc-card-meta {
+    font-size: 0.68rem;
+    color: rgba(245,237,227,0.35);
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: 0.08em;
+  }
+  .gc-card.selected .gc-card-meta { color: rgba(201,169,110,0.65); }
+
+  /* "Sélectionner →" link at bottom */
+  .gc-card-btn {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(201,169,110,0.55);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 600;
+    margin-top: 0.2rem;
+    transition: color 0.2s;
+  }
+  .gc-card:hover .gc-card-btn,
+  .gc-card.selected .gc-card-btn { color: #C9A96E; }
+
+  /* Custom amount row */
+  .gc-custom-row {
+    margin-top: 1.6rem;
+  }
+  .gc-custom-input {
+    width: 100%;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(245,237,227,0.28);
+    color: #F5EDE3;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .gc-custom-input::placeholder { color: rgba(245,237,227,0.50); }
+  .gc-custom-input:focus { border-color: #C9A96E; }
+
+  /* Selection confirmation bar */
+  .gc-selection-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+    background: rgba(201,169,110,0.10);
+    border: 1px solid rgba(201,169,110,0.28);
+    border-radius: 6px;
+    padding: 0.85rem 1.2rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.82rem;
+    color: #F5EDE3;
+  }
+  .gc-selection-icon {
+    color: #C9A96E;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .gc-selection-price {
+    margin-left: auto;
+    color: #C9A96E;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+
+  /* Form section */
+  .gc-form-section {
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(201,169,110,0.14);
+    padding-top: 2.2rem;
+  }
+  .gc-form-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.60rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(201,169,110,0.65);
+    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
+    margin-bottom: 1.6rem;
+  }
+  .gc-form-title-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(201,169,110,0.18);
+  }
+
+  /* Form inputs */
+  .gc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .gc-field {
+    width: 100%;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(245,237,227,0.28);
+    color: #F5EDE3;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    outline: none;
+    min-height: 54px;
+    transition: border-color 0.2s;
+  }
+  .gc-field::placeholder { color: rgba(245,237,227,0.50); }
+  .gc-field:focus { border-color: #C9A96E; }
+
+  /* Two-column row inside form */
+  .gc-row {
+    display: flex;
+    gap: 0.7rem;
+  }
+  @media (max-width: 600px) {
+    .gc-row { flex-direction: column; }
+  }
+
+  /* Submit button */
+  .gc-submit {
+    width: 100%;
+    background: #C9A96E;
+    color: #1A0D07;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    padding: 1.25rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.4rem;
+    transition: background 0.2s;
+  }
+  .gc-submit:hover { background: #b8935a; }
+  .gc-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+  /* Small note below button */
+  .gc-note {
+    font-size: 0.68rem;
+    color: rgba(245,237,227,0.30);
+    text-align: center;
+    line-height: 1.65;
+  }
+
+  /* ══ GC-PAGE — FORCE DARK + FIX ALL INPUTS ══════════════════════════
+     Uses maximum specificity to beat any cream-restore rule.
+     Inputs use white background so they're visible on ANY bg color.
+  ═════════════════════════════════════════════════════════════════════ */
+  html body section.gc-page,
+  section.gc-page { background: #2C1810 !important; }
+
+  /* GC cards, labels, titles stay cream on dark */
+  .gc-page .gc-eyebrow      { color: #C9A96E !important; }
+  .gc-page .gc-title        { color: #F5EDE3 !important; }
+  .gc-page .gc-subtitle     { color: rgba(245,237,227,0.60) !important; }
+  .gc-page .gc-cat-label    { color: #C9A96E !important; border-bottom-color: rgba(201,169,110,0.18) !important; }
+  .gc-page .gc-form-title   { color: rgba(201,169,110,0.65) !important; }
+  .gc-page .gc-note         { color: rgba(245,237,227,0.35) !important; }
+  .gc-page .gc-selection-bar { background: rgba(201,169,110,0.10) !important; border-color: rgba(201,169,110,0.28) !important; color: #F5EDE3 !important; }
+
+  /* ── FORM INPUTS: white/light background — visible on dark AND light ── */
+  .gc-field,
+  .gc-custom-input {
+    background: rgba(255,255,255,0.92) !important;
+    border: 1.5px solid rgba(104,64,52,0.28) !important;
+    color: #3D2B1F !important;
+    border-radius: 6px !important;
+  }
+  .gc-field::placeholder,
+  .gc-custom-input::placeholder {
+    color: rgba(61,43,31,0.42) !important;
+    opacity: 1 !important;
+  }
+  .gc-field:focus,
+  .gc-custom-input:focus {
+    border-color: #C9A96E !important;
+    background: #ffffff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.15) !important;
+  }
+
+  /* Submit button stays visible */
+  .gc-submit {
+    background: #C9A96E !important;
+    color: #1A0D07 !important;
+    font-weight: 700 !important;
+  }
+  .gc-submit:hover { background: #b8935a !important; }
+
+  /* ══ SOCIAL BAR — always dark, never beige ══ */
+  section.social-bar,
+  div.social-bar,
+  .social-bar {
+    background: #2C1810 !important;
+    border-top: 1px solid rgba(201,169,110,0.10) !important;
+    border-bottom: 1px solid rgba(201,169,110,0.10) !important;
+  }
+  .social-link,
+  .social-link span {
+    color: rgba(245,237,227,0.82) !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
+  }
+  .social-link svg { stroke: rgba(245,237,227,0.82) !important; opacity: 1 !important; }
+  .social-link:hover,
+  .social-link:hover span,
+  .social-link:hover svg { color: #C9A96E !important; stroke: #C9A96E !important; }
+
+  /* ══ FINAL TEXT COLOR OVERRIDES — cartes-cadeaux.html ══
+     Hero (dark bg) → light text
+     Gift card section (dark #2C1810) → light text
+     Gift card tiles (#fff bg) → dark text
+  ══════════════════════════════════════════════════════ */
+  /* Hero section (dark bg) — reinforce light text */
+  html body .hero-title { color: #F5EDE3 !important; }
+  html body .hero-subtitle { color: rgba(245,237,227,0.65) !important; }
+  /* Gift card tiles on white bg (#fff) */
+  html body .gift-card-name { color: #3A1F14 !important; }
+  html body .gift-card-desc { color: rgba(58,31,20,0.72) !important; }
+  html body .gift-card-price { color: #684034 !important; }
+  html body .gift-card-price span { color: rgba(61,43,31,0.55) !important; }
+  /* Section headings on cream bg */
+  html body .section-title:not(.gc-page .section-title) { color: #3A1F14 !important; }
+  html body .section-lead:not(.gc-page .section-lead) { color: rgba(61,43,31,0.72) !important; }
+  /* gc-page stays dark — already handled above */
+  /* Custom section (dark #2C1810) reinforce */
+  html body .custom-section h2 { color: #F5EDE3 !important; }
+  html body .custom-section .section-lead { color: rgba(245,237,227,0.60) !important; }
+  /* Nav back link on dark nav */
+  html body .nav-back { color: rgba(245,237,227,0.65) !important; }
+
+  nav, nav.nav-scrolled, nav.nav-hidden, nav:not(.nav-scrolled) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  nav .logo-text, nav .logo-sub, nav .menu-btn,
+  nav .nav-search-btn, nav .nav-links a { color: #F5EDE3 !important; }
+  nav .menu-btn { border-color: rgba(245,237,227,0.32) !important; }
+  /* ── NAV: hide on scroll down, show on scroll up, always transparent ── */
+  nav { background: transparent !important; box-shadow: none !important; border-color: transparent !important; transition: transform 0.28s ease, opacity 0.28s ease; }
+  nav.nav-hidden { transform: translateY(-110%); opacity: 0; pointer-events: none; }
+  nav:not(.nav-dark) .logo-text, nav:not(.nav-dark) .logo-sub, nav:not(.nav-dark) .menu-btn, nav:not(.nav-dark) .nav-search-btn { color: #F5EDE3 !important; }
+  nav:not(.nav-dark) .menu-btn { border-color: rgba(245,237,227,0.32) !important; }
+  nav.nav-scrolled { background: transparent !important; }
+
+  /* ══ IMAGE SECTIONS — WHITE TEXT FINAL OVERRIDE ══ */
+  /* Hero sections: video/image bg → white text */
+  .hero, header.hero, .hero-section,
+  .hero h1, .hero h2, .hero h3,
+  .hero p, .hero .eyebrow, .hero-copy,
+  .hero-content, .hero-content * { color: #ffffff !important; }
+  /* Service cards with image overlays */
+  .service-card h3,
+  .service-card p,
+  .service-card .tag,
+  .service-card .card-link { color: #ffffff !important; }
+  /* Ritual / full-image sections on head-spa */
+  .ritual-close, .ritual-close *,
+  .technology-section .section-title,
+  .technology-section .eyebrow { color: #ffffff !important; }
+
+  /* ══ GLOBAL IMAGE SECTIONS: text at bottom, white, no boxes ══ */
+  /* Position all image-section content at bottom */
+  .hero-content { justify-content: flex-end !important; padding-bottom: 3.5rem !important; }
+  .family-content { bottom: 0; padding-bottom: 3.5rem; }
+  /* White text on all image sections */
+  .family-section *, .family-title, .family-desc { color: #ffffff !important; }
+  /* Remove RÉSERVER / book buttons on image sections */
+  .family-cta, .hero .hero-actions .btn-line,
+  .slide-cta, .slide-button { display: none !important; }
+  /* Remove all eyebrows/labels on image sections */
+  .family-eyebrow { display: none !important; }
+  /* Light sections stay dark text */
+  section:not(.hero):not(.bela-feature):not(.family-section) h2,
+  section:not(.hero):not(.bela-feature):not(.family-section) h3 { text-shadow: none !important; }
+  /* RÉSERVER box on hero — remove border box, keep text link */
+  .hero-actions .btn-line { display: none !important; }
+
+  /* ── FOOTER LOGO: SKINES + MED SPA · MONTRÉAL ── */
+  footer .footer-logo .logo-sub,
+  footer .logo-sub {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.28em !important;
+    color: rgba(245,237,227,0.65) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-top: 0.3rem !important;
+  }
+  footer .footer-logo-text { color: #ebd7ce !important; }
+
+/* ── HEADER SCROLL COLOR SWITCH (subpages only) ── */
+nav { transition: color 0.25s ease; }
+nav .logo-text, nav .logo-sub, nav .menu-btn, nav .nav-links a, nav .nav-search-btn {
+  color: #ffffff !important;
+  transition: color 0.25s ease !important;
+}
+nav .stone-top { color: #a8b89a !important; transition: color 0.25s ease !important; }
+nav .stone-mid { color: #8B4A3A !important; transition: color 0.25s ease !important; }
+nav .stone-bot { color: #ba724a !important; transition: color 0.25s ease !important; }
+
+nav.nav-scrolled .logo-text, nav.nav-scrolled .logo-sub, nav.nav-scrolled .menu-btn, nav.nav-scrolled .nav-links a, nav.nav-scrolled .nav-search-btn {
+  color: #684034 !important;
+}
+nav.nav-scrolled .stone-top { color: #7a9a6a !important; }
+nav.nav-scrolled .stone-mid { color: #684034 !important; }
+nav.nav-scrolled .stone-bot { color: #ba724a !important; }
+
+/* ── CONTRAST OVERRIDES ── */
+.gc-section h2, .gc-section h3 { color: #684034 !important; }
+.gc-section p { color: #605c59 !important; }
+
+/* ── NAV FINAL: white at top, brown on scroll ── */
+html body nav:not(.nav-scrolled) .logo-text,
+html body nav:not(.nav-scrolled) .logo-sub,
+html body nav:not(.nav-scrolled) .menu-btn,
+html body nav:not(.nav-scrolled) .nav-links a,
+html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
+html body nav.nav-scrolled .logo-text,
+html body nav.nav-scrolled .logo-sub,
+html body nav.nav-scrolled .menu-btn,
+html body nav.nav-scrolled .nav-links a,
+html body nav.nav-scrolled .nav-search-btn { color: #684034 !important; }
+html body nav { background: transparent !important; box-shadow: none !important; }
+
+/* ── READABILITY: TEXT OVER IMAGES ── */
+/* Card titles = white */
+.service-card h3,
+.card-title,
+.hero h1, .hero-copy h1,
+.family-title,
+.slide-title { color: #ffffff !important; text-shadow: 0 2px 12px rgba(0,0,0,0.55) !important; }
+
+/* Labels/eyebrows over images = gold */
+.service-card .card-eyebrow,
+.hero .eyebrow,
+.hero-copy .eyebrow,
+.family-eyebrow { color: #D6B36A !important; }
+
+/* Description over images = soft white */
+.service-card p,
+.hero p, .hero-copy p,
+.family-desc { color: rgba(255,255,255,0.85) !important; }
+
+/* CTA links over images = white */
+.service-card .card-link,
+.hero .cta-link,
+.family-cta-link { color: #ffffff !important; }
+
+/* NEVER brown text over images */
+.service-card h3,
+.service-card p,
+.service-card .card-link { color: inherit; /* falls through to above */ }
+
+/* ── READABILITY: TEXT ON CREAM/BEIGE ── */
+.section-head h2,
+.section-head .section-title,
+.price-section h2,
+.booking-section h2,
+.reviews h2,
+.contact h2 { color: #684034 !important; }
+
+.section-head p,
+.price-section p,
+.reviews p,
+.contact p { color: #605c59 !important; }
+
+/* ── MOBILE MENU: active highlight ── */
+
+
+.mobile-nav-links a,
+.mobile-nav-links a span,
+.mobile-nav-links a * {
+  color: rgba(245,237,227,0.88) !important;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.mobile-nav-links a {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+.mobile-nav-links a.menu-active,
+.mobile-nav-links a.menu-active span,
+.mobile-nav-links a.menu-active * {
+  border-color: #D6B36A !important;
+  color: #ffffff !important;
+}
+
+/* ══ PRICING CARDS — READABILITY FIX ══ */
+html body .svc-card {
+  background: #f0e4d8 !important;
+  border: 1px solid rgba(104,64,52,0.18) !important;
+  box-shadow: 0 2px 12px rgba(104,64,52,0.08) !important;
+}
+html body .svc-card .svc-name,
+html body .svc-card h3,
+html body .svc-card .svc-title { color: #684034 !important; }
+html body .svc-card .svc-desc,
+html body .svc-card p { color: #605c59 !important; }
+html body .svc-card .svc-price-current,
+html body .svc-card .price-discounted,
+html body .svc-card .fpl-curr,
+html body .svc-card .bundle-price { color: #684034 !important; font-weight: 500 !important; }
+html body .svc-card .svc-price-original,
+html body .svc-card .price-original,
+html body .svc-card .svc-price-orig {
+  color: #ba724a !important;
+  text-decoration: line-through !important;
+  text-decoration-color: #ba724a !important;
+  opacity: 1 !important;
+}
+html body .svc-card .svc-discount-label,
+html body .svc-card .discount-label,
+html body .svc-card .svc-badge {
+  background: rgba(245,192,106,0.22) !important;
+  color: #7a4a28 !important;
+  border: 1px solid rgba(245,192,106,0.50) !important;
+  letter-spacing: 0.14em !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  opacity: 1 !important;
+}
+html body .svc-card .svc-book-btn,
+html body .svc-card .price-card-cta,
+html body .svc-card a.btn-book {
+  background: #ffffff !important;
+  color: #684034 !important;
+  border: 1px solid rgba(104,64,52,0.25) !important;
+}
+html body .svc-card .svc-book-btn:hover,
+html body .svc-card .price-card-cta:hover {
+  background: #684034 !important;
+  color: #ffffff !important;
+  border-color: #684034 !important;
+}
+html body .svc-card .svc-cat,
+html body .svc-card .svc-duration,
+html body .svc-card .svc-tag { color: #ba724a !important; }
+
+
+/* ══ MOBILE NAV HEADER — LOGO FIX v2 (definitive) ══ */
+
+/* 1. Stones: explicitly visible in mobile nav */
+.mobile-nav .logo-stones,
+.mobile-nav-header .logo-stones,
+nav.mobile-nav .mobile-nav-header .logo .logo-stones {
+  display: block !important;
+  position: relative !important;
+  width: 38px !important;
+  height: 46px !important;
+  flex-shrink: 0 !important;
+}
+.mobile-nav-header .logo .stone {
+  display: block !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  border-radius: 50% !important;
+}
+.mobile-nav-header .logo .stone-top {
+  width: 13px !important; height: 8px !important; top: 0 !important;
+  background: #8fa87a !important;
+}
+.mobile-nav-header .logo .stone-mid {
+  width: 24px !important; height: 15px !important; top: 10px !important;
+  background: #8B4A3A !important;
+}
+.mobile-nav-header .logo .stone-bot {
+  width: 34px !important; height: 20px !important; top: 27px !important;
+  background: #ba724a !important;
+}
+
+/* 2. Logo layout: row flex with gap */
+.mobile-nav-header .logo {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 14px !important;
+  position: static !important;
+  left: auto !important;
+  transform: none !important;
+  text-decoration: none !important;
+}
+
+/* 3. Brand text */
+.mobile-nav-header .logo .logo-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+.mobile-nav-header .logo .logo-text {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 1.85rem !important;
+  letter-spacing: 0.40em !important;
+  font-weight: 400 !important;
+  color: #F5EDE3 !important;
+  line-height: 1 !important;
+  padding-left: 0.40em !important;
+}
+.mobile-nav-header .logo .logo-sub {
+  font-size: 0.54rem !important;
+  letter-spacing: 0.28em !important;
+  color: rgba(245,237,227,0.60) !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  margin-top: 0.35rem !important;
+  padding-left: 0.28em !important;
+}
+
+  /* ══ SOCIAL BAR — FINAL FIX: dark bg, visible icons ══ */
+  html body section.social-bar,
+  html body div.social-bar,
+  html body .social-bar {
+    background: #684034 !important;
+    border-top: 1px solid rgba(186,114,74,0.20) !important;
+    border-bottom: 1px solid rgba(186,114,74,0.20) !important;
+  }
+  html body .social-link,
+  html body .social-link span {
+    color: rgba(245,237,227,0.88) !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
+    filter: none !important;
+  }
+  html body .social-link svg {
+    color: rgba(245,237,227,0.88) !important;
+    stroke: rgba(245,237,227,0.88) !important;
+    fill: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  html body .social-link:hover,
+  html body .social-link:hover span,
+  html body .social-link:hover svg {
+    color: #D6B36A !important;
+    stroke: #D6B36A !important;
+  }
+
+  /* ══ ICON VISIBILITY — gold on dark, full opacity ══ */
+  /* Social bar */
+  html body .social-link svg {
+    color: #D6B36A !important;
+    stroke: #D6B36A !important;
+    fill: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+  }
+  html body .social-link,
+  html body .social-link span {
+    color: rgba(245,237,227,0.88) !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  html body .social-link:hover svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+  html body .social-link:hover,
+  html body .social-link:hover span {
+    color: #ffffff !important;
+  }
+  /* Footer SVGs (logo stones, any inline icons) */
+  html body footer svg {
+    color: #D6B36A !important;
+    stroke: #D6B36A !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  html body footer a, html body footer li, html body footer p {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  /* Mobile nav SVGs */
+  html body .mobile-nav svg,
+  html body .mobile-nav-header svg {
+    color: #D6B36A !important;
+    stroke: #D6B36A !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  /* Scroll-to-top button */
+  html body .scroll-top svg {
+    color: #D6B36A !important;
+    stroke: #D6B36A !important;
+    opacity: 1 !important;
+  }
+  html body .scroll-top:hover svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
+  /* ══ SOCIAL BAR ICONS — DEFINITIVE GOLD FIX ══ */
+  .social-link svg {
+    color: #D6B36A !important;
+    stroke: #D6B36A !important;
+    fill: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  .social-link { color: #F5EDE3 !important; opacity: 1 !important; }
+  .social-link span { color: rgba(245,237,227,0.80) !important; opacity: 1 !important; }
+  .social-link:hover svg { color: #ffffff !important; stroke: #ffffff !important; }
+  .social-link:hover, .social-link:hover span { color: #ffffff !important; }
+
+  /* ══ GOLD CTA BUTTONS — DEFINITIVE SYSTEM ══ */
+  /* Primary booking button: gold on all backgrounds */
+  html body .btn-dark,
+  html body a.btn-dark,
+  html body .ritual-close-cta,
+  html body a.ritual-close-cta,
+  html body .svc-book-btn,
+  html body a.svc-book-btn,
+  html body .product-cta,
+  html body a.product-cta {
+    background: #D6B36A !important;
+    color: #3A1E14 !important;
+    border: none !important;
+    border-radius: 3px !important;
+    padding: 0.85rem 2rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+    display: inline-block !important;
+    text-align: center !important;
+  }
+  html body .btn-dark span,
+  html body .ritual-close-cta span,
+  html body .svc-book-btn span,
+  html body .product-cta span { color: #3A1E14 !important; }
+  html body .btn-dark:hover,
+  html body a.btn-dark:hover,
+  html body .ritual-close-cta:hover,
+  html body .svc-book-btn:hover,
+  html body .product-cta:hover {
+    background: #c9a45a !important;
+    color: #3A1E14 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Secondary / outline button: gold border + gold text */
+  html body .btn-warm,
+  html body a.btn-warm,
+  html body .btn-line,
+  html body a.btn-line {
+    background: transparent !important;
+    color: #D6B36A !important;
+    border: 1.5px solid #D6B36A !important;
+    border-radius: 3px !important;
+    padding: 0.85rem 2rem !important;
+    transition: background 0.3s ease !important;
+  }
+  html body .btn-warm span,
+  html body .btn-line span { color: #D6B36A !important; }
+  html body .btn-warm:hover,
+  html body .btn-line:hover {
+    background: rgba(214,179,106,0.12) !important;
+  }
+
+  /* Booking band specific overrides (light bg) */
+  html body .booking-band .btn-dark {
+    background: #D6B36A !important;
+    color: #3A1E14 !important;
+  }
+  html body .booking-band .btn-dark span { color: #3A1E14 !important; }
+  html body .booking-band .btn-warm,
+  html body .booking-band .btn-line {
+    color: #684034 !important;
+    border-color: rgba(104,64,52,0.40) !important;
+  }
+  html body .booking-band .btn-warm span,
+  html body .booking-band .btn-line span { color: #684034 !important; }
+
+  /* Nav CTA stays subtle */
+  html body nav .nav-cta {
+    background: transparent !important;
+    border: 1px solid rgba(214,179,106,0.50) !important;
+    color: #D6B36A !important;
+  }
+
+  /* ══ GOLD BUTTONS — FINAL OVERRIDE (high specificity) ══ */
+  /* Pricing cards: .svc-card .svc-book-btn needs html body .svc-card prefix */
+  html body .svc-card .svc-book-btn,
+  html body .svc-card a.svc-book-btn,
+  html body .svc-book-btn,
+  html body a.svc-book-btn,
+  html body .btn-dark,
+  html body a.btn-dark,
+  html body .ritual-close-cta,
+  html body a.ritual-close-cta,
+  html body .product-cta,
+  html body a.product-cta,
+  html body .price-card-cta,
+  html body a.price-card-cta {
+    background: #D6B36A !important;
+    color: #3A1E14 !important;
+    border: none !important;
+    border-radius: 3px !important;
+    padding: 0.80rem 1.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    font-size: 0.78rem !important;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  html body .svc-card .svc-book-btn span,
+  html body .svc-book-btn span,
+  html body .btn-dark span,
+  html body .ritual-close-cta span,
+  html body .product-cta span,
+  html body .price-card-cta span { color: #3A1E14 !important; }
+
+  html body .svc-card .svc-book-btn:hover,
+  html body .svc-book-btn:hover,
+  html body a.btn-dark:hover,
+  html body .ritual-close-cta:hover,
+  html body .product-cta:hover,
+  html body .price-card-cta:hover {
+    background: #c9a45a !important;
+    color: #3A1E14 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Active tab: PAQUETS / ZONES → gold */
+  html body .price-tab-btn.active {
+    background: #D6B36A !important;
+    color: #3A1E14 !important;
+    font-weight: 700 !important;
+  }
+  html body .price-tab-btn:not(.active) {
+    background: transparent !important;
+    color: rgba(104,64,52,0.65) !important;
+  }
+  html body .price-tab-btn:hover:not(.active) {
+    background: rgba(214,179,106,0.15) !important;
+    color: #684034 !important;
+  }
+
+  /* Booking band: keep gold btn, secondary stays outlined */
+  html body .booking-band .btn-dark {
+    background: #D6B36A !important;
+    color: #3A1E14 !important;
+    display: inline-block !important;
+    width: auto !important;
+  }
+  html body .booking-band .btn-dark span { color: #3A1E14 !important; }
+  html body .booking-band .btn-warm,
+  html body .booking-band .btn-line {
+    background: transparent !important;
+    color: #684034 !important;
+    border: 1.5px solid rgba(104,64,52,0.45) !important;
+    display: inline-block !important;
+    width: auto !important;
+  }
+  html body .booking-band .btn-warm span,
+  html body .booking-band .btn-line span { color: #684034 !important; }
+
+  /* ══ GOLD BUTTONS — NUCLEAR FINAL (covers every btn class) ══ */
+  html body .btn-dark,   html body a.btn-dark,
+  html body .btn-light,  html body a.btn-light,
+  html body .btn-warm,   html body a.btn-warm,
+  html body .svc-book-btn, html body a.svc-book-btn,
+  html body .svc-card .svc-book-btn,
+  html body .ritual-close-cta, html body a.ritual-close-cta,
+  html body .product-cta, html body a.product-cta,
+  html body .price-card-cta, html body a.price-card-cta,
+  html body .special-offer-cta, html body a.special-offer-cta,
+  html body .band a.btn-light,
+  html body .band .btn-dark,
+  html body .band .btn-warm {
+    background: #D6B36A !important;
+    background-color: #D6B36A !important;
+    color: #3A1E14 !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 3px !important;
+    padding: 0.82rem 2rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    font-size: 0.78rem !important;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  html body .btn-dark span, html body .btn-light span,
+  html body .btn-warm span, html body .svc-book-btn span,
+  html body .ritual-close-cta span, html body .product-cta span,
+  html body .price-card-cta span, html body .special-offer-cta span {
+    color: #3A1E14 !important;
+  }
+  html body .btn-dark:hover, html body .btn-light:hover,
+  html body .btn-warm:hover, html body .svc-book-btn:hover,
+  html body .svc-card .svc-book-btn:hover,
+  html body .ritual-close-cta:hover, html body .product-cta:hover,
+  html body .price-card-cta:hover, html body .special-offer-cta:hover {
+    background: #c9a45a !important;
+    background-color: #c9a45a !important;
+    color: #3A1E14 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* btn-line stays outlined gold */
+  html body .btn-line, html body a.btn-line {
+    background: transparent !important;
+    color: #D6B36A !important;
+    border: 1.5px solid #D6B36A !important;
+    border-radius: 3px !important;
+    padding: 0.82rem 2rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    opacity: 1 !important;
+  }
+  html body .btn-line span { color: #D6B36A !important; }
+  html body .btn-line:hover { background: rgba(214,179,106,0.15) !important; }
+
+  /* Booking band secondary (Appeler): outlined with brand brown */
+  html body .booking-band .btn-line,
+  html body .booking-band .btn-warm {
+    background: transparent !important;
+    color: #684034 !important;
+    border: 1.5px solid rgba(104,64,52,0.45) !important;
+    display: inline-block !important;
+    width: auto !important;
+  }
+  html body .booking-band .btn-line span,
+  html body .booking-band .btn-warm span { color: #684034 !important; }
+
+  /* booking-band primary: gold, inline width */
+  html body .booking-band .btn-dark {
+    display: inline-block !important;
+    width: auto !important;
+  }
+
+  /* Price tabs: gold active */
+  html body .price-tab-btn.active {
+    background: #D6B36A !important;
+    color: #3A1E14 !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #c9a45a !important;
+  }
+  html body .price-tab-btn:not(.active) {
+    background: transparent !important;
+    color: rgba(104,64,52,0.65) !important;
+  }
+  html body .price-tab-btn:hover:not(.active) {
+    background: rgba(214,179,106,0.18) !important;
+    color: #684034 !important;
+  }
+
+  /* ══ CTA BUTTON SIZING — fit-content, centered, luxury ══ */
+  html body .btn-dark,
+  html body a.btn-dark,
+  html body .btn-light,
+  html body a.btn-light,
+  html body .btn-warm,
+  html body a.btn-warm,
+  html body .ritual-close-cta,
+  html body a.ritual-close-cta,
+  html body .special-offer-cta,
+  html body a.special-offer-cta {
+    display: block !important;
+    width: fit-content !important;
+    min-width: 180px !important;
+    max-width: 280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 1.6rem !important;
+    margin-bottom: 0.8rem !important;
+    padding: 0.75rem 2.2rem !important;
+  }
+
+  /* Pricing cards: full-width still makes sense in a card */
+  html body .svc-card .svc-book-btn,
+  html body .svc-book-btn {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 1rem !important;
+    padding: 0.75rem 1.2rem !important;
+  }
+
+  /* Booking band: inline, side-by-side */
+  html body .booking-band .btn-dark,
+  html body .booking-band .btn-light,
+  html body .booking-band .btn-warm,
+  html body .booking-band .btn-line {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0.4rem 0.5rem !important;
+  }
+
+  /* ══ FOOTER LOGO — CENTERED & SYMMETRIC ══ */
+  html body footer .footer-grid > div:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  html body footer .footer-logo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    text-decoration: none !important;
+    margin-bottom: 1rem !important;
+  }
+  /* Stone icon centered above text */
+  html body footer .footer-logo .logo-stones {
+    display: block !important;
+    position: relative !important;
+    width: 42px !important;
+    height: 52px !important;
+    flex-shrink: 0 !important;
+    margin: 0 auto !important;
+  }
+  html body footer .footer-logo .stone {
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 50% !important;
+  }
+  html body footer .footer-logo .stone-top {
+    width: 14px !important; height: 9px !important; top: 0 !important;
+    background: #8fa87a !important;
+  }
+  html body footer .footer-logo .stone-mid {
+    width: 26px !important; height: 16px !important; top: 11px !important;
+    background: #8B4A3A !important;
+  }
+  html body footer .footer-logo .stone-bot {
+    width: 38px !important; height: 22px !important; top: 29px !important;
+    background: #ba724a !important;
+  }
+  /* Brand text centered */
+  html body footer .footer-logo .logo-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+  }
+  html body footer .footer-logo-text,
+  html body footer .footer-logo .footer-logo-text {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 2rem !important;
+    letter-spacing: 0.45em !important;
+    color: #F5EDE3 !important;
+    display: block !important;
+    text-align: center !important;
+    padding-left: 0.45em !important;
+  }
+  html body footer .footer-logo .logo-sub {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.30em !important;
+    color: rgba(245,237,227,0.60) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  html body footer .footer-tagline {
+    text-align: center !important;
+    color: rgba(235,215,206,0.55) !important;
+    font-size: 0.82rem !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  /* ══ FOOTER LOGO — REVERT TO ORIGINAL LEFT-ALIGNED ══ */
+  html body footer .footer-grid > div:first-child {
+    display: block !important;
+    align-items: unset !important;
+    text-align: left !important;
+  }
+  html body footer .footer-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    text-decoration: none !important;
+    margin-bottom: 0.8rem !important;
+  }
+  html body footer .footer-logo .logo-stones {
+    display: block !important;
+    position: relative !important;
+    width: 38px !important;
+    height: 48px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+  }
+  html body footer .footer-logo .logo-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.2rem !important;
+  }
+  html body footer .footer-logo-text,
+  html body footer .footer-logo .footer-logo-text {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 1.8rem !important;
+    letter-spacing: 0.40em !important;
+    color: #F5EDE3 !important;
+    display: block !important;
+    text-align: left !important;
+    padding-left: 0.40em !important;
+  }
+  html body footer .footer-logo .logo-sub {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.28em !important;
+    color: rgba(245,237,227,0.60) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    text-align: left !important;
+  }
+  html body footer .footer-tagline {
+    text-align: left !important;
+    color: rgba(235,215,206,0.55) !important;
+    font-size: 0.82rem !important;
+    max-width: 320px !important;
+    margin: 0 !important;
+  }
+
+  /* ══ FOOTER LOGO — MATCH NAV STYLE ══ */
+  html body footer .footer-logo-text,
+  html body footer .footer-logo .footer-logo-text {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 1.9rem !important;
+    letter-spacing: 0.42em !important;
+    font-weight: 400 !important;
+    color: #F5EDE3 !important;
+    line-height: 1 !important;
+    padding-left: 0.42em !important;
+    text-align: left !important;
+    display: block !important;
+  }
+  html body footer .footer-logo .logo-sub {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.32em !important;
+    color: rgba(245,237,227,0.52) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    padding-left: 0.32em !important;
+    text-align: left !important;
+    margin-top: 0.15rem !important;
+  }
+  /* Stones slightly bigger */
+  html body footer .footer-logo .logo-stones {
+    width: 44px !important;
+    height: 54px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    display: block !important;
+  }
+  html body footer .footer-logo .stone {
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 50% !important;
+  }
+  html body footer .footer-logo .stone-top {
+    width: 15px !important; height: 10px !important; top: 0 !important;
+    background: #8fa87a !important;
+  }
+  html body footer .footer-logo .stone-mid {
+    width: 28px !important; height: 17px !important; top: 12px !important;
+    background: #8B4A3A !important;
+  }
+  html body footer .footer-logo .stone-bot {
+    width: 40px !important; height: 24px !important; top: 31px !important;
+    background: #ba724a !important;
+  }
+
+  /* ══ FOOTER LOGO — CENTERED LIKE NAV ══ */
+  html body footer .footer-grid > div:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  html body footer .footer-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    text-decoration: none !important;
+  }
+  html body footer .footer-logo .logo-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.05rem !important;
+    text-align: left !important;
+  }
+  html body footer .footer-logo-text,
+  html body footer .footer-logo .footer-logo-text {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 2rem !important;
+    letter-spacing: 0.42em !important;
+    font-weight: 400 !important;
+    color: #F5EDE3 !important;
+    line-height: 1 !important;
+    padding-left: 0.42em !important;
+    display: block !important;
+  }
+  html body footer .footer-logo .logo-sub {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.30em !important;
+    color: rgba(245,237,227,0.50) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    padding-left: 0.30em !important;
+    margin-top: 0.25rem !important;
+  }
+  html body footer .footer-tagline {
+    text-align: center !important;
+    font-size: 0.80rem !important;
+    color: rgba(235,215,206,0.50) !important;
+    max-width: 340px !important;
+    margin: 0.6rem auto 0 !important;
+  }
+
+  /* ══ FOOTER LOGO — SYMMETRIC TEXT UNDER SKINES ══ */
+  html body footer .footer-grid > div:first-child {
+    display: block !important;
+    text-align: left !important;
+    align-items: unset !important;
+  }
+  html body footer .footer-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+    text-decoration: none !important;
+    margin-bottom: 0.8rem !important;
+  }
+  html body footer .footer-logo .logo-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.15rem !important;
+  }
+  html body footer .footer-logo-text,
+  html body footer .footer-logo .footer-logo-text {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 2rem !important;
+    letter-spacing: 0.42em !important;
+    font-weight: 400 !important;
+    color: #F5EDE3 !important;
+    line-height: 1 !important;
+    padding-left: 0.42em !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  html body footer .footer-logo .logo-sub {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.28em !important;
+    color: rgba(245,237,227,0.52) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    padding-left: 0.28em !important;
+    text-align: center !important;
+    margin-top: 0.2rem !important;
+  }
+  html body footer .footer-tagline {
+    text-align: left !important;
+    color: rgba(235,215,206,0.52) !important;
+    font-size: 0.82rem !important;
+    margin-top: 0.6rem !important;
+  }
+
+/* ── Search icon: glass circle button ── */
+html body nav .nav-search-btn,
+html body .nav-search-btn {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.20) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  color: rgba(255,255,255,0.90) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: background 0.25s ease, border-color 0.25s ease !important;
+}
+html body nav .nav-search-btn:hover,
+html body .nav-search-btn:hover {
+  background: rgba(255,255,255,0.15) !important;
+  border-color: rgba(255,255,255,0.35) !important;
+  color: #ffffff !important;
+}
+html body nav .nav-search-btn svg,
+html body .nav-search-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: rgba(255,255,255,0.90) !important;
+  fill: none !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+html body nav .nav-search-btn:hover svg,
+html body .nav-search-btn:hover svg {
+  stroke: #ffffff !important;
+}
+/* ══════════════════════════════════════════════
+   SKINES — LUXURY PALETTE GLOBAL OVERRIDE
+   Applied last, highest priority
+══════════════════════════════════════════════ */
+
+/* 1. CSS Variables reset */
+:root {
+  --color-gold: #fed996;
+  --color-cream: #faf3eb;
+  --color-warm-white: #f9f2e9;
+  --color-dark-overlay: #3a3530;
+  --color-primary-brown: #684034;
+  --color-secondary-brown: #694135;
+  --color-terracotta: #ba7150;
+  --color-deep-black: #000000;
+  --color-white: #ffffff;
+  /* Remap existing vars */
+  --primary: #684034 !important;
+  --accent: #ba7150 !important;
+  --bg: #faf3eb !important;
+  --cream: #faf3eb !important;
+  --cream-light: #f9f2e9 !important;
+  --cream-pale: #faf3eb !important;
+  --gold: #fed996 !important;
+  --ink: #3a3530 !important;
+  --text: #3a3530 !important;
+  --brown: #684034 !important;
+  --brown-dark: #3a3530 !important;
+  --terracotta: #ba7150 !important;
+}
+
+/* 2. HTML & Body background */
+html, body {
+  background: #faf3eb !important;
+  color: #3a3530 !important;
+}
+
+/* 3. All sections — warm cream */
+html body section,
+html body .section,
+html body main > div {
+  background: #faf3eb !important;
+  color: #3a3530 !important;
+}
+
+/* 4. Alternating section — slightly warmer */
+html body section:nth-child(even) {
+  background: #f9f2e9 !important;
+}
+
+/* 5. Headings */
+html body h1, html body h2, html body h3,
+html body h4, html body h5, html body h6,
+html body .hero-title, html body .section-title,
+html body .service-title, html body .card-title,
+html body .price-title, html body .ritual-title {
+  color: #684034 !important;
+}
+
+/* 6. Body text & paragraphs */
+html body p, html body li, html body span:not(.logo-text):not(.logo-sub):not(.stone),
+html body .hero-sub, html body .section-copy,
+html body .card-desc, html body .price-desc {
+  color: #3a3530 !important;
+}
+
+/* 7. Links */
+html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
+  color: #684034 !important;
+}
+html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
+  color: #ba7150 !important;
+}
+/* Footer override — must come right after to beat the rule above */
+html body footer a,
+html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
+  color: rgba(255,255,255,0.88) !important;
+}
+html body footer a:hover,
+html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
+  color: #F5C06A !important;
+}
+html body footer *,
+html body footer li,
+html body footer p,
+html body footer span:not(.stone) {
+  color: rgba(255,255,255,0.88) !important;
+}
+html body footer .footer-col h4 {
+  color: #ffffff !important;
+}
+html body footer .footer-bottom span,
+html body footer .logo-sub {
+  color: rgba(255,255,255,0.50) !important;
+}
+
+/* 8. ══ BUTTONS — gold bg ══ */
+html body .btn-dark, html body a.btn-dark,
+html body .btn-light, html body a.btn-light,
+html body .btn-warm, html body a.btn-warm,
+html body .svc-book-btn, html body a.svc-book-btn,
+html body .svc-card .svc-book-btn,
+html body .ritual-close-cta, html body a.ritual-close-cta,
+html body .product-cta, html body a.product-cta,
+html body .price-card-cta, html body a.price-card-cta,
+html body .special-offer-cta, html body a.special-offer-cta,
+html body .band a.btn-light, html body .band .btn-dark,
+html body .mobile-nav-footer .btn-dark {
+  background: #fed996 !important;
+  color: #684034 !important;
+  border: none !important;
+  border-radius: 3px !important;
+}
+html body .btn-dark:hover, html body a.btn-dark:hover,
+html body .btn-light:hover, html body a.btn-light:hover,
+html body .btn-warm:hover, html body a.btn-warm:hover,
+html body .svc-book-btn:hover,
+html body .price-card-cta:hover,
+html body .ritual-close-cta:hover,
+html body .special-offer-cta:hover {
+  background: #ba7150 !important;
+  color: #ffffff !important;
+}
+
+/* 9. Nav — transparent → cream on scroll */
+html body nav {
+  color: #684034 !important;
+}
+html body nav.nav-scrolled {
+  background: #faf3eb !important;
+  border-bottom: 1px solid rgba(104,64,52,0.12) !important;
+}
+html body nav .logo-text,
+html body nav:not(.nav-scrolled) .logo-text {
+  color: #684034 !important;
+}
+html body nav .logo-sub,
+html body nav:not(.nav-scrolled) .logo-sub {
+  color: rgba(104,64,52,0.55) !important;
+}
+html body nav .nav-links a {
+  color: #684034 !important;
+}
+html body nav .nav-links a:hover {
+  color: #ba7150 !important;
+}
+
+/* 10. Mobile nav — dark overlay */
+html body .mobile-nav,
+html body nav.mobile-nav {
+  background: #3a3530 !important;
+}
+html body .mobile-nav-links a,
+html body .mobile-nav-links a span {
+  color: #faf3eb !important;
+}
+html body .mobile-nav-links a:hover {
+  color: #fed996 !important;
+}
+html body .mobile-nav-links li {
+  border-bottom-color: rgba(250,243,235,0.08) !important;
+}
+
+/* 11. Mobile nav header */
+html body .mobile-nav-header {
+  background: #3a3530 !important;
+  border-bottom: 1px solid rgba(250,243,235,0.08) !important;
+}
+html body .mobile-nav-header .logo .logo-text {
+  color: #faf3eb !important;
+}
+html body .mobile-nav-header .logo .logo-sub {
+  color: rgba(250,243,235,0.45) !important;
+}
+
+/* 12. Mobile nav footer */
+html body .mobile-nav-footer {
+  background: #3a3530 !important;
+  border-top: 1px solid rgba(250,243,235,0.08) !important;
+}
+html body .mobile-nav-footer .mobile-contact,
+html body .mobile-nav-footer .mobile-contact a {
+  color: rgba(250,243,235,0.6) !important;
+}
+
+/* 13. Social bar */
+html body .social-bar {
+  background: #3a3530 !important;
+  background-color: #3a3530 !important;
+  border-top: 1px solid rgba(254,217,150,0.15) !important;
+  border-bottom: 1px solid rgba(254,217,150,0.15) !important;
+}
+html body .social-link,
+html body .social-bar a {
+  color: rgba(250,243,235,0.7) !important;
+}
+html body .social-link:hover,
+html body .social-bar a:hover {
+  color: #fed996 !important;
+}
+
+/* 14. Footer */
+html body footer {
+  background: #684034 !important;
+  color: #ffffff !important;
+}
+html body footer *:not(.btn-dark):not(.btn-light):not(.btn-warm) {
+  color: rgba(255,255,255,0.85) !important;
+}
+html body footer .footer-logo-text {
+  color: #ffffff !important;
+}
+html body footer .logo-sub {
+  color: rgba(255,255,255,0.5) !important;
+}
+html body footer a {
+  color: rgba(255,255,255,0.75) !important;
+}
+html body footer a:hover {
+  color: #fed996 !important;
+}
+html body footer .footer-tagline,
+html body footer .footer-legal {
+  color: rgba(255,255,255,0.4) !important;
+}
+html body footer hr,
+html body footer .footer-divider {
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+/* 15. Booking band / CTA band */
+html body .booking-band,
+html body .band {
+  background: #f9f2e9 !important;
+}
+html body .booking-band h2,
+html body .booking-band p,
+html body .band h2,
+html body .band p {
+  color: #684034 !important;
+}
+
+/* 16. Service / price cards */
+html body .svc-card,
+html body .service-card,
+html body .price-card,
+html body .card {
+  background: #ffffff !important;
+  border: 1px solid rgba(104,64,52,0.10) !important;
+}
+html body .svc-card .card-title,
+html body .service-card .card-title,
+html body .price-card .plan-name {
+  color: #684034 !important;
+}
+html body .svc-card .card-desc,
+html body .service-card .card-desc {
+  color: #3a3530 !important;
+}
+
+/* 17. Price tabs */
+html body .price-tab-btn {
+  color: #684034 !important;
+  background: transparent !important;
+  border-color: rgba(104,64,52,0.20) !important;
+}
+html body .price-tab-btn.active {
+  background: #fed996 !important;
+  color: #684034 !important;
+  font-weight: 700 !important;
+}
+html body .price-tab-nav {
+  background: rgba(250,243,235,0.8) !important;
+  border-color: rgba(104,64,52,0.12) !important;
+}
+
+/* 18. Hero — keep dark overlay readable */
+html body .hero {
+  background-color: rgba(58,53,48,0.55) !important;
+}
+html body .hero-title,
+html body .hero-eyebrow,
+html body .hero-sub {
+  color: #faf3eb !important;
+}
+
+/* 19. Overlays & dark bands */
+html body .overlay,
+html body [class*="overlay"] {
+  background: rgba(58,53,48,0.55) !important;
+}
+
+/* 20. Borders & separators */
+html body hr,
+html body .divider {
+  border-color: rgba(104,64,52,0.12) !important;
+}
+
+/* 21. Nav search button */
+html body .nav-search-btn {
+  color: #684034 !important;
+}
+html body nav:not(.nav-scrolled) .nav-search-btn {
+  color: rgba(250,243,235,0.9) !important;
+}
+
+/* 22. Eyebrow labels */
+html body .eyebrow {
+  color: #ba7150 !important;
+}
+
+/* 23. Lang switcher */
+html body .lang-btn {
+  color: #684034 !important;
+}
+html body .lang-btn.active {
+  color: #684034 !important;
+  font-weight: 700 !important;
+}
+/* ══════════════════════════════════════════════
+   SKINES — CONTRAST AUDIT FIX (reference: Facial)
+   Highest priority — injected last
+══════════════════════════════════════════════ */
+
+/* ── LIGHT SECTIONS: force cream bg + dark text ── */
+html body section:not(.hero):not(.laser-fullslider):not(.gallery-carousel),
+html body .services,
+html body .contact,
+html body .testimonials,
+html body .reviews-section,
+html body .ritual-section,
+html body .family-section,
+html body .ritual-close,
+html body .special-offer,
+html body .faq-section,
+html body .intro-section,
+html body .product-section,
+html body .section {
+  background: #faf3eb !important;
+  color: #3a3530 !important;
+}
+
+/* ── ALTERNATING warm white ── */
+html body section:nth-child(even):not(.hero):not(.laser-fullslider):not(.gallery-carousel) {
+  background: #f9f2e9 !important;
+}
+
+/* ── All headings on light bg ── */
+html body section:not(.hero) h1,
+html body section:not(.hero) h2,
+html body section:not(.hero) h3,
+html body section:not(.hero) h4,
+html body .section-title,
+html body .svc-title,
+html body .ritual-title,
+html body .price-title,
+html body .card-title,
+html body .faq-q,
+html body .intro-title,
+html body .family-title,
+html body .ritual-close-title,
+html body .special-title,
+html body .product-title {
+  color: #684034 !important;
+}
+
+/* ── All body text on light bg ── */
+html body section:not(.hero) p,
+html body section:not(.hero) li,
+html body section:not(.hero) .desc,
+html body section:not(.hero) .sub,
+html body section:not(.hero) .copy,
+html body .svc-desc,
+html body .ritual-desc,
+html body .faq-a,
+html body .card-desc,
+html body .price-desc,
+html body .intro-copy,
+html body .family-copy,
+html body .special-desc,
+html body .product-desc,
+html body .section-copy,
+html body .eyebrow-sub {
+  color: #3a3530 !important;
+}
+
+/* ── Eyebrow labels ── */
+html body .eyebrow,
+html body .hero-eyebrow {
+  color: #ba7150 !important;
+}
+
+/* ── HERO: always dark overlay + cream text ── */
+html body .hero,
+html body .page-hero,
+html body .hero-section {
+  color: #faf3eb !important;
+}
+html body .hero h1,
+html body .hero h2,
+html body .hero .hero-title,
+html body .hero .hero-sub,
+html body .hero .hero-eyebrow,
+html body .page-hero h1,
+html body .page-hero h2,
+html body .page-hero p {
+  color: #faf3eb !important;
+}
+
+/* ── NAV transparent (over hero) ── */
+html body nav:not(.nav-scrolled) .logo-text,
+html body nav:not(.nav-scrolled) .nav-links a,
+html body nav:not(.nav-scrolled) .lang-btn {
+  color: #faf3eb !important;
+}
+html body nav:not(.nav-scrolled) .logo-sub {
+  color: rgba(250,243,235,0.55) !important;
+}
+
+/* ── NAV scrolled (over cream bg) ── */
+html body nav.nav-scrolled {
+  background: #faf3eb !important;
+  box-shadow: 0 1px 8px rgba(104,64,52,0.08) !important;
+}
+html body nav.nav-scrolled .logo-text,
+html body nav.nav-scrolled .nav-links a,
+html body nav.nav-scrolled .lang-btn {
+  color: #684034 !important;
+}
+html body nav.nav-scrolled .logo-sub {
+  color: rgba(104,64,52,0.5) !important;
+}
+
+/* ── MOBILE NAV (dark) ── */
+html body .mobile-nav,
+html body nav.mobile-nav {
+  background: #3a3530 !important;
+}
+html body .mobile-nav-header {
+  background: #3a3530 !important;
+  border-bottom: 1px solid rgba(250,243,235,0.08) !important;
+}
+html body .mobile-nav-header .logo .logo-text {
+  color: #faf3eb !important;
+}
+html body .mobile-nav-header .logo .logo-sub {
+  color: rgba(250,243,235,0.45) !important;
+}
+html body .mobile-nav-links a,
+html body .mobile-nav-links a span[data-fr],
+html body .mobile-nav-links a * {
+  color: #faf3eb !important;
+}
+html body .mobile-nav-links .nav-sub {
+  color: rgba(250,243,235,0.5) !important;
+}
+html body .mobile-nav-links a:hover,
+html body .mobile-nav-links a.menu-active {
+  color: #fed996 !important;
+}
+html body .mobile-nav-links li {
+  border-bottom-color: rgba(250,243,235,0.07) !important;
+}
+html body .mobile-nav-footer {
+  background: #3a3530 !important;
+  border-top: 1px solid rgba(250,243,235,0.07) !important;
+}
+html body .mobile-nav-footer .mobile-contact,
+html body .mobile-nav-footer .mobile-contact a {
+  color: rgba(250,243,235,0.55) !important;
+}
+html body .mobile-nav-footer .mobile-contact a:hover {
+  color: #fed996 !important;
+}
+
+/* ── SOCIAL BAR (dark) ── */
+html body .social-bar {
+  background: #3a3530 !important;
+  background-color: #3a3530 !important;
+  border-top: 1px solid rgba(254,217,150,0.12) !important;
+  border-bottom: 1px solid rgba(254,217,150,0.12) !important;
+}
+html body .social-link,
+html body .social-bar a,
+html body .social-link span {
+  color: rgba(250,243,235,0.65) !important;
+}
+html body .social-link:hover,
+html body .social-bar a:hover {
+  color: #fed996 !important;
+}
+
+/* ── FOOTER (dark brown) ── */
+html body footer {
+  background: #684034 !important;
+  color: #ffffff !important;
+}
+html body footer h1, html body footer h2, html body footer h3,
+html body footer h4, html body footer p, html body footer li,
+html body footer span:not(.stone),
+html body footer .footer-logo-text,
+html body footer .footer-tagline,
+html body footer .footer-legal,
+html body footer address {
+  color: rgba(255,255,255,0.82) !important;
+}
+html body footer .footer-logo-text {
+  color: #ffffff !important;
+}
+html body footer .logo-sub {
+  color: rgba(255,255,255,0.48) !important;
+}
+html body footer a {
+  color: rgba(255,255,255,0.72) !important;
+}
+html body footer a:hover {
+  color: #fed996 !important;
+}
+html body footer hr,
+html body footer [class*="divider"],
+html body footer [class*="separator"] {
+  border-color: rgba(255,255,255,0.1) !important;
+  background-color: rgba(255,255,255,0.1) !important;
+}
+
+/* ── BOOKING BAND (light) ── */
+html body .booking-band,
+html body .band {
+  background: #f9f2e9 !important;
+}
+html body .booking-band h1, html body .booking-band h2,
+html body .booking-band h3, html body .band h1,
+html body .band h2, html body .band h3 {
+  color: #684034 !important;
+}
+html body .booking-band p, html body .band p,
+html body .booking-band span, html body .band span {
+  color: #3a3530 !important;
+}
+
+/* ── ALL BUTTONS ── */
+html body .btn-dark, html body a.btn-dark,
+html body .btn-light, html body a.btn-light,
+html body .btn-warm, html body a.btn-warm,
+html body .svc-book-btn, html body a.svc-book-btn,
+html body .svc-card .svc-book-btn,
+html body .ritual-close-cta, html body a.ritual-close-cta,
+html body .product-cta, html body a.product-cta,
+html body .price-card-cta, html body a.price-card-cta,
+html body .special-offer-cta, html body a.special-offer-cta,
+html body .band a, html body .booking-band a,
+html body .gc-submit {
+  background: #fed996 !important;
+  color: #684034 !important;
+  border: none !important;
+}
+html body .btn-dark:hover, html body a.btn-dark:hover,
+html body .btn-light:hover, html body a.btn-light:hover,
+html body .btn-warm:hover, html body a.btn-warm:hover,
+html body .svc-book-btn:hover, html body .price-card-cta:hover,
+html body .ritual-close-cta:hover, html body .special-offer-cta:hover,
+html body .gc-submit:hover {
+  background: #ba7150 !important;
+  color: #ffffff !important;
+}
+
+/* ── PRICE TAB BUTTONS ── */
+html body .price-tab-btn {
+  background: transparent !important;
+  color: #684034 !important;
+  border-color: rgba(104,64,52,0.2) !important;
+}
+html body .price-tab-btn.active {
+  background: #fed996 !important;
+  color: #684034 !important;
+  font-weight: 700 !important;
+}
+html body .price-tab-nav {
+  background: rgba(250,243,235,0.85) !important;
+  border-color: rgba(104,64,52,0.12) !important;
+}
+
+/* ── CARDS & SERVICE CARDS ── */
+html body .svc-card,
+html body .service-card,
+html body .price-card,
+html body .ritual-card,
+html body .card {
+  background: #ffffff !important;
+  border: 1px solid rgba(104,64,52,0.10) !important;
+  color: #3a3530 !important;
+}
+html body .svc-card *,
+html body .service-card *,
+html body .price-card *,
+html body .card * {
+  color: #3a3530 !important;
+}
+html body .svc-card .card-title,
+html body .service-card .card-title,
+html body .price-card .plan-name,
+html body .card h3, html body .card h4 {
+  color: #684034 !important;
+}
+html body .svc-card .svc-price,
+html body .price-card .price,
+html body .price-amount {
+  color: #684034 !important;
+  font-weight: 600 !important;
+}
+
+/* ── LINKS general ── */
+html body a:not([class]) {
+  color: #684034 !important;
+}
+html body a:not([class]):hover {
+  color: #ba7150 !important;
+}
+
+/* ── NAV SEARCH BUTTON ── */
+html body nav:not(.nav-scrolled) .nav-search-btn {
+  color: rgba(250,243,235,0.9) !important;
+  border-color: rgba(250,243,235,0.2) !important;
+  background: rgba(255,255,255,0.08) !important;
+}
+html body nav.nav-scrolled .nav-search-btn {
+  color: #684034 !important;
+  border-color: rgba(104,64,52,0.25) !important;
+  background: rgba(104,64,52,0.06) !important;
+}
+
+/* ── MOBILE NAV CLOSE BUTTON ── */
+html body .mobile-nav-close {
+  background: rgba(254,217,150,0.12) !important;
+  border-color: rgba(254,217,150,0.25) !important;
+  color: #fed996 !important;
+}
+
+/* ── LANG SWITCHER ── */
+html body nav:not(.nav-scrolled) .lang-btn {
+  color: rgba(250,243,235,0.75) !important;
+}
+html body nav:not(.nav-scrolled) .lang-btn.active {
+  color: #faf3eb !important;
+}
+html body nav.nav-scrolled .lang-btn {
+  color: rgba(104,64,52,0.6) !important;
+}
+html body nav.nav-scrolled .lang-btn.active {
+  color: #684034 !important;
+}
+
+/* ── TESTIMONIALS / REVIEWS ── */
+html body .testimonial-card,
+html body .review-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(104,64,52,0.08) !important;
+}
+html body .testimonial-text,
+html body .review-text,
+html body .testimonial-author,
+html body .review-author {
+  color: #3a3530 !important;
+}
+html body .testimonial-source,
+html body .review-source,
+html body .star-rating {
+  color: #ba7150 !important;
+}
+
+/* ── FAQ ── */
+html body .faq-item {
+  border-color: rgba(104,64,52,0.1) !important;
+}
+html body .faq-q {
+  color: #684034 !important;
+}
+html body .faq-a {
+  color: #3a3530 !important;
+}
+
+/* ── FORMS (gift cards etc) ── */
+html body input, html body textarea, html body select {
+  background: #ffffff !important;
+  color: #3a3530 !important;
+  border-color: rgba(104,64,52,0.2) !important;
+}
+html body input::placeholder,
+html body textarea::placeholder {
+  color: rgba(58,53,48,0.4) !important;
+}
+html body label {
+  color: #684034 !important;
+}
+
+/* ── SERVICE NAV / SUB-NAV ── */
+html body .service-nav,
+html body .sub-nav {
+  background: #faf3eb !important;
+  border-color: rgba(104,64,52,0.12) !important;
+}
+html body .service-nav a,
+html body .sub-nav a {
+  color: #684034 !important;
+}
+html body .service-nav a.active,
+html body .sub-nav a.active {
+  color: #684034 !important;
+  border-bottom-color: #684034 !important;
+}
+
+/* ── DARK NAV variant (some subpages) ── */
+html body nav.nav-dark {
+  background: #3a3530 !important;
+}
+html body nav.nav-dark .logo-text,
+html body nav.nav-dark .nav-links a {
+  color: #faf3eb !important;
+}
+
+/* ── OVERLAYS ── */
+html body [class*="overlay"]:not(.search-overlay) {
+  background: rgba(58,53,48,0.55) !important;
+}
+/* ══════════════════════════════════════════════
+   MOBILE NAV — AWU-inspired mockup implementation
+══════════════════════════════════════════════ */
+
+/* ── Overall nav panel ── */
+html body .mobile-nav,
+html body nav.mobile-nav {
+  background: #684034 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* ── Header: logo left + back arrow right ── */
+html body .mobile-nav-header {
+  background: #684034 !important;
+  border-bottom: 1px solid rgba(245,237,228,0.18) !important;
+  padding: 14px 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 66px !important;
+}
+
+/* Logo row */
+html body .mobile-nav-header .logo {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+}
+
+/* Stones */
+html body .mobile-nav-header .logo .logo-stones {
+  position: relative !important;
+  width: 33px !important;
+  height: 44px !important;
+  flex: 0 0 33px !important;
+  display: block !important;
+}
+html body .mobile-nav-header .logo .stone {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  border-radius: 50% !important;
+  display: block !important;
+}
+html body .mobile-nav-header .logo .stone-top {
+  width: 12px !important; height: 8px !important;
+  top: 0 !important; background: #7A8A72 !important;
+}
+html body .mobile-nav-header .logo .stone-mid {
+  width: 23px !important; height: 14px !important;
+  top: 10px !important; background: #C9A96E !important;
+}
+html body .mobile-nav-header .logo .stone-bot {
+  width: 33px !important; height: 19px !important;
+  top: 25px !important; background: #C07A5A !important;
+}
+
+/* Logo text */
+html body .mobile-nav-header .logo .logo-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 3px !important;
+}
+html body .mobile-nav-header .logo .logo-text,
+html body .mobile-nav-header .logo span.logo-text {
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 19px !important;
+  letter-spacing: 6px !important;
+  color: #F5EDE4 !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  display: block !important;
+}
+html body .mobile-nav-header .logo .logo-sub,
+html body .mobile-nav-header .logo span.logo-sub {
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 8.5px !important;
+  letter-spacing: 3px !important;
+  color: rgba(245,237,228,0.5) !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Back arrow button */
+html body .mobile-nav-close,
+html body .mobile-nav-header .mobile-nav-close {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(245,237,228,0.10) !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex: 0 0 36px !important;
+  padding: 0 !important;
+  color: #F5EDE4 !important;
+  font-size: 1.2rem !important;
+  line-height: 1 !important;
+}
+html body .mobile-nav-close:hover {
+  background: rgba(245,237,228,0.18) !important;
+}
+
+/* ── Menu links list ── */
+html body .mobile-nav-links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 1 !important;
+}
+html body .mobile-nav-links li {
+  border-bottom: 1px solid rgba(245,237,228,0.18) !important;
+  border-top: none !important;
+}
+html body .mobile-nav-links li:first-child {
+  border-top: 1px solid rgba(245,237,228,0.18) !important;
+}
+html body .mobile-nav-links a {
+  display: flex !important;
+  align-items: center !important;
+  padding: 22px 22px !important;
+  text-decoration: none !important;
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 13.5px !important;
+  letter-spacing: 2.5px !important;
+  text-transform: uppercase !important;
+  color: #F5EDE4 !important;
+  background: transparent !important;
+  transition: color 0.2s ease !important;
+}
+html body .mobile-nav-links a:hover {
+  color: #fed996 !important;
+}
+
+/* Secondary (dim) links — Avis Clients, Contact */
+html body .mobile-nav-links a.nav-sub,
+html body .mobile-nav-links .nav-sub {
+  color: rgba(245,237,228,0.5) !important;
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+  padding: 18px 22px !important;
+}
+html body .mobile-nav-links a.nav-sub:hover {
+  color: rgba(245,237,228,0.8) !important;
+}
+
+/* Remove old span color overrides inside links */
+html body .mobile-nav-links a span,
+html body .mobile-nav-links a span[data-fr] {
+  color: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* ── Footer: lang switcher + CTA ── */
+html body .mobile-nav-footer {
+  background: #684034 !important;
+  border-top: 1px solid rgba(245,237,228,0.18) !important;
+  padding: 12px 22px 0 !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Lang row */
+html body .mobile-lang-switcher {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 12px 0 11px !important;
+}
+html body .mobile-lang-btn {
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 300 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #F5EDE4 !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+html body .mobile-lang-btn.active {
+  color: #F5EDE4 !important;
+  font-weight: 400 !important;
+}
+html body .mobile-lang-sep {
+  color: rgba(245,237,228,0.4) !important;
+  font-size: 10px !important;
+}
+
+/* Hide old contact line */
+html body .mobile-nav-footer .mobile-contact {
+  display: none !important;
+}
+
+/* CTA Button — full width, gold */
+html body .mobile-nav-footer .btn-dark,
+html body .mobile-nav-footer a.btn-dark {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: unset !important;
+  padding: 16px !important;
+  background: #E8D4A0 !important;
+  color: #4A2318 !important;
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-radius: 3px !important;
+  margin: 0 0 18px 0 !important;
+  cursor: pointer !important;
+}
+html body .mobile-nav-footer .btn-dark:hover,
+html body .mobile-nav-footer a.btn-dark:hover {
+  background: #fed996 !important;
+  color: #684034 !important;
+}
+/* ══════════════════════════════════════════════
+   MOBILE NAV — Mockup v2 Implementation
+   Cream bg · logo centered · hamburger · search
+══════════════════════════════════════════════ */
+ @media (max-width: 980px) {
+
+  /* ── Nav: always cream, fixed at top ── */
+  html body nav {
+    background: #F0E6DA !important;
+    border-bottom: 1px solid rgba(74,35,24,0.12) !important;
+    transition: transform 0.32s ease, opacity 0.32s ease, background 0.2s ease !important;
+  }
+
+  /* Hide on scroll-down via .nav-hidden class (added by JS) */
+  html body nav.nav-hidden {
+    transform: translateY(-100%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* ── Logo: centered, Jost, brown ── */
+  html body nav .logo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+  }
+  html body nav .logo .logo-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+  html body nav .logo .logo-text,
+  html body nav .logo span.logo-text,
+  html body nav:not(.nav-scrolled) .logo .logo-text,
+  html body nav.nav-scrolled .logo .logo-text {
+    font-family: 'Jost', 'DM Sans', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 18px !important;
+    letter-spacing: 7px !important;
+    color: #4A2318 !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+  }
+  html body nav .logo .logo-sub,
+  html body nav .logo span.logo-sub,
+  html body nav:not(.nav-scrolled) .logo .logo-sub,
+  html body nav.nav-scrolled .logo .logo-sub {
+    font-family: 'Jost', 'DM Sans', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 8px !important;
+    letter-spacing: 3px !important;
+    color: rgba(74,35,24,0.55) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  /* Hide stones in nav (keep clean) */
+  html body nav .logo .logo-stones {
+    display: none !important;
+  }
+
+  /* ── Hamburger: 3 lines styled ── */
+  html body nav .menu-btn {
+    font-size: 0 !important;
+    color: transparent !important;
+    width: 36px !important;
+    height: 36px !important;
+    border: none !important;
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    cursor: pointer !important;
+    padding: 4px !important;
+    position: relative !important;
+  }
+  html body nav .menu-btn::before,
+  html body nav .menu-btn::after {
+    content: '' !important;
+    display: block !important;
+    width: 20px !important;
+    height: 1.5px !important;
+    background: #4A2318 !important;
+    border-radius: 1px !important;
+  }
+  html body nav .menu-btn > span,
+  html body nav .menu-btn > i {
+    display: block !important;
+    width: 20px !important;
+    height: 1.5px !important;
+    background: #4A2318 !important;
+    border-radius: 1px !important;
+  }
+
+  /* ── Search button: circular, brown ── */
+  html body nav .nav-search-btn {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: rgba(74,35,24,0.08) !important;
+    border: none !important;
+    color: #4A2318 !important;
+  }
+  html body nav .nav-search-btn svg {
+    stroke: #4A2318 !important;
+  }
+
+  /* Hide desktop-only items on mobile */
+  html body nav .nav-links,
+  html body nav .nav-cta,
+  html body nav .lang-switcher {
+    display: none !important;
+  }
+
+  /* ── Nav scrolled state: keep same cream ── */
+  html body nav.nav-scrolled {
+    background: #F0E6DA !important;
+    box-shadow: 0 2px 12px rgba(74,35,24,0.08) !important;
+  }
+}
+
+ @media (max-width: 980px) {
+  html body nav .menu-btn span {
+    display: block !important;
+    width: 20px !important;
+    height: 1.5px !important;
+    background: #4A2318 !important;
+    border-radius: 1px !important;
+  }
+}
+/* ══════════════════════════════════════════════
+   MOBILE MENU — Mockup v3 (AWU style, no dividers)
+══════════════════════════════════════════════ */
+
+/* ── LOGO: bigger, wider letter-spacing ── */
+html body .mobile-nav-header .logo .logo-text,
+html body .mobile-nav-header .logo span.logo-text {
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 28px !important;
+  letter-spacing: 12px !important;
+  color: #F2E6D9 !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  display: block !important;
+  padding: 0 !important;
+}
+html body .mobile-nav-header .logo .logo-sub,
+html body .mobile-nav-header .logo span.logo-sub {
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 9px !important;
+  letter-spacing: 4px !important;
+  color: rgba(242,230,217,0.5) !important;
+  text-transform: uppercase !important;
+  margin-top: 5px !important;
+  display: block !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* ── HEADER: align top ── */
+html body .mobile-nav-header {
+  align-items: flex-start !important;
+  padding: 14px 22px 18px !important;
+  background: #6B3829 !important;
+  border-bottom: 1px solid rgba(242,230,217,0.18) !important;
+}
+html body .mobile-nav-header .logo {
+  align-items: center !important;
+  gap: 11px !important;
+}
+html body .mobile-nav-header .mobile-nav-close {
+  margin-top: 2px !important;
+  width: 38px !important;
+  height: 38px !important;
+  background: rgba(242,230,217,0.12) !important;
+  border: none !important;
+  color: #F2E6D9 !important;
+  font-size: 1.2rem !important;
+}
+
+/* ── MENU ITEMS: no dividers, AWU spacing ── */
+html body .mobile-nav-links {
+  padding: 8px 0 !important;
+}
+html body .mobile-nav-links li {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+html body .mobile-nav-links li:first-child {
+  border-top: none !important;
+}
+html body .mobile-nav-links a {
+  padding: 19px 22px !important;
+  font-size: 14px !important;
+  letter-spacing: 2.5px !important;
+  font-weight: 300 !important;
+  text-transform: uppercase !important;
+  color: #F2E6D9 !important;
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  transition: background 0.15s !important;
+}
+html body .mobile-nav-links a:active {
+  background: rgba(242,230,217,0.05) !important;
+}
+html body .mobile-nav-links a:hover {
+  color: #E8D4A0 !important;
+}
+
+/* ── SECONDARY ITEMS (nav-sub): dim, smaller ── */
+html body .mobile-nav-links a.nav-sub,
+html body .mobile-nav-links .nav-sub {
+  color: rgba(242,230,217,0.5) !important;
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+  padding: 16px 22px !important;
+}
+/* Add top margin before first dim item */
+html body .mobile-nav-links li:has(a.nav-sub):first-of-type {
+  margin-top: 12px !important;
+}
+
+/* ── BOTTOM AREA ── */
+html body .mobile-nav-footer {
+  background: #6B3829 !important;
+  border-top: 1px solid rgba(242,230,217,0.18) !important;
+  padding: 14px 22px 0 !important;
+}
+html body .mobile-lang-switcher {
+  padding: 8px 0 12px !important;
+}
+html body .mobile-lang-btn {
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 300 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #F2E6D9 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+html body .mobile-lang-sep {
+  font-size: 10px !important;
+  color: rgba(242,230,217,0.5) !important;
+}
+html body .mobile-nav-footer .btn-dark,
+html body .mobile-nav-footer a.btn-dark {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 16px !important;
+  margin: 0 0 16px 0 !important;
+  background: #E8D4A0 !important;
+  color: #3D1E10 !important;
+  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+}
+
+/* ── MAIN NAV BG update ── */
+html body .mobile-nav,
+html body nav.mobile-nav {
+  background: #6B3829 !important;
+}
+/* ══════════════════════════════════════════════
+   CONTRAST NUCLEAR FIX — Dark bg → white text
+   Dark brown (#684034 / #6B3829 / #3a3530) → #ffffff
+══════════════════════════════════════════════ */
+
+/* ── RULE 1: Everything on dark mobile nav background ── */
+html body .mobile-nav *,
+html body nav.mobile-nav * {
+  color: #ffffff !important;
+}
+/* Exceptions: dim items stay dim-white, not pure white */
+html body .mobile-nav-links a.nav-sub,
+html body .mobile-nav-links .nav-sub,
+html body .mobile-nav-links a.nav-sub span {
+  color: rgba(255,255,255,0.5) !important;
+}
+/* Logo sub */
+html body .mobile-nav-header .logo .logo-sub,
+html body .mobile-nav-header .logo span.logo-sub {
+  color: rgba(255,255,255,0.45) !important;
+}
+/* Lang sep */
+html body .mobile-lang-sep {
+  color: rgba(255,255,255,0.35) !important;
+}
+/* CTA button: keep gold */
+html body .mobile-nav-footer .btn-dark,
+html body .mobile-nav-footer a.btn-dark {
+  background: #E8D4A0 !important;
+  color: #3D1E10 !important;
+}
+/* Close btn */
+html body .mobile-nav-close {
+  color: #ffffff !important;
+}
+
+/* ── RULE 2: Social bar (dark) ── */
+html body .social-bar *,
+html body .social-bar {
+  color: rgba(255,255,255,0.75) !important;
+}
+html body .social-bar a:hover,
+html body .social-link:hover {
+  color: #E8D4A0 !important;
+}
+
+/* ── RULE 3: Footer (dark brown) ── */
+html body footer,
+html body footer * {
+  color: rgba(255,255,255,0.88) !important;
+}
+html body footer .footer-logo-text,
+html body footer h2,
+html body footer h3,
+html body footer .footer-logo span {
+  color: #ffffff !important;
+}
+html body footer .logo-sub {
+  color: rgba(255,255,255,0.45) !important;
+}
+html body footer a {
+  color: rgba(255,255,255,0.75) !important;
+}
+html body footer a:hover {
+  color: #E8D4A0 !important;
+}
+html body footer hr,
+html body footer [class*="divider"] {
+  border-color: rgba(255,255,255,0.1) !important;
+  background: rgba(255,255,255,0.1) !important;
+}
+/* Footer CTA button */
+html body footer .btn-dark,
+html body footer a.btn-dark {
+  background: #E8D4A0 !important;
+  color: #3D1E10 !important;
+}
+
+/* ── RULE 4: Any section with explicit dark brown bg ── */
+/* Catch all dark-bg sections that have text readability issues */
+html body [style*="background:#684034"] *,
+html body [style*="background: #684034"] *,
+html body [style*="background:#6B3829"] *,
+html body [style*="background: #6B3829"] *,
+html body [style*="background:#3a3530"] *,
+html body [style*="background: #3a3530"] *,
+html body [style*="background:#3A3530"] * {
+  color: #ffffff !important;
+}
+
+/* ── RULE 5: Booking band / CTA band — keep light ── */
+html body .booking-band,
+html body .band {
+  background: #f9f2e9 !important;
+}
+html body .booking-band *,
+html body .band * {
+  color: #684034 !important;
+}
+html body .booking-band h1,
+html body .booking-band h2,
+html body .band h1,
+html body .band h2 {
+  color: #684034 !important;
+}
+html body .booking-band p,
+html body .band p {
+  color: #3a3530 !important;
+}
+/* Booking band CTA */
+html body .booking-band .btn-dark,
+html body .band .btn-dark,
+html body .booking-band a.btn-dark,
+html body .band a.btn-dark {
+  background: #E8D4A0 !important;
+  color: #3D1E10 !important;
+}
+
+/* ── RULE 6: Nav on scroll (cream bg) — dark text ── */
+html body nav.nav-scrolled,
+html body nav.nav-scrolled * {
+  color: #4A2318 !important;
+}
+html body nav.nav-scrolled .logo .logo-sub {
+  color: rgba(74,35,24,0.5) !important;
+}
+html body nav.nav-scrolled .nav-search-btn svg {
+  stroke: #4A2318 !important;
+}
+html body nav.nav-scrolled .menu-btn span,
+html body nav.nav-scrolled .menu-btn::before,
+html body nav.nav-scrolled .menu-btn::after {
+  background: #4A2318 !important;
+}
+
+/* ── RULE 7: Light sections — dark text ── */
+html body section:not(.hero):not(.laser-fullslider):not(.gallery-carousel),
+html body .services,
+html body .contact,
+html body .testimonials,
+html body .reviews-section,
+html body .faq-section,
+html body .intro-section {
+  background: #faf3eb !important;
+}
+html body section:not(.hero):not(.laser-fullslider):not(.gallery-carousel) *,
+html body .services *,
+html body .contact * {
+  color: #3a3530 !important;
+}
+html body section:not(.hero) h1,
+html body section:not(.hero) h2,
+html body section:not(.hero) h3,
+html body section:not(.hero) h4,
+html body .section-title,
+html body .svc-title {
+  color: #684034 !important;
+}
+html body .eyebrow {
+  color: #ba7150 !important;
+}
+
+/* ── RULE 8: Hero always cream text ── */
+html body .hero *,
+html body .page-hero *,
+html body .hero-title,
+html body .hero-sub,
+html body .hero-eyebrow {
+  color: #F2E6D9 !important;
+}
+
+/* ── RULE 9: Cards — white bg, dark text ── */
+html body .svc-card *,
+html body .service-card *,
+html body .price-card *,
+html body .card * {
+  color: #3a3530 !important;
+}
+html body .svc-card h3,
+html body .svc-card .card-title,
+html body .price-card .plan-name,
+html body .card h3, html body .card h4 {
+  color: #684034 !important;
+}
+html body .svc-card .svc-price,
+html body .price-amount {
+  color: #684034 !important;
+}
+/* Button inside cards */
+html body .svc-card .btn-dark,
+html body .svc-card .svc-book-btn,
+html body .price-card .btn-dark,
+html body .price-card-cta {
+  background: #E8D4A0 !important;
+  color: #3D1E10 !important;
+}
+
+/* ── RULE 10: ALL CTA buttons ── */
+html body .btn-dark, html body a.btn-dark,
+html body .btn-light, html body a.btn-light,
+html body .btn-warm, html body a.btn-warm,
+html body .svc-book-btn, html body a.svc-book-btn,
+html body .svc-card .svc-book-btn,
+html body .ritual-close-cta, html body a.ritual-close-cta,
+html body .price-card-cta, html body a.price-card-cta,
+html body .special-offer-cta {
+  background: #E8D4A0 !important;
+  color: #3D1E10 !important;
+  border: none !important;
+}
+html body .btn-dark:hover, html body a.btn-dark:hover,
+html body .btn-light:hover, html body .svc-book-btn:hover,
+html body .price-card-cta:hover {
+  background: #ba7150 !important;
+  color: #ffffff !important;
+}
+/* ══ Hamburger: visible dark lines on cream nav ══ */
+ @media (max-width: 980px) {
+  /* Force hamburger to show 3 dark lines */
+  html body nav .menu-btn {
+    background: transparent !important;
+    border: none !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    font-size: 0 !important;
+    color: transparent !important;
+  }
+  html body nav .menu-btn::before,
+  html body nav .menu-btn::after {
+    content: '' !important;
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    background: #4A2318 !important;
+    border-radius: 2px !important;
+    flex-shrink: 0 !important;
+  }
+  html body nav .menu-btn span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    background: #4A2318 !important;
+    border-radius: 2px !important;
+    flex-shrink: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  /* Nav always cream — hamburger always dark */
+  html body nav {
+    background: #F0E6DA !important;
+    border-bottom: 1px solid rgba(74,35,24,0.12) !important;
+  }
+  /* On hero (transparent zone), lines stay visible */
+  html body nav:not(.nav-scrolled) .menu-btn span,
+  html body nav:not(.nav-scrolled) .menu-btn::before,
+  html body nav:not(.nav-scrolled) .menu-btn::after {
+    background: #4A2318 !important;
+  }
+}
+
+/* ══ Mobile nav: footer sticky at bottom ══ */
+html body .mobile-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+html body .mobile-nav-header {
+  flex-shrink: 0 !important;
+}
+html body .mobile-nav-links {
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+html body .mobile-nav-footer {
+  flex-shrink: 0 !important;
+  background: #6B3829 !important;
+  border-top: 1px solid rgba(242,230,217,0.18) !important;
+  padding: 14px 22px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+/* ══ MENU LINKS — nuclear cream color fix ══ */
+
+/* All links in mobile nav — cream, no exceptions */
+html body .mobile-nav .mobile-nav-links a,
+html body .mobile-nav .mobile-nav-links a *,
+html body .mobile-nav .mobile-nav-links li a,
+html body .mobile-nav .mobile-nav-links li a span,
+html body .mobile-nav .mobile-nav-links li a span[data-fr],
+html body nav.mobile-nav .mobile-nav-links a {
+  color: #F2E6D9 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+
+/* Secondary dim items */
+html body .mobile-nav .mobile-nav-links a.nav-sub,
+html body .mobile-nav .mobile-nav-links a.nav-sub *,
+html body .mobile-nav .mobile-nav-links a.nav-sub span {
+  color: rgba(242,230,217,0.50) !important;
+}
+
+/* First item (Head Spa) — force visible, same as others */
+html body .mobile-nav .mobile-nav-links li:first-child a,
+html body .mobile-nav .mobile-nav-links li:first-child a * {
+  color: #F2E6D9 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  font-size: 14px !important;
+  letter-spacing: 2.5px !important;
+  font-weight: 300 !important;
+  text-transform: uppercase !important;
+  padding: 19px 22px !important;
+}
+
+/* Ensure list items are not hidden */
+html body .mobile-nav .mobile-nav-links li {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+/* ══ FOOTER — force ALL text white, no exceptions ══ */
+html body footer,
+html body footer .footer-grid,
+html body footer .footer-grid > div,
+html body footer .footer-col,
+html body footer .footer-bottom {
+  background: #684034 !important;
+  color: #ffffff !important;
+}
+
+/* Every text element in footer */
+html body footer h4,
+html body footer h3,
+html body footer h2,
+html body footer p,
+html body footer li,
+html body footer span,
+html body footer address,
+html body footer .footer-tagline,
+html body footer .footer-bottom span,
+html body footer .footer-col ul li {
+  color: rgba(255,255,255,0.82) !important;
+}
+
+/* Section headings: SOINS / INFO / RÉSEAUX */
+html body footer .footer-col h4 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* ALL links in footer */
+html body footer a,
+html body footer .footer-col a,
+html body footer .footer-col ul li a,
+html body footer .footer-logo {
+  color: rgba(255,255,255,0.75) !important;
+  text-decoration: none !important;
+}
+html body footer a:hover,
+html body footer .footer-col a:hover {
+  color: #E8D4A0 !important;
+}
+
+/* Footer logo text */
+html body footer .footer-logo-text,
+html body footer .footer-logo span.footer-logo-text {
+  color: #ffffff !important;
+}
+html body footer .logo-sub {
+  color: rgba(255,255,255,0.45) !important;
+}
+
+/* Footer bottom copyright / address */
+html body footer .footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.12) !important;
+}
+html body footer .footer-bottom span {
+  color: rgba(255,255,255,0.45) !important;
+}
+
+/* Stones in footer — keep their original colors */
+html body footer .stone-top  { background: #7A8A72 !important; }
+html body footer .stone-mid  { background: #C9A96E !important; }
+html body footer .stone-bot  { background: #C07A5A !important; }
+/* ══════════════════════════════════════════════
+   HEADER REVERT — Fix broken nav/menu
+   Injected last = highest priority
+══════════════════════════════════════════════ */
+
+/* 1. MOBILE NAV: hidden by default, only show when .open */
+html body .mobile-nav,
+html body nav.mobile-nav,
+html body div.mobile-nav {
+  display: none !important;
+}
+html body .mobile-nav.open,
+html body nav.mobile-nav.open,
+html body div.mobile-nav.open {
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 45 !important;
+  overflow: hidden !important;
+}
+
+/* 2. DESKTOP NAV: hide mobile-only elements */
+ @media (min-width: 981px) {
+  html body .mobile-nav,
+  html body .menu-btn,
+  html body .mobile-nav-header,
+  html body .mobile-nav-links,
+  html body .mobile-nav-footer {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* 3. MOBILE NAV TRANSPARENT: restore transparent over hero */
+ @media (max-width: 980px) {
+  html body nav {
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  html body nav.nav-scrolled {
+    background: #F0E6DA !important;
+    border-bottom: 1px solid rgba(74,35,24,0.12) !important;
+  }
+
+  /* 4. Hamburger: WHITE over hero, dark over cream */
+  html body nav:not(.nav-scrolled) .menu-btn span,
+  html body nav:not(.nav-scrolled) .menu-btn::before,
+  html body nav:not(.nav-scrolled) .menu-btn::after {
+    background: #ffffff !important;
+  }
+  html body nav.nav-scrolled .menu-btn span,
+  html body nav.nav-scrolled .menu-btn::before,
+  html body nav.nav-scrolled .menu-btn::after {
+    background: #4A2318 !important;
+  }
+
+  /* 5. Logo: WHITE over hero, dark over cream */
+  html body nav:not(.nav-scrolled) .logo .logo-text,
+  html body nav:not(.nav-scrolled) .logo span.logo-text {
+    color: #ffffff !important;
+  }
+  html body nav:not(.nav-scrolled) .logo .logo-sub,
+  html body nav:not(.nav-scrolled) .logo span.logo-sub {
+    color: rgba(255,255,255,0.55) !important;
+  }
+  html body nav.nav-scrolled .logo .logo-text {
+    color: #4A2318 !important;
+  }
+  html body nav.nav-scrolled .logo .logo-sub {
+    color: rgba(74,35,24,0.5) !important;
+  }
+
+  /* 6. Search button: glass/white over hero, dark over cream */
+  html body nav:not(.nav-scrolled) .nav-search-btn {
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    color: #ffffff !important;
+  }
+  html body nav:not(.nav-scrolled) .nav-search-btn svg {
+    stroke: #ffffff !important;
+  }
+  html body nav.nav-scrolled .nav-search-btn {
+    background: rgba(74,35,24,0.08) !important;
+    border: 1px solid rgba(74,35,24,0.15) !important;
+    color: #4A2318 !important;
+  }
+  html body nav.nav-scrolled .nav-search-btn svg {
+    stroke: #4A2318 !important;
+  }
+
+  /* Hide desktop nav items on mobile */
+  html body nav .nav-links,
+  html body nav .nav-cta,
+  html body nav .lang-switcher {
+    display: none !important;
+  }
+
+  /* Show hamburger and search on mobile */
+  html body nav .menu-btn {
+    display: flex !important;
+    visibility: visible !important;
+  }
+  html body nav .nav-search-btn {
+    display: flex !important;
+    visibility: visible !important;
+  }
+}
+
+/* 7. DESKTOP: show normal nav, hide mobile elements */
+ @media (min-width: 981px) {
+  html body nav .nav-links { display: flex !important; }
+  html body nav .nav-cta { display: flex !important; }
+  html body nav .lang-switcher { display: flex !important; }
+  html body nav .menu-btn { display: none !important; }
+}
+/* ══ CONTRAST FIXES — based on audit ══ */
+
+/* FIX 1: Social bar — excluded from RULE 7 dark override */
+html body section.social-bar,
+html body .social-bar {
+  background: #2d1a10 !important;
+  background-color: #2d1a10 !important;
+}
+html body .social-bar *,
+html body .social-bar a,
+html body .social-link,
+html body .social-link span,
+html body section.social-bar a,
+html body section.social-bar span {
+  color: rgba(255,255,255,0.75) !important;
+}
+html body .social-link:hover,
+html body .social-bar a:hover {
+  color: #E8D4A0 !important;
+}
+
+/* FIX 2: Service nav active tab — white text on dark bg */
+html body .service-nav-btn.active,
+html body .service-nav-btn.active *,
+html body .service-nav-btn.active span {
+  color: #F5EDE3 !important;
+  background: #4A2218 !important;
+}
+
+/* FIX 3: Service nav inactive — dark text on light bg */
+html body .service-nav-btn:not(.active) {
+  color: #684034 !important;
+}
+
+/* FIX 4: Footer p in cartes-cadeaux — increase opacity */
+html body footer p,
+html body footer li,
+html body footer span:not(.logo-sub):not(.stone) {
+  color: rgba(255,255,255,0.82) !important;
+}
+
+/* FIX 5: Social link base opacity increase */
+html body .social-link {
+  color: rgba(255,255,255,0.78) !important;
+  opacity: 1 !important;
+}
+
+/* FIX 6: Mobile nav links — cream, all contexts */
+html body .mobile-nav .mobile-nav-links a,
+html body .mobile-nav .mobile-nav-links a span,
+html body .mobile-nav .mobile-nav-links a span[data-fr],
+html body .mobile-nav .mobile-nav-links li a {
+  color: #F2E6D9 !important;
+  opacity: 1 !important;
+}
+html body .mobile-nav .mobile-nav-links a.nav-sub,
+html body .mobile-nav .mobile-nav-links a.nav-sub span {
+  color: rgba(242,230,217,0.50) !important;
+}
+
+/* FIX 1: Mobile nav z-index must be above main nav (z-index:100) */
+html body .mobile-nav.open {
+  z-index: 200 !important;
+  position: fixed !important;
+  inset: 0 !important;
+}
+
+/* FIX 2: HEAD SPA — a without class gets color:#684034 from global rule */
+/* Override with maximum specificity for ALL mobile nav links */
+html body div.mobile-nav ul.mobile-nav-links li a,
+html body div.mobile-nav ul.mobile-nav-links li:first-child a,
+html body div#mobileNav ul.mobile-nav-links li a {
+  color: #F2E6D9 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+html body div.mobile-nav ul.mobile-nav-links li a.nav-sub,
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
+  color: rgba(242,230,217,0.50) !important;
+}
+
+
+/* ── FOOTER TEXT FIX: all text and links clearly white ── */
+html body footer,
+html body footer *,
+html body footer p,
+html body footer li,
+html body footer span,
+html body footer a,
+html body footer a:not([class]),
+html body footer .footer-col a,
+html body footer .footer-col ul li a,
+html body footer .footer-col ul li {
+  color: rgba(255,255,255,0.88) !important;
+}
+html body footer .footer-col h4 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+html body footer .logo-sub {
+  color: rgba(255,255,255,0.50) !important;
+}
+html body footer .footer-bottom span {
+  color: rgba(255,255,255,0.50) !important;
+}
+html body footer a:hover,
+html body footer .footer-col a:hover {
+  color: #F5C06A !important;
+}
+
+
+/* ── MOBILE HEADER SLIM + 3-LINE HAMBURGER ── */
+@media (max-width: 980px) {
+  html body nav {
+    padding: 0.65rem 1.2rem !important;
+    min-height: unset !important;
+  }
+  /* 3 thick rounded lines — reference image style */
+  html body nav .menu-btn {
+    width: 38px !important;
+    height: 38px !important;
+    gap: 5.5px !important;
+    padding: 0 !important;
+  }
+  html body nav .menu-btn::before,
+  html body nav .menu-btn::after {
+    width: 24px !important;
+    height: 2.8px !important;
+    border-radius: 4px !important;
+  }
+  html body nav .menu-btn span {
+    width: 24px !important;
+    height: 2.8px !important;
+    border-radius: 4px !important;
+  }
+  /* Middle line slightly shorter for elegance */
+  html body nav .menu-btn > span:nth-child(1),
+  html body nav .menu-btn > span:only-child {
+    width: 20px !important;
+  }
+}
+
+
+/* ── HAMBURGER: 3 spans only, hide ::before ::after ── */
+html body nav .menu-btn::before,
+html body nav .menu-btn::after {
+  display: none !important;
+  content: none !important;
+}
+html body nav .menu-btn span {
+  display: block !important;
+  height: 3px !important;
+  border-radius: 4px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+/* Top: short */
+html body nav .menu-btn span:nth-child(1) { width: 16px !important; }
+/* Middle: medium */
+html body nav .menu-btn span:nth-child(2) { width: 22px !important; }
+/* Bottom: long */
+html body nav .menu-btn span:nth-child(3) { width: 30px !important; }
+@media (max-width: 980px) {
+  html body nav .menu-btn {
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  html body nav .menu-btn span:nth-child(1) { width: 14px !important; }
+  html body nav .menu-btn span:nth-child(2) { width: 20px !important; }
+  html body nav .menu-btn span:nth-child(3) { width: 28px !important; }
+}
+
+
+/* ══ NAV ALWAYS READABLE FIX ══ */
+html body nav:not(.nav-scrolled):not(.nav-hidden) {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%) !important;
+}
+html body nav.nav-scrolled:not(.nav-hidden) {
+  background: rgba(240, 230, 218, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 1px 16px rgba(74,35,24,0.08) !important;
+}
+html body nav.nav-scrolled .logo-text,
+html body nav.nav-scrolled .logo-sub { color: #3a1e14 !important; }
+html body nav.nav-scrolled .menu-btn,
+html body nav.nav-scrolled .nav-search-btn { color: #3a1e14 !important; }
+html body nav.nav-scrolled .menu-btn span { background: #3a1e14 !important; }
+html body nav:not(.nav-scrolled) .logo-text { color: #ffffff !important; text-shadow: 0 1px 6px rgba(0,0,0,0.5) !important; }
+html body nav:not(.nav-scrolled) .logo-sub  { color: rgba(255,255,255,0.75) !important; }
+html body nav:not(.nav-scrolled) .menu-btn  { color: #ffffff !important; }
+html body nav:not(.nav-scrolled) .menu-btn span { background: #ffffff !important; }
+html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-back" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M9 11L5 7L9 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    Retour
+  </a>
+  <a class="logo" href="index.html">
+    <div class="logo-brand">
+      <span class="logo-text">SKINES</span>
+      <span class="logo-sub">Med Spa · Montréal</span>
+    </div>
+  </a>
+  <div class="nav-right"></div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" style="padding-top:80px">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-deco">Cadeau</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cartes Cadeaux · Gift Cards</p>
+    <h1 class="hero-title">Offrez<br><em style="color:var(--gold)">l'expérience.</em></h1>
+    <p class="hero-sub">Offrez à ceux que vous aimez une parenthèse de bien-être chez Skines — Head Spa, soins du visage ou épilation laser.</p>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 — SERVICE CARDS + SECTION 2 — FORM
+     Everything on one single page. User scrolls down.
+════════════════════════════════════════════════════════ -->
+<section class="gc-page" id="commander">
+
+  <!-- Page header -->
+  <div class="gc-header">
+    <p class="gc-eyebrow">Cartes Cadeaux</p>
+    <h2 class="gc-title">Le Parfait Cadeau<br><em>de Bien-être.</em></h2>
+    <p class="gc-subtitle">Sélectionnez un soin, personnalisez votre carte et envoyez-la en quelques secondes.</p>
+  </div>
+
+  <!-- ─── SECTION 1 : 9 service cards ─────────────────────────── -->
+
+  <!-- Row label: Head Spa -->
+  <div class="gc-cat-label"><span>🌿</span> Head Spa</div>
+  <div class="gc-grid">
+
+    <button class="gc-card" onclick="selectService(this,145)" data-price="145" data-name="Head Spa Signature · 60 min">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Head Spa</span>
+        <span class="gc-card-badge">Signature</span>
+      </div>
+      <div class="gc-card-price">$145</div>
+      <ul class="gc-card-features">
+        <li>Rituel cuir chevelu complet</li>
+        <li>Huile chauffante &amp; vapeur</li>
+        <li>Massage relaxant profond</li>
+      </ul>
+      <div class="gc-card-meta">60 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+    <button class="gc-card" onclick="selectService(this,185)" data-price="185" data-name="Head Spa Signature · 90 min">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Head Spa</span>
+        <span class="gc-card-badge gc-badge-gold">Prolongé</span>
+      </div>
+      <div class="gc-card-price">$185</div>
+      <ul class="gc-card-features">
+        <li>Expérience signature étendue</li>
+        <li>Soin du cuir chevelu intensif</li>
+        <li>Détente totale garantie</li>
+      </ul>
+      <div class="gc-card-meta">90 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+    <button class="gc-card" onclick="selectService(this,125)" data-price="125" data-name="Head Spa Focus · 60 min">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Head Spa</span>
+        <span class="gc-card-badge">Focus</span>
+      </div>
+      <div class="gc-card-price">$125</div>
+      <ul class="gc-card-features">
+        <li>Soin ciblé scalp &amp; racines</li>
+        <li>Massage crânien apaisant</li>
+        <li>Revitalisation complète</li>
+      </ul>
+      <div class="gc-card-meta">60 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+  </div>
+
+  <!-- Row label: Facial -->
+  <div class="gc-cat-label"><span>✨</span> Soins Visage</div>
+  <div class="gc-grid">
+
+    <button class="gc-card" onclick="selectService(this,145)" data-price="145" data-name="Luxury Facial · 60 min">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Facial</span>
+        <span class="gc-card-badge">Luxury</span>
+      </div>
+      <div class="gc-card-price">$145</div>
+      <ul class="gc-card-features">
+        <li>Hydratation &amp; éclat intense</li>
+        <li>Soin anti-âge personnalisé</li>
+        <li>Résultats visibles immédiatement</li>
+      </ul>
+      <div class="gc-card-meta">60 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+    <button class="gc-card" onclick="selectService(this,135)" data-price="135" data-name="Personalized Facial · 60 min">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Facial</span>
+        <span class="gc-card-badge">Sur Mesure</span>
+      </div>
+      <div class="gc-card-price">$135</div>
+      <ul class="gc-card-features">
+        <li>Diagnostic peau approfondi</li>
+        <li>Protocole 100% personnalisé</li>
+        <li>Soins adaptés à chaque peau</li>
+      </ul>
+      <div class="gc-card-meta">60 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+    <button class="gc-card" onclick="selectService(this,165)" data-price="165" data-name="HydraDermabrasion Bela MD+ · 75 min">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Facial</span>
+        <span class="gc-card-badge gc-badge-gold">Bela MD+</span>
+      </div>
+      <div class="gc-card-price">$165</div>
+      <ul class="gc-card-features">
+        <li>Technologie HydraDermabrasion</li>
+        <li>Exfoliation &amp; hydratation profonde</li>
+        <li>Peau lumineuse &amp; purifiée</li>
+      </ul>
+      <div class="gc-card-meta">75 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+  </div>
+
+  <!-- Row label: Laser -->
+  <div class="gc-cat-label"><span>⚡</span> Épilation Laser</div>
+  <div class="gc-grid">
+
+    <button class="gc-card" onclick="selectService(this,150)" data-price="150" data-name="Bikini + Aisselles">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Laser</span>
+        <span class="gc-card-badge">Duo</span>
+      </div>
+      <div class="gc-card-price">$150</div>
+      <ul class="gc-card-features">
+        <li>Bikini + Aisselles</li>
+        <li>Technologie Clarity II</li>
+        <li>Résultats durables</li>
+      </ul>
+      <div class="gc-card-meta">15 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+    <button class="gc-card" onclick="selectService(this,230)" data-price="230" data-name="Bikini + Aisselles + Demi-Jambes">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Laser</span>
+        <span class="gc-card-badge gc-badge-gold">Trio</span>
+      </div>
+      <div class="gc-card-price">$230</div>
+      <ul class="gc-card-features">
+        <li>Bikini + Aisselles + Demi-Jambes</li>
+        <li>Technologie Clarity II</li>
+        <li>Traitement express complet</li>
+      </ul>
+      <div class="gc-card-meta">30 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+    <button class="gc-card" onclick="selectService(this,190)" data-price="190" data-name="Dos Complet + Poitrine">
+      <div class="gc-card-header">
+        <span class="gc-card-tag">Laser</span>
+        <span class="gc-card-badge">Corps</span>
+      </div>
+      <div class="gc-card-price">$190</div>
+      <ul class="gc-card-features">
+        <li>Dos complet + Poitrine</li>
+        <li>Technologie Clarity II</li>
+        <li>Peau lisse durablement</li>
+      </ul>
+      <div class="gc-card-meta">40 min</div>
+      <div class="gc-card-btn">Sélectionner →</div>
+    </button>
+
+  </div>
+
+  <!-- Custom amount -->
+  <div class="gc-custom-row">
+    <input class="gc-custom-input" type="number" id="customAmount"
+      placeholder="Montant libre ($25 minimum)" min="25" max="9999">
+  </div>
+
+  <!-- Selected service indicator -->
+  <div class="gc-selection-bar" id="selectionBar" style="display:none">
+    <span class="gc-selection-icon">✓</span>
+    <span id="selectionLabel">Soin sélectionné</span>
+    <span class="gc-selection-price" id="selectionPrice"></span>
+  </div>
+
+  <!-- ─── SECTION 2 : Form ─────────────────────────────────────── -->
+  <div class="gc-form-section">
+    <div class="gc-form-title">
+      <span class="gc-form-title-line"></span>
+      Personnalisez votre carte
+      <span class="gc-form-title-line"></span>
+    </div>
+
+    <div class="gc-form">
+      <!-- Full-width: sender name -->
+      <input class="gc-field" type="text" id="fromName"
+        placeholder="Votre prénom (De la part de…)" autocomplete="given-name">
+
+      <!-- Two columns: recipient name + email -->
+      <div class="gc-row">
+        <input class="gc-field" type="text" id="toName"
+          placeholder="Prénom du destinataire" autocomplete="off">
+        <input class="gc-field" type="email" id="toEmail"
+          placeholder="Email du destinataire" autocomplete="email">
+      </div>
+
+      <!-- Full-width: personal message -->
+      <input class="gc-field" type="text" id="message"
+        placeholder="Message personnalisé (optionnel)">
+
+      <!-- Full-width: sender email -->
+      <input class="gc-field" type="email" id="yourEmail"
+        placeholder="Votre email (pour confirmation)" autocomplete="email">
+
+      <!-- Submit -->
+      <button class="gc-submit" type="button" onclick="submitOrder()">
+        ENVOYER LA CARTE CADEAU
+      </button>
+
+      <p class="gc-note">La carte est envoyée par email dans les 24h · Valable 12 mois · Tous les soins Skines</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="eyebrow">Comment ça marche</div>
+  <h2>Simple comme bonjour.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Choisissez un montant ou un soin</h3>
+        <p>Sélectionnez parmi nos cartes thématiques ou entrez un montant libre à partir de $25.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Personnalisez votre message</h3>
+        <p>Ajoutez le prénom du destinataire et un message chaleureux — on s'occupe du reste.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Reçu par email sous 24h</h3>
+        <p>Une carte cadeaux numérique est envoyée à l'email du destinataire avec le code d'activation.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Réservation chez Skines</h3>
+        <p>Le destinataire réserve son soin sur Fresha et mentionne son code cadeau lors du paiement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="eyebrow">Questions fréquentes</div>
+  <h2 style="margin-bottom:1.5rem">FAQ</h2>
+  <div class="faq-item">
+    <p class="faq-q">Quelle est la durée de validité ?</p>
+    <p class="faq-a">Toutes les cartes cadeaux sont valables 12 mois à partir de la date d'achat.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Peut-on utiliser la carte pour n'importe quel soin ?</p>
+    <p class="faq-a">Oui — la carte est valable sur tous les soins Skines : Head Spa, soins du visage et épilation laser.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">La carte est-elle remboursable ?</p>
+    <p class="faq-a">Les cartes cadeaux ne sont pas remboursables mais sont entièrement transférables à une autre personne.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Comment utiliser la carte lors de la réservation ?</p>
+    <p class="faq-a">Mentionnez votre code cadeau lors de la réservation sur Fresha ou appelez-nous directement au <a href="tel:+14382605660">438 260-5660</a>.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Puis-je offrir une carte en version physique ?</p>
+    <p class="faq-a">Contactez-nous directement — nous pouvons préparer une carte imprimée pour les achats en studio.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="logo" href="index.html" style="position:static;transform:none;justify-content:center;margin-bottom:1rem;display:flex">
+    <span class="footer-logo-text">SKINES</span>
+  </a>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;text-align:center;">La force de l'eau vient de la source<br>L'essentiel commence à la racine</p>
+  <p style="margin-top:0.5rem"><a href="tel:+14382605660">438 260-5660</a> · <a href="index.html">Retour à l'accueil</a></p>
+  <p style="margin-top:1.2rem;font-size:0.75rem;opacity:0.5;">
+    <a href="privacy-policy.html" style="color:inherit;text-decoration:none;margin:0 0.5rem;">Confidentialité</a> ·
+    <a href="terms-and-conditions.html" style="color:inherit;text-decoration:none;margin:0 0.5rem;">Conditions</a> ·
+    <a href="cookie-policy.html" style="color:inherit;text-decoration:none;margin:0 0.5rem;">Cookies</a>
+  </p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Header scroll color switch (subpages)
+(function() {
+  var nav = document.querySelector('nav');
+  if (!nav) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 40) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  }, { passive: true });
+})();
+
+let selectedAmount = null;
+let selectedServiceName = null;
+
+/* ── Select a service card ── */
+function selectService(card, price) {
+  // Deselect all cards
+  document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
+  // Select tapped card
+  card.classList.add('selected');
+  selectedAmount = price;
+  selectedServiceName = card.dataset.name || price;
+  // Fill custom input for visibility
+  const inp = document.getElementById('customAmount');
+  if (inp) { inp.value = price; inp.placeholder = 'Ou entrez un montant libre ($)'; }
+  // Show selection bar
+  const bar = document.getElementById('selectionBar');
+  if (bar) {
+    bar.style.display = 'flex';
+    document.getElementById('selectionLabel').textContent = card.dataset.name || 'Soin sélectionné';
+    document.getElementById('selectionPrice').textContent = '$' + price;
+  }
+}
+
+/* ── Legacy compat (gift-card buttons on top of page still call selectCard) ── */
+function setAmount(val) {
+  selectedAmount = val;
+  const inp = document.getElementById('customAmount');
+  if (inp) inp.value = val;
+  document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
+}
+function selectCard(name, amount) {
+  setAmount(amount);
+  selectedServiceName = name;
+  document.getElementById('commander').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ── Clear card selection when user types a custom amount ── */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    const inp = document.getElementById('customAmount');
+    if (!inp) return;
+    inp.addEventListener('input', function () {
+      if (inp.value) {
+        document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
+        selectedAmount = Number(inp.value) || null;
+        selectedServiceName = null;
+      }
+    });
+  });
+})();
+
+function showToast(msg, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.style.borderColor = isError ? '#e05252' : '#C9A96E';
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 5000);
+}
+
+async function submitOrder() {
+  const rawAmount = document.getElementById('customAmount').value || selectedAmount;
+  const fromName    = document.getElementById('fromName').value.trim();
+  const toName      = document.getElementById('toName').value.trim();
+  const toEmail     = document.getElementById('toEmail').value.trim();
+  const message     = document.getElementById('message').value.trim();
+  const senderEmail = document.getElementById('yourEmail').value.trim();
+
+  // Validation
+  if (!rawAmount || Number(rawAmount) < 25) {
+    showToast('⚠️ Choisissez un montant minimum de $25.', true); return;
+  }
+  if (!toName) {
+    showToast('⚠️ Indiquez le prénom du destinataire.', true); return;
+  }
+  if (!toEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(toEmail)) {
+    showToast('⚠️ Email du destinataire invalide.', true); return;
+  }
+  if (!senderEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail)) {
+    showToast('⚠️ Votre email de confirmation est invalide.', true); return;
+  }
+
+  const btn = document.querySelector('.gc-submit');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+
+  try {
+    const res = await fetch('/api/send-gift-card', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: `$${rawAmount}`,
+        fromName: fromName || 'Non précisé',
+        toName,
+        toEmail,
+        message,
+        senderEmail,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+
+    // Success
+    showToast('🎁 Commande envoyée ! Nous vous confirmons sous 24h.');
+    btn.textContent = '✓ ENVOYÉ';
+    btn.style.background = '#5a8a5a';
+
+    // Reset form after 3s
+    setTimeout(() => {
+      document.getElementById('fromName').value = '';
+      document.getElementById('toName').value = '';
+      document.getElementById('toEmail').value = '';
+      document.getElementById('message').value = '';
+      document.getElementById('yourEmail').value = '';
+      document.getElementById('customAmount').value = '';
+      document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
+      selectedAmount = null;
+      selectedServiceName = null;
+      btn.disabled = false;
+      btn.textContent = 'ENVOYER LA CARTE CADEAU';
+      btn.style.background = '';
+    }, 3000);
+
+  } catch (err) {
+    showToast('❌ ' + (err.message || 'Erreur. Réessayez ou appelez-nous.'), true);
+    btn.disabled = false;
+    btn.textContent = 'ENVOYER LA CARTE CADEAU';
+  }
+}
+
+// Mobile menu active highlight
+(function() {
+  var mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileLinks.forEach(function(l) { l.classList.remove('menu-active'); });
+      this.classList.add('menu-active');
+    });
+  });
+  // Auto-highlight current page
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  mobileLinks.forEach(function(link) {
+    var href = link.getAttribute('href') || '';
+    if (href === path || href.includes(path.replace('.html',''))) {
+      link.classList.add('menu-active');
+    }
+  });
+})();
+</script>
+</body>
+</html>
