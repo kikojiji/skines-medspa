@@ -7218,7 +7218,7 @@ html body #sp-stones img {
         <div class="card-img"><img src="assets/IMG_4654.jpg" alt="Head Spa"></div>
         <div class="card-body">
           <h3>Head Spa</h3>
-          <p>Nettoyage du cuir chevelu, massage relaxant et rituel inspiré du Japon.</p>
+          <p>Rituel japonais. Tensions libérées, système nerveux apaisé, cuir chevelu régénéré.</p>
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
@@ -7226,7 +7226,7 @@ html body #sp-stones img {
         <div class="card-img"><img src="assets/laser-hero.png" alt="Épilation laser Clarity II"></div>
         <div class="card-body">
           <h3>Épilation laser</h3>
-          <p>Technologie moderne, plusieurs zones disponibles et accompagnement personnalisé.</p>
+          <p>Technologie Clarity II. Résultats durables, peau soyeuse, confort absolu.</p>
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
@@ -7234,7 +7234,7 @@ html body #sp-stones img {
         <div class="card-img"><img src="assets/bela-facial.png" alt="Traitement Bela MD"></div>
         <div class="card-body">
           <h3>Advanced Skin Therapy</h3>
-          <p>Hydro-dermabrasion, infusion de sérums et soin personnalisé pour une peau lumineuse.</p>
+          <p>Infusion de sérums sur mesure. Texture affinée, éclat restauré, peau transformée.</p>
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
@@ -7243,7 +7243,7 @@ html body #sp-stones img {
         <div class="card-body">
           <span class="card-eyebrow">CADEAU BIEN-ÊTRE</span>
           <h3>Gift Cards</h3>
-          <p>Offrez une expérience de détente et de soin chez Skine's Med Spa.</p>
+          <p>Offrez un moment de grâce. Une attention qui se souvient longtemps.</p>
           <span class="card-link">Voir la carte</span>
         </div>
       </a>
@@ -8289,6 +8289,135 @@ html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) 
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+}
+
+/* ══════════════════════════════════════════
+   MOBILE POLISH — spacing, cards, reviews
+   ══════════════════════════════════════════ */
+
+/* — Section heading: tighter gap above and below — */
+#treatments .section-head {
+  padding-top: 2rem !important;
+  padding-bottom: 0.6rem !important;
+}
+html body section#treatments {
+  padding-top: 0 !important;
+}
+
+/* — Service grid: tighter card gap — */
+html body #treatments .service-grid {
+  gap: 1.1rem !important;
+  padding: 0 1rem 2.4rem !important;
+}
+
+/* — Service cards: tighter internal padding — */
+html body #treatments .service-card .card-body {
+  padding: 0.9rem 1rem 1.2rem !important;
+}
+html body #treatments .service-card h3 {
+  font-size: 1.28rem !important;
+  margin-bottom: 0.35rem !important;
+  line-height: 1.2 !important;
+}
+html body #treatments .service-card p {
+  font-size: 0.84rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0.8rem !important;
+}
+html body #treatments .service-card .card-link {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.20em !important;
+}
+
+/* — Card image height: slightly tighter — */
+html body #treatments .service-card .card-img {
+  aspect-ratio: 16 / 10 !important;
+}
+/* Gift card keeps its natural ratio */
+html body #treatments .service-card.card-giftcard .card-img {
+  aspect-ratio: unset !important;
+}
+
+/* — Bela feature: tighten content padding — */
+html body #bela-feature .bela-content {
+  padding: 1.8rem 1.4rem 2rem !important;
+}
+html body #bela-feature .bela-title {
+  font-size: 2.8rem !important;
+  line-height: 1.05 !important;
+}
+html body #bela-feature .bela-desc {
+  margin-top: 0.6rem !important;
+  margin-bottom: 1.4rem !important;
+  font-size: 0.82rem !important;
+  line-height: 1.6 !important;
+}
+
+/* — Booking band: tighter on mobile — */
+@media (max-width: 767px) {
+  .booking-band {
+    padding: 2.2rem 1.4rem 2.4rem !important;
+  }
+  .booking-band h2 {
+    font-size: 1.65rem !important;
+    line-height: 1.2 !important;
+  }
+  .booking-band p {
+    font-size: 0.88rem !important;
+    margin-top: 0.4rem !important;
+  }
+}
+
+/* — Reviews section: refined spacing — */
+.reviews {
+  padding-top: 2.8rem !important;
+  padding-bottom: 2.8rem !important;
+}
+.reviews .eyebrow {
+  font-size: 0.60rem !important;
+  letter-spacing: 0.32em !important;
+}
+.reviews .section-title {
+  font-size: 1.9rem !important;
+  margin-top: 0.5rem !important;
+  line-height: 1.2 !important;
+}
+.rating {
+  font-size: 0.72rem !important;
+  margin: 0.6rem 0 1.4rem !important;
+  letter-spacing: 0.14em !important;
+}
+
+/* — Review video cards: larger, more cinematic — */
+.review-circles {
+  padding: 0.4rem 1.2rem 1.2rem !important;
+  gap: 0.7rem !important;
+  margin-top: 0 !important;
+}
+.review-circle {
+  flex: 0 0 46vw !important;
+  max-width: 200px !important;
+}
+.review-circle-wrap {
+  border-radius: 18px !important;
+  box-shadow: 0 6px 24px rgba(58,30,20,0.18) !important;
+}
+
+/* — Reviews CTA buttons: slimmer and more editorial — */
+.reviews-cta {
+  gap: 0.7rem !important;
+  padding: 1.6rem 1.2rem 0 !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+.reviews-cta-btn {
+  padding: 0.7rem 1.6rem !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.20em !important;
+  border-radius: 2px !important;
+  width: 100% !important;
+  max-width: 280px !important;
+  justify-content: center !important;
 }
 </style>
 
