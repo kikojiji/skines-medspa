@@ -6803,6 +6803,49 @@ html body #treatments .service-card .card-eyebrow {
   color: #c9973a !important;
 }
 
+/* ══ Treatments section heading ══ */
+#treatments .section-head {
+  text-align: center;
+  padding: 2.8rem 1.6rem 1.6rem;
+}
+.treatments-eyebrow {
+  font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  font-size: 0.60rem;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #c9973a;
+  margin: 0 0 0.75rem;
+  opacity: 0.82;
+  display: block;
+}
+.treatments-title {
+  font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.10em;
+  color: #3a1e14;
+  margin: 0 0 1.2rem;
+  text-transform: uppercase;
+}
+.treatments-title em {
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #684034;
+  display: block;
+  font-size: 1.15em;
+}
+.treatments-rule {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9973a 40%, #c9973a 60%, transparent);
+  margin: 0 auto;
+  opacity: 0.50;
+}
+
 /* ══ Gift Card — full artwork, no crop ══ */
 html body #treatments .service-card.card-giftcard .card-img {
   aspect-ratio: unset !important;
@@ -7165,7 +7208,11 @@ html body #sp-stones img {
   </div>
 
   <section class="services" id="treatments">
-    <div class="section-head fade-up"></div>
+    <div class="section-head fade-up">
+      <p class="treatments-eyebrow">Soins &amp; Rituels</p>
+      <h2 class="treatments-title">Les Soins Signature<br><em>Skines</em></h2>
+      <div class="treatments-rule"></div>
+    </div>
     <div class="service-grid">
       <a class="service-card" href="head-spa.html">
         <div class="card-img"><img src="assets/IMG_4654.jpg" alt="Head Spa"></div>
