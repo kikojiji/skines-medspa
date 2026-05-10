@@ -113,7 +113,7 @@
   /* Transparent state — logo/links visible over dark hero */
   nav:not(.nav-scrolled) .logo-text {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     letter-spacing: 0.42em;
     font-weight: 400;
     color: #F5EDE3;
@@ -121,20 +121,21 @@
     padding-left: 0.42em;
   }
   nav:not(.nav-scrolled) .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: rgba(245,237,227,0.6);
     text-transform: uppercase;
     text-align: center;
     display: block;
-    padding-left: 0.32em;
+    padding-left: 0.28em;
+    margin-top: 0.15rem;
   }
   nav:not(.nav-scrolled) .nav-links a { color: rgba(245,240,234,0.88); }
   nav:not(.nav-scrolled) .nav-cta { background: transparent; color: var(--cream); border-color: rgba(245,240,234,0.42); }
   /* Scrolled state — brown text on cream */
   nav.nav-scrolled .logo-text {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     letter-spacing: 0.42em;
     font-weight: 400;
     color: #F5EDE3;
@@ -142,32 +143,30 @@
     padding-left: 0.42em;
   }
   nav.nav-scrolled .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: rgba(245,237,227,0.6);
     text-transform: uppercase;
     text-align: center;
     display: block;
-    padding-left: 0.32em;
+    padding-left: 0.28em;
+    margin-top: 0.15rem;
   }
   nav.nav-scrolled .nav-links a { color: var(--ink); }
-  nav.nav-scrolled .nav-cta { background: var(--brown); color: var(--cream); border-color: var(--brown); }
+  nav.nav-scrolled .nav-cta { background: #684034; color: var(--cream); border-color: var(--brown); }
   .logo, .footer-logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
   }
-  .logo-stones { width: 36px; height: 43px; position: relative; flex: 0 0 auto; }
-  .stone { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 50%; }
-  .stone-top { width: 12px; height: 8px; background: var(--sage); top: 0; }
-  .stone-mid { width: 23px; height: 14px; background: var(--primary); top: 10px; }
-  .stone-bot { width: 33px; height: 19px; background: var(--accent); top: 25px; }
+  .logo-stones { width: 36px; height: auto; flex: 0 0 auto; display: block; object-fit: contain; }
+  .stone { display: none; }
   .logo-video { height: 48px; width: auto; display: block; }
   .logo-img { height: 44px; width: auto; display: block; object-fit: contain; }
   .logo-text, .footer-logo-text {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     letter-spacing: 0.42em;
     font-weight: 400;
     color: #F5EDE3;
@@ -202,7 +201,7 @@
   }
   .nav-links a:hover { color: var(--accent); }
   .nav-cta, .btn-dark {
-    background: var(--brown);
+    background: #684034;
     color: var(--cream);
     border: 1px solid var(--brown);
     padding: 0.9rem 1.6rem;
@@ -234,13 +233,14 @@
     object-fit: cover;
     filter: saturate(0.88) contrast(0.95);
   }
-  /* Video starts invisible — fades in when ready, no thumbnail flash */
+  /* Video fades in via CSS — no JS dependency, works on Safari iOS */
   video.hero-bg {
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
-  video.hero-bg.video-ready {
     opacity: 1;
+    animation: heroVideoFadeIn 1.2s ease forwards;
+  }
+  @keyframes heroVideoFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
   .hero::before {
     content: "";
@@ -379,7 +379,7 @@
   }
   .trust-dot { color: var(--line); font-size: 1rem; }
   .marquee {
-    background: var(--brown);
+    background: #684034;
     color: var(--cream);
     overflow: hidden;
     white-space: nowrap;
@@ -525,7 +525,7 @@
   /* ────────────────────────────────────────────────────────── */
   .booking-band {
     padding: 3.3rem 4rem;
-    background: var(--brown);
+    background: #684034;
     border-top: none;
     border-bottom: none;
     display: flex;
@@ -648,7 +648,7 @@
     background: transparent;
     transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
   }
-  .reviews-cta-btn:hover { background: var(--brown); color: var(--cream); }
+  .reviews-cta-btn:hover { background: #684034; color: var(--cream); }
   .reviews-cta-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
   @media (max-width: 860px) { .testimonials { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .testimonials { grid-template-columns: 1fr; max-width: 480px; } }
@@ -713,53 +713,132 @@
     filter: saturate(0.78) contrast(0.94);
   }
   footer {
-    background: var(--brown);
+    background: #684034;
     color: var(--cream);
     padding: 4rem 4rem 2rem;
   }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2.5rem;
-    margin-bottom: 2.8rem;
+  /* ── FOOTER ── */
+  footer {
+    background: #684034;
+    padding: 3.4rem 2rem 2rem;
+    border-radius: 18px 18px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -10px 40px rgba(58,20,10,0.10);
   }
-  .footer-logo-text { color: var(--cream); }
+  /* Subtle film-grain noise for cinematic depth */
+  footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.032;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  /* top: logo */
+  .footer-top {
+    margin-bottom: 1.6rem;
+  }
+  .footer-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 0;
+  }
+  .footer-logo .logo-stones { height: 38px; width: auto; display: block; margin-bottom: 7px; opacity: 0.92; }
+  .footer-logo-text {
+    color: rgba(245,237,227,0.90);
+    font-size: 1.05rem;
+    letter-spacing: 0.32em;
+    font-weight: 500;
+  }
   .footer-logo .logo-sub {
-    font-size: 0.62rem;
+    font-size: 0.60rem;
     letter-spacing: 0.28em;
-    color: rgba(245,237,227,0.65);
+    color: rgba(245,237,227,0.42);
     text-transform: uppercase;
     display: block;
-    margin-top: 0.3rem;
+    margin-top: 0.22rem;
   }
-  .footer-tagline {
-    max-width: 330px;
-    margin-top: 1.1rem;
-    color: rgba(245,240,234,0.65);
-    font-family: "Cormorant Garamond", serif;
-    font-style: italic;
-    font-size: 1.05rem;
+  /* nav columns */
+  .footer-nav {
+    display: flex;
+    gap: 3.5rem;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    text-align: left;
   }
   .footer-col h4 {
-    color: var(--gold);
+    color: rgba(201,168,108,0.80);
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    font-size: 0.68rem;
-    margin-bottom: 1rem;
+    font-size: 0.63rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
   }
-  .footer-col ul { list-style: none; }
-  .footer-col li { margin-bottom: 0.55rem; color: rgba(245,237,227,0.62); font-size: 0.86rem; }
-  .footer-col a { text-decoration: none; color: rgba(245,237,227,0.62); }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom {
-    border-top: 1px solid rgba(245,240,234,0.12);
-    padding-top: 1.4rem;
+  .footer-col ul { list-style: none; padding: 0; }
+  .footer-col li { margin-bottom: 0.42rem; color: rgba(245,237,227,0.52); font-size: 0.83rem; }
+  .footer-col a { text-decoration: none; color: rgba(245,237,227,0.52); transition: color 0.25s; }
+  .footer-col a:hover { color: rgba(201,168,108,0.90); }
+  /* social */
+  .footer-social {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    color: rgba(245,240,234,0.45);
-    font-size: 0.78rem;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .footer-social a {
+    color: rgba(245,237,227,0.38);
+    display: flex;
+    align-items: center;
+    transition: color 0.25s;
+  }
+  .footer-social a:hover { color: rgba(201,168,108,0.85); }
+  /* legal */
+  .footer-bottom {
+    border-top: 1px solid rgba(245,237,227,0.08);
+    padding-top: 0.85rem;
+    width: 100%;
+    text-align: center;
+    color: rgba(245,237,227,0.32);
+    font-size: 0.63rem;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .footer-bottom a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .footer-bottom a:hover { color: rgba(245,237,227,0.52); }
+  @media (max-width: 600px) {
+    footer { padding: 2.8rem 1.4rem 1.6rem; border-radius: 14px 14px 0 0; }
+    .footer-nav { gap: 2.2rem; }
+    .footer-bottom { font-size: 0.60rem; letter-spacing: 0.025em; white-space: nowrap; }
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(245,237,227,0.08);
+    padding-top: 0.85rem;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    color: rgba(245,237,227,0.32);
+    font-size: 0.63rem;
   }
   .menu-btn {
     display: none;
@@ -878,7 +957,7 @@
   }
     .logo-text {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     letter-spacing: 0.42em;
     font-weight: 400;
     color: #F5EDE3;
@@ -886,13 +965,14 @@
     padding-left: 0.42em;
   }
     .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: rgba(245,237,227,0.6);
     text-transform: uppercase;
     text-align: center;
     display: block;
-    padding-left: 0.32em;
+    padding-left: 0.28em;
+    margin-top: 0.15rem;
   }
     .nav-links { gap: 2.6rem; }
     /* Book Now — quieter, outline style on desktop */
@@ -961,7 +1041,7 @@
     }
     nav.nav-scrolled .logo .logo-text {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     letter-spacing: 0.42em;
     font-weight: 400;
     color: #F5EDE3;
@@ -969,13 +1049,14 @@
     padding-left: 0.42em;
   }
     nav.nav-scrolled .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: rgba(245,237,227,0.6);
     text-transform: uppercase;
     text-align: center;
     display: block;
-    padding-left: 0.32em;
+    padding-left: 0.28em;
+    margin-top: 0.15rem;
   }
     nav.nav-scrolled .menu-btn { color: var(--ink); }
     nav.nav-scrolled .lang-btn { color: var(--stone); }
@@ -994,7 +1075,7 @@
   }
     .logo .logo-text {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
+    font-size: 2.0rem;
     letter-spacing: 0.42em;
     font-weight: 400;
     color: #F5EDE3;
@@ -1002,13 +1083,14 @@
     padding-left: 0.42em;
   }
     .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: rgba(245,237,227,0.6);
     text-transform: uppercase;
     text-align: center;
     display: block;
-    padding-left: 0.32em;
+    padding-left: 0.28em;
+    margin-top: 0.15rem;
   }
     .logo-stones { width: 32px; height: 38px; }
     .stone-top { width: 10px; height: 7px; }
@@ -1103,7 +1185,6 @@
 
     /* Footer */
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-    .footer-tagline { font-size: 0.95rem; }
   }
   @media (max-width: 560px) {
     /* Hide hero eyebrow on mobile */
@@ -1226,7 +1307,7 @@
       gap: 1rem;
     }
     .mobile-nav-footer .btn-dark {
-      background: var(--brown);
+      background: #684034;
       border-color: var(--brown);
       color: var(--cream);
       padding: 1.15rem;
@@ -1241,7 +1322,7 @@
     .mobile-nav-footer .mobile-contact { color: var(--stone); }
     .mobile-nav-footer .mobile-contact a { color: var(--brown); text-decoration: none; }
     /* Footer: brown background on mobile */
-    footer { background: var(--brown); }
+    footer { background: #684034; }
   }
   /* ── Language Switcher ─────────────────────────────────── */
   .lang-switcher {
@@ -1356,11 +1437,11 @@
   /* Footer (dark bg) */
   footer { color: #F5EDE3; }
   footer .footer-col h4 { color: #F5C06A; }
-  footer .footer-tagline { color: rgba(245,237,227,0.65); }
+  footer
   footer .footer-col li { color: rgba(245,237,227,0.62); }
   footer .footer-col a { color: rgba(245,237,227,0.62); }
   footer .footer-col a:hover { color: #F5C06A; }
-  footer .footer-bottom { color: rgba(245,237,227,0.45); }
+  footer .footer-bottom { color: rgba(245,240,234,0.28) !important; font-size: 0.64rem !important; letter-spacing: 0.04em !important; line-height: 1.5 !important; }
   /* Social bar (dark bg) */
   .social-link { color: rgba(245,237,227,0.70); }
   /* Nav logo always cream over dark hero */
@@ -1452,15 +1533,29 @@
   .price-cards-grid.list-view .price-block { margin-top: 0; }
   .price-cards-grid.list-view .price-card-cta { width: auto; white-space: nowrap; margin-top: 0; }
 
-  /* ══ MOBILE HERO: CINEMATIC FULLSCREEN ══ */
+  /* ══ MOBILE HERO: FULLSCREEN ══ */
   @media (max-width: 980px) {
     .hero, header.hero { min-height: 100svh !important; height: 100svh !important; }
-    /* Pure cinematic — hide all overlay text on mobile */
-    .hero-content { display: none !important; }
+    .hero-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: flex-end !important;
+      padding: 0 1.6rem 3.2rem !important;
+      gap: 0.9rem !important;
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 9vw, 3.6rem) !important;
+      line-height: 1.06 !important;
+      color: #F5EDE3 !important;
+    }
+    .hero-eyebrow { color: rgba(245,237,227,0.70) !important; }
+    .hero-sub { font-size: 0.78rem !important; color: rgba(245,237,227,0.75) !important; }
+    .hero-actions { flex-direction: row !important; gap: 0.7rem !important; flex-wrap: wrap !important; }
     .sound-toggle  { display: none !important; }
-    /* Subtle top-only dark gradient for nav readability */
+    /* Gradient for nav + content readability */
     .hero::before {
-      background: linear-gradient(180deg, rgba(0,0,0,0.40) 0%, transparent 30%) !important;
+      background: linear-gradient(180deg, rgba(0,0,0,0.38) 0%, transparent 28%, rgba(0,0,0,0.45) 75%, rgba(0,0,0,0.60) 100%) !important;
     }
   }
 
@@ -1939,7 +2034,7 @@ p { color: rgba(245,237,227,0.80) !important; }
 hr, .divider { border-color: rgba(245,237,227,0.10) !important; }
 
 /* Footer */
-footer { background: #3A1E14 !important; }
+footer { background: #684034 !important; }
 .footer-col h4, .footer-col-title { color: #F5C06A !important; }
 .footer-col li, .footer-col a { color: rgba(245,237,227,0.70) !important; }
 .footer-bottom { color: rgba(245,237,227,0.45) !important; border-top-color: rgba(245,237,227,0.08) !important; }
@@ -2171,10 +2266,10 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* Mobile nav — deep dark throughout */
   .mobile-nav,
   .mobile-nav-header,
-  .mobile-nav-footer { background: #3A1E14 !important; }
+  .mobile-nav-footer { background: #684034 !important; }
 
   /* Footer — deep dark */
-  footer { background: #3A1E14 !important; }
+  footer { background: #684034 !important; }
   footer * { color: rgba(245,237,227,0.72) !important; }
   footer h3, footer h4, .footer-logo-text { color: #F5EDE3 !important; }
   footer a:hover { color: #F5C06A !important; }
@@ -2781,7 +2876,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     }
 
     /* ─ 9. Color consistency ─ */
-    nav, footer { background: #3A1E14 !important; }
+    nav, footer { background: #684034 !important; }
     .booking-band, section.booking-band,
     .band, section.band,
     .technology-section, .products-section {
@@ -2959,12 +3054,11 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .mobile-lang-btn.active { color: #ba724a !important; border-color: #ba724a !important; background: rgba(186,114,74,0.10) !important; }
 
   /* ── FOOTER ── */
-  footer { background: #4a2e24 !important; }
+  footer { background: #684034 !important; }
   footer * { color: rgba(235,215,206,0.72) !important; }
   footer h3, footer h4, .footer-logo-text { color: #ebd7ce !important; }
   footer h4 { color: #ba724a !important; }
   footer a:hover { color: #ba724a !important; }
-  .footer-tagline { color: rgba(235,215,206,0.60) !important; }
   .footer-bottom { color: rgba(235,215,206,0.45) !important; border-top-color: rgba(235,215,206,0.08) !important; }
 
   /* ── SCROLL TO TOP ── */
@@ -3018,9 +3112,9 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .hero h1, header.hero h1 { color: #ebd7ce !important; }
   .hero .eyebrow { color: rgba(235,215,206,0.75) !important; }
 
-  /* ── MOBILE HERO: pure cinematic — text hidden on mobile ── */
+  /* ── MOBILE HERO ── */
   @media (max-width: 980px) {
-    .hero-content { display: none !important; }
+    .hero-content { display: flex !important; flex-direction: column !important; }
     .hero::before, header.hero::before {
       background: linear-gradient(180deg, rgba(0,0,0,0.40) 0%, transparent 30%) !important;
     }
@@ -4102,13 +4196,7 @@ html body .svc-price-orig { color: #ba724a !important; text-decoration: line-thr
     display: block !important;
     text-align: center !important;
   }
-  html body footer .footer-tagline {
-    text-align: center !important;
-    color: rgba(235,215,206,0.55) !important;
-    font-size: 0.82rem !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — REVERT TO ORIGINAL LEFT-ALIGNED ══ */
   html body footer .footer-grid > div:first-child {
@@ -4157,13 +4245,7 @@ html body .svc-price-orig { color: #ba724a !important; text-decoration: line-thr
     display: block !important;
     text-align: left !important;
   }
-  html body footer .footer-tagline {
-    text-align: left !important;
-    color: rgba(235,215,206,0.55) !important;
-    font-size: 0.82rem !important;
-    max-width: 320px !important;
-    margin: 0 !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — MATCH NAV STYLE ══ */
   html body footer .footer-logo-text,
@@ -4258,13 +4340,7 @@ html body .svc-price-orig { color: #ba724a !important; text-decoration: line-thr
     padding-left: 0.30em !important;
     margin-top: 0.25rem !important;
   }
-  html body footer .footer-tagline {
-    text-align: center !important;
-    font-size: 0.80rem !important;
-    color: rgba(235,215,206,0.50) !important;
-    max-width: 340px !important;
-    margin: 0.6rem auto 0 !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — SYMMETRIC TEXT UNDER SKINES ══ */
   html body footer .footer-grid > div:first-child {
@@ -4309,12 +4385,7 @@ html body .svc-price-orig { color: #ba724a !important; text-decoration: line-thr
     text-align: center !important;
     margin-top: 0.2rem !important;
   }
-  html body footer .footer-tagline {
-    text-align: left !important;
-    color: rgba(235,215,206,0.52) !important;
-    font-size: 0.82rem !important;
-    margin-top: 0.6rem !important;
-  }
+  html body footer
 
 /* ── Mobile nav header: flex logo left + back arrow right ── */
 html body .mobile-nav-header {
@@ -4786,7 +4857,7 @@ html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-li
 /* Footer override — must come right after to beat the rule above */
 html body footer a,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer a:hover,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
@@ -4796,14 +4867,14 @@ html body footer *,
 html body footer li,
 html body footer p,
 html body footer span:not(.stone) {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
 }
 html body footer .footer-bottom span,
 html body footer .logo-sub {
-  color: rgba(255,255,255,0.50) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 
 /* 8. ══ BUTTONS — gold bg ══ */
@@ -4917,7 +4988,7 @@ html body footer {
   color: #ffffff !important;
 }
 html body footer *:not(.btn-dark):not(.btn-light):not(.btn-warm) {
-  color: rgba(255,255,255,0.85) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-logo-text {
   color: #ffffff !important;
@@ -4988,7 +5059,7 @@ html body .price-tab-nav {
 
 /* 18. Hero — keep dark overlay readable */
 html body .hero {
-  background-color: rgba(58,53,48,0.55) !important;
+  background-color: #2C1810 !important;
 }
 html body .hero-title,
 html body .hero-eyebrow,
@@ -5712,27 +5783,26 @@ html body .mobile-nav-footer a.btn-dark:hover {
   html body nav .logo span.logo-text,
   html body nav:not(.nav-scrolled) .logo .logo-text,
   html body nav.nav-scrolled .logo .logo-text {
-    font-family: 'Jost', 'DM Sans', sans-serif !important;
-    font-weight: 300 !important;
-    font-size: 18px !important;
-    letter-spacing: 7px !important;
-    color: #4A2318 !important;
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 400 !important;
+    font-size: 2.0rem !important;
+    letter-spacing: 0.42em !important;
     text-transform: uppercase !important;
     line-height: 1 !important;
-    padding: 0 !important;
+    padding-left: 0.42em !important;
   }
   html body nav .logo .logo-sub,
   html body nav .logo span.logo-sub,
   html body nav:not(.nav-scrolled) .logo .logo-sub,
   html body nav.nav-scrolled .logo .logo-sub {
-    font-family: 'Jost', 'DM Sans', sans-serif !important;
-    font-weight: 300 !important;
-    font-size: 8px !important;
-    letter-spacing: 3px !important;
-    color: rgba(74,35,24,0.55) !important;
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 400 !important;
+    font-size: 0.58rem !important;
+    letter-spacing: 0.28em !important;
     text-transform: uppercase !important;
     display: block !important;
-    padding: 0 !important;
+    padding-left: 0.28em !important;
+    margin-top: 0.15rem !important;
     text-align: center !important;
   }
 
@@ -6008,7 +6078,7 @@ html body .social-link:hover {
 /* ── RULE 3: Footer (dark brown) ── */
 html body footer,
 html body footer * {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-logo-text,
 html body footer h2,
@@ -6293,13 +6363,10 @@ html body .mobile-nav .mobile-nav-links li {
   opacity: 1 !important;
 }
 /* ══ FOOTER — force ALL text white, no exceptions ══ */
-html body footer,
-html body footer .footer-grid,
-html body footer .footer-grid > div,
+html body footer { background: #684034 !important; }
 html body footer .footer-col,
 html body footer .footer-bottom {
-  background: #684034 !important;
-  color: #ffffff !important;
+  background: transparent !important;
 }
 
 /* Every text element in footer */
@@ -6313,12 +6380,12 @@ html body footer address,
 html body footer .footer-tagline,
 html body footer .footer-bottom span,
 html body footer .footer-col ul li {
-  color: rgba(255,255,255,0.82) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 
 /* Section headings: SOINS / INFO / RÉSEAUX */
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
   opacity: 1 !important;
 }
 
@@ -6327,7 +6394,7 @@ html body footer a,
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-logo {
-  color: rgba(255,255,255,0.75) !important;
+  color: rgba(245,237,227,0.65) !important;
   text-decoration: none !important;
 }
 html body footer a:hover,
@@ -6346,10 +6413,10 @@ html body footer .logo-sub {
 
 /* Footer bottom copyright / address */
 html body footer .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.12) !important;
+  border-top: 1px solid rgba(245,240,234,0.07) !important;
 }
 html body footer .footer-bottom span {
-  color: rgba(255,255,255,0.45) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 
 /* Stones in footer — keep their original colors */
@@ -6567,17 +6634,17 @@ html body footer a:not([class]),
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-col ul li {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
   opacity: 1 !important;
 }
 html body footer .logo-sub {
   color: rgba(255,255,255,0.50) !important;
 }
 html body footer .footer-bottom span {
-  color: rgba(255,255,255,0.50) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 html body footer a:hover,
 html body footer .footer-col a:hover {
@@ -6690,16 +6757,305 @@ html body nav:not(.nav-scrolled) .logo-sub  { color: rgba(255,255,255,0.75) !imp
 html body nav:not(.nav-scrolled) .menu-btn  { color: #ffffff !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: #ffffff !important; }
 html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
+
+/* ══ LAYOUT: Service cards — clean image top, text below ══ */
+html body #treatments .service-card {
+  aspect-ratio: unset !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: transparent !important;
+  box-shadow: 0 2px 16px rgba(58,30,20,0.10) !important;
+  border-radius: 12px !important;
+}
+html body #treatments .service-card::before { display: none !important; }
+html body #treatments .service-card .card-img {
+  position: relative !important;
+  inset: unset !important;
+  width: 100% !important;
+  height: unset !important;
+  aspect-ratio: 4 / 3 !important;
+  overflow: hidden !important;
+  border-radius: 12px 12px 0 0 !important;
+  flex-shrink: 0 !important;
+}
+html body #treatments .service-card .card-body {
+  position: static !important;
+  bottom: unset !important;
+  padding: 1rem 1.1rem 1.4rem !important;
+  background: transparent !important;
+}
+html body #treatments .service-card h3,
+html body section#treatments .service-card h3 {
+  color: #3a1e14 !important;
+  text-shadow: none !important;
+}
+html body #treatments .service-card p,
+html body section#treatments .service-card p {
+  color: rgba(58,30,20,0.68) !important;
+  text-shadow: none !important;
+}
+html body #treatments .service-card .card-link {
+  color: #3a1e14 !important;
+  border-color: rgba(58,30,20,0.30) !important;
+}
+html body #treatments .service-card .card-eyebrow {
+  color: #c9973a !important;
+}
+
+/* ══ Gift Card — full artwork, no crop ══ */
+html body #treatments .service-card.card-giftcard .card-img {
+  aspect-ratio: unset !important;
+  height: auto !important;
+  background: #f5ede3;
+}
+html body #treatments .service-card.card-giftcard .card-img img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  transform: none !important;
+}
+html body #treatments .service-card.card-giftcard:hover .card-img img {
+  transform: scale(1.02) !important;
+}
+
+/* ══ LAYOUT: Bela feature — clean image top, text below ══ */
+html body #bela-feature {
+  flex-direction: column !important;
+  min-height: unset !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+}
+html body #bela-feature .bela-slider-wrap {
+  position: relative !important;
+  inset: unset !important;
+  width: 100% !important;
+  aspect-ratio: 4 / 3 !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+html body #bela-feature .bela-overlay { display: none !important; }
+html body #bela-feature .bela-content {
+  position: static !important;
+  z-index: auto !important;
+  padding: 1.8rem 1.5rem 2rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+html body #bela-feature .bela-dots {
+  position: absolute !important;
+  bottom: 1rem !important;
+  right: 1rem !important;
+  z-index: 3 !important;
+}
+html body #bela-feature .bela-title,
+html body #bela-feature h2.bela-title,
+html body #bela-feature .bela-content .bela-title,
+html body #bela-feature .bela-content .bela-title em { color: #3a1e14 !important; }
+html body #bela-feature .bela-desc,
+html body #bela-feature p.bela-desc { color: rgba(58,30,20,0.72) !important; }
+html body #bela-feature .bela-eyebrow { color: rgba(58,30,20,0.55) !important; }
+html body #bela-feature a.bela-cta,
+html body #bela-feature .bela-cta { color: #3a1e14 !important; }/* PNG is 1024×1536 (2:3 portrait). Size by height, width auto.      */
+
+/* Base: nav desktop */
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 52px !important;
+  max-height: 52px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+  margin: 0 auto 4px !important;
+}
+
+/* Mobile nav header: slightly larger */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 60px !important;
+  max-height: 60px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo on dark bg: lighten stones to ivory */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav non-scrolled: keep full size */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  height: 52px !important;
+  max-height: 52px !important;
+}
+
+/* Nav scrolled: slightly smaller */
+html body nav.nav-scrolled img.logo-stones {
+  height: 44px !important;
+  max-height: 44px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 40px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.75) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── *//* PNG is 1024×1536 (2:3 portrait). Stones occupy ~60% of canvas.    */
+/* All sizes boosted to compensate for whitespace in the PNG.         */
+
+/* Base: nav desktop */
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 68px !important;
+  max-height: 68px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: much larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 110px !important;
+  max-height: 110px !important;
+  width: auto !important;
+  margin: 0 auto 2px !important;
+}
+
+/* Mobile nav header */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 80px !important;
+  max-height: 80px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo: invert to ivory on dark bg */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav non-scrolled */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  height: 68px !important;
+  max-height: 68px !important;
+}
+
+/* Nav scrolled: slightly smaller */
+html body nav.nav-scrolled img.logo-stones {
+  height: 56px !important;
+  max-height: 56px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 56px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.70) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* ── LOGO OFFICIEL PNG — unified size fix ────────────────────────── */
+/* Cropped PNG is 256×334 (3:4 ratio), no whitespace padding.        */
+
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 44px !important;
+  max-height: 44px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+  margin: 0 auto 6px !important;
+}
+
+/* Mobile nav header */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 52px !important;
+  max-height: 52px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo: invert to ivory on dark bg */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav scrolled: same size */
+html body nav.nav-scrolled img.logo-stones {
+  height: 40px !important;
+  max-height: 40px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 48px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.70) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── */
 </style>
 </head>
 <body>
   <nav>
     <a class="logo" href="index.html">
-      <div class="logo-stones">
-        <span class="stone stone-top"></span>
-        <span class="stone stone-mid"></span>
-        <span class="stone stone-bot"></span>
-      </div>
       <div class="logo-brand">
         <span class="logo-text">SKINES</span>
         <span class="logo-sub">Med Spa · Montréal</span>
@@ -6725,11 +7081,6 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
     <div class="mobile-nav-header">
       <a class="logo" href="index.html">
-        <div class="logo-stones">
-          <span class="stone stone-top"></span>
-          <span class="stone stone-mid"></span>
-          <span class="stone stone-bot"></span>
-        </div>
         <div class="logo-brand">
           <span class="logo-text">SKINES</span>
           <span class="logo-sub">Med Spa · Montréal</span>
@@ -6745,6 +7096,16 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
       <li><a href="#reviews" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
       <li><a href="#contact" class="nav-sub"><span data-fr="Contact & Adresse" data-en="Contact & Address">Contact & Adresse</span></a></li>
     </ul>
+
+    <!-- ── Tirage trigger in mobile menu ── -->
+    <div class="sp-menu-trigger-wrap">
+      <button id="sp-menu-trigger" class="sp-menu-trigger" aria-label="Tirage Exclusif">
+        <span class="sp-menu-trigger-lotus">✿</span>
+        <span class="sp-menu-trigger-label">EXPÉRIENCE EXCLUSIVE</span>
+        <span class="sp-menu-trigger-sub">Jusqu'à 50% · Places limitées</span>
+      </button>
+    </div>
+
     <div class="mobile-nav-footer">
       <a class="btn-dark" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
@@ -6767,8 +7128,8 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
       <h1 class="hero-title"><span data-fr="L'art de prendre" data-en="The Art of">L'art de prendre</span><br><em><span data-fr="soin." data-en="Care.">soin.</span></em></h1>
       <p class="hero-sub"><span data-fr="Head Spa · Épilation Laser · Soins du Visage" data-en="Head Spa · Laser · Facial Treatments">Head Spa · Épilation Laser · Soins du Visage</span></p>
       <div class="hero-actions hero-cta">
-        <a class="btn-light" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
-        <a class="btn-line" href="#treatments"><span data-fr="Découvrir" data-en="Discover">Découvrir</span></a>
+        <a class="btn-hero-glass" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
+        <a class="btn-hero-glass" href="cartes-cadeaux.html"><span data-fr="Carte Cadeau" data-en="Gift Cards">Carte Cadeau</span></a>
       </div>
     </div>
     <button class="sound-toggle" type="button" aria-label="Activer le son" aria-pressed="false">♪</button>
@@ -6830,8 +7191,8 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
-      <a class="service-card" href="cartes-cadeaux.html">
-        <div class="card-img"><img src="assets/IMG_4654.jpg" alt="Cartes Cadeaux"></div>
+      <a class="service-card card-giftcard" href="cartes-cadeaux.html">
+        <div class="card-img"><img src="assets/hero-gidtcart.PNG" alt="Cartes Cadeaux"></div>
         <div class="card-body">
           <span class="card-eyebrow">CADEAU BIEN-ÊTRE</span>
           <h3>Gift Cards</h3>
@@ -6842,7 +7203,7 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
     </div>
   </section>
 
-  <section class="bela-feature">
+  <section class="bela-feature" id="bela-feature">
     <div class="bela-slider-wrap">
       <div class="bela-slide active">
         <img src="assets/bela-facial.png" alt="Traitement Bela MD — hydro-dermabrasion">
@@ -6853,18 +7214,17 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
       <div class="bela-slide">
         <img src="assets/laser-legs-w.png" alt="Éclat peau Bela MD">
       </div>
+      <div class="bela-dots">
+        <button class="bela-dot active" aria-label="Image 1"></button>
+        <button class="bela-dot" aria-label="Image 2"></button>
+        <button class="bela-dot" aria-label="Image 3"></button>
+      </div>
     </div>
-    <div class="bela-overlay"></div>
     <div class="bela-content">
       <div class="bela-eyebrow">BELA MD</div>
       <h2 class="bela-title">Advanced<br>Facial<br><em>Treatments</em></h2>
       <p class="bela-desc">Luxury Facial · Personalized Facial · HydraDermabrasion Bela MD+ · Chemical Peel · Back Facial</p>
       <a class="bela-cta" href="facial.html">Voir les soins</a>
-    </div>
-    <div class="bela-dots">
-      <button class="bela-dot active" aria-label="Image 1"></button>
-      <button class="bela-dot" aria-label="Image 2"></button>
-      <button class="bela-dot" aria-label="Image 3"></button>
     </div>
   </section>
 
@@ -6980,21 +7340,17 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
   </section>
 
   <footer>
-    <div class="footer-grid">
-      <div style="text-align:center;">
-        <a class="footer-logo" href="index.html" style="justify-content:center;">
-          <div class="logo-stones">
-            <span class="stone stone-top"></span>
-            <span class="stone stone-mid"></span>
-            <span class="stone stone-bot"></span>
-          </div>
-          <div class="logo-brand">
-            <span class="footer-logo-text">SKINES</span>
-            <span class="logo-sub">Med Spa · Montréal</span>
-          </div>
-        </a>
-        <p class="footer-tagline" style="max-width:none;margin-left:auto;margin-right:auto;">La force de l'eau vient de la source<br>L'essentiel commence à la racine</p>
-      </div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="footer-logo" href="index.html">
+        <img src="assets/images/logo-officiel-cropped.PNG" class="logo-stones" alt="Skines logo">
+        <div class="logo-brand">
+          <span class="footer-logo-text">SKINES</span>
+          <span class="logo-sub">Med Spa · Montréal</span>
+        </div>
+      </a>
+    </div>
+    <div class="footer-nav">
       <div class="footer-col">
         <h4>Soins</h4>
         <ul>
@@ -7008,309 +7364,28 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
         <h4>Info</h4>
         <ul>
           <li><a href="reviews.html">Avis clients</a></li>
-          <li><a href="#contact">Adresse</a></li>
-          <li>Stationnement disponible</li>
+          <li><a href="index.html#contact">Adresse</a></li>
+          <li>Parking privé</li>
           <li>Assurance disponible</li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Réseaux</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer">Instagram · 29K</a></li>
-          <li><a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer">TikTok · 12K</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer">Facebook</a></li>
-          <li><a href="https://www.threads.com/@skines.ca" target="_blank" rel="noreferrer">Threads</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <ul>
-          <li><a href="privacy-policy.html">Confidentialité</a></li>
-          <li><a href="terms-and-conditions.html">Conditions</a></li>
-          <li><a href="cookie-policy.html">Cookies</a></li>
-          <li style="margin-top:0.9rem;font-size:0.7rem;letter-spacing:0.06em;opacity:0.50;line-height:1.5;">Connexion sécurisée<br>HTTPS · Données protégées</li>
-        </ul>
-      </div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Skines Spa · All rights reserved</span>
-      <span><a href="privacy-policy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Confidentialité</a> · <a href="terms-and-conditions.html" style="color:inherit;opacity:0.7;text-decoration:none;">Conditions</a> · <a href="cookie-policy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Cookies</a></span>
+      <span>© 2026 Skines Spa · <a href="privacy-policy.html">Confidentialité</a> · <a href="terms-and-conditions.html">Conditions</a> · <a href="cookie-policy.html">Cookies</a></span>
     </div>
-  </footer>
-  <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-<script>
-    const heroVideo = document.getElementById("heroVideo");
-    const soundToggle = document.querySelector(".sound-toggle");
-
-    // Fade video in once it can play — prevents thumbnail/poster flash
-    heroVideo.addEventListener('canplay', function () {
-      heroVideo.classList.add('video-ready');
-    }, { once: true });
-
-    // Handle already-ready state (cached)
-    if (heroVideo.readyState >= 3) {
-      heroVideo.classList.add('video-ready');
-    }
-
-    // Safari iOS: ensure muted + playsinline are set via JS too
-    heroVideo.muted = true;
-    heroVideo.setAttribute('playsinline', '');
-    heroVideo.setAttribute('webkit-playsinline', '');
-
-    // Force play immediately
-    function tryPlay() {
-      var p = heroVideo.play();
-      if (p !== undefined) {
-        p.then(function() {
-          heroVideo.classList.add('video-ready');
-        }).catch(function() {
-          // Autoplay blocked by browser policy — show first frame
-          heroVideo.classList.add('video-ready');
-        });
-      } else {
-        heroVideo.classList.add('video-ready');
-      }
-    }
-    tryPlay();
-
-    // Fallback: show video after 1s regardless (handles slow canplay on slow connections)
-    setTimeout(function() {
-      heroVideo.classList.add('video-ready');
-    }, 1000);
-
-    // Safari iOS fallback: retry play on first user touch/scroll (gesture unlocks autoplay)
-    var mobilePlayFired = false;
-    function mobilePlayRetry() {
-      if (mobilePlayFired) return;
-      mobilePlayFired = true;
-      if (heroVideo.paused) { tryPlay(); }
-      document.removeEventListener('touchstart', mobilePlayRetry);
-      document.removeEventListener('scroll', mobilePlayRetry);
-    }
-    document.addEventListener('touchstart', mobilePlayRetry, { passive: true, once: true });
-    document.addEventListener('scroll', mobilePlayRetry, { passive: true, once: true });
-
-    // Retry on window load (video may not be ready at DOMContentLoaded)
-    window.addEventListener('load', function() {
-      if (heroVideo.paused) { tryPlay(); }
-    });
-
-    // Retry when user returns to tab (tab switching can pause Safari video)
-    document.addEventListener('visibilitychange', function() {
-      if (!document.hidden && heroVideo.paused) { tryPlay(); }
-    });
-
-    function updateSoundButton() {
-      soundToggle.setAttribute("aria-pressed", String(!heroVideo.muted));
-      soundToggle.setAttribute("aria-label", heroVideo.muted ? "Activer le son" : "Couper le son");
-      soundToggle.textContent = heroVideo.muted ? "♪" : "×";
-    }
-
-    soundToggle.addEventListener("click", () => {
-      heroVideo.muted = !heroVideo.muted;
-      heroVideo.play();
-      updateSoundButton();
-      updateMobileMute();
-    });
-
-    // Mobile mute button
-    const mobileMuteBtn = document.getElementById("mobileMuteBtn");
-    function updateMobileMute() {
-      if (!mobileMuteBtn) return;
-      mobileMuteBtn.classList.toggle("unmuted", !heroVideo.muted);
-      mobileMuteBtn.setAttribute("aria-pressed", String(!heroVideo.muted));
-      mobileMuteBtn.setAttribute("aria-label", heroVideo.muted ? "Activer le son" : "Couper le son");
-    }
-    if (mobileMuteBtn) {
-      mobileMuteBtn.addEventListener("click", () => {
-        heroVideo.muted = !heroVideo.muted;
-        heroVideo.play();
-        updateMobileMute();
-        updateSoundButton();
-      });
-    }
-
-    const menuBtn = document.getElementById("menuBtn");
-    const menuClose = document.getElementById("menuClose");
-    const mobileNav = document.getElementById("mobileNav");
-
-    function openMenu() {
-      mobileNav.classList.add("open");
-      menuBtn.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      mobileNav.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    }
-
-    menuBtn.addEventListener("click", openMenu);
-    menuClose.addEventListener("click", closeMenu);
-
-    mobileNav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", closeMenu);
-    });
-
-    // ── Language Switcher ──────────────────────────────────
-    function applyLang(lang) {
-      document.querySelectorAll("[data-fr]").forEach(el => {
-        el.textContent = lang === "fr" ? el.dataset.fr : (el.dataset.en || el.dataset.fr);
-      });
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
-      localStorage.setItem("skines-lang", lang);
-    }
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-      btn.addEventListener("click", () => applyLang(btn.dataset.lang));
-    });
-    applyLang(localStorage.getItem("skines-lang") || "fr");
-
-    // BOOKING BAND — force text colors after lang apply
-    (function fixBookingColors() {
-      const bb = document.querySelector('.booking-band');
-      if (!bb) return;
-      const h2 = bb.querySelector('h2');
-      const p  = bb.querySelector('p');
-      if (h2) { h2.style.setProperty('color', '#684034', 'important'); h2.querySelectorAll('span').forEach(s => s.style.setProperty('color', '#684034', 'important')); }
-      if (p)  { p.style.setProperty('color', '#605c59', 'important');  p.querySelectorAll('span').forEach(s => s.style.setProperty('color', '#605c59', 'important')); }
-    })();
-
-    // Nav: transparent at top, appears with background on scroll (same as all pages)
-    (function() {
-      var nav = document.querySelector('nav');
-      if (!nav) return;
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 40) {
-          nav.classList.add('nav-scrolled');
-        } else {
-          nav.classList.remove('nav-scrolled');
-        }
-      }, { passive: true });
-    })();
-
-  
-  // Scroll to top
-  (function() {
-    var btn = document.getElementById('scrollTop');
-    if (!btn) return;
-    window.addEventListener('scroll', function() {
-      btn.classList.toggle('visible', window.scrollY > 300);
-    }, { passive: true });
-    btn.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
-
-  // Bela feature slider
-  (function() {
-    const belaSlides = document.querySelectorAll(".bela-slide");
-    const belaDots   = document.querySelectorAll(".bela-dot");
-    if (belaSlides.length > 1) {
-      let belaIdx = 0;
-      const belaNext = () => {
-        belaSlides[belaIdx].classList.remove("active");
-        belaDots[belaIdx].classList.remove("active");
-        belaIdx = (belaIdx + 1) % belaSlides.length;
-        belaSlides[belaIdx].classList.add("active");
-        belaDots[belaIdx].classList.add("active");
-      };
-      let belaTimer = setInterval(belaNext, 4800);
-      belaDots.forEach((dot, i) => dot.addEventListener("click", () => {
-        clearInterval(belaTimer);
-        belaSlides[belaIdx].classList.remove("active");
-        belaDots[belaIdx].classList.remove("active");
-        belaIdx = i;
-        belaSlides[belaIdx].classList.add("active");
-        belaDots[belaIdx].classList.add("active");
-        belaTimer = setInterval(belaNext, 4800);
-      }));
-    }
-  })();
-
-  // Review circle video click-to-play
-  /* ── Video carousel mouse drag ── */
-  (function() {
-    var carousel = document.querySelector('.review-circles');
-    if (!carousel) return;
-    var isDown = false, startX, scrollLeft;
-    carousel.addEventListener('mousedown', function(e) {
-      isDown = true; carousel.classList.add('dragging');
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
-    carousel.addEventListener('mouseleave', function() { isDown = false; carousel.classList.remove('dragging'); });
-    carousel.addEventListener('mouseup', function() { isDown = false; carousel.classList.remove('dragging'); });
-    carousel.addEventListener('mousemove', function(e) {
-      if (!isDown) return;
-      e.preventDefault();
-      var x = e.pageX - carousel.offsetLeft;
-      carousel.scrollLeft = scrollLeft - (x - startX) * 1.2;
-    });
-  })();
-
-  document.querySelectorAll(".review-circle-wrap").forEach(wrap => {
-    const vid = wrap.querySelector("video");
-    if (!vid) return;
-    wrap.addEventListener("click", () => {
-      if (vid.paused) {
-        document.querySelectorAll(".review-circle-wrap video").forEach(v => {
-          v.pause();
-          v.closest(".review-circle-wrap").classList.remove("playing");
-        });
-        vid.play();
-        wrap.classList.add("playing");
-      } else {
-        vid.pause();
-        wrap.classList.remove("playing");
-      }
-    });
-  });
-
-  // Mobile menu lang buttons
-  document.querySelectorAll(".mobile-lang-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const lang = btn.dataset.lang;
-      document.querySelectorAll(".lang-btn, .mobile-lang-btn").forEach(b => {
-        b.classList.toggle("active", b.dataset.lang === lang);
-      });
-      document.querySelectorAll("[data-fr]").forEach(el => {
-        el.textContent = lang === "fr" ? el.dataset.fr : el.dataset.en;
-      });
-    });
-  });
-
-</script>
-
-
-<!-- ══ SEARCH OVERLAY ══════════════════════════════════════════════════════ -->
-<div id="searchOverlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Recherche">
-  <div class="search-overlay-inner">
-    <div class="search-bar-row">
-      <svg class="search-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="searchInput" class="search-input" type="search" placeholder="Rechercher un soin, prix, info…" autocomplete="off" spellcheck="false" enterkeyhint="search">
-      <button class="search-close-btn" id="searchClose" aria-label="Fermer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div id="searchSuggestions" class="search-suggestions">
-      <div class="search-pill-row">
-        <button class="search-pill" data-q="head spa">Head Spa</button>
-        <button class="search-pill" data-q="laser">Laser</button>
-        <button class="search-pill" data-q="facial">Facial</button>
-        <button class="search-pill" data-q="prix">Prix</button>
-        <button class="search-pill" data-q="réserver">Réserver</button>
-        <button class="search-pill" data-q="assurance">Assurance</button>
-        <button class="search-pill" data-q="adresse">Adresse</button>
-      </div>
-    </div>
-    <div id="searchResults" class="search-results"></div>
   </div>
-</div>
+</footer>
 <script>
 /* ══ SITE SEARCH ENGINE ═══════════════════════════════════════════════════ */
 (function() {
@@ -7365,7 +7440,7 @@ const DB = [
   { icon:"🗺️", cat:"Info", name:"Google Maps – Itinéraire", meta:"Ouvrir dans Maps", price:"", tag:"maps google plan itinéraire chemin où aller direction", url:"https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z" },
   { icon:"📞", cat:"Info", name:"Téléphone – +1 (438) 260-5660", meta:"Appeler Skines Spa", price:"", tag:"téléphone phone appel contact numéro 438", url:"tel:+14382605660" },
   { icon:"📧", cat:"Info", name:"Email – Info@skines.ca", meta:"Envoyer un email", price:"", tag:"email mail courriel contact info", url:"mailto:Info@skines.ca" },
-  { icon:"🅿️", cat:"Info", name:"Stationnement disponible", meta:"Parking gratuit à proximité", price:"Gratuit", tag:"stationnement parking gratuit voiture garer", url:"index.html#contact" },
+  { icon:"🅿️", cat:"Info", name:"Parking privé", meta:"Parking gratuit à proximité", price:"Gratuit", tag:"stationnement parking gratuit voiture garer", url:"index.html#contact" },
   { icon:"🏥", cat:"Info", name:"Reçu d'assurance disponible", meta:"Valide pour remboursement", price:"", tag:"assurance insurance reçu remboursement couverture médecin", url:"index.html#contact" },
   { icon:"🎁", cat:"Info", name:"Cartes Cadeaux", meta:"Offrir une expérience Skines", price:"", tag:"carte cadeau gift card cadeau offrir ami anniversaire", url:"index.html#contact" },
   { icon:"⭐", cat:"Info", name:"Avis clients – 4.8★ sur Fresha", meta:"Voir tous les avis", price:"", tag:"avis review note 4.8 fresha google clients", url:"reviews.html" },
@@ -7430,58 +7505,67 @@ function renderSuggestions() {
 }
 
 // Overlay open/close
-const overlay = document.getElementById("searchOverlay");
-const input   = document.getElementById("searchInput");
-const closeBtn = document.getElementById("searchClose");
-const suggestBox = document.getElementById("searchSuggestions");
-
 function openSearch() {
+  var overlay = document.getElementById("searchOverlay");
+  var input   = document.getElementById("searchInput");
+  if (!overlay) return;
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
-  setTimeout(() => input && input.focus(), 120);
+  setTimeout(function() { if (input) input.focus(); }, 120);
 }
 function closeSearch() {
+  var overlay  = document.getElementById("searchOverlay");
+  var input    = document.getElementById("searchInput");
+  var suggestBox = document.getElementById("searchSuggestions");
+  if (!overlay) return;
   overlay.classList.remove("open");
   document.body.style.overflow = "";
   if (input) { input.value = ""; }
-  if (document.getElementById("searchResults")) document.getElementById("searchResults").innerHTML = "";
+  var res = document.getElementById("searchResults");
+  if (res) res.innerHTML = "";
   if (suggestBox) suggestBox.style.display = "";
 }
 
-// Wire search button(s) — all pages
-document.querySelectorAll("#searchBtn").forEach(btn => btn.addEventListener("click", openSearch));
-if (closeBtn) closeBtn.addEventListener("click", closeSearch);
-overlay && overlay.addEventListener("click", e => { if (e.target === overlay) closeSearch(); });
+// Wire all search interactions after DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  var closeBtn   = document.getElementById("searchClose");
+  var input      = document.getElementById("searchInput");
+  var suggestBox = document.getElementById("searchSuggestions");
 
-// Live search
-let debounceTimer;
-input && input.addEventListener("input", () => {
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => {
-    const q = input.value.trim();
-    if (!q) {
-      renderResults([], "");
-      if (suggestBox) suggestBox.style.display = "";
-      document.getElementById("searchResults").innerHTML = "";
-    } else {
+  document.querySelectorAll("#searchBtn").forEach(function(btn) { btn.addEventListener("click", openSearch); });
+  if (closeBtn) closeBtn.addEventListener("click", closeSearch);
+  document.addEventListener("click", function(e) { var ov = document.getElementById("searchOverlay"); if (ov && e.target === ov) closeSearch(); });
+
+  if (input) {
+    var debounceTimer;
+    input.addEventListener("input", function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function() {
+        var q = input.value.trim();
+        if (!q) {
+          renderResults([], "");
+          if (suggestBox) suggestBox.style.display = "";
+          var res = document.getElementById("searchResults");
+          if (res) res.innerHTML = "";
+        } else {
+          if (suggestBox) suggestBox.style.display = "none";
+          renderResults(search(q), q);
+        }
+      }, 180);
+    });
+  }
+
+  document.querySelectorAll(".search-pill").forEach(function(pill) {
+    pill.addEventListener("click", function() {
+      if (!input) return;
+      input.value = pill.dataset.q;
       if (suggestBox) suggestBox.style.display = "none";
-      renderResults(search(q), q);
-    }
-  }, 180);
-});
-
-// Pills
-document.querySelectorAll(".search-pill").forEach(pill => {
-  pill.addEventListener("click", () => {
-    if (!input) return;
-    input.value = pill.dataset.q;
-    if (suggestBox) suggestBox.style.display = "none";
-    renderResults(search(pill.dataset.q), pill.dataset.q);
+      renderResults(search(pill.dataset.q), pill.dataset.q);
+    });
   });
 });
 
-// ESC key
-document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay && overlay.classList.contains("open")) closeSearch(); });
+document.addEventListener("keydown", function(e) { var ov = document.getElementById("searchOverlay"); if (e.key === "Escape" && ov && ov.classList.contains("open")) closeSearch(); });
 })();
 
 /* ── GSAP + LENIS ANIMATIONS ── */
@@ -7601,27 +7685,38 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay &&
 })();
 </script>
 <script>
-/* Patch: hide main nav when mobile menu opens, restore on close */
+/* ── Mobile nav open/close ── */
 (function() {
   var menuBtn   = document.getElementById('menuBtn');
   var menuClose = document.getElementById('menuClose');
   var mobileNav = document.getElementById('mobileNav');
-  var mainNav   = document.querySelector('nav:not(#mobileNav)');
-  if (!menuBtn || !mainNav || !mobileNav) return;
+  var mainNav   = document.querySelector('nav');
+  if (!menuBtn || !mobileNav) return;
 
-  function hideMainNav() {
-    mainNav.style.cssText += ';visibility:hidden!important;opacity:0!important;pointer-events:none!important;';
-  }
-  function showMainNav() {
-    mainNav.style.visibility = '';
-    mainNav.style.opacity    = '';
-    mainNav.style.pointerEvents = '';
+  var heroContent = document.querySelector('.hero-content');
+  var searchBtn   = document.getElementById('searchBtn');
+
+  function openMenu() {
+    mobileNav.classList.add('open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    // display:none on nav — cannot be overridden by children, fully removes from stacking
+    if (mainNav) mainNav.style.display = 'none';
+    if (heroContent) heroContent.classList.add('menu-open');
   }
 
-  menuBtn.addEventListener('click', hideMainNav);
-  if (menuClose) menuClose.addEventListener('click', showMainNav);
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (mainNav) mainNav.style.display = '';
+    if (heroContent) heroContent.classList.remove('menu-open');
+  }
+
+  menuBtn.addEventListener('click', openMenu);
+  if (menuClose) menuClose.addEventListener('click', closeMenu);
   mobileNav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', showMainNav);
+    a.addEventListener('click', closeMenu);
   });
 })();
 </script>
@@ -7692,5 +7787,686 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay &&
 })();
 </script>
 
+
+
+
+<!-- ══ LUXURY TIRAGE POPUP ══════════════════════════════════════════════════ -->
+<style>
+/* ── mobile menu trigger ── */
+.sp-menu-trigger-wrap {
+  padding: 18px 24px 10px;
+}
+.sp-menu-trigger {
+  width: 100%;
+  background: rgb(232,211,163);
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  position: relative; overflow: hidden;
+  transition: background 0.25s, box-shadow 0.25s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+.sp-menu-trigger::before { display: none; }
+.sp-menu-trigger:hover { background: rgb(220,198,148); }
+.sp-menu-trigger-lotus { display: none; }
+.sp-menu-trigger-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: #3A1E14; font-weight: 600;
+}
+.sp-menu-trigger-sub {
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(58,30,20,0.6); font-weight: 400;
+}
+
+/* ── overlay ── */
+#sp-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(16,9,5,0.70);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+#sp-overlay.sp-visible { opacity: 1; pointer-events: all; }
+
+/* ── card ── */
+#sp-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  width: 90vw; max-width: 360px;
+  box-shadow: 0 40px 100px rgba(10,5,2,0.55), 0 4px 20px rgba(182,106,90,0.15);
+  transform: scale(0.93) translateY(22px);
+  transition: transform 0.52s cubic-bezier(.16,.9,.32,1), opacity 0.45s ease;
+  opacity: 0;
+}
+#sp-overlay.sp-visible #sp-card { transform: scale(1) translateY(0); opacity: 1; }
+
+/* ── full-bleed image background ── */
+#sp-img-bg {
+  position: relative;
+  width: 100%; aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+#sp-img-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 20%; display: block;
+}
+/* warm cinematic overlay */
+#sp-img-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    170deg,
+    rgba(16,8,4,0.22) 0%,
+    rgba(16,8,4,0.10) 40%,
+    rgba(42,20,12,0.55) 75%,
+    rgba(30,14,8,0.88) 100%
+  );
+}
+/* content sits on top of the overlay */
+#sp-img-content {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding: 0 24px 28px;
+  text-align: center;
+}
+
+/* badge — inline in content, subtle */
+#sp-badge-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(248,235,220,0.13);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(200,154,144,0.28);
+  border-radius: 30px; padding: 5px 13px;
+  margin-bottom: 14px;
+}
+#sp-badge-pill .bp-pct {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem; font-weight: 700; line-height: 1;
+  color: #F2DDD8;
+}
+#sp-badge-pill .bp-label {
+  font-size: 8px; letter-spacing: 0.20em; text-transform: uppercase;
+  color: rgba(242,221,216,0.72); font-weight: 500;
+}
+
+/* stones */
+#sp-stones { margin-bottom: 6px; }
+#sp-stones svg { width: 22px; }
+
+html body #sp-overlay .sp-brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem; letter-spacing: 0.38em; text-transform: uppercase;
+  color: rgba(245,237,227,0.90) !important; font-weight: 500; margin: 0 0 3px;
+}
+.sp-brand-sub {
+  font-size: 7.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(200,154,144,0.70); font-weight: 500; margin-bottom: 14px; display: block;
+}
+html body #sp-overlay .sp-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem; font-weight: 300; line-height: 1.08;
+  color: #F5EDE3 !important; margin: 0 0 8px; letter-spacing: 0.02em;
+}
+html body #sp-overlay .sp-title em { font-style: italic; color: #E8C4B0 !important; }
+html body #sp-overlay .sp-desc {
+  font-size: 11.5px; line-height: 1.65;
+  color: rgba(245,237,227,0.92) !important;
+  margin: 0;
+  max-width: 240px;
+}
+
+/* ── bottom ivory content block ── */
+#sp-form-wrap {
+  background: #F8F4F0;
+  padding: 20px 24px 22px;
+  text-align: center;
+}
+
+/* CTA */
+#sp-cta {
+  display: block; width: 100%; padding: 14px;
+  background: linear-gradient(135deg, #B66A5A 0%, #9A4A3A 100%);
+  color: #FFFFFF; border: none; border-radius: 12px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.20em;
+  text-transform: uppercase; cursor: pointer; font-family: inherit;
+  text-decoration: none; text-align: center;
+  position: relative; overflow: hidden;
+  box-shadow: 0 6px 22px rgba(182,106,90,0.32);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 12px;
+}
+#sp-cta::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+  transition: left 0.5s ease;
+}
+#sp-cta:hover::after { left: 140%; }
+#sp-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(182,106,90,0.40); }
+#sp-cta:active { transform: translateY(0); }
+
+/* close button */
+#sp-close {
+  position: absolute; top: 12px; right: 12px; z-index: 30;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(16,8,4,0.45);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(245,237,227,0.18);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+#sp-close:hover { background: rgba(16,8,4,0.70); transform: rotate(90deg); }
+#sp-close svg { width: 12px; height: 12px; stroke: rgba(245,237,227,0.85); stroke-width: 2; }
+
+/* ══ MOBILE NAV — UNIFIED SURFACE (FINAL — wins all cascades) ══════ */
+html body .mobile-nav,
+html body .mobile-nav.open {
+  background: #684034 !important;
+}
+html body .mobile-nav-header {
+  background: #684034 !important;
+  border-bottom: none !important;
+}
+html body .mobile-nav-links {
+  background: transparent !important;
+}
+html body .mobile-nav-links li {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+html body .mobile-nav-links .nav-sub {
+  border-top: none !important;
+}
+html body .mobile-nav-footer {
+  background: transparent !important;
+  border-top: none !important;
+}
+html body .sp-menu-trigger-wrap {
+  background: transparent !important;
+  padding: 10px 24px 6px !important;
+}
+html body .sp-menu-trigger {
+  background: rgba(245,237,227,0.07) !important;
+  border: 1px solid rgba(245,237,227,0.18) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+html body .sp-menu-trigger:hover {
+  background: rgba(245,237,227,0.12) !important;
+}
+html body .sp-menu-trigger-label {
+  color: #F5EDE3 !important;
+}
+html body .sp-menu-trigger-sub {
+  color: rgba(245,237,227,0.55) !important;
+}
+html body .mobile-nav .mobile-nav-footer .btn-dark,
+html body .mobile-nav .mobile-nav-footer a.btn-dark {
+  background: rgba(245,237,227,0.12) !important;
+  border: 1px solid rgba(245,237,227,0.35) !important;
+  color: #F5EDE3 !important;
+}
+html body .mobile-nav .mobile-nav-footer .btn-dark:hover,
+html body .mobile-nav .mobile-nav-footer a.btn-dark:hover {
+  background: rgba(245,237,227,0.20) !important;
+  border-color: rgba(245,237,227,0.55) !important;
+  color: #F5EDE3 !important;
+}
+html body .mobile-lang-btn {
+  background: none !important;
+  border: none !important;
+  color: rgba(245,237,227,0.42) !important;
+}
+html body .mobile-lang-btn.active {
+  color: rgba(245,237,227,0.92) !important;
+  background: rgba(201,169,110,0.18) !important;
+  border: 1px solid rgba(201,169,110,0.45) !important;
+  border-radius: 50% !important;
+  outline: none !important;
+}
+html body .mobile-lang-btn:hover:not(.active) {
+  color: rgba(245,237,227,0.65) !important;
+}
+html body .mobile-lang-sep {
+  color: rgba(245,237,227,0.20) !important;
+}
+html body .mobile-nav-close {
+  background: none !important;
+  border: none !important;
+  color: rgba(245,237,227,0.55) !important;
+}
+html body .mobile-nav-close:hover {
+  color: rgba(245,237,227,0.88) !important;
+}
+/* ── HERO GLASS BUTTONS ─────────────────────────────────────────────── */
+html body .hero .btn-hero-glass {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.82rem 1.3rem !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.42) !important;
+  color: #F5EDE3 !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: 4px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: background 0.25s, border-color 0.25s !important;
+  white-space: nowrap !important;
+}
+html body .hero .btn-hero-glass:hover {
+  background: rgba(255,255,255,0.20) !important;
+  border-color: rgba(255,255,255,0.68) !important;
+  color: #ffffff !important;
+}
+/* ── MOBILE HERO — DEFINITIVE LAYOUT ───────────────────────────────── */
+@media (max-width: 980px) {
+  /* 1. Hero container */
+  html body header.hero,
+  html body .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100svh !important;
+    height: 100svh !important;
+    overflow: hidden !important;
+  }
+  /* 2. Video: absolute, full cover */
+  html body .hero video.hero-bg,
+  html body .hero .hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 0 !important;
+  }
+  /* 3. Cinematic gradient overlay — NO box, just a gentle dark veil */
+  html body header.hero::before,
+  html body .hero::before {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.44) 0%,
+      rgba(0,0,0,0.24) 30%,
+      rgba(0,0,0,0.38) 62%,
+      rgba(0,0,0,0.60) 100%
+    ) !important;
+  }
+  /* 4. Content block — NO background, no box, just float over video */
+  html body .hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: max(5rem, 10svh) 1.8rem max(3.5rem, 7svh) !important;
+    gap: 0 !important;
+    background: none !important;
+    box-sizing: border-box !important;
+  }
+  /* 5. Eyebrow — white (target element + child spans) */
+  html body .hero .hero-eyebrow,
+  html body .hero .hero-eyebrow span {
+    color: rgba(255,250,244,0.75) !important;
+    font-size: 0.60rem !important;
+    letter-spacing: 0.30em !important;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.70) !important;
+    margin: 0 0 0.9rem !important;
+    opacity: 1 !important;
+  }
+  /* 6. Title — pure white (target h1 + all child spans/em) */
+  html body .hero .hero-title,
+  html body .hero .hero-title span,
+  html body .hero .hero-title em,
+  html body .hero .hero-title em span {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+  }
+  html body .hero .hero-title {
+    font-size: clamp(2.5rem, 9.5vw, 3.5rem) !important;
+    line-height: 1.06 !important;
+    text-shadow:
+      0 1px 3px rgba(0,0,0,0.55),
+      0 4px 18px rgba(0,0,0,0.50),
+      0 8px 32px rgba(0,0,0,0.30) !important;
+    margin: 0 0 0.7rem !important;
+  }
+  /* 7. Subtitle — warm white (target p + child spans) */
+  html body .hero .hero-sub,
+  html body .hero .hero-sub span {
+    color: rgba(255,250,244,0.90) !important;
+    opacity: 1 !important;
+  }
+  html body .hero .hero-sub {
+    font-size: 0.76rem !important;
+    letter-spacing: 0.08em !important;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.65) !important;
+    margin: 0 0 2rem !important;
+  }
+  /* 8. Buttons — equal width, light glass, pure white text */
+  html body .hero .hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    gap: 0.65rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 360px !important;
+  }
+  html body .hero .btn-hero-glass,
+  html body .hero .btn-hero-glass span {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+  }
+  html body .hero .btn-hero-glass {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.88rem 0.5rem !important;
+    background: rgba(255,255,255,0.13) !important;
+    border: 1px solid rgba(255,255,255,0.55) !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.55) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 4px !important;
+    transition: background 0.22s, border-color 0.22s !important;
+  }
+  html body .hero .btn-hero-glass:hover,
+  html body .hero .btn-hero-glass:active {
+    background: rgba(255,255,255,0.24) !important;
+    border-color: rgba(255,255,255,0.80) !important;
+  }
+}
+/* ── HIDE HERO CONTENT WHEN MOBILE MENU IS OPEN ────────────────────── */
+.hero-content.menu-open {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.22s ease !important;
+}
+.hero-content {
+  transition: opacity 0.22s ease;
+}
+/* ── HERO TEXT — FORCE WHITE ON ALL CHILD ELEMENTS ─────────────────── */
+html body header.hero .hero-content .hero-title,
+html body header.hero .hero-content .hero-title *,
+html body header.hero .hero-content .hero-eyebrow,
+html body header.hero .hero-content .hero-eyebrow *,
+html body header.hero .hero-content .hero-sub,
+html body header.hero .hero-content .hero-sub *,
+html body header.hero .hero-content .btn-hero-glass,
+html body header.hero .hero-content .btn-hero-glass * {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+/* ════════════════════════════════════════════════════════════════════ */
+
+/* ── FOOTER LEGAL BAR: highest specificity override ── */
+html body footer .footer-bottom:not(.btn-dark):not(.btn-light):not(.btn-warm),
+html body footer .footer-bottom span:not(.btn-dark):not(.btn-light):not(.btn-warm),
+html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) {
+  color: rgba(245,237,227,0.32) !important;
+  font-size: 0.63rem !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.4 !important;
+  font-weight: 300 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+</style>
+
+<!-- SVG filters for grain -->
+<svg style="position:absolute;width:0;height:0" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sp-grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="overlay" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<div id="sp-overlay" role="dialog" aria-modal="true" aria-label="Tirage Exclusif Skines">
+  <div id="sp-card">
+    <button id="sp-close" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div id="sp-img-bg">
+      <img src="assets/images/tirag.popup.PNG" alt="Skines Med Spa">
+      <div id="sp-img-content">
+        <!-- stones icon -->
+        <div id="sp-stones"><img src="assets/images/logo-officiel-cropped.PNG" alt="" style="width:28px;height:auto;display:block;margin:0 auto;"></div>
+        <!-- brand -->
+        <p class="sp-brand-name" style="margin:0 0 2px;font-size:13px;letter-spacing:0.32em;color:rgba(245,237,227,0.65);text-transform:uppercase;font-family:Arial,sans-serif;">Skine's</p>
+        <p style="margin:0 0 16px;font-size:9px;letter-spacing:0.26em;color:rgba(245,237,227,0.38);text-transform:uppercase;font-family:Arial,sans-serif;">Med Spa · Montréal</p>
+        <!-- badge -->
+        <div id="sp-badge-pill">
+          <span class="bp-pct">Tirage</span>
+          <span class="bp-label">Exclusif</span>
+        </div>
+        <!-- title -->
+        <h2 class="sp-title">Gagnez une<br>expérience bien‑être</h2>
+        <p class="sp-desc">Places limitées — participez maintenant.</p>
+      </div>
+    </div>
+
+    <!-- ivory CTA block -->
+    <div id="sp-form-wrap">
+      <a href="tirage.html" id="sp-cta">Participer au tirage →</a>
+      <button type="button" onclick="closePopup()" style="
+        display:block;margin:10px auto 0;
+        background:none; border:none; cursor:pointer;
+        font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+        color:rgba(106,90,80,0.38); font-family:inherit;
+        transition:color 0.2s;
+      " onmouseover="this.style.color='#B66A5A'" onmouseout="this.style.color='rgba(106,90,80,0.38)'">
+        Non merci
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPopup() {
+  var mn = document.getElementById('mobileNav');
+  if (mn && mn.classList.contains('open')) {
+    mn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  var o = document.getElementById('sp-overlay');
+  o.style.display = 'flex';
+  requestAnimationFrame(function() { requestAnimationFrame(function() { o.classList.add('sp-visible'); }); });
+}
+function closePopup() {
+  var o = document.getElementById('sp-overlay');
+  o.classList.remove('sp-visible');
+
+  setTimeout(function() {
+    o.style.display = 'none';
+    o.style.opacity = '';
+    o.style.pointerEvents = '';
+    var nav = document.querySelector('nav');
+    if (nav) {
+      nav.classList.remove('nav-hidden');
+      nav.style.cssText = nav.style.cssText
+        .replace(/visibility\s*:[^;]+;?/gi, '')
+        .replace(/opacity\s*:[^;]+;?/gi, '')
+        .replace(/pointer-events\s*:[^;]+;?/gi, '');
+      nav.style.visibility = '';
+      nav.style.opacity = '';
+      nav.style.transform = '';
+      nav.style.pointerEvents = '';
+    }
+  }, 520);
+}
+
+// auto-open disabled
+// setTimeout(openPopup, 3000);
+
+// menu trigger
+var trig = document.getElementById('sp-menu-trigger');
+if (trig) trig.addEventListener('click', openPopup);
+
+// close handlers
+document.getElementById('sp-close').addEventListener('click', closePopup);
+document.getElementById('sp-overlay').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+</script>
+
+<script>
+/* ── Interactions fix: sound toggle, lang switcher, scroll-top, review videos ── */
+(function() {
+
+  // 1. Hero sound / mute toggle
+  var heroVideo   = document.getElementById('heroVideo');
+  var muteBtn     = document.getElementById('mobileMuteBtn');
+  var soundToggle = document.querySelector('.sound-toggle');
+  function toggleSound() {
+    if (!heroVideo) return;
+    heroVideo.muted = !heroVideo.muted;
+    var on = !heroVideo.muted;
+    if (muteBtn)     muteBtn.classList.toggle('unmuted', on);
+    if (soundToggle) soundToggle.setAttribute('aria-pressed', String(on));
+    if (muteBtn)     muteBtn.setAttribute('aria-label', on ? 'Couper le son' : 'Activer le son');
+    // Try to resume play after unmute (browser autoplay policy)
+    if (on && heroVideo.paused) { var p = heroVideo.play(); if (p && p.catch) p.catch(function(){}); }
+  }
+  if (muteBtn)     muteBtn.addEventListener('click', toggleSound);
+  if (soundToggle) soundToggle.addEventListener('click', toggleSound);
+
+  // 2. Language switcher (desktop + mobile nav)
+  function applyLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(function(el) {
+      el.textContent = lang === 'fr' ? el.dataset.fr : (el.dataset.en || el.dataset.fr);
+    });
+    document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('skines-lang', lang);
+  }
+  document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
+  });
+  applyLang(localStorage.getItem('skines-lang') || 'fr');
+
+  // 3. Scroll-to-top button
+  var scrollTopBtn = document.getElementById('scrollTop');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function() {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // 4. Review circle videos — click to play/pause, sound button to unmute
+  var CIRC_SVG_MUTED   = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+  var CIRC_SVG_SOUND   = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+
+  document.querySelectorAll('.review-circle-wrap').forEach(function(wrap) {
+    var vid = wrap.querySelector('video');
+    if (!vid) return;
+
+    // Inject sound button
+    var sndBtn = document.createElement('button');
+    sndBtn.className = 'circ-sound-btn';
+    sndBtn.setAttribute('aria-label', 'Son');
+    sndBtn.style.cssText = 'display:none;position:absolute;bottom:6px;right:6px;z-index:10;background:rgba(0,0,0,0.38);backdrop-filter:blur(4px);border:none;border-radius:50%;width:26px;height:26px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#F5EDE3;';
+    sndBtn.innerHTML = CIRC_SVG_MUTED;
+    wrap.appendChild(sndBtn);
+
+    sndBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      vid.muted = !vid.muted;
+      sndBtn.innerHTML = vid.muted ? CIRC_SVG_MUTED : CIRC_SVG_SOUND;
+    });
+
+    wrap.addEventListener('click', function() {
+      // Pause & reset all other circles
+      document.querySelectorAll('.review-circle-wrap').forEach(function(w) {
+        if (w === wrap) return;
+        var v = w.querySelector('video');
+        var b = w.querySelector('.circ-sound-btn');
+        if (v) { v.pause(); v.muted = true; }
+        if (b) { b.style.display = 'none'; b.innerHTML = CIRC_SVG_MUTED; }
+        w.classList.remove('playing');
+      });
+      if (vid.paused) {
+        var p = vid.play(); if (p && p.catch) p.catch(function(){});
+        wrap.classList.add('playing');
+        sndBtn.style.display = 'flex';
+      } else {
+        vid.pause(); vid.muted = true;
+        sndBtn.style.display = 'none'; sndBtn.innerHTML = CIRC_SVG_MUTED;
+        wrap.classList.remove('playing');
+      }
+    });
+
+    vid.addEventListener('ended', function() {
+      wrap.classList.remove('playing');
+      sndBtn.style.display = 'none'; sndBtn.innerHTML = CIRC_SVG_MUTED;
+    });
+  });
+
+})();
+</script>
+
+<!-- ══ SEARCH OVERLAY ══════════════════════════════════════════════════════ -->
+<div id="searchOverlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Recherche">
+  <div class="search-overlay-inner">
+    <div class="search-bar-row">
+      <svg class="search-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" class="search-input" type="search" placeholder="Rechercher un soin, prix, info…" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <button class="search-close-btn" id="searchClose" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="searchSuggestions" class="search-suggestions">
+      <div class="search-pill-row">
+        <button class="search-pill" data-q="head spa">Head Spa</button>
+        <button class="search-pill" data-q="laser">Laser</button>
+        <button class="search-pill" data-q="facial">Facial</button>
+        <button class="search-pill" data-q="prix">Prix</button>
+        <button class="search-pill" data-q="réserver">Réserver</button>
+        <button class="search-pill" data-q="assurance">Assurance</button>
+        <button class="search-pill" data-q="adresse">Adresse</button>
+      </div>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</div>
 </body>
 </html>
