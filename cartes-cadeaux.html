@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cartes Cadeaux · Skines Med Spa Montréal</title>
-<meta name="description" content="Offrez une expérience Skines Med Spa — Head Spa, soins du visage ou épilation laser. Cartes cadeaux disponibles en ligne.">
+<meta name="description" content="Offrez une expérience Skines Med Spa — Head Spa, facial ou épilation laser. Cartes cadeaux disponibles en ligne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -61,6 +61,79 @@
     display: flex; align-items: flex-end;
     padding: 0 1.6rem 3.5rem;
     position: relative; overflow: hidden;
+  }
+  /* PNG hero override — high specificity to beat html body .hero rules */
+  html body header.hero.hero-img,
+  html body .hero.hero-img {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    display: block !important;
+    background: transparent !important;
+    align-items: unset !important;
+  }
+  .hero-main-img {
+    display: block; width: 100%; height: auto;
+    object-fit: contain; vertical-align: bottom;
+  }
+
+  /* PNG gift card grid */
+  .gc-png-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    padding: 2.8rem 1.6rem 0;
+  }
+  .gc-png-card {
+    background: none; border: none; padding: 0; cursor: pointer;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 6px 32px rgba(58,30,20,0.13);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    display: flex; flex-direction: column;
+  }
+  .gc-png-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(58,30,20,0.22);
+  }
+  .gc-png-card.selected {
+    box-shadow: 0 0 0 3px #C9A96E, 0 16px 48px rgba(58,30,20,0.22);
+    transform: translateY(-4px);
+  }
+  .gc-png-img-wrap {
+    width: 100%; overflow: hidden; border-radius: 14px 14px 0 0;
+    background: #2C1810;
+  }
+  .gc-png-img-wrap img {
+    width: 100%; height: auto; display: block;
+    transition: transform 0.4s ease;
+  }
+  .gc-png-card:hover .gc-png-img-wrap img { transform: scale(1.03); }
+  .gc-png-footer {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.85rem 1.2rem 0.95rem;
+    display: flex; align-items: center; gap: 0.6rem;
+    border-radius: 0 0 14px 14px;
+    border-top: 1px solid rgba(182,106,90,0.12);
+  }
+  .gc-png-label {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(58,30,20,0.45); font-family: "DM Sans", sans-serif;
+    flex: 1;
+  }
+  .gc-png-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.45rem; font-weight: 400; color: #7A4A38; line-height: 1;
+  }
+  .gc-png-cta {
+    font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(58,30,20,0.40); font-family: "DM Sans", sans-serif;
+    transition: color 0.2s;
+  }
+  .gc-png-card:hover .gc-png-cta { color: #7A4A38; }
+  @media (max-width: 640px) {
+    .gc-png-grid { grid-template-columns: 1fr; gap: 1.2rem; padding: 2rem 1.2rem 0; }
   }
   .hero-bg-pattern {
     position: absolute; inset: 0;
@@ -166,7 +239,7 @@
     font-family: "DM Sans"; font-weight: 500;
     transition: background 0.2s;
   }
-  .gift-card-btn:hover { background: var(--brown); }
+  .gift-card-btn:hover { background: #684034; }
 
   /* Card colors */
   .banner-headspa { background: linear-gradient(135deg, #3A1E14, #6B3D2E); }
@@ -415,10 +488,10 @@
   /* Mobile nav — deep dark throughout */
   .mobile-nav,
   .mobile-nav-header,
-  .mobile-nav-footer { background: #3A1E14 !important; }
+  .mobile-nav-footer { background: #684034 !important; }
 
   /* Footer — deep dark */
-  footer { background: #3A1E14 !important; }
+  footer { background: #684034 !important; }
   footer * { color: rgba(245,237,227,0.72) !important; }
   footer h3, footer h4, .footer-logo-text { color: #F5EDE3 !important; }
   footer a:hover { color: #F5C06A !important; }
@@ -928,7 +1001,7 @@
     }
 
     /* ─ 9. Color consistency ─ */
-    nav, footer { background: #3A1E14 !important; }
+    nav, footer { background: #684034 !important; }
     .booking-band, section.booking-band,
     .band, section.band,
     .technology-section, .products-section {
@@ -2119,13 +2192,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     display: block !important;
     text-align: center !important;
   }
-  html body footer .footer-tagline {
-    text-align: center !important;
-    color: rgba(235,215,206,0.55) !important;
-    font-size: 0.82rem !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — REVERT TO ORIGINAL LEFT-ALIGNED ══ */
   html body footer .footer-grid > div:first-child {
@@ -2174,13 +2241,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     display: block !important;
     text-align: left !important;
   }
-  html body footer .footer-tagline {
-    text-align: left !important;
-    color: rgba(235,215,206,0.55) !important;
-    font-size: 0.82rem !important;
-    max-width: 320px !important;
-    margin: 0 !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — MATCH NAV STYLE ══ */
   html body footer .footer-logo-text,
@@ -2275,13 +2336,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     padding-left: 0.30em !important;
     margin-top: 0.25rem !important;
   }
-  html body footer .footer-tagline {
-    text-align: center !important;
-    font-size: 0.80rem !important;
-    color: rgba(235,215,206,0.50) !important;
-    max-width: 340px !important;
-    margin: 0.6rem auto 0 !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — SYMMETRIC TEXT UNDER SKINES ══ */
   html body footer .footer-grid > div:first-child {
@@ -2326,12 +2381,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     text-align: center !important;
     margin-top: 0.2rem !important;
   }
-  html body footer .footer-tagline {
-    text-align: left !important;
-    color: rgba(235,215,206,0.52) !important;
-    font-size: 0.82rem !important;
-    margin-top: 0.6rem !important;
-  }
+  html body footer
 
 /* ── Search icon: glass circle button ── */
 html body nav .nav-search-btn,
@@ -2449,7 +2499,7 @@ html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-li
 /* Footer override — must come right after to beat the rule above */
 html body footer a,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer a:hover,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
@@ -2459,14 +2509,14 @@ html body footer *,
 html body footer li,
 html body footer p,
 html body footer span:not(.stone) {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
 }
 html body footer .footer-bottom span,
 html body footer .logo-sub {
-  color: rgba(255,255,255,0.50) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 
 /* 8. ══ BUTTONS — gold bg ══ */
@@ -2580,7 +2630,7 @@ html body footer {
   color: #ffffff !important;
 }
 html body footer *:not(.btn-dark):not(.btn-light):not(.btn-warm) {
-  color: rgba(255,255,255,0.85) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-logo-text {
   color: #ffffff !important;
@@ -3671,7 +3721,7 @@ html body .social-link:hover {
 /* ── RULE 3: Footer (dark brown) ── */
 html body footer,
 html body footer * {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-logo-text,
 html body footer h2,
@@ -3960,10 +4010,7 @@ html body footer,
 html body footer .footer-grid,
 html body footer .footer-grid > div,
 html body footer .footer-col,
-html body footer .footer-bottom {
-  background: #684034 !important;
-  color: #ffffff !important;
-}
+html body footer .footer-bottom { border-top: 1px solid rgba(245,240,234,0.07) !important; padding-top: 0.9rem; text-align: center; color: rgba(245,240,234,0.28) !important; font-size: 0.64rem; letter-spacing: 0.04em; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Every text element in footer */
 html body footer h4,
@@ -3976,12 +4023,12 @@ html body footer address,
 html body footer .footer-tagline,
 html body footer .footer-bottom span,
 html body footer .footer-col ul li {
-  color: rgba(255,255,255,0.82) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 
 /* Section headings: SOINS / INFO / RÉSEAUX */
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
   opacity: 1 !important;
 }
 
@@ -3990,7 +4037,7 @@ html body footer a,
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-logo {
-  color: rgba(255,255,255,0.75) !important;
+  color: rgba(245,237,227,0.65) !important;
   text-decoration: none !important;
 }
 html body footer a:hover,
@@ -4008,11 +4055,9 @@ html body footer .logo-sub {
 }
 
 /* Footer bottom copyright / address */
-html body footer .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.12) !important;
-}
+html body footer .footer-bottom { border-top: 1px solid rgba(245,240,234,0.07) !important; padding-top: 0.9rem; text-align: center; color: rgba(245,240,234,0.28) !important; font-size: 0.64rem; letter-spacing: 0.04em; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 html body footer .footer-bottom span {
-  color: rgba(255,255,255,0.45) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 
 /* Stones in footer — keep their original colors */
@@ -4230,17 +4275,17 @@ html body footer a:not([class]),
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-col ul li {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
   opacity: 1 !important;
 }
 html body footer .logo-sub {
   color: rgba(255,255,255,0.50) !important;
 }
 html body footer .footer-bottom span {
-  color: rgba(255,255,255,0.50) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 html body footer a:hover,
 html body footer .footer-col a:hover {
@@ -4337,7 +4382,239 @@ html body nav:not(.nav-scrolled) .logo-text { color: #ffffff !important; text-sh
 html body nav:not(.nav-scrolled) .logo-sub  { color: rgba(255,255,255,0.75) !important; }
 html body nav:not(.nav-scrolled) .menu-btn  { color: #ffffff !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: #ffffff !important; }
-html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
+html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }/* PNG is 1024×1536 (2:3 portrait). Size by height, width auto.      */
+
+/* Base: nav desktop */
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 52px !important;
+  max-height: 52px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+  margin: 0 auto 4px !important;
+}
+
+/* Mobile nav header: slightly larger */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 60px !important;
+  max-height: 60px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo on dark bg: lighten stones to ivory */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav non-scrolled: keep full size */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  height: 52px !important;
+  max-height: 52px !important;
+}
+
+/* Nav scrolled: slightly smaller */
+html body nav.nav-scrolled img.logo-stones {
+  height: 44px !important;
+  max-height: 44px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 40px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.75) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── *//* PNG is 1024×1536 (2:3 portrait). Stones occupy ~60% of canvas.    */
+/* All sizes boosted to compensate for whitespace in the PNG.         */
+
+/* Base: nav desktop */
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 68px !important;
+  max-height: 68px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: much larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 110px !important;
+  max-height: 110px !important;
+  width: auto !important;
+  margin: 0 auto 2px !important;
+}
+
+/* Mobile nav header */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 80px !important;
+  max-height: 80px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo: invert to ivory on dark bg */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav non-scrolled */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  height: 68px !important;
+  max-height: 68px !important;
+}
+
+/* Nav scrolled: slightly smaller */
+html body nav.nav-scrolled img.logo-stones {
+  height: 56px !important;
+  max-height: 56px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 56px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.70) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* ── LOGO OFFICIEL PNG — unified size fix ────────────────────────── */
+/* Cropped PNG is 256×334 (3:4 ratio), no whitespace padding.        */
+
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 44px !important;
+  max-height: 44px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+  margin: 0 auto 6px !important;
+}
+
+/* Mobile nav header */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 52px !important;
+  max-height: 52px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo: invert to ivory on dark bg */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav scrolled: same size */
+html body nav.nav-scrolled img.logo-stones {
+  height: 40px !important;
+  max-height: 40px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 48px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.70) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* ── Logo stones: hidden at top, visible when scrolled ── */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.4s ease !important;
+}
+html body nav.nav-scrolled img.logo-stones,
+html body nav.nav-at-top-hidden img.logo-stones {
+  opacity: 1 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+/* ── FOOTER LEGAL BAR: highest specificity override ── */
+html body footer .footer-bottom:not(.btn-dark):not(.btn-light):not(.btn-warm),
+html body footer .footer-bottom span:not(.btn-dark):not(.btn-light):not(.btn-warm),
+html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) {
+  color: rgba(245,237,227,0.32) !important;
+  font-size: 0.63rem !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.4 !important;
+  font-weight: 300 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+/* ── FOOTER LINKS — forcer couleur claire sur fond sombre ── */
+html body footer a:not(.footer-logo):not(.scroll-top):not(.btn-dark):not(.btn-light):not(.btn-warm):not(.btn-hero-glass):not(.back-btn) {
+  color: rgba(245,237,227,0.68) !important;
+  text-decoration: none !important;
+}
+html body footer a:not(.footer-logo):not(.scroll-top):not(.btn-dark):not(.btn-light):not(.btn-warm):not(.btn-hero-glass):not(.back-btn):hover {
+  color: rgba(201,169,110,0.92) !important;
+}
+html body footer .footer-col h4 { color: #F5C06A !important; }
+html body footer .footer-col li { color: rgba(245,237,227,0.65) !important; }
+html body footer .footer-bottom,
+html body footer .footer-bottom a,
+html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important; font-size: 0.63rem !important; }
+
 </style>
 </head>
 <body>
@@ -4351,6 +4628,7 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
     Retour
   </a>
   <a class="logo" href="index.html">
+    <img src="assets/images/logo-officiel-cropped.PNG" class="logo-stones" alt="Skines logo">
     <div class="logo-brand">
       <span class="logo-text">SKINES</span>
       <span class="logo-sub">Med Spa · Montréal</span>
@@ -4360,14 +4638,9 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
 </nav>
 
 <!-- HERO -->
-<header class="hero" style="padding-top:80px">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-deco">Cadeau</div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Cartes Cadeaux · Gift Cards</p>
-    <h1 class="hero-title">Offrez<br><em style="color:var(--gold)">l'expérience.</em></h1>
-    <p class="hero-sub">Offrez à ceux que vous aimez une parenthèse de bien-être chez Skines — Head Spa, soins du visage ou épilation laser.</p>
-  </div>
+<header class="hero hero-img">
+  <img class="hero-main-img" src="assets/images/gift-cards/gift-card-main.PNG"
+       alt="Cartes Cadeaux Skines Med Spa" loading="eager">
 </header>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -4383,157 +4656,40 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
     <p class="gc-subtitle">Sélectionnez un soin, personnalisez votre carte et envoyez-la en quelques secondes.</p>
   </div>
 
-  <!-- ─── SECTION 1 : 9 service cards ─────────────────────────── -->
+  <!-- ─── SECTION 1 : PNG gift card visuals ────────────────────── -->
+  <div class="gc-png-grid">
 
-  <!-- Row label: Head Spa -->
-  <div class="gc-cat-label"><span>🌿</span> Head Spa</div>
-  <div class="gc-grid">
-
-    <button class="gc-card" onclick="selectService(this,145)" data-price="145" data-name="Head Spa Signature · 60 min">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Head Spa</span>
-        <span class="gc-card-badge">Signature</span>
+    <button class="gc-png-card" onclick="selectCard('Carte Cadeau $100', 100)" data-amount="100">
+      <div class="gc-png-img-wrap">
+        <img src="assets/images/gift-cards/gift-card-100.PNG" alt="Carte Cadeau $100 · Skines Med Spa" loading="lazy">
       </div>
-      <div class="gc-card-price">$145</div>
-      <ul class="gc-card-features">
-        <li>Rituel cuir chevelu complet</li>
-        <li>Huile chauffante &amp; vapeur</li>
-        <li>Massage relaxant profond</li>
-      </ul>
-      <div class="gc-card-meta">60 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
+      <div class="gc-png-footer">
+        <span class="gc-png-label">Carte Cadeau</span>
+        <span class="gc-png-price">$100</span>
+        <span class="gc-png-cta">Choisir →</span>
+      </div>
     </button>
 
-    <button class="gc-card" onclick="selectService(this,185)" data-price="185" data-name="Head Spa Signature · 90 min">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Head Spa</span>
-        <span class="gc-card-badge gc-badge-gold">Prolongé</span>
+    <button class="gc-png-card" onclick="selectCard('Carte Cadeau $200', 200)" data-amount="200">
+      <div class="gc-png-img-wrap">
+        <img src="assets/images/gift-cards/gift-card-200.PNG" alt="Carte Cadeau $200 · Skines Med Spa" loading="lazy">
       </div>
-      <div class="gc-card-price">$185</div>
-      <ul class="gc-card-features">
-        <li>Expérience signature étendue</li>
-        <li>Soin du cuir chevelu intensif</li>
-        <li>Détente totale garantie</li>
-      </ul>
-      <div class="gc-card-meta">90 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
+      <div class="gc-png-footer">
+        <span class="gc-png-label">Carte Cadeau</span>
+        <span class="gc-png-price">$200</span>
+        <span class="gc-png-cta">Choisir →</span>
+      </div>
     </button>
 
-    <button class="gc-card" onclick="selectService(this,125)" data-price="125" data-name="Head Spa Focus · 60 min">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Head Spa</span>
-        <span class="gc-card-badge">Focus</span>
+    <button class="gc-png-card" onclick="selectCard('Carte Cadeau $300', 300)" data-amount="300">
+      <div class="gc-png-img-wrap">
+        <img src="assets/images/gift-cards/gift-card-300.PNG" alt="Carte Cadeau $300 · Skines Med Spa" loading="lazy">
       </div>
-      <div class="gc-card-price">$125</div>
-      <ul class="gc-card-features">
-        <li>Soin ciblé scalp &amp; racines</li>
-        <li>Massage crânien apaisant</li>
-        <li>Revitalisation complète</li>
-      </ul>
-      <div class="gc-card-meta">60 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
-    </button>
-
-  </div>
-
-  <!-- Row label: Facial -->
-  <div class="gc-cat-label"><span>✨</span> Soins Visage</div>
-  <div class="gc-grid">
-
-    <button class="gc-card" onclick="selectService(this,145)" data-price="145" data-name="Luxury Facial · 60 min">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Facial</span>
-        <span class="gc-card-badge">Luxury</span>
+      <div class="gc-png-footer">
+        <span class="gc-png-label">Carte Cadeau</span>
+        <span class="gc-png-price">$300</span>
+        <span class="gc-png-cta">Choisir →</span>
       </div>
-      <div class="gc-card-price">$145</div>
-      <ul class="gc-card-features">
-        <li>Hydratation &amp; éclat intense</li>
-        <li>Soin anti-âge personnalisé</li>
-        <li>Résultats visibles immédiatement</li>
-      </ul>
-      <div class="gc-card-meta">60 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
-    </button>
-
-    <button class="gc-card" onclick="selectService(this,135)" data-price="135" data-name="Personalized Facial · 60 min">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Facial</span>
-        <span class="gc-card-badge">Sur Mesure</span>
-      </div>
-      <div class="gc-card-price">$135</div>
-      <ul class="gc-card-features">
-        <li>Diagnostic peau approfondi</li>
-        <li>Protocole 100% personnalisé</li>
-        <li>Soins adaptés à chaque peau</li>
-      </ul>
-      <div class="gc-card-meta">60 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
-    </button>
-
-    <button class="gc-card" onclick="selectService(this,165)" data-price="165" data-name="HydraDermabrasion Bela MD+ · 75 min">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Facial</span>
-        <span class="gc-card-badge gc-badge-gold">Bela MD+</span>
-      </div>
-      <div class="gc-card-price">$165</div>
-      <ul class="gc-card-features">
-        <li>Technologie HydraDermabrasion</li>
-        <li>Exfoliation &amp; hydratation profonde</li>
-        <li>Peau lumineuse &amp; purifiée</li>
-      </ul>
-      <div class="gc-card-meta">75 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
-    </button>
-
-  </div>
-
-  <!-- Row label: Laser -->
-  <div class="gc-cat-label"><span>⚡</span> Épilation Laser</div>
-  <div class="gc-grid">
-
-    <button class="gc-card" onclick="selectService(this,150)" data-price="150" data-name="Bikini + Aisselles">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Laser</span>
-        <span class="gc-card-badge">Duo</span>
-      </div>
-      <div class="gc-card-price">$150</div>
-      <ul class="gc-card-features">
-        <li>Bikini + Aisselles</li>
-        <li>Technologie Clarity II</li>
-        <li>Résultats durables</li>
-      </ul>
-      <div class="gc-card-meta">15 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
-    </button>
-
-    <button class="gc-card" onclick="selectService(this,230)" data-price="230" data-name="Bikini + Aisselles + Demi-Jambes">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Laser</span>
-        <span class="gc-card-badge gc-badge-gold">Trio</span>
-      </div>
-      <div class="gc-card-price">$230</div>
-      <ul class="gc-card-features">
-        <li>Bikini + Aisselles + Demi-Jambes</li>
-        <li>Technologie Clarity II</li>
-        <li>Traitement express complet</li>
-      </ul>
-      <div class="gc-card-meta">30 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
-    </button>
-
-    <button class="gc-card" onclick="selectService(this,190)" data-price="190" data-name="Dos Complet + Poitrine">
-      <div class="gc-card-header">
-        <span class="gc-card-tag">Laser</span>
-        <span class="gc-card-badge">Corps</span>
-      </div>
-      <div class="gc-card-price">$190</div>
-      <ul class="gc-card-features">
-        <li>Dos complet + Poitrine</li>
-        <li>Technologie Clarity II</li>
-        <li>Peau lisse durablement</li>
-      </ul>
-      <div class="gc-card-meta">40 min</div>
-      <div class="gc-card-btn">Sélectionner →</div>
     </button>
 
   </div>
@@ -4552,7 +4708,7 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
   </div>
 
   <!-- ─── SECTION 2 : Form ─────────────────────────────────────── -->
-  <div class="gc-form-section">
+  <div class="gc-form-section" id="gc-form-anchor">
     <div class="gc-form-title">
       <span class="gc-form-title-line"></span>
       Personnalisez votre carte
@@ -4560,6 +4716,8 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
     </div>
 
     <div class="gc-form">
+      <!-- honeypot: hidden from humans, bots fill it -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
       <!-- Full-width: sender name -->
       <input class="gc-field" type="text" id="fromName"
         placeholder="Votre prénom (De la part de…)" autocomplete="given-name">
@@ -4637,7 +4795,7 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
   </div>
   <div class="faq-item">
     <p class="faq-q">Peut-on utiliser la carte pour n'importe quel soin ?</p>
-    <p class="faq-a">Oui — la carte est valable sur tous les soins Skines : Head Spa, soins du visage et épilation laser.</p>
+    <p class="faq-a">Oui — la carte est valable sur tous les soins Skines : Head Spa, facial et épilation laser.</p>
   </div>
   <div class="faq-item">
     <p class="faq-q">La carte est-elle remboursable ?</p>
@@ -4655,16 +4813,51 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
 
 <!-- FOOTER -->
 <footer>
-  <a class="logo" href="index.html" style="position:static;transform:none;justify-content:center;margin-bottom:1rem;display:flex">
-    <span class="footer-logo-text">SKINES</span>
-  </a>
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;text-align:center;">La force de l'eau vient de la source<br>L'essentiel commence à la racine</p>
-  <p style="margin-top:0.5rem"><a href="tel:+14382605660">438 260-5660</a> · <a href="index.html">Retour à l'accueil</a></p>
-  <p style="margin-top:1.2rem;font-size:0.75rem;opacity:0.5;">
-    <a href="privacy-policy.html" style="color:inherit;text-decoration:none;margin:0 0.5rem;">Confidentialité</a> ·
-    <a href="terms-and-conditions.html" style="color:inherit;text-decoration:none;margin:0 0.5rem;">Conditions</a> ·
-    <a href="cookie-policy.html" style="color:inherit;text-decoration:none;margin:0 0.5rem;">Cookies</a>
-  </p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="footer-logo" href="index.html">
+        <img src="assets/images/logo-officiel-cropped.PNG" class="logo-stones" alt="Skines logo">
+        <div class="logo-brand">
+          <span class="footer-logo-text">SKINES</span>
+          <span class="logo-sub">Med Spa · Montréal</span>
+        </div>
+      </a>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Soins</h4>
+        <ul>
+          <li><a href="head-spa.html">Head Spa</a></li>
+          <li><a href="laser.html">Épilation laser</a></li>
+          <li><a href="facial.html">Facial</a></li>
+          <li><a href="cartes-cadeaux.html">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="reviews.html">Avis clients</a></li>
+          <li><a href="index.html#contact">Adresse</a></li>
+          <li>Parking privé</li>
+          <li>Assurance disponible</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Skines Spa · <a href="privacy-policy.html">Confidentialité</a> · <a href="terms-and-conditions.html">Conditions</a> · <a href="cookie-policy.html">Cookies</a></span>
+    </div>
+  </div>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -4716,7 +4909,11 @@ function setAmount(val) {
 function selectCard(name, amount) {
   setAmount(amount);
   selectedServiceName = name;
-  document.getElementById('commander').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.gc-png-card').forEach(c => c.classList.remove('selected'));
+  var cards = document.querySelectorAll('.gc-png-card');
+  cards.forEach(function(c) { if (Number(c.dataset.amount) === amount) c.classList.add('selected'); });
+  var formAnchor = document.getElementById('gc-form-anchor');
+  if (formAnchor) formAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 /* ── Clear card selection when user types a custom amount ── */
@@ -4779,6 +4976,7 @@ async function submitOrder() {
         toEmail,
         message,
         senderEmail,
+        website: document.querySelector('[name="website"]')?.value ?? '',
       }),
     });
 

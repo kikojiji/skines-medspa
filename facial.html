@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soins du Visage · Skines Spa Montréal</title>
-<meta name="description" content="Soins du visage personnalisés à Montréal: hydratation, éclat et peau apaisée. Réservez chez Skines Spa.">
+<title>Facial · Skines Spa Montréal</title>
+<meta name="description" content="Soins du visage personnalisés à Montréal — Facial haut de gamme. Réservez chez Skines Spa.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Soins du Visage · Skines Med Spa Montréal">
+<meta property="og:title" content="Facial · Skines Med Spa Montréal">
 <meta property="og:description" content="Luxury facials à Montréal — Luxury Facial, Bela MD+, Chemical Peel & Back Facial. Réservez votre soin.">
 <meta property="og:image" content="https://www.skines.info/assets/og-logo3.png" />
 <meta property="og:url" content="https://skines.info/facial">
@@ -416,15 +416,119 @@
 
   /* ── Footer ── */
   footer { background: var(--brown-dark); color: var(--cream); padding: 4rem 4rem 2rem; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.8rem; }
-  .footer-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-  .footer-logo-text { font-family: "Cormorant Garamond", serif; letter-spacing: 0.36em; font-size: 1.55rem; font-weight: 500; color: var(--cream); }
-  .footer-tagline { max-width: 330px; margin-top: 1.1rem; color: rgba(245,240,234,0.65); font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.05rem; }
-  .footer-col h4 { color: var(--gold); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.68rem; margin-bottom: 1rem; }
-  .footer-col ul { list-style: none; }
-  .footer-col li { margin-bottom: 0.55rem; color: rgba(245,240,234,0.62); font-size: 0.86rem; }
-  .footer-col a { text-decoration: none; color: rgba(245,240,234,0.62); }
-  .footer-col a:hover { color: var(--gold); }
+  /* ── FOOTER ── */
+  footer {
+    background: #684034;
+    padding: 3.4rem 2rem 2rem;
+    border-radius: 18px 18px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -10px 40px rgba(58,20,10,0.10);
+  }
+  /* Subtle film-grain noise for cinematic depth */
+  footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.032;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  /* top: logo */
+  .footer-top {
+    margin-bottom: 1.6rem;
+  }
+  .footer-logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 0;
+  }
+  .footer-logo .logo-stones { height: 38px; width: auto; display: block; margin-bottom: 7px; opacity: 0.92; }
+  .footer-logo-text {
+    color: rgba(245,237,227,0.90);
+    font-size: 1.05rem;
+    letter-spacing: 0.32em;
+    font-weight: 500;
+  }
+  .footer-logo .logo-sub {
+    font-size: 0.60rem;
+    letter-spacing: 0.28em;
+    color: rgba(245,237,227,0.42);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.22rem;
+  }
+  /* nav columns */
+  .footer-nav {
+    display: flex;
+    gap: 3.5rem;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    text-align: left;
+  }
+  .footer-col h4 {
+    color: rgba(201,168,108,0.80);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.63rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; padding: 0; }
+  .footer-col li { margin-bottom: 0.42rem; color: rgba(245,237,227,0.52); font-size: 0.83rem; }
+  .footer-col a { text-decoration: none; color: rgba(245,237,227,0.52); transition: color 0.25s; }
+  .footer-col a:hover { color: rgba(201,168,108,0.90); }
+  /* social */
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .footer-social a {
+    color: rgba(245,237,227,0.38);
+    display: flex;
+    align-items: center;
+    transition: color 0.25s;
+  }
+  .footer-social a:hover { color: rgba(201,168,108,0.85); }
+  /* legal */
+  .footer-bottom {
+    border-top: 1px solid rgba(245,237,227,0.08);
+    padding-top: 0.85rem;
+    width: 100%;
+    text-align: center;
+    color: rgba(245,237,227,0.32);
+    font-size: 0.63rem;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .footer-bottom a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .footer-bottom a:hover { color: rgba(245,237,227,0.52); }
+  @media (max-width: 600px) {
+    footer { padding: 2.8rem 1.4rem 1.6rem; border-radius: 14px 14px 0 0; }
+    .footer-nav { gap: 2.2rem; }
+    .footer-bottom { font-size: 0.60rem; letter-spacing: 0.025em; white-space: nowrap; }
+  }
   .footer-bottom {
     border-top: 1px solid rgba(245,240,234,0.12); padding-top: 1.4rem;
     display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
@@ -744,11 +848,11 @@
   /* Footer (dark bg) */
   footer { color: #F5EDE3; }
   footer .footer-col h4 { color: #F5C06A; }
-  footer .footer-tagline { color: rgba(245,237,227,0.65); }
+  footer
   footer .footer-col li { color: rgba(245,237,227,0.62); }
   footer .footer-col a { color: rgba(245,237,227,0.62); }
   footer .footer-col a:hover { color: #F5C06A; }
-  footer .footer-bottom { color: rgba(245,237,227,0.45); }
+  footer .footer-bottom { color: rgba(245,240,234,0.28) !important; font-size: 0.64rem !important; letter-spacing: 0.04em !important; line-height: 1.5 !important; }
   /* Social bar (dark bg) */
   .social-link { color: rgba(245,237,227,0.70); }
 
@@ -1528,7 +1632,7 @@ p { color: rgba(245,237,227,0.80) !important; }
 hr, .divider { border-color: rgba(245,237,227,0.10) !important; }
 
 /* Footer */
-footer { background: #3A1E14 !important; }
+footer { background: #684034 !important; }
 .footer-col h4, .footer-col-title { color: #F5C06A !important; }
 .footer-col li, .footer-col a { color: rgba(245,237,227,0.70) !important; }
 .footer-bottom { color: rgba(245,237,227,0.45) !important; border-top-color: rgba(245,237,227,0.08) !important; }
@@ -1778,10 +1882,10 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* Mobile nav — deep dark throughout */
   .mobile-nav,
   .mobile-nav-header,
-  .mobile-nav-footer { background: #3A1E14 !important; }
+  .mobile-nav-footer { background: #684034 !important; }
 
   /* Footer — deep dark */
-  footer { background: #3A1E14 !important; }
+  footer { background: #684034 !important; }
   footer * { color: rgba(245,237,227,0.72) !important; }
   footer h3, footer h4, .footer-logo-text { color: #F5EDE3 !important; }
   footer a:hover { color: #F5C06A !important; }
@@ -2331,7 +2435,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     }
 
     /* ─ 9. Color consistency ─ */
-    nav, footer { background: #3A1E14 !important; }
+    nav, footer { background: #684034 !important; }
     .booking-band, section.booking-band,
     .band, section.band,
     .technology-section, .products-section {
@@ -3262,13 +3366,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     display: block !important;
     text-align: center !important;
   }
-  html body footer .footer-tagline {
-    text-align: center !important;
-    color: rgba(235,215,206,0.55) !important;
-    font-size: 0.82rem !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — REVERT TO ORIGINAL LEFT-ALIGNED ══ */
   html body footer .footer-grid > div:first-child {
@@ -3317,13 +3415,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     display: block !important;
     text-align: left !important;
   }
-  html body footer .footer-tagline {
-    text-align: left !important;
-    color: rgba(235,215,206,0.55) !important;
-    font-size: 0.82rem !important;
-    max-width: 320px !important;
-    margin: 0 !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — MATCH NAV STYLE ══ */
   html body footer .footer-logo-text,
@@ -3418,13 +3510,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     padding-left: 0.30em !important;
     margin-top: 0.25rem !important;
   }
-  html body footer .footer-tagline {
-    text-align: center !important;
-    font-size: 0.80rem !important;
-    color: rgba(235,215,206,0.50) !important;
-    max-width: 340px !important;
-    margin: 0.6rem auto 0 !important;
-  }
+  html body footer
 
   /* ══ FOOTER LOGO — SYMMETRIC TEXT UNDER SKINES ══ */
   html body footer .footer-grid > div:first-child {
@@ -3469,12 +3555,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     text-align: center !important;
     margin-top: 0.2rem !important;
   }
-  html body footer .footer-tagline {
-    text-align: left !important;
-    color: rgba(235,215,206,0.52) !important;
-    font-size: 0.82rem !important;
-    margin-top: 0.6rem !important;
-  }
+  html body footer
 
 /* ── Mobile nav header: flex logo left + back arrow right ── */
 html body .mobile-nav-header {
@@ -3937,16 +4018,16 @@ html body .card-desc, html body .price-desc {
 }
 
 /* 7. Links */
-html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
+html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):not(.btn-hero-glass) {
   color: #684034 !important;
 }
-html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
+html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):not(.btn-hero-glass):hover {
   color: #ba7150 !important;
 }
 /* Footer override — must come right after to beat the rule above */
 html body footer a,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer a:hover,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
@@ -3956,14 +4037,14 @@ html body footer *,
 html body footer li,
 html body footer p,
 html body footer span:not(.stone) {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
 }
 html body footer .footer-bottom span,
 html body footer .logo-sub {
-  color: rgba(255,255,255,0.50) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 
 /* 8. ══ BUTTONS — gold bg ══ */
@@ -4077,7 +4158,7 @@ html body footer {
   color: #ffffff !important;
 }
 html body footer *:not(.btn-dark):not(.btn-light):not(.btn-warm) {
-  color: rgba(255,255,255,0.85) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-logo-text {
   color: #ffffff !important;
@@ -5168,7 +5249,7 @@ html body .social-link:hover {
 /* ── RULE 3: Footer (dark brown) ── */
 html body footer,
 html body footer * {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-logo-text,
 html body footer h2,
@@ -5453,13 +5534,10 @@ html body .mobile-nav .mobile-nav-links li {
   opacity: 1 !important;
 }
 /* ══ FOOTER — force ALL text white, no exceptions ══ */
-html body footer,
-html body footer .footer-grid,
-html body footer .footer-grid > div,
+html body footer { background: #684034 !important; }
 html body footer .footer-col,
 html body footer .footer-bottom {
-  background: #684034 !important;
-  color: #ffffff !important;
+  background: transparent !important;
 }
 
 /* Every text element in footer */
@@ -5473,12 +5551,12 @@ html body footer address,
 html body footer .footer-tagline,
 html body footer .footer-bottom span,
 html body footer .footer-col ul li {
-  color: rgba(255,255,255,0.82) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 
 /* Section headings: SOINS / INFO / RÉSEAUX */
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
   opacity: 1 !important;
 }
 
@@ -5487,7 +5565,7 @@ html body footer a,
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-logo {
-  color: rgba(255,255,255,0.75) !important;
+  color: rgba(245,237,227,0.65) !important;
   text-decoration: none !important;
 }
 html body footer a:hover,
@@ -5506,10 +5584,10 @@ html body footer .logo-sub {
 
 /* Footer bottom copyright / address */
 html body footer .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.12) !important;
+  border-top: 1px solid rgba(245,240,234,0.07) !important;
 }
 html body footer .footer-bottom span {
-  color: rgba(255,255,255,0.45) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 
 /* Stones in footer — keep their original colors */
@@ -5727,17 +5805,17 @@ html body footer a:not([class]),
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-col ul li {
-  color: rgba(255,255,255,0.88) !important;
+  color: rgba(245,237,227,0.72) !important;
 }
 html body footer .footer-col h4 {
-  color: #ffffff !important;
+  color: #C9A86C !important;
   opacity: 1 !important;
 }
 html body footer .logo-sub {
   color: rgba(255,255,255,0.50) !important;
 }
 html body footer .footer-bottom span {
-  color: rgba(255,255,255,0.50) !important;
+  color: rgba(245,240,234,0.28) !important;
 }
 html body footer a:hover,
 html body footer .footer-col a:hover {
@@ -5849,18 +5927,533 @@ html body nav:not(.nav-scrolled) .logo-text { color: #ffffff !important; text-sh
 html body nav:not(.nav-scrolled) .logo-sub  { color: rgba(255,255,255,0.75) !important; }
 html body nav:not(.nav-scrolled) .menu-btn  { color: #ffffff !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: #ffffff !important; }
-html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
+html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }/* PNG is 1024×1536 (2:3 portrait). Size by height, width auto.      */
+
+/* Base: nav desktop */
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 52px !important;
+  max-height: 52px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+  margin: 0 auto 4px !important;
+}
+
+/* Mobile nav header: slightly larger */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 60px !important;
+  max-height: 60px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo on dark bg: lighten stones to ivory */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav non-scrolled: keep full size */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  height: 52px !important;
+  max-height: 52px !important;
+}
+
+/* Nav scrolled: slightly smaller */
+html body nav.nav-scrolled img.logo-stones {
+  height: 44px !important;
+  max-height: 44px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 40px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.75) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── *//* PNG is 1024×1536 (2:3 portrait). Stones occupy ~60% of canvas.    */
+/* All sizes boosted to compensate for whitespace in the PNG.         */
+
+/* Base: nav desktop */
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 68px !important;
+  max-height: 68px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: much larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 110px !important;
+  max-height: 110px !important;
+  width: auto !important;
+  margin: 0 auto 2px !important;
+}
+
+/* Mobile nav header */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 80px !important;
+  max-height: 80px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo: invert to ivory on dark bg */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav non-scrolled */
+html body nav:not(.nav-scrolled) img.logo-stones {
+  height: 68px !important;
+  max-height: 68px !important;
+}
+
+/* Nav scrolled: slightly smaller */
+html body nav.nav-scrolled img.logo-stones {
+  height: 56px !important;
+  max-height: 56px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 56px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.70) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* ── LOGO OFFICIEL PNG — unified size fix ────────────────────────── */
+/* Cropped PNG is 256×334 (3:4 ratio), no whitespace padding.        */
+
+html body img.logo-stones,
+html body .logo img.logo-stones,
+html body .footer-logo img.logo-stones,
+html body .mobile-nav-header img.logo-stones {
+  width: auto !important;
+  height: 44px !important;
+  max-height: 44px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  display: block !important;
+  position: static !important;
+}
+
+/* Footer: larger, centered above text */
+html body footer img.logo-stones,
+html body footer .footer-logo img.logo-stones {
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+  margin: 0 auto 6px !important;
+}
+
+/* Mobile nav header */
+html body .mobile-nav-header img.logo-stones,
+html body .mobile-nav img.logo-stones {
+  height: 52px !important;
+  max-height: 52px !important;
+  width: auto !important;
+}
+
+/* Footer layout: column, centered */
+html body footer .footer-logo,
+html body footer a.footer-logo {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Footer logo: invert to ivory on dark bg */
+html body footer img.logo-stones {
+  filter: brightness(0) invert(1) opacity(0.85) !important;
+}
+
+/* Nav scrolled: same size */
+html body nav.nav-scrolled img.logo-stones {
+  height: 40px !important;
+  max-height: 40px !important;
+}
+
+/* Popup sp-stones */
+html body #sp-stones img {
+  height: 48px !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  filter: brightness(0) invert(1) opacity(0.70) !important;
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* ══ MOBILE NAV — UNIFIED SURFACE (FINAL — wins all cascades) ══════ */
+html body .mobile-nav,
+html body .mobile-nav.open {
+  background: #684034 !important;
+}
+html body .mobile-nav-header {
+  background: #684034 !important;
+  border-bottom: none !important;
+}
+html body .mobile-nav-links {
+  background: transparent !important;
+}
+html body .mobile-nav-links li {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+html body .mobile-nav-links .nav-sub {
+  border-top: none !important;
+}
+html body .mobile-nav-footer {
+  background: transparent !important;
+  border-top: none !important;
+}
+html body .sp-menu-trigger-wrap {
+  background: transparent !important;
+  padding: 10px 24px 6px !important;
+}
+html body .sp-menu-trigger {
+  background: rgba(245,237,227,0.07) !important;
+  border: 1px solid rgba(245,237,227,0.18) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+html body .sp-menu-trigger:hover {
+  background: rgba(245,237,227,0.12) !important;
+}
+html body .sp-menu-trigger-label {
+  color: #F5EDE3 !important;
+}
+html body .sp-menu-trigger-sub {
+  color: rgba(245,237,227,0.55) !important;
+}
+html body .mobile-nav .mobile-nav-footer .btn-dark,
+html body .mobile-nav .mobile-nav-footer a.btn-dark {
+  background: rgba(245,237,227,0.12) !important;
+  border: 1px solid rgba(245,237,227,0.35) !important;
+  color: #F5EDE3 !important;
+}
+html body .mobile-nav .mobile-nav-footer .btn-dark:hover,
+html body .mobile-nav .mobile-nav-footer a.btn-dark:hover {
+  background: rgba(245,237,227,0.20) !important;
+  border-color: rgba(245,237,227,0.55) !important;
+  color: #F5EDE3 !important;
+}
+html body .mobile-lang-btn {
+  background: none !important;
+  border: none !important;
+  color: rgba(245,237,227,0.42) !important;
+}
+html body .mobile-lang-btn.active {
+  color: rgba(245,237,227,0.92) !important;
+  background: rgba(201,169,110,0.18) !important;
+  border: 1px solid rgba(201,169,110,0.45) !important;
+  border-radius: 50% !important;
+  outline: none !important;
+}
+html body .mobile-lang-btn:hover:not(.active) {
+  color: rgba(245,237,227,0.65) !important;
+}
+html body .mobile-lang-sep {
+  color: rgba(245,237,227,0.20) !important;
+}
+html body .mobile-nav-close {
+  background: none !important;
+  border: none !important;
+  color: rgba(245,237,227,0.55) !important;
+}
+html body .mobile-nav-close:hover {
+  color: rgba(245,237,227,0.88) !important;
+}
+/* ════════════════════════════════════════════════════════════════════ */
+
+/* ── FOOTER LEGAL BAR: highest specificity override ── */
+html body footer .footer-bottom:not(.btn-dark):not(.btn-light):not(.btn-warm),
+html body footer .footer-bottom span:not(.btn-dark):not(.btn-light):not(.btn-warm),
+html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) {
+  color: rgba(245,237,227,0.32) !important;
+  font-size: 0.63rem !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.4 !important;
+  font-weight: 300 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* svc-duration: softer color + centered in list view */
+html body .svc-card .svc-duration,
+html body .svc-card .svc-tag {
+  color: rgba(104,64,52,0.52) !important;
+}
+html body .services-grid.list-view .svc-info { text-align: center !important; }
+html body .services-grid.list-view .svc-price-row { justify-content: center !important; }
+html body .services-grid.list-view .svc-book-btn { align-self: center !important; }
+
+/* ── View toggle buttons — élégant, sans marron foncé ── */
+html body .view-btn {
+  background: transparent !important;
+  border: 1px solid rgba(104,64,52,0.22) !important;
+  color: rgba(104,64,52,0.45) !important;
+  border-radius: 8px !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s !important;
+}
+html body .view-btn.active {
+  background: #ffffff !important;
+  border-color: rgba(104,64,52,0.30) !important;
+  color: #684034 !important;
+  box-shadow: 0 1px 6px rgba(104,64,52,0.12) !important;
+}
+html body .view-btn:hover:not(.active) {
+  border-color: rgba(104,64,52,0.40) !important;
+  color: rgba(104,64,52,0.70) !important;
+}
+
+/* ── Bundle cards: compact ── */
+html body .bundles-grid {
+  gap: 1rem !important;
+}
+html body .bundle {
+  padding: 1.2rem 1.4rem !important;
+}
+html body .bundle-name {
+  font-size: 1.3rem !important;
+  margin-bottom: 0.1rem !important;
+}
+html body .bundle-name-fr {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.6rem !important;
+}
+html body .bundle-price {
+  font-size: 1.8rem !important;
+  margin-bottom: 0.15rem !important;
+}
+html body .bundle-save {
+  font-size: 0.68rem !important;
+  margin-bottom: 0.5rem !important;
+}
+html body .bundle-includes {
+  font-size: 0.82rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0.5rem !important;
+}
+html body .bundle-desc {
+  font-size: 0.80rem !important;
+  line-height: 1.4 !important;
+}
+/* Reduce section vertical padding */
+html body section {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+html body .ritual-close { padding: 2.5rem 1.4rem !important; }
+html body .ritual-close h2 { font-size: clamp(1.8rem,6vw,3rem) !important; margin-bottom: 0.8rem !important; }
+html body .ritual-close-lead { font-size: 0.95rem !important; margin-bottom: 1.2rem !important; }
+
+/* ── Facial hero video — full height like laser & head-spa ── */
+header.hero {
+  min-height: 100svh !important;
+  height: 100svh !important;
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+}
+header.hero video.hero-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  z-index: 0 !important;
+  filter: brightness(0.78) saturate(0.90) !important;
+}
+header.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,4,2,0.25) 0%,
+    rgba(10,4,2,0.0)  40%,
+    rgba(10,4,2,0.55) 72%,
+    rgba(10,4,2,0.88) 100%
+  ) !important;
+}
+header.hero .hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  padding: 0 2.5rem 3.5rem !important;
+  width: 100% !important;
+}
+@media (max-width: 768px) {
+  header.hero .hero-copy { padding: 0 1.4rem 2.8rem !important; }
+}
+header.hero .hero-copy .eyebrow {
+  color: #F5C06A !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.30em !important;
+  margin-bottom: 0.6rem !important;
+}
+header.hero .hero-copy h1 {
+  color: #ffffff !important;
+  font-size: clamp(2.4rem, 8vw, 4.5rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+/* ── Facial hero — cinematic layout ── */
+header.hero .facial-hero-copy {
+  height: 100svh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  padding: 28% 1.4rem 0 !important;
+  width: 100% !important;
+}
+.facial-hero-eyebrow {
+  color: #F5C06A !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.30em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.9rem !important;
+  display: block !important;
+  justify-content: center !important;
+}
+.facial-hero-eyebrow::before { display: none !important; }
+.facial-hero-h1 {
+  color: #ffffff !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(4.2rem, 18vw, 10rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.14em !important;
+  line-height: 1 !important;
+  margin: 0 0 0.7rem !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.45) !important;
+}
+.facial-hero-lead {
+  color: rgba(245,237,227,0.72) !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
+  margin: 0 0 0 !important;
+  letter-spacing: 0.04em !important;
+}
+.facial-hero-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.9rem !important;
+  margin-top: auto !important;
+  padding-bottom: 9% !important;
+  width: 100% !important;
+}
+html body .facial-hero-copy .btn-hero-glass {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.82rem 2.4rem !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.42) !important;
+  color: #F5EDE3 !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-radius: 4px !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: background 0.25s, border-color 0.25s !important;
+}
+html body .facial-hero-copy .btn-hero-glass:hover {
+  background: rgba(255,255,255,0.20) !important;
+  border-color: rgba(255,255,255,0.65) !important;
+  color: #ffffff !important;
+}
+.facial-hero-promo {
+  color: rgba(245,237,227,0.52) !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-size: clamp(0.82rem, 2.8vw, 1rem) !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.02em !important;
+  margin: 0 !important;
+  max-width: 300px !important;
+}
+@media (max-width: 480px) {
+  header.hero .facial-hero-copy { padding: 4rem 1.2rem 0 !important; }
+  .facial-hero-actions { padding-bottom: 12% !important; }
+}
+/* ── FOOTER LINKS — forcer couleur claire sur fond sombre ── */
+html body footer a:not(.footer-logo):not(.scroll-top):not(.btn-dark):not(.btn-light):not(.btn-warm):not(.btn-hero-glass):not(.back-btn) {
+  color: rgba(245,237,227,0.68) !important;
+  text-decoration: none !important;
+}
+html body footer a:not(.footer-logo):not(.scroll-top):not(.btn-dark):not(.btn-light):not(.btn-warm):not(.btn-hero-glass):not(.back-btn):hover {
+  color: rgba(201,169,110,0.92) !important;
+}
+html body footer .footer-col h4 { color: #F5C06A !important; }
+html body footer .footer-col li { color: rgba(245,237,227,0.65) !important; }
+html body footer .footer-bottom,
+html body footer .footer-bottom a,
+html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important; font-size: 0.63rem !important; }
+
 </style>
 </head>
 <body>
 
 <nav>
   <a class="logo" href="index.html">
-    <div class="logo-stones">
-      <span class="stone stone-top"></span>
-      <span class="stone stone-mid"></span>
-      <span class="stone stone-bot"></span>
-    </div>
     <div class="logo-brand">
       <span class="logo-text">SKINES</span>
       <span class="logo-sub">Med Spa · Montréal</span>
@@ -5887,11 +6480,6 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
   <div class="mobile-nav-header">
     <a class="logo" href="index.html">
-      <div class="logo-stones">
-        <span class="stone stone-top"></span>
-        <span class="stone stone-mid"></span>
-        <span class="stone stone-bot"></span>
-      </div>
       <div class="logo-brand">
         <span class="logo-text">SKINES</span>
         <span class="logo-sub">Med Spa · Montréal</span>
@@ -5902,7 +6490,7 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
   <ul class="mobile-nav-links">
     <li><a href="head-spa.html">Head Spa</a></li>
     <li><a href="laser.html"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
-    <li><a href="facial.html"><span data-fr="Soins du Visage" data-en="Facial Treatments">Soins du Visage</span></a></li>
+    <li><a href="facial.html"><span data-fr="Facial" data-en="Facial">Facial</span></a></li>
       <li><a href="cartes-cadeaux.html"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
     <li><a href="index.html#reviews" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
     <li><a href="index.html#contact" class="nav-sub"><span data-fr="Contact & Adresse" data-en="Contact & Address">Contact & Adresse</span></a></li>
@@ -5920,10 +6508,17 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
 </div>
 
 <header class="hero">
-  <img class="hero-bg" src="assets/facial.png" alt="Soin du visage Skines">
-  <div class="hero-copy">
-    <div class="eyebrow"><span data-fr="Soins du Visage" data-en="Facial Treatments">Soins du Visage</span></div>
-    <h1><span data-fr="Soins du visage" data-en="Facial Treatments">Soins du visage</span></h1>
+  <video class="hero-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="Facial Skines">
+    <source src="assets/hero-facial-main.mp4" type="video/mp4">
+  </video>
+  <div class="hero-copy facial-hero-copy">
+    <div class="eyebrow facial-hero-eyebrow">Soin Haut de Gamme · Skines</div>
+    <h1 class="facial-hero-h1">FACIAL</h1>
+    <p class="facial-hero-lead">Soin du visage haut de gamme</p>
+    <div class="facial-hero-actions">
+      <a class="btn-hero-glass" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER</a>
+      <p class="facial-hero-promo">Profitez actuellement d'offres exclusives jusqu'à 30% de réduction.<br>Découvrez-les dès maintenant.</p>
+    </div>
   </div>
 </header>
 
@@ -6039,7 +6634,7 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
 
 <div class="ritual-tags">
   <div class="ritual-pills">
-    <span class="ritual-pill"><span data-fr="Soins du visage" data-en="Facial care">Soins du visage</span></span>
+    <span class="ritual-pill"><span data-fr="Facial" data-en="Facial">Facial</span></span>
     <span class="ritual-pill"><span data-fr="Nettoyage en profondeur" data-en="Deep cleansing">Nettoyage en profondeur</span></span>
     <span class="ritual-pill"><span data-fr="Hydratation" data-en="Hydration">Hydratation</span></span>
     <span class="ritual-pill"><span data-fr="Éclat" data-en="Glow">Éclat</span></span>
@@ -6056,7 +6651,6 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
   </div>
 </section>
 
-<a class="btn-dark" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
 </div>
 
 
@@ -6098,169 +6692,55 @@ html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
 
 
 <footer>
-  <div class="footer-grid">
-    <div style="text-align:center;">
-      <a class="footer-logo" href="index.html" style="justify-content:center;">
-        <div class="logo-stones">
-          <span class="stone stone-top"></span>
-          <span class="stone stone-mid"></span>
-          <span class="stone stone-bot"></span>
-        </div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="footer-logo" href="index.html">
+        <img src="assets/images/logo-officiel-cropped.PNG" class="logo-stones" alt="Skines logo">
         <div class="logo-brand">
           <span class="footer-logo-text">SKINES</span>
           <span class="logo-sub">Med Spa · Montréal</span>
         </div>
       </a>
-      <p class="footer-tagline" style="max-width:none;margin-left:auto;margin-right:auto;">La force de l'eau vient de la source<br>L'essentiel commence à la racine</p>
     </div>
-    <div class="footer-col">
-      <h4>Soins</h4>
-      <ul>
-        <li><a href="head-spa.html">Head Spa</a></li>
-        <li><a href="laser.html">Épilation laser</a></li>
-        <li><a href="facial.html">Soins du visage</a></li>
-        <li><a href="cartes-cadeaux.html">Gift Cards</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Visite</h4>
-      <ul>
-        <li><a href="index.html#contact">Adresse</a></li>
-        <li>Stationnement disponible</li>
-        <li>Assurance disponible</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Réseaux</h4>
-      <ul>
-        <li><a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer">Instagram · 29K</a></li>
-        <li><a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer">TikTok · 12K</a></li>
-        <li><a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer">Facebook</a></li>
-        <li><a href="https://www.threads.com/@skines.ca" target="_blank" rel="noreferrer">Threads</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Légal</h4>
-      <ul>
-        <li><a href="privacy-policy.html">Confidentialité</a></li>
-        <li><a href="terms-and-conditions.html">Conditions</a></li>
-        <li><a href="cookie-policy.html">Cookies</a></li>
-        <li style="margin-top:0.9rem;font-size:0.7rem;letter-spacing:0.06em;opacity:0.50;line-height:1.5;">Connexion sécurisée<br>HTTPS · Données protégées</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Skines Spa · All rights reserved</span>
-    <span><a href="privacy-policy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Confidentialité</a> · <a href="terms-and-conditions.html" style="color:inherit;opacity:0.7;text-decoration:none;">Conditions</a> · <a href="cookie-policy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Cookies</a></span>
-  </div>
-</footer>
-
-<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const menuClose = document.getElementById("menuClose");
-  const mobileNav = document.getElementById("mobileNav");
-  function openMenu() { mobileNav.classList.add("open"); menuBtn.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; }
-  function closeMenu() { mobileNav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
-  menuBtn.addEventListener("click", openMenu);
-  menuClose.addEventListener("click", closeMenu);
-  mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-
-  // Language switcher
-  function applyLang(lang) {
-    document.querySelectorAll("[data-fr]").forEach(el => {
-      el.textContent = lang === "fr" ? el.dataset.fr : (el.dataset.en || el.dataset.fr);
-    });
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
-    });
-    localStorage.setItem("skines-lang", lang);
-  }
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.addEventListener("click", () => applyLang(btn.dataset.lang));
-  });
-  applyLang(localStorage.getItem("skines-lang") || "fr");
-
-  // Header scroll color switch (subpages)
-  (function() {
-    var nav = document.querySelector('nav');
-    if (!nav) return;
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 40) {
-        nav.classList.add('nav-scrolled');
-      } else {
-        nav.classList.remove('nav-scrolled');
-      }
-    }, { passive: true });
-  })();
-
-  // Scroll to top
-  (function() {
-    var btn = document.getElementById('scrollTop');
-    if (!btn) return;
-    window.addEventListener('scroll', function() {
-      btn.classList.toggle('visible', window.scrollY > 300);
-    }, { passive: true });
-    btn.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
-
-  // Grid / List view toggle
-  (function() {
-    document.querySelectorAll('.view-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const isList = btn.dataset.view === 'list';
-        document.querySelectorAll('.services-grid, .price-cards-grid').forEach(g => {
-          g.classList.toggle('list-view', isList);
-        });
-      });
-    });
-  })();
-
-  // Mobile menu lang buttons
-  document.querySelectorAll(".mobile-lang-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const lang = btn.dataset.lang;
-      document.querySelectorAll(".lang-btn, .mobile-lang-btn").forEach(b => {
-        b.classList.toggle("active", b.dataset.lang === lang);
-      });
-      document.querySelectorAll("[data-fr]").forEach(el => {
-        el.textContent = lang === "fr" ? el.dataset.fr : el.dataset.en;
-      });
-    });
-  });
-
-</script>
-
-<!-- ══ SEARCH OVERLAY ══════════════════════════════════════════════════════ -->
-<div id="searchOverlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Recherche">
-  <div class="search-overlay-inner">
-    <div class="search-bar-row">
-      <svg class="search-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="searchInput" class="search-input" type="search" placeholder="Rechercher un soin, prix, info…" autocomplete="off" spellcheck="false" enterkeyhint="search">
-      <button class="search-close-btn" id="searchClose" aria-label="Fermer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div id="searchSuggestions" class="search-suggestions">
-      <div class="search-pill-row">
-        <button class="search-pill" data-q="head spa">Head Spa</button>
-        <button class="search-pill" data-q="laser">Laser</button>
-        <button class="search-pill" data-q="facial">Facial</button>
-        <button class="search-pill" data-q="prix">Prix</button>
-        <button class="search-pill" data-q="réserver">Réserver</button>
-        <button class="search-pill" data-q="assurance">Assurance</button>
-        <button class="search-pill" data-q="adresse">Adresse</button>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Soins</h4>
+        <ul>
+          <li><a href="head-spa.html">Head Spa</a></li>
+          <li><a href="laser.html">Épilation laser</a></li>
+          <li><a href="facial.html">Facial</a></li>
+          <li><a href="cartes-cadeaux.html">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="reviews.html">Avis clients</a></li>
+          <li><a href="index.html#contact">Adresse</a></li>
+          <li>Parking privé</li>
+          <li>Assurance disponible</li>
+        </ul>
       </div>
     </div>
-    <div id="searchResults" class="search-results"></div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Skines Spa · <a href="privacy-policy.html">Confidentialité</a> · <a href="terms-and-conditions.html">Conditions</a> · <a href="cookie-policy.html">Cookies</a></span>
+    </div>
   </div>
-</div>
+</footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 <script>
 /* ══ SITE SEARCH ENGINE ═══════════════════════════════════════════════════ */
 (function() {
@@ -6276,7 +6756,7 @@ const DB = [
   { icon:"🫧", cat:"Head Spa", name:"Trio 90 min – Signature Scalpcial", meta:"90 min · Rituel trio signature", price:"$378", tag:"head spa scalpcial trio 90 min groupe signature", url:"head-spa.html" },
 
   // ── FACIAL ──
-  { icon:"✨", cat:"Soins Visage", name:"Soins du Visage", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"facial.html" },
+  { icon:"✨", cat:"Soins Visage", name:"Facial", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"facial.html" },
 
   // ── LASER ──
   { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", price:"$40", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"laser.html" },
@@ -6315,7 +6795,7 @@ const DB = [
   { icon:"🗺️", cat:"Info", name:"Google Maps – Itinéraire", meta:"Ouvrir dans Maps", price:"", tag:"maps google plan itinéraire chemin où aller direction", url:"https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z" },
   { icon:"📞", cat:"Info", name:"Téléphone – +1 (438) 260-5660", meta:"Appeler Skines Spa", price:"", tag:"téléphone phone appel contact numéro 438", url:"tel:+14382605660" },
   { icon:"📧", cat:"Info", name:"Email – Info@skines.ca", meta:"Envoyer un email", price:"", tag:"email mail courriel contact info", url:"mailto:Info@skines.ca" },
-  { icon:"🅿️", cat:"Info", name:"Stationnement disponible", meta:"Parking gratuit à proximité", price:"Gratuit", tag:"stationnement parking gratuit voiture garer", url:"index.html#contact" },
+  { icon:"🅿️", cat:"Info", name:"Parking privé", meta:"Parking gratuit à proximité", price:"Gratuit", tag:"stationnement parking gratuit voiture garer", url:"index.html#contact" },
   { icon:"🏥", cat:"Info", name:"Reçu d'assurance disponible", meta:"Valide pour remboursement", price:"", tag:"assurance insurance reçu remboursement couverture médecin", url:"index.html#contact" },
   { icon:"🎁", cat:"Info", name:"Cartes Cadeaux", meta:"Offrir une expérience Skines", price:"", tag:"carte cadeau gift card cadeau offrir ami anniversaire", url:"index.html#contact" },
   { icon:"⭐", cat:"Info", name:"Avis clients – 4.8★ sur Fresha", meta:"Voir tous les avis", price:"", tag:"avis review note 4.8 fresha google clients", url:"reviews.html" },
@@ -6380,58 +6860,67 @@ function renderSuggestions() {
 }
 
 // Overlay open/close
-const overlay = document.getElementById("searchOverlay");
-const input   = document.getElementById("searchInput");
-const closeBtn = document.getElementById("searchClose");
-const suggestBox = document.getElementById("searchSuggestions");
-
 function openSearch() {
+  var overlay = document.getElementById("searchOverlay");
+  var input   = document.getElementById("searchInput");
+  if (!overlay) return;
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
-  setTimeout(() => input && input.focus(), 120);
+  setTimeout(function() { if (input) input.focus(); }, 120);
 }
 function closeSearch() {
+  var overlay  = document.getElementById("searchOverlay");
+  var input    = document.getElementById("searchInput");
+  var suggestBox = document.getElementById("searchSuggestions");
+  if (!overlay) return;
   overlay.classList.remove("open");
   document.body.style.overflow = "";
   if (input) { input.value = ""; }
-  if (document.getElementById("searchResults")) document.getElementById("searchResults").innerHTML = "";
+  var res = document.getElementById("searchResults");
+  if (res) res.innerHTML = "";
   if (suggestBox) suggestBox.style.display = "";
 }
 
-// Wire search button(s) — all pages
-document.querySelectorAll("#searchBtn").forEach(btn => btn.addEventListener("click", openSearch));
-if (closeBtn) closeBtn.addEventListener("click", closeSearch);
-overlay && overlay.addEventListener("click", e => { if (e.target === overlay) closeSearch(); });
+// Wire all search interactions after DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  var closeBtn   = document.getElementById("searchClose");
+  var input      = document.getElementById("searchInput");
+  var suggestBox = document.getElementById("searchSuggestions");
 
-// Live search
-let debounceTimer;
-input && input.addEventListener("input", () => {
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => {
-    const q = input.value.trim();
-    if (!q) {
-      renderResults([], "");
-      if (suggestBox) suggestBox.style.display = "";
-      document.getElementById("searchResults").innerHTML = "";
-    } else {
+  document.querySelectorAll("#searchBtn").forEach(function(btn) { btn.addEventListener("click", openSearch); });
+  if (closeBtn) closeBtn.addEventListener("click", closeSearch);
+  document.addEventListener("click", function(e) { var ov = document.getElementById("searchOverlay"); if (ov && e.target === ov) closeSearch(); });
+
+  if (input) {
+    var debounceTimer;
+    input.addEventListener("input", function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function() {
+        var q = input.value.trim();
+        if (!q) {
+          renderResults([], "");
+          if (suggestBox) suggestBox.style.display = "";
+          var res = document.getElementById("searchResults");
+          if (res) res.innerHTML = "";
+        } else {
+          if (suggestBox) suggestBox.style.display = "none";
+          renderResults(search(q), q);
+        }
+      }, 180);
+    });
+  }
+
+  document.querySelectorAll(".search-pill").forEach(function(pill) {
+    pill.addEventListener("click", function() {
+      if (!input) return;
+      input.value = pill.dataset.q;
       if (suggestBox) suggestBox.style.display = "none";
-      renderResults(search(q), q);
-    }
-  }, 180);
-});
-
-// Pills
-document.querySelectorAll(".search-pill").forEach(pill => {
-  pill.addEventListener("click", () => {
-    if (!input) return;
-    input.value = pill.dataset.q;
-    if (suggestBox) suggestBox.style.display = "none";
-    renderResults(search(pill.dataset.q), pill.dataset.q);
+      renderResults(search(pill.dataset.q), pill.dataset.q);
+    });
   });
 });
 
-// ESC key
-document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay && overlay.classList.contains("open")) closeSearch(); });
+document.addEventListener("keydown", function(e) { var ov = document.getElementById("searchOverlay"); if (e.key === "Escape" && ov && ov.classList.contains("open")) closeSearch(); });
 })();
 
   // Grid / list view toggle
@@ -6463,27 +6952,34 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay &&
 })();
 </script>
 <script>
-/* Patch: hide main nav when mobile menu opens, restore on close */
+/* Mobile menu: open/close */
 (function() {
   var menuBtn   = document.getElementById('menuBtn');
   var menuClose = document.getElementById('menuClose');
   var mobileNav = document.getElementById('mobileNav');
   var mainNav   = document.querySelector('nav:not(#mobileNav)');
-  if (!menuBtn || !mainNav || !mobileNav) return;
+  if (!menuBtn || !mobileNav) return;
 
-  function hideMainNav() {
-    mainNav.style.cssText += ';visibility:hidden!important;opacity:0!important;pointer-events:none!important;';
+  function openMenu() {
+    mobileNav.classList.add('open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (mainNav) mainNav.style.display = 'none';
   }
-  function showMainNav() {
-    mainNav.style.visibility = '';
-    mainNav.style.opacity    = '';
-    mainNav.style.pointerEvents = '';
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (mainNav) mainNav.style.display = '';
   }
 
-  menuBtn.addEventListener('click', hideMainNav);
-  if (menuClose) menuClose.addEventListener('click', showMainNav);
+  menuBtn.addEventListener('click', openMenu);
+  if (menuClose) menuClose.addEventListener('click', closeMenu);
   mobileNav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', showMainNav);
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMenu();
   });
 })();
 </script>
@@ -6554,5 +7050,62 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay &&
 })();
 </script>
 
+<script>
+/* ── Interactions fix: lang switcher, scroll-top, mobile lang buttons ── */
+(function() {
+
+  // Language switcher (desktop + mobile nav)
+  function applyLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(function(el) {
+      el.textContent = lang === 'fr' ? el.dataset.fr : (el.dataset.en || el.dataset.fr);
+    });
+    document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('skines-lang', lang);
+  }
+  document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
+  });
+  applyLang(localStorage.getItem('skines-lang') || 'fr');
+
+  // Scroll-to-top button
+  var scrollTopBtn = document.getElementById('scrollTop');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function() {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+})();
+</script>
+
+<!-- ══ SEARCH OVERLAY ══════════════════════════════════════════════════════ -->
+<div id="searchOverlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Recherche">
+  <div class="search-overlay-inner">
+    <div class="search-bar-row">
+      <svg class="search-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" class="search-input" type="search" placeholder="Rechercher un soin, prix, info…" autocomplete="off" spellcheck="false" enterkeyhint="search">
+      <button class="search-close-btn" id="searchClose" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="searchSuggestions" class="search-suggestions">
+      <div class="search-pill-row">
+        <button class="search-pill" data-q="head spa">Head Spa</button>
+        <button class="search-pill" data-q="laser">Laser</button>
+        <button class="search-pill" data-q="facial">Facial</button>
+        <button class="search-pill" data-q="prix">Prix</button>
+        <button class="search-pill" data-q="réserver">Réserver</button>
+        <button class="search-pill" data-q="assurance">Assurance</button>
+        <button class="search-pill" data-q="adresse">Adresse</button>
+      </div>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</div>
 </body>
 </html>

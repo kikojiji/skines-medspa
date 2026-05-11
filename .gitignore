@@ -30,3 +30,4 @@ assets/laser-full-body.png
 assets/laser-lips-chin.png
 assets/laser-neck.png
 .vercel
+.env*.local

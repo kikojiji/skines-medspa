@@ -7134,7 +7134,7 @@ html body #sp-stones img {
     <ul class="mobile-nav-links">
       <li><a href="head-spa.html">Head Spa</a></li>
       <li><a href="laser.html"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
-      <li><a href="facial.html"><span data-fr="Soins du Visage" data-en="Facial Treatments">Soins du Visage</span></a></li>
+      <li><a href="facial.html"><span data-fr="Facial" data-en="Facial">Facial</span></a></li>
       <li><a href="cartes-cadeaux.html"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
       <li><a href="#reviews" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
       <li><a href="#contact" class="nav-sub"><span data-fr="Contact & Adresse" data-en="Contact & Address">Contact & Adresse</span></a></li>
@@ -7169,7 +7169,7 @@ html body #sp-stones img {
     <div class="hero-content">
       <div class="eyebrow hero-eyebrow">Japanese Inspired · Montréal</div>
       <h1 class="hero-title"><span data-fr="L'art de prendre" data-en="The Art of">L'art de prendre</span><br><em><span data-fr="soin." data-en="Care.">soin.</span></em></h1>
-      <p class="hero-sub"><span data-fr="Head Spa · Épilation Laser · Soins du Visage" data-en="Head Spa · Laser · Facial Treatments">Head Spa · Épilation Laser · Soins du Visage</span></p>
+      <p class="hero-sub"><span data-fr="Head Spa · Épilation Laser · Facial" data-en="Head Spa · Laser · Facial">Head Spa · Épilation Laser · Facial</span></p>
       <div class="hero-actions hero-cta">
         <a class="btn-hero-glass" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
         <a class="btn-hero-glass" href="cartes-cadeaux.html"><span data-fr="Carte Cadeau" data-en="Gift Cards">Carte Cadeau</span></a>
@@ -7202,8 +7202,8 @@ html body #sp-stones img {
 
   <div class="marquee">
     <div class="marquee-track">
-      <span>Japanese Head Spa</span><b>◆</b><span>Épilation Laser Clarity II</span><b>◆</b><span>Soins du Visage</span><b>◆</b><span>Scalpcial Signature</span><b>◆</b><span>Reçu d'assurance disponible</span><b>◆</b>
-      <span>Japanese Head Spa</span><b>◆</b><span>Épilation Laser Clarity II</span><b>◆</b><span>Soins du Visage</span><b>◆</b><span>Scalpcial Signature</span><b>◆</b><span>Reçu d'assurance disponible</span><b>◆</b>
+      <span>Japanese Head Spa</span><b>◆</b><span>Épilation Laser Clarity II</span><b>◆</b><span>Facial</span><b>◆</b><span>Scalpcial Signature</span><b>◆</b><span>Reçu d'assurance disponible</span><b>◆</b>
+      <span>Japanese Head Spa</span><b>◆</b><span>Épilation Laser Clarity II</span><b>◆</b><span>Facial</span><b>◆</b><span>Scalpcial Signature</span><b>◆</b><span>Reçu d'assurance disponible</span><b>◆</b>
     </div>
   </div>
 
@@ -7403,7 +7403,7 @@ html body #sp-stones img {
         <ul>
           <li><a href="head-spa.html">Head Spa</a></li>
           <li><a href="laser.html">Épilation laser</a></li>
-          <li><a href="facial.html">Soins du visage</a></li>
+          <li><a href="facial.html">Facial</a></li>
           <li><a href="cartes-cadeaux.html">Gift Cards</a></li>
         </ul>
       </div>
@@ -7448,7 +7448,7 @@ const DB = [
   { icon:"🫧", cat:"Head Spa", name:"Trio 90 min – Signature Scalpcial", meta:"90 min · Rituel trio signature", price:"$378", tag:"head spa scalpcial trio 90 min groupe signature", url:"head-spa.html" },
 
   // ── FACIAL ──
-  { icon:"✨", cat:"Soins Visage", name:"Soins du Visage", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"facial.html" },
+  { icon:"✨", cat:"Soins Visage", name:"Facial", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"facial.html" },
 
   // ── LASER ──
   { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", price:"$40", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"laser.html" },
@@ -8586,6 +8586,34 @@ html body .search-overlay .search-empty {
 html body .search-overlay .search-empty strong {
   color: rgba(255,255,255,0.75) !important;
 }
+
+/* ── COLOR REBALANCE: shift page bg away from pink toward warm amber-cream ── */
+html body,
+html body section:not(.laser-fullslider):not(.gallery-carousel):not(.booking-band):not(.hero):not(footer):not(nav) {
+  background: #F0DCC0 !important;
+}
+html body section.contact { background: #F0DCC0 !important; }
+html body #treatments,
+html body section#treatments { background: #F0DCC0 !important; }
+html body .service-card,
+html body #treatments .service-card {
+  background: #FBF5EC !important;
+  box-shadow: 0 2px 14px rgba(104,64,52,0.09) !important;
+}
+/* ── FOOTER LINKS — forcer couleur claire sur fond sombre ── */
+html body footer a:not(.footer-logo):not(.scroll-top):not(.btn-dark):not(.btn-light):not(.btn-warm):not(.btn-hero-glass):not(.back-btn) {
+  color: rgba(245,237,227,0.68) !important;
+  text-decoration: none !important;
+}
+html body footer a:not(.footer-logo):not(.scroll-top):not(.btn-dark):not(.btn-light):not(.btn-warm):not(.btn-hero-glass):not(.back-btn):hover {
+  color: rgba(201,169,110,0.92) !important;
+}
+html body footer .footer-col h4 { color: #F5C06A !important; }
+html body footer .footer-col li { color: rgba(245,237,227,0.65) !important; }
+html body footer .footer-bottom,
+html body footer .footer-bottom a,
+html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important; font-size: 0.63rem !important; }
+
 </style>
 
 <!-- SVG filters for grain -->
@@ -8644,9 +8672,12 @@ html body .search-overlay .search-empty strong {
 <script>
 function openPopup() {
   var mn = document.getElementById('mobileNav');
+  var mainNav = document.querySelector('nav');
   if (mn && mn.classList.contains('open')) {
     mn.classList.remove('open');
     document.body.style.overflow = '';
+    // restore nav visibility that openMenu() hid
+    if (mainNav) mainNav.style.display = '';
   }
   var o = document.getElementById('sp-overlay');
   o.style.display = 'flex';
@@ -8660,13 +8691,13 @@ function closePopup() {
     o.style.display = 'none';
     o.style.opacity = '';
     o.style.pointerEvents = '';
+    // always restore scroll
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
     var nav = document.querySelector('nav');
     if (nav) {
       nav.classList.remove('nav-hidden');
-      nav.style.cssText = nav.style.cssText
-        .replace(/visibility\s*:[^;]+;?/gi, '')
-        .replace(/opacity\s*:[^;]+;?/gi, '')
-        .replace(/pointer-events\s*:[^;]+;?/gi, '');
+      nav.style.display = '';
       nav.style.visibility = '';
       nav.style.opacity = '';
       nav.style.transform = '';
