@@ -7,7 +7,6 @@
 <meta name="description" content="Offrez une expérience Skines Med Spa — Head Spa, facial ou épilation laser. Cartes cadeaux disponibles en ligne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -417,7 +416,7 @@
   }
 
   /* ── HOW IT WORKS ── */
-  .how-section { padding: 4rem 1.6rem; background: var(--cream); }
+  .how-section { padding: 3.5rem 1.6rem 3rem; background: var(--cream); }
   .steps { display: flex; flex-direction: column; gap: 1.8rem; margin-top: 2rem; }
   .step { display: flex; gap: 1.2rem; align-items: flex-start; }
   .step-num {
@@ -432,7 +431,7 @@
   .step-body p { font-size: 0.82rem; color: var(--text-soft); line-height: 1.65; }
 
   /* ── FAQ ── */
-  .faq-section { padding: 3rem 1.6rem 5rem; background: var(--cream); border-top: 1px solid var(--line); }
+  .faq-section { padding: 3rem 1.6rem 3.5rem; background: var(--cream); border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
   .faq-q { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-bottom: 0.5rem; }
   .faq-a { font-size: 0.82rem; color: var(--text-soft); line-height: 1.7; }
@@ -1364,6 +1363,61 @@
     color: rgba(245,237,227,0.30);
     text-align: center;
     line-height: 1.65;
+  }
+
+  /* ══ GC FRESHA BLOCK ══ */
+  .gc-fresha-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.6rem 4rem;
+    max-width: 560px;
+    margin: 0 auto;
+    gap: 0;
+  }
+  .gc-fresha-deco {
+    font-size: 1rem;
+    color: rgba(201,169,110,0.50);
+    letter-spacing: 0.4em;
+    margin-bottom: 2rem;
+  }
+  .gc-fresha-text {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+    font-style: italic;
+    color: rgba(245,237,227,0.72);
+    line-height: 1.85;
+    margin-bottom: 2.8rem;
+    font-weight: 300;
+  }
+  .gc-fresha-btn {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid rgba(201,169,110,0.65);
+    color: #C9A96E;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.1rem 2.8rem;
+    border-radius: 2px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 1.6rem;
+  }
+  .gc-fresha-btn:hover {
+    background: #C9A96E;
+    color: #1A0D07;
+    border-color: #C9A96E;
+  }
+  .gc-fresha-note {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    color: rgba(245,237,227,0.28);
+    text-transform: uppercase;
   }
 
   /* ══ GC-PAGE — FORCE DARK + FIX ALL INPUTS ══════════════════════════
@@ -3216,7 +3270,7 @@ html body .mobile-nav-header .logo .logo-brand {
 }
 html body .mobile-nav-header .logo .logo-text,
 html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 19px !important;
   letter-spacing: 6px !important;
@@ -3227,7 +3281,7 @@ html body .mobile-nav-header .logo span.logo-text {
 }
 html body .mobile-nav-header .logo .logo-sub,
 html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 8.5px !important;
   letter-spacing: 3px !important;
@@ -3280,7 +3334,7 @@ html body .mobile-nav-links a {
   align-items: center !important;
   padding: 22px 22px !important;
   text-decoration: none !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 13.5px !important;
   letter-spacing: 2.5px !important;
@@ -3333,7 +3387,7 @@ html body .mobile-lang-switcher {
   padding: 12px 0 11px !important;
 }
 html body .mobile-lang-btn {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 300 !important;
   letter-spacing: 2px !important;
@@ -3368,7 +3422,7 @@ html body .mobile-nav-footer a.btn-dark {
   padding: 16px !important;
   background: #E8D4A0 !important;
   color: #4A2318 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 400 !important;
   font-size: 11px !important;
   letter-spacing: 4px !important;
@@ -3425,7 +3479,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
   html body nav .logo span.logo-text,
   html body nav:not(.nav-scrolled) .logo .logo-text,
   html body nav.nav-scrolled .logo .logo-text {
-    font-family: 'Jost', 'DM Sans', sans-serif !important;
+    font-family: 'DM Sans', sans-serif !important;
     font-weight: 300 !important;
     font-size: 18px !important;
     letter-spacing: 7px !important;
@@ -3438,7 +3492,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
   html body nav .logo span.logo-sub,
   html body nav:not(.nav-scrolled) .logo .logo-sub,
   html body nav.nav-scrolled .logo .logo-sub {
-    font-family: 'Jost', 'DM Sans', sans-serif !important;
+    font-family: 'DM Sans', sans-serif !important;
     font-weight: 300 !important;
     font-size: 8px !important;
     letter-spacing: 3px !important;
@@ -3532,7 +3586,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
 /* ── LOGO: bigger, wider letter-spacing ── */
 html body .mobile-nav-header .logo .logo-text,
 html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 28px !important;
   letter-spacing: 12px !important;
@@ -3544,7 +3598,7 @@ html body .mobile-nav-header .logo span.logo-text {
 }
 html body .mobile-nav-header .logo .logo-sub,
 html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 9px !important;
   letter-spacing: 4px !important;
@@ -3595,7 +3649,7 @@ html body .mobile-nav-links a {
   font-weight: 300 !important;
   text-transform: uppercase !important;
   color: #F2E6D9 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -3631,7 +3685,7 @@ html body .mobile-lang-switcher {
   padding: 8px 0 12px !important;
 }
 html body .mobile-lang-btn {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 300 !important;
   letter-spacing: 2px !important;
@@ -3655,7 +3709,7 @@ html body .mobile-nav-footer a.btn-dark {
   margin: 0 0 16px 0 !important;
   background: #E8D4A0 !important;
   color: #3D1E10 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 400 !important;
   font-size: 11px !important;
   letter-spacing: 4px !important;
@@ -4615,6 +4669,149 @@ html body footer .footer-bottom,
 html body footer .footer-bottom a,
 html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important; font-size: 0.63rem !important; }
 
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP GLOBAL — textes clairs, cohérents, bien proportionnés
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 980px) {
+
+  /* ── Titres sections h2 — dark & lisible ── */
+  html body h2:not(header h2):not(.hero h2):not(.band h2):not(.booking-band h2):not(.gc-page h2):not(.laser-fullslider h2) {
+    color: #2C1810 !important;
+    font-size: clamp(2.2rem, 3vw, 3.4rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.01em !important;
+  }
+  html body h3:not(header h3):not(.hero h3):not(.gc-page h3):not(.band h3):not(.booking-band h3) {
+    color: #3A1F14 !important;
+    font-size: clamp(1.25rem, 1.6vw, 1.65rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* ── Textes corps — couleur homogène ── */
+  html body p:not(header p):not(.hero-copy p):not(.facial-hero-copy p):not(.headspa-hero-copy p):not(.laser-hero-copy p):not(.gc-page p):not(.band p):not(.booking-band p):not(.mobile-nav p):not(footer p) {
+    color: rgba(44,24,16,0.72) !important;
+    line-height: 1.78 !important;
+    font-size: clamp(0.92rem, 1.05vw, 1.05rem) !important;
+  }
+  html body li:not(.mobile-nav li):not(footer li):not(.gc-page li) {
+    color: rgba(44,24,16,0.72) !important;
+    font-size: clamp(0.9rem, 1vw, 1rem) !important;
+  }
+
+  /* ── Eyebrows — dorés chauds cohérents ── */
+  html body .eyebrow:not(header .eyebrow):not(.hero .eyebrow):not(.booking-band .eyebrow):not(.gc-page .eyebrow):not(footer .eyebrow) {
+    color: #8B5E3C !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.28em !important;
+  }
+
+  /* ── Section lead / sous-titres ── */
+  html body .section-lead:not(.gc-page .section-lead):not(.band .section-lead),
+  html body .section-desc:not(.gc-page .section-desc) {
+    color: rgba(44,24,16,0.65) !important;
+    font-size: clamp(1rem, 1.15vw, 1.12rem) !important;
+    max-width: 640px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.72 !important;
+  }
+
+  /* ── Sections — max-width centré 1240px ── */
+  html body section:not(.hero):not(.laser-fullslider):not(.gallery-carousel):not(.social-bar):not(.band):not(.booking-band):not(.gc-page):not(.family-section) {
+    padding-left: max(3rem, calc((100vw - 1240px) / 2)) !important;
+    padding-right: max(3rem, calc((100vw - 1240px) / 2)) !important;
+  }
+
+  /* ── Grilles services — 3 colonnes sur desktop ── */
+  html body .services-grid:not(.list-view) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.8rem !important;
+  }
+
+  /* ── Hero copy desktop — plus grand ── */
+  html body header.hero .hero-copy h1,
+  html body header.hero .headspa-hero-h1,
+  html body header.hero .facial-hero-h1 {
+    font-size: clamp(4rem, 8vw, 8rem) !important;
+  }
+  html body .laser-hero-h1 {
+    font-size: clamp(2.8rem, 4.5vw, 5rem) !important;
+  }
+
+  /* ── Prix / montants ── */
+  html body .svc-price-current,
+  html body .price-val,
+  html body .amount {
+    color: #2C1810 !important;
+    font-size: clamp(1.6rem, 2vw, 2rem) !important;
+  }
+
+  /* ── Titres cartes services ── */
+  html body .svc-name,
+  html body .svc-card .svc-title {
+    color: #2C1810 !important;
+    font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
+  }
+  html body .svc-duration,
+  html body .svc-tag,
+  html body .svc-cat {
+    color: rgba(44,24,16,0.52) !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* desktop-page-specific */
+@media (min-width: 980px) {
+  /* Gift cards PNG grid — 3 colonnes */
+  html body .gc-png-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    max-width: 1000px !important;
+    margin: 0 auto 3rem !important;
+  }
+  /* Form + sélection — max-width */
+  html body .gc-form-section {
+    max-width: 700px !important;
+    margin: 0 auto !important;
+  }
+  /* How section — 4 colonnes */
+  html body .how-steps {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2rem !important;
+  }
+  html body .gc-page { padding: 5rem max(3rem, calc((100vw - 1100px) / 2)) !important; }
+}
+
+/* ── SEARCH RESULTS — textes toujours lisibles ── */
+html body .search-overlay .search-result-name,
+html body #searchOverlay .search-result-name,
+html body .search-result-name {
+  color: #F5EDE3 !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+html body .search-overlay .search-result-meta,
+html body #searchOverlay .search-result-meta,
+html body .search-result-meta {
+  color: rgba(245,237,227,0.58) !important;
+  font-size: 0.78rem !important;
+}
+html body .search-overlay .search-result-price,
+html body #searchOverlay .search-result-price,
+html body .search-result-price {
+  color: #F5C06A !important;
+  font-weight: 600 !important;
+}
+html body .search-overlay .search-result-arrow,
+html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -4653,98 +4850,21 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
   <div class="gc-header">
     <p class="gc-eyebrow">Cartes Cadeaux</p>
     <h2 class="gc-title">Le Parfait Cadeau<br><em>de Bien-être.</em></h2>
-    <p class="gc-subtitle">Sélectionnez un soin, personnalisez votre carte et envoyez-la en quelques secondes.</p>
   </div>
 
-  <!-- ─── SECTION 1 : PNG gift card visuals ────────────────────── -->
-  <div class="gc-png-grid">
-
-    <button class="gc-png-card" onclick="selectCard('Carte Cadeau $100', 100)" data-amount="100">
-      <div class="gc-png-img-wrap">
-        <img src="assets/images/gift-cards/gift-card-100.PNG" alt="Carte Cadeau $100 · Skines Med Spa" loading="lazy">
-      </div>
-      <div class="gc-png-footer">
-        <span class="gc-png-label">Carte Cadeau</span>
-        <span class="gc-png-price">$100</span>
-        <span class="gc-png-cta">Choisir →</span>
-      </div>
-    </button>
-
-    <button class="gc-png-card" onclick="selectCard('Carte Cadeau $200', 200)" data-amount="200">
-      <div class="gc-png-img-wrap">
-        <img src="assets/images/gift-cards/gift-card-200.PNG" alt="Carte Cadeau $200 · Skines Med Spa" loading="lazy">
-      </div>
-      <div class="gc-png-footer">
-        <span class="gc-png-label">Carte Cadeau</span>
-        <span class="gc-png-price">$200</span>
-        <span class="gc-png-cta">Choisir →</span>
-      </div>
-    </button>
-
-    <button class="gc-png-card" onclick="selectCard('Carte Cadeau $300', 300)" data-amount="300">
-      <div class="gc-png-img-wrap">
-        <img src="assets/images/gift-cards/gift-card-300.PNG" alt="Carte Cadeau $300 · Skines Med Spa" loading="lazy">
-      </div>
-      <div class="gc-png-footer">
-        <span class="gc-png-label">Carte Cadeau</span>
-        <span class="gc-png-price">$300</span>
-        <span class="gc-png-cta">Choisir →</span>
-      </div>
-    </button>
-
-  </div>
-
-  <!-- Custom amount -->
-  <div class="gc-custom-row">
-    <input class="gc-custom-input" type="number" id="customAmount"
-      placeholder="Montant libre ($25 minimum)" min="25" max="9999">
-  </div>
-
-  <!-- Selected service indicator -->
-  <div class="gc-selection-bar" id="selectionBar" style="display:none">
-    <span class="gc-selection-icon">✓</span>
-    <span id="selectionLabel">Soin sélectionné</span>
-    <span class="gc-selection-price" id="selectionPrice"></span>
-  </div>
-
-  <!-- ─── SECTION 2 : Form ─────────────────────────────────────── -->
-  <div class="gc-form-section" id="gc-form-anchor">
-    <div class="gc-form-title">
-      <span class="gc-form-title-line"></span>
-      Personnalisez votre carte
-      <span class="gc-form-title-line"></span>
-    </div>
-
-    <div class="gc-form">
-      <!-- honeypot: hidden from humans, bots fill it -->
-      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
-      <!-- Full-width: sender name -->
-      <input class="gc-field" type="text" id="fromName"
-        placeholder="Votre prénom (De la part de…)" autocomplete="given-name">
-
-      <!-- Two columns: recipient name + email -->
-      <div class="gc-row">
-        <input class="gc-field" type="text" id="toName"
-          placeholder="Prénom du destinataire" autocomplete="off">
-        <input class="gc-field" type="email" id="toEmail"
-          placeholder="Email du destinataire" autocomplete="email">
-      </div>
-
-      <!-- Full-width: personal message -->
-      <input class="gc-field" type="text" id="message"
-        placeholder="Message personnalisé (optionnel)">
-
-      <!-- Full-width: sender email -->
-      <input class="gc-field" type="email" id="yourEmail"
-        placeholder="Votre email (pour confirmation)" autocomplete="email">
-
-      <!-- Submit -->
-      <button class="gc-submit" type="button" onclick="submitOrder()">
-        ENVOYER LA CARTE CADEAU
-      </button>
-
-      <p class="gc-note">La carte est envoyée par email dans les 24h · Valable 12 mois · Tous les soins Skines</p>
-    </div>
+  <!-- ─── Fresha redirect section ─────────────────────────────── -->
+  <div class="gc-fresha-block">
+    <div class="gc-fresha-deco">✦</div>
+    <p class="gc-fresha-text">
+      Offrez une expérience Skines Med Spa &amp; Wellness à la personne de votre choix.
+      Nos cartes cadeaux sont disponibles directement sur Fresha, avec un achat simple, sécurisé et rapide.
+    </p>
+    <a class="gc-fresha-btn"
+       href="https://www.fresha.com/book-now/glowch-bod1k4s2/gift-cards?share=true&pId=1273288"
+       target="_blank" rel="noreferrer">
+      ACHETER UNE CARTE CADEAU
+    </a>
+    <p class="gc-fresha-note">Valable sur tous les soins Skines · Disponible immédiatement par email</p>
   </div>
 
 </section>
@@ -4757,29 +4877,29 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-body">
-        <h3>Choisissez un montant ou un soin</h3>
-        <p>Sélectionnez parmi nos cartes thématiques ou entrez un montant libre à partir de $25.</p>
+        <h3>Choisissez un montant cadeau</h3>
+        <p>Sélectionnez un montant parmi nos cartes cadeaux ou entrez un montant libre à partir de 50 $.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-body">
-        <h3>Personnalisez votre message</h3>
-        <p>Ajoutez le prénom du destinataire et un message chaleureux — on s'occupe du reste.</p>
+        <h3>Personnalisez votre cadeau</h3>
+        <p>Ajoutez le prénom du destinataire et un message personnalisé. Vous pouvez envoyer la carte cadeau directement au destinataire ou à votre propre adresse courriel. Il est également possible de choisir une date d'envoi afin que la carte soit livrée au moment souhaité.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-body">
-        <h3>Reçu par email sous 24h</h3>
-        <p>Une carte cadeaux numérique est envoyée à l'email du destinataire avec le code d'activation.</p>
+        <h3>Reçue par courriel immédiatement</h3>
+        <p>La carte cadeau numérique est envoyée instantanément par courriel avec son code cadeau unique.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">04</div>
       <div class="step-body">
-        <h3>Réservation chez Skines</h3>
-        <p>Le destinataire réserve son soin sur Fresha et mentionne son code cadeau lors du paiement.</p>
+        <h3>Réservez chez Skines</h3>
+        <p>Le destinataire recevra sa carte cadeau avec une référence unique qu'il pourra utiliser lors de sa réservation et de son paiement chez Skines.</p>
       </div>
     </div>
   </div>
@@ -4789,6 +4909,10 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
 <section class="faq-section">
   <div class="eyebrow">Questions fréquentes</div>
   <h2 style="margin-bottom:1.5rem">FAQ</h2>
+  <div class="faq-item">
+    <p class="faq-q">Où puis-je acheter une carte cadeau ?</p>
+    <p class="faq-a">Les cartes cadeaux Skines sont disponibles directement sur Fresha, notre plateforme de réservation sécurisée.</p>
+  </div>
   <div class="faq-item">
     <p class="faq-q">Quelle est la durée de validité ?</p>
     <p class="faq-a">Toutes les cartes cadeaux sont valables 12 mois à partir de la date d'achat.</p>
@@ -4803,11 +4927,7 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
   </div>
   <div class="faq-item">
     <p class="faq-q">Comment utiliser la carte lors de la réservation ?</p>
-    <p class="faq-a">Mentionnez votre code cadeau lors de la réservation sur Fresha ou appelez-nous directement au <a href="tel:+14382605660">438 260-5660</a>.</p>
-  </div>
-  <div class="faq-item">
-    <p class="faq-q">Puis-je offrir une carte en version physique ?</p>
-    <p class="faq-a">Contactez-nous directement — nous pouvons préparer une carte imprimée pour les achats en studio.</p>
+    <p class="faq-a">Lors de la réservation sur Fresha, le bénéficiaire applique sa carte cadeau directement au moment du paiement.</p>
   </div>
 </section>
 
@@ -4876,141 +4996,6 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
   }, { passive: true });
 })();
 
-let selectedAmount = null;
-let selectedServiceName = null;
-
-/* ── Select a service card ── */
-function selectService(card, price) {
-  // Deselect all cards
-  document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
-  // Select tapped card
-  card.classList.add('selected');
-  selectedAmount = price;
-  selectedServiceName = card.dataset.name || price;
-  // Fill custom input for visibility
-  const inp = document.getElementById('customAmount');
-  if (inp) { inp.value = price; inp.placeholder = 'Ou entrez un montant libre ($)'; }
-  // Show selection bar
-  const bar = document.getElementById('selectionBar');
-  if (bar) {
-    bar.style.display = 'flex';
-    document.getElementById('selectionLabel').textContent = card.dataset.name || 'Soin sélectionné';
-    document.getElementById('selectionPrice').textContent = '$' + price;
-  }
-}
-
-/* ── Legacy compat (gift-card buttons on top of page still call selectCard) ── */
-function setAmount(val) {
-  selectedAmount = val;
-  const inp = document.getElementById('customAmount');
-  if (inp) inp.value = val;
-  document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
-}
-function selectCard(name, amount) {
-  setAmount(amount);
-  selectedServiceName = name;
-  document.querySelectorAll('.gc-png-card').forEach(c => c.classList.remove('selected'));
-  var cards = document.querySelectorAll('.gc-png-card');
-  cards.forEach(function(c) { if (Number(c.dataset.amount) === amount) c.classList.add('selected'); });
-  var formAnchor = document.getElementById('gc-form-anchor');
-  if (formAnchor) formAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-/* ── Clear card selection when user types a custom amount ── */
-(function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    const inp = document.getElementById('customAmount');
-    if (!inp) return;
-    inp.addEventListener('input', function () {
-      if (inp.value) {
-        document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
-        selectedAmount = Number(inp.value) || null;
-        selectedServiceName = null;
-      }
-    });
-  });
-})();
-
-function showToast(msg, isError = false) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.style.borderColor = isError ? '#e05252' : '#C9A96E';
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 5000);
-}
-
-async function submitOrder() {
-  const rawAmount = document.getElementById('customAmount').value || selectedAmount;
-  const fromName    = document.getElementById('fromName').value.trim();
-  const toName      = document.getElementById('toName').value.trim();
-  const toEmail     = document.getElementById('toEmail').value.trim();
-  const message     = document.getElementById('message').value.trim();
-  const senderEmail = document.getElementById('yourEmail').value.trim();
-
-  // Validation
-  if (!rawAmount || Number(rawAmount) < 25) {
-    showToast('⚠️ Choisissez un montant minimum de $25.', true); return;
-  }
-  if (!toName) {
-    showToast('⚠️ Indiquez le prénom du destinataire.', true); return;
-  }
-  if (!toEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(toEmail)) {
-    showToast('⚠️ Email du destinataire invalide.', true); return;
-  }
-  if (!senderEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(senderEmail)) {
-    showToast('⚠️ Votre email de confirmation est invalide.', true); return;
-  }
-
-  const btn = document.querySelector('.gc-submit');
-  btn.disabled = true;
-  btn.textContent = 'Envoi en cours…';
-
-  try {
-    const res = await fetch('/api/send-gift-card', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        amount: `$${rawAmount}`,
-        fromName: fromName || 'Non précisé',
-        toName,
-        toEmail,
-        message,
-        senderEmail,
-        website: document.querySelector('[name="website"]')?.value ?? '',
-      }),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
-
-    // Success
-    showToast('🎁 Commande envoyée ! Nous vous confirmons sous 24h.');
-    btn.textContent = '✓ ENVOYÉ';
-    btn.style.background = '#5a8a5a';
-
-    // Reset form after 3s
-    setTimeout(() => {
-      document.getElementById('fromName').value = '';
-      document.getElementById('toName').value = '';
-      document.getElementById('toEmail').value = '';
-      document.getElementById('message').value = '';
-      document.getElementById('yourEmail').value = '';
-      document.getElementById('customAmount').value = '';
-      document.querySelectorAll('.gc-card').forEach(c => c.classList.remove('selected'));
-      selectedAmount = null;
-      selectedServiceName = null;
-      btn.disabled = false;
-      btn.textContent = 'ENVOYER LA CARTE CADEAU';
-      btn.style.background = '';
-    }, 3000);
-
-  } catch (err) {
-    showToast('❌ ' + (err.message || 'Erreur. Réessayez ou appelez-nous.'), true);
-    btn.disabled = false;
-    btn.textContent = 'ENVOYER LA CARTE CADEAU';
-  }
-}
 
 // Mobile menu active highlight
 (function() {

@@ -18,7 +18,6 @@
 <meta name="twitter:image" content="https://www.skines.info/assets/og-logo3.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -395,7 +394,7 @@
   .marquee span { margin: 0 1.8rem; }
   .marquee b { color: var(--gold); font-weight: 400; }
   @keyframes marquee { to { transform: translateX(-50%); } }
-  section { padding: 7.5rem 4rem; }
+  section { padding: 6rem 4rem; }
   .services { padding-top: 5rem; padding-bottom: 5rem; }
   .section-head {
     display: flex;
@@ -1011,8 +1010,8 @@
       min-width: 158px;
     }
 
-    /* Sections — more breathing room */
-    section { padding: 7.5rem 4.5rem; }
+    /* Sections — consistent with sub-pages */
+    section { padding: 6rem 4rem; }
     .booking-band { padding: 3.6rem 4.5rem; }
     footer { padding: 4.5rem 4.5rem 2.5rem; }
   }
@@ -1138,7 +1137,7 @@
     }
 
     /* ── Hero: full bleed under fixed nav ────────────────────── */
-    .hero { min-height: 100svh; }
+    .hero { min-height: 100svh; min-height: 100dvh; }
     .hero-bg { object-position: center 18%; }
     .hero-content { padding: 6rem 1.5rem 3.5rem; }
     h1 { font-size: clamp(2.4rem, 9.5vw, 3.4rem); margin-bottom: 1rem; }
@@ -1151,7 +1150,7 @@
     /* Remove marquee ticker — keeps experience calm on mobile */
 
     /* Hero */
-    .hero { min-height: 100svh; }
+    .hero { min-height: 100svh; min-height: 100dvh; }
     .hero-bg { object-position: center 18%; }
     .hero-content { padding: 3.2rem 1.5rem 2.8rem; }
     h1 { font-size: clamp(2.4rem, 9.5vw, 3.4rem); margin-bottom: 1rem; }
@@ -1159,7 +1158,7 @@
     .hero-actions { gap: 0.75rem; }
 
     /* Sections */
-    section { padding: 3.8rem 1.5rem; }
+    section { padding: 3.5rem 1.5rem; }
     .booking-band { padding: 2.4rem 1.5rem; }
     footer { padding: 3.2rem 1.5rem 2rem; }
     .section-title { font-size: clamp(1.95rem, 7.5vw, 2.7rem); }
@@ -1535,7 +1534,7 @@
 
   /* ══ MOBILE HERO: FULLSCREEN ══ */
   @media (max-width: 980px) {
-    .hero, header.hero { min-height: 100svh !important; height: 100svh !important; }
+    .hero, header.hero { min-height: 100svh !important; min-height: 100dvh !important; height: 100svh !important; height: 100dvh !important; }
     .hero-content {
       display: flex !important;
       flex-direction: column !important;
@@ -3369,7 +3368,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 0.5rem 1.5rem 1.5rem;
     margin: 2rem 0 0;
@@ -5574,7 +5572,7 @@ html body .mobile-nav-header .logo .logo-brand {
 }
 html body .mobile-nav-header .logo .logo-text,
 html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 19px !important;
   letter-spacing: 6px !important;
@@ -5585,7 +5583,7 @@ html body .mobile-nav-header .logo span.logo-text {
 }
 html body .mobile-nav-header .logo .logo-sub,
 html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 8.5px !important;
   letter-spacing: 3px !important;
@@ -5638,7 +5636,7 @@ html body .mobile-nav-links a {
   align-items: center !important;
   padding: 22px 22px !important;
   text-decoration: none !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 13.5px !important;
   letter-spacing: 2.5px !important;
@@ -5691,7 +5689,7 @@ html body .mobile-lang-switcher {
   padding: 12px 0 11px !important;
 }
 html body .mobile-lang-btn {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 300 !important;
   letter-spacing: 2px !important;
@@ -5726,7 +5724,7 @@ html body .mobile-nav-footer a.btn-dark {
   padding: 16px !important;
   background: #E8D4A0 !important;
   color: #4A2318 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 400 !important;
   font-size: 11px !important;
   letter-spacing: 4px !important;
@@ -5889,7 +5887,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
 /* ── LOGO: bigger, wider letter-spacing ── */
 html body .mobile-nav-header .logo .logo-text,
 html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 28px !important;
   letter-spacing: 12px !important;
@@ -5901,7 +5899,7 @@ html body .mobile-nav-header .logo span.logo-text {
 }
 html body .mobile-nav-header .logo .logo-sub,
 html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 9px !important;
   letter-spacing: 4px !important;
@@ -5952,7 +5950,7 @@ html body .mobile-nav-links a {
   font-weight: 300 !important;
   text-transform: uppercase !important;
   color: #F2E6D9 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -5988,7 +5986,7 @@ html body .mobile-lang-switcher {
   padding: 8px 0 12px !important;
 }
 html body .mobile-lang-btn {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 300 !important;
   letter-spacing: 2px !important;
@@ -6012,7 +6010,7 @@ html body .mobile-nav-footer a.btn-dark {
   margin: 0 0 16px 0 !important;
   background: #E8D4A0 !important;
   color: #3D1E10 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 400 !important;
   font-size: 11px !important;
   letter-spacing: 4px !important;
@@ -6310,7 +6308,6 @@ html body .mobile-nav-links {
   flex: 1 1 auto !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch !important;
 }
 html body .mobile-nav-footer {
   flex-shrink: 0 !important;
@@ -7094,6 +7091,15 @@ html body #sp-stones img {
   filter: brightness(0) invert(1) opacity(0.70) !important;
 }
 /* ─────────────────────────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .marquee-track { animation: none; }
+    video.hero-bg { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -7162,7 +7168,7 @@ html body #sp-stones img {
   </div>
 
   <header class="hero">
-    <video id="heroVideo" class="hero-bg parallax-img" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
+    <video id="heroVideo" class="hero-bg parallax-img" autoplay muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
       <source src="assets/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="assets/hook.mp4" type="video/mp4">
     </video>
@@ -7172,7 +7178,7 @@ html body #sp-stones img {
       <p class="hero-sub"><span data-fr="Head Spa · Épilation Laser · Facial" data-en="Head Spa · Laser · Facial">Head Spa · Épilation Laser · Facial</span></p>
       <div class="hero-actions hero-cta">
         <a class="btn-hero-glass" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
-        <a class="btn-hero-glass" href="cartes-cadeaux.html"><span data-fr="Carte Cadeau" data-en="Gift Cards">Carte Cadeau</span></a>
+        <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/gift-cards?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Carte Cadeau" data-en="Gift Cards">Carte Cadeau</span></a>
       </div>
     </div>
     <button class="sound-toggle" type="button" aria-label="Activer le son" aria-pressed="false">♪</button>
@@ -7215,7 +7221,7 @@ html body #sp-stones img {
     </div>
     <div class="service-grid">
       <a class="service-card" href="head-spa.html">
-        <div class="card-img"><img src="assets/IMG_4654.jpg" alt="Head Spa"></div>
+        <div class="card-img"><img src="assets/IMG_4654.jpg" alt="Head Spa" loading="lazy"></div>
         <div class="card-body">
           <h3>Head Spa</h3>
           <p>Rituel japonais. Tensions libérées, système nerveux apaisé, cuir chevelu régénéré.</p>
@@ -7223,7 +7229,7 @@ html body #sp-stones img {
         </div>
       </a>
       <a class="service-card" href="laser.html">
-        <div class="card-img"><img src="assets/laser-hero.png" alt="Épilation laser Clarity II"></div>
+        <div class="card-img"><img src="assets/laser-hero.png" alt="Épilation laser Clarity II" loading="lazy"></div>
         <div class="card-body">
           <h3>Épilation laser</h3>
           <p>Technologie Clarity II. Résultats durables, peau soyeuse, confort absolu.</p>
@@ -7231,7 +7237,7 @@ html body #sp-stones img {
         </div>
       </a>
       <a class="service-card" href="facial.html">
-        <div class="card-img"><img src="assets/bela-facial.png" alt="Traitement Bela MD"></div>
+        <div class="card-img"><img src="assets/bela-facial.png" alt="Traitement Bela MD" loading="lazy"></div>
         <div class="card-body">
           <h3>Advanced Skin Therapy</h3>
           <p>Infusion de sérums sur mesure. Texture affinée, éclat restauré, peau transformée.</p>
@@ -7239,7 +7245,7 @@ html body #sp-stones img {
         </div>
       </a>
       <a class="service-card card-giftcard" href="cartes-cadeaux.html">
-        <div class="card-img"><img src="assets/hero-gidtcart.PNG" alt="Cartes Cadeaux"></div>
+        <div class="card-img"><img src="assets/hero-gidtcart.PNG" alt="Cartes Cadeaux" loading="lazy"></div>
         <div class="card-body">
           <span class="card-eyebrow">CADEAU BIEN-ÊTRE</span>
           <h3>Gift Cards</h3>
@@ -7253,13 +7259,13 @@ html body #sp-stones img {
   <section class="bela-feature" id="bela-feature">
     <div class="bela-slider-wrap">
       <div class="bela-slide active">
-        <img src="assets/bela-facial.png" alt="Traitement Bela MD — hydro-dermabrasion">
+        <img src="assets/bela-facial.png" alt="Traitement Bela MD — hydro-dermabrasion" loading="lazy">
       </div>
       <div class="bela-slide">
-        <img src="assets/laser-full-zones.png" alt="Bela MD soins avancés">
+        <img src="assets/laser-full-zones.png" alt="Bela MD soins avancés" loading="lazy">
       </div>
       <div class="bela-slide">
-        <img src="assets/laser-legs-w.png" alt="Éclat peau Bela MD">
+        <img src="assets/laser-legs-w.png" alt="Éclat peau Bela MD" loading="lazy">
       </div>
       <div class="bela-dots">
         <button class="bela-dot active" aria-label="Image 1"></button>
@@ -7295,35 +7301,35 @@ html body #sp-stones img {
     <div class="review-circles">
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video loop playsinline webkit-playsinline muted preload="metadata" poster="assets/avis1_thumb.jpg">
+          <video loop playsinline muted preload="metadata" poster="assets/avis1_thumb.jpg">
             <source src="assets/avis1.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video loop playsinline webkit-playsinline muted preload="metadata" poster="assets/avis2_thumb.jpg">
+          <video loop playsinline muted preload="metadata" poster="assets/avis2_thumb.jpg">
             <source src="assets/avis2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video loop playsinline webkit-playsinline muted preload="metadata" poster="assets/avis3_thumb.jpg">
+          <video loop playsinline muted preload="metadata" poster="assets/avis3_thumb.jpg">
             <source src="assets/avis3.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video loop playsinline webkit-playsinline muted preload="metadata" poster="assets/avis4_thumb.jpg">
+          <video loop playsinline muted preload="metadata" poster="assets/avis4_thumb.jpg">
             <source src="assets/avis4.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="review-circle">
         <div class="review-circle-wrap">
-          <video loop playsinline webkit-playsinline muted preload="metadata" poster="assets/avis5_thumb.jpg">
+          <video loop playsinline muted preload="metadata" poster="assets/avis5_thumb.jpg">
             <source src="assets/avis5.mp4" type="video/mp4">
           </video>
         </div>
@@ -7386,6 +7392,9 @@ html body #sp-stones img {
     </div>
   </section>
 
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
   <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -8131,8 +8140,8 @@ html body .hero .btn-hero-glass:hover {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: 100svh !important;
-    height: 100svh !important;
+    min-height: 100svh !important; min-height: 100dvh !important;
+    height: 100svh !important; height: 100dvh !important;
     overflow: hidden !important;
   }
   /* 2. Video: absolute, full cover */
@@ -8614,6 +8623,160 @@ html body footer .footer-bottom,
 html body footer .footer-bottom a,
 html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important; font-size: 0.63rem !important; }
 
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP GLOBAL — textes clairs, cohérents, bien proportionnés
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 980px) {
+
+  /* ── Titres sections h2 — dark & lisible ── */
+  html body h2:not(header h2):not(.hero h2):not(.band h2):not(.booking-band h2):not(.gc-page h2):not(.laser-fullslider h2) {
+    color: #2C1810 !important;
+    font-size: clamp(2.2rem, 3vw, 3.4rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.01em !important;
+  }
+  html body h3:not(header h3):not(.hero h3):not(.gc-page h3):not(.band h3):not(.booking-band h3) {
+    color: #3A1F14 !important;
+    font-size: clamp(1.25rem, 1.6vw, 1.65rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* ── Textes corps — couleur homogène ── */
+  html body p:not(header p):not(.hero-copy p):not(.facial-hero-copy p):not(.headspa-hero-copy p):not(.laser-hero-copy p):not(.gc-page p):not(.band p):not(.booking-band p):not(.mobile-nav p):not(footer p) {
+    color: rgba(44,24,16,0.72) !important;
+    line-height: 1.78 !important;
+    font-size: clamp(0.92rem, 1.05vw, 1.05rem) !important;
+  }
+  html body li:not(.mobile-nav li):not(footer li):not(.gc-page li) {
+    color: rgba(44,24,16,0.72) !important;
+    font-size: clamp(0.9rem, 1vw, 1rem) !important;
+  }
+
+  /* ── Eyebrows — dorés chauds cohérents ── */
+  html body .eyebrow:not(header .eyebrow):not(.hero .eyebrow):not(.booking-band .eyebrow):not(.gc-page .eyebrow):not(footer .eyebrow) {
+    color: #8B5E3C !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.28em !important;
+  }
+
+  /* ── Section lead / sous-titres ── */
+  html body .section-lead:not(.gc-page .section-lead):not(.band .section-lead),
+  html body .section-desc:not(.gc-page .section-desc) {
+    color: rgba(44,24,16,0.65) !important;
+    font-size: clamp(1rem, 1.15vw, 1.12rem) !important;
+    max-width: 640px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.72 !important;
+  }
+
+  /* ── Sections — max-width centré 1240px ── */
+  html body section:not(.hero):not(.laser-fullslider):not(.gallery-carousel):not(.social-bar):not(.band):not(.booking-band):not(.gc-page):not(.family-section) {
+    padding-left: max(3rem, calc((100vw - 1240px) / 2)) !important;
+    padding-right: max(3rem, calc((100vw - 1240px) / 2)) !important;
+  }
+
+  /* ── Grilles services — 3 colonnes sur desktop ── */
+  html body .services-grid:not(.list-view) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.8rem !important;
+  }
+
+  /* ── Hero copy desktop — plus grand ── */
+  html body header.hero .hero-copy h1,
+  html body header.hero .headspa-hero-h1,
+  html body header.hero .facial-hero-h1 {
+    font-size: clamp(4rem, 8vw, 8rem) !important;
+  }
+  html body .laser-hero-h1 {
+    font-size: clamp(2.8rem, 4.5vw, 5rem) !important;
+  }
+
+  /* ── Prix / montants ── */
+  html body .svc-price-current,
+  html body .price-val,
+  html body .amount {
+    color: #2C1810 !important;
+    font-size: clamp(1.6rem, 2vw, 2rem) !important;
+  }
+
+  /* ── Titres cartes services ── */
+  html body .svc-name,
+  html body .svc-card .svc-title {
+    color: #2C1810 !important;
+    font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
+  }
+  html body .svc-duration,
+  html body .svc-tag,
+  html body .svc-cat {
+    color: rgba(44,24,16,0.52) !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* desktop-page-specific */
+@media (min-width: 980px) {
+  /* Hero — titre calibré desktop */
+  html body .hero .hero-content h1,
+  html body .hero-copy h1 {
+    font-size: clamp(3rem, 4.5vw, 5rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.01em !important;
+    max-width: 600px !important;
+  }
+  html body .hero .hero-sub {
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem) !important;
+    letter-spacing: 0.12em !important;
+    white-space: nowrap !important;
+    margin-bottom: 2rem !important;
+  }
+  html body .hero-actions {
+    flex-direction: row !important;
+    gap: 1rem !important;
+  }
+  html body .hero-actions a { padding: 0.9rem 2rem !important; font-size: 0.75rem !important; width: auto !important; }
+
+  /* Services section — 4 cartes en ligne */
+  html body .services-grid-home,
+  html body .services-section .cards-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.6rem !important;
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Testimonials — 3 colonnes */
+  html body .testimonials-grid,
+  html body .reviews-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Section titles centré desktop */
+  html body .services .section-head,
+  html body .reviews .section-head { text-align: center !important; }
+}
+
+/* ── SEARCH RESULTS — textes toujours lisibles ── */
+html body .search-overlay .search-result-name,
+html body #searchOverlay .search-result-name,
+html body .search-result-name {
+  color: #F5EDE3 !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+html body .search-overlay .search-result-meta,
+html body #searchOverlay .search-result-meta,
+html body .search-result-meta {
+  color: rgba(245,237,227,0.58) !important;
+  font-size: 0.78rem !important;
+}
+html body .search-overlay .search-result-price,
+html body #searchOverlay .search-result-price,
+html body .search-result-price {
+  color: #F5C06A !important;
+  font-weight: 600 !important;
+}
+html body .search-overlay .search-result-arrow,
+html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
+
 </style>
 
 <!-- SVG filters for grain -->
@@ -8706,8 +8869,8 @@ function closePopup() {
   }, 520);
 }
 
-// auto-open after 5 seconds
-setTimeout(openPopup, 5000);
+// auto-open: 12s on mobile (user needs time to orient), 5s on desktop
+setTimeout(openPopup, window.innerWidth < 768 ? 12000 : 5000);
 
 // menu trigger
 var trig = document.getElementById('sp-menu-trigger');
@@ -8767,43 +8930,91 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   }
 
   // 4. Review circle videos — click to play/pause, sound button to unmute
-  var CIRC_SVG_MUTED   = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
-  var CIRC_SVG_SOUND   = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+  //    Only one video source plays with sound at a time (hero + circles coordinated)
+  var CIRC_SVG_MUTED = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+  var CIRC_SVG_SOUND = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+
+  // Silence everything except the current active source
+  function silenceAll(activeVid) {
+    // Mute hero if it's not the active source
+    if (heroVideo && heroVideo !== activeVid && !heroVideo.muted) {
+      heroVideo.muted = true;
+      if (muteBtn)     { muteBtn.classList.remove('unmuted'); muteBtn.setAttribute('aria-label', 'Activer le son'); }
+      if (soundToggle) soundToggle.setAttribute('aria-pressed', 'false');
+    }
+    // Pause + mute all circle videos except the active one
+    document.querySelectorAll('.review-circle-wrap').forEach(function(w) {
+      var v = w.querySelector('video');
+      var b = w.querySelector('.circ-sound-btn');
+      if (v === activeVid) return;
+      if (v) { v.pause(); v.muted = true; }
+      if (b) { b.style.display = 'none'; b.innerHTML = CIRC_SVG_MUTED; }
+      w.classList.remove('playing');
+    });
+  }
+
+  // When hero sound is toggled ON → silence all circle videos
+  // (second listener fires after the original toggleSound registered above)
+  function onHeroSoundChange() {
+    if (heroVideo && !heroVideo.muted) {
+      silenceAll(heroVideo);
+    }
+  }
+  if (muteBtn)     muteBtn.addEventListener('click', onHeroSoundChange);
+  if (soundToggle) soundToggle.addEventListener('click', onHeroSoundChange);
 
   document.querySelectorAll('.review-circle-wrap').forEach(function(wrap) {
     var vid = wrap.querySelector('video');
     if (!vid) return;
 
-    // Inject sound button
+    // Inject sound button (white icon for visibility)
     var sndBtn = document.createElement('button');
     sndBtn.className = 'circ-sound-btn';
     sndBtn.setAttribute('aria-label', 'Son');
-    sndBtn.style.cssText = 'display:none;position:absolute;bottom:6px;right:6px;z-index:10;background:rgba(0,0,0,0.38);backdrop-filter:blur(4px);border:none;border-radius:50%;width:26px;height:26px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#F5EDE3;';
+    sndBtn.style.cssText = 'display:none;position:absolute;bottom:8px;right:8px;z-index:10;background:rgba(0,0,0,0.60);border:1.5px solid rgba(255,255,255,0.30);border-radius:50%;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#ffffff;opacity:1;transition:opacity 0.4s ease;';
     sndBtn.innerHTML = CIRC_SVG_MUTED;
     wrap.appendChild(sndBtn);
 
+    var hideTimer = null;
+
+    function showSndBtn() {
+      clearTimeout(hideTimer);
+      sndBtn.style.display = 'flex';
+      sndBtn.style.opacity = '1';
+      hideTimer = setTimeout(function() {
+        sndBtn.style.opacity = '0';
+        setTimeout(function() {
+          if (sndBtn.style.opacity === '0') sndBtn.style.display = 'none';
+        }, 400);
+      }, 2000);
+    }
+
+    // Sound toggle: muting/unmuting this circle
     sndBtn.addEventListener('click', function(e) {
       e.stopPropagation();
+      var willUnmute = vid.muted;
+      if (willUnmute) {
+        // Unmuting this circle → silence everything else first
+        silenceAll(vid);
+      }
       vid.muted = !vid.muted;
       sndBtn.innerHTML = vid.muted ? CIRC_SVG_MUTED : CIRC_SVG_SOUND;
+      showSndBtn();
     });
 
+    // Click on the wrap: play/pause this circle
     wrap.addEventListener('click', function() {
-      // Pause & reset all other circles
-      document.querySelectorAll('.review-circle-wrap').forEach(function(w) {
-        if (w === wrap) return;
-        var v = w.querySelector('video');
-        var b = w.querySelector('.circ-sound-btn');
-        if (v) { v.pause(); v.muted = true; }
-        if (b) { b.style.display = 'none'; b.innerHTML = CIRC_SVG_MUTED; }
-        w.classList.remove('playing');
-      });
       if (vid.paused) {
+        // Starting playback → silence all other videos
+        silenceAll(vid);
         var p = vid.play(); if (p && p.catch) p.catch(function(){});
         wrap.classList.add('playing');
-        sndBtn.style.display = 'flex';
+        showSndBtn();
       } else {
+        // Pausing this circle
+        clearTimeout(hideTimer);
         vid.pause(); vid.muted = true;
+        sndBtn.style.opacity = '0';
         sndBtn.style.display = 'none'; sndBtn.innerHTML = CIRC_SVG_MUTED;
         wrap.classList.remove('playing');
       }
@@ -8812,6 +9023,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     vid.addEventListener('ended', function() {
       wrap.classList.remove('playing');
       sndBtn.style.display = 'none'; sndBtn.innerHTML = CIRC_SVG_MUTED;
+      vid.muted = true;
     });
   });
 

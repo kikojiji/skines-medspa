@@ -14,8 +14,7 @@
 <meta name="twitter:image" content="https://www.skines.info/assets/og-logo3.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -52,7 +51,7 @@
   nav.nav-hidden {
     transform: translateY(-110%);
   }
-  body { font-family: Inter, sans-serif; background: var(--bg); color: var(--cream); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--cream); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
 
@@ -246,7 +245,7 @@
     display: inline-flex; align-items: center; transition: all 0.25s;
   }
   .btn-dark:hover { background: transparent; color: var(--cream); border-color: rgba(245,239,232,0.7); }
-  section { padding: 6rem 4rem; }
+  section { padding: 6rem 4rem; scroll-margin-top: 72px; }
 
   /* ── Hero ── */
   .hero {
@@ -312,7 +311,7 @@
   }
   .ritual-close-cta {
     display: inline-flex; align-items: center;
-    font-family: Inter, sans-serif; font-size: 0.7rem;
+    font-family: "DM Sans", sans-serif; font-size: 0.7rem;
     letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--cream); text-decoration: none;
     border: 1px solid rgba(245,240,234,0.38);
@@ -498,7 +497,7 @@
   .service-nav-btn:last-child { border-right: none; }
   .service-nav-btn:hover { background: var(--terracotta-soft); }
   .service-nav-btn.active { background: var(--charcoal); pointer-events: none; }
-  .service-nav-tag { font-family: "Inter", sans-serif; font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .service-nav-tag { font-family: "DM Sans", sans-serif; font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
   .service-nav-name { font-family: "Cormorant Garamond", serif; font-size: 1.35rem; font-style: italic; font-weight: 400; line-height: 1.1; color: var(--ink); }
   .service-nav-btn.active .service-nav-name { color: var(--cream); }
   @media (max-width: 600px) {
@@ -754,7 +753,7 @@
     }
     .mobile-nav-links a:hover { color: var(--gold); }
     .mobile-nav-links .nav-sub {
-      font-family: "Inter", sans-serif;
+      font-family: "DM Sans", sans-serif;
       font-size: 0.68rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -784,10 +783,10 @@
   .social-link { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; text-decoration: none; color: rgba(245,240,234,0.45); transition: color 0.22s ease; }
   .social-link:hover { color: var(--gold); }
   .social-link svg { width: 22px; height: 22px; }
-  .social-link span { font-family: "Inter", sans-serif; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; }
+  .social-link span { font-family: "DM Sans", sans-serif; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; }
   @media (max-width: 560px) { .social-bar { gap: 2rem; padding: 2.5rem 1rem; flex-wrap: wrap; } }
   .lang-switcher { display: flex; align-items: center; gap: 0.3rem; border: 1px solid var(--line); padding: 0.3rem 0.55rem; border-radius: 3px; }
-  .lang-btn { background: none; border: none; cursor: pointer; font-family: Inter, sans-serif; font-size: 0.65rem; letter-spacing: 0.18em; font-weight: 600; text-transform: uppercase; color: var(--stone); padding: 0.1rem 0.2rem; transition: color 0.2s; line-height: 1; }
+  .lang-btn { background: none; border: none; cursor: pointer; font-family: "DM Sans", sans-serif; font-size: 0.65rem; letter-spacing: 0.18em; font-weight: 600; text-transform: uppercase; color: var(--stone); padding: 0.1rem 0.2rem; transition: color 0.2s; line-height: 1; }
   .lang-btn.active { color: var(--terracotta-dark); }
   .lang-btn:hover:not(.active) { color: var(--charcoal); }
   .lang-sep { color: var(--line); font-size: 0.75rem; line-height: 1; user-select: none; }
@@ -1416,7 +1415,7 @@
 
 /* List view */
 .services-grid.list-view { grid-template-columns: 1fr !important; }
-.services-grid.list-view .svc-card { flex-direction: row; height: auto; max-height: 140px; }
+.services-grid.list-view .svc-card { flex-direction: row; height: auto; }
 .services-grid.list-view .svc-img { width: 120px; min-width: 120px; aspect-ratio: unset !important; border-radius: 0; }
 .services-grid.list-view .svc-info { padding: 0.85rem 1rem; }
 .services-grid.list-view .svc-book-btn { padding: 0.5rem 0.7rem; font-size: 0.58rem; }
@@ -1426,6 +1425,7 @@
   .services-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .services-grid.list-view { grid-template-columns: 1fr !important; }
   .svc-name { font-size: 0.95rem; }
+  .view-btn { width: 44px; height: 44px; }
 }
 
 
@@ -4716,7 +4716,7 @@ html body .mobile-nav-header .logo .logo-brand {
 }
 html body .mobile-nav-header .logo .logo-text,
 html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 19px !important;
   letter-spacing: 6px !important;
@@ -4727,7 +4727,7 @@ html body .mobile-nav-header .logo span.logo-text {
 }
 html body .mobile-nav-header .logo .logo-sub,
 html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 8.5px !important;
   letter-spacing: 3px !important;
@@ -4780,7 +4780,7 @@ html body .mobile-nav-links a {
   align-items: center !important;
   padding: 22px 22px !important;
   text-decoration: none !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 13.5px !important;
   letter-spacing: 2.5px !important;
@@ -4833,7 +4833,7 @@ html body .mobile-lang-switcher {
   padding: 12px 0 11px !important;
 }
 html body .mobile-lang-btn {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 300 !important;
   letter-spacing: 2px !important;
@@ -4868,7 +4868,7 @@ html body .mobile-nav-footer a.btn-dark {
   padding: 16px !important;
   background: #E8D4A0 !important;
   color: #4A2318 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 400 !important;
   font-size: 11px !important;
   letter-spacing: 4px !important;
@@ -4925,7 +4925,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
   html body nav .logo span.logo-text,
   html body nav:not(.nav-scrolled) .logo .logo-text,
   html body nav.nav-scrolled .logo .logo-text {
-    font-family: 'Jost', 'DM Sans', sans-serif !important;
+    font-family: 'DM Sans', sans-serif !important;
     font-weight: 300 !important;
     font-size: 18px !important;
     letter-spacing: 7px !important;
@@ -4938,7 +4938,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
   html body nav .logo span.logo-sub,
   html body nav:not(.nav-scrolled) .logo .logo-sub,
   html body nav.nav-scrolled .logo .logo-sub {
-    font-family: 'Jost', 'DM Sans', sans-serif !important;
+    font-family: 'DM Sans', sans-serif !important;
     font-weight: 300 !important;
     font-size: 8px !important;
     letter-spacing: 3px !important;
@@ -5032,7 +5032,7 @@ html body .mobile-nav-footer a.btn-dark:hover {
 /* ── LOGO: bigger, wider letter-spacing ── */
 html body .mobile-nav-header .logo .logo-text,
 html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 28px !important;
   letter-spacing: 12px !important;
@@ -5044,7 +5044,7 @@ html body .mobile-nav-header .logo span.logo-text {
 }
 html body .mobile-nav-header .logo .logo-sub,
 html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 300 !important;
   font-size: 9px !important;
   letter-spacing: 4px !important;
@@ -5095,7 +5095,7 @@ html body .mobile-nav-links a {
   font-weight: 300 !important;
   text-transform: uppercase !important;
   color: #F2E6D9 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -5131,7 +5131,7 @@ html body .mobile-lang-switcher {
   padding: 8px 0 12px !important;
 }
 html body .mobile-lang-btn {
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-size: 11px !important;
   font-weight: 300 !important;
   letter-spacing: 2px !important;
@@ -5155,7 +5155,7 @@ html body .mobile-nav-footer a.btn-dark {
   margin: 0 0 16px 0 !important;
   background: #E8D4A0 !important;
   color: #3D1E10 !important;
-  font-family: 'Jost', 'DM Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 400 !important;
   font-size: 11px !important;
   letter-spacing: 4px !important;
@@ -6304,8 +6304,8 @@ html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) 
 
 /* ── Head Spa hero video — full height like laser page ── */
 header.hero {
-  min-height: 100svh !important;
-  height: 100svh !important;
+  min-height: 100svh !important; height: 100dvh !important; min-height: 100dvh !important;
+  height: 100svh !important; height: 100dvh !important;
   position: relative !important;
   overflow: hidden !important;
   display: flex !important;
@@ -6361,7 +6361,7 @@ header.hero .hero-copy h1 {
 
 /* ── Head Spa hero — cinematic layout with RÉSERVER ── */
 header.hero .headspa-hero-copy {
-  height: 100svh !important;
+  height: 100svh !important; height: 100dvh !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -6458,6 +6458,172 @@ html body footer .footer-bottom,
 html body footer .footer-bottom a,
 html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important; font-size: 0.63rem !important; }
 
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP GLOBAL — textes clairs, cohérents, bien proportionnés
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 980px) {
+
+  /* ── Titres sections h2 — dark & lisible ── */
+  html body h2:not(header h2):not(.hero h2):not(.band h2):not(.booking-band h2):not(.gc-page h2):not(.laser-fullslider h2) {
+    color: #2C1810 !important;
+    font-size: clamp(2.2rem, 3vw, 3.4rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.01em !important;
+  }
+  html body h3:not(header h3):not(.hero h3):not(.gc-page h3):not(.band h3):not(.booking-band h3) {
+    color: #3A1F14 !important;
+    font-size: clamp(1.25rem, 1.6vw, 1.65rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* ── Textes corps — couleur homogène ── */
+  html body p:not(header p):not(.hero-copy p):not(.facial-hero-copy p):not(.headspa-hero-copy p):not(.laser-hero-copy p):not(.gc-page p):not(.band p):not(.booking-band p):not(.mobile-nav p):not(footer p) {
+    color: rgba(44,24,16,0.72) !important;
+    line-height: 1.78 !important;
+    font-size: clamp(0.92rem, 1.05vw, 1.05rem) !important;
+  }
+  html body li:not(.mobile-nav li):not(footer li):not(.gc-page li) {
+    color: rgba(44,24,16,0.72) !important;
+    font-size: clamp(0.9rem, 1vw, 1rem) !important;
+  }
+
+  /* ── Eyebrows — dorés chauds cohérents ── */
+  html body .eyebrow:not(header .eyebrow):not(.hero .eyebrow):not(.booking-band .eyebrow):not(.gc-page .eyebrow):not(footer .eyebrow) {
+    color: #8B5E3C !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.28em !important;
+  }
+
+  /* ── Section lead / sous-titres ── */
+  html body .section-lead:not(.gc-page .section-lead):not(.band .section-lead),
+  html body .section-desc:not(.gc-page .section-desc) {
+    color: rgba(44,24,16,0.65) !important;
+    font-size: clamp(1rem, 1.15vw, 1.12rem) !important;
+    max-width: 640px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.72 !important;
+  }
+
+  /* ── Sections — max-width centré 1240px ── */
+  html body section:not(.hero):not(.laser-fullslider):not(.gallery-carousel):not(.social-bar):not(.band):not(.booking-band):not(.gc-page):not(.family-section) {
+    padding-left: max(3rem, calc((100vw - 1240px) / 2)) !important;
+    padding-right: max(3rem, calc((100vw - 1240px) / 2)) !important;
+  }
+
+  /* ── Grilles services — 3 colonnes sur desktop ── */
+  html body .services-grid:not(.list-view) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.8rem !important;
+  }
+
+  /* ── Hero copy desktop — plus grand ── */
+  html body header.hero .hero-copy h1,
+  html body header.hero .facial-hero-h1 {
+    font-size: clamp(4rem, 8vw, 8rem) !important;
+  }
+  html body .laser-hero-h1 {
+    font-size: clamp(2.8rem, 4.5vw, 5rem) !important;
+  }
+
+  /* ── Prix / montants ── */
+  html body .svc-price-current,
+  html body .price-val,
+  html body .amount {
+    color: #2C1810 !important;
+    font-size: clamp(1.6rem, 2vw, 2rem) !important;
+  }
+
+  /* ── Titres cartes services ── */
+  html body .svc-name,
+  html body .svc-card .svc-title {
+    color: #2C1810 !important;
+    font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
+  }
+  html body .svc-duration,
+  html body .svc-tag,
+  html body .svc-cat {
+    color: rgba(44,24,16,0.52) !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* desktop-page-specific */
+@media (min-width: 980px) {
+  /* Services / price cards — 3 colonnes */
+  html body .svc-cards-grid,
+  html body .services-grid:not(.list-view) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+  /* Hero desktop — centré pleine largeur */
+  header.hero .headspa-hero-copy {
+    padding: calc(80px + 6%) 5% 0 !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  /* Eyebrow visible au-dessus */
+  html body .headspa-hero-eyebrow {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 1.2rem !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.32em !important;
+  }
+  html body .headspa-hero-h1 {
+    font-size: clamp(5rem, 10vw, 11rem) !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.12em !important;
+    text-align: center !important;
+  }
+  html body .headspa-hero-lead {
+    font-size: clamp(1rem, 1.3vw, 1.3rem) !important;
+    text-align: center !important;
+  }
+  html body .headspa-hero-promo {
+    font-size: clamp(0.85rem, 1vw, 1rem) !important;
+    max-width: 520px !important;
+    text-align: center !important;
+  }
+  .headspa-hero-actions {
+    padding-bottom: 5% !important;
+    align-items: center !important;
+  }
+}
+
+/* ── SEARCH RESULTS — textes toujours lisibles ── */
+html body .search-overlay .search-result-name,
+html body #searchOverlay .search-result-name,
+html body .search-result-name {
+  color: #F5EDE3 !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+html body .search-overlay .search-result-meta,
+html body #searchOverlay .search-result-meta,
+html body .search-result-meta {
+  color: rgba(245,237,227,0.58) !important;
+  font-size: 0.78rem !important;
+}
+html body .search-overlay .search-result-price,
+html body #searchOverlay .search-result-price,
+html body .search-result-price {
+  color: #F5C06A !important;
+  font-weight: 600 !important;
+}
+html body .search-overlay .search-result-arrow,
+html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    video.hero-bg { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -6518,7 +6684,7 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
 </div>
 
 <header class="hero">
-  <video class="hero-bg" id="heroVideoHeadSpa" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="Head Spa Japonais Skines">
+  <video class="hero-bg" id="heroVideoHeadSpa" autoplay muted loop playsinline preload="auto" aria-label="Head Spa Japonais Skines">
     <source src="assets/head-spa-hero.mp4" type="video/mp4">
   </video>
   <div class="hero-copy headspa-hero-copy">
@@ -6553,12 +6719,12 @@ html body footer .footer-bottom span { color: rgba(245,237,227,0.30) !important;
 <script>
 /* ── Edit services here ─────────────────────────────────── */
 const SERVICES = [
-  { category: "SOLO · 60 MIN",  name: "Solo 60 min Focus Scalpcial",      price: "$98",  originalPrice: "$140", img: "/assets/60%20min%20SOLO%20ROOM.png" },
-  { category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  price: "$145", originalPrice: "$207", img: "/assets/90%20min%20solo.png" },
-  { category: "DUO · 60 MIN",   name: "Duo 60 min Focus Scalpcial",       price: "$196", originalPrice: "$280", img: "/assets/DUO%20ROOM.png" },
-  { category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   price: "$260", originalPrice: "$371", img: "/assets/90min%20duo%20canada.png" },
-  { category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      price: "$294", originalPrice: "$420", img: "/assets/TRIO%2060%20ROOM.png" },
-  { category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  price: "$378", originalPrice: "$540", img: "/assets/trio%2090%20min%20.png" },
+  { category: "SOLO · 60 MIN",  name: "Solo 60 min Focus Scalpcial",      price: "$98",  originalPrice: "$140", discount: "30% de rabais", discountEn: "30% off", img: "/assets/60%20min%20SOLO%20ROOM.png" },
+  { category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  price: "$144", originalPrice: "$180", discount: "20% de rabais", discountEn: "20% off", img: "/assets/90%20min%20solo.png" },
+  { category: "DUO · 60 MIN",   name: "Duo 60 min Focus Scalpcial",       price: "$196", originalPrice: "$280", discount: "30% de rabais", discountEn: "30% off", img: "/assets/DUO%20ROOM.png" },
+  { category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   price: "$288", originalPrice: "$360", discount: "20% de rabais", discountEn: "20% off", img: "/assets/90min%20duo%20canada.png" },
+  { category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      price: "$294", originalPrice: "$420", discount: "30% de rabais", discountEn: "30% off", img: "/assets/TRIO%2060%20ROOM.png" },
+  { category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  price: "$378", originalPrice: "$540", discount: "20% de rabais", discountEn: "20% off", img: "/assets/trio%2090%20min%20.png" },
 ];
 /* ─────────────────────────────────────────────────────────── */
 
@@ -6574,7 +6740,7 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
         <span class="svc-price-original">${s.originalPrice}</span>
         <span class="svc-price-current">${s.price}</span>
       </div>
-      <span class="svc-discount-label" data-fr="30% de rabais" data-en="30% off">30% de rabais</span>
+      <span class="svc-discount-label" data-fr="${s.discount}" data-en="${s.discountEn}">${s.discount}</span>
       <a class="svc-book-btn" href="${BOOKING}" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
     </div>
   </div>
@@ -6614,7 +6780,7 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   </div>
   <div class="bundles-grid" style="margin-top:0;max-width:1000px;margin-left:auto;margin-right:auto;">
     <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(58,30,20,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:0.8rem;">Forfait · Bien-être Total</div>
+      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;">Forfait · Bien-être Total</div>
       <div class="bundle-name" style="color:#3A1E14!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Scalp &amp; Glow</div>
       <div class="bundle-name-fr" style="color:rgba(58,30,20,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + Luxury Facial</div>
       <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$265</div>
@@ -6623,7 +6789,7 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
       <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"Régénérez votre cuir chevelu et révélez l'éclat de votre peau en une seule visite."</div>
     </div>
     <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(58,30,20,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:0.8rem;">Forfait · Détente Complète</div>
+      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;">Forfait · Détente Complète</div>
       <div class="bundle-name" style="color:#3A1E14!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Full Reset</div>
       <div class="bundle-name-fr" style="color:rgba(58,30,20,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + Personalized Facial</div>
       <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$245</div>
@@ -6632,7 +6798,7 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
       <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"Un soin complet de la tête au visage — relaxation profonde et peau revitalisée."</div>
     </div>
     <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(58,30,20,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:0.8rem;">Forfait · Hydration Totale</div>
+      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;">Forfait · Hydration Totale</div>
       <div class="bundle-name" style="color:#3A1E14!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Hydra Ritual</div>
       <div class="bundle-name-fr" style="color:rgba(58,30,20,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + HydraDermabrasion</div>
       <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$285</div>
@@ -6703,9 +6869,9 @@ const BOOKING = "https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-sham
 const DB = [
   // ── HEAD SPA ──
   { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", price:"$98", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", price:"$145", tag:"head spa scalpcial solo 90 min signature rituel", url:"head-spa.html" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", price:"$144", tag:"head spa scalpcial solo 90 min signature rituel", url:"head-spa.html" },
   { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", price:"$196", tag:"head spa scalpcial duo 60 min couple deux", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", price:"$260", tag:"head spa scalpcial duo 90 min couple signature", url:"head-spa.html" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", price:"$288", tag:"head spa scalpcial duo 90 min couple signature", url:"head-spa.html" },
   { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", price:"$294", tag:"head spa scalpcial trio 60 min groupe trois", url:"head-spa.html" },
   { icon:"🫧", cat:"Head Spa", name:"Trio 90 min – Signature Scalpcial", meta:"90 min · Rituel trio signature", price:"$378", tag:"head spa scalpcial trio 90 min groupe signature", url:"head-spa.html" },
 
