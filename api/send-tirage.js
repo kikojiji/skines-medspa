@@ -8,7 +8,7 @@ import {
 } from './_lib/security.js';
 
 const FROM  = 'Skines Med Spa <giftcards@skines.info>';
-const ADMIN = 'info@skines.ca';
+const ADMIN = 'skinesca@gmail.com';
 
 export default async function handler(req, res) {
   setCorsHeaders(req, res);
