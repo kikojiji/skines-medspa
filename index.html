@@ -7647,11 +7647,15 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.timeline()
-      .from(".hero-eyebrow", { y: 20, opacity: 0, duration: 1, ease: "power3.out", delay: 0.3 })
-      .from(".hero-title",   { y: 30, opacity: 0, duration: 1.2, ease: "power3.out" }, "-=0.7")
-      .from(".hero-sub",     { y: 20, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.7")
-      .from(".hero-cta",     { y: 15, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
+    if (window.innerWidth >= 980) {
+      gsap.timeline()
+        .from(".hero-eyebrow", { y: 20, opacity: 0, duration: 1, ease: "power3.out", delay: 0.3 })
+        .from(".hero-title",   { y: 30, opacity: 0, duration: 1.2, ease: "power3.out" }, "-=0.7")
+        .from(".hero-sub",     { y: 20, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.7")
+        .from(".hero-cta",     { y: 15, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
+    } else {
+      gsap.set([".hero-eyebrow", ".hero-title", ".hero-sub", ".hero-cta"], { clearProps: "all" });
+    }
 
     // Fade-up on scroll for all .fade-up elements
     gsap.utils.toArray(".fade-up").forEach((el) => {
