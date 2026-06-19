@@ -3319,9 +3319,23 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     border: none; cursor: pointer; padding: 0; transition: background 0.3s ease;
   }
   .bela-dot.active { background: rgba(255,255,255,0.85); }
+  /* Arrows */
+  .bela-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(0,0,0,0.30); border: 1px solid rgba(255,255,255,0.25);
+    color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .bela-arrow:hover { background: rgba(0,0,0,0.55); }
+  .bela-arrow svg { width: 20px; height: 20px; }
+  .bela-arrow-prev { left: 1rem; }
+  .bela-arrow-next { right: 1rem; }
   @media (max-width: 980px) {
     .bela-content { padding: 0 1.4rem 3rem; }
     .bela-dots { bottom: 1.2rem; right: 1.4rem; }
+    .bela-arrow { width: 38px; height: 38px; }
+    .bela-arrow svg { width: 17px; height: 17px; }
   }
 
   /* ── PHILOSOPHY SECTION ── */
@@ -7303,6 +7317,12 @@ html body #sp-stones img {
       <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-6.jpg" alt="Épilation laser" loading="lazy"></div>
       <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-7.jpg" alt="Épilation laser" loading="lazy"></div>
       <div class="bela-overlay"></div>
+      <button class="bela-arrow bela-arrow-prev" id="bela-prev" aria-label="Image précédente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="bela-arrow bela-arrow-next" id="bela-next" aria-label="Image suivante">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
       <div class="bela-dots" id="bela-dots"></div>
     </div>
     <div class="bela-content">
@@ -9167,6 +9187,18 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
   document.querySelectorAll('.bela-tab').forEach(function (btn) {
     btn.addEventListener('click', function () { switchTab(btn.dataset.target); });
+  });
+
+  var prevBtn = document.getElementById('bela-prev');
+  var nextBtn = document.getElementById('bela-next');
+  if (prevBtn) prevBtn.addEventListener('click', function () {
+    var len = slides(currentTab).length;
+    goTo(currentTab, (currentIdx - 1 + len) % len);
+    resetTimer();
+  });
+  if (nextBtn) nextBtn.addEventListener('click', function () {
+    goTo(currentTab, (currentIdx + 1) % slides(currentTab).length);
+    resetTimer();
   });
 
   buildDots('facial');
