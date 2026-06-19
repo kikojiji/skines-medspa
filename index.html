@@ -3231,7 +3231,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   nav.nav-scrolled .logo-text   { color: #ebd7ce !important; }
 
   /* ── BELA FEATURE SECTION ── */
-  /* ── BELA FEATURE — clean luxury, image first, text at bottom ── */
   .bela-feature {
     position: relative;
     min-height: 90vh;
@@ -3241,22 +3240,19 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     background: #1a1410;
   }
   .bela-slider-wrap { position: absolute; inset: 0; z-index: 0; }
-  .bela-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; }
+  .bela-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
   .bela-slide.active { opacity: 1; }
-  /* Image bright — let it breathe */
   .bela-slide img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.88) brightness(0.82); }
-  /* Gradient bottom-heavy so image top is clear */
   .bela-overlay {
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(
       to bottom,
-      rgba(0,0,0,0.10) 0%,
-      rgba(0,0,0,0.10) 40%,
-      rgba(0,0,0,0.55) 72%,
-      rgba(0,0,0,0.80) 100%
+      rgba(0,0,0,0.08) 0%,
+      rgba(0,0,0,0.10) 38%,
+      rgba(0,0,0,0.60) 70%,
+      rgba(0,0,0,0.85) 100%
     );
   }
-  /* Content pushed to bottom */
   .bela-content {
     position: relative; z-index: 2;
     width: 100%;
@@ -3266,33 +3262,55 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     flex-direction: column;
     justify-content: flex-end;
   }
+  /* Tabs */
+  .bela-tabs {
+    display: flex; gap: 0.5rem; margin-bottom: 1.4rem;
+  }
+  .bela-tab {
+    font-family: "DM Sans", sans-serif; font-size: 0.65rem; letter-spacing: 0.26em;
+    text-transform: uppercase; background: none;
+    border: 1px solid rgba(255,255,255,0.30); color: rgba(255,255,255,0.55);
+    padding: 0.38rem 1.1rem; border-radius: 2rem;
+    cursor: pointer; transition: all 0.25s ease;
+  }
+  .bela-tab.active {
+    background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.78); color: #ffffff;
+  }
   .bela-eyebrow {
     font-family: "DM Sans", sans-serif; font-size: 0.66rem; letter-spacing: 0.44em;
-    text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 1rem;
+    text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.9rem;
     display: flex; align-items: center; gap: 0.9rem;
   }
   .bela-eyebrow::after { content: ""; width: 30px; height: 1px; background: currentColor; }
   .bela-title {
     font-family: "Cormorant Garamond", serif; font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 300; color: #ffffff; letter-spacing: 0.15em; line-height: 0.95; margin-bottom: 1.2rem;
+    font-weight: 300; color: #ffffff; letter-spacing: 0.15em; line-height: 0.95; margin-bottom: 1rem;
   }
   .bela-title em { color: rgba(255,255,255,0.75); }
   .bela-desc {
-    font-family: "Cormorant Garamond", serif; font-size: 1.1rem; font-style: italic;
-    color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 1.8rem; max-width: 480px;
+    font-family: "DM Sans", sans-serif; font-size: 0.88rem;
+    color: rgba(255,255,255,0.68); line-height: 1.7; margin-bottom: 1.4rem; max-width: 400px;
   }
-  /* Chips hidden */
   .bela-chips { display: none !important; }
-  /* CTA — text-only, no box */
   .bela-cta {
     display: inline-flex; align-items: center; gap: 0.6rem;
-    font-family: "DM Sans", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em;
-    text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none;
-    background: none; border: none; padding: 0;
-    transition: color 0.25s ease, gap 0.25s ease;
+    font-family: "DM Sans", sans-serif; font-size: 0.70rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none;
+    background: none; border: none; padding: 0; margin-bottom: 1.1rem;
+    transition: color 0.25s ease, gap 0.25s ease; cursor: pointer;
   }
   .bela-cta::after { content: "→"; transition: transform 0.25s ease; }
   .bela-cta:hover { color: #ffffff; gap: 0.9rem; }
+  /* Booking button inside section */
+  .bela-book {
+    display: inline-block; align-self: flex-start;
+    font-family: "DM Sans", sans-serif; font-size: 0.72rem; letter-spacing: 0.24em;
+    text-transform: uppercase; font-weight: 700;
+    background: #C9A96E; color: #1a0d07; text-decoration: none;
+    padding: 0.85rem 2.2rem; border-radius: 3px;
+    transition: background 0.25s ease;
+  }
+  .bela-book:hover { background: #d4b47a; }
   .bela-dots {
     position: absolute; bottom: 2.2rem; right: 2.5rem; z-index: 3; display: flex; gap: 0.55rem;
   }
@@ -6898,7 +6916,16 @@ html body #bela-feature .bela-desc,
 html body #bela-feature p.bela-desc { color: rgba(58,30,20,0.72) !important; }
 html body #bela-feature .bela-eyebrow { color: rgba(58,30,20,0.55) !important; }
 html body #bela-feature a.bela-cta,
-html body #bela-feature .bela-cta { color: #3a1e14 !important; }/* PNG is 1024×1536 (2:3 portrait). Size by height, width auto.      */
+html body #bela-feature .bela-cta { color: #3a1e14 !important; }
+html body #bela-feature .bela-tab {
+  border-color: rgba(58,30,20,0.30) !important;
+  color: rgba(58,30,20,0.55) !important;
+}
+html body #bela-feature .bela-tab.active {
+  background: rgba(58,30,20,0.08) !important;
+  border-color: rgba(58,30,20,0.70) !important;
+  color: #3a1e14 !important;
+}/* PNG is 1024×1536 (2:3 portrait). Size by height, width auto.      */
 
 /* Base: nav desktop */
 html body img.logo-stones,
@@ -7258,26 +7285,36 @@ html body #sp-stones img {
 
   <section class="bela-feature" id="bela-feature">
     <div class="bela-slider-wrap">
-      <div class="bela-slide active">
-        <img src="assets/bela-facial.png" alt="Traitement Bela MD — hydro-dermabrasion" loading="lazy">
-      </div>
-      <div class="bela-slide">
-        <img src="assets/laser-full-zones.png" alt="Bela MD soins avancés" loading="lazy">
-      </div>
-      <div class="bela-slide">
-        <img src="assets/laser-legs-w.png" alt="Éclat peau Bela MD" loading="lazy">
-      </div>
-      <div class="bela-dots">
-        <button class="bela-dot active" aria-label="Image 1"></button>
-        <button class="bela-dot" aria-label="Image 2"></button>
-        <button class="bela-dot" aria-label="Image 3"></button>
-      </div>
+      <!-- FACIAL (8 photos) -->
+      <div class="bela-slide active" data-tab="facial"><img src="assets/bela-facial.png" alt="Soin Bela MD" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/luxury-facial.png" alt="Luxury Facial" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/personalized-facial.png" alt="Personalized Facial" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/back-facial.png" alt="Back Facial" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/chemical.png" alt="Chemical Peel" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/clarity-2.jpg" alt="Éclat peau" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/IMG_4659.jpg" alt="Soins visage Skines" loading="lazy"></div>
+      <div class="bela-slide" data-tab="facial"><img src="assets/IMG_4660.jpg" alt="Soins visage Skines" loading="lazy"></div>
+      <!-- LASER (7 photos) -->
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-1.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-2.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-3.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-4.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-5.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-6.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-slide" data-tab="laser"><img src="assets/laser-slider-7.jpg" alt="Épilation laser" loading="lazy"></div>
+      <div class="bela-overlay"></div>
+      <div class="bela-dots" id="bela-dots"></div>
     </div>
     <div class="bela-content">
-      <div class="bela-eyebrow">BELA MD</div>
-      <h2 class="bela-title">Advanced<br>Facial<br><em>Treatments</em></h2>
-      <p class="bela-desc">Luxury Facial · Personalized Facial · HydraDermabrasion Bela MD+ · Chemical Peel · Back Facial</p>
-      <a class="bela-cta" href="facial.html">Voir les soins</a>
+      <div class="bela-tabs">
+        <button class="bela-tab active" data-target="facial">Facial</button>
+        <button class="bela-tab" data-target="laser">Laser</button>
+      </div>
+      <div class="bela-eyebrow" id="bela-eyebrow">BELA MD</div>
+      <h2 class="bela-title" id="bela-title">Advanced<br>Facial<br><em>Treatments</em></h2>
+      <p class="bela-desc" id="bela-desc">Luxury Facial · Personalized Facial · HydraDermabrasion Bela MD+ · Chemical Peel · Back Facial. Des soins pensés pour révéler l'éclat naturel de votre peau.</p>
+      <a class="bela-cta" id="bela-link" href="facial.html">Voir les soins</a>
+      <a class="bela-book" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER</a>
     </div>
   </section>
 
@@ -9045,6 +9082,95 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     });
   });
 
+})();
+</script>
+
+<script>
+/* ── BELA FEATURE SLIDER + TABS ── */
+(function () {
+  var tabData = {
+    facial: {
+      eyebrow: 'BELA MD',
+      title:   'Advanced<br>Facial<br><em>Treatments</em>',
+      desc:    'Luxury Facial · Personalized Facial · HydraDermabrasion Bela MD+ · Chemical Peel · Back Facial. Des soins pensés pour révéler l\'éclat naturel de votre peau.',
+      link:    'facial.html'
+    },
+    laser: {
+      eyebrow: 'ÉPILATION LASER',
+      title:   'Précision<br>Durable<br><em>Résultats</em>',
+      desc:    'L\'épilation laser permanente pour une peau douce et sans effort — tous phototypes, toutes zones du corps.',
+      link:    'laser.html'
+    }
+  };
+
+  var currentTab  = 'facial';
+  var currentIdx  = 0;
+  var timer       = null;
+
+  function slides(tab) {
+    return Array.from(document.querySelectorAll('.bela-slide[data-tab="' + tab + '"]'));
+  }
+
+  function buildDots(tab) {
+    var wrap = document.getElementById('bela-dots');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    slides(tab).forEach(function (_, i) {
+      var btn = document.createElement('button');
+      btn.className = 'bela-dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', 'Image ' + (i + 1));
+      btn.addEventListener('click', function () { goTo(tab, i); resetTimer(); });
+      wrap.appendChild(btn);
+    });
+  }
+
+  function syncDots(idx) {
+    document.querySelectorAll('.bela-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  function goTo(tab, idx) {
+    slides(tab).forEach(function (s) { s.classList.remove('active'); });
+    var s = slides(tab)[idx];
+    if (s) s.classList.add('active');
+    currentIdx = idx;
+    syncDots(idx);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () {
+      var next = (currentIdx + 1) % slides(currentTab).length;
+      goTo(currentTab, next);
+    }, 4000);
+  }
+
+  function switchTab(tab) {
+    if (tab === currentTab) return;
+    document.querySelectorAll('.bela-slide').forEach(function (s) { s.classList.remove('active'); });
+    currentTab = tab;
+    currentIdx = 0;
+    document.querySelectorAll('.bela-tab').forEach(function (t) {
+      t.classList.toggle('active', t.dataset.target === tab);
+    });
+    var d = tabData[tab];
+    document.getElementById('bela-eyebrow').textContent      = d.eyebrow;
+    document.getElementById('bela-title').innerHTML          = d.title;
+    document.getElementById('bela-desc').textContent         = d.desc;
+    document.getElementById('bela-link').href                = d.link;
+    buildDots(tab);
+    var first = slides(tab)[0];
+    if (first) first.classList.add('active');
+    resetTimer();
+  }
+
+  document.querySelectorAll('.bela-tab').forEach(function (btn) {
+    btn.addEventListener('click', function () { switchTab(btn.dataset.target); });
+  });
+
+  buildDots('facial');
+  resetTimer();
 })();
 </script>
 
