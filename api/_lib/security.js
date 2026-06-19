@@ -128,12 +128,13 @@ export function getClientIp(req) {
 
 // ── Safe Resend caller ───────────────────────────────────────────────────────
 // Reads API key from env var. Throws with a generic message (no key leakage).
-export async function sendViaResend({ from, to, replyTo, subject, html }) {
+export async function sendViaResend({ from, to, replyTo, subject, html, attachments }) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) throw new Error('RESEND_API_KEY not configured');
 
   const body = { from, to: Array.isArray(to) ? to : [to], subject, html };
   if (replyTo) body.reply_to = replyTo;
+  if (attachments?.length) body.attachments = attachments;
 
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
