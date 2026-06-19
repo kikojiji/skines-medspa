@@ -7301,6 +7301,13 @@ html body #sp-stones img {
     <div class="review-circles">
       <div class="review-circle">
         <div class="review-circle-wrap">
+          <video loop playsinline muted preload="metadata">
+            <source src="assets/avis6.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="review-circle">
+        <div class="review-circle-wrap">
           <video loop playsinline muted preload="metadata" poster="assets/avis1_thumb.jpg">
             <source src="assets/avis1.mp4" type="video/mp4">
           </video>
@@ -7331,13 +7338,6 @@ html body #sp-stones img {
         <div class="review-circle-wrap">
           <video loop playsinline muted preload="metadata" poster="assets/avis5_thumb.jpg">
             <source src="assets/avis5.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="review-circle">
-        <div class="review-circle-wrap">
-          <video loop playsinline muted preload="metadata">
-            <source src="assets/avis6.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -9021,6 +9021,13 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
         var p = vid.play(); if (p && p.catch) p.catch(function(){});
         wrap.classList.add('playing');
         showSndBtn();
+        // Auto-center the active circle in the scroll container
+        var container = document.querySelector('.review-circles');
+        var circle = wrap.closest('.review-circle');
+        if (container && circle) {
+          var scrollTarget = circle.offsetLeft - (container.offsetWidth / 2) + (circle.offsetWidth / 2);
+          container.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+        }
       } else {
         // Pausing this circle
         clearTimeout(hideTimer);
