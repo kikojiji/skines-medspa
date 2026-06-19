@@ -8406,13 +8406,26 @@ html body #treatments .service-card .card-link {
   letter-spacing: 0.20em !important;
 }
 
-/* — Card image height: slightly tighter — */
+/* — Card image: all cards same square ratio — */
 html body #treatments .service-card .card-img {
-  aspect-ratio: 16 / 10 !important;
+  aspect-ratio: 1 / 1 !important;
 }
-/* Gift card keeps its natural ratio */
+/* Gift Card: same 1:1, keep contain so artwork shows fully */
 html body #treatments .service-card.card-giftcard .card-img {
-  aspect-ratio: unset !important;
+  aspect-ratio: 1 / 1 !important;
+  height: unset !important;
+  background: #f5ede3;
+}
+/* — Card body: consistent height, button always at bottom — */
+html body #treatments .service-card .card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 150px !important;
+  padding: 1rem 1.1rem 1.3rem !important;
+}
+html body #treatments .service-card .card-link {
+  margin-top: auto !important;
+  padding-top: 0.6rem !important;
 }
 
 /* — Bela feature: tighten content padding — */
