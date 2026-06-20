@@ -3,15 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tirage Exclusif · Skine's Med Spa Montréal</title>
-<meta name="description" content="Participez au tirage exclusif Skine's Med Spa — tentez de profiter d'une expérience bien‑être privilégiée à Montréal.">
+<title>Tirage Exclusif · Skines Med Spa Montréal</title>
+<meta name="description" content="Participez au tirage exclusif Skines Med Spa — tentez de profiter d'une expérience bien‑être privilégiée à Montréal.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tirage Exclusif · Skine's Med Spa">
+<meta property="og:title" content="Tirage Exclusif · Skines Med Spa">
 <meta property="og:image" content="https://skines.ca/assets/og-logo3.png">
 <meta property="og:url" content="https://skines.ca/tirage">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Cloudflare Turnstile — invisible bot protection -->
+<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
+<!-- 🔑 Also add TURNSTILE_SECRET_KEY to Vercel environment variables -->
+<script>window._tsk = '1x00000000000000000000AA';</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInit&render=explicit" async defer></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -256,6 +261,35 @@ nav {
 .t-input-wrap.no-icon select {
   padding-left: 14px;
 }
+
+/* service buttons */
+.t-service-btns {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+}
+.t-svc-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 8px;
+  background: rgba(255,255,255,0.75);
+  border: 1.5px solid rgba(182,106,90,0.20);
+  border-radius: 14px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--brown); font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(182,106,90,0.04);
+}
+.t-svc-btn:hover {
+  border-color: rgba(182,106,90,0.42);
+  background: rgba(255,255,255,0.95);
+}
+.t-svc-btn.active {
+  border-color: var(--terracotta);
+  background: rgba(182,106,90,0.08);
+  color: var(--terracotta);
+  box-shadow: 0 0 0 4px rgba(182,106,90,0.10);
+}
+.t-svc-icon { display: flex; align-items: center; justify-content: center; }
+.t-svc-icon svg { width: 36px; height: 36px; }
 
 /* consent */
 .t-consent {
@@ -653,7 +687,7 @@ html body #sp-stones img {
       <span class="tirage-hero-badge-text">jusqu'à<br>d'avantage</span>
     </div>
     <h1 class="tirage-hero-title">Tirage<br><em>Exclusif</em></h1>
-    <p class="tirage-hero-sub">Participez à notre tirage exclusif Skine's et tentez de profiter d'une expérience bien‑être privilégiée à Montréal.</p>
+    <p class="tirage-hero-sub">Participez à notre tirage exclusif Skines et tentez de profiter d'une expérience bien‑être privilégiée à Montréal.</p>
   </div>
 </header>
 
@@ -664,7 +698,7 @@ html body #sp-stones img {
   <div class="tirage-intro">
     <div class="tirage-brand">
       <div class="tirage-stones"><img src="assets/images/logo-officiel-cropped.PNG" alt="Skines logo" style="width:52px;height:auto;display:block;margin:0 auto;"></div>
-      <p class="tirage-brand-name">Skine's</p>
+      <p class="tirage-brand-name">Skines</p>
       <div class="tirage-brand-divider"><span class="tirage-brand-sub">Med Spa · Montréal</span></div>
     </div>
 
@@ -694,12 +728,58 @@ html body #sp-stones img {
     <form id="t-form" novalidate>
       <!-- honeypot: hidden from humans, bots fill it -->
       <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <!-- Turnstile invisible widget — no user interaction required -->
+      <div id="t-ts-wrap" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden;" aria-hidden="true"></div>
 
       <div class="t-field-group">
         <label>Quel soin vous intéresse ?</label>
-        <div class="t-input-wrap no-icon">
-          <input type="text" name="service" placeholder="Head Spa, facial, épilation laser…">
+        <div class="t-service-btns">
+          <button type="button" class="t-svc-btn" data-value="Head Spa">
+            <span class="t-svc-icon">
+              <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12 C9 9 14 15 19 12 C24 9 29 15 34 12 C37 10.5 40 11 44 12" stroke="#B66A5A" stroke-width="1.45" stroke-linecap="round"/>
+                <path d="M4 20 C9 17 14 23 19 20 C24 17 29 23 34 20 C37 18.5 40 19 44 20" stroke="#B66A5A" stroke-width="1.35" stroke-linecap="round" opacity="0.68"/>
+                <path d="M4 28 C9 25 14 31 19 28 C24 25 29 31 34 28 C37 26.5 40 27 44 28" stroke="#B66A5A" stroke-width="1.2" stroke-linecap="round" opacity="0.42"/>
+                <path d="M20 41 C17.5 37 21 34 24 38 C24 42 21 43 20 41Z" stroke="#7A9E7E" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M28 41 C30.5 37 27 34 24 38 C24 42 27 43 28 41Z" stroke="#7A9E7E" stroke-width="1.3" stroke-linecap="round" opacity="0.7"/>
+                <line x1="24" y1="38" x2="24" y2="45" stroke="#7A9E7E" stroke-width="1" stroke-linecap="round" opacity="0.48"/>
+              </svg>
+            </span>
+            <span>Head Spa</span>
+          </button>
+          <button type="button" class="t-svc-btn" data-value="Facial">
+            <span class="t-svc-icon">
+              <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="9" stroke="#C9A97A" stroke-width="1.45"/>
+                <line x1="24" y1="15" x2="24" y2="6" stroke="#C9A97A" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="33" y1="24" x2="42" y2="24" stroke="#C9A97A" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="24" y1="33" x2="24" y2="42" stroke="#C9A97A" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="15" y1="24" x2="6" y2="24" stroke="#C9A97A" stroke-width="1.3" stroke-linecap="round"/>
+                <line x1="30.4" y1="17.6" x2="35.6" y2="12.4" stroke="#C9A97A" stroke-width="1" stroke-linecap="round" opacity="0.58"/>
+                <line x1="30.4" y1="30.4" x2="35.6" y2="35.6" stroke="#C9A97A" stroke-width="1" stroke-linecap="round" opacity="0.58"/>
+                <line x1="17.6" y1="30.4" x2="12.4" y2="35.6" stroke="#C9A97A" stroke-width="1" stroke-linecap="round" opacity="0.58"/>
+                <line x1="17.6" y1="17.6" x2="12.4" y2="12.4" stroke="#C9A97A" stroke-width="1" stroke-linecap="round" opacity="0.58"/>
+                <circle cx="24" cy="24" r="2.2" fill="#C9A97A" opacity="0.55"/>
+              </svg>
+            </span>
+            <span>Facial</span>
+          </button>
+          <button type="button" class="t-svc-btn" data-value="Laser">
+            <span class="t-svc-icon">
+              <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="10" y1="7" x2="38" y2="7" stroke="#B66A5A" stroke-width="1.45" stroke-linecap="round"/>
+                <line x1="13" y1="13" x2="35" y2="13" stroke="#B66A5A" stroke-width="1.3" stroke-linecap="round" opacity="0.8"/>
+                <line x1="16.5" y1="19" x2="31.5" y2="19" stroke="#B66A5A" stroke-width="1.15" stroke-linecap="round" opacity="0.62"/>
+                <line x1="20" y1="25" x2="28" y2="25" stroke="#B66A5A" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+                <line x1="22.5" y1="31" x2="25.5" y2="31" stroke="#B66A5A" stroke-width="0.9" stroke-linecap="round" opacity="0.32"/>
+                <circle cx="24" cy="36.5" r="2.2" fill="#B66A5A" opacity="0.68"/>
+                <path d="M5 43 Q24 39 43 43" stroke="#C9A97A" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>Laser</span>
+          </button>
         </div>
+        <input type="hidden" name="service" value="">
       </div>
 
       <div class="t-field-row">
@@ -736,10 +816,10 @@ html body #sp-stones img {
       </div>
 
       <div class="t-field-group">
-        <label>Instagram ou TikTok <span class="req">*</span></label>
+        <label>Instagram ou TikTok <span style="font-size:0.78em;color:rgba(182,106,90,0.65);font-style:italic;font-weight:400;">(optionnel)</span></label>
         <div class="t-input-wrap">
           <span class="t-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(182,106,90,0.5)" stroke="none"/></svg></span>
-          <input type="text" name="username" placeholder="@votre_pseudo" required>
+          <input type="text" name="username" placeholder="@votre_pseudo">
         </div>
       </div>
 
@@ -766,15 +846,15 @@ html body #sp-stones img {
             </button>
           </div>
         </div>
-        <p class="t-photo-note">Une photo récente nous permet d'évaluer les participantes pour de futures collaborations et opportunités de modèles pour Skine's. L'envoi d'une photo est facultatif et n'affecte pas vos chances de gagner.</p>
+        <p class="t-photo-note">Une photo récente nous permet d'évaluer les participantes pour de futures collaborations et opportunités de modèles pour Skines. L'envoi d'une photo est facultatif et n'affecte pas vos chances de gagner.</p>
       </div>
 
       <div class="t-consent">
         <input type="checkbox" id="t-cb" name="consent" required>
-        <label for="t-cb">J'accepte de recevoir des offres et communications de Skine's Med Spa. Vous pouvez vous désabonner à tout moment.</label>
+        <label for="t-cb">J'accepte de recevoir des offres et communications de Skines Med Spa. Vous pouvez vous désabonner à tout moment.</label>
       </div>
 
-      <button type="submit" id="t-cta">Vivre l'expérience Skine's</button>
+      <button type="submit" id="t-cta">Vivre l'expérience Skines</button>
 
       <div class="t-winner-notice">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -818,6 +898,65 @@ html body #sp-stones img {
 if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
 window.scrollTo(0, 0);
 window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+
+/* ── Cloudflare Turnstile (invisible) ───────────────────────────────────── */
+var _tsToken = '', _tsId = null;
+window._tsInit = function () {
+  if (typeof turnstile === 'undefined') return;
+  _tsId = turnstile.render('#t-ts-wrap', {
+    sitekey: window._tsk || '',
+    size: 'invisible',
+    callback: function (t) { _tsToken = t; },
+    'expired-callback': function () {
+      _tsToken = '';
+      if (_tsId !== null) { try { turnstile.reset(_tsId); turnstile.execute(_tsId); } catch (e) {} }
+    },
+    'error-callback': function () { _tsToken = ''; }
+  });
+  try { turnstile.execute(_tsId); } catch (e) {}
+};
+
+/* ── Device fingerprint (background, SHA-256) ───────────────────────────── */
+var _fp = '';
+(async function () {
+  try {
+    var parts = [
+      navigator.userAgent || '',
+      [screen.width, screen.height, screen.colorDepth].join('x'),
+      (typeof Intl !== 'undefined' && Intl.DateTimeFormat
+        ? Intl.DateTimeFormat().resolvedOptions().timeZone
+        : String(new Date().getTimezoneOffset())),
+      navigator.language || '',
+      [(navigator.hardwareConcurrency | 0), (navigator.maxTouchPoints | 0)].join(','),
+    ];
+    try {
+      var cv = document.createElement('canvas'), cx = cv.getContext('2d');
+      cx.font = '11px monospace'; cx.fillStyle = '#B66A5A';
+      cx.fillText('sk★nes', 0, 10);
+      cx.fillStyle = 'rgba(58,30,20,0.7)'; cx.fillRect(8, 2, 20, 8);
+      parts.push(cv.toDataURL('image/png').slice(-40));
+    } catch (e) { parts.push('nc'); }
+    try {
+      var gl = document.createElement('canvas').getContext('webgl') ||
+               document.createElement('canvas').getContext('experimental-webgl');
+      if (gl) {
+        var ext = gl.getExtension('WEBGL_debug_renderer_info');
+        if (ext) parts.push(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) || '');
+      }
+    } catch (e) { parts.push('nw'); }
+    var raw = parts.join('|||');
+    if (typeof crypto !== 'undefined' && crypto.subtle) {
+      var buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+      _fp = Array.from(new Uint8Array(buf)).map(function (b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('').slice(0, 32);
+    } else {
+      var h = 0;
+      for (var i = 0; i < raw.length; i++) h = (Math.imul(31, h) + raw.charCodeAt(i)) | 0;
+      _fp = Math.abs(h).toString(16);
+    }
+  } catch (e) {}
+})();
 
 (function () {
   var submitting  = false;
@@ -936,6 +1075,15 @@ window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
     if (file) handleFile(file);
   });
 
+  /* ── Service buttons ── */
+  document.querySelectorAll('.t-svc-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.t-svc-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelector('[name=service]').value = btn.getAttribute('data-value');
+    });
+  });
+
   /* ── Form submit ── */
   document.getElementById('t-form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -950,12 +1098,12 @@ window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
     var consent  = this.querySelector('[name=consent]').checked;
     var btn      = document.getElementById('t-cta');
 
-    if (!first || !last || !phone || !email || !username || !consent) {
+    if (!first || !last || !phone || !email || !consent) {
       btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
       btn.textContent = 'Veuillez remplir tous les champs *';
       setTimeout(function () {
         btn.style.background = '';
-        btn.textContent = "Vivre l'expérience Skine's";
+        btn.textContent = "Vivre l'expérience Skines";
       }, 2800);
       return;
     }
@@ -964,39 +1112,68 @@ window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
 
-    var payload = {
-      firstName: first, lastName: last,
-      phone: phone, email: email, username: username,
-      service: service,
-      website: document.querySelector('[name="website"]')?.value ?? ''
-    };
-    if (photoBase64) { payload.photo = photoBase64; payload.photoType = photoType; }
+    // Wait up to 2.5 s for Turnstile token, then proceed regardless
+    function doSubmit() {
+      var payload = {
+        firstName: first, lastName: last,
+        phone: phone, email: email, username: username,
+        service: service,
+        website: document.querySelector('[name="website"]').value || '',
+        cfToken: _tsToken,
+        fp: _fp
+      };
+      if (photoBase64) { payload.photo = photoBase64; payload.photoType = photoType; }
 
-    fetch('/api/send-tirage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (data.success) {
-        document.getElementById('t-form').style.display = 'none';
-        document.getElementById('t-success').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        throw new Error(data.error || 'Erreur');
-      }
-    })
-    .catch(function (err) {
-      btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
-      btn.textContent = err.message || 'Erreur — réessayez';
-      btn.disabled = false;
-      submitting = false;
-      setTimeout(function () {
-        btn.style.background = '';
-        btn.textContent = "Vivre l'expérience Skine's";
-      }, 3500);
-    });
+      fetch('/api/send-tirage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          document.getElementById('t-form').style.display = 'none';
+          var successEl = document.getElementById('t-success');
+          successEl.style.display = 'block';
+          // Wait one frame for the element to be laid out, then scroll it into view
+          requestAnimationFrame(function () {
+            var rect = successEl.getBoundingClientRect();
+            var vh   = window.innerHeight || document.documentElement.clientHeight;
+            var alreadyVisible = rect.top >= 0 && rect.bottom <= vh;
+            if (!alreadyVisible) {
+              successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          });
+        } else {
+          throw new Error(data.error || 'Erreur');
+        }
+      })
+      .catch(function (err) {
+        btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
+        btn.textContent = err.message || 'Erreur — réessayez';
+        btn.disabled = false;
+        submitting = false;
+        setTimeout(function () {
+          btn.style.background = '';
+          btn.textContent = "Vivre l'expérience Skines";
+        }, 3500);
+      });
+    } // end doSubmit
+
+    // If Turnstile token is already ready, submit immediately.
+    // Otherwise poll for up to 2.5 s (covers slow connections), then submit anyway.
+    if (_tsToken) {
+      doSubmit();
+    } else {
+      var _tsWait = 0;
+      var _tsPoll = setInterval(function () {
+        _tsWait += 150;
+        if (_tsToken || _tsWait >= 2500) {
+          clearInterval(_tsPoll);
+          doSubmit();
+        }
+      }, 150);
+    }
   });
 })();
 </script>
@@ -1011,9 +1188,11 @@ footer { background: #684034; color: var(--cream); padding: 3rem 1.5rem 1.5rem; 
 .footer-social { display: flex; justify-content: center; gap: 1.1rem; margin-top: 1.2rem; }
 .footer-social a { color: rgba(245,237,227,0.55); display: flex; align-items: center; transition: color 0.2s; }
 .footer-social a:hover { color: var(--gold); }
-.footer-col h4 { color: var(--gold); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.68rem; margin-bottom: 1rem; }
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 0.55rem; color: rgba(245,237,227,0.62); font-size: 0.86rem; }
+.footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 500px; margin: 1.6rem auto 0; }
+.footer-col { background: rgba(255,255,255,0.07); border: 1px solid rgba(245,237,227,0.10); border-radius: 14px; padding: 18px 20px; }
+.footer-col h4 { color: var(--gold); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.65rem; margin-bottom: 12px; }
+.footer-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-col li { margin-bottom: 8px; color: rgba(245,237,227,0.62); font-size: 0.84rem; }
 .footer-col a { text-decoration: none; color: rgba(245,237,227,0.62); }
 .footer-col a:hover { color: var(--gold); }
 .footer-bottom { border-top: 1px solid rgba(245,240,234,0.07); padding-top: 0.9rem; text-align: center; font-size: 0.64rem; letter-spacing: 0.04em; color: rgba(245,237,227,0.28); max-width: 1100px; margin: 0 auto; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

@@ -1,6 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/send-tirage.js": {
+      "maxDuration": 30,
+      "includeFiles": "api/_lib/fonts/**"
+    },
+    "api/send-gift-card.js": {
+      "includeFiles": "api/_lib/fonts/**"
+    }
+  },
   "headers": [
     {
       "source": "/assets/(.*\\.mp4|.*\\.mov|.*\\.webm)",
