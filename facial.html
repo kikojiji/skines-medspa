@@ -6868,45 +6868,40 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 /* ── Logo area ── */
 .sf-logo-area {
   display: flex; flex-direction: column; align-items: center;
-  padding: 5rem 2rem 4rem; text-align: center;
+  padding: 5rem 2rem 3.5rem; text-align: center;
 }
 .sf-logo {
   display: flex; flex-direction: column; align-items: center;
-  gap: 0.6rem; text-decoration: none; margin-bottom: 1.8rem;
+  gap: 0.6rem; text-decoration: none; margin-bottom: 1.6rem;
 }
 .sf-stones {
-  width: 52px; height: auto;
-  opacity: 0.90;
-  filter: brightness(1.1);
+  width: 52px; height: auto; opacity: 0.90; filter: brightness(1.1);
 }
 .sf-brand {
   font-family: "DM Sans", sans-serif;
   font-size: 1.55rem; font-weight: 500;
-  letter-spacing: 0.38em;
-  color: rgba(245,237,227,0.92);
+  letter-spacing: 0.38em; color: rgba(245,237,227,0.92);
   padding-left: 0.38em;
 }
 .sf-tagline-sub {
   font-size: 0.58rem; letter-spacing: 0.28em;
-  color: rgba(245,237,227,0.35);
-  text-transform: uppercase; padding-left: 0.28em;
+  color: rgba(245,237,227,0.32); text-transform: uppercase; padding-left: 0.28em;
 }
 .sf-quote {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.35rem; font-weight: 300; font-style: italic;
-  color: rgba(245,237,227,0.55); letter-spacing: 0.02em;
-  margin-bottom: 2.2rem; line-height: 1.4;
+  font-size: 1.3rem; font-weight: 300; font-style: italic;
+  color: rgba(245,237,227,0.50); letter-spacing: 0.02em;
+  margin-bottom: 2rem; line-height: 1.4;
 }
 .sf-book-btn {
   display: inline-flex; align-items: center; gap: 0.6rem;
   padding: 0.75rem 2rem;
-  border: 1px solid rgba(201,160,96,0.40);
+  border: 1px solid rgba(201,160,96,0.38);
   border-radius: 2px;
-  color: rgba(245,237,227,0.80);
+  color: rgba(245,237,227,0.78);
   font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
   text-transform: uppercase; text-decoration: none;
   transition: border-color 0.25s, color 0.25s, background 0.25s;
-  background: transparent;
 }
 .sf-book-btn:hover {
   border-color: rgba(201,160,96,0.8);
@@ -6919,7 +6914,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 /* ── Soft divider ── */
 .sf-divider {
   width: 40px; height: 1px;
-  background: rgba(201,160,96,0.25);
+  background: rgba(201,160,96,0.22);
   margin: 0 auto;
 }
 
@@ -6929,47 +6924,64 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   grid-template-columns: 1fr 1fr;
   gap: 0;
   padding: 3rem 2rem 2rem;
-  max-width: 600px; margin: 0 auto;
+  max-width: 640px; margin: 0 auto;
 }
-.sf-nav-group { padding: 0 1.5rem; }
+.sf-nav-group { padding: 0 1.2rem; }
 .sf-nav-label {
   display: block;
-  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
-  color: rgba(201,160,96,0.70); text-transform: uppercase;
-  margin-bottom: 1.4rem; padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.63rem; font-weight: 600; letter-spacing: 0.28em;
+  color: rgba(201,160,96,0.65); text-transform: uppercase;
+  margin-bottom: 0.5rem; padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+
+/* ── Icon links ── */
 .sf-link {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.72rem 0;
+  padding: 0.78rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: rgba(245,237,227,0.62);
-  font-size: 0.88rem; font-weight: 300;
+  color: rgba(245,237,227,0.60);
   text-decoration: none;
-  transition: color 0.22s, padding-left 0.22s;
+  transition: color 0.22s, background 0.22s;
+  border-radius: 0;
   cursor: pointer;
 }
 .sf-link:last-child { border-bottom: none; }
-.sf-link:hover { color: rgba(245,237,227,0.95); padding-left: 4px; }
-.sf-link svg {
-  width: 13px; height: 13px; flex-shrink: 0;
+.sf-link:hover { color: rgba(245,237,227,0.95); }
+.sf-link:hover .sf-link-icon { background: rgba(201,160,96,0.12); }
+.sf-link:hover .sf-chevron { opacity: 0.7; transform: translateX(2px); }
+
+.sf-link-left {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.86rem; font-weight: 300;
+}
+.sf-link-icon {
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.22s;
+}
+.sf-link-icon svg {
+  width: 14px; height: 14px;
+  stroke: rgba(201,160,96,0.75); stroke-width: 1.6;
+  fill: none; stroke-linecap: round; stroke-linejoin: round;
+}
+.sf-chevron {
+  width: 12px; height: 12px; flex-shrink: 0;
   stroke: currentColor; stroke-width: 2; fill: none;
   opacity: 0; transition: opacity 0.22s, transform 0.22s;
 }
-.sf-link:hover svg { opacity: 0.7; transform: translateX(2px); }
 
 /* ── Social ── */
 .sf-social-area {
   display: flex; flex-direction: column; align-items: center;
-  padding: 3rem 2rem 2.5rem; gap: 1.4rem;
+  padding: 2.8rem 2rem 2.2rem; gap: 1.2rem;
 }
 .sf-social-label {
   font-size: 0.62rem; letter-spacing: 0.24em;
-  color: rgba(245,237,227,0.25); text-transform: uppercase;
+  color: rgba(245,237,227,0.22); text-transform: uppercase;
 }
-.sf-socials {
-  display: flex; gap: 0.6rem;
-}
+.sf-socials { display: flex; gap: 0.6rem; }
 .sf-social-btn {
   width: 44px; height: 44px; border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.08);
@@ -6985,25 +6997,21 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
 /* ── Legal ── */
 .sf-legal {
-  padding: 1.5rem 2rem 2.5rem;
+  padding: 1.4rem 2rem 2.2rem;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.04);
   font-size: 0.72rem;
-  color: rgba(245,237,227,0.22);
+  color: rgba(245,237,227,0.20);
   display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1rem;
 }
-.sf-legal a {
-  color: rgba(245,237,227,0.30); text-decoration: none;
-  transition: color 0.2s;
-}
+.sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
 .sf-legal a:hover { color: rgba(245,237,227,0.60); }
 
-@media (max-width: 580px) {
+@media (max-width: 560px) {
   .sf-logo-area { padding: 4rem 1.5rem 3rem; }
-  .sf-nav { grid-template-columns: 1fr; gap: 0; padding: 2.5rem 2rem 1.5rem; max-width: 360px; }
+  .sf-nav { grid-template-columns: 1fr; max-width: 340px; padding: 2.5rem 1.5rem 1.5rem; }
   .sf-nav-group { padding: 0; margin-bottom: 2rem; }
   .sf-nav-group:last-child { margin-bottom: 0; }
-  .sf-brand { font-size: 1.3rem; }
 }
 </style>
 <footer class="site-footer">
@@ -7016,7 +7024,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <p class="sf-quote">L'art de prendre soin.</p>
     <a class="sf-book-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
       RÉSERVER
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 
@@ -7025,17 +7033,74 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   <div class="sf-nav">
     <div class="sf-nav-group">
       <span class="sf-nav-label">Services</span>
-      <a class="sf-link" href="head-spa.html">Head Spa <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <a class="sf-link" href="facial.html">Facial <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <a class="sf-link" href="laser.html">Épilation Laser <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <a class="sf-link" href="cartes-cadeaux.html">Cartes Cadeaux <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+      <a class="sf-link" href="head-spa.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 3 1.5 5.5 4 7v2h6v-2c2.5-1.5 4-4 4-7 0-4-3-7-7-7z"/><line x1="12" y1="18" x2="12" y2="21"/></svg></span>
+          Head Spa
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <a class="sf-link" href="facial.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 4.5 3.5 8 7 11 3.5-3 7-6.5 7-11a7 7 0 0 0-7-7z"/></svg></span>
+          Facial
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <a class="sf-link" href="laser.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/><circle cx="12" cy="12" r="3"/></svg></span>
+          Épilation Laser
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <a class="sf-link" href="cartes-cadeaux.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M19 8V7a4 4 0 0 0-8 0M5 8V7a4 4 0 0 1 8 0"/><line x1="12" y1="8" x2="12" y2="21"/></svg></span>
+          Cartes Cadeaux
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
     </div>
+
     <div class="sf-nav-group">
       <span class="sf-nav-label">Votre Visite</span>
-      <a class="sf-link" href="reviews.html">Avis clients <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <a class="sf-link" href="your-visit.html">Votre Visite <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <a class="sf-link" href="index.html#contact">Contact & Adresse <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <a class="sf-link" href="tirage.html">Tirage Exclusif <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+
+      <a class="sf-link" href="reviews.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span>
+          Avis clients
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <a class="sf-link" href="your-visit.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          Votre Visite
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <a class="sf-link" href="your-visit.html#parking">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 5v14M9 9h3a2 2 0 0 1 0 4H9v4"/></svg></span>
+          Stationnement
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+
+      <a class="sf-link" href="tirage.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
+          Tirage Exclusif
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
     </div>
   </div>
 
