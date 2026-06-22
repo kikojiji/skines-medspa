@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VFB8SY59FX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VFB8SY59FX');
+</script>
+<!-- Microsoft Clarity -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window,document,"clarity","script","xabkor1h4j");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre Visite · Skines Med Spa Montréal</title>
+<meta name="description" content="Tout ce que vous devez savoir avant votre visite chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Votre Visite · Skines Med Spa Montréal">
+<meta property="og:description" content="Stationnement gratuit, reçus d'assurance, ambiance luxe — découvrez l'expérience Skines avant votre arrivée.">
+<meta property="og:image" content="https://skines.ca/assets/og-logo3.webp?v=1">
+<meta property="og:url" content="https://skines.ca/your-visit">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F5EDE3;
+  --cream-pale: #F9F4EE;
+  --brown: #684034;
+  --brown-dark: #4B2E26;
+  --brown-mid: #7A4A38;
+  --gold: #C9A060;
+  --stone: #9E8C84;
+  --ink: #2E2420;
+  --bg: #F9F4EE;
+  --line: rgba(104,64,52,0.12);
+  --terracotta: #B38A73;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--ink); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.15rem 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+}
+nav.nav-scrolled {
+  background: rgba(249,244,238,0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--line);
+}
+nav:not(.nav-scrolled) { background: linear-gradient(to bottom, rgba(249,244,238,0.9), transparent); }
+nav.nav-hidden { transform: translateY(-110%); }
+.logo {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  text-decoration: none; display: flex; align-items: center;
+}
+.logo-brand { display: flex; flex-direction: column; align-items: center; gap: 0.05rem; }
+.logo-text { font-family: "DM Sans", sans-serif; font-size: 1.15rem; font-weight: 500; letter-spacing: 0.30em; color: var(--brown-dark); }
+.logo-sub { font-size: 0.52rem; letter-spacing: 0.30em; color: var(--stone); text-transform: uppercase; padding-left: 0.30em; }
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.10em; text-transform: uppercase; color: var(--brown-dark); opacity: 0.75; transition: opacity 0.2s; text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.nav-cta {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 0.55rem 1.2rem; border: 1.5px solid var(--brown); color: var(--brown);
+  border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--brown); color: var(--cream); }
+.lang-switcher { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 400; color: var(--stone); }
+.lang-btn { background: none; border: none; cursor: pointer; font-size: 0.72rem; color: var(--stone); padding: 0.15rem 0.3rem; transition: color 0.2s; }
+.lang-btn.active { color: var(--brown-dark); font-weight: 500; }
+.lang-sep { opacity: 0.4; }
+.menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.menu-btn span { display: block; width: 22px; height: 1.5px; background: var(--brown-dark); transition: transform 0.3s; }
+.nav-search-btn { background: none; border: 1.5px solid rgba(104,64,52,0.3); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--brown-dark); transition: border-color 0.2s; }
+.nav-search-btn:hover { border-color: var(--brown); }
+
+/* ── Mobile Nav ── */
+.mobile-nav {
+  position: fixed; inset: 0; background: var(--cream); z-index: 200;
+  display: flex; flex-direction: column; padding: 1.5rem 2rem 2rem;
+  transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; }
+.mobile-nav-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--brown-dark); padding: 0.3rem; }
+.mobile-nav-links { list-style: none; flex: 1; }
+.mobile-nav-links li { border-bottom: 1px solid var(--line); }
+.mobile-nav-links a { display: block; padding: 1.1rem 0; font-size: 1.05rem; font-weight: 400; color: var(--brown-dark); text-decoration: none; }
+.mobile-nav-footer { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.mobile-contact { font-size: 0.8rem; color: var(--stone); text-align: center; }
+.mobile-contact a { color: var(--stone); text-decoration: none; }
+.mobile-lang-switcher { display: flex; justify-content: center; gap: 0.5rem; }
+.mobile-lang-btn { background: none; border: none; cursor: pointer; font-size: 0.82rem; color: var(--stone); padding: 0.2rem 0.4rem; }
+.mobile-lang-btn.active { color: var(--brown-dark); font-weight: 500; }
+
+/* ── Hero ── */
+.visit-hero {
+  min-height: 92vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 2rem 6rem;
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #F5EDE3 0%, #EDE0D4 50%, #E3D0C0 100%);
+}
+.visit-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(179,138,115,0.12) 0%, transparent 70%);
+}
+.visit-hero-inner { position: relative; z-index: 1; max-width: 720px; }
+.visit-hero-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.30em; color: var(--terracotta);
+  text-transform: uppercase; margin-bottom: 2rem; display: block;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.visit-hero h1 {
+  font-family: "Cormorant Garamond", serif; font-size: clamp(3.2rem, 8vw, 6rem);
+  font-weight: 300; line-height: 1.05; color: var(--brown-dark);
+  letter-spacing: -0.02em; margin-bottom: 1.8rem;
+  opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
+}
+.visit-hero h1 em { font-style: italic; color: var(--brown); }
+.visit-hero-sub {
+  font-size: 1.05rem; font-weight: 300; color: var(--stone); line-height: 1.75;
+  max-width: 480px; margin: 0 auto 2.8rem;
+  opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+}
+.visit-hero-cta {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  padding: 0.9rem 2.2rem; background: var(--brown); color: var(--cream);
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  border-radius: 2px; text-decoration: none; transition: background 0.25s;
+  opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
+}
+.visit-hero-cta:hover { background: var(--brown-dark); }
+
+/* ── Scroll indicator ── */
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  opacity: 0; animation: fadeUp 1s 1s forwards;
+}
+.scroll-hint span { font-size: 0.65rem; letter-spacing: 0.22em; color: var(--stone); text-transform: uppercase; }
+.scroll-hint-line { width: 1px; height: 36px; background: linear-gradient(to bottom, var(--terracotta), transparent); }
+
+/* ── Section layout ── */
+.visit-section {
+  padding: 7rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.visit-section:last-of-type { border-bottom: none; }
+.visit-section-inner { max-width: 1060px; margin: 0 auto; }
+.visit-section-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.visit-section-grid.reverse { direction: rtl; }
+.visit-section-grid.reverse > * { direction: ltr; }
+
+/* Section icon badge */
+.section-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(179,138,115,0.12); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 2rem;
+}
+.section-icon svg { width: 28px; height: 28px; stroke: var(--terracotta); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.visit-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.28em; color: var(--terracotta);
+  text-transform: uppercase; margin-bottom: 1rem; display: block;
+}
+.visit-section h2 {
+  font-family: "Cormorant Garamond", serif; font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.12; color: var(--brown-dark);
+  margin-bottom: 1.4rem; letter-spacing: -0.01em;
+}
+.visit-section h2 em { font-style: italic; color: var(--brown); }
+.visit-section p {
+  font-size: 0.97rem; color: var(--stone); line-height: 1.85; margin-bottom: 1.2rem;
+}
+.visit-section p:last-child { margin-bottom: 0; }
+.visit-section p strong { color: var(--brown-dark); font-weight: 500; }
+
+/* Detail pills */
+.visit-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; }
+.visit-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 1rem; border: 1px solid rgba(179,138,115,0.35);
+  border-radius: 40px; font-size: 0.78rem; font-weight: 400; color: var(--brown-mid);
+  background: rgba(179,138,115,0.06);
+}
+.visit-pill svg { width: 13px; height: 13px; stroke: var(--terracotta); stroke-width: 1.8; }
+
+/* Visual panel */
+.visit-visual {
+  border-radius: 4px; overflow: hidden; position: relative;
+  aspect-ratio: 4/5; background: linear-gradient(135deg, #EDE0D4, #DEC9B6);
+  display: flex; align-items: center; justify-content: center;
+}
+.visit-visual img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s ease;
+}
+.visit-visual:hover img { transform: scale(1.03); }
+.visit-visual-caption {
+  position: absolute; bottom: 1.5rem; left: 1.5rem;
+  background: rgba(249,244,238,0.92); backdrop-filter: blur(8px);
+  padding: 0.7rem 1.2rem; border-radius: 2px;
+  font-size: 0.72rem; letter-spacing: 0.14em; color: var(--brown-dark); text-transform: uppercase;
+}
+
+/* Full-width highlight strip */
+.visit-strip {
+  background: var(--brown-dark); color: var(--cream);
+  padding: 5rem 2rem; text-align: center;
+}
+.visit-strip-inner { max-width: 680px; margin: 0 auto; }
+.visit-strip .visit-eyebrow { color: rgba(245,237,227,0.55); }
+.visit-strip h2 {
+  font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300; line-height: 1.15; color: var(--cream); margin-bottom: 1.4rem;
+}
+.visit-strip h2 em { font-style: italic; color: rgba(245,237,227,0.7); }
+.visit-strip p { color: rgba(245,237,227,0.65); font-size: 0.97rem; line-height: 1.85; }
+
+/* Experience timeline */
+.visit-timeline { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0; }
+.timeline-step {
+  display: flex; gap: 1.4rem; padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(245,237,227,0.08);
+}
+.timeline-step:last-child { border-bottom: none; }
+.timeline-num {
+  font-family: "Cormorant Garamond", serif; font-size: 2rem; font-weight: 300;
+  color: rgba(245,237,227,0.2); line-height: 1; min-width: 2rem; padding-top: 0.1rem;
+}
+.timeline-content { flex: 1; }
+.timeline-content h4 {
+  font-family: "DM Sans", sans-serif; font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,237,227,0.9);
+  margin-bottom: 0.3rem;
+}
+.timeline-content p { font-size: 0.9rem; color: rgba(245,237,227,0.55); line-height: 1.65; margin: 0; }
+
+/* ── FAQ ── */
+.visit-faq { padding: 7rem 2rem; background: var(--bg); }
+.visit-faq-inner { max-width: 720px; margin: 0 auto; }
+.faq-header { text-align: center; margin-bottom: 4rem; }
+.faq-header .visit-eyebrow { display: block; }
+.faq-header h2 {
+  font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 300; line-height: 1.12; color: var(--brown-dark); margin-bottom: 1rem;
+}
+.faq-header p { color: var(--stone); font-size: 0.97rem; line-height: 1.75; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.4rem 0; background: none; border: none; cursor: pointer;
+  text-align: left; font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem; font-weight: 400; color: var(--brown-dark); line-height: 1.5;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--brown); }
+.faq-q.open { color: var(--brown); }
+.faq-icon {
+  flex-shrink: 0; width: 20px; height: 20px;
+  border-radius: 50%; border: 1px solid rgba(179,138,115,0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.35s, background 0.25s, border-color 0.25s;
+}
+.faq-q.open .faq-icon { background: var(--brown); border-color: var(--brown); transform: rotate(45deg); }
+.faq-icon svg { width: 10px; height: 10px; stroke: var(--terracotta); stroke-width: 2; }
+.faq-q.open .faq-icon svg { stroke: var(--cream); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s;
+}
+.faq-a.open { max-height: 300px; }
+.faq-a-inner {
+  padding: 0 0 1.5rem;
+  font-size: 0.92rem; color: var(--stone); line-height: 1.85;
+}
+.faq-a-inner a { color: var(--brown); border-bottom: 1px solid rgba(104,64,52,0.25); transition: border-color 0.2s; }
+.faq-a-inner a:hover { border-color: var(--brown); }
+
+/* ── CTA band ── */
+.visit-cta-band {
+  background: linear-gradient(135deg, #EDE0D4 0%, #DEC9B6 100%);
+  padding: 6rem 2rem; text-align: center;
+}
+.visit-cta-band-inner { max-width: 580px; margin: 0 auto; }
+.visit-cta-band h2 {
+  font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 300; line-height: 1.12; color: var(--brown-dark); margin-bottom: 1.2rem;
+}
+.visit-cta-band h2 em { font-style: italic; }
+.visit-cta-band p { color: var(--stone); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2.4rem; }
+.visit-cta-band-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  padding: 0.9rem 2.2rem; background: var(--brown); color: var(--cream);
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  border-radius: 2px; text-decoration: none; transition: background 0.25s;
+}
+.btn-primary:hover { background: var(--brown-dark); }
+.btn-outline {
+  padding: 0.9rem 2.2rem; border: 1.5px solid rgba(104,64,52,0.4); color: var(--brown-dark);
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  border-radius: 2px; text-decoration: none; transition: background 0.25s, border-color 0.25s;
+}
+.btn-outline:hover { background: rgba(104,64,52,0.06); border-color: var(--brown); }
+
+/* ── Footer ── */
+footer {
+  background: var(--brown-dark); color: rgba(245,237,227,0.75);
+  padding: 3.5rem 3rem 2rem; font-size: 0.82rem;
+}
+.footer-inner { max-width: 960px; margin: 0 auto; }
+.footer-top { margin-bottom: 2.5rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.footer-logo-text { font-size: 1.05rem; font-weight: 500; letter-spacing: 0.28em; color: rgba(245,237,227,0.9); }
+.logo-stones { width: 26px; height: auto; }
+.footer-nav { display: flex; gap: 3rem; margin-bottom: 2rem; }
+.footer-col h4 { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,237,227,0.5); margin-bottom: 1rem; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.55rem; }
+.footer-col a { color: rgba(245,237,227,0.65); text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(245,237,227,0.9); }
+.footer-social { display: flex; gap: 1rem; margin-bottom: 2rem; }
+.footer-social a {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(245,237,227,0.15);
+  display: flex; align-items: center; justify-content: center; color: rgba(245,237,227,0.55);
+  text-decoration: none; transition: border-color 0.2s, color 0.2s;
+}
+.footer-social a:hover { border-color: rgba(245,237,227,0.4); color: rgba(245,237,227,0.9); }
+.footer-bottom { border-top: 1px solid rgba(245,237,227,0.08); padding-top: 1.5rem; color: rgba(245,237,227,0.3); font-size: 0.76rem; }
+.footer-bottom a { color: rgba(245,237,227,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-bottom a:hover { color: rgba(245,237,227,0.7); }
+
+/* ── Scroll top ── */
+.scroll-top {
+  position: fixed; bottom: 2rem; right: 1.5rem; z-index: 90;
+  width: 42px; height: 42px; border-radius: 50%; background: var(--brown);
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--cream); opacity: 0; transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s; pointer-events: none;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.scroll-top:hover { background: var(--brown-dark); }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  nav { padding: 1rem 1.4rem; }
+  .nav-links, .nav-cta, .lang-switcher, .nav-search-btn { display: none; }
+  .menu-btn { display: flex; }
+
+  .visit-section { padding: 4.5rem 1.5rem; }
+  .visit-section-grid { grid-template-columns: 1fr; gap: 3rem; direction: ltr; }
+  .visit-section-grid.reverse { direction: ltr; }
+  .visit-visual { aspect-ratio: 4/3; }
+
+  .visit-hero { min-height: 80vh; padding: 7rem 1.5rem 5rem; }
+  .visit-hero h1 { font-size: clamp(2.8rem, 10vw, 4rem); }
+
+  .visit-strip { padding: 4rem 1.5rem; }
+  .visit-faq { padding: 4.5rem 1.5rem; }
+  .visit-cta-band { padding: 4.5rem 1.5rem; }
+  footer { padding: 3rem 1.5rem 1.5rem; }
+  .footer-nav { flex-wrap: wrap; gap: 2rem; }
+}
+@media (min-width: 861px) {
+  .menu-btn { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a class="logo" href="index.html">
+    <div class="logo-brand">
+      <span class="logo-text">SKINES</span>
+      <span class="logo-sub">Med Spa · Montréal</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="head-spa.html">Head Spa</a></li>
+    <li><a href="laser.html">Laser</a></li>
+    <li><a href="facial.html">Facial</a></li>
+    <li><a href="your-visit.html" class="active">Votre Visite</a></li>
+  </ul>
+  <a class="nav-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER</a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <button class="nav-search-btn" aria-label="Rechercher">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  </button>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <a class="logo" href="index.html">
+      <div class="logo-brand">
+        <span class="logo-text">SKINES</span>
+        <span class="logo-sub">Med Spa · Montréal</span>
+      </div>
+    </a>
+    <button class="mobile-nav-close" id="menuClose">&#8592;</button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="head-spa.html">Head Spa</a></li>
+    <li><a href="laser.html">Épilation Laser</a></li>
+    <li><a href="facial.html">Facial</a></li>
+    <li><a href="cartes-cadeaux.html">Cartes Cadeaux</a></li>
+    <li><a href="your-visit.html">Votre Visite</a></li>
+    <li><a href="index.html#contact">Contact & Adresse</a></li>
+  </ul>
+  <div class="mobile-nav-footer">
+    <a class="btn-primary" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer" style="text-align:center;">RÉSERVER</a>
+    <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
+    <div class="mobile-lang-switcher">
+      <button class="mobile-lang-btn active" data-lang="fr">FR</button>
+      <span>|</span>
+      <button class="mobile-lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<header class="visit-hero">
+  <div class="visit-hero-inner">
+    <span class="visit-hero-label">Skines Med Spa · Montréal</span>
+    <h1>Votre<br><em>visite.</em></h1>
+    <p class="visit-hero-sub">Tout ce qu'il faut savoir avant d'arriver — pour que vous puissiez vous concentrer sur l'essentiel : vous.</p>
+    <a class="visit-hero-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
+      Réserver mon soin
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+    <span>Découvrir</span>
+  </div>
+</header>
+
+<!-- ══ INSURANCE ═════════════════════════════════════ -->
+<section class="visit-section">
+  <div class="visit-section-inner">
+    <div class="visit-section-grid">
+      <div class="fade-up">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <span class="visit-eyebrow">Remboursement</span>
+        <h2>Reçus<br><em>d'assurance.</em></h2>
+        <p>Chez Skines, certains de nos soins sont effectués par des thérapeutes qualifiés et donnent droit à des reçus d'assurance valides pour remboursement.</p>
+        <p><strong>Le remboursement dépend de votre assureur et de votre couverture personnelle.</strong> Nous vous recommandons de vérifier avec votre compagnie d'assurance avant votre rendez-vous pour connaître les conditions spécifiques de votre régime.</p>
+        <p>Demandez votre reçu au moment du règlement — nous nous assurons que celui-ci contient toutes les informations nécessaires à votre réclamation.</p>
+        <div class="visit-pills">
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Reçu officiel fourni</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Thérapeutes certifiés</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Sur demande</span>
+        </div>
+      </div>
+      <div class="visit-visual fade-up">
+        <img src="assets/luxury-facial.webp?v=1" alt="Soin Skines" loading="lazy">
+        <div class="visit-visual-caption">Soins certifiés · Reçus disponibles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARKING ════════════════════════════════════════ -->
+<section class="visit-section" style="background: #F5EDE3;">
+  <div class="visit-section-inner">
+    <div class="visit-section-grid reverse">
+      <div class="fade-up">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+        </div>
+        <span class="visit-eyebrow">Arrivée Sans Stress</span>
+        <h2>Stationnement<br><em>privé & gratuit.</em></h2>
+        <p>Votre confort commence avant même de franchir la porte. Skines met à votre disposition un stationnement privé et gratuit pour tous les clients — sans frais, sans recherche, sans stress.</p>
+        <p>Arrivez serein. Prenez le temps de vous préparer mentalement pour votre soin. <strong>L'expérience Skines commence dès votre arrivée.</strong></p>
+        <div class="visit-pills">
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Gratuit pour tous</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Accès direct</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 19 Av. Shamrock</span>
+        </div>
+      </div>
+      <div class="visit-visual fade-up">
+        <img src="assets/bela-facial.webp?v=1" alt="Arrivée Skines" loading="lazy">
+        <div class="visit-visual-caption">Stationnement privé · Gratuit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT TO EXPECT (strip) ═════════════════════════ -->
+<div class="visit-strip">
+  <div class="visit-strip-inner fade-up">
+    <span class="visit-eyebrow">L'Expérience</span>
+    <h2>Ce qui vous<br><em>attend.</em></h2>
+    <p>De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme, de soin et de luxe discret.</p>
+    <div class="visit-timeline">
+      <div class="timeline-step">
+        <div class="timeline-num">01</div>
+        <div class="timeline-content">
+          <h4>À votre arrivée</h4>
+          <p>Un espace serein vous accueille. Ambiance apaisante, musique douce, lumière tamisée. Votre thérapeute vous reçoit personnellement et prend le temps de comprendre vos attentes.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">02</div>
+        <div class="timeline-content">
+          <h4>Préparation & confort</h4>
+          <p>Installez-vous dans un espace entièrement privé. Une boisson de bienvenue vous est offerte. Le déroulement de votre soin vous est expliqué en détail, à votre rythme.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">03</div>
+        <div class="timeline-content">
+          <h4>Pendant le soin</h4>
+          <p>Chaque traitement est adapté à votre peau, votre état et vos préférences. Précision, douceur, et attention aux détails — nous n'avons pas d'autres priorités que vous.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">04</div>
+        <div class="timeline-content">
+          <h4>Après le soin</h4>
+          <p>Prenez le temps de vous reposer. Votre thérapeute vous partagera des recommandations personnalisées. Repartez lumineux, détendu — et déjà impatient de revenir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ AMENITIES ══════════════════════════════════════ -->
+<section class="visit-section">
+  <div class="visit-section-inner">
+    <div class="visit-section-grid">
+      <div class="fade-up">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <span class="visit-eyebrow">Luxe & Bien-être</span>
+        <h2>Une attention<br><em>aux détails.</em></h2>
+        <p>Chez Skines, le luxe n'est pas dans le superflu — il est dans chaque détail qui fait que vous vous sentez vraiment pris en charge.</p>
+        <p>Nous avons conçu chaque aspect de l'expérience pour que vous n'ayez à penser à rien d'autre qu'à vous.</p>
+        <div class="visit-pills" style="margin-top:1.8rem;">
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Espaces 100% privés</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Boisson de bienvenue</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Ambiance soignée</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Produits premium</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Soins personnalisés</span>
+          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Thérapeutes certifiés</span>
+        </div>
+      </div>
+      <div class="visit-visual fade-up">
+        <img src="assets/personalized-facial.webp?v=1" alt="Expérience Skines" loading="lazy">
+        <div class="visit-visual-caption">Expérience · Luxe & Précision</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════ -->
+<section class="visit-faq">
+  <div class="visit-faq-inner">
+    <div class="faq-header fade-up">
+      <span class="visit-eyebrow">Questions fréquentes</span>
+      <h2>Tout ce que vous<br>souhaitez savoir.</h2>
+      <p>Des réponses claires pour vous préparer à votre visite en toute sérénité.</p>
+    </div>
+
+    <div class="faq-item fade-up">
+      <button class="faq-q" aria-expanded="false">
+        Y a-t-il un stationnement privé disponible ?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">Oui. Skines dispose d'un stationnement privé et entièrement gratuit pour tous nos clients. Vous trouverez facilement une place directement sur place, au 19 Av. Shamrock, Montréal. Aucun frais, aucune recherche — il suffit d'arriver.</div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <button class="faq-q" aria-expanded="false">
+        Les reçus d'assurance sont-ils disponibles ?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">Oui. Des reçus d'assurance sont disponibles pour les soins admissibles effectués par nos thérapeutes certifiés. Le remboursement dépend toutefois de votre assureur et de votre couverture personnelle. Nous vous encourageons à vérifier avec votre compagnie d'assurance avant votre visite.</div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <button class="faq-q" aria-expanded="false">
+        Dois-je prendre rendez-vous à l'avance ?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">Oui, une réservation préalable est fortement recommandée. Nos créneaux sont souvent réservés plusieurs jours à l'avance. Réservez facilement en ligne via <a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Fresha</a> ou en nous contactant directement au <a href="tel:+14382605660">+1 (438) 260-5660</a>.</div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <button class="faq-q" aria-expanded="false">
+        Peut-on acheter des cartes cadeaux ?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">Absolument. Nos cartes cadeaux sont disponibles en plusieurs montants et font un cadeau raffiné pour vos proches. Vous pouvez les <a href="cartes-cadeaux.html">commander ici</a> ou les acquérir directement en studio. Elles sont valides pour tous nos soins.</div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <button class="faq-q" aria-expanded="false">
+        Combien de temps à l'avance dois-je arriver ?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">Nous vous recommandons d'arriver environ 5 à 10 minutes avant l'heure de votre rendez-vous. Cela vous laisse le temps de vous installer confortablement, de vous détendre et de commencer votre expérience en douceur — sans précipitation.</div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-up">
+      <button class="faq-q" aria-expanded="false">
+        À quoi ressemble une visite chez Skines ?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a" role="region">
+        <div class="faq-a-inner">Dès votre arrivée, vous êtes accueilli dans un espace calme et luxueux. Votre thérapeute vous accueille personnellement, échange avec vous sur vos besoins, et vous accompagne tout au long de votre soin dans un espace entièrement privé. Une boisson de bienvenue est offerte. Chaque soin est adapté à votre peau et à votre ressenti. En fin de séance, vous repartez avec des recommandations personnalisées.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════ -->
+<div class="visit-cta-band">
+  <div class="visit-cta-band-inner fade-up">
+    <h2>Prêt à vivre<br><em>l'expérience ?</em></h2>
+    <p>Réservez votre soin en quelques secondes. Notre équipe prendra soin du reste.</p>
+    <div class="visit-cta-band-btns">
+      <a class="btn-primary" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER MON SOIN</a>
+      <a class="btn-outline" href="index.html#contact">NOUS TROUVER</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ═════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="footer-logo" href="index.html">
+        <img src="assets/images/logo-officiel-cropped.webp?v=1" class="logo-stones" alt="Skines logo">
+        <div class="logo-brand">
+          <span class="footer-logo-text">SKINES</span>
+          <span class="logo-sub">Med Spa · Montréal</span>
+        </div>
+      </a>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Soins</h4>
+        <ul>
+          <li><a href="head-spa.html">Head Spa</a></li>
+          <li><a href="laser.html">Épilation laser</a></li>
+          <li><a href="facial.html">Facial</a></li>
+          <li><a href="cartes-cadeaux.html">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="your-visit.html">Votre Visite</a></li>
+          <li><a href="reviews.html">Avis clients</a></li>
+          <li><a href="index.html#contact">Adresse</a></li>
+          <li>Parking privé gratuit</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Skines Spa · <a href="privacy-policy.html">Confidentialité</a> · <a href="terms-and-conditions.html">Conditions</a> · <a href="cookie-policy.html">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ── Nav hide on scroll ── */
+(function(){
+  const nav = document.getElementById('mainNav');
+  let lastY = 0;
+  window.addEventListener('scroll', function(){
+    const y = window.scrollY;
+    nav.classList.toggle('nav-scrolled', y > 40);
+    nav.classList.toggle('nav-hidden', y > lastY + 8 && y > 120);
+    lastY = y;
+  }, {passive: true});
+})();
+
+/* ── Mobile nav ── */
+(function(){
+  const btn = document.getElementById('menuBtn');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('mobileNav');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){ nav.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; });
+  close.addEventListener('click', function(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; });
+  nav.addEventListener('click', function(e){ if(e.target===nav){ nav.classList.remove('open'); document.body.style.overflow=''; } });
+})();
+
+/* ── Scroll top ── */
+(function(){
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', function(){ btn.classList.toggle('visible', window.scrollY > 400); }, {passive:true});
+  btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+
+/* ── Fade-up on scroll ── */
+(function(){
+  const els = document.querySelectorAll('.fade-up');
+  if(!els.length) return;
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ── FAQ accordion ── */
+(function(){
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const isOpen = btn.classList.contains('open');
+      document.querySelectorAll('.faq-q').forEach(function(b){ b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+      document.querySelectorAll('.faq-a').forEach(function(a){ a.classList.remove('open'); });
+      if(!isOpen){
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
