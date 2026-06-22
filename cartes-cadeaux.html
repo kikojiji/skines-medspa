@@ -4957,51 +4957,218 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <a class="footer-logo" href="index.html">
-        <img src="assets/images/logo-officiel-cropped.webp?v=1" class="logo-stones" alt="Skines logo">
-        <div class="logo-brand">
-          <span class="footer-logo-text">SKINES</span>
-          <span class="logo-sub">Med Spa · Montréal</span>
-        </div>
+<style>
+/* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
+.site-footer {
+  background: linear-gradient(170deg, #2C1A0F 0%, #3A2216 45%, #281608 100%);
+  color: rgba(245,237,227,0.70);
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,160,96,0.35), transparent);
+}
+
+/* ── Logo area ── */
+.sf-logo-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 5rem 2rem 4rem; text-align: center;
+}
+.sf-logo {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.6rem; text-decoration: none; margin-bottom: 1.8rem;
+}
+.sf-stones {
+  width: 52px; height: auto;
+  opacity: 0.90;
+  filter: brightness(1.1);
+}
+.sf-brand {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.55rem; font-weight: 500;
+  letter-spacing: 0.38em;
+  color: rgba(245,237,227,0.92);
+  padding-left: 0.38em;
+}
+.sf-tagline-sub {
+  font-size: 0.58rem; letter-spacing: 0.28em;
+  color: rgba(245,237,227,0.35);
+  text-transform: uppercase; padding-left: 0.28em;
+}
+.sf-quote {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem; font-weight: 300; font-style: italic;
+  color: rgba(245,237,227,0.55); letter-spacing: 0.02em;
+  margin-bottom: 2.2rem; line-height: 1.4;
+}
+.sf-book-btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.75rem 2rem;
+  border: 1px solid rgba(201,160,96,0.40);
+  border-radius: 2px;
+  color: rgba(245,237,227,0.80);
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; text-decoration: none;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+  background: transparent;
+}
+.sf-book-btn:hover {
+  border-color: rgba(201,160,96,0.8);
+  color: rgba(245,237,227,1);
+  background: rgba(201,160,96,0.08);
+}
+.sf-book-btn svg { opacity: 0.6; transition: transform 0.25s, opacity 0.25s; }
+.sf-book-btn:hover svg { transform: translateX(3px); opacity: 1; }
+
+/* ── Soft divider ── */
+.sf-divider {
+  width: 40px; height: 1px;
+  background: rgba(201,160,96,0.25);
+  margin: 0 auto;
+}
+
+/* ── Nav grid ── */
+.sf-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 3rem 2rem 2rem;
+  max-width: 600px; margin: 0 auto;
+}
+.sf-nav-group { padding: 0 1.5rem; }
+.sf-nav-label {
+  display: block;
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
+  color: rgba(201,160,96,0.70); text-transform: uppercase;
+  margin-bottom: 1.4rem; padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sf-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(245,237,227,0.62);
+  font-size: 0.88rem; font-weight: 300;
+  text-decoration: none;
+  transition: color 0.22s, padding-left 0.22s;
+  cursor: pointer;
+}
+.sf-link:last-child { border-bottom: none; }
+.sf-link:hover { color: rgba(245,237,227,0.95); padding-left: 4px; }
+.sf-link svg {
+  width: 13px; height: 13px; flex-shrink: 0;
+  stroke: currentColor; stroke-width: 2; fill: none;
+  opacity: 0; transition: opacity 0.22s, transform 0.22s;
+}
+.sf-link:hover svg { opacity: 0.7; transform: translateX(2px); }
+
+/* ── Social ── */
+.sf-social-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 3rem 2rem 2.5rem; gap: 1.4rem;
+}
+.sf-social-label {
+  font-size: 0.62rem; letter-spacing: 0.24em;
+  color: rgba(245,237,227,0.25); text-transform: uppercase;
+}
+.sf-socials {
+  display: flex; gap: 0.6rem;
+}
+.sf-social-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(245,237,227,0.45); text-decoration: none;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.sf-social-btn:hover {
+  border-color: rgba(201,160,96,0.45);
+  color: rgba(245,237,227,0.90);
+  background: rgba(201,160,96,0.07);
+}
+
+/* ── Legal ── */
+.sf-legal {
+  padding: 1.5rem 2rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.72rem;
+  color: rgba(245,237,227,0.22);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1rem;
+}
+.sf-legal a {
+  color: rgba(245,237,227,0.30); text-decoration: none;
+  transition: color 0.2s;
+}
+.sf-legal a:hover { color: rgba(245,237,227,0.60); }
+
+@media (max-width: 580px) {
+  .sf-logo-area { padding: 4rem 1.5rem 3rem; }
+  .sf-nav { grid-template-columns: 1fr; gap: 0; padding: 2.5rem 2rem 1.5rem; max-width: 360px; }
+  .sf-nav-group { padding: 0; margin-bottom: 2rem; }
+  .sf-nav-group:last-child { margin-bottom: 0; }
+  .sf-brand { font-size: 1.3rem; }
+}
+</style>
+<footer class="site-footer">
+  <div class="sf-logo-area">
+    <a class="sf-logo" href="index.html">
+      <img src="assets/images/logo-officiel-cropped.webp?v=1" class="sf-stones" alt="Skines">
+      <span class="sf-brand">SKINES</span>
+      <span class="sf-tagline-sub">Med Spa · Montréal</span>
+    </a>
+    <p class="sf-quote">L'art de prendre soin.</p>
+    <a class="sf-book-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
+      RÉSERVER
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="sf-divider"></div>
+
+  <div class="sf-nav">
+    <div class="sf-nav-group">
+      <span class="sf-nav-label">Services</span>
+      <a class="sf-link" href="head-spa.html">Head Spa <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="sf-link" href="facial.html">Facial <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="sf-link" href="laser.html">Épilation Laser <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="sf-link" href="cartes-cadeaux.html">Cartes Cadeaux <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+    <div class="sf-nav-group">
+      <span class="sf-nav-label">Votre Visite</span>
+      <a class="sf-link" href="reviews.html">Avis clients <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="sf-link" href="your-visit.html">Votre Visite <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="sf-link" href="index.html#contact">Contact & Adresse <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="sf-link" href="tirage.html">Tirage Exclusif <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="sf-social-area">
+    <span class="sf-social-label">Nous suivre</span>
+    <div class="sf-socials">
+      <a class="sf-social-btn" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="sf-social-btn" href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg>
+      </a>
+      <a class="sf-social-btn" href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
     </div>
-    <div class="footer-nav">
-      <div class="footer-col">
-        <h4>Soins</h4>
-        <ul>
-          <li><a href="head-spa.html">Head Spa</a></li>
-          <li><a href="laser.html">Épilation laser</a></li>
-          <li><a href="facial.html">Facial</a></li>
-          <li><a href="cartes-cadeaux.html">Gift Cards</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Info</h4>
-        <ul>
-          <li><a href="reviews.html">Avis clients</a></li>
-          <li><a href="index.html#contact">Adresse</a></li>
-          <li>Parking privé</li>
-          <li>Assurance disponible</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Skines Spa · <a href="privacy-policy.html">Confidentialité</a> · <a href="terms-and-conditions.html">Conditions</a> · <a href="cookie-policy.html">Cookies</a></span>
-    </div>
+  </div>
+
+  <div class="sf-legal">
+    <span>© 2026 Skines Med Spa</span>
+    <a href="privacy-policy.html">Confidentialité</a>
+    <a href="terms-and-conditions.html">Conditions</a>
+    <a href="cookie-policy.html">Cookies</a>
   </div>
 </footer>
 
