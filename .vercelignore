@@ -1,0 +1,9 @@
+node_modules/
+.claude/
+.netlify/
+package-lock.json
+
+# All videos now hosted on Cloudflare R2 — do not deploy via Vercel
+*.mp4
+*.mov
+*.MOV
