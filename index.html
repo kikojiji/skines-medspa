@@ -7366,9 +7366,9 @@ html body #sp-stones img {
     <!-- LUXURY CAROUSEL INDEX -->
     <style>
     .ivc-wrap  { position: relative; }
-    .ivc-outer { overflow: hidden; padding: 28px 0 52px; cursor: grab; }
+    .ivc-outer { overflow: hidden; padding: 28px 0 52px; cursor: grab; min-height: calc(min(62vw, 280px) * 16 / 9 + 88px); }
     .ivc-outer:active { cursor: grabbing; }
-    .ivc-track { position: relative; width: 100%; }
+    .ivc-track { position: relative; width: 100%; min-height: calc(min(62vw, 280px) * 16 / 9 + 36px); }
     .ivc-slide {
       position: absolute; top: 0; left: 0;
       width: clamp(220px, 62vw, 280px);
@@ -7557,6 +7557,7 @@ html body #sp-stones img {
           if(instant) s.style.transition='none';
           s.style.left=lft+'px';
           s.style.top=ty+'px';
+          s.style.transformOrigin='top center';
           s.style.transform='scale('+sc+')';
           s.style.opacity=op;
           s.style.zIndex=zi;
@@ -7644,7 +7645,8 @@ html body #sp-stones img {
       },{passive:true});
 
       window.addEventListener('resize',function(){positionCards(true);});
-      setTimeout(function(){go(0,true);},80);
+      setTimeout(function(){go(0,true);},200);
+      window.addEventListener('load',function(){go(0,true);});
     })();
     </script>
 
