@@ -12,13 +12,7 @@
   },
   "headers": [
     {
-      "source": "/assets/(.*\\.mp4|.*\\.mov|.*\\.webm)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/assets/(.*\\.jpg|.*\\.jpeg|.*\\.png|.*\\.webp)",
+      "source": "/assets/:path*",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
