@@ -35,28 +35,28 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
     --cream: #F5EDE3;
-    --cream-light: #5A3730;
-    --cream-pale: #684034;
-    --brown: #684034;
-    --brown-dark: #4B2E26;
+    --cream-light: #2A1810;
+    --cream-pale: #1A0F0A;
+    --brown: #8A5A42;
+    --brown-dark: #0E0805;
     --brown-mid: #7A4A38;
-    --brown-soft: rgba(245,237,227,0.10);
-    --gold: #F5C06A;
-    --gold-dark: #D4913A;
+    --brown-soft: rgba(245,237,227,0.08);
+    --gold: #C9A060;
+    --gold-dark: #B08040;
     --sage: #7A8A72;
-    --stone: rgba(245,237,227,0.55);
+    --stone: rgba(245,237,227,0.50);
     --ink: #F5EDE3;
-    --charcoal: #F5EDE3;
-    --bg: #684034;
+    --charcoal: #F0E8DE;
+    --bg: #130C07;
     --line: rgba(245,237,227,0.10);
-    --terracotta: #7A4A38;
-    --terracotta-dark: #684034;
+    --terracotta: #9A6048;
+    --terracotta-dark: #7A4A38;
     --terracotta-deeper: #4B2E26;
-    --terracotta-soft: rgba(245,237,227,0.10);
+    --terracotta-soft: rgba(245,237,227,0.08);
     --color-dark: #F5EDE3;
-    --color-primary: #684034;
-    --color-warm: #F5C06A;
-    --color-light: #684034;
+    --color-primary: #C9A060;
+    --color-warm: #C9A060;
+    --color-light: #F5EDE3;
     --color-text: #F5EDE3;
   }
   html { scroll-behavior: smooth; }
@@ -207,7 +207,7 @@
 
   /* ── Page hero ── */
   .page-hero {
-    background: var(--brown-dark);
+    background: #0E0805;
     padding: 5rem 4rem 4rem;
     text-align: center;
     color: var(--cream);
@@ -815,7 +815,7 @@
     transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
   .view-btn:hover { color: var(--brown); border-color: var(--brown); }
-  .view-btn.active { background: var(--brown-dark); color: var(--cream); border-color: var(--brown-dark); }
+  .view-btn.active { background: #0E0805; color: var(--cream); border-color: var(--brown-dark); }
   .view-btn svg { width: 15px; height: 15px; }
   /* List-view overrides */
   .services-grid.list-view, .price-cards-grid.list-view {
@@ -896,7 +896,7 @@
 
   /* Scrolled: dark brown — same as footer/social bar */
   nav.nav-scrolled {
-    background: var(--brown-dark) !important;
+    background: #0E0805 !important;
     border-bottom: 1px solid rgba(245,237,227,0.07) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
@@ -6013,126 +6013,13 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <p class="hero-sub">★★★★★ · 4.8 sur Fresha · 4.7 sur Google</p>
   </header>
 
-  <!-- Stats strip -->
-  <div class="stats-strip">
-    <a class="stat-item" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf?reviews=true" target="_blank" rel="noreferrer">
-      <strong>4.8</strong><span>Note Fresha</span>
-    </a>
-    <a class="stat-item" href="https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z/data=!4m17!1m8!3m7!1s0x4cc91912fb8a5ed7:0xeac8eddd13ab6b1c!2s19+Av.+Shamrock,+Montréal,+QC+H2S+1A3!3b1!8m2!3d45.5344811!4d-73.6167675!16s%2Fg%2F11bw3_q3nb!3m7!1s0x4cc91900204e6e1b:0xe5cc326474452c73!8m2!3d45.5344811!4d-73.6167675!9m1!1b1!16s%2Fg%2F11w514v292?hl=fr-FR&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
-      <strong>4.7</strong><span>Note Google</span>
-    </a>
-    <div class="stat-item">
-      <strong>461+</strong><span>Avis Fresha</span>
-    </div>
-    <div class="stat-item">
-      <strong>1600+</strong><span>Avis Global</span>
-    </div>
-  </div>
-
-  <!-- Reviews grid -->
-  <section class="reviews-section">
-    <h2>Avis <em>Head Spa</em></h2>
-    <p class="reviews-intro">★★★★★ · Source : Fresha</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Une expérience absolument transformatrice. Le scalpcial a laissé mon cuir chevelu revigoré et mes cheveux brillants. L'ambiance japonaise est apaisante dès l'entrée — je repars à chaque fois complètement ressourcée. »</p>
-        <div><div class="review-author">Camille R.</div><div class="review-source">Fresha · Mars 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le duo 90 min avec ma meilleure amie était magique. Une heure et demie de pur luxe, les mains expertes de l'équipe font une vraie différence. On va revenir chaque mois sans hésiter ! »</p>
-        <div><div class="review-author">Sofia M.</div><div class="review-source">Fresha · Février 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Skines est un vrai bijou caché à Montréal. Le soin est ultra professionnel, l'espace est magnifique, et on ressort complètement détendue. Sans aucun doute le meilleur head spa de la ville. »</p>
-        <div><div class="review-author">Anaïs T.</div><div class="review-source">Fresha · Janvier 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le massage du cuir chevelu était tellement relaxant que je me suis endormie ! Le personnel est attentionné, l'espace est propre et serein. Je recommande vivement le soin 90 minutes. »</p>
-        <div><div class="review-author">Marie-Claude B.</div><div class="review-source">Fresha · Décembre 2024</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Première visite pour un head spa, et je suis tombée amoureuse. L'équipe explique chaque étape, l'ambiance est zen et luxueuse. Mes cheveux n'ont jamais été aussi soyeux. »</p>
-        <div><div class="review-author">Yasmine H.</div><div class="review-source">Fresha · Novembre 2024</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Un moment de pur bonheur. L'odeur des produits, la douceur des soins, la chaleur de l'équipe — tout est pensé dans les moindres détails. Je suis déjà en train de planifier ma prochaine visite. »</p>
-        <div><div class="review-author">Isabelle L.</div><div class="review-source">Fresha · Octobre 2024</div></div>
-      </div>
-    </div>
-
-    <h2>Avis <em>Facial</em></h2>
-    <p class="reviews-intro">★★★★★ · Source : Google & Fresha</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le soin du visage était incroyable — ma peau n'avait jamais été aussi lumineuse. L'équipe est professionnelle, attentionnée, et l'espace est tellement relaxant. Je recommande à toutes mes amies. »</p>
-        <div><div class="review-author">Léa B.</div><div class="review-source">Google · Avril 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« HydraDermabrasion Bela MD — résultats visibles dès la première séance. Ma peau était éclatante et hydratée comme jamais. L'expérience en elle-même est déjà un luxe. »</p>
-        <div><div class="review-author">Chloé M.</div><div class="review-source">Google · Mars 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« J'ai fait un luxury facial et c'était exactement ce dont j'avais besoin. Soin ultra personnalisé, produits de qualité, résultat magnifique. L'endroit est propre, élégant et apaisant. »</p>
-        <div><div class="review-author">Emilie P.</div><div class="review-source">Fresha · Février 2025</div></div>
-      </div>
-    </div>
-
-    <h2>Avis <em>Épilation Laser</em></h2>
-    <p class="reviews-intro">★★★★★ · Source : Google</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« J'y suis allée pour un soin laser et j'ai été bluffée par le résultat dès la première séance. L'ambiance est zen, le personnel est aux petits soins. C'est mon endroit coup de cœur à Montréal. »</p>
-        <div><div class="review-author">Nour K.</div><div class="review-source">Google · Mars 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le laser Clarity II est vraiment impressionnant. Moins douloureux que les autres lasers que j'ai essayés, et les résultats sont bien meilleurs. L'équipe est professionnelle et rassurante. »</p>
-        <div><div class="review-author">Sarah T.</div><div class="review-source">Google · Janvier 2025</div></div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">« 5 séances et je suis déjà ravie des résultats ! L'équipe est disponible, répond à toutes mes questions et s'adapte à chaque séance. Je recommande Skines sans hésitation pour l'épilation laser. »</p>
-        <div><div class="review-author">Julie F.</div><div class="review-source">Google · Décembre 2024</div></div>
-      </div>
-    </div>
-
-    <!-- Platform CTAs -->
-    <div class="platform-cta">
-      <p class="platform-cta-title">Laissez votre <em>avis</em></p>
-      <div class="platform-btns">
-        <a class="cta-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf?reviews=true" target="_blank" rel="noreferrer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          461+ Avis sur Fresha
-        </a>
-        <a class="cta-btn" href="https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z/data=!4m17!1m8!3m7!1s0x4cc91912fb8a5ed7:0xeac8eddd13ab6b1c!2s19+Av.+Shamrock,+Montréal,+QC+H2S+1A3!3b1!8m2!3d45.5344811!4d-73.6167675!16s%2Fg%2F11bw3_q3nb!3m7!1s0x4cc91900204e6e1b:0xe5cc326474452c73!8m2!3d45.5344811!4d-73.6167675!9m1!1b1!16s%2Fg%2F11w514v292?hl=fr-FR&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          4.7 · Avis sur Google
-        </a>
-      </div>
-    </div>
-  </section>
 
   
 
   <!-- VIDEO REVIEWS SECTION — Luxury Carousel -->
   <style>
-  .vc-section { background: #160A05 !important; padding: 4.5rem 0 5.5rem; }
-  #vc-testimonials { background: #160A05 !important; }
+  .vc-section { background: #0E0805 !important; padding: 4.5rem 0 5.5rem; }
+  #vc-testimonials { background: #0E0805 !important; }
   .vc-header  { text-align: center; padding: 0 1.4rem; margin-bottom: 2.8rem; }
   .vc-eyebrow { font-size: 0.60rem; letter-spacing: 0.30em; text-transform: uppercase; color: #C9A060; margin: 0 0 0.75rem; font-family: "DM Sans", sans-serif; font-weight: 500; }
   .vc-title   { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 5vw, 2.7rem); font-weight: 400; font-style: italic; color: #F5EDE3; margin: 0; line-height: 1.08; }
@@ -6310,6 +6197,120 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     </div>
 
     <div class="vc-dots" id="vc-dots"></div>
+  </section>
+
+  <!-- Stats strip -->
+  <div class="stats-strip">
+    <a class="stat-item" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf?reviews=true" target="_blank" rel="noreferrer">
+      <strong>4.8</strong><span>Note Fresha</span>
+    </a>
+    <a class="stat-item" href="https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z/data=!4m17!1m8!3m7!1s0x4cc91912fb8a5ed7:0xeac8eddd13ab6b1c!2s19+Av.+Shamrock,+Montréal,+QC+H2S+1A3!3b1!8m2!3d45.5344811!4d-73.6167675!16s%2Fg%2F11bw3_q3nb!3m7!1s0x4cc91900204e6e1b:0xe5cc326474452c73!8m2!3d45.5344811!4d-73.6167675!9m1!1b1!16s%2Fg%2F11w514v292?hl=fr-FR&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
+      <strong>4.7</strong><span>Note Google</span>
+    </a>
+    <div class="stat-item">
+      <strong>461+</strong><span>Avis Fresha</span>
+    </div>
+    <div class="stat-item">
+      <strong>1600+</strong><span>Avis Global</span>
+    </div>
+  </div>
+
+  <!-- Reviews grid -->
+  <section class="reviews-section">
+    <h2>Avis <em>Head Spa</em></h2>
+    <p class="reviews-intro">★★★★★ · Source : Fresha</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Une expérience absolument transformatrice. Le scalpcial a laissé mon cuir chevelu revigoré et mes cheveux brillants. L'ambiance japonaise est apaisante dès l'entrée — je repars à chaque fois complètement ressourcée. »</p>
+        <div><div class="review-author">Camille R.</div><div class="review-source">Fresha · Mars 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Le duo 90 min avec ma meilleure amie était magique. Une heure et demie de pur luxe, les mains expertes de l'équipe font une vraie différence. On va revenir chaque mois sans hésiter ! »</p>
+        <div><div class="review-author">Sofia M.</div><div class="review-source">Fresha · Février 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Skines est un vrai bijou caché à Montréal. Le soin est ultra professionnel, l'espace est magnifique, et on ressort complètement détendue. Sans aucun doute le meilleur head spa de la ville. »</p>
+        <div><div class="review-author">Anaïs T.</div><div class="review-source">Fresha · Janvier 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Le massage du cuir chevelu était tellement relaxant que je me suis endormie ! Le personnel est attentionné, l'espace est propre et serein. Je recommande vivement le soin 90 minutes. »</p>
+        <div><div class="review-author">Marie-Claude B.</div><div class="review-source">Fresha · Décembre 2024</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Première visite pour un head spa, et je suis tombée amoureuse. L'équipe explique chaque étape, l'ambiance est zen et luxueuse. Mes cheveux n'ont jamais été aussi soyeux. »</p>
+        <div><div class="review-author">Yasmine H.</div><div class="review-source">Fresha · Novembre 2024</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Un moment de pur bonheur. L'odeur des produits, la douceur des soins, la chaleur de l'équipe — tout est pensé dans les moindres détails. Je suis déjà en train de planifier ma prochaine visite. »</p>
+        <div><div class="review-author">Isabelle L.</div><div class="review-source">Fresha · Octobre 2024</div></div>
+      </div>
+    </div>
+
+    <h2>Avis <em>Facial</em></h2>
+    <p class="reviews-intro">★★★★★ · Source : Google & Fresha</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Le soin du visage était incroyable — ma peau n'avait jamais été aussi lumineuse. L'équipe est professionnelle, attentionnée, et l'espace est tellement relaxant. Je recommande à toutes mes amies. »</p>
+        <div><div class="review-author">Léa B.</div><div class="review-source">Google · Avril 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« HydraDermabrasion Bela MD — résultats visibles dès la première séance. Ma peau était éclatante et hydratée comme jamais. L'expérience en elle-même est déjà un luxe. »</p>
+        <div><div class="review-author">Chloé M.</div><div class="review-source">Google · Mars 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« J'ai fait un luxury facial et c'était exactement ce dont j'avais besoin. Soin ultra personnalisé, produits de qualité, résultat magnifique. L'endroit est propre, élégant et apaisant. »</p>
+        <div><div class="review-author">Emilie P.</div><div class="review-source">Fresha · Février 2025</div></div>
+      </div>
+    </div>
+
+    <h2>Avis <em>Épilation Laser</em></h2>
+    <p class="reviews-intro">★★★★★ · Source : Google</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« J'y suis allée pour un soin laser et j'ai été bluffée par le résultat dès la première séance. L'ambiance est zen, le personnel est aux petits soins. C'est mon endroit coup de cœur à Montréal. »</p>
+        <div><div class="review-author">Nour K.</div><div class="review-source">Google · Mars 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Le laser Clarity II est vraiment impressionnant. Moins douloureux que les autres lasers que j'ai essayés, et les résultats sont bien meilleurs. L'équipe est professionnelle et rassurante. »</p>
+        <div><div class="review-author">Sarah T.</div><div class="review-source">Google · Janvier 2025</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« 5 séances et je suis déjà ravie des résultats ! L'équipe est disponible, répond à toutes mes questions et s'adapte à chaque séance. Je recommande Skines sans hésitation pour l'épilation laser. »</p>
+        <div><div class="review-author">Julie F.</div><div class="review-source">Google · Décembre 2024</div></div>
+      </div>
+    </div>
+
+    <!-- Platform CTAs -->
+    <div class="platform-cta">
+      <p class="platform-cta-title">Laissez votre <em>avis</em></p>
+      <div class="platform-btns">
+        <a class="cta-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf?reviews=true" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          461+ Avis sur Fresha
+        </a>
+        <a class="cta-btn" href="https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z/data=!4m17!1m8!3m7!1s0x4cc91912fb8a5ed7:0xeac8eddd13ab6b1c!2s19+Av.+Shamrock,+Montréal,+QC+H2S+1A3!3b1!8m2!3d45.5344811!4d-73.6167675!16s%2Fg%2F11bw3_q3nb!3m7!1s0x4cc91900204e6e1b:0xe5cc326474452c73!8m2!3d45.5344811!4d-73.6167675!9m1!1b1!16s%2Fg%2F11w514v292?hl=fr-FR&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          4.7 · Avis sur Google
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- Video modal -->
