@@ -20,7 +20,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nous Trouver · Skines Med Spa Montréal</title>
-<meta name="description" content="Adresse, heures, contact — tout pour trouver Skines Med Spa à Montréal chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
+<meta name="description" content="Tout ce que vous devez savoir avant votre visite chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nous Trouver · Skines Med Spa Montréal">
 <meta property="og:description" content="Stationnement gratuit, reçus d'assurance, ambiance luxe — découvrez l'expérience Skines avant votre arrivée.">
@@ -399,7 +399,6 @@ footer {
 </style>
 </head>
 <body>
-
 <nav id="mainNav">
   <a class="logo" href="index.html">
     <div class="logo-brand">
@@ -454,221 +453,225 @@ footer {
   </div>
 </div>
 
-
 <style>
+/* ── Reset section base padding ── */
+section { padding: 0 !important; }
+
+/* ── Hero ── */
 .vu-hero {
-  min-height: 52vh; display: flex; align-items: flex-end;
-  background: linear-gradient(160deg, #2C1A0F 0%, #4B2E1F 60%, #3A2215 100%);
-  padding: 0 1.5rem 4rem; padding-top: 100px;
+  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(160deg,#1E1008 0%,#3A2010 55%,#2C180C 100%);
+  padding: 0 2rem 4rem; padding-top: 80px;
   position: relative; overflow: hidden;
 }
-.vu-hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 40%, rgba(201,160,96,0.08) 0%, transparent 60%);
+.vu-hero::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:40%;
+  background: linear-gradient(to top, rgba(30,16,8,0.6), transparent);
+  pointer-events: none;
 }
-.vu-hero-inner { max-width: 680px; margin: 0 auto; width: 100%; position: relative; }
-.vu-eyebrow {
-  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
-  color: rgba(201,160,96,0.75); text-transform: uppercase; margin-bottom: 1.2rem; display: block;
+.vu-address-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(201,160,96,0.12); border: 1px solid rgba(201,160,96,0.25);
+  border-radius: 40px; padding: 0.5rem 1rem;
+  font-size: 0.65rem; letter-spacing: 0.18em; color: rgba(201,160,96,0.85);
+  text-transform: uppercase; margin-bottom: 2rem; width: fit-content;
 }
+.vu-address-pill svg { width:13px; height:13px; stroke:rgba(201,160,96,0.75); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
 .vu-hero h1 {
-  font-family: "Cormorant Garamond", serif; font-size: clamp(2.8rem, 8vw, 5rem);
-  font-weight: 300; color: rgba(245,237,227,0.95); line-height: 1.05;
-  margin-bottom: 1.2rem; letter-spacing: -0.01em;
+  font-family:"Cormorant Garamond",serif;
+  font-size: clamp(3.5rem,12vw,6.5rem);
+  font-weight:300; color:rgba(245,237,227,0.95);
+  line-height:0.95; letter-spacing:-0.02em;
+  margin-bottom:1.5rem;
 }
-.vu-hero h1 em { font-style: italic; color: rgba(201,160,96,0.85); }
-.vu-hero p { font-size: 1rem; color: rgba(245,237,227,0.55); font-weight: 300; max-width: 440px; line-height: 1.7; }
+.vu-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
+.vu-hero-sub { font-size:0.95rem; color:rgba(245,237,227,0.45); max-width:380px; line-height:1.75; margin-bottom:2.5rem; }
+.vu-hero-actions { display:flex; flex-wrap:wrap; gap:0.8rem; position:relative; z-index:1; }
+.vu-btn-primary {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background: rgba(201,160,96,0.15); border:1px solid rgba(201,160,96,0.4);
+  color:rgba(245,237,227,0.90); border-radius:2px;
+  padding:0.75rem 1.5rem; font-size:0.68rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; text-decoration:none; transition:all 0.25s;
+}
+.vu-btn-primary:hover { background:rgba(201,160,96,0.25); border-color:rgba(201,160,96,0.7); }
+.vu-btn-ghost {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  border:1px solid rgba(255,255,255,0.15);
+  color:rgba(245,237,227,0.55); border-radius:2px;
+  padding:0.75rem 1.5rem; font-size:0.68rem; font-weight:400; letter-spacing:0.14em;
+  text-transform:uppercase; text-decoration:none; transition:all 0.25s;
+}
+.vu-btn-ghost:hover { border-color:rgba(255,255,255,0.35); color:rgba(245,237,227,0.85); }
+.vu-scroll-hint {
+  display:flex; flex-direction:column; align-items:center; gap:0.6rem;
+  margin-top:3rem; opacity:0.3;
+}
+.vu-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
+.vu-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
 
-/* Info cards */
-.vu-cards {
-  background: var(--cream-pale); padding: 4rem 1.5rem;
+/* ── Big info strip ── */
+.vu-strip {
+  background: #F9F4EE;
+  padding: 0;
 }
-.vu-cards-inner { max-width: 680px; margin: 0 auto; }
-.vu-cards-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem;
+.vu-strip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(104,64,52,0.10);
 }
-.vu-card {
-  background: #fff; border: 1px solid rgba(104,64,52,0.10); border-radius: 12px;
-  padding: 1.6rem 1.4rem; display: flex; flex-direction: column; gap: 0.5rem;
-  transition: box-shadow 0.25s, transform 0.25s;
+.vu-strip-item {
+  padding: 2rem 1.8rem;
+  border-right: 1px solid rgba(104,64,52,0.08);
+  border-bottom: 1px solid rgba(104,64,52,0.08);
 }
-.vu-card:hover { box-shadow: 0 8px 32px rgba(104,64,52,0.10); transform: translateY(-2px); }
-.vu-card-icon {
-  width: 40px; height: 40px; background: rgba(104,64,52,0.07);
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  margin-bottom: 0.4rem;
-}
-.vu-card-icon svg { width: 20px; height: 20px; stroke: #684034; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.vu-card-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em; color: var(--stone); text-transform: uppercase; }
-.vu-card-value { font-size: 0.92rem; font-weight: 400; color: var(--ink); line-height: 1.5; }
-.vu-card-value a { color: var(--brown); text-decoration: none; transition: opacity 0.2s; }
-.vu-card-value a:hover { opacity: 0.7; }
-.vu-card.full { grid-column: 1 / -1; }
+.vu-strip-item:nth-child(even) { border-right: none; }
+.vu-strip-item svg { width:20px; height:20px; stroke:#684034; stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; margin-bottom:0.9rem; display:block; }
+.vu-strip-label { font-size:0.58rem; font-weight:600; letter-spacing:0.22em; color:var(--stone); text-transform:uppercase; margin-bottom:0.4rem; }
+.vu-strip-value { font-size:0.90rem; font-weight:400; color:var(--ink); line-height:1.5; }
+.vu-strip-value a { color:var(--brown); text-decoration:none; }
+.vu-strip-item.wide { grid-column:1/-1; border-right:none; }
 
-/* Map */
-.vu-map { background: var(--cream); padding: 0 1.5rem 4rem; }
-.vu-map-inner { max-width: 680px; margin: 0 auto; }
-.vu-map-frame {
-  width: 100%; height: 320px; border-radius: 14px;
-  overflow: hidden; border: 1px solid rgba(104,64,52,0.10);
-  box-shadow: 0 8px 32px rgba(104,64,52,0.08);
+/* ── Map ── */
+.vu-map {
+  padding: 0;
+  background: #F5EDE3;
 }
-.vu-map-frame iframe { width: 100%; height: 100%; border: none; }
+.vu-map iframe {
+  width:100%; height:380px; border:none; display:block;
+  filter: sepia(15%) saturate(80%);
+}
 
-/* Directions */
-.vu-directions { background: var(--cream-pale); padding: 4rem 1.5rem; }
-.vu-directions-inner { max-width: 680px; margin: 0 auto; }
-.vu-section-eyebrow { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.26em; color: var(--terracotta); text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
-.vu-section-title { font-family: "Cormorant Garamond", serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 300; color: var(--ink); margin-bottom: 2rem; line-height: 1.2; }
-.vu-section-title em { font-style: italic; }
-.vu-transport-list { display: flex; flex-direction: column; gap: 1rem; }
-.vu-transport-item {
-  display: flex; align-items: flex-start; gap: 1rem;
-  padding: 1.1rem 1.2rem; background: #fff;
-  border: 1px solid rgba(104,64,52,0.08); border-radius: 10px;
+/* ── Directions ── */
+.vu-dir {
+  background: #fff; padding: 3.5rem 1.8rem;
 }
-.vu-transport-badge {
-  width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
-  background: rgba(104,64,52,0.08); display: flex; align-items: center; justify-content: center;
-}
-.vu-transport-badge svg { width: 18px; height: 18px; stroke: #684034; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.vu-transport-info strong { display: block; font-size: 0.86rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
-.vu-transport-info span { font-size: 0.82rem; color: var(--stone); line-height: 1.5; }
+.vu-dir-inner { max-width:640px; margin:0 auto; }
+.vu-dir-label { font-size:0.6rem; font-weight:600; letter-spacing:0.26em; color:var(--terracotta); text-transform:uppercase; margin-bottom:0.7rem; display:block; }
+.vu-dir-title { font-family:"Cormorant Garamond",serif; font-size:clamp(1.7rem,4vw,2.4rem); font-weight:300; color:var(--ink); margin-bottom:2rem; line-height:1.15; }
+.vu-dir-title em { font-style:italic; }
+.vu-transport { display:flex; flex-direction:column; gap:0.6rem; }
+.vu-ti { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; border:1px solid rgba(104,64,52,0.08); border-radius:10px; background:#FDFAF7; }
+.vu-ti-icon { width:38px; height:38px; border-radius:8px; background:rgba(104,64,52,0.07); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.vu-ti-icon svg { width:18px; height:18px; stroke:#684034; stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.vu-ti-text strong { display:block; font-size:0.88rem; font-weight:500; color:var(--ink); }
+.vu-ti-text span { font-size:0.80rem; color:var(--stone); line-height:1.5; }
 
-/* Book CTA */
-.vu-book { background: #2C1A0F; padding: 4rem 1.5rem; text-align: center; }
-.vu-book-inner { max-width: 480px; margin: 0 auto; }
-.vu-book h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: rgba(245,237,227,0.90); margin-bottom: 1rem; }
-.vu-book p { font-size: 0.9rem; color: rgba(245,237,227,0.45); margin-bottom: 2rem; }
-.vu-book-btn {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.9rem 2.4rem; border: 1px solid rgba(201,160,96,0.45); border-radius: 2px;
-  color: rgba(245,237,227,0.85); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
-  text-transform: uppercase; text-decoration: none; transition: all 0.25s;
+/* ── Dark book CTA ── */
+.vu-book { background:#1E1008; padding:4rem 1.8rem; text-align:center; }
+.vu-book h2 { font-family:"Cormorant Garamond",serif; font-size:clamp(2rem,5vw,3rem); font-weight:300; color:rgba(245,237,227,0.90); margin-bottom:0.8rem; }
+.vu-book p { font-size:0.88rem; color:rgba(245,237,227,0.38); margin-bottom:2rem; }
+.vu-book-cta {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  padding:0.9rem 2.5rem; border:1px solid rgba(201,160,96,0.45); border-radius:2px;
+  color:rgba(245,237,227,0.85); font-size:0.70rem; font-weight:500; letter-spacing:0.2em;
+  text-transform:uppercase; text-decoration:none; transition:all 0.25s;
 }
-.vu-book-btn:hover { border-color: rgba(201,160,96,0.9); color: rgba(245,237,227,1); background: rgba(201,160,96,0.08); }
+.vu-book-cta:hover { border-color:rgba(201,160,96,0.9); color:#fff; background:rgba(201,160,96,0.08); }
 
-@media(max-width:580px){
-  .vu-cards-grid { grid-template-columns: 1fr; }
-  .vu-map-frame { height: 250px; }
+@media(max-width:560px){
+  .vu-strip-grid { grid-template-columns:1fr; }
+  .vu-strip-item { border-right:none; }
+  .vu-map iframe { height:280px; }
 }
 </style>
 
-<!-- HERO -->
+<div id="top"></div>
+
+<!-- ══ HERO ══ -->
 <header class="vu-hero">
-  <div class="vu-hero-inner fade-up">
-    <span class="vu-eyebrow">Skines Med Spa · 19 Av. Shamrock, Montréal</span>
-    <h1>Nous<br><em>trouver.</em></h1>
-    <p>Votre sanctuaire au cœur de Montréal. Tout ce qu'il vous faut pour arriver sereinement.</p>
+  <div class="vu-address-pill fade-up">
+    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    19 Av. Shamrock, Montréal, QC
+  </div>
+  <h1 class="fade-up">Nous<br><em>trouver.</em></h1>
+  <p class="vu-hero-sub fade-up">Votre sanctuaire au cœur du Plateau-Mont-Royal. Tout ce qu'il vous faut pour arriver sereinement.</p>
+  <div class="vu-hero-actions fade-up">
+    <a class="vu-btn-primary" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
+      Réserver un soin
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="vu-btn-ghost" href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal" target="_blank" rel="noreferrer">
+      Ouvrir dans Maps
+    </a>
+  </div>
+  <div class="vu-scroll-hint">
+    <div class="vu-scroll-line"></div>
+    <span>Explorer</span>
   </div>
 </header>
 
-<!-- CONTACT CARDS -->
-<section class="vu-cards">
-  <div class="vu-cards-inner">
-    <div class="vu-cards-grid">
-
-      <div class="vu-card fade-up">
-        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-        <span class="vu-card-label">Adresse</span>
-        <div class="vu-card-value"><a href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal" target="_blank" rel="noreferrer">19 Av. Shamrock<br>Montréal, QC H2S 1A3</a></div>
-      </div>
-
-      <div class="vu-card fade-up">
-        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
-        <span class="vu-card-label">Horaires</span>
-        <div class="vu-card-value">Tous les jours<br>À partir de 09h00</div>
-      </div>
-
-      <div class="vu-card fade-up">
-        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <span class="vu-card-label">Téléphone</span>
-        <div class="vu-card-value"><a href="tel:+14382605660">+1 (438) 260-5660</a></div>
-      </div>
-
-      <div class="vu-card fade-up">
-        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
-        <span class="vu-card-label">Email</span>
-        <div class="vu-card-value"><a href="mailto:Info@skines.ca">Info@skines.ca</a></div>
-      </div>
-
-      <div class="vu-card full fade-up">
-        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <span class="vu-card-label">Réservation</span>
-        <div class="vu-card-value"><a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver sur Fresha →</a></div>
-      </div>
-
+<!-- ══ INFO STRIP ══ -->
+<section class="vu-strip">
+  <div class="vu-strip-grid">
+    <div class="vu-strip-item fade-up">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div class="vu-strip-label">Adresse</div>
+      <div class="vu-strip-value"><a href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal" target="_blank">19 Av. Shamrock<br>Montréal, QC H2S 1A3</a></div>
+    </div>
+    <div class="vu-strip-item fade-up">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+      <div class="vu-strip-label">Horaires</div>
+      <div class="vu-strip-value">Tous les jours<br>À partir de 09h00</div>
+    </div>
+    <div class="vu-strip-item fade-up">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <div class="vu-strip-label">Téléphone</div>
+      <div class="vu-strip-value"><a href="tel:+14382605660">+1 (438) 260-5660</a></div>
+    </div>
+    <div class="vu-strip-item fade-up">
+      <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      <div class="vu-strip-label">Email</div>
+      <div class="vu-strip-value"><a href="mailto:Info@skines.ca">Info@skines.ca</a></div>
+    </div>
+    <div class="vu-strip-item wide fade-up">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <div class="vu-strip-label">Réservation en ligne</div>
+      <div class="vu-strip-value"><a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver sur Fresha →</a></div>
     </div>
   </div>
 </section>
 
-<!-- MAP -->
-<section class="vu-map">
-  <div class="vu-map-inner">
-    <div class="vu-map-frame fade-up">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.5!2d-73.6072!3d45.5264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc919a1f2a4f1a1%3A0x1!2s19%20Av.%20Shamrock%2C%20Montr%C3%A9al%2C%20QC!5e0!3m2!1sfr!2sca!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!-- ══ MAP ══ -->
+<section class="vu-map fade-up">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.5!2d-73.6072!3d45.5264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a09d3ef07ab%3A0x2b3b8d32e2d57d40!2s19%20Av.%20Shamrock%2C%20Montr%C3%A9al%2C%20QC%20H2S%201A3!5e0!3m2!1sfr!2sca!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Skines Med Spa sur la carte"></iframe>
+</section>
+
+<!-- ══ DIRECTIONS ══ -->
+<section class="vu-dir">
+  <div class="vu-dir-inner">
+    <span class="vu-dir-label fade-up">Comment nous rejoindre</span>
+    <h2 class="vu-dir-title fade-up">Arriver <em>sans stress.</em></h2>
+    <div class="vu-transport">
+      <div class="vu-ti fade-up">
+        <div class="vu-ti-icon"><svg viewBox="0 0 24 24"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="vu-ti-text"><strong>En voiture</strong><span>Stationnement privé gratuit sur place. Aucun parcmètre.</span></div>
+      </div>
+      <div class="vu-ti fade-up">
+        <div class="vu-ti-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="vu-ti-text"><strong>En métro</strong><span>Station Laurier (Ligne Orange) · 10 min à pied. Station Rosemont également possible.</span></div>
+      </div>
+      <div class="vu-ti fade-up">
+        <div class="vu-ti-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14" opacity="0"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+        <div class="vu-ti-text"><strong>À vélo</strong><span>Plateau-Mont-Royal, pistes cyclables à proximité. Arceaux disponibles.</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- DIRECTIONS -->
-<section class="vu-directions">
-  <div class="vu-directions-inner">
-    <span class="vu-section-eyebrow fade-up">Comment nous rejoindre</span>
-    <h2 class="vu-section-title fade-up">Arriver <em>sans stress.</em></h2>
-    <div class="vu-transport-list">
-
-      <div class="vu-transport-item fade-up">
-        <div class="vu-transport-badge">
-          <svg viewBox="0 0 24 24"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div class="vu-transport-info">
-          <strong>En voiture</strong>
-          <span>Stationnement privé gratuit disponible sur place pour tous nos clients.</span>
-        </div>
-      </div>
-
-      <div class="vu-transport-item fade-up">
-        <div class="vu-transport-badge">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <div class="vu-transport-info">
-          <strong>En métro</strong>
-          <span>Station Laurier (Ligne Orange) · 10 min à pied. Station Rosemont disponible aussi.</span>
-        </div>
-      </div>
-
-      <div class="vu-transport-item fade-up">
-        <div class="vu-transport-badge">
-          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"/><path d="M2 20c0-4 4-7 10-7s10 3 10 7"/></svg>
-        </div>
-        <div class="vu-transport-info">
-          <strong>À pied / Vélo</strong>
-          <span>Quartier Plateau-Mont-Royal. Pistes cyclables disponibles. Arceaux vélo sur place.</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- BOOK CTA -->
+<!-- ══ BOOK CTA ══ -->
 <section class="vu-book">
-  <div class="vu-book-inner fade-up">
-    <h2>Prêt à vivre<br>l'expérience Skines ?</h2>
-    <p>Réservez votre soin en quelques secondes.</p>
-    <a class="vu-book-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
-      RÉSERVER UN SOIN
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
+  <h2 class="fade-up">Prêt à vivre<br>l'expérience ?</h2>
+  <p class="fade-up">Réservez votre soin en quelques secondes.</p>
+  <a class="vu-book-cta fade-up" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
+    RÉSERVER UN SOIN
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
 </section>
-
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
-
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="index.html">
