@@ -36,9 +36,9 @@
     :root {
     --cream: #F5EDE3;
     --cream-light: #2A1810;
-    --cream-pale: #1A0F0A;
+    --cream-pale: #3A2218;
     --brown: #8A5A42;
-    --brown-dark: #0E0805;
+    --brown-dark: #1E0E08;
     --brown-mid: #7A4A38;
     --brown-soft: rgba(245,237,227,0.08);
     --gold: #C9A060;
@@ -47,7 +47,7 @@
     --stone: rgba(245,237,227,0.50);
     --ink: #F5EDE3;
     --charcoal: #F0E8DE;
-    --bg: #130C07;
+    --bg: #2A1410;
     --line: rgba(245,237,227,0.10);
     --terracotta: #9A6048;
     --terracotta-dark: #7A4A38;
@@ -207,7 +207,7 @@
 
   /* ── Page hero ── */
   .page-hero {
-    background: #1C0E08;
+    background: #221008;
     padding: 5rem 4rem 4rem;
     text-align: center;
     color: var(--cream);
@@ -815,7 +815,7 @@
     transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
   .view-btn:hover { color: var(--brown); border-color: var(--brown); }
-  .view-btn.active { background: #1C0E08; color: var(--cream); border-color: var(--brown-dark); }
+  .view-btn.active { background: #221008; color: var(--cream); border-color: var(--brown-dark); }
   .view-btn svg { width: 15px; height: 15px; }
   /* List-view overrides */
   .services-grid.list-view, .price-cards-grid.list-view {
@@ -896,7 +896,7 @@
 
   /* Scrolled: dark brown — same as footer/social bar */
   nav.nav-scrolled {
-    background: #1C0E08 !important;
+    background: #221008 !important;
     border-bottom: 1px solid rgba(245,237,227,0.07) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
@@ -6018,11 +6018,14 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
   <!-- VIDEO REVIEWS SECTION — Luxury Carousel -->
   <style>
-  .vc-section { background: #1C0E08 !important; padding: 4.5rem 0 5.5rem; }
-  #vc-testimonials { background: #1C0E08 !important; }
+  .vc-section { background: #2A1410 !important; padding: 4.5rem 0 5.5rem; }
+  #vc-testimonials { background: #2A1410 !important; }
   .vc-header  { text-align: center; padding: 0 1.4rem; margin-bottom: 2.8rem; }
-  .vc-eyebrow { font-size: 0.60rem; letter-spacing: 0.30em; text-transform: uppercase; color: #D4A96A; margin: 0 0 0.75rem; font-family: "DM Sans", sans-serif; font-weight: 500; }
-  .vc-title   { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 5vw, 2.7rem); font-weight: 400; font-style: italic; color: rgba(245,237,227,0.92); margin: 0; line-height: 1.08; }
+  .vc-eyebrow { font-size: 0.60rem; letter-spacing: 0.30em; text-transform: uppercase; color: #D4A96A !important; margin: 0 0 0.75rem; font-family: "DM Sans", sans-serif; font-weight: 500; }
+  .vc-title   { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 5vw, 2.7rem); font-weight: 400; font-style: italic; color: rgba(245,237,227,0.92) !important; margin: 0; line-height: 1.08; }
+  #vc-testimonials, #vc-testimonials .vc-header { color: #F5EDE3 !important; background: #2A1410 !important; }
+  #vc-testimonials .vc-eyebrow { color: #D4A96A !important; }
+  #vc-testimonials .vc-title { color: rgba(245,237,227,0.92) !important; }
 
   /* ── Carousel ── */
   .vc-wrap  { position: relative; }
