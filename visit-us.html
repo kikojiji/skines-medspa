@@ -558,6 +558,32 @@ section { padding: 0 !important; }
 .vu-ti-text strong { display:block; font-size:0.88rem; font-weight:500; color:var(--ink); }
 .vu-ti-text span { font-size:0.80rem; color:var(--stone); line-height:1.5; }
 
+/* ── Insurance section ── */
+.vu-ins { background: var(--cream); padding: 4rem 1.8rem; }
+.vu-ins-inner { max-width: 680px; margin: 0 auto; }
+.vu-ins-eyebrow { font-size:0.6rem; font-weight:600; letter-spacing:0.26em; color:var(--terracotta); text-transform:uppercase; margin-bottom:0.7rem; display:block; }
+.vu-ins-title { font-family:"Cormorant Garamond",serif; font-size:clamp(1.8rem,4.5vw,2.6rem); font-weight:300; color:var(--ink); line-height:1.15; margin-bottom:0.9rem; }
+.vu-ins-title em { font-style:italic; color:var(--brown); }
+.vu-ins-sub { font-size:0.9rem; color:var(--stone); line-height:1.75; margin-bottom:2.5rem; }
+.vu-ins-steps { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.9rem; margin-bottom:2.5rem; }
+.vu-ins-step { background:#fff; border:1px solid rgba(104,64,52,0.08); border-radius:12px; padding:1.4rem 1rem; text-align:center; }
+.vu-ins-step-icon { width:40px; height:40px; border-radius:9px; background:rgba(104,64,52,0.07); display:flex; align-items:center; justify-content:center; margin:0 auto 0.8rem; }
+.vu-ins-step-icon svg { width:20px; height:20px; stroke:#684034; stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.vu-ins-step-num { font-size:0.55rem; letter-spacing:0.22em; color:var(--terracotta); font-weight:600; text-transform:uppercase; margin-bottom:0.35rem; }
+.vu-ins-step strong { display:block; font-size:0.83rem; font-weight:500; color:var(--ink); margin-bottom:0.35rem; line-height:1.3; }
+.vu-ins-step span { font-size:0.76rem; color:var(--stone); line-height:1.5; }
+.vu-ins-treatments { margin-bottom:1.8rem; display:flex; flex-direction:column; gap:0.5rem; }
+.vu-ins-tr { display:flex; align-items:center; gap:0.8rem; padding:0.75rem 1rem; background:#fff; border:1px solid rgba(104,64,52,0.07); border-radius:8px; }
+.vu-ins-tr-check { width:22px; height:22px; border-radius:50%; background:rgba(104,64,52,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.vu-ins-tr-check svg { width:11px; height:11px; stroke:#684034; stroke-width:2.5; fill:none; }
+.vu-ins-tr-name { font-size:0.88rem; font-weight:500; color:var(--ink); flex:1; }
+.vu-ins-tr-note { font-size:0.72rem; color:var(--stone); }
+.vu-ins-note { background:rgba(104,64,52,0.05); border-left:2px solid rgba(104,64,52,0.3); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin-bottom:2rem; font-size:0.82rem; color:var(--stone); line-height:1.65; }
+.vu-ins-note strong { color:var(--brown-dark); }
+.vu-ins-more { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--brown); text-decoration:none; border-bottom:1px solid rgba(104,64,52,0.25); padding-bottom:2px; transition:border-color 0.2s; }
+.vu-ins-more:hover { border-color:var(--brown); }
+@media(max-width:560px){ .vu-ins-steps { grid-template-columns:1fr; } }
+
 /* ── Dark book CTA ── */
 .vu-book { background:#684034; padding:4rem 1.8rem; text-align:center; }
 .vu-book h2 { font-family:"Cormorant Garamond",serif; font-size:clamp(2rem,5vw,3rem); font-weight:300; color:rgba(245,237,227,0.90); margin-bottom:0.8rem; }
@@ -657,6 +683,58 @@ section { padding: 0 !important; }
         <div class="vu-ti-text"><strong>À vélo</strong><span>Plateau-Mont-Royal, pistes cyclables à proximité. Arceaux disponibles.</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══ INSURANCE ══ -->
+<section class="vu-ins">
+  <div class="vu-ins-inner">
+    <span class="vu-ins-eyebrow fade-up">Remboursement</span>
+    <h2 class="vu-ins-title fade-up">Reçus d'assurance <em>disponibles.</em></h2>
+    <p class="vu-ins-sub fade-up">Certains de nos soins donnent droit à des reçus officiels valides pour remboursement auprès de votre assureur privé.</p>
+
+    <div class="vu-ins-steps">
+      <div class="vu-ins-step fade-up">
+        <div class="vu-ins-step-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="vu-ins-step-num">Étape 1</div>
+        <strong>Vérifiez votre couverture</strong>
+        <span>Contactez votre assureur avant le rendez-vous.</span>
+      </div>
+      <div class="vu-ins-step fade-up">
+        <div class="vu-ins-step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="vu-ins-step-num">Étape 2</div>
+        <strong>Demandez votre reçu</strong>
+        <span>Mentionnez-le au règlement. Reçu officiel complet fourni.</span>
+      </div>
+      <div class="vu-ins-step fade-up">
+        <div class="vu-ins-step-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+        <div class="vu-ins-step-num">Étape 3</div>
+        <strong>Soumettez à votre assureur</strong>
+        <span>Envoyez le reçu pour obtenir votre remboursement.</span>
+      </div>
+    </div>
+
+    <div class="vu-ins-treatments fade-up">
+      <div class="vu-ins-tr">
+        <span class="vu-ins-tr-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="vu-ins-tr-name">Head Spa</span>
+        <span class="vu-ins-tr-note">Reçu disponible</span>
+      </div>
+      <div class="vu-ins-tr">
+        <span class="vu-ins-tr-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="vu-ins-tr-name">Facial haut de gamme</span>
+        <span class="vu-ins-tr-note">Reçu disponible</span>
+      </div>
+      <div class="vu-ins-tr">
+        <span class="vu-ins-tr-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="vu-ins-tr-name">Épilation Laser</span>
+        <span class="vu-ins-tr-note">Selon couverture</span>
+      </div>
+    </div>
+
+    <p class="vu-ins-note fade-up">Le remboursement dépend de <strong>votre assureur et de votre plan de couverture</strong>. Skines fournit le reçu officiel complet — le reste appartient à votre régime.</p>
+
+    <a class="vu-ins-more fade-up" href="insurance.html">Tout savoir sur les reçus d'assurance →</a>
   </div>
 </section>
 
