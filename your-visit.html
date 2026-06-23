@@ -399,7 +399,6 @@ footer {
 </style>
 </head>
 <body>
-
 <nav id="mainNav">
   <a class="logo" href="index.html">
     <div class="logo-brand">
@@ -454,75 +453,98 @@ footer {
   </div>
 </div>
 
-<!-- ══ HERO ══════════════════════════════════════════ -->
-<header class="visit-hero">
-  <div class="visit-hero-inner">
-    <span class="visit-hero-label">Skines Med Spa · Montréal</span>
-    <h1>Votre<br><em>visite.</em></h1>
-    <p class="visit-hero-sub">Tout ce qu'il faut savoir avant d'arriver — pour que vous puissiez vous concentrer sur l'essentiel : vous.</p>
-    <a class="visit-hero-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
-      Réserver mon soin
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-hint-line"></div>
-    <span>Découvrir</span>
+<style>
+/* ── Reset section base padding ── */
+section { padding: 0 !important; }
+
+/* ── Hero ── */
+.yv-hero {
+  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(155deg,#1A0E06 0%,#3D1F10 55%,#2C180C 100%);
+  padding: 0 2rem 4rem; padding-top: 80px;
+  position: relative; overflow: hidden;
+}
+.yv-hero::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 65% 35%, rgba(201,160,96,0.07) 0%, transparent 65%);
+}
+.yv-hero-inner { max-width:680px; margin:0 auto; width:100%; position:relative; }
+.yv-pill {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:rgba(201,160,96,0.10); border:1px solid rgba(201,160,96,0.22);
+  border-radius:40px; padding:0.45rem 1rem;
+  font-size:0.63rem; letter-spacing:0.18em; color:rgba(201,160,96,0.80);
+  text-transform:uppercase; margin-bottom:2rem; width:fit-content;
+}
+.yv-hero h1 {
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3.5rem,11vw,6rem);
+  font-weight:300; color:rgba(245,237,227,0.95);
+  line-height:0.95; letter-spacing:-0.02em; margin-bottom:1.5rem;
+}
+.yv-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
+.yv-hero-sub { font-size:0.95rem; color:rgba(245,237,227,0.42); max-width:400px; line-height:1.75; margin-bottom:2.8rem; }
+.yv-hero-links { display:flex; flex-direction:column; gap:0; }
+.yv-hero-link {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.07);
+  text-decoration:none; transition:opacity 0.2s;
+}
+.yv-hero-link:first-child { border-top:1px solid rgba(255,255,255,0.07); }
+.yv-hero-link:hover { opacity:0.75; }
+.yv-hero-link-left { display:flex; align-items:center; gap:0.9rem; }
+.yv-hero-link-icon { width:32px; height:32px; border-radius:6px; background:rgba(201,160,96,0.10); display:flex; align-items:center; justify-content:center; }
+.yv-hero-link-icon svg { width:16px; height:16px; stroke:rgba(201,160,96,0.75); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.yv-hero-link span { font-size:0.90rem; font-weight:300; color:rgba(245,237,227,0.80); letter-spacing:0.02em; }
+.yv-hero-link svg.arr { width:14px; height:14px; stroke:rgba(255,255,255,0.22); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.yv-scroll-hint { display:flex; flex-direction:column; align-items:center; gap:0.6rem; margin-top:3rem; opacity:0.25; }
+.yv-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
+.yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
+</style>
+
+<!-- ══ HERO ══ -->
+<header class="yv-hero">
+  <div class="yv-hero-inner">
+    <div class="yv-pill fade-up">Votre Visite</div>
+    <h1 class="fade-up">Votre<br><em>expérience.</em></h1>
+    <p class="yv-hero-sub fade-up">Tout ce que vous devez savoir pour préparer votre visite chez Skines — et en profiter pleinement.</p>
+
+    <div class="yv-hero-links fade-up">
+      <a class="yv-hero-link" href="visit-us.html">
+        <div class="yv-hero-link-left">
+          <div class="yv-hero-link-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none"/></svg>
+          </div>
+          <span>Nous trouver · Adresse & horaires</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="yv-hero-link" href="parking.html">
+        <div class="yv-hero-link-left">
+          <div class="yv-hero-link-icon">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5" fill="none"/><circle cx="18.5" cy="18.5" r="2.5" fill="none"/></svg>
+          </div>
+          <span>Stationnement privé · Gratuit</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="yv-hero-link" href="insurance.html">
+        <div class="yv-hero-link-left">
+          <div class="yv-hero-link-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <span>Reçus d'assurance · Sur demande</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="yv-scroll-hint">
+      <div class="yv-scroll-line"></div>
+      <span>Explorer</span>
+    </div>
   </div>
 </header>
-
-<!-- ══ INSURANCE ═════════════════════════════════════ -->
-<section class="visit-section">
-  <div class="visit-section-inner">
-    <div class="visit-section-grid">
-      <div class="fade-up">
-        <div class="section-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/><polyline points="9 12 11 14 15 10"/></svg>
-        </div>
-        <span class="visit-eyebrow">Remboursement</span>
-        <h2>Reçus<br><em>d'assurance.</em></h2>
-        <p>Chez Skines, certains de nos soins sont effectués par des thérapeutes qualifiés et donnent droit à des reçus d'assurance valides pour remboursement.</p>
-        <p><strong>Le remboursement dépend de votre assureur et de votre couverture personnelle.</strong> Nous vous recommandons de vérifier avec votre compagnie d'assurance avant votre rendez-vous pour connaître les conditions spécifiques de votre régime.</p>
-        <p>Demandez votre reçu au moment du règlement — nous nous assurons que celui-ci contient toutes les informations nécessaires à votre réclamation.</p>
-        <div class="visit-pills">
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Reçu officiel fourni</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Thérapeutes certifiés</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Sur demande</span>
-        </div>
-      </div>
-      <div class="visit-visual fade-up">
-        <img src="assets/luxury-facial.webp?v=1" alt="Soin Skines" loading="lazy">
-        <div class="visit-visual-caption">Soins certifiés · Reçus disponibles</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ PARKING ════════════════════════════════════════ -->
-<section class="visit-section" style="background: #F5EDE3;">
-  <div class="visit-section-inner">
-    <div class="visit-section-grid reverse">
-      <div class="fade-up">
-        <div class="section-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
-        </div>
-        <span class="visit-eyebrow">Arrivée Sans Stress</span>
-        <h2>Stationnement<br><em>privé & gratuit.</em></h2>
-        <p>Votre confort commence avant même de franchir la porte. Skines met à votre disposition un stationnement privé et gratuit pour tous les clients — sans frais, sans recherche, sans stress.</p>
-        <p>Arrivez serein. Prenez le temps de vous préparer mentalement pour votre soin. <strong>L'expérience Skines commence dès votre arrivée.</strong></p>
-        <div class="visit-pills">
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Gratuit pour tous</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Accès direct</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 19 Av. Shamrock</span>
-        </div>
-      </div>
-      <div class="visit-visual fade-up">
-        <img src="assets/bela-facial.webp?v=1" alt="Arrivée Skines" loading="lazy">
-        <div class="visit-visual-caption">Stationnement privé · Gratuit</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ WHAT TO EXPECT (strip) ═════════════════════════ -->
 <div class="visit-strip">
@@ -676,74 +698,9 @@ footer {
   </div>
 </div>
 
-<!-- ══ FOOTER ═════════════════════════════════════════ -->
-<style>
-/* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
-.site-footer {
-  background: linear-gradient(175deg, #2E1B10 0%, #3C2318 50%, #2A1709 100%);
-  font-family: "DM Sans", sans-serif;
-  position: relative;
-}
-.site-footer::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201,160,96,0.3), transparent);
-}
-.sf-logo-area {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 1.8rem 1.5rem 1.5rem; text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.sf-logo { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; }
-.sf-stones { width: 38px; height: auto; opacity: 0.88; }
-.sf-brand { font-family: "DM Sans", sans-serif; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.36em; color: rgba(245,237,227,0.90); padding-left: 0.36em; }
-.sf-tagline-sub { font-size: 0.58rem; letter-spacing: 0.26em; color: rgba(245,237,227,0.30); text-transform: uppercase; padding-left: 0.26em; margin-top: 0.1rem; }
-
-/* ── Nav sections ── */
-.sf-nav { padding: 0.8rem 0 0; }
-.sf-nav-group { }
-.sf-nav-label {
-  display: block;
-  font-size: 0.60rem; font-weight: 600; letter-spacing: 0.26em;
-  color: rgba(201,160,96,0.65); text-transform: uppercase;
-  padding: 0.8rem 1.6rem 0.38rem;
-}
-.sf-link {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.65rem 1.6rem;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  color: rgba(245,237,227,0.65);
-  text-decoration: none;
-  transition: background 0.18s, color 0.18s;
-}
-.sf-link:hover { background: rgba(255,255,255,0.03); color: rgba(245,237,227,0.95); }
-.sf-link-left { display: flex; align-items: center; gap: 0.95rem; font-size: 0.88rem; font-weight: 300; line-height: 1; }
-.sf-link-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-.sf-link-icon svg { width: 18px; height: 18px; stroke: rgba(201,160,96,0.72); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.sf-chevron { width: 13px; height: 13px; flex-shrink: 0; stroke: rgba(245,237,227,0.25); stroke-width: 2; fill: none; }
-.sf-link:hover .sf-chevron { stroke: rgba(245,237,227,0.60); }
-
-/* ── Social ── */
-.sf-social-area {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 1.2rem 1.5rem 0.9rem; gap: 0.7rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.sf-socials { display: flex; gap: 1.8rem; }
-.sf-social-btn { color: rgba(245,237,227,0.38); text-decoration: none; transition: color 0.2s; display: flex; }
-.sf-social-btn:hover { color: rgba(245,237,227,0.80); }
-
-/* ── Legal ── */
-.sf-legal {
-  padding: 0 1.5rem 1.2rem;
-  text-align: center; font-size: 0.70rem;
-  color: rgba(245,237,227,0.20);
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.8rem;
-}
-.sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
-.sf-legal a:hover { color: rgba(245,237,227,0.55); }
-.sf-legal-sep { opacity: 0.3; }
-</style>
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="index.html">
@@ -918,5 +875,7 @@ footer {
   });
 })();
 </script>
+</body>
+</html>
 </body>
 </html>
