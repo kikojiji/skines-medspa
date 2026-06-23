@@ -1,5 +1,7 @@
 .netlify/
 .vercel/
+node_modules/
+package-lock.json
 
 # Original oversized videos (replaced by compressed)
 assets/avis1.mov
@@ -31,3 +33,25 @@ assets/laser-lips-chin.png
 assets/laser-neck.png
 .vercel
 .env*.local
+
+# Large media files
+*.mov
+*.mp4
+*.MOV
+*.MP4
+*.PNG
+*.jpg
+*.jpeg
+*.webp
+*.png
+!assets/images/**/*.webp
+!assets/images/**/*.png
+!assets/images/**/*.jpg
+
+# Claude worktrees
+.claude/worktrees/
+
+# Temp/local files
+PROJECT_STATE.md
+"lazer photo/"
+lazer\ photo/
