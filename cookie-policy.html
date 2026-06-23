@@ -376,8 +376,10 @@ footer { background: #684034 !important; }
 .sf-legal a:hover { color: rgba(245,237,227,0.55); }
 .sf-legal-sep { opacity: 0.3; }
 /* STONE-FINAL */
-html body nav .menu-btn { align-items: center !important; gap: 5px !important; }
-html body nav .menu-btn span { height: 4px !important; border-radius: 4px !important; display: block !important; background: currentColor !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; }
+html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
+html body nav .menu-btn span { height: 4px !important; border-radius: 4px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #3A1E14 !important; }
+html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.9) !important; }
+html body nav.nav-scrolled .menu-btn span { background: #3A1E14 !important; }
 html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
 html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
 html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
