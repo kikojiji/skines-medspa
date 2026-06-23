@@ -5023,6 +5023,70 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 .sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
 .sf-legal a:hover { color: rgba(245,237,227,0.55); }
 .sf-legal-sep { opacity: 0.3; }
+
+/* ══ NAV BAR — CREATIVE REDESIGN ══ */
+@media (max-width: 980px) {
+  /* Grid column swap: search LEFT (col 1), hamburger RIGHT (col 3) */
+  .nav-search-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: flex-start !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .menu-btn {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: flex-end !important;
+  }
+
+  /* Hamburger: 3 elegant thin lines */
+  .menu-btn span {
+    width: 22px !important;
+    height: 1px !important;
+    background: currentColor !important;
+    border-radius: 0 !important;
+    display: block !important;
+    transition: transform 0.3s, opacity 0.3s !important;
+  }
+  .menu-btn span:nth-child(1) { transform: translateY(-5px) !important; }
+  .menu-btn span:nth-child(3) { transform: translateY(5px) !important; width: 14px !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(0) rotate(45deg) !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(0) rotate(-45deg) !important; width: 22px !important; }
+
+  /* Search button: cleaner circle */
+  .nav-search-btn {
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Gold accent line on scroll */
+  nav.nav-scrolled::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 5% !important;
+    width: 90% !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(201,160,96,0.35), transparent) !important;
+  }
+  nav { position: relative !important; }
+
+  /* Mobile nav: right-side enter transition — header flips layout */
+  .mobile-nav-header {
+    flex-direction: row-reverse !important;
+  }
+  .mobile-nav-close {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
 </style>
 <footer class="site-footer">
   <div class="sf-logo-area">
