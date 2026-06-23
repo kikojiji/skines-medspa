@@ -6695,17 +6695,17 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
     justify-self: flex-end !important;
   }
 
-  /* Hamburger: 3 elegant thin lines */
+    /* Hamburger: stone shape */
   .menu-btn span {
-    width: 22px !important;
-    height: 1px !important;
+    height: 3px !important;
     background: currentColor !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     display: block !important;
-    transition: transform 0.3s, opacity 0.3s !important;
+    transition: transform 0.3s, opacity 0.3s, width 0.3s !important;
   }
-  .menu-btn span:nth-child(1) { transform: translateY(-5px) !important; }
-  .menu-btn span:nth-child(3) { transform: translateY(5px) !important; width: 14px !important; }
+  .menu-btn span:nth-child(1) { width: 16px !important; transform: translateY(-5px) !important; }
+  .menu-btn span:nth-child(2) { width: 22px !important; }
+  .menu-btn span:nth-child(3) { width: 30px !important; transform: translateY(5px) !important; }
   .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(0) rotate(45deg) !important; }
   .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
   .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(0) rotate(-45deg) !important; width: 22px !important; }
@@ -6820,14 +6820,14 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   }
   html body nav .menu-btn span {
     display: block !important;
-    height: 1px !important;
+    height: 3px !important;
     background: currentColor !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     transition: transform 0.3s, opacity 0.3s, width 0.3s !important;
   }
-  html body nav .menu-btn span:nth-child(1) { width: 22px !important; }
+  html body nav .menu-btn span:nth-child(1) { width: 16px !important; }
   html body nav .menu-btn span:nth-child(2) { width: 22px !important; }
-  html body nav .menu-btn span:nth-child(3) { width: 14px !important; }
+  html body nav .menu-btn span:nth-child(3) { width: 30px !important; }
   html body nav .menu-btn[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(6px) rotate(45deg) !important;
     width: 22px !important;
