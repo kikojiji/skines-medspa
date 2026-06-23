@@ -96,7 +96,7 @@ nav.nav-hidden { transform: translateY(-110%); }
 .mobile-nav {
   position: fixed; inset: 0; background: var(--cream); z-index: 200;
   display: flex; flex-direction: column; padding: 1.5rem 2rem 2rem;
-  transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
   overflow-y: auto;
 }
 .mobile-nav.open { transform: translateX(0); }
@@ -397,6 +397,35 @@ footer {
   .menu-btn { display: none; }
 }
 footer { background: #684034 !important; }
+
+/* ── Mobile nav dark override ── */
+.mobile-nav {
+  background: #684034 !important;
+  transform: translateX(-100%);
+}
+.mobile-nav-header { background: #684034 !important; border-bottom-color: rgba(245,237,227,0.07) !important; }
+.mobile-nav-links li { border-bottom-color: rgba(245,237,227,0.07) !important; }
+.mobile-nav-links a { color: rgba(245,237,227,0.85) !important; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.82rem; }
+.mobile-nav-links a:hover { color: rgba(201,160,96,0.9) !important; }
+.mobile-nav-links .nav-sub { color: rgba(245,237,227,0.45) !important; font-size: 0.72rem; }
+.mobile-nav-close { color: rgba(245,237,227,0.7) !important; border-color: rgba(245,237,227,0.15) !important; }
+.mobile-nav-footer { border-top-color: rgba(245,237,227,0.07) !important; }
+.mobile-nav-footer .mobile-contact { color: rgba(245,237,227,0.4) !important; }
+.mobile-nav-footer .mobile-contact a { color: rgba(245,237,227,0.65) !important; text-decoration: none; }
+.mobile-lang-btn { color: rgba(245,237,227,0.45) !important; }
+.mobile-lang-btn.active { color: rgba(245,237,227,0.9) !important; }
+.mobile-lang-sep { color: rgba(245,237,227,0.2) !important; }
+/* btn-dark */
+.btn-dark { background: rgba(245,237,227,0.12) !important; color: rgba(245,237,227,0.88) !important; border: 1px solid rgba(245,237,227,0.2) !important; padding: 1rem; font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; text-align: center; text-decoration: none; display: block; transition: all 0.25s; }
+.btn-dark:hover { background: rgba(245,237,227,0.18) !important; border-color: rgba(245,237,227,0.35) !important; }
+/* sp-menu-trigger */
+.sp-menu-trigger-wrap { padding: 18px 24px 10px; }
+.sp-menu-trigger { width: 100%; background: rgb(232,211,163); border: none; border-radius: 14px; padding: 14px 18px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: background 0.25s; }
+.sp-menu-trigger:hover { background: rgb(220,198,148); }
+.sp-menu-trigger-lotus { display: none; }
+.sp-menu-trigger-label { font-family: "Cormorant Garamond", serif; font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase; color: #3A1E14; font-weight: 600; }
+.sp-menu-trigger-sub { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(58,30,20,0.6); font-weight: 400; }
+
 </style>
 </head>
 <body>
@@ -426,34 +455,41 @@ footer { background: #684034 !important; }
   <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="mobile-nav" id="mobileNav">
-  <div class="mobile-nav-header">
-    <a class="logo" href="index.html">
-      <div class="logo-brand">
-        <span class="logo-text">SKINES</span>
-        <span class="logo-sub">Med Spa · Montréal</span>
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
+    <div class="mobile-nav-header">
+      <a class="logo" href="index.html">
+        <div class="logo-brand">
+          <span class="logo-text">SKINES</span>
+          <span class="logo-sub">Med Spa · Montréal</span>
+        </div>
+      </a>
+      <button class="mobile-nav-close" id="menuClose" aria-label="Fermer le menu">&#8592;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="head-spa.html">Head Spa</a></li>
+      <li><a href="laser.html"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
+      <li><a href="facial.html"><span data-fr="Facial" data-en="Facial">Facial</span></a></li>
+      <li><a href="cartes-cadeaux.html"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
+      <li><a href="reviews.html" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
+      <li><a href="visit-us.html" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
+    </ul>
+    <div class="sp-menu-trigger-wrap">
+      <button id="sp-menu-trigger" class="sp-menu-trigger" aria-label="Tirage Exclusif">
+        <span class="sp-menu-trigger-lotus">✿</span>
+        <span class="sp-menu-trigger-label">EXPÉRIENCE EXCLUSIVE</span>
+        <span class="sp-menu-trigger-sub">Jusqu'à 50% · Places limitées</span>
+      </button>
+    </div>
+    <div class="mobile-nav-footer">
+      <a class="btn-dark" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+      <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
+      <div class="mobile-lang-switcher">
+        <button class="mobile-lang-btn active" data-lang="fr">FR</button>
+        <span class="mobile-lang-sep"> ▾ </span>
+        <button class="mobile-lang-btn" data-lang="en">EN</button>
       </div>
-    </a>
-    <button class="mobile-nav-close" id="menuClose">&#8592;</button>
-  </div>
-  <ul class="mobile-nav-links">
-    <li><a href="head-spa.html">Head Spa</a></li>
-    <li><a href="laser.html">Épilation Laser</a></li>
-    <li><a href="facial.html">Facial</a></li>
-    <li><a href="cartes-cadeaux.html">Cartes Cadeaux</a></li>
-    <li><a href="parking.html" class="active">Stationnement</a></li>
-    <li><a href="visit-us.html">Contact & Adresse</a></li>
-  </ul>
-  <div class="mobile-nav-footer">
-    <a class="btn-primary" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer" style="text-align:center;">RÉSERVER</a>
-    <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
-    <div class="mobile-lang-switcher">
-      <button class="mobile-lang-btn active" data-lang="fr">FR</button>
-      <span>|</span>
-      <button class="mobile-lang-btn" data-lang="en">EN</button>
     </div>
   </div>
-</div>
 
 
 <style>
