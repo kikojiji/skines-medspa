@@ -240,11 +240,7 @@ export default async function handler(req, res) {
           <img src="cid:participant_photo" alt="Photo" width="260" style="width:260px;height:320px;object-fit:cover;display:block;">
         </td></tr>
        </table>`
-    : `<table cellpadding="0" cellspacing="0" style="margin:0 auto;">
-        <tr><td align="center" style="width:260px;height:320px;border-radius:20px;border:2px solid rgba(182,106,90,0.22);background:#F5EDE3;text-align:center;vertical-align:middle;">
-          <p style="margin:0;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A090;font-family:Arial,sans-serif;">NO PHOTO</p>
-        </td></tr>
-       </table>`;
+    : '';
 
   /* ── LUXURY CARD — ADMIN EMAIL ── */
   const adminHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
