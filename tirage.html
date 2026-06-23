@@ -839,31 +839,6 @@ html body #sp-stones img {
         </div>
       </div>
 
-      <!-- Photo upload (optional) -->
-      <div class="t-field-group">
-        <label>Photo récente <span style="font-size:9px;color:var(--text-soft);letter-spacing:0.06em;text-transform:none;font-weight:400;">(optionnel)</span></label>
-        <input type="file" id="t-photo-input" name="photo" accept="image/jpeg,image/png,image/heic,image/heif,.heic,.HEIC" style="display:none">
-        <div class="t-upload-area" id="t-upload-area" role="button" tabindex="0" aria-label="Choisir une photo">
-          <div class="t-upload-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          </div>
-          <p class="t-upload-title">Déposer une photo ici</p>
-          <p class="t-upload-subtitle">ou appuyez pour choisir depuis votre galerie</p>
-          <span class="t-upload-hint">JPG · PNG · HEIC · Max 10 MB</span>
-          <div class="t-upload-preview" id="t-upload-preview">
-            <img class="t-preview-img" id="t-preview-img" src="" alt="Aperçu">
-            <p class="t-preview-name" id="t-preview-name">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              <span id="t-preview-filename"></span>
-            </p>
-            <button type="button" class="t-preview-remove" id="t-preview-remove">
-              <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
-              Supprimer la photo
-            </button>
-          </div>
-        </div>
-        <p class="t-photo-note">Une photo récente nous permet d'évaluer les participantes pour de futures collaborations et opportunités de modèles pour Skines. L'envoi d'une photo est facultatif et n'affecte pas vos chances de gagner.</p>
-      </div>
 
       <div class="t-consent">
         <input type="checkbox" id="t-cb" name="consent" required>
@@ -976,120 +951,6 @@ var _fp = '';
 
 (function () {
   var submitting  = false;
-  var photoBase64 = null;
-  var photoType   = null;
-
-  /* ── Image compression ── */
-  function compressImage(file, cb) {
-    var isHEIC = /heic|heif/i.test(file.type) || /\.heic$/i.test(file.name);
-    if (isHEIC) {
-      // HEIC: browsers can't render it — send raw if small enough
-      if (file.size > 7 * 1024 * 1024) {
-        cb(null, null, 'Fichier HEIC trop volumineux. Max 7 MB ou convertissez en JPG.');
-        return;
-      }
-      var fr = new FileReader();
-      fr.onload = function (e) {
-        var b64 = e.target.result.split(',')[1];
-        cb(b64, 'image/heic', null);
-      };
-      fr.readAsDataURL(file);
-      return;
-    }
-    var img = new Image();
-    var url = URL.createObjectURL(file);
-    img.onload = function () {
-      URL.revokeObjectURL(url);
-      var MAX = 1000;
-      var w = img.width, h = img.height;
-      if (w > MAX || h > MAX) {
-        var r = Math.min(MAX / w, MAX / h);
-        w = Math.round(w * r);
-        h = Math.round(h * r);
-      }
-      var canvas = document.createElement('canvas');
-      canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      canvas.toBlob(function (blob) {
-        var fr2 = new FileReader();
-        fr2.onload = function (e) {
-          var b64 = e.target.result.split(',')[1];
-          cb(b64, 'image/jpeg', null, e.target.result);
-        };
-        fr2.readAsDataURL(blob);
-      }, 'image/jpeg', 0.72);
-    };
-    img.onerror = function () { URL.revokeObjectURL(url); cb(null, null, 'Impossible de lire cette image.'); };
-    img.src = url;
-  }
-
-  /* ── Preview helpers ── */
-  function showPreview(dataUrl, filename) {
-    var preview = document.getElementById('t-upload-preview');
-    var img     = document.getElementById('t-preview-img');
-    var name    = document.getElementById('t-preview-filename');
-    preview.classList.add('has-file');
-    if (dataUrl) { img.src = dataUrl; img.style.display = 'block'; }
-    else         { img.style.display = 'none'; }
-    name.textContent = filename;
-  }
-
-  function clearPreview() {
-    var preview = document.getElementById('t-upload-preview');
-    preview.classList.remove('has-file');
-    document.getElementById('t-preview-img').src = '';
-    document.getElementById('t-preview-filename').textContent = '';
-    photoBase64 = null; photoType = null;
-    document.getElementById('t-photo-input').value = '';
-  }
-
-  function handleFile(file) {
-    if (!file) return;
-    if (file.size > 10 * 1024 * 1024) {
-      alert('La photo ne doit pas dépasser 10 MB.');
-      return;
-    }
-    compressImage(file, function (b64, type, err, dataUrl) {
-      if (err) { alert(err); return; }
-      photoBase64 = b64;
-      photoType   = type;
-      var isHEIC  = /heic|heif/i.test(type);
-      showPreview(isHEIC ? null : dataUrl, file.name);
-    });
-  }
-
-  /* ── Upload area interactions ── */
-  var area  = document.getElementById('t-upload-area');
-  var input = document.getElementById('t-photo-input');
-
-  area.addEventListener('click', function (e) {
-    if (e.target.closest('#t-preview-remove')) return;
-    input.click();
-  });
-  area.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
-  });
-
-  input.addEventListener('change', function () {
-    if (this.files && this.files[0]) handleFile(this.files[0]);
-  });
-
-  document.getElementById('t-preview-remove').addEventListener('click', function (e) {
-    e.stopPropagation();
-    clearPreview();
-  });
-
-  /* Drag & drop */
-  ['dragenter','dragover'].forEach(function (ev) {
-    area.addEventListener(ev, function (e) { e.preventDefault(); area.classList.add('dragover'); });
-  });
-  ['dragleave','drop'].forEach(function (ev) {
-    area.addEventListener(ev, function (e) { e.preventDefault(); area.classList.remove('dragover'); });
-  });
-  area.addEventListener('drop', function (e) {
-    var file = e.dataTransfer.files && e.dataTransfer.files[0];
-    if (file) handleFile(file);
-  });
 
   /* ── Service buttons ── */
   document.querySelectorAll('.t-svc-btn').forEach(function (btn) {
@@ -1138,8 +999,6 @@ var _fp = '';
         cfToken: _tsToken,
         fp: _fp
       };
-      if (photoBase64) { payload.photo = photoBase64; payload.photoType = photoType; }
-
       fetch('https://api.skines.ca/api/send-tirage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
