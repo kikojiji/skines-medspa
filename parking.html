@@ -481,11 +481,13 @@ footer { background: #684034 !important; }
 .pk-title em { font-style: italic; }
 .pk-lead { font-size: 1rem; color: var(--stone); line-height: 1.75; max-width: 560px; margin-bottom: 2.5rem; }
 
-.pk-steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
-.pk-step { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.2rem; background: #fff; border: 1px solid rgba(104,64,52,0.08); border-radius: 12px; }
-.pk-step-num { width: 32px; height: 32px; border-radius: 50%; background: rgba(104,64,52,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: "Cormorant Garamond", serif; font-size: 1rem; font-weight: 400; color: var(--brown); }
-.pk-step-text strong { display: block; font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
-.pk-step-text span { font-size: 0.82rem; color: var(--stone); line-height: 1.5; }
+/* Facts list */
+.pk-facts { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+.pk-fact { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.2rem 1.4rem; background: #fff; border: 1px solid rgba(104,64,52,0.08); border-radius: 12px; }
+.pk-fact-icon { width: 40px; height: 40px; border-radius: 9px; background: rgba(104,64,52,0.07); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.pk-fact-icon svg { width: 20px; height: 20px; stroke: #684034; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.pk-fact-text strong { display: block; font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+.pk-fact-text span { font-size: 0.82rem; color: var(--stone); line-height: 1.55; }
 
 /* Photo placeholders */
 .pk-photos { background: var(--cream); padding: 4rem 1.5rem; }
@@ -504,12 +506,20 @@ footer { background: #684034 !important; }
 .pk-photo-slot svg { width: 28px; height: 28px; stroke: rgba(201,160,96,0.45); stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .pk-photo-slot span { font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(245,237,227,0.25); text-transform: uppercase; font-weight: 400; }
 
-/* Note */
-.pk-note { background: var(--cream-pale); padding: 3rem 1.5rem; }
-.pk-note-inner { max-width: 680px; margin: 0 auto; }
-.pk-note-box { background: rgba(104,64,52,0.06); border-left: 3px solid var(--terracotta); border-radius: 0 8px 8px 0; padding: 1.2rem 1.4rem; }
-.pk-note-box p { font-size: 0.88rem; color: var(--stone); line-height: 1.7; }
-.pk-note-box strong { color: var(--brown-dark); }
+.pk-photos-sub { font-size: 0.9rem; color: var(--stone); line-height: 1.7; margin-bottom: 1.5rem; }
+
+/* Contact CTA */
+.pk-contact { background: #684034; padding: 4.5rem 1.8rem; text-align: center; position: relative; overflow: hidden; }
+.pk-contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,160,96,0.10) 0%, transparent 65%); pointer-events: none; }
+.pk-contact-inner { max-width: 520px; margin: 0 auto; position: relative; }
+.pk-contact-title { font-family: "Cormorant Garamond", serif; font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 300; color: rgba(245,237,227,0.92); line-height: 1.1; margin: 0.8rem 0 1.2rem; }
+.pk-contact-title em { font-style: italic; color: rgba(201,160,96,0.85); }
+.pk-contact p { font-size: 0.90rem; color: rgba(245,237,227,0.48); font-weight: 300; line-height: 1.75; margin-bottom: 2.2rem; }
+.pk-contact-actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.pk-contact-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.95rem 2.4rem; border: 1px solid rgba(201,160,96,0.45); border-radius: 2px; color: rgba(245,237,227,0.88); font-size: 0.88rem; font-weight: 400; letter-spacing: 0.06em; text-decoration: none; transition: all 0.25s; }
+.pk-contact-btn:hover { border-color: rgba(201,160,96,0.9); color: #fff; background: rgba(201,160,96,0.08); }
+.pk-contact-link { font-size: 0.78rem; color: rgba(245,237,227,0.38); letter-spacing: 0.08em; text-decoration: none; border-bottom: 1px solid rgba(245,237,227,0.12); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+.pk-contact-link:hover { color: rgba(245,237,227,0.65); border-color: rgba(245,237,227,0.3); }
 
 @media(max-width:580px){
   .pk-photos-grid { grid-template-columns: 1fr; }
@@ -527,32 +537,39 @@ footer { background: #684034 !important; }
 </header>
 
 <!-- INFO -->
+<!-- INFO -->
 <section class="pk-info">
   <div class="pk-info-inner">
-    <span class="pk-eyebrow2 fade-up">Comment ça fonctionne</span>
-    <h2 class="pk-title fade-up">Arriver, <em>garer, se détendre.</em></h2>
-    <p class="pk-lead fade-up">Notre stationnement privé est inclus gratuitement pour tous nos clients. Pas de stress, pas de parcmètre — juste votre soin qui vous attend.</p>
+    <span class="pk-eyebrow2 fade-up">Ce que vous devez savoir</span>
+    <h2 class="pk-title fade-up">Simple, gratuit, <em>sans stress.</em></h2>
+    <p class="pk-lead fade-up">Notre stationnement privé est réservé exclusivement à nos clients, inclus gratuitement dans chaque visite. Aucun parcmètre, aucun ticket, aucune limite de temps pendant votre soin.</p>
 
-    <div class="pk-steps">
-      <div class="pk-step fade-up">
-        <div class="pk-step-num">1</div>
-        <div class="pk-step-text">
-          <strong>Arrivez au 19 Av. Shamrock</strong>
-          <span>Notre établissement se trouve dans le quartier Plateau-Mont-Royal, facilement accessible en voiture.</span>
+    <div class="pk-facts">
+      <div class="pk-fact fade-up">
+        <div class="pk-fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="pk-fact-text">
+          <strong>19 Avenue Shamrock</strong>
+          <span>Plateau-Mont-Royal, Montréal · QC H2S 1A3. Le stationnement est accessible directement depuis l'avenue, en façade de l'établissement.</span>
         </div>
       </div>
-      <div class="pk-step fade-up">
-        <div class="pk-step-num">2</div>
-        <div class="pk-step-text">
-          <strong>Repérez l'entrée du stationnement</strong>
-          <span>Le stationnement privé Skines est accessible directement depuis la rue. Des photos de repérage seront ajoutées ici.</span>
+      <div class="pk-fact fade-up">
+        <div class="pk-fact-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5" fill="none"/><circle cx="18.5" cy="18.5" r="2.5" fill="none"/></svg>
+        </div>
+        <div class="pk-fact-text">
+          <strong>Disponible pendant votre soin</strong>
+          <span>La place vous est réservée pour toute la durée de votre rendez-vous. Aucune limite de temps, aucun frais supplémentaire.</span>
         </div>
       </div>
-      <div class="pk-step fade-up">
-        <div class="pk-step-num">3</div>
-        <div class="pk-step-text">
-          <strong>Garez-vous et entrez</strong>
-          <span>Aucun ticket, aucun paiement. Mentionnez simplement votre visite chez Skines si nécessaire.</span>
+      <div class="pk-fact fade-up">
+        <div class="pk-fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.35a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6 6l.38-.38a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="pk-fact-text">
+          <strong>Première visite ?</strong>
+          <span>Appelez-nous au <a href="tel:+14382605660" style="color:var(--brown);border-bottom:1px solid rgba(104,64,52,0.3);">+1 (438) 260-5660</a> avant votre arrivée — nous vous guidons en temps réel jusqu'à votre place.</span>
         </div>
       </div>
     </div>
@@ -563,29 +580,37 @@ footer { background: #684034 !important; }
 <section class="pk-photos">
   <div class="pk-photos-inner">
     <span class="pk-eyebrow2 fade-up">Repères visuels</span>
-    <h2 class="pk-title fade-up">Pour vous<br><em>orienter.</em></h2>
+    <h2 class="pk-title fade-up">Bientôt : photos<br><em>de repérage.</em></h2>
+    <p class="pk-photos-sub fade-up">Des photos de l'entrée, de l'accès et du stationnement seront ajoutées très prochainement pour vous aider à vous orienter dès votre première visite.</p>
     <div class="pk-photos-grid">
       <div class="pk-photo-slot wide fade-up">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Vue de l'entrée · Photo à venir</span>
+        <span>Vue de façade · Photo à venir</span>
       </div>
       <div class="pk-photo-slot fade-up">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Stationnement · Photo à venir</span>
+        <span>Entrée du stationnement · Photo à venir</span>
       </div>
       <div class="pk-photo-slot fade-up">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Accès · Photo à venir</span>
+        <span>Place réservée · Photo à venir</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NOTE -->
-<section class="pk-note">
-  <div class="pk-note-inner">
-    <div class="pk-note-box fade-up">
-      <p><strong>Des photos et une vidéo de repérage seront ajoutées prochainement.</strong> En attendant, n'hésitez pas à nous contacter au <a href="tel:+14382605660" style="color:var(--brown);">+1 (438) 260-5660</a> si vous avez besoin d'indications pour trouver le stationnement.</p>
+<!-- CONTACT CTA -->
+<section class="pk-contact">
+  <div class="pk-contact-inner fade-up">
+    <span class="pk-eyebrow2" style="color:rgba(201,160,96,0.7);">Besoin d'aide pour trouver ?</span>
+    <h2 class="pk-contact-title">On vous<br><em>guide.</em></h2>
+    <p>Pour votre première visite ou si vous avez du mal à localiser le stationnement — appelez-nous directement. On répond vite.</p>
+    <div class="pk-contact-actions">
+      <a class="pk-contact-btn" href="tel:+14382605660">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.35a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6 6l.38-.38a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +1 (438) 260-5660
+      </a>
+      <a class="pk-contact-link" href="mailto:Info@skines.ca">Info@skines.ca →</a>
     </div>
   </div>
 </section>
@@ -720,14 +745,14 @@ footer { background: #684034 !important; }
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="your-visit.html#parking">
+      <a class="sf-link" href="parking.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5" fill="none"/><circle cx="18.5" cy="18.5" r="2.5" fill="none"/></svg></span>
           Private Parking
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="your-visit.html#insurance">
+      <a class="sf-link" href="insurance.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
           Insurance Receipts
