@@ -19,13 +19,13 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Votre Visite · Skines Med Spa Montréal</title>
-<meta name="description" content="Tout ce que vous devez savoir avant votre visite chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
+<title>Nous Trouver · Skines Med Spa Montréal</title>
+<meta name="description" content="Adresse, heures, contact — tout pour trouver Skines Med Spa à Montréal chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Votre Visite · Skines Med Spa Montréal">
+<meta property="og:title" content="Nous Trouver · Skines Med Spa Montréal">
 <meta property="og:description" content="Stationnement gratuit, reçus d'assurance, ambiance luxe — découvrez l'expérience Skines avant votre arrivée.">
 <meta property="og:image" content="https://skines.ca/assets/og-logo3.webp?v=1">
-<meta property="og:url" content="https://skines.ca/your-visit">
+<meta property="og:url" content="https://skines.ca/visit-us">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -411,7 +411,7 @@ footer {
     <li><a href="head-spa.html">Head Spa</a></li>
     <li><a href="laser.html">Laser</a></li>
     <li><a href="facial.html">Facial</a></li>
-    <li><a href="your-visit.html" class="active">Votre Visite</a></li>
+    <li><a href="visit-us.html" class="active">Nous Trouver</a></li>
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER</a>
   <div class="lang-switcher">
@@ -440,7 +440,7 @@ footer {
     <li><a href="laser.html">Épilation Laser</a></li>
     <li><a href="facial.html">Facial</a></li>
     <li><a href="cartes-cadeaux.html">Cartes Cadeaux</a></li>
-    <li><a href="your-visit.html">Votre Visite</a></li>
+    <li><a href="visit-us.html" class="active">Nous Trouver</a></li>
     <li><a href="visit-us.html">Contact & Adresse</a></li>
   </ul>
   <div class="mobile-nav-footer">
@@ -454,296 +454,221 @@ footer {
   </div>
 </div>
 
-<!-- ══ HERO ══════════════════════════════════════════ -->
-<header class="visit-hero">
-  <div class="visit-hero-inner">
-    <span class="visit-hero-label">Skines Med Spa · Montréal</span>
-    <h1>Votre<br><em>visite.</em></h1>
-    <p class="visit-hero-sub">Tout ce qu'il faut savoir avant d'arriver — pour que vous puissiez vous concentrer sur l'essentiel : vous.</p>
-    <a class="visit-hero-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
-      Réserver mon soin
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-hint-line"></div>
-    <span>Découvrir</span>
+
+<style>
+.vu-hero {
+  min-height: 52vh; display: flex; align-items: flex-end;
+  background: linear-gradient(160deg, #2C1A0F 0%, #4B2E1F 60%, #3A2215 100%);
+  padding: 0 1.5rem 4rem; padding-top: 100px;
+  position: relative; overflow: hidden;
+}
+.vu-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(201,160,96,0.08) 0%, transparent 60%);
+}
+.vu-hero-inner { max-width: 680px; margin: 0 auto; width: 100%; position: relative; }
+.vu-eyebrow {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em;
+  color: rgba(201,160,96,0.75); text-transform: uppercase; margin-bottom: 1.2rem; display: block;
+}
+.vu-hero h1 {
+  font-family: "Cormorant Garamond", serif; font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 300; color: rgba(245,237,227,0.95); line-height: 1.05;
+  margin-bottom: 1.2rem; letter-spacing: -0.01em;
+}
+.vu-hero h1 em { font-style: italic; color: rgba(201,160,96,0.85); }
+.vu-hero p { font-size: 1rem; color: rgba(245,237,227,0.55); font-weight: 300; max-width: 440px; line-height: 1.7; }
+
+/* Info cards */
+.vu-cards {
+  background: var(--cream-pale); padding: 4rem 1.5rem;
+}
+.vu-cards-inner { max-width: 680px; margin: 0 auto; }
+.vu-cards-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem;
+}
+.vu-card {
+  background: #fff; border: 1px solid rgba(104,64,52,0.10); border-radius: 12px;
+  padding: 1.6rem 1.4rem; display: flex; flex-direction: column; gap: 0.5rem;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.vu-card:hover { box-shadow: 0 8px 32px rgba(104,64,52,0.10); transform: translateY(-2px); }
+.vu-card-icon {
+  width: 40px; height: 40px; background: rgba(104,64,52,0.07);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 0.4rem;
+}
+.vu-card-icon svg { width: 20px; height: 20px; stroke: #684034; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.vu-card-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em; color: var(--stone); text-transform: uppercase; }
+.vu-card-value { font-size: 0.92rem; font-weight: 400; color: var(--ink); line-height: 1.5; }
+.vu-card-value a { color: var(--brown); text-decoration: none; transition: opacity 0.2s; }
+.vu-card-value a:hover { opacity: 0.7; }
+.vu-card.full { grid-column: 1 / -1; }
+
+/* Map */
+.vu-map { background: var(--cream); padding: 0 1.5rem 4rem; }
+.vu-map-inner { max-width: 680px; margin: 0 auto; }
+.vu-map-frame {
+  width: 100%; height: 320px; border-radius: 14px;
+  overflow: hidden; border: 1px solid rgba(104,64,52,0.10);
+  box-shadow: 0 8px 32px rgba(104,64,52,0.08);
+}
+.vu-map-frame iframe { width: 100%; height: 100%; border: none; }
+
+/* Directions */
+.vu-directions { background: var(--cream-pale); padding: 4rem 1.5rem; }
+.vu-directions-inner { max-width: 680px; margin: 0 auto; }
+.vu-section-eyebrow { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.26em; color: var(--terracotta); text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
+.vu-section-title { font-family: "Cormorant Garamond", serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 300; color: var(--ink); margin-bottom: 2rem; line-height: 1.2; }
+.vu-section-title em { font-style: italic; }
+.vu-transport-list { display: flex; flex-direction: column; gap: 1rem; }
+.vu-transport-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.1rem 1.2rem; background: #fff;
+  border: 1px solid rgba(104,64,52,0.08); border-radius: 10px;
+}
+.vu-transport-badge {
+  width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(104,64,52,0.08); display: flex; align-items: center; justify-content: center;
+}
+.vu-transport-badge svg { width: 18px; height: 18px; stroke: #684034; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.vu-transport-info strong { display: block; font-size: 0.86rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+.vu-transport-info span { font-size: 0.82rem; color: var(--stone); line-height: 1.5; }
+
+/* Book CTA */
+.vu-book { background: #2C1A0F; padding: 4rem 1.5rem; text-align: center; }
+.vu-book-inner { max-width: 480px; margin: 0 auto; }
+.vu-book h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: rgba(245,237,227,0.90); margin-bottom: 1rem; }
+.vu-book p { font-size: 0.9rem; color: rgba(245,237,227,0.45); margin-bottom: 2rem; }
+.vu-book-btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 2.4rem; border: 1px solid rgba(201,160,96,0.45); border-radius: 2px;
+  color: rgba(245,237,227,0.85); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; text-decoration: none; transition: all 0.25s;
+}
+.vu-book-btn:hover { border-color: rgba(201,160,96,0.9); color: rgba(245,237,227,1); background: rgba(201,160,96,0.08); }
+
+@media(max-width:580px){
+  .vu-cards-grid { grid-template-columns: 1fr; }
+  .vu-map-frame { height: 250px; }
+}
+</style>
+
+<!-- HERO -->
+<header class="vu-hero">
+  <div class="vu-hero-inner fade-up">
+    <span class="vu-eyebrow">Skines Med Spa · 19 Av. Shamrock, Montréal</span>
+    <h1>Nous<br><em>trouver.</em></h1>
+    <p>Votre sanctuaire au cœur de Montréal. Tout ce qu'il vous faut pour arriver sereinement.</p>
   </div>
 </header>
 
-<!-- ══ INSURANCE ═════════════════════════════════════ -->
-<section class="visit-section">
-  <div class="visit-section-inner">
-    <div class="visit-section-grid">
-      <div class="fade-up">
-        <div class="section-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/><polyline points="9 12 11 14 15 10"/></svg>
-        </div>
-        <span class="visit-eyebrow">Remboursement</span>
-        <h2>Reçus<br><em>d'assurance.</em></h2>
-        <p>Chez Skines, certains de nos soins sont effectués par des thérapeutes qualifiés et donnent droit à des reçus d'assurance valides pour remboursement.</p>
-        <p><strong>Le remboursement dépend de votre assureur et de votre couverture personnelle.</strong> Nous vous recommandons de vérifier avec votre compagnie d'assurance avant votre rendez-vous pour connaître les conditions spécifiques de votre régime.</p>
-        <p>Demandez votre reçu au moment du règlement — nous nous assurons que celui-ci contient toutes les informations nécessaires à votre réclamation.</p>
-        <div class="visit-pills">
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Reçu officiel fourni</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Thérapeutes certifiés</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Sur demande</span>
-        </div>
+<!-- CONTACT CARDS -->
+<section class="vu-cards">
+  <div class="vu-cards-inner">
+    <div class="vu-cards-grid">
+
+      <div class="vu-card fade-up">
+        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <span class="vu-card-label">Adresse</span>
+        <div class="vu-card-value"><a href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal" target="_blank" rel="noreferrer">19 Av. Shamrock<br>Montréal, QC H2S 1A3</a></div>
       </div>
-      <div class="visit-visual fade-up">
-        <img src="assets/luxury-facial.webp?v=1" alt="Soin Skines" loading="lazy">
-        <div class="visit-visual-caption">Soins certifiés · Reçus disponibles</div>
+
+      <div class="vu-card fade-up">
+        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+        <span class="vu-card-label">Horaires</span>
+        <div class="vu-card-value">Tous les jours<br>À partir de 09h00</div>
       </div>
+
+      <div class="vu-card fade-up">
+        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <span class="vu-card-label">Téléphone</span>
+        <div class="vu-card-value"><a href="tel:+14382605660">+1 (438) 260-5660</a></div>
+      </div>
+
+      <div class="vu-card fade-up">
+        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+        <span class="vu-card-label">Email</span>
+        <div class="vu-card-value"><a href="mailto:Info@skines.ca">Info@skines.ca</a></div>
+      </div>
+
+      <div class="vu-card full fade-up">
+        <div class="vu-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <span class="vu-card-label">Réservation</span>
+        <div class="vu-card-value"><a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver sur Fresha →</a></div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══ PARKING ════════════════════════════════════════ -->
-<section class="visit-section" style="background: #F5EDE3;">
-  <div class="visit-section-inner">
-    <div class="visit-section-grid reverse">
-      <div class="fade-up">
-        <div class="section-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
-        </div>
-        <span class="visit-eyebrow">Arrivée Sans Stress</span>
-        <h2>Stationnement<br><em>privé & gratuit.</em></h2>
-        <p>Votre confort commence avant même de franchir la porte. Skines met à votre disposition un stationnement privé et gratuit pour tous les clients — sans frais, sans recherche, sans stress.</p>
-        <p>Arrivez serein. Prenez le temps de vous préparer mentalement pour votre soin. <strong>L'expérience Skines commence dès votre arrivée.</strong></p>
-        <div class="visit-pills">
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Gratuit pour tous</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Accès direct</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 19 Av. Shamrock</span>
-        </div>
-      </div>
-      <div class="visit-visual fade-up">
-        <img src="assets/bela-facial.webp?v=1" alt="Arrivée Skines" loading="lazy">
-        <div class="visit-visual-caption">Stationnement privé · Gratuit</div>
-      </div>
+<!-- MAP -->
+<section class="vu-map">
+  <div class="vu-map-inner">
+    <div class="vu-map-frame fade-up">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.5!2d-73.6072!3d45.5264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc919a1f2a4f1a1%3A0x1!2s19%20Av.%20Shamrock%2C%20Montr%C3%A9al%2C%20QC!5e0!3m2!1sfr!2sca!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ══ WHAT TO EXPECT (strip) ═════════════════════════ -->
-<div class="visit-strip">
-  <div class="visit-strip-inner fade-up">
-    <span class="visit-eyebrow">L'Expérience</span>
-    <h2>Ce qui vous<br><em>attend.</em></h2>
-    <p>De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme, de soin et de luxe discret.</p>
-    <div class="visit-timeline">
-      <div class="timeline-step">
-        <div class="timeline-num">01</div>
-        <div class="timeline-content">
-          <h4>À votre arrivée</h4>
-          <p>Un espace serein vous accueille. Ambiance apaisante, musique douce, lumière tamisée. Votre thérapeute vous reçoit personnellement et prend le temps de comprendre vos attentes.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="timeline-num">02</div>
-        <div class="timeline-content">
-          <h4>Préparation & confort</h4>
-          <p>Installez-vous dans un espace entièrement privé. Une boisson de bienvenue vous est offerte. Le déroulement de votre soin vous est expliqué en détail, à votre rythme.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="timeline-num">03</div>
-        <div class="timeline-content">
-          <h4>Pendant le soin</h4>
-          <p>Chaque traitement est adapté à votre peau, votre état et vos préférences. Précision, douceur, et attention aux détails — nous n'avons pas d'autres priorités que vous.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="timeline-num">04</div>
-        <div class="timeline-content">
-          <h4>Après le soin</h4>
-          <p>Prenez le temps de vous reposer. Votre thérapeute vous partagera des recommandations personnalisées. Repartez lumineux, détendu — et déjà impatient de revenir.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- DIRECTIONS -->
+<section class="vu-directions">
+  <div class="vu-directions-inner">
+    <span class="vu-section-eyebrow fade-up">Comment nous rejoindre</span>
+    <h2 class="vu-section-title fade-up">Arriver <em>sans stress.</em></h2>
+    <div class="vu-transport-list">
 
-<!-- ══ AMENITIES ══════════════════════════════════════ -->
-<section class="visit-section">
-  <div class="visit-section-inner">
-    <div class="visit-section-grid">
-      <div class="fade-up">
-        <div class="section-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      <div class="vu-transport-item fade-up">
+        <div class="vu-transport-badge">
+          <svg viewBox="0 0 24 24"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <span class="visit-eyebrow">Luxe & Bien-être</span>
-        <h2>Une attention<br><em>aux détails.</em></h2>
-        <p>Chez Skines, le luxe n'est pas dans le superflu — il est dans chaque détail qui fait que vous vous sentez vraiment pris en charge.</p>
-        <p>Nous avons conçu chaque aspect de l'expérience pour que vous n'ayez à penser à rien d'autre qu'à vous.</p>
-        <div class="visit-pills" style="margin-top:1.8rem;">
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Espaces 100% privés</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Boisson de bienvenue</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Ambiance soignée</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Produits premium</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Soins personnalisés</span>
-          <span class="visit-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Thérapeutes certifiés</span>
+        <div class="vu-transport-info">
+          <strong>En voiture</strong>
+          <span>Stationnement privé gratuit disponible sur place pour tous nos clients.</span>
         </div>
       </div>
-      <div class="visit-visual fade-up">
-        <img src="assets/personalized-facial.webp?v=1" alt="Expérience Skines" loading="lazy">
-        <div class="visit-visual-caption">Expérience · Luxe & Précision</div>
+
+      <div class="vu-transport-item fade-up">
+        <div class="vu-transport-badge">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="vu-transport-info">
+          <strong>En métro</strong>
+          <span>Station Laurier (Ligne Orange) · 10 min à pied. Station Rosemont disponible aussi.</span>
+        </div>
       </div>
+
+      <div class="vu-transport-item fade-up">
+        <div class="vu-transport-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"/><path d="M2 20c0-4 4-7 10-7s10 3 10 7"/></svg>
+        </div>
+        <div class="vu-transport-info">
+          <strong>À pied / Vélo</strong>
+          <span>Quartier Plateau-Mont-Royal. Pistes cyclables disponibles. Arceaux vélo sur place.</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══ FAQ ════════════════════════════════════════════ -->
-<section class="visit-faq">
-  <div class="visit-faq-inner">
-    <div class="faq-header fade-up">
-      <span class="visit-eyebrow">Questions fréquentes</span>
-      <h2>Tout ce que vous<br>souhaitez savoir.</h2>
-      <p>Des réponses claires pour vous préparer à votre visite en toute sérénité.</p>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        Y a-t-il un stationnement privé disponible ?
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner">Oui. Skines dispose d'un stationnement privé et entièrement gratuit pour tous nos clients. Vous trouverez facilement une place directement sur place, au 19 Av. Shamrock, Montréal. Aucun frais, aucune recherche — il suffit d'arriver.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        Les reçus d'assurance sont-ils disponibles ?
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner">Oui. Des reçus d'assurance sont disponibles pour les soins admissibles effectués par nos thérapeutes certifiés. Le remboursement dépend toutefois de votre assureur et de votre couverture personnelle. Nous vous encourageons à vérifier avec votre compagnie d'assurance avant votre visite.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        Dois-je prendre rendez-vous à l'avance ?
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner">Oui, une réservation préalable est fortement recommandée. Nos créneaux sont souvent réservés plusieurs jours à l'avance. Réservez facilement en ligne via <a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Fresha</a> ou en nous contactant directement au <a href="tel:+14382605660">+1 (438) 260-5660</a>.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        Peut-on acheter des cartes cadeaux ?
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner">Absolument. Nos cartes cadeaux sont disponibles en plusieurs montants et font un cadeau raffiné pour vos proches. Vous pouvez les <a href="cartes-cadeaux.html">commander ici</a> ou les acquérir directement en studio. Elles sont valides pour tous nos soins.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        Combien de temps à l'avance dois-je arriver ?
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner">Nous vous recommandons d'arriver environ 5 à 10 minutes avant l'heure de votre rendez-vous. Cela vous laisse le temps de vous installer confortablement, de vous détendre et de commencer votre expérience en douceur — sans précipitation.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        À quoi ressemble une visite chez Skines ?
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner">Dès votre arrivée, vous êtes accueilli dans un espace calme et luxueux. Votre thérapeute vous accueille personnellement, échange avec vous sur vos besoins, et vous accompagne tout au long de votre soin dans un espace entièrement privé. Une boisson de bienvenue est offerte. Chaque soin est adapté à votre peau et à votre ressenti. En fin de séance, vous repartez avec des recommandations personnalisées.</div>
-      </div>
-    </div>
-
+<!-- BOOK CTA -->
+<section class="vu-book">
+  <div class="vu-book-inner fade-up">
+    <h2>Prêt à vivre<br>l'expérience Skines ?</h2>
+    <p>Réservez votre soin en quelques secondes.</p>
+    <a class="vu-book-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
+      RÉSERVER UN SOIN
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- ══ CTA ════════════════════════════════════════════ -->
-<div class="visit-cta-band">
-  <div class="visit-cta-band-inner fade-up">
-    <h2>Prêt à vivre<br><em>l'expérience ?</em></h2>
-    <p>Réservez votre soin en quelques secondes. Notre équipe prendra soin du reste.</p>
-    <div class="visit-cta-band-btns">
-      <a class="btn-primary" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER MON SOIN</a>
-      <a class="btn-outline" href="visit-us.html">NOUS TROUVER</a>
-    </div>
-  </div>
-</div>
 
-<!-- ══ FOOTER ═════════════════════════════════════════ -->
-<style>
-/* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
-.site-footer {
-  background: linear-gradient(175deg, #2E1B10 0%, #3C2318 50%, #2A1709 100%);
-  font-family: "DM Sans", sans-serif;
-  position: relative;
-}
-.site-footer::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201,160,96,0.3), transparent);
-}
-.sf-logo-area {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 1.8rem 1.5rem 1.5rem; text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.sf-logo { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; }
-.sf-stones { width: 38px; height: auto; opacity: 0.88; }
-.sf-brand { font-family: "DM Sans", sans-serif; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.36em; color: rgba(245,237,227,0.90); padding-left: 0.36em; }
-.sf-tagline-sub { font-size: 0.58rem; letter-spacing: 0.26em; color: rgba(245,237,227,0.30); text-transform: uppercase; padding-left: 0.26em; margin-top: 0.1rem; }
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
-/* ── Nav sections ── */
-.sf-nav { padding: 0.8rem 0 0; }
-.sf-nav-group { }
-.sf-nav-label {
-  display: block;
-  font-size: 0.60rem; font-weight: 600; letter-spacing: 0.26em;
-  color: rgba(201,160,96,0.65); text-transform: uppercase;
-  padding: 0.8rem 1.6rem 0.38rem;
-}
-.sf-link {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.65rem 1.6rem;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  color: rgba(245,237,227,0.65);
-  text-decoration: none;
-  transition: background 0.18s, color 0.18s;
-}
-.sf-link:hover { background: rgba(255,255,255,0.03); color: rgba(245,237,227,0.95); }
-.sf-link-left { display: flex; align-items: center; gap: 0.95rem; font-size: 0.88rem; font-weight: 300; line-height: 1; }
-.sf-link-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-.sf-link-icon svg { width: 18px; height: 18px; stroke: rgba(201,160,96,0.72); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.sf-chevron { width: 13px; height: 13px; flex-shrink: 0; stroke: rgba(245,237,227,0.25); stroke-width: 2; fill: none; }
-.sf-link:hover .sf-chevron { stroke: rgba(245,237,227,0.60); }
-
-/* ── Social ── */
-.sf-social-area {
-  display: flex; flex-direction: column; align-items: center;
-  padding: 1.2rem 1.5rem 0.9rem; gap: 0.7rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.sf-socials { display: flex; gap: 1.8rem; }
-.sf-social-btn { color: rgba(245,237,227,0.38); text-decoration: none; transition: color 0.2s; display: flex; }
-.sf-social-btn:hover { color: rgba(245,237,227,0.80); }
-
-/* ── Legal ── */
-.sf-legal {
-  padding: 0 1.5rem 1.2rem;
-  text-align: center; font-size: 0.70rem;
-  color: rgba(245,237,227,0.20);
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.8rem;
-}
-.sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
-.sf-legal a:hover { color: rgba(245,237,227,0.55); }
-.sf-legal-sep { opacity: 0.3; }
-</style>
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="index.html">
@@ -918,5 +843,7 @@ footer {
   });
 })();
 </script>
+</body>
+</html>
 </body>
 </html>
