@@ -7,8 +7,8 @@ import {
   rateLimit, getClientIp, sendViaResend,
 } from './_lib/security.js';
 
-const FROM  = "Skines Med Spa <giftcards@skines.info>";
-const ADMIN = 'info@skines.ca';
+const FROM  = "Skines Med Spa <noreply@skines.ca>";
+const ADMIN = 'skinesca@gmail.com';
 const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 
 // ── In-memory duplicate guards (best-effort; per serverless instance) ─────────

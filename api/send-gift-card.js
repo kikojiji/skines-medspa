@@ -7,7 +7,7 @@ import {
   rateLimit, getClientIp, sendViaResend,
 } from './_lib/security.js';
 
-const FROM  = 'Skines Gift Cards <giftcards@skines.info>';
+const FROM  = 'Skines Gift Cards <noreply@skines.ca>';
 const ADMIN = 'skinesca@gmail.com';
 
 export default async function handler(req, res) {
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
 
         <tr><td style="background:#3A1E14;padding:20px 40px;text-align:center;border-top:1px solid rgba(201,169,110,0.12);">
           <p style="margin:0;font-size:10px;color:rgba(245,237,227,0.35);letter-spacing:0.15em;font-family:Arial,sans-serif;">
-            SKINES MED SPA · 19 Av. Shamrock, Montréal · info@skines.info
+            SKINES MED SPA · 19 Av. Shamrock, Montréal · info@skines.ca
           </p>
         </td></tr>
 
@@ -181,7 +181,7 @@ export default async function handler(req, res) {
 
         <tr><td style="background:#3A1E14;padding:16px 40px;text-align:center;border-top:1px solid rgba(201,169,110,0.12);">
           <p style="margin:0;font-size:10px;color:rgba(245,237,227,0.30);letter-spacing:0.15em;font-family:Arial,sans-serif;">
-            SKINES MED SPA · 19 Av. Shamrock, Montréal · info@skines.info
+            SKINES MED SPA · 19 Av. Shamrock, Montréal · info@skines.ca
           </p>
         </td></tr>
 
