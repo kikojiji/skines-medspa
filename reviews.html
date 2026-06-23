@@ -207,7 +207,7 @@
 
   /* ── Page hero ── */
   .page-hero {
-    background: #0E0805;
+    background: #1C0E08;
     padding: 5rem 4rem 4rem;
     text-align: center;
     color: var(--cream);
@@ -815,7 +815,7 @@
     transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
   .view-btn:hover { color: var(--brown); border-color: var(--brown); }
-  .view-btn.active { background: #0E0805; color: var(--cream); border-color: var(--brown-dark); }
+  .view-btn.active { background: #1C0E08; color: var(--cream); border-color: var(--brown-dark); }
   .view-btn svg { width: 15px; height: 15px; }
   /* List-view overrides */
   .services-grid.list-view, .price-cards-grid.list-view {
@@ -896,7 +896,7 @@
 
   /* Scrolled: dark brown — same as footer/social bar */
   nav.nav-scrolled {
-    background: #0E0805 !important;
+    background: #1C0E08 !important;
     border-bottom: 1px solid rgba(245,237,227,0.07) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
@@ -6018,11 +6018,11 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
   <!-- VIDEO REVIEWS SECTION — Luxury Carousel -->
   <style>
-  .vc-section { background: #0E0805 !important; padding: 4.5rem 0 5.5rem; }
-  #vc-testimonials { background: #0E0805 !important; }
+  .vc-section { background: #1C0E08 !important; padding: 4.5rem 0 5.5rem; }
+  #vc-testimonials { background: #1C0E08 !important; }
   .vc-header  { text-align: center; padding: 0 1.4rem; margin-bottom: 2.8rem; }
-  .vc-eyebrow { font-size: 0.60rem; letter-spacing: 0.30em; text-transform: uppercase; color: #C9A060; margin: 0 0 0.75rem; font-family: "DM Sans", sans-serif; font-weight: 500; }
-  .vc-title   { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 5vw, 2.7rem); font-weight: 400; font-style: italic; color: #F5EDE3; margin: 0; line-height: 1.08; }
+  .vc-eyebrow { font-size: 0.60rem; letter-spacing: 0.30em; text-transform: uppercase; color: #D4A96A; margin: 0 0 0.75rem; font-family: "DM Sans", sans-serif; font-weight: 500; }
+  .vc-title   { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.75rem, 5vw, 2.7rem); font-weight: 400; font-style: italic; color: rgba(245,237,227,0.92); margin: 0; line-height: 1.08; }
 
   /* ── Carousel ── */
   .vc-wrap  { position: relative; }
@@ -6109,8 +6109,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
   /* Dots */
   .vc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 18px; }
-  .vc-dot  { width: 5px; height: 5px; border-radius: 50%; background: rgba(245,237,227,0.18); cursor: pointer; transition: background 0.35s, transform 0.35s; flex-shrink: 0; }
-  .vc-dot.vc-active { background: #C9A060; transform: scale(1.45); }
+  .vc-dot  { width: 7px; height: 7px; border-radius: 50%; background: rgba(245,237,227,0.28); cursor: pointer; transition: background 0.35s, transform 0.35s, width 0.35s; flex-shrink: 0; }
+  .vc-dot.vc-active { background: #D4A96A; transform: scale(1.0); width: 22px; border-radius: 4px; }
 
   /* ── Modal ── */
   .vc-modal {
@@ -6170,9 +6170,13 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   .vc-mnav.vc-off { opacity: 0.22; pointer-events: none; }
   .vc-mnav svg { stroke: #F5EDE3; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
 
+  /* Mobile: show dots prominently, show mini arrows */
   @media (max-width: 580px) {
-    .vc-mnav { display: none; }
+    .vc-mnav { display: flex; }
     .vc-arrow { display: none; }
+    .vc-dots { margin-top: 22px; gap: 8px; }
+    .vc-dot { width: 8px; height: 8px; background: rgba(245,237,227,0.30); }
+    .vc-dot.vc-active { background: #D4A96A; width: 26px; border-radius: 4px; }
   }
   </style>
 
