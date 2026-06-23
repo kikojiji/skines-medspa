@@ -672,6 +672,73 @@ section { padding: 0 !important; }
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
+<style>
+/* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
+.site-footer {
+  background: linear-gradient(175deg, #2E1B10 0%, #3C2318 50%, #2A1709 100%);
+  font-family: "DM Sans", sans-serif;
+  position: relative;
+}
+.site-footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,160,96,0.3), transparent);
+}
+.sf-logo-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.8rem 1.5rem 1.5rem; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sf-logo { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; }
+.sf-stones { width: 38px; height: auto; opacity: 0.88; }
+.sf-brand { font-family: "DM Sans", sans-serif; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.36em; color: rgba(245,237,227,0.90); padding-left: 0.36em; }
+.sf-tagline-sub { font-size: 0.58rem; letter-spacing: 0.26em; color: rgba(245,237,227,0.30); text-transform: uppercase; padding-left: 0.26em; margin-top: 0.1rem; }
+
+/* ── Nav sections ── */
+.sf-nav { padding: 0.8rem 0 0; }
+.sf-nav-group { }
+.sf-nav-label {
+  display: block;
+  font-size: 0.60rem; font-weight: 600; letter-spacing: 0.26em;
+  color: rgba(201,160,96,0.65); text-transform: uppercase;
+  padding: 0.8rem 1.6rem 0.38rem;
+}
+.sf-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 1.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(245,237,227,0.65);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+.sf-link:hover { background: rgba(255,255,255,0.03); color: rgba(245,237,227,0.95); }
+.sf-link-left { display: flex; align-items: center; gap: 0.95rem; font-size: 0.88rem; font-weight: 300; line-height: 1; }
+.sf-link-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.sf-link-icon svg { width: 18px; height: 18px; stroke: rgba(201,160,96,0.72); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.sf-chevron { width: 13px; height: 13px; flex-shrink: 0; stroke: rgba(245,237,227,0.25); stroke-width: 2; fill: none; }
+.sf-link:hover .sf-chevron { stroke: rgba(245,237,227,0.60); }
+
+/* ── Social ── */
+.sf-social-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.2rem 1.5rem 0.9rem; gap: 0.7rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.sf-socials { display: flex; gap: 1.8rem; }
+.sf-social-btn { color: rgba(245,237,227,0.38); text-decoration: none; transition: color 0.2s; display: flex; }
+.sf-social-btn:hover { color: rgba(245,237,227,0.80); }
+
+/* ── Legal ── */
+.sf-legal {
+  padding: 0 1.5rem 1.2rem;
+  text-align: center; font-size: 0.70rem;
+  color: rgba(245,237,227,0.20);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.8rem;
+}
+.sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
+.sf-legal a:hover { color: rgba(245,237,227,0.55); }
+.sf-legal-sep { opacity: 0.3; }
+</style>
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="index.html">
