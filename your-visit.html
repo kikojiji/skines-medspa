@@ -502,43 +502,61 @@ section { padding: 0 !important; }
 .yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
 </style>
 
+<style>
+section { padding: 0 !important; }
+
+/* Hero */
+.yv-hero {
+  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(155deg,#1A0E06 0%,#3D1F10 55%,#2C180C 100%);
+  padding: 0 2rem 4.5rem; padding-top: 80px;
+  position: relative; overflow: hidden;
+}
+.yv-hero::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(201,160,96,0.07) 0%, transparent 65%);
+}
+.yv-hero-inner { max-width:680px; margin:0 auto; width:100%; position:relative; }
+.yv-pill {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:rgba(201,160,96,0.10); border:1px solid rgba(201,160,96,0.22);
+  border-radius:40px; padding:0.45rem 1rem;
+  font-size:0.63rem; letter-spacing:0.18em; color:rgba(201,160,96,0.80);
+  text-transform:uppercase; margin-bottom:2rem; width:fit-content;
+}
+.yv-hero h1 {
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3.5rem,11vw,6rem);
+  font-weight:300; color:rgba(245,237,227,0.95);
+  line-height:0.95; letter-spacing:-0.02em; margin-bottom:1.5rem;
+}
+.yv-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
+.yv-hero-sub {
+  font-size:0.95rem; color:rgba(245,237,227,0.42);
+  max-width:420px; line-height:1.8; margin-bottom:2.5rem;
+}
+.yv-hero-cta {
+  display:inline-flex; align-items:center; gap:0.55rem;
+  padding:0.85rem 2rem; border:1px solid rgba(201,160,96,0.38); border-radius:2px;
+  color:rgba(245,237,227,0.85); font-size:0.70rem; font-weight:500; letter-spacing:0.20em;
+  text-transform:uppercase; text-decoration:none; transition:all 0.25s;
+}
+.yv-hero-cta:hover { border-color:rgba(201,160,96,0.80); color:#fff; background:rgba(201,160,96,0.08); }
+.yv-scroll-hint { display:flex; flex-direction:column; align-items:center; gap:0.6rem; margin-top:3.5rem; opacity:0.22; }
+.yv-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
+.yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
+</style>
+
 <!-- ══ HERO ══ -->
 <header class="yv-hero">
   <div class="yv-hero-inner">
-    <div class="yv-pill fade-up">Votre Visite</div>
+    <div class="yv-pill fade-up">Votre Visite · Skines Med Spa</div>
     <h1 class="fade-up">Votre<br><em>expérience.</em></h1>
-    <p class="yv-hero-sub fade-up">Tout ce que vous devez savoir pour préparer votre visite chez Skines — et en profiter pleinement.</p>
-
-    <div class="yv-hero-links fade-up">
-      <a class="yv-hero-link" href="visit-us.html">
-        <div class="yv-hero-link-left">
-          <div class="yv-hero-link-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none"/></svg>
-          </div>
-          <span>Nous trouver · Adresse & horaires</span>
-        </div>
-        <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a class="yv-hero-link" href="parking.html">
-        <div class="yv-hero-link-left">
-          <div class="yv-hero-link-icon">
-            <svg viewBox="0 0 24 24" fill="none"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5" fill="none"/><circle cx="18.5" cy="18.5" r="2.5" fill="none"/></svg>
-          </div>
-          <span>Stationnement privé · Gratuit</span>
-        </div>
-        <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a class="yv-hero-link" href="insurance.html">
-        <div class="yv-hero-link-left">
-          <div class="yv-hero-link-icon">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <span>Reçus d'assurance · Sur demande</span>
-        </div>
-        <svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
+    <p class="yv-hero-sub fade-up">De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme et de luxe discret.</p>
+    <a class="yv-hero-cta fade-up" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">
+      RÉSERVER UN SOIN
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
     <div class="yv-scroll-hint">
       <div class="yv-scroll-line"></div>
       <span>Explorer</span>
@@ -698,6 +716,9 @@ section { padding: 0 !important; }
   </div>
 </div>
 
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
@@ -875,6 +896,8 @@ section { padding: 0 !important; }
   });
 })();
 </script>
+</body>
+</html>
 </body>
 </html>
 </body>
