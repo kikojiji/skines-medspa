@@ -1140,7 +1140,7 @@ var _fp = '';
       };
       if (photoBase64) { payload.photo = photoBase64; payload.photoType = photoType; }
 
-      fetch('https://skines-spa-mtl.vercel.app/api/send-tirage', {
+      fetch('https://api.skines.ca/api/send-tirage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
