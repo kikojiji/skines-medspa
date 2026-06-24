@@ -167,24 +167,6 @@ export default async function handler(req, res) {
     fpMap.set(fp, entry);
   }
 
-  // Photo (optional, compressed base64 from client)
-  let photoAttachment = null;
-  const rawPhoto     = req.body.photo;
-  const rawPhotoType = req.body.photoType || 'image/jpeg';
-  if (rawPhoto && typeof rawPhoto === 'string' && rawPhoto.length > 20) {
-    if (rawPhoto.length > 9_000_000) {
-      return res.status(413).json({ error: 'Photo trop volumineuse. Maximum 7 MB.' });
-    }
-    const ext = rawPhotoType.includes('png') ? 'png'
-              : rawPhotoType.includes('heic') || rawPhotoType.includes('heif') ? 'heic'
-              : 'jpg';
-    photoAttachment = {
-      filename:   `${firstName}_${lastName}.${ext}`,
-      content:    rawPhoto,
-      content_id: 'participant_photo',
-    };
-  }
-
   // Escape
   const safeFirst    = escapeHtml(firstName);
   const safeLast     = escapeHtml(lastName);
@@ -235,16 +217,6 @@ export default async function handler(req, res) {
 
   const locationRow = fullRow('Location', location);
 
-  const photoRow = photoAttachment
-    ? `  <tr><td style="padding:4px 40px 20px;text-align:center;background:#FFFFFF;">
-    <table cellpadding="0" cellspacing="0" style="margin:0 auto;">
-      <tr><td align="center" style="border:2px solid rgba(201,167,122,0.35);border-radius:20px;overflow:hidden;line-height:0;">
-        <img src="cid:participant_photo" alt="Photo" width="260" style="width:260px;height:320px;object-fit:cover;display:block;">
-      </td></tr>
-    </table>
-  </td></tr>`
-    : '';
-
   /* ── LUXURY CARD — ADMIN EMAIL ── */
   const adminHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -272,8 +244,6 @@ export default async function handler(req, res) {
     <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#B66A5A;letter-spacing:0.06em;font-style:italic;">Skines Med Spa &amp; Wellness</p>
   </td></tr>
 
-  ${photoRow}
-
   <!-- ─── INFO GRID ─── -->
   <tr><td style="padding:8px 36px 32px;background:#FFFFFF;">
     <table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;">
@@ -296,14 +266,6 @@ export default async function handler(req, res) {
 </html>`;
 
   /* ── CONFIRMATION EMAIL TO PARTICIPANT ── */
-  const confirmPhotoBlock = photoAttachment
-    ? `<table cellpadding="0" cellspacing="0" style="margin:0 auto;">
-        <tr><td align="center" style="border:3px solid #C9A97A;border-radius:20px;overflow:hidden;line-height:0;">
-          <img src="cid:participant_photo" alt="Photo" width="280" style="width:280px;height:340px;object-fit:cover;display:block;">
-        </td></tr>
-       </table>`
-    : '';
-
   const confirmHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -321,11 +283,6 @@ export default async function handler(req, res) {
     <img src="${LOGO}" alt="Skines" width="48" style="width:48px;height:auto;display:block;margin:0 auto 10px;">
     <p style="margin:0;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(90,70,55,0.52);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES MED SPA &amp; WELLNESS</p>
   </td></tr>
-
-  ${confirmPhotoBlock ? `<!-- ─── PHOTO ─── -->
-  <tr><td style="padding:0 0 24px;text-align:center;">
-    ${confirmPhotoBlock}
-  </td></tr>` : ''}
 
   <!-- ─── MAIN CARD ─── -->
   <tr><td style="background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid rgba(182,106,90,0.13);">
@@ -388,16 +345,12 @@ export default async function handler(req, res) {
 </html>`;
 
   try {
-    const adminAttachments   = [photoAttachment].filter(Boolean);
-    const confirmAttachments = [photoAttachment].filter(Boolean);
-
     const [adminId, confirmId] = await Promise.all([
       sendViaResend({
         from: FROM_ADMIN,
         to:   ADMIN,
         subject: `[Tirage] ${firstName} ${lastName} — nouvelle inscription`,
         html:    adminHtml,
-        attachments: adminAttachments,
       }),
       sendViaResend({
         from:    FROM,
@@ -405,7 +358,6 @@ export default async function handler(req, res) {
         replyTo: ADMIN,
         subject: `✦ Votre inscription au Tirage Skines est confirmée`,
         html:    confirmHtml,
-        attachments: confirmAttachments,
       }),
     ]);
     console.log('[send-tirage] admin:', adminId, 'confirm:', confirmId);
