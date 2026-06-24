@@ -6444,6 +6444,21 @@ html body .headspa-btn:hover {
   margin: 0.5rem 0 0 !important;
   letter-spacing: 0.04em !important;
 }
+.hero-promo-badge {
+  display: inline-block;
+  background: rgba(240,200,122,0.18);
+  border: 1px solid rgba(240,200,122,0.45);
+  color: #F0C87A;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-size: 0.70rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
 .headspa-hero-promo {
   color: rgba(245,237,227,0.52) !important;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
@@ -6709,7 +6724,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   <div class="hero-copy headspa-hero-copy">
     <div class="eyebrow headspa-hero-eyebrow">Rituel Japonais · Head Spa</div>
     <h1 class="headspa-hero-h1">HEAD SPA</h1>
-    <p class="headspa-hero-lead">30% OFF sur nos expériences Head Spa.</p>
+    <p class="headspa-hero-lead"><span class="hero-promo-badge">−30%</span> sur toutes les expériences</p>
     <div class="headspa-hero-actions">
       <a class="btn-hero-glass headspa-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER</a>
       <p class="headspa-hero-promo">Offrez à votre corps et votre esprit un véritable moment de relâchement profond.<br>Réservez votre expérience Skines dès maintenant.</p>
@@ -7647,5 +7662,33 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     <div id="searchResults" class="search-results"></div>
   </div>
 </div>
+<!-- Floating mobile booking button -->
+<style>
+@media (max-width: 768px) {
+  .float-book-btn {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    z-index: 900; background: #684034; color: #F5EDE3;
+    font-family: "DM Sans", sans-serif; font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none;
+    padding: 0.85rem 2.4rem; border-radius: 2px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s, transform 0.4s;
+    white-space: nowrap;
+  }
+  .float-book-btn.visible { opacity: 1; pointer-events: auto; }
+}
+@media (min-width: 769px) { .float-book-btn { display: none; } }
+</style>
+<a class="float-book-btn" id="floatBook" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver</a>
+<script>
+(function(){
+  var btn = document.getElementById('floatBook');
+  if (!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 320);
+  }, {passive: true});
+})();
+</script>
 </body>
 </html>

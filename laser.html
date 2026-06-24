@@ -8672,5 +8672,14 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     <div id="searchResults" class="search-results"></div>
   </div>
 </div>
+<style>
+@media (max-width: 768px) {
+  .float-book-btn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 900; background: #684034; color: #F5EDE3; font-family: "DM Sans", sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2.4rem; border-radius: 2px; box-shadow: 0 4px 24px rgba(0,0,0,0.28); opacity: 0; pointer-events: none; transition: opacity 0.4s; white-space: nowrap; }
+  .float-book-btn.visible { opacity: 1; pointer-events: auto; }
+}
+@media (min-width: 769px) { .float-book-btn { display: none; } }
+</style>
+<a class="float-book-btn" id="floatBook" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver</a>
+<script>(function(){ var b=document.getElementById('floatBook'); if(!b)return; window.addEventListener('scroll',function(){ b.classList.toggle('visible',window.scrollY>320); },{passive:true}); })();</script>
 </body>
 </html>

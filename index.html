@@ -522,6 +522,16 @@
   /* Chips — hidden */
   .chips, .chip { display: none !important; }
   /* "Voir le soin" — minimal text link, no box */
+  .card-price {
+    display: block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.60);
+    letter-spacing: 0.06em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
+  }
+  .card-price strong { color: rgba(255,255,255,0.92); font-weight: 500; }
   .card-link {
     color: rgba(255,255,255,0.80);
     font-size: 0.62rem;
@@ -7176,6 +7186,46 @@ html body #sp-stones img {
     video.hero-bg { animation: none; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedSpa",
+  "name": "Skines Med Spa",
+  "url": "https://skines.ca",
+  "image": "https://skines.ca/assets/og-logo3.webp",
+  "description": "Luxury Japanese Head Spa, advanced facials, and laser hair removal in Montréal. Deep relaxation, skin transformation, natural glow.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "19 Av. Shamrock",
+    "addressLocality": "Montréal",
+    "addressRegion": "QC",
+    "postalCode": "H2S 1A3",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.5344811,
+    "longitude": -73.6167675
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "17:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "reviewCount": "461"
+  },
+  "priceRange": "$$",
+  "servesCuisine": "Wellness",
+  "hasMap": "https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z",
+  "sameAs": [
+    "https://www.instagram.com/skines.medspa",
+    "https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf"
+  ]
+}
+</script>
 </head>
 <body>
   <nav>
@@ -7302,6 +7352,7 @@ html body #sp-stones img {
         <div class="card-body">
           <h3>Head Spa</h3>
           <p>Rituel japonais. Tensions libérées, système nerveux apaisé, cuir chevelu régénéré.</p>
+          <span class="card-price">À partir de <strong>$98</strong></span>
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
@@ -7310,6 +7361,7 @@ html body #sp-stones img {
         <div class="card-body">
           <h3>Épilation laser</h3>
           <p>Technologie Clarity II. Résultats durables, peau soyeuse, confort absolu.</p>
+          <span class="card-price">À partir de <strong>$59</strong></span>
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
@@ -7318,6 +7370,7 @@ html body #sp-stones img {
         <div class="card-body">
           <h3>Advanced Skin Therapy</h3>
           <p>Infusion de sérums sur mesure. Texture affinée, éclat restauré, peau transformée.</p>
+          <span class="card-price">À partir de <strong>$129</strong></span>
           <span class="card-link">Voir le soin</span>
         </div>
       </a>
@@ -9685,8 +9738,8 @@ function closePopup() {
   }, 520);
 }
 
-// auto-open: 12s on mobile (user needs time to orient), 5s on desktop
-setTimeout(openPopup, window.innerWidth < 768 ? 12000 : 5000);
+// auto-open: 18s on mobile, 10s on desktop
+setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
 
 // menu trigger
 var trig = document.getElementById('sp-menu-trigger');
