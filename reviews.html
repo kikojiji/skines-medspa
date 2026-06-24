@@ -1422,7 +1422,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 
   /* ── LIGHT CREAM THEME ── */
   html, body { background: #F0E6C8 !important; color: #3D2B1F !important; }
-  section { background: #F0E6C8 !important; }
+  section:not(.reviews-section) { background: #F0E6C8 !important; }
   h1, h2, h3 { color: #3D2B1F !important; }
   p { color: rgba(61,43,31,0.80) !important; }
   .eyebrow { color: #8B5E3C !important; }
@@ -1827,7 +1827,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 
   /* 1. Restore cream for ALL content sections */
   html, body { background: #F0E6C8 !important; }
-  section:not(.laser-fullslider):not(.gallery-carousel):not(.booking-band):not(.band):not(.technology-section):not(.products-section):not(.ritual-close):not(.hero):not(.family-section) {
+  section:not(.laser-fullslider):not(.gallery-carousel):not(.booking-band):not(.band):not(.technology-section):not(.products-section):not(.ritual-close):not(.hero):not(.family-section):not(.reviews-section) {
     background: #F0E6C8 !important;
   }
 
@@ -6225,7 +6225,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   </div>
 
   <!-- Reviews grid -->
-  <section class="reviews-section">
+  <section class="reviews-section" id="reviews-cards">
     <h2>Avis <em>Head Spa</em></h2>
     <p class="reviews-intro">★★★★★ · Source : Fresha</p>
     <div class="reviews-grid">
@@ -6853,6 +6853,15 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   html body nav a.nav-cta { display: none !important; }
 }
 /* STONE-FINAL */
+#reviews-cards { background: #684034 !important; }
+#reviews-cards h2 { color: #F5EDE3 !important; }
+#reviews-cards h2 em { color: #F0C87A !important; font-style: italic; }
+#reviews-cards .reviews-intro { color: rgba(245,237,227,0.70) !important; }
+#reviews-cards .review-card { background: rgba(255,255,255,0.10) !important; border-color: rgba(245,237,227,0.12) !important; }
+#reviews-cards .review-text { color: rgba(245,237,227,0.90) !important; }
+#reviews-cards .review-author { color: #F0C87A !important; font-weight: 500 !important; }
+#reviews-cards .review-source { color: rgba(245,237,227,0.45) !important; }
+#reviews-cards .review-stars { color: #F0C87A !important; }
 html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
 html body nav .menu-btn span { height: 4px !important; border-radius: 4px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #3A1E14 !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.9) !important; }
