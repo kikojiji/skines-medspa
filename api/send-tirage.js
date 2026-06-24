@@ -235,16 +235,17 @@ export default async function handler(req, res) {
 
   const locationRow = fullRow('Location', location);
 
-  const photoRow = photoAttachment
-    ? `  <!-- ─── PHOTO ─── -->
+  const photoRow = `  <!-- ─── PHOTO ─── -->
   <tr><td style="padding:4px 40px 20px;text-align:center;background:#FFFFFF;">
     <table cellpadding="0" cellspacing="0" style="margin:0 auto;">
-      <tr><td align="center" style="border:3px solid #C9A97A;border-radius:20px;overflow:hidden;line-height:0;">
-        <img src="cid:participant_photo" alt="Photo" width="260" style="width:260px;height:320px;object-fit:cover;display:block;">
+      <tr><td align="center" style="border:2px solid rgba(201,167,122,0.35);border-radius:20px;overflow:hidden;background:#FAF6F1;width:260px;height:320px;vertical-align:middle;text-align:center;">
+        ${photoAttachment
+          ? `<img src="cid:participant_photo" alt="Photo" width="260" style="width:260px;height:320px;object-fit:cover;display:block;">`
+          : `<p style="margin:0;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(182,106,90,0.45);font-family:Arial,Helvetica,sans-serif;">AUCUNE<br>PHOTO</p>`
+        }
       </td></tr>
     </table>
-  </td></tr>`
-    : '';
+  </td></tr>`;
 
   /* ── LUXURY CARD — ADMIN EMAIL ── */
   const adminHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
