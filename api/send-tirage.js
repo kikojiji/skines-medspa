@@ -7,7 +7,8 @@ import {
   rateLimit, getClientIp, sendViaResend,
 } from './_lib/security.js';
 
-const FROM  = "Skines Med Spa <noreply@skines.ca>";
+const FROM       = "Skines Med Spa <noreply@skines.ca>";
+const FROM_ADMIN = "Skines Tirage <Info@skines.ca>";
 const ADMIN = 'skinesca@gmail.com';
 const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 
@@ -234,12 +235,15 @@ export default async function handler(req, res) {
 
   const locationRow = fullRow('Location', location);
 
-  const photoBlock = photoAttachment
-    ? `<table cellpadding="0" cellspacing="0" style="margin:0 auto;">
-        <tr><td align="center" style="border:3px solid #C9A97A;border-radius:20px;overflow:hidden;line-height:0;">
-          <img src="cid:participant_photo" alt="Photo" width="260" style="width:260px;height:320px;object-fit:cover;display:block;">
-        </td></tr>
-       </table>`
+  const photoRow = photoAttachment
+    ? `  <!-- ─── PHOTO ─── -->
+  <tr><td style="padding:4px 40px 20px;text-align:center;background:#FFFFFF;">
+    <table cellpadding="0" cellspacing="0" style="margin:0 auto;">
+      <tr><td align="center" style="border:3px solid #C9A97A;border-radius:20px;overflow:hidden;line-height:0;">
+        <img src="cid:participant_photo" alt="Photo" width="260" style="width:260px;height:320px;object-fit:cover;display:block;">
+      </td></tr>
+    </table>
+  </td></tr>`
     : '';
 
   /* ── LUXURY CARD — ADMIN EMAIL ── */
@@ -269,10 +273,7 @@ export default async function handler(req, res) {
     <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#B66A5A;letter-spacing:0.06em;font-style:italic;">Skines Med Spa &amp; Wellness</p>
   </td></tr>
 
-  <!-- ─── PHOTO (centered) ─── -->
-  <tr><td style="padding:4px 40px 20px;text-align:center;background:#FFFFFF;">
-    ${photoBlock}
-  </td></tr>
+  ${photoRow}
 
   <!-- ─── INFO GRID ─── -->
   <tr><td style="padding:8px 36px 32px;background:#FFFFFF;">
@@ -393,9 +394,9 @@ export default async function handler(req, res) {
 
     const [adminId, confirmId] = await Promise.all([
       sendViaResend({
-        from: FROM,
+        from: FROM_ADMIN,
         to:   ADMIN,
-        subject: `New Giveaway Entry — ${firstName} ${lastName}`,
+        subject: `[Tirage] ${firstName} ${lastName} — nouvelle inscription`,
         html:    adminHtml,
         attachments: adminAttachments,
       }),
