@@ -6112,9 +6112,10 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   .vc-arrow svg { stroke: #F5D5A0; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; }
 
   /* Dots */
-  .vc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 18px; }
-  .vc-dot  { width: 7px; height: 7px; border-radius: 50%; background: rgba(245,237,227,0.28); cursor: pointer; transition: background 0.35s, transform 0.35s, width 0.35s; flex-shrink: 0; }
-  .vc-dot.vc-active { background: #D4A96A; transform: scale(1.0); width: 22px; border-radius: 4px; }
+  .vc-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 22px; }
+  .vc-dot  { width: 8px; height: 8px; border-radius: 50%; background: rgba(245,237,227,0.55); cursor: pointer; transition: background 0.35s, width 0.35s, border-radius 0.35s; flex-shrink: 0; }
+  .vc-dot:hover { background: rgba(245,237,227,0.80); }
+  .vc-dot.vc-active { background: #F0C87A; width: 28px; border-radius: 5px; }
 
   /* ── Modal ── */
   .vc-modal {
@@ -6853,6 +6854,7 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   html body nav a.nav-cta { display: none !important; }
 }
 /* STONE-FINAL */
+#vc-dots .vc-dot { display: inline-block !important; }
 .stats-strip { background: #684034 !important; border-color: rgba(245,237,227,0.10) !important; }
 .stats-strip .stat-item { border-color: rgba(245,237,227,0.15) !important; }
 .stats-strip .stat-item strong { color: #F5EDE3 !important; }
