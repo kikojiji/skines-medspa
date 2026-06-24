@@ -433,9 +433,7 @@ footer { background: #684034 !important; }
   "@type": "HealthAndBeautyBusiness",
   "@id": "https://skines.ca/#business",
   "name": "Skines Med Spa & Wellness",
-  "url": "https://skines.ca",
   "telephone": "+14382605660",
-  "email": "Info@skines.ca",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "19 Av. Shamrock",
@@ -449,11 +447,12 @@ footer { background: #684034 !important; }
     "latitude": 45.5344811,
     "longitude": -73.6167675
   },
-  "hasMap": "https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z",
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "17:00" }
-  ]
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "22:00"
+  }
 }
 </script>
 </head>

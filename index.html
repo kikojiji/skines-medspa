@@ -7193,32 +7193,18 @@ html body #sp-stones img {
     "@type": "HealthAndBeautyBusiness",
     "@id": "https://skines.ca/#business",
     "name": "Skines Med Spa & Wellness",
-    "alternateName": "Skines Head Spa Montréal",
     "url": "https://skines.ca",
     "telephone": "+14382605660",
     "email": "Info@skines.ca",
     "description": "Japanese Head Spa, advanced facials (Bela MD), and laser hair removal (Clarity II) in Montréal. A luxury wellness sanctuary at the heart of Plateau-Mont-Royal.",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://skines.ca/assets/images/logo-officiel.webp",
-      "width": 400,
-      "height": 400
+      "url": "https://skines.ca/assets/images/logo-officiel.webp"
     },
     "image": [
-      {
-        "@type": "ImageObject",
-        "url": "https://skines.ca/assets/og-logo3.webp",
-        "width": 1200,
-        "height": 630
-      },
-      {
-        "@type": "ImageObject",
-        "url": "https://skines.ca/assets/IMG_4654.webp"
-      },
-      {
-        "@type": "ImageObject",
-        "url": "https://skines.ca/assets/IMG_4659.webp"
-      }
+      "https://skines.ca/assets/og-logo3.webp",
+      "https://skines.ca/assets/IMG_4654.webp",
+      "https://skines.ca/assets/IMG_4659.webp"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -7233,21 +7219,12 @@ html body #sp-stones img {
       "latitude": 45.5344811,
       "longitude": -73.6167675
     },
-    "hasMap": "https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "10:00",
-        "closes": "19:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday", "Sunday"],
-        "opens": "10:00",
-        "closes": "17:00"
-      }
-    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "22:00"
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
@@ -7258,58 +7235,13 @@ html body #sp-stones img {
     "priceRange": "$$",
     "currenciesAccepted": "CAD",
     "paymentAccepted": "Cash, Credit Card, Debit Card",
-    "areaServed": {
-      "@type": "City",
-      "name": "Montréal"
-    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Skines Med Spa Services",
+      "name": "Services",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Japanese Head Spa – Solo 60 min",
-            "description": "Focus Scalpcial — deep scalp massage and Japanese hair ritual, 60 minutes.",
-            "provider": { "@id": "https://skines.ca/#business" }
-          },
-          "price": "98",
-          "priceCurrency": "CAD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Japanese Head Spa – Solo 90 min",
-            "description": "Signature Scalpcial — full Japanese head spa ritual, 90 minutes.",
-            "provider": { "@id": "https://skines.ca/#business" }
-          },
-          "price": "144",
-          "priceCurrency": "CAD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Advanced Facial – Bela MD",
-            "description": "Medical-grade facial with serum infusion, skin resurfacing, and personalized treatment.",
-            "provider": { "@id": "https://skines.ca/#business" }
-          },
-          "price": "129",
-          "priceCurrency": "CAD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Laser Hair Removal – Clarity II",
-            "description": "Permanent laser hair removal using Clarity II dual-wavelength technology.",
-            "provider": { "@id": "https://skines.ca/#business" }
-          },
-          "price": "59",
-          "priceCurrency": "CAD"
-        }
+        { "@id": "https://skines.ca/head-spa.html#service" },
+        { "@id": "https://skines.ca/laser.html#service" },
+        { "@id": "https://skines.ca/facial.html#service" }
       ]
     },
     "sameAs": [
@@ -7325,15 +7257,7 @@ html body #sp-stones img {
     "@id": "https://skines.ca/#website",
     "url": "https://skines.ca",
     "name": "Skines Med Spa",
-    "publisher": { "@id": "https://skines.ca/#business" },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://skines.ca/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+    "publisher": { "@id": "https://skines.ca/#business" }
   }
 ]
 </script>
