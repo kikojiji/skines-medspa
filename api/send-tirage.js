@@ -217,7 +217,28 @@ export default async function handler(req, res) {
 
   const locationRow = fullRow('Location', location);
 
-  /* ── LUXURY CARD — ADMIN EMAIL ── */
+  const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+
+  function adminRow(iconPath, label, value) {
+    if (!value || value === 'Unknown' || value === '—') return '';
+    return `<tr><td style="padding:11px 32px;border-bottom:1px solid rgba(182,106,90,0.08);background:#FFFFFF;">
+  <table cellpadding="0" cellspacing="0"><tr>
+    <td width="36" valign="middle" style="padding-right:12px;">
+      <table cellpadding="0" cellspacing="0" style="width:32px;height:32px;background:#F5EDE4;border-radius:8px;"><tr>
+        <td align="center" valign="middle" style="width:32px;height:32px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B66A5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${iconPath}</svg>
+        </td>
+      </tr></table>
+    </td>
+    <td valign="middle">
+      <p style="margin:0 0 2px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
+      <p style="margin:0;font-size:13px;color:#2A1410;font-family:Georgia,'Times New Roman',serif;">${value}</p>
+    </td>
+  </tr></table>
+</td></tr>`;
+  }
+
+  /* ── TICKET — ADMIN EMAIL ── */
   const adminHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -225,38 +246,68 @@ export default async function handler(req, res) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body style="margin:0;padding:0;background:#EDE6DF;font-family:Georgia,'Times New Roman',serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#EDE6DF;padding:36px 16px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#EDE6DF;padding:32px 16px;">
 <tr><td align="center">
 
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:100%;background:#FFFFFF;border-radius:24px;box-shadow:0 12px 64px rgba(90,50,30,0.14),0 2px 8px rgba(90,50,30,0.06);overflow:hidden;">
+<table width="580" cellpadding="0" cellspacing="0" style="max-width:100%;border-radius:20px;overflow:hidden;border:1px solid rgba(182,106,90,0.18);">
 
-  <!-- ─── HEADER ─── -->
-  <tr><td style="padding:40px 40px 28px;text-align:center;background:#FFFFFF;">
-    <img src="${LOGO}" alt="Skines" width="52" style="width:52px;height:auto;display:block;margin:0 auto 14px;">
-    <p style="margin:0 0 2px;font-size:10px;letter-spacing:0.30em;text-transform:uppercase;color:rgba(106,90,80,0.50);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES</p>
-    <p style="margin:0 0 14px;font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(106,90,80,0.35);font-family:Arial,Helvetica,sans-serif;">MED SPA &amp; WELLNESS</p>
-    <h1 style="margin:0 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:26px;letter-spacing:0.14em;text-transform:uppercase;color:#3A1E14;font-weight:400;line-height:1.1;">New Giveaway Entry</h1>
-    <table width="200" cellpadding="0" cellspacing="0" style="margin:0 auto 14px;"><tr>
-      <td style="height:1px;background:#D4B896;width:75px;"></td>
-      <td style="padding:0 10px;text-align:center;color:#C9973A;font-size:13px;line-height:1;">✦</td>
-      <td style="height:1px;background:#D4B896;width:75px;"></td>
-    </tr></table>
-    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#B66A5A;letter-spacing:0.06em;font-style:italic;">Skines Med Spa &amp; Wellness</p>
+  <!-- ─── DARK TOPBAR ─── -->
+  <tr><td style="background:#3D1F12;padding:18px 32px 16px;text-align:center;">
+    <p style="margin:0 0 6px;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(201,167,122,0.65);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES MED SPA &amp; WELLNESS</p>
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#C9A77A;letter-spacing:0.18em;">&#10022;&nbsp; Nouvelle Inscription &mdash; Tirage &nbsp;&#10022;</p>
   </td></tr>
 
-  <!-- ─── INFO GRID ─── -->
-  <tr><td style="padding:8px 36px 32px;background:#FFFFFF;">
-    <table cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;">
-      ${gridRows}
-      ${locationRow}
-    </table>
+  <!-- ─── GOLD RIBBON ─── -->
+  <tr><td style="height:3px;background:#C9973A;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <!-- ─── NAME BAND ─── -->
+  <tr><td style="background:#FFFFFF;padding:20px 32px 18px;border-bottom:1px solid rgba(182,106,90,0.12);">
+    <table cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td width="52" valign="middle">
+        <table cellpadding="0" cellspacing="0" style="width:48px;height:48px;background:#3D1F12;border-radius:50%;"><tr>
+          <td align="center" valign="middle" style="width:48px;height:48px;">
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;color:#C9A77A;line-height:1;">${initials}</p>
+          </td>
+        </tr></table>
+      </td>
+      <td valign="middle" style="padding-left:14px;">
+        <p style="margin:0 0 3px;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">Participant</p>
+        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#2A1410;letter-spacing:0.02em;">${safeFirst} ${safeLast}</p>
+      </td>
+      <td valign="middle" align="right">
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="background:#F5EDE4;border-radius:20px;padding:4px 12px;">
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B4A2A;">${safeService}</p>
+          </td>
+        </tr></table>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- ─── FIELD ROWS ─── -->
+  ${adminRow(I.phone,  'Phone',             safePhone)}
+  ${adminRow(I.email,  'Email',             safeEmail)}
+  ${adminRow(I.insta,  'Instagram / TikTok',safeUsername)}
+  ${adminRow(I.cal,    'Submitted',         submittedAt)}
+
+  <!-- ─── META STRIP ─── -->
+  <tr><td style="background:#3D1F12;padding:12px 32px;">
+    <table cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(201,167,122,0.70);letter-spacing:0.06em;">
+        ${deviceType} &middot; ${browser}
+      </td>
+      <td align="center" style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(201,167,122,0.70);letter-spacing:0.06em;">
+        ${ip}
+      </td>
+      <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(201,167,122,0.70);letter-spacing:0.06em;">
+        ${location || 'CA'}
+      </td>
+    </tr></table>
   </td></tr>
 
   <!-- ─── FOOTER ─── -->
-  <tr><td style="padding:18px 40px 28px;text-align:center;background:#FDFAF7;border-top:1px solid rgba(182,106,90,0.10);">
-    <p style="margin:0 0 3px;font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(106,90,80,0.40);font-family:Arial,Helvetica,sans-serif;">Generated automatically from</p>
-    <p style="margin:0 0 10px;font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">Skines Giveaway Page</p>
-    <p style="margin:0;font-size:10px;letter-spacing:0.12em;color:rgba(106,90,80,0.40);font-family:Arial,Helvetica,sans-serif;">&#x1F4CD;&nbsp; Montreal, Canada</p>
+  <tr><td style="padding:12px 32px;text-align:center;background:#F8F4F0;">
+    <p style="margin:0;font-size:9px;letter-spacing:0.20em;text-transform:uppercase;color:rgba(90,60,40,0.38);font-family:Arial,Helvetica,sans-serif;">Generated automatically &mdash; Skines Giveaway Page</p>
   </td></tr>
 
 </table>
