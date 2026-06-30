@@ -8068,5 +8068,410 @@ html body nav
 .lps-item:hover img{transform:scale(1.04)}
 @media(max-width:480px){.lps-grid{gap:1px}}
 </style>
+
+<!-- ══ LASER ZONE OVERLAY ══════════════════════════════════════════════════ -->
+<style>
+.fcl-overlay{position:fixed;inset:0;z-index:9990;display:flex;align-items:flex-end;justify-content:center;visibility:hidden;pointer-events:none}
+.fcl-overlay.fcl-open{visibility:visible;pointer-events:all}
+.fcl-backdrop{position:fixed;inset:0;background:rgba(15,5,2,.72);opacity:0;transition:opacity .38s ease}
+.fcl-overlay.fcl-open .fcl-backdrop{opacity:1}
+.fcl-panel{position:relative;z-index:1;width:100%;max-width:880px;height:91vh;background:#F5EDE3;border-radius:22px 22px 0 0;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .52s cubic-bezier(.22,.61,.36,1);overflow:hidden}
+.fcl-overlay.fcl-open .fcl-panel{transform:translateY(0)}
+.fcl-panel-top{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2.2rem 1.1rem;flex-shrink:0;border-bottom:1px solid rgba(58,30,20,.09)}
+.fcl-eyebrow{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#C9973A}
+.fcl-close{background:none;border:none;cursor:pointer;color:#3A1E14;opacity:.4;padding:.3rem;line-height:0;transition:opacity .2s}
+.fcl-close:hover{opacity:1}
+.fcl-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:2rem 2.2rem 4.5rem;scrollbar-width:thin;scrollbar-color:rgba(58,30,20,.15) transparent}
+.fcl-scroll::-webkit-scrollbar{width:4px}
+.fcl-scroll::-webkit-scrollbar-thumb{background:rgba(58,30,20,.15);border-radius:2px}
+.fcl-h1{font-family:'Cormorant Garamond','Times New Roman',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:400;color:#3A1E14;line-height:1.1;margin:0 0 .5rem}
+.fcl-meta{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(58,30,20,.42);margin-bottom:1.6rem}
+.fcl-divider{width:2.4rem;height:1px;background:#C9973A;margin:0 0 1.8rem}
+.fcl-lead{font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.8;color:#4B2E26;margin-bottom:1.8rem}
+.fcl-img-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:0 0 2.2rem}
+.fcl-img-item{aspect-ratio:1/1;overflow:hidden;border-radius:6px}
+.fcl-img-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.fcl-img-item:hover img{transform:scale(1.03)}
+.fcl-section-h{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:#C9973A;margin:2rem 0 .55rem}
+.fcl-body{font-family:'DM Sans',sans-serif;font-size:.855rem;line-height:1.82;color:rgba(58,30,20,.68);margin:0 0 1rem}
+.fcl-list{list-style:none;padding:0;margin:0 0 1.4rem}
+.fcl-list li{font-family:'DM Sans',sans-serif;font-size:.84rem;line-height:1.75;color:rgba(58,30,20,.68);padding-left:1.2rem;position:relative;margin-bottom:.25rem}
+.fcl-list li::before{content:'–';position:absolute;left:0;color:#C9973A}
+.fcl-faq-item{border-top:1px solid rgba(58,30,20,.08);padding:1rem 0 .8rem}
+.fcl-faq-q{font-family:'Cormorant Garamond',serif;font-size:.97rem;font-weight:600;color:#3A1E14;margin:0 0 .35rem}
+.fcl-faq-a{font-family:'DM Sans',sans-serif;font-size:.83rem;line-height:1.72;color:rgba(58,30,20,.62);margin:0}
+.fcl-links-wrap{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.2rem 0 1.6rem}
+.fcl-pill{font-family:'DM Sans',sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#3A1E14;text-decoration:none;border:1px solid rgba(58,30,20,.22);border-radius:50px;padding:.42rem 1rem;transition:border-color .2s,background .2s;display:inline-block}
+.fcl-pill:hover{border-color:#C9973A;background:rgba(201,151,58,.08)}
+.fcl-cta-wrap{text-align:center;margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid rgba(58,30,20,.1)}
+.fcl-cta{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.67rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;background:#F5EDE3;color:#3A1E14;border:1.5px solid #3A1E14;padding:.95rem 2.6rem;border-radius:2px;transition:background .22s,color .22s}
+.fcl-cta:hover{background:#3A1E14;color:#F5EDE3}
+.price-card[data-zone] .price-card-img{cursor:pointer;position:relative;overflow:hidden}
+.price-card[data-zone] .price-card-img::after{content:'';position:absolute;inset:0;background:rgba(58,30,20,0);transition:background .25s;pointer-events:none}
+.price-card[data-zone] .price-card-img:hover::after{background:rgba(58,30,20,.07)}
+@media(max-width:640px){.fcl-panel{height:94vh;border-radius:16px 16px 0 0}.fcl-scroll{padding:1.5rem 1.4rem 3.5rem}.fcl-panel-top{padding:1.1rem 1.4rem .9rem}}
+</style>
+
+<div id="fclOverlay" class="fcl-overlay" role="dialog" aria-modal="true" aria-label="Détails du soin laser">
+  <div class="fcl-backdrop" id="fclBackdrop"></div>
+  <div id="fclPanel" class="fcl-panel">
+    <div class="fcl-panel-top">
+      <span id="fclEyebrow" class="fcl-eyebrow"></span>
+      <button id="fclClose" class="fcl-close" aria-label="Fermer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="fclScroll" class="fcl-scroll">
+      <div id="fclContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var FRESHA = 'https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288';
+
+  var DATA = {
+    'visage': {
+      images: ['assets/laser-face-m.webp?v=1','assets/laser-lips.webp?v=1'],
+      fr: {
+        eyebrow: 'Épilation Laser · Visage',
+        title: 'Épilation Laser Visage',
+        meta: '3–6 séances recommandées · Clarity II',
+        lead: "L’épilation laser du visage à Montréal chez Skines Med Spa & Wellness cible les zones les plus fines — lèvre supérieure, menton, cou, nuque et contour de barbe. Chaque séance est ajustée à votre type de peau et à la densité des poils, grâce à la technologie Clarity II.",
+        sections: [
+          { h: 'La technologie Clarity II', body: 'La Clarity II de Lutronic combine deux longueurs d’onde — Alexandrite (755 nm) et Nd:YAG (1 064 nm) — pour s’adapter à un large spectre de types de peau et de couleurs de poils. Un système de refroidissement intégré assure le confort pendant la séance.' },
+          { h: 'Résultats progressifs', body: 'La repousse est progressivement réduite après chaque séance. Pour une réduction durable sur les zones du visage, un protocole de 3 à 6 séances espacées de 4 à 8 semaines est généralement recommandé. L’esthéticienne ajuste le protocole à chaque rendez-vous.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Femmes et hommes', 'Lèvre supérieure, menton, favoris, cou ou nuque', 'Contour de barbe pour un rendu net et précis', 'Recherche d’une réduction durable des poils du visage à Montréal'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Combien de séances sont nécessaires pour le visage ?', a: 'En moyenne, 4 à 6 séances sont recommandées. La réponse varie selon le type de poil, la zone traitée et le cycle de repousse individuel.' },
+          { q: 'La séance est-elle douloureuse ?', a: 'La plupart des personnes décrivent une légère sensation de chaleur ou de picotement. Le système de refroidissement intégré de la Clarity II contribue au confort.' },
+          { q: 'Peut-on traiter le contour de barbe ?', a: 'Oui. Le contour de barbe est l’une des zones les plus demandées par les hommes. Le traitement permet de définir une ligne précise et de réduire la repousse dans les zones traitées.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/laser', label: 'Bikini & Intime' }, { href: '/facial', label: 'Soins Visage Montréal' }],
+        cta: 'Réserver une séance'
+      },
+      en: {
+        eyebrow: 'Laser Hair Removal · Face',
+        title: 'Facial Laser Hair Removal',
+        meta: '3–6 sessions recommended · Clarity II',
+        lead: 'Facial laser hair removal at Skines Med Spa & Wellness in Montreal targets the most delicate areas — upper lip, chin, neck, nape and beard contour. Each session is adjusted to your skin type and hair density using Clarity II technology.',
+        sections: [
+          { h: 'Clarity II technology', body: 'The Lutronic Clarity II combines two wavelengths — Alexandrite (755 nm) and Nd:YAG (1,064 nm) — to adapt to a wide range of skin types and hair colors. An integrated cooling system ensures comfort throughout the session.' },
+          { h: 'Progressive results', body: 'Hair regrowth is progressively reduced after each session. For lasting reduction on facial areas, a protocol of 3 to 6 sessions spaced 4 to 8 weeks apart is generally recommended. Your esthetician adjusts the protocol at each appointment.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Women and men', 'Upper lip, chin, sideburns, neck or nape', 'Beard contour for a clean, precise line', 'Looking for lasting hair reduction on the face in Montreal'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'How many sessions are needed for the face?', a: 'On average, 4 to 6 sessions are recommended. Results vary by hair type, zone and individual regrowth cycle.' },
+          { q: 'Is the session painful?', a: 'Most people describe a slight warm or tingling sensation. The integrated cooling system of the Clarity II contributes to comfort.' },
+          { q: 'Can beard contour be treated?', a: 'Yes. Beard contour is one of the most requested zones for men. Treatment helps define a precise line and reduce regrowth in treated areas.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/laser', label: 'Bikini & Intimate' }, { href: '/facial', label: 'Facial Treatments Montreal' }],
+        cta: 'Book a session'
+      }
+    },
+    'bikini': {
+      images: ['assets/laser-bikini-w.webp?v=1','assets/laser-bikini-aisselles.webp?v=1'],
+      fr: {
+        eyebrow: 'Épilation Laser · Bikini & Intime',
+        title: 'Épilation Laser Bikini',
+        meta: '4–6 séances recommandées · Clarity II',
+        lead: "L’épilation laser bikini chez Skines Med Spa & Wellness est l’un des soins les plus demandés à Montréal. Ligne bikini, maillot intégral ou zones élargies — chaque séance est réalisée dans un cadre privé et professionnel, avec la technologie Clarity II.",
+        sections: [
+          { h: 'Des formules adaptées à votre objectif', body: 'Du simple entretien de la ligne bikini au maillot intégral, Skines propose plusieurs formules. Les paquets combinent souvent les zones bikini avec les aisselles pour maximiser l’efficacité de chaque séance et réduire le coût global du protocole.' },
+          { h: 'Réduction durable des poils', body: 'La réduction des poils est progressive et cumulable : chaque séance agit sur les poils en phase de croissance active. Pour des résultats durables, un protocole de 4 à 6 séances espacées de 4 à 8 semaines est recommandé.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Ligne bikini, maillot intégral ou zones élargies', 'Femmes et hommes', 'Peau claire à foncée (Clarity II adapté à un large spectre)', 'Recherche d’une réduction durable sans contrainte de rasage'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Le laser bikini convient-il à tous les types de peau ?', a: 'La Clarity II combine deux longueurs d’onde qui permettent de traiter un large spectre de types de peau. Votre esthéticienne évalue votre profil cutané et ajuste les paramètres à chaque séance.' },
+          { q: 'Faut-il se raser avant la séance ?', a: 'Oui. La zone à traiter doit être rasée 24 à 48 heures avant la séance. Ne pas épiler à la cire ni utiliser de crème dépilatoire dans les semaines précédant la séance.' },
+          { q: 'La séance se déroule-t-elle dans un cadre confidentiel ?', a: 'Oui. Toutes les séances bikini sont réalisées en cabine privée par une esthéticienne formée, dans le respect total de la confidentialité et du confort de la cliente.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/laser', label: 'Jambes & Corps' }, { href: '/laser', label: 'Corps Complet — $200' }],
+        cta: 'Réserver une séance'
+      },
+      en: {
+        eyebrow: 'Laser Hair Removal · Bikini & Intimate',
+        title: 'Bikini Laser Hair Removal',
+        meta: '4–6 sessions recommended · Clarity II',
+        lead: 'Bikini laser hair removal at Skines Med Spa & Wellness is one of the most requested treatments in Montreal. Bikini line, full Brazilian or extended areas — each session is performed in a private, professional setting using Clarity II technology.',
+        sections: [
+          { h: 'Formulas adapted to your goals', body: 'From simple bikini line maintenance to a full Brazilian, Skines offers several options. Packages often combine bikini zones with underarms to maximize efficiency per session and reduce overall protocol cost.' },
+          { h: 'Lasting hair reduction', body: 'Hair reduction is progressive and cumulative: each session targets hair in its active growth phase. For lasting results, a protocol of 4 to 6 sessions spaced 4 to 8 weeks apart is recommended.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Bikini line, full Brazilian or extended areas', 'Women and men', 'Light to dark skin (Clarity II adapts to a wide range)', 'Looking for lasting reduction without constant shaving'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Is bikini laser suitable for all skin types?', a: 'The Clarity II combines two wavelengths that treat a wide range of skin tones. Your esthetician evaluates your skin profile and adjusts the settings at each session.' },
+          { q: 'Should I shave before the session?', a: 'Yes. The area should be shaved 24 to 48 hours before the session. Do not wax or use depilatory creams in the weeks before.' },
+          { q: 'Is the session performed in a private setting?', a: 'Yes. All bikini sessions are performed in a private room by a trained esthetician, with full respect for your confidentiality and comfort.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/laser', label: 'Legs & Body' }, { href: '/laser', label: 'Full Body — $200' }],
+        cta: 'Book a session'
+      }
+    },
+    'jambes': {
+      images: ['assets/laser-legs-w.webp?v=1','assets/laser-bikini-aisselles-jambes.webp?v=1'],
+      fr: {
+        eyebrow: 'Épilation Laser · Jambes',
+        title: 'Épilation Laser Jambes',
+        meta: '5–8 séances recommandées · Clarity II',
+        lead: "Les jambes sont l’une des plus grandes surfaces traitées en épilation laser. Chez Skines Med Spa & Wellness à Montréal, la Clarity II permet de traiter jambes complètes ou demi-jambes en une séance efficace, pour une réduction progressive et durable des poils.",
+        sections: [
+          { h: 'Jambes complètes ou demi-jambes', body: 'Nous proposons le traitement des jambes complètes (de la cuisse aux orteils) et des demi-jambes (du genou aux orteils). Ces zones peuvent être combinées à d’autres dans un paquet sur mesure pour optimiser chaque rendez-vous.' },
+          { h: 'Confort sur une grande surface', body: 'La Clarity II est équipée d’un système de refroidissement continu qui maintient le confort pendant le traitement de grandes surfaces. La durée d’une séance jambes complètes varie selon la densité des poils et la zone exacte traitée.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Femmes et hommes', 'Poils fins ou denses sur les jambes', 'Entretien régulier des jambes (rasage fréquent)', 'Combinaison avec bikini ou aisselles pour maximiser chaque séance'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Combien de séances pour les jambes ?', a: 'En moyenne, 5 à 8 séances espacées de 6 à 8 semaines sont recommandées. Le nombre peut varier selon la densité des poils et la réponse individuelle au traitement.' },
+          { q: 'Peut-on combiner les jambes avec d’autres zones en une séance ?', a: 'Oui. Nos paquets incluent des combinaisons jambes + bikini ou jambes + aisselles + bikini pour traiter plusieurs zones en un seul rendez-vous.' },
+          { q: 'Combien de temps dure une séance jambes complètes ?', a: 'En général, une séance jambes complètes dure entre 30 et 60 minutes, selon la densité des poils et la surface à traiter.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/laser', label: 'Bikini & Intime' }, { href: '/laser', label: 'Corps Complet — $200' }],
+        cta: 'Réserver une séance'
+      },
+      en: {
+        eyebrow: 'Laser Hair Removal · Legs',
+        title: 'Leg Laser Hair Removal',
+        meta: '5–8 sessions recommended · Clarity II',
+        lead: 'Legs are one of the largest surfaces treated in laser hair removal. At Skines Med Spa & Wellness in Montreal, the Clarity II handles full legs or half-legs in an efficient session, delivering progressive and lasting hair reduction.',
+        sections: [
+          { h: 'Full legs or half-legs', body: 'We offer treatment for full legs (thigh to toes) and half-legs (knee to toes). These zones can be combined with others in a custom package to optimize each appointment.' },
+          { h: 'Comfort on a large surface', body: 'The Clarity II features a continuous cooling system that maintains comfort during treatment of large surfaces. Session duration for full legs varies based on hair density and the exact area treated.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Women and men', 'Fine or dense leg hair', 'Regular leg maintenance (frequent shaving)', 'Combining with bikini or underarms for maximum efficiency per session'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'How many sessions for the legs?', a: 'On average, 5 to 8 sessions spaced 6 to 8 weeks apart are recommended. The number may vary based on hair density and individual response.' },
+          { q: 'Can legs be combined with other zones in one session?', a: 'Yes. Our packages include leg + bikini or leg + underarms + bikini combinations to treat multiple zones in a single appointment.' },
+          { q: 'How long does a full legs session take?', a: 'Generally, a full legs session takes 30 to 60 minutes, depending on hair density and the exact area.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/laser', label: 'Bikini & Intimate' }, { href: '/laser', label: 'Full Body — $200' }],
+        cta: 'Book a session'
+      }
+    },
+    'corps': {
+      images: ['assets/laser-back-men.webp?v=1','assets/laser-aisselles-homme.webp?v=1'],
+      fr: {
+        eyebrow: 'Épilation Laser · Corps & Dos',
+        title: 'Épilation Laser Corps & Dos',
+        meta: '4–8 séances recommandées · Clarity II',
+        lead: "Chez Skines Med Spa & Wellness, l’épilation laser du corps couvre toutes les zones : aisselles, bras, dos, poitrine, ventre, épaules et fesses. La technologie Clarity II s’adapte à chaque zone avec des paramètres précis pour un traitement efficace et confortable.",
+        sections: [
+          { h: 'Une couverture corporelle complète', body: 'Chaque zone du corps a ses spécificités — densité des poils, épaisseur de la peau, sensibilité. Nos esthéticiennes ajustent les paramètres de la Clarity II pour chaque zone traitée lors de la même séance ou dans un protocole dédié.' },
+          { h: 'Paquets multi-zones', body: 'Pour les grandes surfaces comme le dos complet ou la combinaison dos + poitrine, des paquets multi-zones permettent de traiter plusieurs zones en un seul rendez-vous, optimisant le rapport temps/résultat.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Hommes : dos, poitrine, épaules, bras, aisselles', 'Femmes : aisselles, ventre, bras, épaules', 'Zones difficiles à entretenir au rasoir', 'Recherche d’une réduction durable sur le long terme'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Peut-on traiter plusieurs zones du corps en une séance ?', a: 'Oui. Nos paquets multi-zones permettent de combiner plusieurs zones lors de la même séance. Votre esthéticienne vous guidera pour composer le protocole le plus adapté.' },
+          { q: 'Le laser fonctionne-t-il sur tous les types de poils du corps ?', a: 'La Clarity II traite efficacement un large spectre de types de poils. Les résultats peuvent varier selon la densité et la couleur des poils. Votre esthéticienne évalue votre profil lors de la première séance.' },
+          { q: 'Combien de séances pour le dos complet ?', a: 'En moyenne, 5 à 8 séances sont recommandées pour le dos. Le cycle de repousse et la densité des poils influencent le nombre de séances nécessaires.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/laser', label: 'Corps Complet — $200' }, { href: '/laser', label: 'Bikini & Intime' }],
+        cta: 'Réserver une séance'
+      },
+      en: {
+        eyebrow: 'Laser Hair Removal · Body & Back',
+        title: 'Body & Back Laser Hair Removal',
+        meta: '4–8 sessions recommended · Clarity II',
+        lead: 'At Skines Med Spa & Wellness, body laser hair removal covers all zones: underarms, arms, back, chest, abdomen, shoulders and buttocks. Clarity II technology adapts to each zone with precise settings for effective, comfortable treatment.',
+        sections: [
+          { h: 'Full body coverage', body: 'Each body zone has its own characteristics — hair density, skin thickness, sensitivity. Our estheticians adjust the Clarity II settings for each zone treated in the same session or within a dedicated protocol.' },
+          { h: 'Multi-zone packages', body: 'For large surfaces like a full back or back + chest combination, multi-zone packages treat several areas in one appointment, optimizing your time-to-result ratio.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Men: back, chest, shoulders, arms, underarms', 'Women: underarms, abdomen, arms, shoulders', 'Zones difficult to maintain with regular shaving', 'Seeking lasting long-term hair reduction'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Can multiple body zones be treated in one session?', a: 'Yes. Our multi-zone packages allow combining several areas in the same session. Your esthetician will help you build the most suitable protocol.' },
+          { q: 'Does laser work on all body hair types?', a: 'The Clarity II treats a wide range of hair types effectively. Results may vary based on hair density and color. Your esthetician evaluates your profile at the first session.' },
+          { q: 'How many sessions for the full back?', a: 'On average, 5 to 8 sessions are recommended for the back. Regrowth cycle and hair density affect the number of sessions required.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/laser', label: 'Full Body — $200' }, { href: '/laser', label: 'Bikini & Intimate' }],
+        cta: 'Book a session'
+      }
+    },
+    'corps-complet': {
+      images: ['assets/laser-full-zones.webp?v=1','assets/laser-hero.webp?v=1'],
+      fr: {
+        eyebrow: 'Offre Spéciale · Clarity II',
+        title: 'Corps Complet — Première Séance',
+        meta: '1h 30 min · $200 · 50 % de réduction',
+        lead: "L’offre Corps Complet de Skines Med Spa & Wellness permet de traiter l’ensemble de vos zones prioritaires en une seule séance de 1h 30 min à Montréal. C’est le point d’entrée idéal pour découvrir la technologie Clarity II au meilleur tarif de première séance.",
+        sections: [
+          { h: 'Ce que comprend la séance', body: 'La séance Corps Complet couvre toutes vos zones prioritaires : visage, aisselles, bikini, bras, jambes, dos, poitrine, ventre. Votre esthéticienne établit avec vous l’ordre de traitement en début de séance selon vos objectifs.' },
+          { h: 'Une offre de première séance exclusive', body: 'L’offre à $200 est disponible uniquement pour la première séance corps complet. Elle permet de tester la Clarity II sur l’ensemble de vos zones avant de définir un protocole de suivi personnalisé avec votre esthéticienne.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Première séance d’épilation laser à Montréal', 'Traitement de plusieurs zones simultanément', 'Meilleur rapport qualité/prix pour découvrir la technologie Clarity II', 'Skines Med Spa & Wellness — Montréal'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Toutes les zones sont-elles traitées en une seule séance ?', a: 'Oui. La séance de 1h 30 min est conçue pour couvrir l’ensemble des zones ciblées. Votre esthéticienne organise la séance pour optimiser le temps disponible selon vos priorités.' },
+          { q: 'Quel est le prix des séances suivantes ?', a: 'Les tarifs des séances suivantes sont disponibles par zone sur Fresha. Votre esthéticienne vous proposera un plan de suivi adapté à l’issue de la première séance.' },
+          { q: 'Combien de séances corps complet sont recommandées ?', a: 'Pour une réduction durable sur l’ensemble du corps, un protocole de 6 à 8 séances est généralement recommandé. La fréquence est adaptée zone par zone selon les cycles de repousse.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/laser', label: 'Bikini & Intime' }, { href: '/laser', label: 'Visage & Cou' }],
+        cta: 'Réserver — $200 · Première séance'
+      },
+      en: {
+        eyebrow: 'Special Offer · Clarity II',
+        title: 'Full Body — First Session',
+        meta: '1h 30 min · $200 · 50% off',
+        lead: "Skines Med Spa & Wellness' Full Body offer lets you treat all your priority zones in a single 1h 30 min session in Montreal. It’s the ideal starting point to discover Clarity II technology at the best first-session rate.",
+        sections: [
+          { h: 'What the session includes', body: 'The Full Body session covers all your priority zones: face, underarms, bikini, arms, legs, back, chest, abdomen. Your esthetician establishes the treatment order at the start of the session based on your goals.' },
+          { h: 'An exclusive first-session offer', body: 'The $200 offer is available for the first full body session only. It lets you experience the Clarity II across all your zones before defining a personalized follow-up protocol with your esthetician.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['First laser hair removal session in Montreal', 'Treating multiple zones simultaneously', 'Best value introduction to Clarity II technology', 'Skines Med Spa & Wellness — Montreal'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Are all zones treated in one session?', a: 'Yes. The 1h 30 min session is designed to cover all targeted zones. Your esthetician organizes the session to optimize the available time based on your priorities.' },
+          { q: 'What are the prices for follow-up sessions?', a: 'Follow-up session pricing is available by zone on Fresha. Your esthetician will suggest a tailored follow-up plan at the end of your first session.' },
+          { q: 'How many full body sessions are recommended?', a: 'For lasting reduction across the whole body, a protocol of 6 to 8 sessions is generally recommended. Frequency is adapted zone by zone according to regrowth cycles.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/laser', label: 'Bikini & Intimate' }, { href: '/laser', label: 'Face & Neck' }],
+        cta: 'Book — $200 · First session'
+      }
+    }
+  };
+
+  var overlay = document.getElementById('fclOverlay');
+  var eyebrowEl = document.getElementById('fclEyebrow');
+  var scrollEl = document.getElementById('fclScroll');
+  var contentEl = document.getElementById('fclContent');
+  var closeBtn = document.getElementById('fclClose');
+  var backdropEl = document.getElementById('fclBackdrop');
+  if (!overlay) return;
+
+  var savedScroll = 0;
+
+  function getLang() { return localStorage.getItem('skines-lang') || 'fr'; }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderContent(key) {
+    var svc = DATA[key];
+    if (!svc) return;
+    var d = svc[getLang()] || svc['fr'];
+    eyebrowEl.textContent = d.eyebrow;
+    var h = '';
+    h += '<h2 class="fcl-h1">' + esc(d.title) + '</h2>';
+    h += '<p class="fcl-meta">' + esc(d.meta) + '</p>';
+    h += '<div class="fcl-divider"></div>';
+    h += '<p class="fcl-lead">' + esc(d.lead) + '</p>';
+    if (svc.images && svc.images.length) {
+      h += '<div class="fcl-img-grid">';
+      for (var ig = 0; ig < svc.images.length; ig++) {
+        h += '<div class="fcl-img-item"><img src="' + esc(svc.images[ig]) + '" alt="' + esc(d.title) + ' Montréal" loading="lazy"></div>';
+      }
+      h += '</div>';
+    }
+    for (var i = 0; i < d.sections.length; i++) {
+      h += '<p class="fcl-section-h">' + esc(d.sections[i].h) + '</p>';
+      h += '<p class="fcl-body">' + esc(d.sections[i].body) + '</p>';
+    }
+    h += '<p class="fcl-section-h">' + esc(d.forWhoTitle) + '</p>';
+    h += '<ul class="fcl-list">';
+    for (var j = 0; j < d.forWho.length; j++) { h += '<li>' + esc(d.forWho[j]) + '</li>'; }
+    h += '</ul>';
+    h += '<p class="fcl-section-h">' + esc(d.faqTitle) + '</p>';
+    for (var k = 0; k < d.faqs.length; k++) {
+      h += '<div class="fcl-faq-item"><p class="fcl-faq-q">' + esc(d.faqs[k].q) + '</p><p class="fcl-faq-a">' + esc(d.faqs[k].a) + '</p></div>';
+    }
+    h += '<p class="fcl-section-h">' + esc(d.linksTitle) + '</p>';
+    h += '<div class="fcl-links-wrap">';
+    for (var l = 0; l < d.links.length; l++) {
+      h += '<a href="' + esc(d.links[l].href) + '" class="fcl-pill">' + esc(d.links[l].label) + '</a>';
+    }
+    h += '</div>';
+    h += '<div class="fcl-cta-wrap"><a class="fcl-cta" href="' + esc(FRESHA) + '" target="_blank" rel="noreferrer">' + esc(d.cta) + '</a></div>';
+    contentEl.innerHTML = h;
+    scrollEl.scrollTop = 0;
+  }
+
+  function openOverlay(key) {
+    savedScroll = window.scrollY || window.pageYOffset || 0;
+    renderContent(key);
+    overlay.classList.add('fcl-open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('fcl-open');
+    document.body.style.overflow = '';
+    setTimeout(function() { window.scrollTo(0, savedScroll); }, 30);
+  }
+
+  closeBtn.addEventListener('click', closeOverlay);
+  backdropEl.addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && overlay.classList.contains('fcl-open')) closeOverlay();
+  });
+
+  /* ── Zone mapping: auto-assign data-zone to each price-card ── */
+  var ZONE_MAP = [
+    { zone: 'corps-complet', keys: ['corps complet'] },
+    { zone: 'bikini', keys: ['bikini', 'maillot', 'ligne bikini', 'aréole'] },
+    { zone: 'visage', keys: ['visage', 'lèvre', 'menton', 'favoris', 'cou', 'nuque', 'barbe', 'demi-visage'] },
+    { zone: 'jambes', keys: ['jambes'] },
+    { zone: 'corps', keys: ['aisselles', 'dos', 'poitrine', 'épaules', 'ventre', 'abdomen', 'bras', 'nombril', 'fesses'] }
+  ];
+
+  var cards = document.querySelectorAll('.price-card');
+  for (var c = 0; c < cards.length; c++) {
+    var card = cards[c];
+    var nameEl = card.querySelector('.price-card-name span');
+    if (!nameEl) continue;
+    var nameLow = (nameEl.getAttribute('data-fr') || nameEl.textContent).toLowerCase();
+    for (var z = 0; z < ZONE_MAP.length; z++) {
+      var found = false;
+      for (var ki = 0; ki < ZONE_MAP[z].keys.length; ki++) {
+        if (nameLow.indexOf(ZONE_MAP[z].keys[ki]) !== -1) { found = true; break; }
+      }
+      if (found) { card.setAttribute('data-zone', ZONE_MAP[z].zone); break; }
+    }
+  }
+
+  /* ── Bind click on price-card-img ── */
+  var zoneCards = document.querySelectorAll('.price-card[data-zone]');
+  for (var zc = 0; zc < zoneCards.length; zc++) {
+    (function(zCard) {
+      var imgDiv = zCard.querySelector('.price-card-img');
+      if (imgDiv) {
+        imgDiv.addEventListener('click', function() {
+          openOverlay(zCard.getAttribute('data-zone'));
+        });
+      }
+    })(zoneCards[zc]);
+  }
+})();
+</script>
 </body>
 </html>
