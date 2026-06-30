@@ -112,7 +112,7 @@ export default async function handler(req, res) {
 
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
             <tr><td align="center">
-              <a href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf"
+              <a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
                  style="display:inline-block;background:#C9A96E;color:#1A0D07;font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:3px;">
                 Réserver mon soin
               </a>

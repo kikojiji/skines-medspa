@@ -4,6 +4,15 @@
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFB8SY59FX"></script>
 <script>
+
+/* ── sp-menu-trigger → tirage ── */
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    var trig = document.getElementById('sp-menu-trigger');
+    if (trig) trig.addEventListener('click', function(){ window.location.href = 'tirage.html'; });
+  });
+})();
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -17,7 +26,10 @@
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window,document,"clarity","script","xabkor1h4j");
 </script>
-<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Japanese Head Spa · Skines Spa Montréal</title>
 <meta name="description" content="Japanese Head Spa à Montréal: rituel profond pour le cuir chevelu, massage et détente. Réservez chez Skines Spa.">
@@ -87,8 +99,6 @@
     background: var(--bg);
     border-bottom: none;
   }
-  nav:not(.nav-scrolled) { background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent); }
-
   .logo {
     position: absolute;
     left: 50%;
@@ -104,67 +114,13 @@
   .stone-mid { width: 23px; height: 14px; background: var(--terracotta-dark); top: 10px; }
   .stone-bot { width: 33px; height: 19px; background: var(--terracotta); top: 25px; }
   .logo-video { height: 48px; width: auto; display: block; }
-  .logo-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.05rem;
-    text-align: center;
-  }
-  .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
-  nav.nav-scrolled .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
-  .footer-logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-  .footer-logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
-  .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-  nav.nav-scrolled .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
+  
+  
+  nav.nav-scrolled 
+  .footer-logo 
+  .footer-logo 
+  
+  nav.nav-scrolled 
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; text-transform: uppercase; font-size: 0.76rem; letter-spacing: 0.18em; font-weight: 500; transition: color 0.25s; color: rgba(245,240,234,0.88); }
   nav.nav-scrolled .nav-links a { color: rgba(245,239,232,0.88); }
@@ -241,7 +197,7 @@
   .mobile-nav-footer .mobile-contact a { color: var(--terracotta-dark); text-decoration: none; }
 
   /* ── Shared ── */
-  h1, h2, h3 { font-family: "Cormorant Garamond", serif; font-weight: 400; line-height: 1.05; }
+  h1, h2, h3 { font-family: "Old Standard TT", serif; font-weight: 400; line-height: 1.05; }
   h1 { font-size: clamp(3.4rem, 7vw, 6.5rem); margin-bottom: 1rem; }
   h2 { font-size: clamp(2.4rem, 5vw, 4rem); color: var(--cream); }
   .eyebrow {
@@ -288,7 +244,7 @@
     text-shadow: 0 2px 24px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4);
   }
   .hero-copy .lead {
-    font-family: "Cormorant Garamond", serif; font-style: italic;
+    font-family: "Old Standard TT", serif; font-style: italic;
     font-size: 1.35rem; color: rgba(245,240,234,0.92); max-width: 570px; margin-bottom: 2rem;
     text-shadow: 0 1px 12px rgba(0,0,0,0.45);
   }
@@ -318,13 +274,13 @@
   .ritual-close-inner { max-width: 640px; margin: 0 auto; }
   .ritual-close .eyebrow { color: var(--gold); justify-content: center; margin-bottom: 1.2rem; }
   .ritual-close h2 {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Old Standard TT", serif;
     font-size: clamp(2.8rem, 6vw, 5rem);
     font-weight: 300; color: var(--cream);
     line-height: 1.05; margin-bottom: 1.8rem;
   }
   .ritual-close-lead {
-    font-family: "Cormorant Garamond", serif; font-style: italic;
+    font-family: "Old Standard TT", serif; font-style: italic;
     font-size: 1.3rem; color: rgba(245,240,234,0.68);
     line-height: 1.75; max-width: 520px; margin: 0 auto 2.8rem;
   }
@@ -355,10 +311,10 @@
   .svc-card:hover .svc-img img { transform: scale(1.05); }
   .svc-info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 1.2rem 1.4rem 1.4rem; }
   .svc-duration { color: var(--stone); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
-  .svc-name { font-family: "Cormorant Garamond", serif; font-size: 1.2rem; color: var(--ink); display: block; margin-bottom: 0.6rem; line-height: 1.2; }
+  .svc-name { font-family: "Old Standard TT", serif; font-size: 1.2rem; color: var(--ink); display: block; margin-bottom: 0.6rem; line-height: 1.2; }
   .svc-price { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
-  .svc-price-original { font-family: "Cormorant Garamond", serif; font-size: 1.1rem; color: #9E8E85; text-decoration: line-through; font-weight: 400; }
-  .svc-price-current { font-family: "Cormorant Garamond", serif; font-size: 1.55rem; color: #4B2E26; font-weight: 400; }
+  .svc-price-original { font-family: "Old Standard TT", serif; font-size: 1.1rem; color: #9E8E85; text-decoration: line-through; font-weight: 400; }
+  .svc-price-current { font-family: "Old Standard TT", serif; font-size: 1.55rem; color: #4B2E26; font-weight: 400; }
   .svc-discount-label {
     display: inline-block;
     margin-top: 0.35rem;
@@ -433,14 +389,7 @@
     letter-spacing: 0.32em;
     font-weight: 500;
   }
-  .footer-logo .logo-sub {
-    font-size: 0.60rem;
-    letter-spacing: 0.28em;
-    color: rgba(245,237,227,0.42);
-    text-transform: uppercase;
-    display: block;
-    margin-top: 0.22rem;
-  }
+  .footer-logo 
   /* nav columns */
   .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 500px; margin: 1.6rem auto 1.8rem; }
   .footer-col { background: rgba(255,255,255,0.07); border: 1px solid rgba(245,237,227,0.10); border-radius: 14px; padding: 18px 20px; }
@@ -512,7 +461,7 @@
   .service-nav-btn:hover { background: var(--terracotta-soft); }
   .service-nav-btn.active { background: var(--charcoal); pointer-events: none; }
   .service-nav-tag { font-family: "DM Sans", sans-serif; font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
-  .service-nav-name { font-family: "Cormorant Garamond", serif; font-size: 1.35rem; font-style: italic; font-weight: 400; line-height: 1.1; color: var(--ink); }
+  .service-nav-name { font-family: "Old Standard TT", serif; font-size: 1.35rem; font-style: italic; font-weight: 400; line-height: 1.1; color: var(--ink); }
   .service-nav-btn.active .service-nav-name { color: var(--cream); }
   @media (max-width: 600px) {
     .service-nav { flex-direction: column; }
@@ -570,7 +519,7 @@
   /* Eyebrow "FAMILY RITUAL" — hidden */
   .family-eyebrow { display: none !important; }
   .family-title {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Old Standard TT", serif;
     font-size: clamp(2.4rem, 5.5vw, 4.2rem);
     font-weight: 400;
     line-height: 1.08;
@@ -580,7 +529,7 @@
   }
   .family-title em { color: #ffffff; font-style: italic; font-weight: 300; }
   .family-desc {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Old Standard TT", serif;
     font-size: 1.1rem;
     font-style: italic;
     color: rgba(255,255,255,0.78);
@@ -622,24 +571,8 @@
     align-items: center;
     gap: 0;
   }
-    .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-    .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
+    .logo 
+    .logo 
     nav:not(.mobile-nav) > .logo-stones, nav > .logo > .logo-stones { display: none !important; }
     .stone-top { width: 10px; height: 7px; }
     .stone-mid { width: 20px; height: 12px; top: 9px; }
@@ -668,24 +601,8 @@
     .lang-btn { color: rgba(245,240,234,0.48); }
     .lang-btn.active { color: rgba(245,240,234,0.92); }
     .lang-sep { color: rgba(245,240,234,0.16); }
-    nav.nav-scrolled .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-    nav.nav-scrolled .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
+    nav.nav-scrolled .logo 
+    nav.nav-scrolled .logo 
     nav.nav-scrolled .menu-btn { color: var(--cream); }
     nav.nav-scrolled .lang-btn { color: rgba(245,239,232,0.55); }
     nav.nav-scrolled .lang-btn.active { color: var(--cream); }
@@ -727,37 +644,12 @@
       border-bottom: 1px solid rgba(245,237,227,0.10);
       padding: 1.2rem 1.5rem;
     }
-    .mobile-nav-header .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-    .mobile-nav-header .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
-    .mobile-nav-close {
-      border: none;
-      background: none;
-      color: rgba(245,240,234,0.55);
-      font-size: 1.8rem;
-      width: 44px; height: 44px;
-      transition: color 0.2s;
-    }
+    
     .mobile-nav-close:hover { color: var(--cream); }
     .mobile-nav-links { padding: 2.2rem 2rem; gap: 0; }
     .mobile-nav-links li { border-bottom: 1px solid rgba(245,240,234,0.06); }
     .mobile-nav-links a {
-      font-family: "Cormorant Garamond", serif;
+      font-family: "Old Standard TT", serif;
       font-size: 2.15rem;
       font-weight: 300;
       color: rgba(245,240,234,0.82);
@@ -840,18 +732,9 @@
     .scroll-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
   }
 
-
   /* ══ CONTRAST FIXES ══ */
   /* Nav logo */
-  nav .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
+  nav 
   /* Hero */
   .hero-copy h1 { color: #F5EDE3; }
   .hero-copy .lead { color: rgba(245,237,227,0.80); }
@@ -883,7 +766,7 @@
   .price-discounted, .price-original,
   .tier-price, .bundle-price, .special-offer-price,
   .svc-price, .testimonial-stars, .review-stars {
-    font-family: "Playfair Display", "Cormorant Garamond", serif;
+    font-family: "Playfair Display", "Old Standard TT", serif;
   }
   /* Original price — red diagonal strikethrough */
   .svc-price-original, .price-original {
@@ -905,7 +788,7 @@
   /* Current / discounted price */
   .svc-price-current, .price-discounted {
     font-family: "Playfair Display", serif;
-    font-size: 1.65rem;
+    font-size: 1.25rem;
     color: #4B2E26;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -989,24 +872,8 @@
     background: transparent !important;
     border-bottom: none !important;
   }
-  nav:not(.nav-scrolled) .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-  nav:not(.nav-scrolled) .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
+  nav:not(.nav-scrolled) .logo 
+  nav:not(.nav-scrolled) .logo 
   nav:not(.nav-scrolled) .menu-btn        { color: rgba(245,240,234,0.85) !important; }
   nav:not(.nav-scrolled) .nav-search-btn  { color: rgba(245,240,234,0.85) !important; }
 
@@ -1017,24 +884,8 @@
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
   }
-  nav.nav-scrolled .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-  nav.nav-scrolled .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
+  nav.nav-scrolled .logo 
+  nav.nav-scrolled .logo 
   nav.nav-scrolled .menu-btn        { color: rgba(245,240,234,0.88) !important; }
   nav.nav-scrolled .nav-search-btn  { color: rgba(245,240,234,0.88) !important; }
 
@@ -1046,29 +897,7 @@
     background: #684034 !important;
     border-bottom: 1px solid rgba(245,237,227,0.10) !important;
   }
-  .mobile-nav-header .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-  .mobile-nav-header .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
-
-  .mobile-nav-close {
-    color: rgba(245, 240, 234, 0.65) !important;
-    border-color: rgba(245, 237, 227, 0.12) !important;
-  }
+  
   .mobile-nav-close:hover { color: var(--cream) !important; }
 
   .mobile-nav-links li { border-bottom-color: rgba(245, 237, 227, 0.07) !important; }
@@ -1116,7 +945,6 @@
     user-select: none;
   }
 }
-
 
 /* ══ SEARCH OVERLAY ═══════════════════════════════════════════════════════ */
 .search-overlay {
@@ -1261,7 +1089,7 @@
 }
 .search-result-body { flex: 1; min-width: 0; }
 .search-result-name {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Old Standard TT", serif;
   font-size: 1.05rem;
   font-weight: 400;
   color: #3A1E14;
@@ -1287,7 +1115,6 @@
   flex-shrink: 0;
 }
 
-
   /* Mobile menu reserve button — warm beige, not white */
   .mobile-nav .mobile-nav-footer .btn-dark {
     background: #E8D3A3 !important;
@@ -1300,7 +1127,6 @@
     border-color: #E6C98F !important;
     color: #78290F !important;
   }
-
 
 /* ══ SVC-CARD REDESIGN — matches laser style ══════════════════════════════ */
 .services-grid {
@@ -1351,7 +1177,7 @@
   margin: 0;
 }
 .svc-name {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Old Standard TT", serif;
   font-size: 1.1rem;
   font-weight: 400;
   color: #3A1E14;
@@ -1368,13 +1194,13 @@
   flex-wrap: wrap;
 }
 .svc-price-original {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Old Standard TT", serif;
   font-size: 0.95rem;
   color: #9E8E85;
   text-decoration: line-through;
 }
 .svc-price-current {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Old Standard TT", serif;
   font-size: 1.45rem;
   color: #684034;
   font-weight: 400;
@@ -1442,7 +1268,6 @@
   .view-btn { width: 44px; height: 44px; }
 }
 
-
 /* ══════════════════════════════════════════════════════════════════════════
    SKINES — DARK BROWN THEME OVERRIDE  (#684034 base)
    ══════════════════════════════════════════════════════════════════════════ */
@@ -1452,24 +1277,8 @@ html, body { background: #684034 !important; color: #F5EDE3 !important; }
 
 /* Nav */
 nav.nav-scrolled { background: rgba(75,46,38,0.96) !important; border-bottom-color: rgba(245,237,227,0.08) !important; }
-nav.nav-scrolled .logo .logo-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.9rem;
-    letter-spacing: 0.42em;
-    font-weight: 400;
-    color: #F5EDE3;
-    line-height: 1;
-    padding-left: 0.42em;
-  }
-nav.nav-scrolled .logo .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.32em;
-    color: rgba(245,237,227,0.52);
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding-left: 0.32em;
-  }
+nav.nav-scrolled .logo 
+nav.nav-scrolled .logo 
 nav.nav-scrolled .menu-btn        { color: rgba(245,237,227,0.88) !important; }
 nav.nav-scrolled .nav-search-btn  { color: rgba(245,237,227,0.88) !important; }
 nav.nav-scrolled .nav-links a     { color: #F5EDE3 !important; }
@@ -1661,11 +1470,10 @@ input, textarea, select {
 }
 input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !important; }
 
-
 /* ══ TECHNOLOGY SECTION ═══════════════════════════════════════════════════ */
 .technology-section { padding: 5rem 2rem; background: #684034; }
 .tech-content { max-width: 680px; margin: 0 auto; }
-.tech-content h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 5vw, 3rem); color: #F5EDE3 !important; margin-bottom: 1.2rem; line-height: 1.25; }
+.tech-content h2 { font-family: "Old Standard TT", serif; font-size: clamp(2rem, 5vw, 3rem); color: #F5EDE3 !important; margin-bottom: 1.2rem; line-height: 1.25; }
 .tech-content p { color: rgba(245,237,227,0.80) !important; margin-bottom: 1rem; line-height: 1.8; }
 .tech-features { list-style: none; margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 0.7rem; padding: 0; }
 .tech-features li { color: rgba(245,237,227,0.85) !important; font-size: 0.88rem; letter-spacing: 0.05em; }
@@ -1675,20 +1483,19 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 /* ══ PRODUCTS SECTION ══════════════════════════════════════════════════════ */
 .products-section { padding: 4rem 2rem 5rem; background: #5A3730; }
 .products-inner { max-width: 760px; margin: 0 auto; }
-.products-inner h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #F5EDE3 !important; margin-bottom: 0.8rem; line-height: 1.2; }
+.products-inner h2 { font-family: "Old Standard TT", serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #F5EDE3 !important; margin-bottom: 0.8rem; line-height: 1.2; }
 .products-inner h2 em { color: #F5C06A; font-style: italic; }
-.products-intro { color: rgba(245,237,227,0.72) !important; margin-bottom: 2.5rem; max-width: 520px; line-height: 1.75; }
+.products-intro { color: rgba(255,255,255,0.92) !important; margin-bottom: 2.5rem; max-width: 520px; line-height: 1.75; }
 .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 @media (max-width: 600px) { .products-grid { grid-template-columns: 1fr; } }
 .product-card { display: flex; flex-direction: column; gap: 0.8rem; padding: 1.4rem; border: 1px solid rgba(245,237,227,0.12); background: rgba(255,255,255,0.04); border-radius: 4px; }
 .product-img-frame { width: 100%; aspect-ratio: 3/2; border: 1px solid rgba(245,237,227,0.15); background: rgba(255,255,255,0.06); border-radius: 3px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
 .product-img-frame img { width: 80%; height: 80%; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; position: relative; z-index: 1; }
-.product-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: "Cormorant Garamond", serif; font-size: 1.1rem; letter-spacing: 0.2em; color: rgba(245,237,227,0.35); text-transform: uppercase; z-index: 0; }
-.product-info h4 { font-family: "Cormorant Garamond", serif; font-size: 1.2rem; color: #F5EDE3 !important; font-weight: 400; margin: 0; }
+.product-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: "Old Standard TT", serif; font-size: 1.1rem; letter-spacing: 0.2em; color: rgba(245,237,227,0.35); text-transform: uppercase; z-index: 0; }
+.product-info h4 { font-family: "Old Standard TT", serif; font-size: 1.2rem; color: #F5EDE3 !important; font-weight: 400; margin: 0; }
 .product-info p { font-size: 0.82rem; color: rgba(245,237,227,0.65) !important; line-height: 1.6; margin: 0.3rem 0 0; }
 .product-cta { display: inline-flex; align-items: center; justify-content: center; padding: 0.7rem 1.2rem; background: transparent; border: 1px solid rgba(245,237,227,0.25); color: #F5EDE3; font-family: "DM Sans", sans-serif; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, border-color 0.2s; margin-top: auto; }
 .product-cta:hover { background: rgba(245,237,227,0.10); border-color: rgba(245,237,227,0.40); }
-
 
   /* MOBILE NAV — uniform #684034 */
   .mobile-nav,
@@ -1723,7 +1530,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .eyebrow { color: #8B5E3C !important; }
   /* Keep nav text light since nav stays dark */
   nav *, .mobile-nav * { color: initial; }
-  nav .logo-text, nav .logo-sub, .mobile-nav .mobile-nav-links a { color: #F5EDE3 !important; }
+  
   nav.nav-scrolled .nav-links a { color: #F5EDE3 !important; }
   nav:not(.nav-scrolled) .nav-links a { color: #F5EDE3 !important; }
   nav .nav-cta { color: #F5EDE3 !important; }
@@ -1731,7 +1538,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* Keep footer text light */
   footer *, footer p, footer h4, footer a, footer li { color: rgba(245,237,227,0.75) !important; }
   footer h4 { color: #F5C06A !important; }
-  footer .logo-text { color: #F5EDE3 !important; }
+  footer 
   /* hero text always light */
   .hero *, header.hero * { color: #F5EDE3 !important; }
   /* Service cards on index */
@@ -1789,7 +1596,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .svc-card { background: rgba(255,255,255,0.55) !important; border-color: rgba(61,43,31,0.10) !important; }
   .svc-discount-label { background: rgba(245,192,106,0.20) !important; color: #7a4a28 !important; border: 1px solid rgba(245,192,106,0.50) !important; font-weight: 600 !important; border-radius: 6px !important; letter-spacing: 0.14em !important; }
 
-
   /* ══════════════════════════════════════════════════════════
      GLOBAL DARK THEME LOCK — no beige/cream anywhere in nav or footer
      All dark sections → #3A1E14  |  text → #F5EDE3  |  gold → #F5C06A
@@ -1822,7 +1628,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 
   /* Footer — deep dark */
   footer { background: #684034 !important; }
-  footer * { color: rgba(245,237,227,0.72) !important; }
+  footer * { color: rgba(255,255,255,0.92) !important; }
   footer h3, footer h4, .footer-logo-text { color: #F5EDE3 !important; }
   footer a:hover { color: #F5C06A !important; }
 
@@ -1851,7 +1657,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* nav * background fix — children shouldn't inherit dark bg */
   nav.nav-scrolled * { background: transparent !important; }
   nav.nav-scrolled { background: #3A1E14 !important; }
-
 
   /* ══════════════════════════════════════════════════════════
      FINAL TEXT & COLOR FIX — definitive, highest specificity
@@ -1914,8 +1719,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* 3 ─ NAV always dark */
   nav, nav.nav-scrolled                    { background: #3A1E14 !important; }
   nav *, nav.nav-scrolled *                { background: transparent !important; }
-  nav .logo-text, nav .logo-sub            { color: #F5EDE3 !important; background: transparent !important; }
-  nav .nav-links a, nav.nav-scrolled .nav-links a { color: rgba(245,237,227,0.80) !important; }
+  
   nav .nav-cta                             { background: rgba(245,237,227,0.10) !important; color: #F5EDE3 !important; border-color: rgba(245,237,227,0.25) !important; }
   nav .menu-btn, nav .nav-search-btn       { color: #F5EDE3 !important; }
 
@@ -1942,7 +1746,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* 8 ─ SCROLL TOP */
   .scroll-top { background: #F5C06A !important; color: #3A1E14 !important; }
 
-
   /* ── BOOK buttons gold everywhere + no beige gaps ── */
   .price-card-cta, .svc-book-btn, .product-cta {
     background: #F5C06A !important;
@@ -1960,7 +1763,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     opacity: 1 !important;
     color: #F5C06A !important;
   }
-
 
   /* ── BOOKING BAND text fix — dark readable text on light background ── */
   section.booking-band h2,
@@ -1981,7 +1783,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .booking-band .btn-dark       { background: #2C1810 !important; color: #F5EDE3 !important; border-color: #2C1810 !important; }
   section.booking-band .btn-dark:hover,
   .booking-band .btn-dark:hover { background: #3A1E14 !important; border-color: #F5C06A !important; }
-
 
   /* ══ HERO — text at bottom with dark gradient ══
      Applies to ALL pages: text anchored to bottom,
@@ -2050,7 +1851,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     color: #F5EDE3 !important;
   }
 
-
   /* ══ MOBILE NAV — unified medium brown, cream text, gold button ══ */
 
   /* 1. Header bar — same bg as menu body (no dark stripe at top) */
@@ -2069,8 +1869,8 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .mobile-nav-close:hover   { color: #F5EDE3 !important; }
 
   /* Logo in header */
-  .mobile-nav-header .logo-text { color: #F5EDE3 !important; }
-  .mobile-nav-header .logo-sub  { color: rgba(245,237,227,0.50) !important; }
+  .mobile-nav-header 
+  .mobile-nav-header 
 
   /* 2. Nav links — cream text (was dark/black) */
   .mobile-nav-links a       { color: rgba(245,237,227,0.88) !important; }
@@ -2103,7 +1903,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .mobile-nav-footer .mobile-contact a     { color: rgba(245,237,227,0.65) !important; }
   .mobile-nav-footer .mobile-contact a:hover { color: #F5C06A !important; }
 
-
   /* ══ CREAM BACKGROUND RESTORE + CARD TEXT FIX ══
      Content sections → cream #F0E6C8
      Dark sections (nav/footer/hero/slider/booking) → stay dark
@@ -2129,7 +1928,7 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .price-card-img             { background: #3A1E14 !important; }
   .price-card-cat,
   .price-card-duration        { color: rgba(245,237,227,0.52) !important; }
-  .price-card-name            { color: #F5EDE3 !important; font-family: "Cormorant Garamond", serif !important; font-size: 1.15rem !important; }
+  .price-card-name            { color: #F5EDE3 !important; font-family: "DM Sans", sans-serif !important; font-size: 1.15rem !important; }
   .price-card-price,
   .fpl-curr                   { color: #F5C06A !important; }
   .price-original,
@@ -2152,7 +1951,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   /* 7. Ritual tags strip (head-spa) */
   .ritual-tags                { background: rgba(240,230,200,0.95) !important; }
   .ritual-pill                { color: rgba(61,43,31,0.65) !important; border-color: rgba(61,43,31,0.18) !important; }
-
 
   /* ══════════════════════════════════════════════════════
      GLOBAL READABILITY OVERHAUL — contrast + visibility
@@ -2263,7 +2061,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   section:empty, div[class]:empty:not(input):not(br) {
     display: none !important;
   }
-
 
   /* ══════════════════════════════════════════════════════════
      MOBILE FIX — alignment, symmetry, hero, family, buttons
@@ -2430,7 +2227,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     }
   }
 
-
   /* ══ FINAL: social bar dark, booking band dark+cream, images clean ══ */
   section.social-bar, .social-bar { background: #2A1208 !important; }
   .social-link { color: rgba(245,237,227,0.88) !important; opacity: 1 !important; font-weight: 500 !important; transition: color 0.3s ease !important; }
@@ -2455,7 +2251,6 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .hero-bg img, .gallery-slide img, .svc-img img, .service-img img {
     filter: none !important; opacity: 1 !important; mix-blend-mode: normal !important;
   }
-
 
   /* ══ LANGUAGE SWITCHER — gold circle on active ══ */
   .mobile-lang-switcher {
@@ -2575,13 +2370,12 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     opacity: 1 !important;
     visibility: visible !important;
   }
-  nav .logo-text, nav .logo-sub, nav .menu-btn,
-  nav .nav-search-btn, nav .nav-links a { color: #F5EDE3 !important; }
+  
   nav .menu-btn { border-color: rgba(245,237,227,0.32) !important; }
   /* ── NAV: hide on scroll down, show on scroll up, always transparent ── */
   nav { background: transparent !important; box-shadow: none !important; border-color: transparent !important; transition: transform 0.28s ease, opacity 0.28s ease; }
   nav.nav-hidden { transform: translateY(-110%); opacity: 0; pointer-events: none; }
-  nav:not(.nav-dark) .logo-text, nav:not(.nav-dark) .logo-sub, nav:not(.nav-dark) .menu-btn, nav:not(.nav-dark) .nav-search-btn { color: #F5EDE3 !important; }
+  
   nav:not(.nav-dark) .menu-btn { border-color: rgba(245,237,227,0.32) !important; }
   nav.nav-scrolled { background: transparent !important; }
 
@@ -2620,29 +2414,16 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 
   /* ── FOOTER LOGO: SKINES + MED SPA · MONTRÉAL ── */
   footer .footer-logo .logo-sub,
-  footer .logo-sub {
-    font-size: 0.62rem !important;
-    letter-spacing: 0.28em !important;
-    color: rgba(245,237,227,0.65) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    margin-top: 0.3rem !important;
-  }
+  footer 
   footer .footer-logo-text { color: #ebd7ce !important; }
 
 /* ── HEADER SCROLL COLOR SWITCH (subpages only) ── */
 nav { transition: color 0.25s ease; }
-nav .logo-text, nav .logo-sub, nav .menu-btn, nav .nav-links a, nav .nav-search-btn {
-  color: #ffffff !important;
-  transition: color 0.25s ease !important;
-}
+
 nav .stone-top { color: #a8b89a !important; transition: color 0.25s ease !important; }
 nav .stone-mid { color: #8B4A3A !important; transition: color 0.25s ease !important; }
 nav .stone-bot { color: #ba724a !important; transition: color 0.25s ease !important; }
 
-nav.nav-scrolled .logo-text, nav.nav-scrolled .logo-sub, nav.nav-scrolled .menu-btn, nav.nav-scrolled .nav-links a, nav.nav-scrolled .nav-search-btn {
-  color: #684034 !important;
-}
 nav.nav-scrolled .stone-top { color: #7a9a6a !important; }
 nav.nav-scrolled .stone-mid { color: #684034 !important; }
 nav.nav-scrolled .stone-bot { color: #ba724a !important; }
@@ -2656,16 +2437,7 @@ nav.nav-scrolled .stone-bot { color: #ba724a !important; }
 .section-head p { color: #605c59 !important; }
 
 /* ── NAV FINAL: white at top, brown on scroll ── */
-html body nav:not(.nav-scrolled) .logo-text,
-html body nav:not(.nav-scrolled) .logo-sub,
-html body nav:not(.nav-scrolled) .menu-btn,
-html body nav:not(.nav-scrolled) .nav-links a,
-html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
-html body nav.nav-scrolled .logo-text,
-html body nav.nav-scrolled .logo-sub,
-html body nav.nav-scrolled .menu-btn,
-html body nav.nav-scrolled .nav-links a,
-html body nav.nav-scrolled .nav-search-btn { color: #684034 !important; }
+
 html body nav { background: transparent !important; box-shadow: none !important; }
 
 /* ── READABILITY: TEXT OVER IMAGES ── */
@@ -2711,7 +2483,6 @@ html body nav { background: transparent !important; box-shadow: none !important;
 .contact p { color: #605c59 !important; }
 
 /* ── MOBILE MENU: active highlight ── */
-
 
 .mobile-nav-links a,
 .mobile-nav-links a span,
@@ -2798,84 +2569,15 @@ html body .svc-card .svc-cat,
 html body .svc-card .svc-duration,
 html body .svc-card .svc-tag { color: #ba724a !important; }
 
-
 /* ══ MOBILE NAV HEADER — LOGO FIX v2 (definitive) ══ */
 
 /* 1. Stones: explicitly visible in mobile nav */
 .mobile-nav .logo-stones,
-.mobile-nav-header .logo-stones,
-nav.mobile-nav .mobile-nav-header .logo .logo-stones {
-  display: block !important;
-  position: relative !important;
-  width: 38px !important;
-  height: 46px !important;
-  flex-shrink: 0 !important;
-}
-.mobile-nav-header .logo .stone {
-  display: block !important;
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  border-radius: 50% !important;
-}
-.mobile-nav-header .logo .stone-top {
-  width: 13px !important; height: 8px !important; top: 0 !important;
-  background: #8fa87a !important;
-}
-.mobile-nav-header .logo .stone-mid {
-  width: 24px !important; height: 15px !important; top: 10px !important;
-  background: #8B4A3A !important;
-}
-.mobile-nav-header .logo .stone-bot {
-  width: 34px !important; height: 20px !important; top: 27px !important;
-  background: #ba724a !important;
-}
 
 /* 2. Logo layout: row flex with gap */
-.mobile-nav-header .logo {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 14px !important;
-  position: static !important;
-  left: auto !important;
-  transform: none !important;
-  text-decoration: none !important;
-}
 
 /* 3. Brand text */
-.mobile-nav-header .logo .logo-brand {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-}
-.mobile-nav-header .logo .logo-text {
-  font-family: "Cormorant Garamond", serif !important;
-  font-size: 1.85rem !important;
-  letter-spacing: 0.40em !important;
-  font-weight: 400 !important;
-  color: #F5EDE3 !important;
-  line-height: 1 !important;
-  padding-left: 0.40em !important;
-}
-.mobile-nav-header .logo .logo-sub {
-  font-size: 0.54rem !important;
-  letter-spacing: 0.28em !important;
-  color: rgba(245,237,227,0.60) !important;
-  text-transform: uppercase !important;
-  display: block !important;
-  margin-top: 0.35rem !important;
-  padding-left: 0.28em !important;
-}
 
-  /* ══ SOCIAL BAR — FINAL FIX: dark bg, visible icons ══ */
-  html body section.social-bar,
-  html body div.social-bar,
-  html body .social-bar {
-    background: #684034 !important;
-    border-top: 1px solid rgba(186,114,74,0.20) !important;
-    border-bottom: 1px solid rgba(186,114,74,0.20) !important;
-  }
   html body .social-link,
   html body .social-link span {
     color: rgba(245,237,227,0.88) !important;
@@ -2934,12 +2636,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
   }
   /* Mobile nav SVGs */
   html body .mobile-nav svg,
-  html body .mobile-nav-header svg {
-    color: #D6B36A !important;
-    stroke: #D6B36A !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
+  
   /* Scroll-to-top button */
   html body .scroll-top svg {
     color: #D6B36A !important;
@@ -3328,15 +3025,10 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     background: #ba724a !important;
   }
   /* Brand text centered */
-  html body footer .footer-logo .logo-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.3rem !important;
-  }
+  html body footer .footer-logo 
   html body footer .footer-logo-text,
   html body footer .footer-logo .footer-logo-text {
-    font-family: "Cormorant Garamond", serif !important;
+    font-family: "DM Sans", sans-serif !important;
     font-size: 2rem !important;
     letter-spacing: 0.45em !important;
     color: #F5EDE3 !important;
@@ -3344,14 +3036,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     text-align: center !important;
     padding-left: 0.45em !important;
   }
-  html body footer .footer-logo .logo-sub {
-    font-size: 0.58rem !important;
-    letter-spacing: 0.30em !important;
-    color: rgba(245,237,227,0.60) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    text-align: center !important;
-  }
+  html body footer .footer-logo 
   html body footer
 
   /* ══ FOOTER LOGO — REVERT TO ORIGINAL LEFT-ALIGNED ══ */
@@ -3377,15 +3062,10 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     flex-shrink: 0 !important;
     margin: 0 !important;
   }
-  html body footer .footer-logo .logo-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.2rem !important;
-  }
+  html body footer .footer-logo 
   html body footer .footer-logo-text,
   html body footer .footer-logo .footer-logo-text {
-    font-family: "Cormorant Garamond", serif !important;
+    font-family: "DM Sans", sans-serif !important;
     font-size: 1.8rem !important;
     letter-spacing: 0.40em !important;
     color: #F5EDE3 !important;
@@ -3393,20 +3073,13 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     text-align: left !important;
     padding-left: 0.40em !important;
   }
-  html body footer .footer-logo .logo-sub {
-    font-size: 0.58rem !important;
-    letter-spacing: 0.28em !important;
-    color: rgba(245,237,227,0.60) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    text-align: left !important;
-  }
+  html body footer .footer-logo 
   html body footer
 
   /* ══ FOOTER LOGO — MATCH NAV STYLE ══ */
   html body footer .footer-logo-text,
   html body footer .footer-logo .footer-logo-text {
-    font-family: "Cormorant Garamond", serif !important;
+    font-family: "DM Sans", sans-serif !important;
     font-size: 1.9rem !important;
     letter-spacing: 0.42em !important;
     font-weight: 400 !important;
@@ -3416,16 +3089,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     text-align: left !important;
     display: block !important;
   }
-  html body footer .footer-logo .logo-sub {
-    font-size: 0.55rem !important;
-    letter-spacing: 0.32em !important;
-    color: rgba(245,237,227,0.52) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    padding-left: 0.32em !important;
-    text-align: left !important;
-    margin-top: 0.15rem !important;
-  }
+  html body footer .footer-logo 
   /* Stones slightly bigger */
   html body footer .footer-logo .logo-stones {
     width: 44px !important;
@@ -3469,16 +3133,10 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     gap: 1rem !important;
     text-decoration: none !important;
   }
-  html body footer .footer-logo .logo-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.05rem !important;
-    text-align: left !important;
-  }
+  html body footer .footer-logo 
   html body footer .footer-logo-text,
   html body footer .footer-logo .footer-logo-text {
-    font-family: "Cormorant Garamond", serif !important;
+    font-family: "DM Sans", sans-serif !important;
     font-size: 2rem !important;
     letter-spacing: 0.42em !important;
     font-weight: 400 !important;
@@ -3487,15 +3145,7 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     padding-left: 0.42em !important;
     display: block !important;
   }
-  html body footer .footer-logo .logo-sub {
-    font-size: 0.52rem !important;
-    letter-spacing: 0.30em !important;
-    color: rgba(245,237,227,0.50) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    padding-left: 0.30em !important;
-    margin-top: 0.25rem !important;
-  }
+  html body footer .footer-logo 
   html body footer
 
   /* ══ FOOTER LOGO — SYMMETRIC TEXT UNDER SKINES ══ */
@@ -3513,15 +3163,10 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     text-decoration: none !important;
     margin-bottom: 0.8rem !important;
   }
-  html body footer .footer-logo .logo-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.15rem !important;
-  }
+  html body footer .footer-logo 
   html body footer .footer-logo-text,
   html body footer .footer-logo .footer-logo-text {
-    font-family: "Cormorant Garamond", serif !important;
+    font-family: "DM Sans", sans-serif !important;
     font-size: 2rem !important;
     letter-spacing: 0.42em !important;
     font-weight: 400 !important;
@@ -3531,101 +3176,18 @@ nav.mobile-nav .mobile-nav-header .logo .logo-stones {
     display: block !important;
     text-align: center !important;
   }
-  html body footer .footer-logo .logo-sub {
-    font-size: 0.52rem !important;
-    letter-spacing: 0.28em !important;
-    color: rgba(245,237,227,0.52) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    padding-left: 0.28em !important;
-    text-align: center !important;
-    margin-top: 0.2rem !important;
-  }
+  html body footer .footer-logo 
   html body footer
 
 /* ── Mobile nav header: flex logo left + back arrow right ── */
-html body .mobile-nav-header {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 1.1rem 1.4rem !important;
-  background: #3A1E14 !important;
-  border-bottom: 1px solid rgba(186,114,74,0.18) !important;
-}
-html body .mobile-nav-header .logo {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  text-decoration: none !important;
-}
-html body .mobile-nav-header .logo-stones {
-  width: 28px !important;
-  height: 34px !important;
-  flex: 0 0 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  gap: 4px !important;
-}
-html body .mobile-nav-header .logo .stone {
-  display: block !important;
-  background: #D6B36A !important;
-  border-radius: 40% !important;
-  opacity: 1 !important;
-}
-html body .mobile-nav-header .logo .stone-top {
-  width: 18px !important; height: 8px !important;
-  align-self: flex-start !important;
-}
-html body .mobile-nav-header .logo .stone-mid {
-  width: 26px !important; height: 10px !important;
-  align-self: center !important;
-}
-html body .mobile-nav-header .logo .stone-bot {
-  width: 18px !important; height: 8px !important;
-  align-self: flex-end !important;
-}
-html body .mobile-nav-header .logo-brand {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 0.1rem !important;
-}
-html body .mobile-nav-header .logo-text {
-  font-family: "Cormorant Garamond", serif !important;
-  font-size: 1.45rem !important;
-  letter-spacing: 0.32em !important;
-  color: #F5EDE3 !important;
-  line-height: 1 !important;
-  padding-left: 0 !important;
-}
-html body .mobile-nav-header .logo-sub {
-  font-size: 0.48rem !important;
-  letter-spacing: 0.22em !important;
-  color: rgba(245,237,227,0.55) !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-  padding-left: 0 !important;
-}
-/* Back arrow close button */
-html body .mobile-nav-close {
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50% !important;
-  background: rgba(186,114,74,0.15) !important;
-  border: 1px solid rgba(186,114,74,0.30) !important;
-  color: #D6B36A !important;
-  font-size: 1.35rem !important;
-  font-weight: 300 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  transition: background 0.2s ease, color 0.2s ease !important;
-  flex: 0 0 auto !important;
-  line-height: 1 !important;
-}
+
+html body 
+html body 
+html body 
+html body 
+html body 
+html body 
+
 html body .mobile-nav-close:hover {
   background: rgba(186,114,74,0.30) !important;
   color: #F5EDE3 !important;
@@ -3673,300 +3235,43 @@ html body .nav-search-btn:hover svg {
 }
 
 /* ══ Mobile nav header — full layout rebuild ══ */
-html body .mobile-nav-header {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 1rem 1.5rem !important;
-  min-height: 68px !important;
-  background: #3A1E14 !important;
-  border-bottom: 1px solid rgba(186,114,74,0.18) !important;
-  gap: 1rem !important;
-}
+
 /* Logo: stones + brand text in one horizontal block */
-html body .mobile-nav-header .logo {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 10px !important;
-  text-decoration: none !important;
-  flex: 1 1 auto !important;
-  min-width: 0 !important;
-}
+html body 
 /* Stones column */
-html body .mobile-nav-header .logo .logo-stones {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 3px !important;
-  width: 24px !important;
-  flex: 0 0 24px !important;
-  height: auto !important;
-}
-html body .mobile-nav-header .logo .stone {
-  display: block !important;
-  background: #D6B36A !important;
-  border-radius: 40% !important;
-  opacity: 1 !important;
-}
-html body .mobile-nav-header .logo .stone-top {
-  width: 14px !important;
-  height: 6px !important;
-  align-self: flex-start !important;
-}
-html body .mobile-nav-header .logo .stone-mid {
-  width: 22px !important;
-  height: 8px !important;
-  align-self: center !important;
-}
-html body .mobile-nav-header .logo .stone-bot {
-  width: 14px !important;
-  height: 6px !important;
-  align-self: flex-end !important;
-}
+html body 
+html body 
+html body 
+html body 
+html body 
 /* Brand text: SKINES + subtitle stacked flush left */
-html body .mobile-nav-header .logo .logo-brand {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 2px !important;
-  line-height: 1 !important;
-}
-html body .mobile-nav-header .logo .logo-text,
-html body .mobile-nav-header .logo span.logo-text {
-  font-family: "Cormorant Garamond", serif !important;
-  font-size: 1.52rem !important;
-  letter-spacing: 0.34em !important;
-  color: #F5EDE3 !important;
-  line-height: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-html body .mobile-nav-header .logo .logo-sub,
-html body .mobile-nav-header .logo span.logo-sub {
-  font-size: 0.46rem !important;
-  letter-spacing: 0.20em !important;
-  color: rgba(245,237,227,0.52) !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-/* Close / back arrow button */
-html body .mobile-nav-header .mobile-nav-close,
-html body .mobile-nav-header button.mobile-nav-close {
-  flex: 0 0 40px !important;
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  border-radius: 50% !important;
-  background: rgba(186,114,74,0.15) !important;
-  border: 1px solid rgba(186,114,74,0.30) !important;
-  color: #D6B36A !important;
-  font-size: 1.3rem !important;
-  font-weight: 300 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-  line-height: 1 !important;
-  transition: background 0.2s ease !important;
-}
-html body .mobile-nav-header .mobile-nav-close:hover {
-  background: rgba(186,114,74,0.28) !important;
-  color: #F5EDE3 !important;
-}
+html body 
 
 /* ══ Mobile nav header — stones absolute position fix ══ */
 /* Reset logo container in mobile nav */
-html body .mobile-nav-header .logo .logo-stones {
-  position: relative !important;
-  width: 28px !important;
-  height: 38px !important;
-  flex: 0 0 28px !important;
-  overflow: visible !important;
-  display: block !important;
-}
+html body 
 /* Override absolute stone positions to fit 28×38 container */
-html body .mobile-nav-header .logo .stone {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  border-radius: 50% !important;
-  display: block !important;
-}
-html body .mobile-nav-header .logo .stone-top {
-  width: 10px !important;
-  height: 6px !important;
-  top: 0 !important;
-  background: rgba(214,179,106,0.65) !important;
-}
-html body .mobile-nav-header .logo .stone-mid {
-  width: 20px !important;
-  height: 12px !important;
-  top: 8px !important;
-  background: #D6B36A !important;
-}
-html body .mobile-nav-header .logo .stone-bot {
-  width: 28px !important;
-  height: 16px !important;
-  top: 22px !important;
-  background: #ba724a !important;
-}
+html body 
+html body 
+html body 
+html body 
 
 /* ══ Mobile nav header — full reset & rebuild v3 ══ */
-html body .mobile-nav-header {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 0.9rem 1.4rem !important;
-  min-height: 64px !important;
-  background: #3A1E14 !important;
-  border-bottom: 1px solid rgba(186,114,74,0.18) !important;
-}
+
 /* Logo row: stones + brand */
-html body .mobile-nav-header .logo {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 10px !important;
-  text-decoration: none !important;
-}
+html body 
 /* Stones container — fixed box, keeps absolute children inside */
-html body .mobile-nav-header .logo .logo-stones {
-  position: relative !important;
-  width: 33px !important;
-  height: 44px !important;
-  flex: 0 0 33px !important;
-  display: block !important;
-}
+html body 
 /* Stones: restore original proportions & original palette */
-html body .mobile-nav-header .logo .stone {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  border-radius: 50% !important;
-  display: block !important;
-}
-html body .mobile-nav-header .logo .stone-top {
-  width: 12px !important;
-  height: 8px !important;
-  top: 0 !important;
-  background: #7A8A72 !important;
-}
-html body .mobile-nav-header .logo .stone-mid {
-  width: 23px !important;
-  height: 14px !important;
-  top: 10px !important;
-  background: #684034 !important;
-}
-html body .mobile-nav-header .logo .stone-bot {
-  width: 33px !important;
-  height: 19px !important;
-  top: 25px !important;
-  background: #ba724a !important;
-}
+html body 
+html body 
+html body 
+html body 
 /* Brand text: SKINES large, subtitle small */
-html body .mobile-nav-header .logo .logo-brand {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 3px !important;
-}
-html body .mobile-nav-header .logo .logo-text,
-html body .mobile-nav-header .logo span.logo-text {
-  font-family: "Cormorant Garamond", serif !important;
-  font-size: 2rem !important;
-  letter-spacing: 0.38em !important;
-  color: #F5EDE3 !important;
-  line-height: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  font-weight: 400 !important;
-}
-html body .mobile-nav-header .logo .logo-sub,
-html body .mobile-nav-header .logo span.logo-sub {
-  font-size: 0.44rem !important;
-  letter-spacing: 0.22em !important;
-  color: rgba(245,237,227,0.48) !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  font-weight: 400 !important;
-}
-/* Back arrow button unchanged */
-html body .mobile-nav-header .mobile-nav-close,
-html body .mobile-nav-header button.mobile-nav-close {
-  flex: 0 0 40px !important;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50% !important;
-  background: rgba(186,114,74,0.15) !important;
-  border: 1px solid rgba(186,114,74,0.30) !important;
-  color: #D6B36A !important;
-  font-size: 1.3rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-  line-height: 1 !important;
-}
+html body 
 
 /* ══ Mobile nav — MED SPA centré sous SKINES ══ */
-html body .mobile-nav-header .logo .logo-brand {
-  align-items: center !important;
-}
-html body .mobile-nav-header .logo .logo-sub,
-html body .mobile-nav-header .logo span.logo-sub {
-  padding-left: 0.38em !important;
-  text-align: center !important;
-}
-
-/* ══ Mobile nav — SKINES size reduction ══ */
-html body .mobile-nav-header .logo .logo-text,
-html body .mobile-nav-header .logo span.logo-text {
-  font-size: 1.55rem !important;
-}
-/* ══════════════════════════════════════════════
-   SKINES — LUXURY PALETTE GLOBAL OVERRIDE
-   Applied last, highest priority
-══════════════════════════════════════════════ */
-
-/* 1. CSS Variables reset */
-:root {
-  --color-gold: #fed996;
-  --color-cream: #faf3eb;
-  --color-warm-white: #f9f2e9;
-  --color-dark-overlay: #3a3530;
-  --color-primary-brown: #684034;
-  --color-secondary-brown: #694135;
-  --color-terracotta: #ba7150;
-  --color-deep-black: #000000;
-  --color-white: #ffffff;
-  /* Remap existing vars */
-  --primary: #684034 !important;
-  --accent: #ba7150 !important;
-  --bg: #faf3eb !important;
-  --cream: #faf3eb !important;
-  --cream-light: #f9f2e9 !important;
-  --cream-pale: #faf3eb !important;
-  --gold: #fed996 !important;
-  --ink: #3a3530 !important;
-  --text: #3a3530 !important;
-  --brown: #684034 !important;
-  --brown-dark: #3a3530 !important;
-  --terracotta: #ba7150 !important;
-}
+html body 
 
 /* 2. HTML & Body background */
 html, body {
@@ -4013,7 +3318,7 @@ html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-li
 /* Footer override — must come right after to beat the rule above */
 html body footer a,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link) {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
 html body footer a:hover,
 html body footer a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):hover {
@@ -4023,15 +3328,13 @@ html body footer *,
 html body footer li,
 html body footer p,
 html body footer span:not(.stone) {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
 html body footer .footer-col h4 {
   color: #C9A86C !important;
 }
 html body footer .footer-bottom span,
-html body footer .logo-sub {
-  color: rgba(245,240,234,0.28) !important;
-}
+html body footer 
 
 /* 8. ══ BUTTONS — gold bg ══ */
 html body .btn-dark, html body a.btn-dark,
@@ -4069,17 +3372,7 @@ html body nav.nav-scrolled {
   background: #faf3eb !important;
   border-bottom: 1px solid rgba(104,64,52,0.12) !important;
 }
-html body nav .logo-text,
-html body nav:not(.nav-scrolled) .logo-text {
-  color: #684034 !important;
-}
-html body nav .logo-sub,
-html body nav:not(.nav-scrolled) .logo-sub {
-  color: rgba(104,64,52,0.55) !important;
-}
-html body nav .nav-links a {
-  color: #684034 !important;
-}
+
 html body nav .nav-links a:hover {
   color: #ba7150 !important;
 }
@@ -4101,22 +3394,8 @@ html body .mobile-nav-links li {
 }
 
 /* 11. Mobile nav header */
-html body .mobile-nav-header {
-  background: #3a3530 !important;
-  border-bottom: 1px solid rgba(250,243,235,0.08) !important;
-}
-html body .mobile-nav-header .logo .logo-text {
-  color: #faf3eb !important;
-}
-html body .mobile-nav-header .logo .logo-sub {
-  color: rgba(250,243,235,0.45) !important;
-}
 
-/* 12. Mobile nav footer */
-html body .mobile-nav-footer {
-  background: #3a3530 !important;
-  border-top: 1px solid rgba(250,243,235,0.08) !important;
-}
+html body 
 html body .mobile-nav-footer .mobile-contact,
 html body .mobile-nav-footer .mobile-contact a {
   color: rgba(250,243,235,0.6) !important;
@@ -4144,14 +3423,12 @@ html body footer {
   color: #ffffff !important;
 }
 html body footer *:not(.btn-dark):not(.btn-light):not(.btn-warm) {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
 html body footer .footer-logo-text {
   color: #ffffff !important;
 }
-html body footer .logo-sub {
-  color: rgba(255,255,255,0.5) !important;
-}
+html body footer 
 html body footer a {
   color: rgba(255,255,255,0.75) !important;
 }
@@ -4347,49 +3624,24 @@ html body .page-hero p {
 }
 
 /* ── NAV transparent (over hero) ── */
-html body nav:not(.nav-scrolled) .logo-text,
-html body nav:not(.nav-scrolled) .nav-links a,
-html body nav:not(.nav-scrolled) .lang-btn {
-  color: #faf3eb !important;
-}
-html body nav:not(.nav-scrolled) .logo-sub {
-  color: rgba(250,243,235,0.55) !important;
-}
+
+html body nav:not(.nav-scrolled) 
 
 /* ── NAV scrolled (over cream bg) ── */
 html body nav.nav-scrolled {
   background: #faf3eb !important;
   box-shadow: 0 1px 8px rgba(104,64,52,0.08) !important;
 }
-html body nav.nav-scrolled .logo-text,
-html body nav.nav-scrolled .nav-links a,
-html body nav.nav-scrolled .lang-btn {
-  color: #684034 !important;
-}
-html body nav.nav-scrolled .logo-sub {
-  color: rgba(104,64,52,0.5) !important;
-}
+
+html body nav.nav-scrolled 
 
 /* ── MOBILE NAV (dark) ── */
 html body .mobile-nav,
 html body nav.mobile-nav {
   background: #3a3530 !important;
 }
-html body .mobile-nav-header {
-  background: #3a3530 !important;
-  border-bottom: 1px solid rgba(250,243,235,0.08) !important;
-}
-html body .mobile-nav-header .logo .logo-text {
-  color: #faf3eb !important;
-}
-html body .mobile-nav-header .logo .logo-sub {
-  color: rgba(250,243,235,0.45) !important;
-}
-html body .mobile-nav-links a,
-html body .mobile-nav-links a span[data-fr],
-html body .mobile-nav-links a * {
-  color: #faf3eb !important;
-}
+
+html body 
 html body .mobile-nav-links .nav-sub {
   color: rgba(250,243,235,0.5) !important;
 }
@@ -4446,9 +3698,7 @@ html body footer address {
 html body footer .footer-logo-text {
   color: #ffffff !important;
 }
-html body footer .logo-sub {
-  color: rgba(255,255,255,0.48) !important;
-}
+html body footer 
 html body footer a {
   color: rgba(255,255,255,0.72) !important;
 }
@@ -4652,10 +3902,6 @@ html body .sub-nav a.active {
 html body nav.nav-dark {
   background: #3a3530 !important;
 }
-html body nav.nav-dark .logo-text,
-html body nav.nav-dark .nav-links a {
-  color: #faf3eb !important;
-}
 
 /* ── OVERLAYS ── */
 html body [class*="overlay"]:not(.search-overlay) {
@@ -4674,103 +3920,19 @@ html body nav.mobile-nav {
 }
 
 /* ── Header: logo left + back arrow right ── */
-html body .mobile-nav-header {
-  background: #684034 !important;
-  border-bottom: 1px solid rgba(245,237,228,0.18) !important;
-  padding: 14px 22px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  min-height: 66px !important;
-}
 
 /* Logo row */
-html body .mobile-nav-header .logo {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 10px !important;
-  text-decoration: none !important;
-}
+html body 
 
 /* Stones */
-html body .mobile-nav-header .logo .logo-stones {
-  position: relative !important;
-  width: 33px !important;
-  height: 44px !important;
-  flex: 0 0 33px !important;
-  display: block !important;
-}
-html body .mobile-nav-header .logo .stone {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  border-radius: 50% !important;
-  display: block !important;
-}
-html body .mobile-nav-header .logo .stone-top {
-  width: 12px !important; height: 8px !important;
-  top: 0 !important; background: #7A8A72 !important;
-}
-html body .mobile-nav-header .logo .stone-mid {
-  width: 23px !important; height: 14px !important;
-  top: 10px !important; background: #C9A96E !important;
-}
-html body .mobile-nav-header .logo .stone-bot {
-  width: 33px !important; height: 19px !important;
-  top: 25px !important; background: #C07A5A !important;
-}
+html body 
+html body 
+html body 
+html body 
+html body 
 
 /* Logo text */
-html body .mobile-nav-header .logo .logo-brand {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 3px !important;
-}
-html body .mobile-nav-header .logo .logo-text,
-html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 19px !important;
-  letter-spacing: 6px !important;
-  color: #F5EDE4 !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-  display: block !important;
-}
-html body .mobile-nav-header .logo .logo-sub,
-html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 8.5px !important;
-  letter-spacing: 3px !important;
-  color: rgba(245,237,228,0.5) !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Back arrow button */
-html body .mobile-nav-close,
-html body .mobile-nav-header .mobile-nav-close {
-  width: 36px !important;
-  height: 36px !important;
-  border-radius: 50% !important;
-  background: rgba(245,237,228,0.10) !important;
-  border: none !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  flex: 0 0 36px !important;
-  padding: 0 !important;
-  color: #F5EDE4 !important;
-  font-size: 1.2rem !important;
-  line-height: 1 !important;
-}
+html body 
 html body .mobile-nav-close:hover {
   background: rgba(245,237,228,0.18) !important;
 }
@@ -4869,7 +4031,7 @@ html body .mobile-lang-sep {
 
 /* Hide old contact line */
 html body .mobile-nav-footer .mobile-contact {
-  display: none !important;
+  display: block !important;
 }
 
 /* CTA Button — full width, gold */
@@ -4920,53 +4082,8 @@ html body .mobile-nav-footer a.btn-dark:hover {
   }
 
   /* ── Logo: centered, Jost, brown ── */
-  html body nav .logo {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    text-decoration: none !important;
-  }
-  html body nav .logo .logo-brand {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 2px !important;
-  }
-  html body nav .logo .logo-text,
-  html body nav .logo span.logo-text,
-  html body nav:not(.nav-scrolled) .logo .logo-text,
-  html body nav.nav-scrolled .logo .logo-text {
-    font-family: 'DM Sans', sans-serif !important;
-    font-weight: 300 !important;
-    font-size: 18px !important;
-    letter-spacing: 7px !important;
-    color: #4A2318 !important;
-    text-transform: uppercase !important;
-    line-height: 1 !important;
-    padding: 0 !important;
-  }
-  html body nav .logo .logo-sub,
-  html body nav .logo span.logo-sub,
-  html body nav:not(.nav-scrolled) .logo .logo-sub,
-  html body nav.nav-scrolled .logo .logo-sub {
-    font-family: 'DM Sans', sans-serif !important;
-    font-weight: 300 !important;
-    font-size: 8px !important;
-    letter-spacing: 3px !important;
-    color: rgba(74,35,24,0.55) !important;
-    text-transform: uppercase !important;
-    display: block !important;
-    padding: 0 !important;
-    text-align: center !important;
-  }
-
-  /* Hide stones in nav (keep clean) */
-  html body nav .logo .logo-stones {
-    display: none !important;
-  }
+  
+  
 
   /* ── Hamburger: 3 lines styled ── */
   html body nav .menu-btn {
@@ -5044,52 +4161,8 @@ html body .mobile-nav-footer a.btn-dark:hover {
 ══════════════════════════════════════════════ */
 
 /* ── LOGO: bigger, wider letter-spacing ── */
-html body .mobile-nav-header .logo .logo-text,
-html body .mobile-nav-header .logo span.logo-text {
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 28px !important;
-  letter-spacing: 12px !important;
-  color: #F2E6D9 !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-  display: block !important;
-  padding: 0 !important;
-}
-html body .mobile-nav-header .logo .logo-sub,
-html body .mobile-nav-header .logo span.logo-sub {
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 300 !important;
-  font-size: 9px !important;
-  letter-spacing: 4px !important;
-  color: rgba(242,230,217,0.5) !important;
-  text-transform: uppercase !important;
-  margin-top: 5px !important;
-  display: block !important;
-  padding: 0 !important;
-  text-align: left !important;
-}
-
-/* ── HEADER: align top ── */
-html body .mobile-nav-header {
-  align-items: flex-start !important;
-  padding: 14px 22px 18px !important;
-  background: #6B3829 !important;
-  border-bottom: 1px solid rgba(242,230,217,0.18) !important;
-}
-html body .mobile-nav-header .logo {
-  align-items: center !important;
-  gap: 11px !important;
-}
-html body .mobile-nav-header .mobile-nav-close {
-  margin-top: 2px !important;
-  width: 38px !important;
-  height: 38px !important;
-  background: rgba(242,230,217,0.12) !important;
-  border: none !important;
-  color: #F2E6D9 !important;
-  font-size: 1.2rem !important;
-}
+html body 
+html body 
 
 /* ── MENU ITEMS: no dividers, AWU spacing ── */
 html body .mobile-nav-links {
@@ -5203,14 +4276,7 @@ html body .mobile-nav-links a.nav-sub span {
   color: rgba(255,255,255,0.5) !important;
 }
 /* Logo sub */
-html body .mobile-nav-header .logo .logo-sub,
-html body .mobile-nav-header .logo span.logo-sub {
-  color: rgba(255,255,255,0.45) !important;
-}
-/* Lang sep */
-html body .mobile-lang-sep {
-  color: rgba(255,255,255,0.35) !important;
-}
+html body 
 /* CTA button: keep gold */
 html body .mobile-nav-footer .btn-dark,
 html body .mobile-nav-footer a.btn-dark {
@@ -5235,7 +4301,7 @@ html body .social-link:hover {
 /* ── RULE 3: Footer (dark brown) ── */
 html body footer,
 html body footer * {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
 html body footer .footer-logo-text,
 html body footer h2,
@@ -5243,9 +4309,7 @@ html body footer h3,
 html body footer .footer-logo span {
   color: #ffffff !important;
 }
-html body footer .logo-sub {
-  color: rgba(255,255,255,0.45) !important;
-}
+html body footer 
 html body footer a {
   color: rgba(255,255,255,0.75) !important;
 }
@@ -5309,12 +4373,7 @@ html body nav.nav-scrolled,
 html body nav.nav-scrolled * {
   color: #4A2318 !important;
 }
-html body nav.nav-scrolled .logo .logo-sub {
-  color: rgba(74,35,24,0.5) !important;
-}
-html body nav.nav-scrolled .nav-search-btn svg {
-  stroke: #4A2318 !important;
-}
+
 html body nav.nav-scrolled .menu-btn span,
 html body nav.nav-scrolled .menu-btn::before,
 html body nav.nav-scrolled .menu-btn::after {
@@ -5460,9 +4519,7 @@ html body .mobile-nav {
   height: 100% !important;
   overflow: hidden !important;
 }
-html body .mobile-nav-header {
-  flex-shrink: 0 !important;
-}
+
 html body .mobile-nav-links {
   flex: 1 1 auto !important;
   overflow-y: auto !important;
@@ -5537,7 +4594,7 @@ html body footer address,
 html body footer .footer-tagline,
 html body footer .footer-bottom span,
 html body footer .footer-col ul li {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
 
 /* Section headings: SOINS / INFO / RÉSEAUX */
@@ -5564,9 +4621,7 @@ html body footer .footer-logo-text,
 html body footer .footer-logo span.footer-logo-text {
   color: #ffffff !important;
 }
-html body footer .logo-sub {
-  color: rgba(255,255,255,0.45) !important;
-}
+html body footer 
 
 /* Footer bottom copyright / address */
 html body footer .footer-bottom {
@@ -5606,12 +4661,7 @@ html body div.mobile-nav.open {
  @media (min-width: 981px) {
   html body .mobile-nav,
   html body .menu-btn,
-  html body .mobile-nav-header,
-  html body .mobile-nav-links,
-  html body .mobile-nav-footer {
-    display: none !important;
-    visibility: hidden !important;
-  }
+  
 }
 
 /* 3. MOBILE NAV TRANSPARENT: restore transparent over hero */
@@ -5639,27 +4689,7 @@ html body div.mobile-nav.open {
   }
 
   /* 5. Logo: WHITE over hero, dark over cream */
-  html body nav:not(.nav-scrolled) .logo .logo-text,
-  html body nav:not(.nav-scrolled) .logo span.logo-text {
-    color: #ffffff !important;
-  }
-  html body nav:not(.nav-scrolled) .logo .logo-sub,
-  html body nav:not(.nav-scrolled) .logo span.logo-sub {
-    color: rgba(255,255,255,0.55) !important;
-  }
-  html body nav.nav-scrolled .logo .logo-text {
-    color: #4A2318 !important;
-  }
-  html body nav.nav-scrolled .logo .logo-sub {
-    color: rgba(74,35,24,0.5) !important;
-  }
-
-  /* 6. Search button: glass/white over hero, dark over cream */
-  html body nav:not(.nav-scrolled) .nav-search-btn {
-    background: rgba(255,255,255,0.12) !important;
-    border: 1px solid rgba(255,255,255,0.25) !important;
-    color: #ffffff !important;
-  }
+  
   html body nav:not(.nav-scrolled) .nav-search-btn svg {
     stroke: #ffffff !important;
   }
@@ -5779,7 +4809,6 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   color: rgba(242,230,217,0.50) !important;
 }
 
-
 /* ── FOOTER TEXT FIX: all text and links clearly white ── */
 html body footer,
 html body footer *,
@@ -5791,15 +4820,13 @@ html body footer a:not([class]),
 html body footer .footer-col a,
 html body footer .footer-col ul li a,
 html body footer .footer-col ul li {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
 }
 html body footer .footer-col h4 {
   color: #C9A86C !important;
   opacity: 1 !important;
 }
-html body footer .logo-sub {
-  color: rgba(255,255,255,0.50) !important;
-}
+html body footer 
 html body footer .footer-bottom span {
   color: rgba(245,240,234,0.28) !important;
 }
@@ -5807,7 +4834,6 @@ html body footer a:hover,
 html body footer .footer-col a:hover {
   color: #F5C06A !important;
 }
-
 
 /* ── MOBILE HEADER SLIM + 3-LINE HAMBURGER ── */
 @media (max-width: 980px) {
@@ -5839,7 +4865,6 @@ html body footer .footer-col a:hover {
     width: 20px !important;
   }
 }
-
 
 /* ── HAMBURGER: 3 spans only, hide ::before ::after ── */
 html body nav .menu-btn::before,
@@ -5985,23 +5010,17 @@ html body .services-grid.list-view .svc-info .svc-book-btn {
   flex-shrink: 0 !important;
 }
 
-/* ══ NAV ALWAYS READABLE — HEAD SPA PAGE FIX ══ */
-html body nav:not(.nav-scrolled):not(.nav-hidden) {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%) !important;
-}
+
 html body nav.nav-scrolled:not(.nav-hidden) {
   background: rgba(240, 230, 218, 0.96) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   box-shadow: 0 1px 16px rgba(74,35,24,0.08) !important;
 }
-html body nav.nav-scrolled .logo-text,
-html body nav.nav-scrolled .logo-sub { color: #3a1e14 !important; }
-html body nav.nav-scrolled .menu-btn,
-html body nav.nav-scrolled .nav-search-btn { color: #3a1e14 !important; }
+
 html body nav.nav-scrolled .menu-btn span { background: #3a1e14 !important; }
-html body nav:not(.nav-scrolled) .logo-text { color: #ffffff !important; text-shadow: 0 1px 6px rgba(0,0,0,0.5) !important; }
-html body nav:not(.nav-scrolled) .logo-sub  { color: rgba(255,255,255,0.75) !important; }
+html body nav:not(.nav-scrolled) 
+html body nav:not(.nav-scrolled) 
 html body nav:not(.nav-scrolled) .menu-btn  { color: #ffffff !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: #ffffff !important; }
 html body nav:not(.nav-scrolled) .nav-search-btn { color: #ffffff !important; }
@@ -6032,15 +5051,7 @@ html body .special-offer-card [style*="border-top"] { border-color: rgba(138,80,
 html body img.logo-stones,
 html body .logo img.logo-stones,
 html body .footer-logo img.logo-stones,
-html body .mobile-nav-header img.logo-stones {
-  width: auto !important;
-  height: 52px !important;
-  max-height: 52px !important;
-  flex-shrink: 0 !important;
-  object-fit: contain !important;
-  display: block !important;
-  position: static !important;
-}
+html body 
 
 /* Footer: larger, centered above text */
 html body footer img.logo-stones,
@@ -6052,12 +5063,7 @@ html body footer .footer-logo img.logo-stones {
 }
 
 /* Mobile nav header: slightly larger */
-html body .mobile-nav-header img.logo-stones,
-html body .mobile-nav img.logo-stones {
-  height: 60px !important;
-  max-height: 60px !important;
-  width: auto !important;
-}
+html body 
 
 /* Footer layout: column, centered */
 html body footer .footer-logo,
@@ -6072,16 +5078,8 @@ html body footer img.logo-stones {
 }
 
 /* Nav non-scrolled: keep full size */
-html body nav:not(.nav-scrolled) img.logo-stones {
-  height: 52px !important;
-  max-height: 52px !important;
-}
 
 /* Nav scrolled: slightly smaller */
-html body nav.nav-scrolled img.logo-stones {
-  height: 44px !important;
-  max-height: 44px !important;
-}
 
 /* Popup sp-stones */
 html body #sp-stones img {
@@ -6098,15 +5096,7 @@ html body #sp-stones img {
 html body img.logo-stones,
 html body .logo img.logo-stones,
 html body .footer-logo img.logo-stones,
-html body .mobile-nav-header img.logo-stones {
-  width: auto !important;
-  height: 68px !important;
-  max-height: 68px !important;
-  flex-shrink: 0 !important;
-  object-fit: contain !important;
-  display: block !important;
-  position: static !important;
-}
+html body 
 
 /* Footer: much larger, centered above text */
 html body footer img.logo-stones,
@@ -6118,12 +5108,7 @@ html body footer .footer-logo img.logo-stones {
 }
 
 /* Mobile nav header */
-html body .mobile-nav-header img.logo-stones,
-html body .mobile-nav img.logo-stones {
-  height: 80px !important;
-  max-height: 80px !important;
-  width: auto !important;
-}
+html body 
 
 /* Footer layout: column, centered */
 html body footer .footer-logo,
@@ -6138,16 +5123,8 @@ html body footer img.logo-stones {
 }
 
 /* Nav non-scrolled */
-html body nav:not(.nav-scrolled) img.logo-stones {
-  height: 68px !important;
-  max-height: 68px !important;
-}
 
 /* Nav scrolled: slightly smaller */
-html body nav.nav-scrolled img.logo-stones {
-  height: 56px !important;
-  max-height: 56px !important;
-}
 
 /* Popup sp-stones */
 html body #sp-stones img {
@@ -6165,15 +5142,7 @@ html body #sp-stones img {
 html body img.logo-stones,
 html body .logo img.logo-stones,
 html body .footer-logo img.logo-stones,
-html body .mobile-nav-header img.logo-stones {
-  width: auto !important;
-  height: 44px !important;
-  max-height: 44px !important;
-  flex-shrink: 0 !important;
-  object-fit: contain !important;
-  display: block !important;
-  position: static !important;
-}
+html body 
 
 /* Footer: larger, centered above text */
 html body footer img.logo-stones,
@@ -6185,12 +5154,7 @@ html body footer .footer-logo img.logo-stones {
 }
 
 /* Mobile nav header */
-html body .mobile-nav-header img.logo-stones,
-html body .mobile-nav img.logo-stones {
-  height: 52px !important;
-  max-height: 52px !important;
-  width: auto !important;
-}
+html body 
 
 /* Footer layout: column, centered */
 html body footer .footer-logo,
@@ -6205,10 +5169,6 @@ html body footer img.logo-stones {
 }
 
 /* Nav scrolled: same size */
-html body nav.nav-scrolled img.logo-stones {
-  height: 40px !important;
-  max-height: 40px !important;
-}
 
 /* Popup sp-stones */
 html body #sp-stones img {
@@ -6225,10 +5185,7 @@ html body .mobile-nav,
 html body .mobile-nav.open {
   background: #684034 !important;
 }
-html body .mobile-nav-header {
-  background: #684034 !important;
-  border-bottom: none !important;
-}
+
 html body .mobile-nav-links {
   background: transparent !important;
 }
@@ -6416,31 +5373,32 @@ html body .headspa-btn {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 0.82rem 2.4rem !important;
-  background: rgba(255,255,255,0.10) !important;
-  border: 1px solid rgba(255,255,255,0.42) !important;
-  color: #F5EDE3 !important;
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  border-radius: 4px !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.22em !important;
+  padding: 0 2.8rem !important;
+  height: 60px !important;
+  background: #ffffff !important;
+  border: none !important;
+  border-radius: 15px !important;
+  color: #2B2B2B !important;
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.28em !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
-  transition: background 0.25s, border-color 0.25s !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12) !important;
+  transition: box-shadow 0.25s, transform 0.2s !important;
 }
 html body .headspa-btn:hover {
-  background: rgba(255,255,255,0.20) !important;
-  border-color: rgba(255,255,255,0.65) !important;
-  color: #ffffff !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 4px 12px rgba(0,0,0,0.14) !important;
+  transform: translateY(-1px) !important;
+  color: #2B2B2B !important;
 }
 @media (max-width: 480px) {
   header.hero .headspa-hero-copy { padding: 4rem 1.2rem 0 !important; }
   .headspa-hero-actions { padding-bottom: 9% !important; }
 }
 .headspa-hero-lead {
-  color: rgba(245,237,227,0.72) !important;
+  color: rgba(255,255,255,0.92) !important;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-style: italic !important;
   font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
@@ -6449,9 +5407,9 @@ html body .headspa-btn:hover {
 }
 .hero-promo-badge {
   display: inline-block;
-  background: rgba(240,200,122,0.18);
-  border: 1px solid rgba(240,200,122,0.45);
-  color: #F0C87A;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.45);
+  color: #ffffff;
   font-family: "DM Sans", sans-serif;
   font-style: normal;
   font-size: 0.70rem;
@@ -6653,6 +5611,37 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     }
     video.hero-bg { animation: none; }
   }
+
+/* ── nav header: arrow left, logo center ── */
+#mobileNav .mobile-nav-header {
+  display: grid !important;
+  grid-template-columns: 44px 1fr 44px !important;
+  align-items: center !important;
+  justify-items: center !important;
+}
+
+#mobileNav .mobile-nav-close {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  justify-self: start !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: rgba(245,237,227,0.70) !important;
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+}
+#mobileNav
+#mobileNav
+#mobileNav .mobile-nav-header span
+#mobileNav
+#mobileNav
+#mobileNav .mobile-nav-header span
 </style>
 <script type="application/ld+json">
 {
@@ -6710,10 +5699,11 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   ]
 }
 </script>
+
 </head>
 <body>
 
-<nav>
+<nav id="mainNav">
   <a class="logo" href="index.html">
     <div class="logo-brand">
       <span class="logo-text">SKINES</span>
@@ -6726,7 +5716,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <li><a href="facial.html">Facial</a></li>
     <li><a href="visit-us.html"><span data-fr="Contact" data-en="Contact">Contact</span></a></li>
   </ul>
-  <a class="nav-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+  <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="fr">FR</button>
     <span class="lang-sep">|</span>
@@ -6748,31 +5738,32 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       </a>
       <button class="mobile-nav-close" id="menuClose" aria-label="Fermer le menu">&#8594;</button>
     </div>
+        <div class="nav-lang-bar">
+      <button class="mobile-lang-btn nav-lang-btn" data-lang="fr">FR</button>
+      <span class="nav-lang-sep">|</span>
+      <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
+    </div>
     <ul class="mobile-nav-links">
-      <li><a href="head-spa.html"><span data-fr="Head Spa" data-en="Head Spa">Head Spa</span></a></li>
+      <li><a href="head-spa.html">Head Spa</a></li>
       <li><a href="laser.html"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
-      <li><a href="facial.html"><span data-fr="Facial" data-en="Facial">Facial</span></a></li>
+      <li><a href="facial.html"><span data-fr="Facial" data-en="Facials">Facial</span></a></li>
       <li><a href="cartes-cadeaux.html"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
       <li><a href="reviews.html" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
-      <li><a href="visit-us.html" class="nav-sub"><span data-fr="Contact & Adresse" data-en="Contact & Address">Contact & Adresse</span></a></li>
+      <li><a href="visit-us.html" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
       <li><a href="parking.html" class="nav-sub"><span data-fr="Stationnement" data-en="Private Parking">Stationnement</span></a></li>
       <li><a href="insurance.html" class="nav-sub"><span data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</span></a></li>
     </ul>
     <div class="sp-menu-trigger-wrap">
       <button id="sp-menu-trigger" class="sp-menu-trigger" aria-label="Tirage Exclusif">
         <span class="sp-menu-trigger-lotus">✿</span>
-        <span class="sp-menu-trigger-label">EXPÉRIENCE EXCLUSIVE</span>
-        <span class="sp-menu-trigger-sub">Jusqu'à 50% · Places limitées</span>
+        <span class="sp-menu-trigger-label" data-fr="EXPÉRIENCE EXCLUSIVE" data-en="EXCLUSIVE EXPERIENCE">EXPÉRIENCE EXCLUSIVE</span>
+        <span class="sp-menu-trigger-sub" data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
       </button>
     </div>
     <div class="mobile-nav-footer">
-      <a class="btn-dark" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+      <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
-      <div class="mobile-lang-switcher">
-        <button class="mobile-lang-btn active" data-lang="fr">FR</button>
-        <span class="mobile-lang-sep"> ▾ </span>
-        <button class="mobile-lang-btn" data-lang="en">EN</button>
-      </div>
+
     </div>
   </div>
 
@@ -6781,24 +5772,24 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/head-spa-hero.mp4" type="video/mp4">
   </video>
   <div class="hero-copy headspa-hero-copy">
-    <div class="eyebrow headspa-hero-eyebrow">Rituel Japonais · Head Spa</div>
+    <div class="eyebrow headspa-hero-eyebrow" data-fr="Rituel Japonais · Head Spa" data-en="Japanese Ritual · Head Spa">Rituel Japonais · Head Spa</div>
     <h1 class="headspa-hero-h1">HEAD SPA</h1>
-    <p class="headspa-hero-lead"><span class="hero-promo-badge">−30%</span> sur toutes les expériences</p>
+    <p class="headspa-hero-lead"><span class="hero-promo-badge">−30%</span><span data-fr=" sur toutes les expériences" data-en=" on all experiences"> sur toutes les expériences</span></p>
     <div class="headspa-hero-actions">
-      <a class="btn-hero-glass headspa-btn" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">RÉSERVER</a>
-      <p class="headspa-hero-promo">Offrez à votre corps et votre esprit un véritable moment de relâchement profond.<br>Réservez votre expérience Skines dès maintenant.</p>
+      <a class="btn-hero-glass headspa-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+      <p class="headspa-hero-promo" data-fr="Offrez à votre corps et votre esprit un véritable moment de relâchement profond. Réservez votre expérience Skines dès maintenant." data-en="Give your body and mind a truly deep moment of release. Book your Skines experience now.">Offrez à votre corps et votre esprit un véritable moment de relâchement profond.<br>Réservez votre expérience Skines dès maintenant.</p>
     </div>
   </div>
 </header>
 
 <section style="text-align:center;">
 
-  <p style="text-align:center;font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;line-height:1.6;margin:0.5rem 0 1rem;font-family:'Cormorant Garamond',serif;">Le luxe sans compromis<br><em style="font-weight:400;font-size:0.9em;">Les tarifs les plus raffinés du Head Spa à Montréal</em></p>
+  <p style="text-align:center;font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;line-height:1.6;margin:0.5rem 0 1rem;font-family:'Cormorant Garamond',serif;"><span data-fr="Le luxe sans compromis" data-en="Luxury without compromise">Le luxe sans compromis</span><br><em style="font-weight:400;font-size:0.9em;"><span data-fr="Les tarifs les plus raffinés du Head Spa à Montréal" data-en="The most refined Head Spa prices in Montréal">Les tarifs les plus raffinés du Head Spa à Montréal</span></em></p>
   <div style="display:inline-flex;align-items:center;justify-content:center;gap:0.7rem;background:rgba(245,192,106,0.13);color:#7a4a28;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.6rem 1.4rem;border-radius:10px;margin-bottom:1.8rem;border:1px solid rgba(245,192,106,0.38);">
-    ✦ Économisez 30 % sur toutes les séances
+    <span data-fr="✦ Économisez 30 % sur toutes les séances" data-en="✦ Save 30% on all sessions">✦ Économisez 30 % sur toutes les séances</span>
   </div>
   <div class="view-toggle-row" style="justify-content:space-between;align-items:center;">
-    <div class="eyebrow" style="margin:0;letter-spacing:0.18em;font-size:0.65rem;">Nos Tarifs Exclusifs</div>
+    <div class="eyebrow" style="margin:0;letter-spacing:0.18em;font-size:0.65rem;" data-fr="Nos Tarifs Exclusifs" data-en="Our Exclusive Pricing">Nos Tarifs Exclusifs</div>
     <button class="view-btn active" data-view="grid" aria-label="Vue grille">
       <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
     </button>
@@ -6821,7 +5812,7 @@ const SERVICES = [
 ];
 /* ─────────────────────────────────────────────────────────── */
 
-const BOOKING = "https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf";
+const BOOKING = "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288";
 
 document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   <div class="svc-card">
@@ -6847,10 +5838,10 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   </div>
   <div class="family-overlay"></div>
   <div class="family-content">
-    <div class="family-eyebrow">Family Ritual</div>
-    <h2 class="family-title">A Full Family<br><em>Wellness Experience</em></h2>
-    <p class="family-desc">Share a calming head spa ritual together in a warm, private, luxury environment.</p>
-    <a class="family-cta" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
+    <div class="family-eyebrow" data-en="Family Ritual" data-fr="Rituel en Famille">Family Ritual</div>
+    <h2 class="family-title" data-i18n-html="headSpa.familyTitle">A Full Family<br><em>Wellness Experience</em></h2>
+    <p class="family-desc" data-en="Share a calming head spa ritual together in a warm, private, luxury environment." data-fr="Partagez un rituel Head Spa apaisant dans un cadre privé, chaleureux et luxueux.">Share a calming head spa ritual together in a warm, private, luxury environment.</p>
+    <a class="family-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
   </div>
 </div>
 
@@ -6868,36 +5859,36 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
 
 <section style="padding:5rem 1.4rem 6rem; background:#FDFAF5;">
   <div style="text-align:center;max-width:700px;margin:0 auto 3.5rem;">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);color:#3A1E14;margin:1rem 0 0.6rem;font-weight:400;font-style:italic;">Combinez. Profitez pleinement.</h2>
-    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(58,30,20,0.55);font-size:1.05rem;">Offrez-vous une expérience complète — corps, visage et esprit.</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);color:#3A1E14;margin:1rem 0 0.6rem;font-weight:400;font-style:italic;"><span data-i18n="headSpa.combineTitle">Combinez. Profitez pleinement.</span></h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(58,30,20,0.55);font-size:1.05rem;" data-fr="Offrez-vous une expérience complète — corps, visage et esprit." data-en="Give yourself a complete experience — body, face and mind.">Offrez-vous une expérience complète — corps, visage et esprit.</p>
   </div>
   <div class="bundles-grid" style="margin-top:0;max-width:1000px;margin-left:auto;margin-right:auto;">
     <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(58,30,20,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;">Forfait · Bien-être Total</div>
+      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;"><span data-fr="Forfait · Bien-être Total" data-en="Bundle · Total Wellness">Forfait · Bien-être Total</span></div>
       <div class="bundle-name" style="color:#3A1E14!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Scalp &amp; Glow</div>
       <div class="bundle-name-fr" style="color:rgba(58,30,20,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + Luxury Facial</div>
       <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$265</div>
-      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;">Économisez $35</div>
+      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;"><span data-fr="Économisez $35" data-en="Save $35">Économisez $35</span></div>
       <div class="bundle-includes" style="color:rgba(58,30,20,0.70)!important;font-size:0.88rem;line-height:1.7;border-top:1px solid rgba(201,151,58,0.20);padding-top:1rem;margin-bottom:1rem;">Head Spa Signature 60 min<br>+ Luxury Facial 60 min</div>
-      <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"Régénérez votre cuir chevelu et révélez l'éclat de votre peau en une seule visite."</div>
+      <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"<span data-fr="Régénérez votre cuir chevelu et révélez l'éclat de votre peau en une seule visite." data-en="Regenerate your scalp and reveal your skin's radiance in a single visit.">Régénérez votre cuir chevelu et révélez l'éclat de votre peau en une seule visite.</span>"</div>
     </div>
     <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(58,30,20,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;">Forfait · Détente Complète</div>
+      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;"><span data-fr="Forfait · Détente Complète" data-en="Bundle · Complete Relaxation">Forfait · Détente Complète</span></div>
       <div class="bundle-name" style="color:#3A1E14!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Full Reset</div>
       <div class="bundle-name-fr" style="color:rgba(58,30,20,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + Personalized Facial</div>
       <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$245</div>
-      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;">Économisez $30</div>
+      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;"><span data-fr="Économisez $30" data-en="Save $30">Économisez $30</span></div>
       <div class="bundle-includes" style="color:rgba(58,30,20,0.70)!important;font-size:0.88rem;line-height:1.7;border-top:1px solid rgba(201,151,58,0.20);padding-top:1rem;margin-bottom:1rem;">Head Spa Focus 60 min<br>+ Personalized Facial 60 min</div>
-      <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"Un soin complet de la tête au visage — relaxation profonde et peau revitalisée."</div>
+      <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"<span data-fr="Un soin complet de la tête au visage — relaxation profonde et peau revitalisée." data-en="A complete head-to-face treatment — deep relaxation and revitalized skin.">Un soin complet de la tête au visage — relaxation profonde et peau revitalisée.</span>"</div>
     </div>
     <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(58,30,20,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;">Forfait · Hydration Totale</div>
+      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;"><span data-fr="Forfait · Hydration Totale" data-en="Bundle · Total Hydration">Forfait · Hydration Totale</span></div>
       <div class="bundle-name" style="color:#3A1E14!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Hydra Ritual</div>
       <div class="bundle-name-fr" style="color:rgba(58,30,20,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + HydraDermabrasion</div>
       <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$285</div>
-      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;">Économisez $40</div>
+      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;"><span data-fr="Économisez $40" data-en="Save $40">Économisez $40</span></div>
       <div class="bundle-includes" style="color:rgba(58,30,20,0.70)!important;font-size:0.88rem;line-height:1.7;border-top:1px solid rgba(201,151,58,0.20);padding-top:1rem;margin-bottom:1rem;">Head Spa Signature 90 min<br>+ HydraDermabrasion Bela MD+</div>
-      <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"Hydratation intensive du cuir chevelu à la peau — une renaissance complète."</div>
+      <div class="bundle-desc" style="color:rgba(58,30,20,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"<span data-fr="Hydratation intensive du cuir chevelu à la peau — une renaissance complète." data-en="Intensive scalp-to-skin hydration — a complete renewal.">Hydratation intensive du cuir chevelu à la peau — une renaissance complète.</span>"</div>
     </div>
   </div>
 </section>
@@ -6923,8 +5914,13 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
 }
 .sf-logo { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; }
 .sf-stones { width: 38px; height: auto; opacity: 0.88; }
-.sf-brand { font-family: "DM Sans", sans-serif; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.36em; color: rgba(245,237,227,0.90); padding-left: 0.36em; }
+
 .sf-tagline-sub { font-size: 0.58rem; letter-spacing: 0.26em; color: rgba(245,237,227,0.30); text-transform: uppercase; padding-left: 0.26em; margin-top: 0.1rem; }
+.sf-lang-bar { display: flex; justify-content: center; align-items: center; gap: 0.9rem; padding: 0.9rem 0 0; }
+.sf-lang-btn { background: none; border: none; cursor: pointer; font-family: "DM Sans", sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.28em; color: rgba(245,237,227,0.28); text-transform: uppercase; padding: 0; transition: color 0.2s; }
+.sf-lang-btn.active { color: rgba(245,237,227,0.88); font-weight: 500; }
+.sf-lang-btn:hover { color: rgba(245,237,227,0.55); }
+.sf-lang-sep-bar { color: rgba(245,237,227,0.13); font-size: 0.65rem; letter-spacing: 0; font-weight: 300; }
 
 /* ── Nav sections ── */
 .sf-nav { padding: 0.8rem 0 0; }
@@ -6971,12 +5967,6 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
 .sf-legal a:hover { color: rgba(245,237,227,0.55); }
 .sf-legal-sep { opacity: 0.3; }
 
-
-
-
-
-
-
 /* ══ MOBILE NAV — PREMIUM REDESIGN ══ */
 #mobileNav { background: #684034 !important; }
 #mobileNav .mobile-nav-header {
@@ -6987,13 +5977,13 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   position: sticky !important;
   top: 0 !important;
 }
-#mobileNav .mobile-nav-header .logo { position: static !important; transform: none !important; left: auto !important; }
-#mobileNav .mobile-nav-header .logo-text { color: rgba(245,237,227,0.95) !important; letter-spacing: 0.35em !important; }
-#mobileNav .mobile-nav-header .logo-sub { color: rgba(201,160,96,0.65) !important; }
+
+#mobileNav .mobile-nav-header 
+#mobileNav .mobile-nav-header 
 #mobileNav .mobile-nav-close {
-  background: none !important; border: 1px solid rgba(201,160,96,0.25) !important;
-  color: rgba(245,237,227,0.65) !important; width: 42px !important; height: 42px !important;
-  border-radius: 50% !important; font-size: 1.1rem !important;
+  background: none !important; border: none !important;
+  color: rgba(245,237,227,0.70) !important; width: 44px !important; height: 44px !important;
+  border-radius: 0 !important; font-size: 1.1rem !important;
   display: flex !important; align-items: center !important; justify-content: center !important;
 }
 #mobileNav .mobile-nav-links { padding: 0.8rem 1.5rem !important; overflow: visible !important; flex: unset !important; }
@@ -7003,14 +5993,14 @@ html body div#mobileNav ul.mobile-nav-links li a span,
 html body div#mobileNav ul.mobile-nav-links li a *,
 html body div#mobileNav ul.mobile-nav-links li:first-child a,
 html body div#mobileNav ul.mobile-nav-links li:first-child a * {
-  font-family: "Cormorant Garamond", serif !important;
-  font-size: 1.65rem !important;
-  font-weight: 300 !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
   color: rgba(245,237,227,0.88) !important;
-  text-transform: none !important;
-  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.20em !important;
   display: block !important;
-  padding: 1.05rem 0 !important;
+  padding: 0.88rem 0 !important;
   border: none !important;
   border-radius: 0 !important;
   background: transparent !important;
@@ -7050,24 +6040,23 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 #mobileNav .mobile-lang-sep { color: rgba(245,237,227,0.15) !important; }
 #mobileNav .sp-menu-trigger-wrap { padding: 16px 1.5rem 8px !important; }
 #mobileNav .sp-menu-trigger {
-  background: rgba(201,160,96,0.13) !important; border: 1px solid rgba(201,160,96,0.28) !important;
+  background: rgb(232,211,163) !important; border: none !important;
   border-radius: 10px !important; padding: 14px 18px !important; width: 100% !important;
   display: flex !important; flex-direction: column !important; align-items: center !important; gap: 4px !important;
 }
 #mobileNav .sp-menu-trigger-lotus { display: none !important; }
 #mobileNav .sp-menu-trigger-label {
-  font-family: "Cormorant Garamond", serif !important; font-size: 1.05rem !important;
+  font-family: "DM Sans", sans-serif !important; font-size: 1.05rem !important;
   letter-spacing: 0.22em !important; text-transform: uppercase !important;
-  color: rgba(201,160,96,0.92) !important; font-weight: 500 !important;
+  color: #3A1E14 !important; font-weight: 600 !important;
   display: block !important; padding: 0 !important; border: none !important;
 }
 #mobileNav .sp-menu-trigger-sub {
   font-family: "DM Sans", sans-serif !important; font-size: 0.6rem !important;
   letter-spacing: 0.2em !important; text-transform: uppercase !important;
-  color: rgba(201,160,96,0.5) !important; font-weight: 300 !important;
+  color: rgba(58,30,20,0.55) !important; font-weight: 400 !important;
   display: block !important; padding: 0 !important; border: none !important;
 }
-
 
 /* ══ NAV BAR — CREATIVE REDESIGN ══ */
 @media (max-width: 980px) {
@@ -7145,34 +6134,13 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   }
 
   /* Logo: absolute center */
-  html body nav a.logo {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    grid-column: unset !important;
-  }
+  
 
   /* Logo text: Cormorant Garamond, same size everywhere */
-  html body nav .logo-text {
-    font-family: "Cormorant Garamond", serif !important;
-    font-size: 2.0rem !important;
-    letter-spacing: 0.42em !important;
-    font-weight: 400 !important;
-    line-height: 1 !important;
-    padding-left: 0.42em !important;
-  }
+  html body nav 
 
   /* Logo sub: same small caps */
-  html body nav .logo-sub {
-    font-family: "DM Sans", sans-serif !important;
-    font-size: 0.58rem !important;
-    letter-spacing: 0.28em !important;
-    text-transform: uppercase !important;
-    text-align: center !important;
-    display: block !important;
-    padding-left: 0.28em !important;
-    margin-top: 0.15rem !important;
-  }
+  html body nav 
 
   /* Search button: column 1, same circle */
   html body nav .nav-search-btn {
@@ -7220,12 +6188,12 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   html body nav .menu-btn span:nth-child(2) { width: 22px !important; }
   html body nav .menu-btn span:nth-child(3) { width: 30px !important; }
   html body nav .menu-btn[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg) !important;
+    transform: translateY(7.5px) rotate(45deg) !important;
     width: 22px !important;
   }
   html body nav .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
   html body nav .menu-btn[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg) !important;
+    transform: translateY(-7.5px) rotate(-45deg) !important;
     width: 22px !important;
   }
 
@@ -7235,7 +6203,7 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 }
 /* STONE-FINAL */
 html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
-html body nav .menu-btn span { height: 4px !important; border-radius: 4px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #3A1E14 !important; }
+html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #3A1E14 !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.9) !important; }
 html body nav.nav-scrolled .menu-btn span { background: #3A1E14 !important; }
 html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
@@ -7249,79 +6217,84 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <span class="sf-brand">SKINES</span>
       <span class="sf-tagline-sub">Med Spa · Montréal</span>
     </a>
+    <div class="sf-lang-bar">
+      <button class="lang-btn sf-lang-btn" data-lang="fr">FR</button>
+      <span class="sf-lang-sep-bar">|</span>
+      <button class="lang-btn sf-lang-btn" data-lang="en">EN</button>
+    </div>
   </div>
 
   <div class="sf-nav">
     <div class="sf-nav-group">
-      <span class="sf-nav-label">Services</span>
+      <span class="sf-nav-label" data-fr="Services" data-en="Services">Services</span>
       <a class="sf-link" href="head-spa.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
-          Head Spa
+          <span data-fr="Head Spa" data-en="Head Spa">Head Spa</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
       <a class="sf-link" href="facial.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
-          Facials
+          <span data-fr="Soins du Visage" data-en="Facials">Facials</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
       <a class="sf-link" href="laser.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 3 13.8 10.2 21 12 13.8 13.8 12 21 10.2 13.8 3 12 10.2 10.2Z"/></svg></span>
-          Laser Hair Removal
+          <span data-fr="Épilation Laser" data-en="Laser Hair Removal">Laser Hair Removal</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
       <a class="sf-link" href="cartes-cadeaux.html">
         <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><line x1="12" y1="8" x2="12" y2="21"/><path d="M8.5 8A2.5 2.5 0 0 1 11 5.5C12.4 5.5 12 8 12 8s-.4-2.5 1-2.5A2.5 2.5 0 0 1 15.5 8"/><rect x="3" y="5" width="18" height="3" rx="1"/></svg></span>
-          Gift Cards
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+          <span data-fr="Cartes Cadeaux" data-en="Gift Cards">Gift Cards</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
     </div>
 
     <div class="sf-nav-group">
-      <span class="sf-nav-label">Your Visit</span>
+      <span class="sf-nav-label" data-fr="Votre Visite" data-en="Your Visit">Your Visit</span>
       <a class="sf-link" href="reviews.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg></span>
-          Client Reviews
+          <span data-fr="Avis Clients" data-en="Client Reviews">Client Reviews</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
       <a class="sf-link" href="visit-us.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none"/></svg></span>
-          Visit Us
+          <span data-fr="Contact & Adresse" data-en="Visit Us">Visit Us</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
       <a class="sf-link" href="parking.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 17V7h5a3 3 0 0 1 0 6H9"/></svg></span>
-          Private Parking
+          <span data-fr="Stationnement" data-en="Private Parking">Private Parking</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
       <a class="sf-link" href="insurance.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
-          Insurance Receipts
+          <span data-fr="Reçus d'assurance" data-en="Insurance Receipts">Insurance Receipts</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
     </div>
 
     <div class="sf-nav-group">
-      <span class="sf-nav-label">Exclusive</span>
+      <span class="sf-nav-label" data-fr="Exclusif" data-en="Exclusive">Exclusive</span>
       <a class="sf-link" href="tirage.html">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/><circle cx="12" cy="12" r="4" fill="none"/></svg></span>
-          Giveaway / Exclusive Draw
+          <span data-fr="Tirage au Sort" data-en="Giveaway">Giveaway / Exclusive Draw</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -7345,11 +6318,12 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
   <div class="sf-legal">
     <span>© 2026 Skines Med Spa</span>
     <span class="sf-legal-sep">·</span>
-    <a href="privacy-policy.html">Privacy</a>
+    <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy</a>
     <span class="sf-legal-sep">·</span>
-    <a href="terms-and-conditions.html">Terms</a>
+    <a href="terms-and-conditions.html" data-i18n="footer.terms">Terms</a>
     <span class="sf-legal-sep">·</span>
-    <a href="cookie-policy.html">Cookies</a>
+    <a href="cookie-policy.html" data-i18n="footer.cookies">Cookies</a>
+
   </div>
 </footer>
   <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
@@ -7358,7 +6332,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 <script>
 /* ══ SITE SEARCH ENGINE ═══════════════════════════════════════════════════ */
 (function() {
-const BOOKING = "https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf";
+const BOOKING = "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288";
 
 const DB = [
   // ── HEAD SPA ──
@@ -7738,8 +6712,151 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   .float-book-btn.visible { opacity: 1; pointer-events: auto; }
 }
 @media (min-width: 769px) { .float-book-btn { display: none; } }
+
+/* ── Skines nav: refined spacing ── */
+#mobileNav {
+  padding-top: 0.42rem !important;
+  padding-bottom: 0.42rem !important;
+  overflow: hidden !important;
+  justify-content: flex-start !important;
+}
+#mobileNav .mobile-nav-header {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+#mobileNav .mobile-nav-links {
+  flex: 0 0 auto !important;
+  padding-top: 0.38rem !important;
+  padding-bottom: 0.48rem !important;
+}
+/* Strip double padding */
+html body div#mobileNav ul.mobile-nav-links li a span,
+html body div#mobileNav ul.mobile-nav-links li a * {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* Main items */
+html body div#mobileNav ul.mobile-nav-links li a {
+  padding: 0.46rem 0 !important;
+}
+/* Sub-items */
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
+  padding: 0.34rem 0 !important;
+}
+/* Exclusive CTA — reduced visual weight */
+#mobileNav .sp-menu-trigger-wrap {
+  padding-top: 0.20rem !important;
+  padding-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+#mobileNav .sp-menu-trigger {
+  padding: 9px 18px !important;
+  gap: 3px !important;
+}
+#mobileNav .sp-menu-trigger-label {
+  white-space: nowrap !important;
+  font-size: 0.88rem !important;
+}
+#mobileNav .sp-menu-trigger-sub {
+  font-size: 0.57rem !important;
+}
+/* Footer */
+#mobileNav .mobile-nav-footer {
+  margin-top: auto !important;
+  gap: 0.42rem !important;
+  padding-top: 0.32rem !important;
+  padding-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+#mobileNav .btn-dark {
+  padding: 0.74rem !important;
+}
+/* FR/EN lang switcher */
+#mobileNav .mobile-lang-switcher {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+}
+#mobileNav .mobile-lang-btn {
+  background: none !important;
+  border: none !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.12em !important;
+  font-weight: 400 !important;
+  color: rgba(245,237,227,0.45) !important;
+  cursor: pointer !important;
+  padding: 0.2rem 0.35rem !important;
+}
+#mobileNav .mobile-lang-btn.active {
+  color: rgba(245,237,227,0.90) !important;
+  font-weight: 500 !important;
+}
+#mobileNav .mobile-lang-sep {
+  color: rgba(245,237,227,0.25) !important;
+  font-size: 0.65rem !important;
+}
+/* ── Footer lang switcher (page footer) ── */
+.sf-legal .lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.70rem; letter-spacing: 0.16em; font-weight: 400;
+  text-transform: uppercase; padding: 0 0.15rem;
+  color: rgba(245,237,227,0.28) !important;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.sf-legal .lang-btn.active {
+  color: rgba(245,237,227,0.85) !important;
+  font-weight: 600;
+}
+.sf-legal .lang-btn:hover:not(.active) {
+  color: rgba(245,237,227,0.55) !important;
+}
+/* ── Nav lang bar: under logo ── */
+#mobileNav .nav-lang-bar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1.2rem !important;
+  padding: 1.1rem 0 1.0rem !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+#mobileNav .nav-lang-btn {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.26em !important;
+  font-weight: 400 !important;
+  color: rgba(245,237,227,0.30) !important;
+  padding: 0 !important;
+  transition: color 0.22s ease !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+}
+#mobileNav .nav-lang-btn.active {
+  color: rgba(245,237,227,0.90) !important;
+  font-weight: 500 !important;
+  text-decoration-line: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 1px !important;
+  text-decoration-color: rgba(201,160,96,0.55) !important;
+}
+#mobileNav .nav-lang-sep {
+  color: rgba(245,237,227,0.13) !important;
+  font-size: 0.55rem !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  user-select: none !important;
+}
+#mobileNav.open ~ a.float-book-btn { display: none !important; }
 </style>
-<a class="float-book-btn" id="floatBook" href="https://www.fresha.com/fr/a/skines-head-spa-montreal-19-av-shamrock-montreal-qc-lytdaphf" target="_blank" rel="noreferrer">Réserver</a>
 <script>
 (function(){
   var btn = document.getElementById('floatBook');
@@ -7749,5 +6866,13 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   }, {passive: true});
 })();
 </script>
+<script src="/assets/js/i18n.js?v=4"></script>
+  <link rel="stylesheet" href="/assets/css/nav.css?v=18">
+  <link rel="stylesheet" href="assets/css/animations.css?v=1">
+<style>
+
+html body nav 
+</style>
+  <script src="/assets/js/fresha-tracking.js" defer></script>
 </body>
 </html>

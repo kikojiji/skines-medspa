@@ -8,7 +8,7 @@ import {
 } from './_lib/security.js';
 
 const FROM       = "Skines Med Spa <noreply@skines.ca>";
-const FROM_ADMIN = "Skines Tirage <Info@skines.ca>";
+const FROM_ADMIN = "Skines Med Spa <Info@skines.ca>";
 const ADMIN = 'skinesca@gmail.com';
 const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 
@@ -16,6 +16,31 @@ const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 const seenEmails    = new Set();
 const seenPhones    = new Set();
 const seenUsernames = new Set();
+
+// ── Sequential IDs via Upstash Redis REST ────────────────────────────────────
+// Required env vars: UPSTASH_REDIS_REST_URL  UPSTASH_REDIS_REST_TOKEN
+// Customer IDs: key tirage:seq:customer, initialized to 65  → first real ID = SK-0066
+// Admin IDs:    key tirage:seq:admin,    initialized to 19  → first real ID = SK-0020
+async function nextSeqId(type) {
+  const url   = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  const key   = `tirage:seq:${type}`;
+  const start = type === 'customer' ? 65 : 19;
+  const h     = { Authorization: `Bearer ${token}` };
+  try {
+    // SETNX: set the seed only if key doesn't exist yet (idempotent)
+    await fetch(`${url}/setnx/${encodeURIComponent(key)}/${start}`, { headers: h });
+    // INCR: atomic increment — returns new value
+    const r = await fetch(`${url}/incr/${encodeURIComponent(key)}`, { headers: h });
+    const d = await r.json();
+    return typeof d.result === 'number' ? d.result : null;
+  } catch (e) {
+    console.error('[tirage] redis seq error:', e.message);
+    return null;
+  }
+}
+let _fallback = 0; // used when Redis is not configured
 
 // ── Device fingerprint tracker: fp → { emails: Set, count: number } ──────────
 const fpMap = new Map();
@@ -62,26 +87,39 @@ function getDevice(ua) {
   return 'Desktop';
 }
 
-function icon(path) {
-  return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B66A5A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:auto;">${path}</svg>`;
-}
+/* ── SVG Icon paths ── */
+const ICONS = {
+  phone: `<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 9.69a2 2 0 011.72-2.12l3-.09a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L9.91 11.1a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/>`,
+  email: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
+  insta: `<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>`,
+  cal:   `<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>`,
+};
 
-function cell(label, value) {
-  if (!value || value === '—' || value === 'Unknown') return '<td width="50%" style="padding:10px 12px 10px 0;"></td>';
-  return `<td width="50%" style="padding:12px 16px 12px 0;vertical-align:top;border-bottom:1px solid rgba(182,106,90,0.09);">
-    <p style="margin:0 0 3px;font-size:7.5px;letter-spacing:0.22em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
-    <p style="margin:0;font-size:14px;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;line-height:1.35;">${value}</p>
-  </td>`;
-}
-
-function fullRow(label, value) {
-  if (!value || value === '—' || value === 'Unknown') return '';
-  return `<tr>
-    <td colspan="2" style="padding:12px 0;vertical-align:top;border-bottom:1px solid rgba(182,106,90,0.09);">
-      <p style="margin:0 0 3px;font-size:7.5px;letter-spacing:0.22em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
-      <p style="margin:0;font-size:14px;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;line-height:1.35;">${value}</p>
+function iconField(iconPath, label, value) {
+  if (!value || value === '—' || value === 'Unknown' || value === null) {
+    return `<td width="50%" style="padding:0 0 26px;vertical-align:top;"></td>`;
+  }
+  return `<td width="50%" style="padding:0 0 26px;vertical-align:top;">
+  <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+    <td width="38" valign="top" style="padding-right:12px;">
+      <table role="presentation" cellpadding="0" cellspacing="0"
+             bgcolor="#1E1208" style="background:#1E1208;width:34px;height:34px;
+             border-radius:17px;border:1px solid rgba(201,151,58,0.22);"><tr>
+        <td align="center" valign="middle" width="34" height="34">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="#C9973A" stroke-width="1.7" stroke-linecap="round"
+               stroke-linejoin="round">${iconPath}</svg>
+        </td>
+      </tr></table>
     </td>
-  </tr>`;
+    <td valign="top">
+      <p style="margin:0 0 4px;font-size:7.5px;letter-spacing:0.20em;text-transform:uppercase;
+                color:rgba(201,167,122,0.45);font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
+      <p style="margin:0;font-size:13px;color:#F0E8DF;font-family:Georgia,'Times New Roman',serif;
+                line-height:1.42;word-break:break-all;overflow-wrap:anywhere;">${value}</p>
+    </td>
+  </tr></table>
+</td>`;
 }
 
 export default async function handler(req, res) {
@@ -186,128 +224,141 @@ export default async function handler(req, res) {
 
   const _d = new Date();
   const _fmt = (opts) => _d.toLocaleString('en-CA', { timeZone: 'America/Toronto', ...opts });
-  const submittedAt = _fmt({ month: 'short', day: 'numeric', year: 'numeric' })
-    + ' · ' + _fmt({ hour: '2-digit', minute: '2-digit', hour12: false }) + ' EST';
+  const _frMonths = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  const _mIdx  = parseInt(_fmt({ month: 'numeric' }), 10) - 1;
+  const _day   = _fmt({ day: 'numeric' });
+  const _year  = _fmt({ year: 'numeric' });
+  const _hm    = _fmt({ hour: '2-digit', minute: '2-digit', hour12: false }).replace(':', 'h');
+  const submittedAt = `${_day} ${_frMonths[_mIdx]} ${_year} à ${_hm}`;
 
-  /* ── SVG icon paths ── */
-  const I = {
-    person: '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>',
-    phone:  '<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 9.69 19.79 19.79 0 01.87 6.05 2 2 0 012.86 3.87h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 11.1a16 16 0 006.29 6.29l1.51-1.51a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>',
-    email:  '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
-    insta:  '<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#B66A5A" stroke="none"/>',
-    spa:    '<path d="M12 2s4 4 4 8-4 4-4 4-4 0-4-4 4-8 4-8z"/><path d="M12 14v6"/><line x1="9" y1="17" x2="15" y2="17"/>',
-    cal:    '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
-    device: '<rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>',
-    globe:  '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20 15.3 15.3 0 010-20"/>',
-    pin:    '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>',
-    wifi:   '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
-  };
-
-  // 2-column grid: pairs of cells per row
-  const gridRows = [
-    [cell('Full Name',          `${safeFirst} ${safeLast}`),
-     cell('Phone Number',       safePhone)],
-    [cell('Email Address',      safeEmail),
-     cell('Instagram / TikTok', safeUsername)],
-    [cell('Treatment Interest', safeService),
-     cell('Submission Date &amp; Time', submittedAt)],
-    [cell('Device Type',        deviceType),
-     cell('IP Address',         ip)],
-  ].map(([a, b]) => `<tr>${a}${b}</tr>`).join('');
-
-  const locationRow = fullRow('Location', location);
+  _fallback++;
+  const [_custSeq, _adminSeq] = await Promise.all([
+    nextSeqId('customer'),
+    nextSeqId('admin'),
+  ]);
+  const customerEntryId = `SK-${String(_custSeq  ?? (65 + _fallback)).padStart(4, '0')}`;
+  const adminEntryId    = `SK-${String(_adminSeq ?? (19 + _fallback)).padStart(4, '0')}`;
 
   const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
 
-  function adminRow(iconPath, label, value) {
-    if (!value || value === 'Unknown' || value === '—') return '';
-    return `<tr><td style="padding:11px 32px;border-bottom:1px solid rgba(182,106,90,0.08);background:#FFFFFF;">
-  <table cellpadding="0" cellspacing="0"><tr>
-    <td width="36" valign="middle" style="padding-right:12px;">
-      <table cellpadding="0" cellspacing="0" style="width:32px;height:32px;background:#F5EDE4;border-radius:8px;"><tr>
-        <td align="center" valign="middle" style="width:32px;height:32px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B66A5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${iconPath}</svg>
-        </td>
-      </tr></table>
-    </td>
-    <td valign="middle">
-      <p style="margin:0 0 2px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
-      <p style="margin:0;font-size:13px;color:#2A1410;font-family:Georgia,'Times New Roman',serif;">${value}</p>
-    </td>
-  </tr></table>
-</td></tr>`;
-  }
-
-  /* ── TICKET — ADMIN EMAIL ── */
+  /* ── ADMIN NOTIFICATION EMAIL ── */
   const adminHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
 </head>
-<body style="margin:0;padding:0;background:#EDE6DF;font-family:Georgia,'Times New Roman',serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#EDE6DF;padding:32px 16px;">
+<body style="margin:0;padding:0;background:#EAE0D5;font-family:Georgia,'Times New Roman',serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#EAE0D5" style="background:#EAE0D5;">
 <tr><td align="center">
+<table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:100%;">
 
-<table width="580" cellpadding="0" cellspacing="0" style="max-width:100%;border-radius:20px;overflow:hidden;border:1px solid rgba(182,106,90,0.18);">
-
-  <!-- ─── DARK TOPBAR ─── -->
-  <tr><td style="background:#3D1F12;padding:18px 32px 16px;text-align:center;">
-    <p style="margin:0 0 6px;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(201,167,122,0.65);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES MED SPA &amp; WELLNESS</p>
-    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#C9A77A;letter-spacing:0.18em;">&#10022;&nbsp; Nouvelle Inscription &mdash; Tirage &nbsp;&#10022;</p>
+  <!-- ─── BRAND WORDMARK ─── -->
+  <tr><td bgcolor="#EAE0D5" style="background:#EAE0D5;padding:44px 36px 30px;text-align:center;">
+    <p style="margin:0 0 7px;font-size:23px;letter-spacing:0.52em;color:#2C1810;font-family:Georgia,'Times New Roman',serif;font-weight:400;">SKINES</p>
+    <p style="margin:0 0 20px;font-size:7px;letter-spacing:0.30em;text-transform:uppercase;color:rgba(90,60,40,0.40);font-family:Arial,Helvetica,sans-serif;font-weight:700;">MED SPA &nbsp;&middot;&nbsp; MONTR&Eacute;AL</p>
+    <table role="presentation" width="130" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;"><tr>
+      <td style="height:1px;background:rgba(182,106,90,0.22);font-size:0;line-height:0;">&nbsp;</td>
+      <td style="padding:0 11px;color:rgba(182,106,90,0.55);font-size:10px;line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
+      <td style="height:1px;background:rgba(182,106,90,0.22);font-size:0;line-height:0;">&nbsp;</td>
+    </tr></table>
+    <p style="margin:0;font-size:8px;letter-spacing:0.30em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">Nouvelle Inscription &nbsp;&middot;&nbsp; Tirage</p>
   </td></tr>
 
-  <!-- ─── GOLD RIBBON ─── -->
-  <tr><td style="height:3px;background:#C9973A;font-size:0;line-height:0;">&nbsp;</td></tr>
+  <!-- ─── LUXURY DARK CARD ─── -->
+  <tr><td style="padding:0 0 8px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+         bgcolor="#180E07" style="background:#180E07;border-radius:20px;overflow:hidden;
+         border:1px solid rgba(201,151,58,0.20);">
 
-  <!-- ─── NAME BAND ─── -->
-  <tr><td style="background:#FFFFFF;padding:20px 32px 18px;border-bottom:1px solid rgba(182,106,90,0.12);">
-    <table cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td width="52" valign="middle">
-        <table cellpadding="0" cellspacing="0" style="width:48px;height:48px;background:#3D1F12;border-radius:50%;"><tr>
-          <td align="center" valign="middle" style="width:48px;height:48px;">
-            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;color:#C9A77A;line-height:1;">${initials}</p>
-          </td>
-        </tr></table>
-      </td>
-      <td valign="middle" style="padding-left:14px;">
-        <p style="margin:0 0 3px;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">Participant</p>
-        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;color:#2A1410;letter-spacing:0.02em;">${safeFirst} ${safeLast}</p>
-      </td>
-      <td valign="middle" align="right">
-        <table cellpadding="0" cellspacing="0"><tr>
-          <td style="background:#F5EDE4;border-radius:20px;padding:4px 12px;">
-            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B4A2A;">${safeService}</p>
-          </td>
-        </tr></table>
-      </td>
-    </tr></table>
-  </td></tr>
+    <!-- Gold shimmer line at top -->
+    <tr><td style="height:1px;background:linear-gradient(90deg,rgba(201,151,58,0),rgba(201,151,58,0.60),rgba(201,151,58,0));font-size:0;line-height:0;">&nbsp;</td></tr>
 
-  <!-- ─── FIELD ROWS ─── -->
-  ${adminRow(I.phone,  'Phone',             safePhone)}
-  ${adminRow(I.email,  'Email',             safeEmail)}
-  ${adminRow(I.insta,  'Instagram / TikTok',safeUsername)}
-  ${adminRow(I.cal,    'Submitted',         submittedAt)}
+    <!-- ─── REGISTRATION ID ─── -->
+    <tr><td style="padding:28px 36px 0;">
+      <p style="margin:0 0 5px;font-size:7px;letter-spacing:0.34em;text-transform:uppercase;color:rgba(201,167,122,0.35);font-family:Arial,Helvetica,sans-serif;font-weight:700;">Registration ID</p>
+      <p style="margin:0;font-size:27px;letter-spacing:0.08em;color:#C9A77A;font-family:Georgia,'Times New Roman',serif;font-weight:400;">${adminEntryId}</p>
+    </td></tr>
 
-  <!-- ─── META STRIP ─── -->
-  <tr><td style="background:#3D1F12;padding:12px 32px;">
-    <table cellpadding="0" cellspacing="0" width="100%"><tr>
-      <td style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(201,167,122,0.70);letter-spacing:0.06em;">
-        ${deviceType} &middot; ${browser}
-      </td>
-      <td align="center" style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(201,167,122,0.70);letter-spacing:0.06em;">
-        ${ip}
-      </td>
-      <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(201,167,122,0.70);letter-spacing:0.06em;">
-        ${location || 'CA'}
-      </td>
-    </tr></table>
+    <!-- Hairline separator -->
+    <tr><td style="padding:18px 36px 20px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td style="height:1px;background:rgba(201,151,58,0.12);font-size:0;line-height:0;">&nbsp;</td>
+      </tr></table>
+    </td></tr>
+
+    <!-- ─── PARTICIPANT ─── -->
+    <tr><td style="padding:0 36px 20px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+
+        <!-- Initials circle -->
+        <td width="68" valign="middle">
+          <table role="presentation" cellpadding="0" cellspacing="0"
+                 bgcolor="#B66A5A" style="background:#B66A5A;width:56px;height:56px;
+                 border-radius:28px;border:1px solid rgba(201,151,58,0.28);"><tr>
+            <td align="center" valign="middle" width="56" height="56">
+              <p style="margin:0;font-size:17px;font-weight:700;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;line-height:1;">${initials}</p>
+            </td>
+          </tr></table>
+        </td>
+
+        <!-- Name + badge -->
+        <td valign="middle" style="padding-left:16px;">
+          <p style="margin:0 0 5px;font-size:7.5px;letter-spacing:0.20em;color:rgba(201,167,122,0.42);font-family:Arial,Helvetica,sans-serif;">Participant &nbsp;&middot;&nbsp; ${adminEntryId}</p>
+          <p style="margin:0 0 12px;font-size:21px;color:#F0E8DF;font-family:Georgia,'Times New Roman',serif;letter-spacing:0.01em;">${safeFirst} ${safeLast}</p>
+          ${safeService ? `<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+            <td style="border:1px solid rgba(201,151,58,0.30);border-radius:40px;padding:5px 14px;">
+              <p style="margin:0;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#C9973A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">&#10022;&nbsp; ${safeService}</p>
+            </td>
+          </tr></table>` : ''}
+        </td>
+
+      </tr></table>
+    </td></tr>
+
+    <!-- ─── ORNAMENTAL DIVIDER ─── -->
+    <tr><td style="padding:0 36px 24px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td style="height:1px;background:linear-gradient(90deg,rgba(201,151,58,0),rgba(201,151,58,0.20));font-size:0;">&nbsp;</td>
+        <td style="padding:0 13px;font-size:10px;color:rgba(201,151,58,0.35);line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
+        <td style="height:1px;background:linear-gradient(90deg,rgba(201,151,58,0.20),rgba(201,151,58,0));font-size:0;">&nbsp;</td>
+      </tr></table>
+    </td></tr>
+
+    <!-- ─── FIELDS 2-COL ─── -->
+    <tr><td style="padding:0 36px 4px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          ${iconField(ICONS.phone, 'T&eacute;l&eacute;phone',        safePhone)}
+          ${iconField(ICONS.email, 'Courriel',                       safeEmail)}
+        </tr>
+        <tr>
+          ${iconField(ICONS.insta, 'Instagram &nbsp;/&nbsp; TikTok', safeUsername || null)}
+          ${iconField(ICONS.cal,   'Date d\'inscription',             submittedAt)}
+        </tr>
+      </table>
+    </td></tr>
+
+    <!-- ─── META STRIP ─── -->
+    <tr><td style="padding:14px 36px 18px;border-top:1px solid rgba(201,151,58,0.08);">
+      <p style="margin:0;font-size:9px;color:rgba(201,167,122,0.28);font-family:Arial,Helvetica,sans-serif;letter-spacing:0.06em;">
+        ${deviceType}${browser && browser !== 'Unknown' ? ` &nbsp;&middot;&nbsp; ${browser}` : ''}${location ? ` &nbsp;&middot;&nbsp; ${location}` : ''}
+      </p>
+    </td></tr>
+
+  </table>
   </td></tr>
 
   <!-- ─── FOOTER ─── -->
-  <tr><td style="padding:12px 32px;text-align:center;background:#F8F4F0;">
-    <p style="margin:0;font-size:9px;letter-spacing:0.20em;text-transform:uppercase;color:rgba(90,60,40,0.38);font-family:Arial,Helvetica,sans-serif;">Generated automatically &mdash; Skines Giveaway Page</p>
+  <tr><td align="center" bgcolor="#EAE0D5" style="background:#EAE0D5;padding:22px 0 48px;">
+    <table role="presentation" width="180" cellpadding="0" cellspacing="0" style="margin:0 auto 14px;"><tr>
+      <td style="height:1px;background:rgba(182,106,90,0.14);font-size:0;">&nbsp;</td>
+      <td style="padding:0 11px;color:rgba(182,106,90,0.22);font-size:9px;line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
+      <td style="height:1px;background:rgba(182,106,90,0.14);font-size:0;">&nbsp;</td>
+    </tr></table>
+    <p style="margin:0;font-size:7.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(90,60,40,0.22);font-family:Arial,Helvetica,sans-serif;">Skines Med Spa &nbsp;&mdash;&nbsp; Syst&egrave;me automatique</p>
   </td></tr>
 
 </table>
@@ -362,12 +413,20 @@ export default async function handler(req, res) {
 
         <!-- Main message -->
         <p style="margin:0 0 10px;font-size:15px;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;line-height:1.8;text-align:center;">
-          Votre participation au <em>Tirage Exclusif</em><br>de <strong>Skine&rsquo;s Med Spa</strong> a bien &eacute;t&eacute; enregistr&eacute;e.
+          Votre participation au <em>Tirage Exclusif</em><br>de <strong>Skines Med Spa</strong> a bien &eacute;t&eacute; enregistr&eacute;e.
         </p>
 
-        <p style="margin:0 0 32px;font-size:13px;color:rgba(90,70,55,0.60);font-family:Arial,Helvetica,sans-serif;line-height:1.7;text-align:center;">
+        <p style="margin:0 0 28px;font-size:13px;color:rgba(90,70,55,0.60);font-family:Arial,Helvetica,sans-serif;line-height:1.7;text-align:center;">
           Le gagnant sera contact&eacute; personnellement.
         </p>
+
+        <!-- Reference ID -->
+        <table cellpadding="0" cellspacing="0" style="margin:0 auto 32px;border:1px solid rgba(182,106,90,0.18);border-radius:8px;"><tr>
+          <td align="center" style="padding:11px 28px;">
+            <p style="margin:0 0 3px;font-size:7px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(90,70,55,0.38);font-family:Arial,Helvetica,sans-serif;">R&eacute;f&eacute;rence</p>
+            <p style="margin:0;font-size:15px;letter-spacing:0.12em;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;">${customerEntryId}</p>
+          </td>
+        </tr></table>
 
         <!-- CTA Button — single line, wider padding -->
         <table cellpadding="0" cellspacing="0" style="margin:0 auto;"><tr>
@@ -400,7 +459,7 @@ export default async function handler(req, res) {
       sendViaResend({
         from: FROM_ADMIN,
         to:   ADMIN,
-        subject: `[Tirage] ${firstName} ${lastName} — nouvelle inscription`,
+        subject: `✦ ${firstName} ${lastName} — Tirage Skines`,
         html:    adminHtml,
       }),
       sendViaResend({

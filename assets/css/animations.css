@@ -1,0 +1,130 @@
+/* ══ Skines — Unified Animation System ══
+   One easing. One duration per category. No exceptions.
+   Nav sticky hide/show: managed by nav.css — untouched here.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  0.18s;   /* color, border, opacity micro-changes */
+  --dur-base:  0.26s;   /* buttons, links, cards, images        */
+  --dur-slow:  0.40s;   /* mobile menu, popup, modals           */
+}
+
+/* ── Buttons — all variants ── */
+[class*="btn-"],
+a[class*="btn-"],
+button[class*="btn-"],
+.btn-dark, .btn-light, .btn-warm,
+.btn-hero-glass, .headspa-btn,
+.price-card-cta, .svc-book-btn,
+.sp-cta, .sp-menu-trigger,
+.nav-cta, .mobile-cta {
+  transition:
+    background    var(--dur-base) var(--ease),
+    color         var(--dur-base) var(--ease),
+    border-color  var(--dur-base) var(--ease),
+    box-shadow    var(--dur-base) var(--ease),
+    transform     var(--dur-base) var(--ease) !important;
+}
+
+/* ── Links & nav items ── */
+a,
+nav a,
+.nav-links a,
+.mobile-nav-links a,
+.footer a,
+.lang-btn,
+.nav-lang-btn,
+.mobile-lang-btn,
+.sf-legal a,
+.sf-social-btn {
+  transition:
+    color         var(--dur-fast) var(--ease),
+    opacity       var(--dur-fast) var(--ease),
+    border-color  var(--dur-fast) var(--ease) !important;
+}
+
+/* ── Cards & service tiles ── */
+[class*="-card"],
+[class*="svc-card"],
+[class*="price-card"],
+[class*="review-card"],
+[class*="service-card"],
+.card,
+.tile {
+  transition:
+    box-shadow  var(--dur-base) var(--ease),
+    transform   var(--dur-base) var(--ease),
+    border-color var(--dur-base) var(--ease) !important;
+}
+
+/* ── Images ── */
+img {
+  transition:
+    transform   var(--dur-base) var(--ease),
+    opacity     var(--dur-base) var(--ease) !important;
+}
+
+/* ── Mobile menu open/close ── */
+.mobile-nav {
+  transition: transform var(--dur-slow) var(--ease) !important;
+}
+
+/* ── Popup / modal overlay ── */
+#sp-overlay,
+[id*="overlay"],
+[class*="overlay"],
+[class*="modal"],
+[class*="popup"] {
+  transition:
+    opacity     var(--dur-base) var(--ease),
+    visibility  0s linear var(--dur-base) !important;
+}
+#sp-overlay.visible,
+[class*="overlay"].visible,
+[class*="modal"].open,
+[class*="popup"].open {
+  transition:
+    opacity     var(--dur-base) var(--ease),
+    visibility  0s linear 0s !important;
+}
+
+/* ── Hamburger spans ── */
+nav .menu-btn span {
+  transition: transform var(--dur-base) var(--ease) !important;
+}
+
+/* ── Search / input fields ── */
+input, textarea, select {
+  transition:
+    border-color  var(--dur-fast) var(--ease),
+    box-shadow    var(--dur-fast) var(--ease) !important;
+}
+
+/* ── Scroll-reveal & fade-in elements ── */
+[class*="fade"],
+[class*="reveal"],
+[class*="appear"],
+[class*="animate"] {
+  transition:
+    opacity    var(--dur-base) var(--ease),
+    transform  var(--dur-base) var(--ease) !important;
+}
+
+/* ── Keyframe: unified fade-up (replaces all custom fade-ins) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Popup card entry ── */
+#sp-card {
+  animation: fadeUp var(--dur-slow) var(--ease) both;
+}
+
+/* ── NO bounce, NO scale, NO aggressive effects ── */
+* { animation-timing-function: var(--ease) !important; }
