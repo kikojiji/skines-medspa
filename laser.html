@@ -6214,6 +6214,21 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   </div>
 </header>
 
+<!-- ══ LASER PHOTO STRIP — remplacer les src quand les vraies photos arrivent ══ -->
+<section class="lps-section">
+  <div class="lps-grid">
+    <div class="lps-item">
+      <img src="assets/laser-1.webp?v=1" alt="Épilation laser Montréal – Skines Med Spa" loading="lazy">
+    </div>
+    <div class="lps-item">
+      <img src="assets/laser-2.webp?v=1" alt="Épilation laser corps Montréal – Skines Med Spa" loading="lazy">
+    </div>
+    <div class="lps-item">
+      <img src="assets/laser-3.webp?v=1" alt="Épilation laser résultats Montréal – Skines Med Spa" loading="lazy">
+    </div>
+  </div>
+</section>
+
 <section id="tarifs" style="background: var(--cream-light);">
   <div class="section-head">
     <div>
@@ -8044,5 +8059,14 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 html body nav 
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
+
+<style>
+.lps-section{margin:0;padding:0;background:#1C0E08}
+.lps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.lps-item{aspect-ratio:1/1;overflow:hidden}
+.lps-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.lps-item:hover img{transform:scale(1.04)}
+@media(max-width:480px){.lps-grid{gap:1px}}
+</style>
 </body>
 </html>
