@@ -10,6 +10,14 @@
       "includeFiles": "api/_lib/fonts/**"
     }
   },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.skines.ca" }],
+      "destination": "https://skines.ca/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
