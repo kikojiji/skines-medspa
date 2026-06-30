@@ -5834,7 +5834,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   </div>
     <div class="services-grid" id="facial-grid">
 
-    <div class="svc-card">
+    <div class="svc-card" data-service="luxury-facial">
       <div class="svc-img"><img src="assets/luxury-facial.webp?v=1" alt="Luxury Facial" fetchpriority="high"></div>
       <div class="svc-info">
         <p class="svc-duration" data-fr="SOIN VISAGE · 60–90 MIN" data-en="FACIAL · 60–90 MIN">SOIN VISAGE · 60–90 MIN</p>
@@ -5846,7 +5846,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       </div>
     </div>
 
-    <div class="svc-card">
+    <div class="svc-card" data-service="personalized-facial">
       <div class="svc-img"><img src="assets/personalized-facial.webp?v=1" alt="Personalized Facial" loading="lazy"></div>
       <div class="svc-info">
         <p class="svc-duration" data-fr="SOIN VISAGE · 60–75 MIN" data-en="FACIAL · 60–75 MIN">SOIN VISAGE · 60–75 MIN</p>
@@ -5858,7 +5858,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       </div>
     </div>
 
-    <div class="svc-card">
+    <div class="svc-card" data-service="bela-md-plus">
       <div class="svc-img"><img src="assets/bela-facial.webp?v=1" alt="HydraDermabrasion Bela MD+" loading="lazy"></div>
       <div class="svc-info">
         <p class="svc-duration" data-fr="SOIN VISAGE · 75 MIN" data-en="FACIAL · 75 MIN">SOIN VISAGE · 75 MIN</p>
@@ -5870,7 +5870,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       </div>
     </div>
 
-    <div class="svc-card">
+    <div class="svc-card" data-service="chemical-peel">
       <div class="svc-img"><img src="assets/chemical.webp?v=1" alt="Chemical Peel" loading="lazy"></div>
       <div class="svc-info">
         <p class="svc-duration" data-fr="SOIN VISAGE · 60 MIN" data-en="FACIAL · 60 MIN">SOIN VISAGE · 60 MIN</p>
@@ -5882,7 +5882,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       </div>
     </div>
 
-    <div class="svc-card">
+    <div class="svc-card" data-service="back-facial">
       <div class="svc-img"><img src="assets/back-facial.webp?v=1" alt="Back Facial" loading="lazy"></div>
       <div class="svc-info">
         <p class="svc-duration" data-fr="SOIN VISAGE · 60 MIN" data-en="FACIAL · 60 MIN">SOIN VISAGE · 60 MIN</p>
@@ -7024,5 +7024,370 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 html body nav 
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
+
+<!-- ══ SERVICE OVERLAY – FACIAL ═══════════════════════════════════════════ -->
+<style>
+.fcl-overlay{position:fixed;inset:0;z-index:9990;display:flex;align-items:flex-end;justify-content:center;visibility:hidden;pointer-events:none}
+.fcl-overlay.fcl-open{visibility:visible;pointer-events:all}
+.fcl-backdrop{position:fixed;inset:0;background:rgba(15,5,2,.72);opacity:0;transition:opacity .38s ease}
+.fcl-overlay.fcl-open .fcl-backdrop{opacity:1}
+.fcl-panel{position:relative;z-index:1;width:100%;max-width:880px;height:91vh;background:#F5EDE3;border-radius:22px 22px 0 0;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .52s cubic-bezier(.22,.61,.36,1);overflow:hidden}
+.fcl-overlay.fcl-open .fcl-panel{transform:translateY(0)}
+.fcl-panel-top{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2.2rem 1.1rem;flex-shrink:0;border-bottom:1px solid rgba(58,30,20,.09)}
+.fcl-eyebrow{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#C9973A}
+.fcl-close{background:none;border:none;cursor:pointer;color:#3A1E14;opacity:.4;padding:.3rem;line-height:0;transition:opacity .2s}
+.fcl-close:hover{opacity:1}
+.fcl-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:2rem 2.2rem 4.5rem;scrollbar-width:thin;scrollbar-color:rgba(58,30,20,.15) transparent}
+.fcl-scroll::-webkit-scrollbar{width:4px}
+.fcl-scroll::-webkit-scrollbar-thumb{background:rgba(58,30,20,.15);border-radius:2px}
+.fcl-h1{font-family:'Cormorant Garamond','Times New Roman',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:400;color:#3A1E14;line-height:1.1;margin:0 0 .5rem}
+.fcl-meta{font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(58,30,20,.42);margin-bottom:1.6rem}
+.fcl-divider{width:2.4rem;height:1px;background:#C9973A;margin:0 0 1.8rem}
+.fcl-lead{font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.8;color:#4B2E26;margin-bottom:1.8rem}
+.fcl-section-h{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:#C9973A;margin:2rem 0 .55rem}
+.fcl-body{font-family:'DM Sans',sans-serif;font-size:.855rem;line-height:1.82;color:rgba(58,30,20,.68);margin:0 0 1rem}
+.fcl-list{list-style:none;padding:0;margin:0 0 1.4rem}
+.fcl-list li{font-family:'DM Sans',sans-serif;font-size:.84rem;line-height:1.75;color:rgba(58,30,20,.68);padding-left:1.2rem;position:relative;margin-bottom:.25rem}
+.fcl-list li::before{content:'–';position:absolute;left:0;color:#C9973A}
+.fcl-faq-item{border-top:1px solid rgba(58,30,20,.08);padding:1rem 0 .8rem}
+.fcl-faq-q{font-family:'Cormorant Garamond',serif;font-size:.97rem;font-weight:600;color:#3A1E14;margin:0 0 .35rem}
+.fcl-faq-a{font-family:'DM Sans',sans-serif;font-size:.83rem;line-height:1.72;color:rgba(58,30,20,.62);margin:0}
+.fcl-links-wrap{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.2rem 0 1.6rem}
+.fcl-pill{font-family:'DM Sans',sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#3A1E14;text-decoration:none;border:1px solid rgba(58,30,20,.22);border-radius:50px;padding:.42rem 1rem;transition:border-color .2s,background .2s;display:inline-block}
+.fcl-pill:hover{border-color:#C9973A;background:rgba(201,151,58,.08)}
+.fcl-cta-wrap{text-align:center;margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid rgba(58,30,20,.1)}
+.fcl-cta{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.67rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;background:#F5EDE3;color:#3A1E14;border:1.5px solid #3A1E14;padding:.95rem 2.6rem;border-radius:2px;transition:background .22s,color .22s}
+.fcl-cta:hover{background:#3A1E14;color:#F5EDE3}
+.svc-card[data-service] .svc-img{cursor:pointer;position:relative;overflow:hidden}
+.svc-card[data-service] .svc-img::after{content:'';position:absolute;inset:0;background:rgba(58,30,20,0);transition:background .25s;pointer-events:none}
+.svc-card[data-service] .svc-img:hover::after{background:rgba(58,30,20,.07)}
+@media(max-width:640px){.fcl-panel{height:94vh;border-radius:16px 16px 0 0}.fcl-scroll{padding:1.5rem 1.4rem 3.5rem}.fcl-panel-top{padding:1.1rem 1.4rem .9rem}}
+</style>
+
+<div id="fclOverlay" class="fcl-overlay" role="dialog" aria-modal="true" aria-label="Détails du soin">
+  <div class="fcl-backdrop" id="fclBackdrop"></div>
+  <div id="fclPanel" class="fcl-panel">
+    <div class="fcl-panel-top">
+      <span id="fclEyebrow" class="fcl-eyebrow"></span>
+      <button id="fclClose" class="fcl-close" aria-label="Fermer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="fclScroll" class="fcl-scroll">
+      <div id="fclContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var FRESHA = 'https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288';
+  var DATA = {
+    'luxury-facial': {
+      fr: {
+        eyebrow: 'Soin Signature · Visage',
+        title: 'Luxury Facial',
+        meta: '60– 90 min · À partir de $145',
+        lead: 'Le Luxury Facial est notre soin du visage signature à Montréal — une expérience de 60 à 90 minutes entièrement construite autour de votre peau. Chaque séance débute par une analyse cutanée approfondie pour sélectionner les soins Dermalogica les mieux adaptés à votre type de peau.',
+        sections: [
+          { h: 'Ce que comprend votre séance', body: 'Nettoyage profond, exfoliation douce, massage drainage facial, masques haute concentration et massage relaxant du cuir chevelu composent la trame de chaque Luxury Facial. Nos esthéticiennes ajustent chaque étape selon l’état de votre peau en séance — pas de protocole rigide, mais une attention constante aux besoins de votre épiderme.' },
+          { h: 'Résultats & suivi', body: 'Dès la première séance, le teint paraît plus net, plus lumineux et uniformé. Pour des bénéfices qui s’installent dans la durée, une séance mensuelle ou toutes les six semaines est conseillée. Votre esthéticienne vous proposera un plan de soin personnalisé à l’issue du premier rendez-vous.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Tous types de peau', 'Première visite chez Skines Med Spa & Wellness', 'Peau fatiguée, terne ou déshydratée', 'Recherche d’un soin complet et relaxant à Montréal'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Dois-je préparer ma peau avant le soin ?', a: 'Non. Venez avec votre peau habituelle — sans maquillage si possible. Votre esthéticienne effectue un nettoyage complet en début de séance.' },
+          { q: 'Le Luxury Facial convient-il à la peau sensible ?', a: 'Oui. Le protocole est ajusté en temps réel selon votre type de peau. Signalez toute sensibilité à votre esthéticienne en début de séance.' },
+          { q: 'Combien de temps durent les résultats ?', a: 'Le teint lumineux est visible immédiatement et se maintient généralement une à deux semaines. Les bénéfices cumulatifs apparaissent après plusieurs séances régulières.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/head-spa', label: 'Head Spa & Scalpcial' }, { href: '/laser', label: 'Épilation Laser Montréal' }],
+        cta: 'Réserver ce soin'
+      },
+      en: {
+        eyebrow: 'Signature Treatment · Facial',
+        title: 'Luxury Facial',
+        meta: '60–90 min · From $145',
+        lead: 'The Luxury Facial is our signature facial in Montreal — a 60 to 90-minute experience built entirely around your skin. Each session begins with an in-depth skin analysis to select the Dermalogica treatments best suited to your skin type.',
+        sections: [
+          { h: 'What your session includes', body: 'Deep cleansing, gentle exfoliation, drainage facial massage, high-concentration masks and a relaxing scalp massage form the foundation of every Luxury Facial. Our estheticians adjust each step according to your skin on that day — no rigid protocol, but constant attention to your skin’s needs.' },
+          { h: 'Results & follow-up', body: 'From the first session, the complexion appears clearer, more radiant and more even. For lasting benefits, a monthly or every-six-week session is recommended. Your esthetician will suggest a personalized care plan at the end of your first appointment.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['All skin types', 'First visit to Skines Med Spa & Wellness', 'Tired, dull or dehydrated skin', 'Looking for a complete, relaxing facial in Montreal'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Should I prepare my skin before the treatment?', a: 'No. Come with your usual skin — without makeup if possible. Your esthetician performs a full cleanse at the start of the session.' },
+          { q: 'Is the Luxury Facial suitable for sensitive skin?', a: 'Yes. The protocol is adjusted in real time based on your skin type. Let your esthetician know about any sensitivities at the start of the session.' },
+          { q: 'How long do the results last?', a: 'The glowing complexion is visible immediately and typically lasts one to two weeks. Cumulative benefits appear after several regular sessions.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/head-spa', label: 'Head Spa & Scalpcial' }, { href: '/laser', label: 'Laser Hair Removal Montreal' }],
+        cta: 'Book this treatment'
+      }
+    },
+    'personalized-facial': {
+      fr: {
+        eyebrow: 'Soin Sur-Mesure · Visage',
+        title: 'Personalized Facial',
+        meta: '60–75 min · À partir de $135',
+        lead: 'Le Personalized Facial est la porte d’entrée dans l’univers de soin Skines — 60 à 75 minutes de soins ciblés, entièrement construits autour de vos préoccupations du moment. Que votre peau soit déshydratée, sujette aux imperfections ou simplement en besoin d’éclat, chaque paramètre est ajusté séance après séance.',
+        sections: [
+          { h: 'Une approche entièrement adaptative', body: 'Contrairement à un soin à protocole fixe, le Personalized Facial évolue avec votre peau. Votre esthéticienne évalue l’état cutané en début de séance et sélectionne les soins, les produits et les techniques les plus pertinents pour vous ce jour-là. Le résultat : un soin toujours juste, jamais générique.' },
+          { h: 'Idéal pour un entretien régulier', body: 'Ce soin est particulièrement recommandé pour un entretien mensuel de la peau. Il constitue une base solide pour maintenir un teint équilibré, surveiller l’évolution de votre peau et ajuster votre routine à domicile en collaboration avec votre esthéticienne.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Peaux qui changent selon les saisons', 'Entretien mensuel régulier', 'Préoccupations spécifiques (déshydratation, éclat, imperfections)', 'Visites régulières chez Skines Med Spa & Wellness'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Quelle est la différence avec le Luxury Facial ?', a: 'Le Luxury Facial inclut systématiquement un massage du cuir chevelu et des masques haute concentration. Le Personalized Facial est conçu pour s’adapter précisément à une préoccupation ciblée et peut être personnalisé plus finement.' },
+          { q: 'Puis-je enchaîner plusieurs séances rapprochées ?', a: 'Oui. Pour des préoccupations spécifiques, des séances rapprochées (toutes les deux semaines) peuvent accélérer les résultats. Votre esthéticienne vous guidera selon votre situation.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/head-spa', label: 'Head Spa & Scalpcial' }],
+        cta: 'Réserver ce soin'
+      },
+      en: {
+        eyebrow: 'Custom Treatment · Facial',
+        title: 'Personalized Facial',
+        meta: '60–75 min · From $135',
+        lead: 'The Personalized Facial is the entry point into the Skines care universe — 60 to 75 minutes of targeted treatments built entirely around your current concerns. Whether your skin is dehydrated, prone to blemishes, or simply in need of radiance, every parameter is adjusted session after session.',
+        sections: [
+          { h: 'A fully adaptive approach', body: 'Unlike a fixed-protocol treatment, the Personalized Facial evolves with your skin. Your esthetician evaluates your skin’s condition at the start of each session and selects the treatments, products and techniques most relevant to you that day. The result: a treatment that is always precise, never generic.' },
+          { h: 'Ideal for regular maintenance', body: 'This treatment is particularly recommended for monthly skin maintenance. It provides a solid foundation for maintaining a balanced complexion, monitoring your skin’s evolution and fine-tuning your home routine in collaboration with your esthetician.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Skin that changes with the seasons', 'Regular monthly maintenance', 'Specific concerns (dehydration, radiance, blemishes)', 'Regular visits to Skines Med Spa & Wellness'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'What’s the difference from the Luxury Facial?', a: 'The Luxury Facial systematically includes a scalp massage and high-concentration masks. The Personalized Facial is designed to adapt precisely to a targeted concern and can be personalized more finely.' },
+          { q: 'Can I schedule multiple sessions close together?', a: 'Yes. For specific concerns, closely spaced sessions (every two weeks) can accelerate results. Your esthetician will guide you based on your situation.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/head-spa', label: 'Head Spa & Scalpcial' }],
+        cta: 'Book this treatment'
+      }
+    },
+    'bela-md-plus': {
+      fr: {
+        eyebrow: 'Technologie Avancée · Visage',
+        title: 'HydraDermabrasion Bela MD+',
+        meta: '75 min · À partir de $165',
+        lead: 'Le traitement HydraDermabrasion Bela MD+ associe une exfoliation de grade professionnel à une infusion simultanée de sérum haute concentration. En 75 minutes, ce soin avancé nettoie les pores en profondeur, exfolie les cellules mortes et infuse des actifs directement dans la peau — sans rougeur ni temps de récupération.',
+        sections: [
+          { h: 'La technologie Bela MD+', body: 'La plateforme Bela MD+ repose sur un système biphasique unique : une tête exfoliante retire les impuretés de surface tandis qu’une seconde infuse simultanément un sérum sélectionné selon votre profil cutané. L’association de ces deux actions en un seul passage permet d’obtenir un résultat visible dès la sortie de la cabine.' },
+          { h: 'Résultats immédiats et cumulatifs', body: 'La peau ressort lissée, hydratée et lumineuse. Pour des résultats qui s’installent dans la durée — texture, hydratation et uniformité du teint — un protocole de séances régulières est recommandé. Votre esthéticienne vous proposera un plan adapté à vos objectifs.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Pores dilatés ou congestion cutanée', 'Peau terne, fatiguée ou irrégulière en texture', 'Recherche d’un résultat visible sans temps de récupération', 'Préparation à un événement important'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Y a-t-il une période de récupération après le soin ?', a: 'Non. Le traitement est conçu pour ne pas irriter la peau. La plupart des clientes reprennent leurs activités immédiatement après la séance.' },
+          { q: 'Combien de séances sont recommandées ?', a: 'Une séance unique offre des résultats immédiats. Pour des améliorations durables de la texture et de la luminosité, un protocole de 4 à 6 séances (une toutes les deux à quatre semaines) est généralement conseillé.' },
+          { q: 'Le soin convient-il à tous les types de peau ?', a: 'Le Bela MD+ est conçu pour s’adapter à de nombreux types de peau. Votre esthéticienne évalue votre peau en début de séance et ajuste les paramètres et le sérum selon votre profil.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/laser', label: 'Épilation Laser Montréal' }],
+        cta: 'Réserver ce soin'
+      },
+      en: {
+        eyebrow: 'Advanced Technology · Facial',
+        title: 'HydraDermabrasion Bela MD+',
+        meta: '75 min · From $165',
+        lead: 'The HydraDermabrasion Bela MD+ treatment combines professional-grade exfoliation with simultaneous high-concentration serum infusion. In 75 minutes, this advanced treatment deep-cleanses pores, exfoliates dead cells and infuses actives directly into the skin — with no redness and no recovery time.',
+        sections: [
+          { h: 'The Bela MD+ technology', body: 'The Bela MD+ platform is built on a unique biphasic system: an exfoliating head removes surface impurities while a second simultaneously infuses a serum selected to match your skin profile. The combination of these two actions in a single pass delivers visible results as soon as you leave the treatment room.' },
+          { h: 'Immediate and cumulative results', body: 'Skin emerges smoothed, hydrated and luminous. For results that develop over time — improving texture, hydration and overall evenness — a series of regular sessions is recommended. Your esthetician will suggest a plan tailored to your goals.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Enlarged pores or congested skin', 'Dull, fatigued or uneven-textured skin', 'Seeking visible results with no recovery time', 'Preparing for an important event'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Is there any recovery period after the treatment?', a: 'No. The treatment is designed not to irritate the skin. Most clients resume their activities immediately after the session.' },
+          { q: 'How many sessions are recommended?', a: 'A single session delivers immediate results. For lasting improvements to texture and luminosity, a series of 4 to 6 sessions (one every two to four weeks) is generally recommended.' },
+          { q: 'Is the treatment suitable for all skin types?', a: 'The Bela MD+ is designed to adapt to a wide range of skin types. Your esthetician evaluates your skin at the start of the session and adjusts the settings and serum to match your profile.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/laser', label: 'Laser Hair Removal Montreal' }],
+        cta: 'Book this treatment'
+      }
+    },
+    'chemical-peel': {
+      fr: {
+        eyebrow: 'Exfoliation · Visage',
+        title: 'Chemical Peel',
+        meta: '60 min · À partir de $150',
+        lead: 'Le Chemical Peel chez Skines Med Spa & Wellness est un soin d’exfoliation chimique calibré selon votre type de peau et vos objectifs. En favorisant le renouvellement cellulaire naturel, il aide à affiner le grain de peau, à unifier le teint et à révéler une surface plus lisse et plus lumineuse.',
+        sections: [
+          { h: 'Un soin calibré à votre peau', body: 'Il n’existe pas un seul Chemical Peel — il en existe plusieurs, chacun adapté à un type de peau et à un niveau d’intensité différent. Votre esthéticienne sélectionne la formulation et la concentration appropriées après une analyse cutanée en début de séance.' },
+          { h: 'Suivi après le soin', body: 'Selon l’intensité du peeling, une légère desquamation est possible dans les jours suivant la séance — signe que le renouvellement cellulaire est en cours. Votre esthéticienne vous donnera des consignes précises pour optimiser la récupération et protéger votre peau.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Grain de peau irrégulier ou pores dilatés', 'Teint irrégulier ou taches superficielles', 'Peau qui manque d’éclat', 'Recherche d’un résultat visible et progressif'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Faut-il arrêter certains produits avant le soin ?', a: 'Oui. Il est recommandé d’éviter les rétinoïdes et les exfoliants les jours précédant la séance. Votre esthéticienne vous donnera des instructions précises lors de la prise de rendez-vous.' },
+          { q: 'Peut-on s’exposer au soleil après un Chemical Peel ?', a: 'Non. La protection solaire est indispensable dans les jours suivant le soin. La peau est plus sensible après un peeling et l’exposition directe au soleil doit être évitée.' },
+          { q: 'Le soin est-il douloureux ?', a: 'La plupart des personnes ressentent une légère sensation de chaleur ou de picotement pendant la séance. L’intensité varie selon la formulation utilisée.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/facial', label: 'HydraDermabrasion Bela MD+' }],
+        cta: 'Réserver ce soin'
+      },
+      en: {
+        eyebrow: 'Exfoliation · Facial',
+        title: 'Chemical Peel',
+        meta: '60 min · From $150',
+        lead: 'The Chemical Peel at Skines Med Spa & Wellness is a chemical exfoliation treatment calibrated to your skin type and goals. By supporting natural cell renewal, it helps refine skin texture, even out complexion and reveal a smoother, more luminous surface.',
+        sections: [
+          { h: 'A treatment calibrated to your skin', body: 'There is no single Chemical Peel — there are several, each suited to a different skin type and intensity level. Your esthetician selects the appropriate formulation and concentration after a skin analysis at the start of the session.' },
+          { h: 'Post-treatment care', body: 'Depending on the peel’s intensity, some light flaking may occur in the days following the session — a sign that cell renewal is underway. Your esthetician will give you specific instructions to optimize recovery and protect your skin.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Uneven skin texture or enlarged pores', 'Uneven complexion or surface discoloration', 'Skin lacking radiance', 'Seeking visible, progressive results'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Should I stop using certain products before the treatment?', a: 'Yes. It is recommended to avoid retinoids and exfoliants in the days before the session. Your esthetician will provide specific instructions when booking.' },
+          { q: 'Can I expose myself to the sun after a Chemical Peel?', a: 'No. Sun protection is essential in the days following the treatment. Skin is more sensitive after a peel and direct sun exposure should be avoided.' },
+          { q: 'Is the treatment painful?', a: 'Most people experience a slight warming or tingling sensation during the session. Intensity varies depending on the formulation used.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/facial', label: 'HydraDermabrasion Bela MD+' }],
+        cta: 'Book this treatment'
+      }
+    },
+    'back-facial': {
+      fr: {
+        eyebrow: 'Soin Corps · Dos',
+        title: 'Back Facial',
+        meta: '60 min · À partir de $150',
+        lead: 'Le Back Facial est un soin dédié à la peau du dos — une zone souvent négligée dans les routines beauté mais exposée aux mêmes problématiques cutanées que le visage. En 60 minutes, ce soin complet combine nettoyage profond, exfoliation ciblée et hydratation intensive, adaptés aux spécificités de la peau dorsale.',
+        sections: [
+          { h: 'Un soin aussi complet qu’un soin du visage', body: 'La peau du dos est souvent plus épaisse et plus exposée aux impuretés que celle du visage. Le Back Facial applique les mêmes étapes qu’un soin complet : nettoyage, exfoliation, extraction si nécessaire, masque et hydratation ciblée. Le protocole est adapté à votre type de peau.' },
+          { h: 'Un moment de lâcher-prise', body: 'Au-delà du soin cutané, le Back Facial offre un moment de détente profonde. Le massage intégré soulève les tensions dorsales et favorise la circulation, pour une sensation de légèreté qui dure bien au-delà de la séance.' }
+        ],
+        forWhoTitle: 'Pour qui ?',
+        forWho: ['Dos sujet aux imperfections ou à la congestion', 'Peau du dos sèche ou rugueuse', 'Préparation à un événement (robe dos nu, été)', 'Complément à un soin du visage régulier'],
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Peut-on combiner le Back Facial avec un soin du visage ?', a: 'Oui. Le Back Facial peut être réservé seul ou en complément d’un autre soin. Parlez-en à votre esthéticienne lors de la prise de rendez-vous.' },
+          { q: 'La peau sera-t-elle rouge après le soin ?', a: 'Une légère rougeur passagère est possible, surtout si des extractions sont effectuées. Elle disparaît généralement en quelques heures.' }
+        ],
+        linksTitle: 'Découvrir aussi',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/head-spa', label: 'Head Spa & Scalpcial' }],
+        cta: 'Réserver ce soin'
+      },
+      en: {
+        eyebrow: 'Body Treatment · Back',
+        title: 'Back Facial',
+        meta: '60 min · From $150',
+        lead: 'The Back Facial is a treatment dedicated to the skin on your back — an area often overlooked in beauty routines but subject to the same skin concerns as the face. In 60 minutes, this complete treatment combines deep cleansing, targeted exfoliation and intensive hydration, adapted to the specific characteristics of back skin.',
+        sections: [
+          { h: 'As thorough as a facial', body: 'Back skin is often thicker and more exposed to impurities than facial skin. The Back Facial applies the same steps as a complete facial: cleansing, exfoliation, extraction if needed, mask and targeted hydration. The protocol is adapted to your skin type.' },
+          { h: 'A moment of deep relaxation', body: 'Beyond skin care, the Back Facial offers a moment of deep relaxation. The integrated massage relieves back tension and supports circulation, leaving a feeling of lightness that lasts long after the session.' }
+        ],
+        forWhoTitle: 'Who is it for?',
+        forWho: ['Back prone to blemishes or congestion', 'Dry or rough back skin', 'Preparing for an event (backless dress, summer)', 'Complement to a regular facial routine'],
+        faqTitle: 'Frequently asked questions',
+        faqs: [
+          { q: 'Can the Back Facial be combined with a facial?', a: 'Yes. The Back Facial can be booked alone or alongside another treatment. Ask your esthetician when booking.' },
+          { q: 'Will the skin be red after the treatment?', a: 'Some temporary redness is possible, especially if extractions are performed. It typically disappears within a few hours.' }
+        ],
+        linksTitle: 'Also discover',
+        links: [{ href: '/facial', label: 'Luxury Facial' }, { href: '/head-spa', label: 'Head Spa & Scalpcial' }],
+        cta: 'Book this treatment'
+      }
+    }
+  };
+
+  var overlay = document.getElementById('fclOverlay');
+  var eyebrowEl = document.getElementById('fclEyebrow');
+  var scrollEl = document.getElementById('fclScroll');
+  var contentEl = document.getElementById('fclContent');
+  var closeBtn = document.getElementById('fclClose');
+  var backdropEl = document.getElementById('fclBackdrop');
+  if (!overlay) return;
+
+  var savedScroll = 0;
+
+  function getLang() {
+    return localStorage.getItem('skines-lang') || 'fr';
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderContent(key) {
+    var svc = DATA[key];
+    if (!svc) return;
+    var d = svc[getLang()] || svc['fr'];
+    eyebrowEl.textContent = d.eyebrow;
+    var h = '';
+    h += '<h2 class="fcl-h1">' + esc(d.title) + '</h2>';
+    h += '<p class="fcl-meta">' + esc(d.meta) + '</p>';
+    h += '<div class="fcl-divider"></div>';
+    h += '<p class="fcl-lead">' + esc(d.lead) + '</p>';
+    for (var i = 0; i < d.sections.length; i++) {
+      h += '<p class="fcl-section-h">' + esc(d.sections[i].h) + '</p>';
+      h += '<p class="fcl-body">' + esc(d.sections[i].body) + '</p>';
+    }
+    h += '<p class="fcl-section-h">' + esc(d.forWhoTitle) + '</p>';
+    h += '<ul class="fcl-list">';
+    for (var j = 0; j < d.forWho.length; j++) {
+      h += '<li>' + esc(d.forWho[j]) + '</li>';
+    }
+    h += '</ul>';
+    h += '<p class="fcl-section-h">' + esc(d.faqTitle) + '</p>';
+    for (var k = 0; k < d.faqs.length; k++) {
+      h += '<div class="fcl-faq-item"><p class="fcl-faq-q">' + esc(d.faqs[k].q) + '</p><p class="fcl-faq-a">' + esc(d.faqs[k].a) + '</p></div>';
+    }
+    h += '<p class="fcl-section-h">' + esc(d.linksTitle) + '</p>';
+    h += '<div class="fcl-links-wrap">';
+    for (var l = 0; l < d.links.length; l++) {
+      h += '<a href="' + esc(d.links[l].href) + '" class="fcl-pill">' + esc(d.links[l].label) + '</a>';
+    }
+    h += '</div>';
+    h += '<div class="fcl-cta-wrap"><a class="fcl-cta" href="' + esc(FRESHA) + '" target="_blank" rel="noreferrer">' + esc(d.cta) + '</a></div>';
+    contentEl.innerHTML = h;
+    scrollEl.scrollTop = 0;
+  }
+
+  function openOverlay(key) {
+    savedScroll = window.scrollY || window.pageYOffset || 0;
+    renderContent(key);
+    overlay.classList.add('fcl-open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('fcl-open');
+    document.body.style.overflow = '';
+    setTimeout(function() { window.scrollTo(0, savedScroll); }, 30);
+  }
+
+  closeBtn.addEventListener('click', closeOverlay);
+  backdropEl.addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && overlay.classList.contains('fcl-open')) {
+      closeOverlay();
+    }
+  });
+
+  var cards = document.querySelectorAll('.svc-card[data-service]');
+  for (var c = 0; c < cards.length; c++) {
+    (function(card) {
+      var imgDiv = card.querySelector('.svc-img');
+      if (imgDiv) {
+        imgDiv.addEventListener('click', function() {
+          openOverlay(card.getAttribute('data-service'));
+        });
+      }
+    })(cards[c]);
+  }
+})();
+</script>
 </body>
 </html>
