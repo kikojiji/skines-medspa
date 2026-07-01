@@ -156,7 +156,9 @@ html { scroll-behavior: smooth; }
 body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; }
 
 /* NAV — identical to site */
-nav#mainNav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 64px; background: rgba(245,237,227,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+nav#mainNav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 64px; background: transparent; border-bottom: 1px solid transparent; transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease, transform .4s cubic-bezier(.4,0,.2,1); }
+nav#mainNav.nav-scrolled { background: rgba(245,237,227,.92) !important; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
 .logo-brand { display: flex; flex-direction: column; }
 .logo-text { font-family: 'DM Sans', sans-serif; font-size: .78rem; letter-spacing: .22em; color: var(--brown); font-weight: 500; }
@@ -725,5 +727,27 @@ nav#mainNav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display:
 <link rel="stylesheet" href="/assets/css/nav.css?v=18">
 <link rel="stylesheet" href="assets/css/animations.css?v=1">
 <script src="/assets/js/fresha-tracking.js" defer></script>
+
+<script>
+/* Nav scroll behavior — transparent at top, frosted on scroll, hide on scroll-down */
+(function(){
+  var nav = document.getElementById('mainNav');
+  if (!nav) return;
+  var lastY = 0, anchor = 0, hidden = false, ticking = false;
+  var THRESHOLD = 80;
+  function update(){
+    var y = window.scrollY;
+    if (y > 40) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled');
+    if (y <= 40){ if(hidden){nav.classList.remove('nav-hidden');hidden=false;} anchor=0; lastY=0; ticking=false; return; }
+    var delta = y - lastY;
+    if ((delta>0 && anchor<lastY) || (delta<0 && anchor>lastY)) anchor = lastY;
+    var travel = y - anchor;
+    if (travel > THRESHOLD && !hidden){ nav.classList.add('nav-hidden'); hidden=true; anchor=y; }
+    else if (travel < -THRESHOLD && hidden){ nav.classList.remove('nav-hidden'); hidden=false; anchor=y; }
+    lastY = y; ticking = false;
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }, {passive:true});
+})();
+</script>
 </body>
 </html>
