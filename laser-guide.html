@@ -250,7 +250,20 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .nav-dropdown:hover .nav-dropdown-menu { display: block; }
 
 /* PAGE LAYOUT */
-.guide-wrap { max-width: 760px; margin: 0 auto; padding: 104px 24px 64px; }
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 64px; }
+
+/* HERO BANNER (dark) — lets the transparent nav read like main pages */
+.guide-hero { position: relative; background: linear-gradient(155deg, #2A160E 0%, #4B2E26 55%, #351B12 100%); padding: 116px 24px 60px; overflow: hidden; }
+.guide-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 90% at 80% 0%, rgba(201,151,58,.14), transparent 60%); pointer-events: none; }
+.guide-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+.guide-hero .breadcrumb { color: rgba(245,237,227,.55); margin-bottom: 26px; }
+.guide-hero .breadcrumb a { color: var(--gold); }
+.guide-hero .breadcrumb-sep { color: rgba(245,237,227,.30); }
+.guide-hero .breadcrumb span:last-child { color: rgba(245,237,227,.75); }
+.guide-hero .guide-eyebrow { color: var(--gold); margin-bottom: 16px; }
+.guide-hero .guide-h1 { color: var(--cream); margin-bottom: 20px; }
+.guide-hero .guide-intro { color: rgba(245,237,227,.72); margin-bottom: 0; }
+@media(max-width:768px){ .guide-hero { padding: 96px 20px 44px; } }
 
 /* BREADCRUMB */
 .breadcrumb { font-family: 'DM Sans', sans-serif; font-size: .72rem; letter-spacing: .1em; color: var(--text-soft); margin-bottom: 40px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -345,26 +358,64 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     <span class="lang-sep">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
+    <div class="mobile-nav-header">
+      <a class="logo" href="index.html">
+        <div class="logo-brand">
+          <span class="logo-text">SKINES</span>
+          <span class="logo-sub">Med Spa · Montréal</span>
+        </div>
+      </a>
+      <button class="mobile-nav-close" id="menuClose" aria-label="Fermer le menu">&#8594;</button>
+    </div>
+    <div class="nav-lang-bar">
+      <button class="mobile-lang-btn nav-lang-btn" data-lang="fr">FR</button>
+      <span class="nav-lang-sep">|</span>
+      <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="head-spa.html">Head Spa</a></li>
+      <li><a href="laser.html"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
+      <li><a href="facial.html"><span data-fr="Facial" data-en="Facials">Facial</span></a></li>
+      <li><a href="cartes-cadeaux.html"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
+      <li><a href="reviews.html" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
+      <li><a href="visit-us.html" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
+      <li><a href="head-spa-guide.html" class="nav-sub" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a></li>
+      <li><a href="laser-guide.html" class="nav-sub" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a></li>
+      <li><a href="facial-guide.html" class="nav-sub" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+      <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
+    </div>
+  </div>
+
 <main>
-<div class="guide-wrap">
+<header class="guide-hero">
+  <div class="guide-hero-inner">
 
   <!-- BREADCRUMB -->
-  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="breadcrumb" role="navigation" aria-label="Fil d\'Ariane">
     <a href="index.html">Skines</a>
     <span class="breadcrumb-sep">›</span>
     <a href="laser.html">Laser</a>
     <span class="breadcrumb-sep">›</span>
     <span>Guide complet</span>
-  </nav>
+  </div>
 
   <!-- HERO -->
   <p class="guide-eyebrow" data-fr="ÉPILATION LASER · MONTRÉAL" data-en="LASER HAIR REMOVAL · MONTREAL">ÉPILATION LASER · MONTRÉAL</p>
   <h1 class="guide-h1" data-fr="Guide complet — Épilation laser à Montréal" data-en="Complete Guide — Laser Hair Removal in Montreal">Guide complet — Épilation laser à Montréal</h1>
   <p class="guide-intro" data-fr="Tout ce que vous devez savoir avant votre première séance laser chez Skines Med Spa & Wellness : la technologie Clarity II, les zones disponibles, le nombre de séances nécessaires, les tarifs et les questions fréquentes." data-en="Everything you need to know before your first laser session at Skines Med Spa & Wellness: Clarity II technology, available zones, number of sessions needed, pricing, and frequently asked questions.">Tout ce que vous devez savoir avant votre première séance laser chez Skines Med Spa & Wellness : la technologie Clarity II, les zones disponibles, le nombre de séances nécessaires, les tarifs et les questions fréquentes.</p>
 
-  <div class="g-divider"></div>
+  </div>
+</header>
+
+<div class="guide-wrap">
+
 
   <!-- SECTION 1 — TECHNOLOGIE -->
   <section class="g-section">
@@ -706,6 +757,23 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     lastY = y; ticking = false;
   }
   window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }, {passive:true});
+})();
+</script>
+
+<script>
+/* Mobile menu: open/close */
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var menuClose=document.getElementById('menuClose');
+  var mobileNav=document.getElementById('mobileNav');
+  var mainNav=document.getElementById('mainNav');
+  if(!menuBtn||!mobileNav) return;
+  function open(){ mobileNav.classList.add('open'); menuBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; if(mainNav) mainNav.style.display='none'; }
+  function close(){ mobileNav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; if(mainNav) mainNav.style.display=''; }
+  menuBtn.addEventListener('click',open);
+  if(menuClose) menuClose.addEventListener('click',close);
+  mobileNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&mobileNav.classList.contains('open')) close(); });
 })();
 </script>
 </body>
