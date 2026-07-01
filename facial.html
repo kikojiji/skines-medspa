@@ -5585,6 +5585,14 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 #mobileNav
 #mobileNav
 #mobileNav .mobile-nav-header span
+
+/* Guides nav dropdown */
+.nav-dropdown { position: relative; }
+.nav-dd-label { cursor: pointer; text-transform: uppercase; font-size: 0.76rem; letter-spacing: 0.18em; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; color: inherit; transition: color 0.25s; }
+.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: #2B1408; border: 1px solid rgba(245,237,227,.18); border-radius: 5px; padding: 6px 0; list-style: none; white-space: nowrap; min-width: 200px; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.nav-dropdown-menu li a { display: block; padding: 9px 20px; color: rgba(245,237,227,.8) !important; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color .2s; }
+.nav-dropdown-menu li a:hover, .nav-dropdown-menu li a.gd-active { color: #C9973A !important; }
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
 </style>
 <script type="application/ld+json">
 {
@@ -5753,6 +5761,15 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <li><a href="laser.html">Laser</a></li>
     <li><a href="facial.html" class="active">Facial</a></li>
     <li><a href="visit-us.html"><span data-fr="Contact" data-en="Contact">Contact</span></a></li>
+  
+    <li class="nav-dropdown">
+      <span class="nav-dd-label" data-fr="GUIDES" data-en="GUIDES">GUIDES <svg width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg></span>
+      <ul class="nav-dropdown-menu">
+        <li><a href="head-spa-guide.html" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a></li>
+        <li><a href="laser-guide.html" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a></li>
+        <li><a href="facial-guide.html" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a></li>
+      </ul>
+    </li>
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
   <div class="lang-switcher">
@@ -5790,6 +5807,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       <li><a href="visit-us.html" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
       <li><a href="parking.html" class="nav-sub"><span data-fr="Stationnement" data-en="Private Parking">Stationnement</span></a></li>
       <li><a href="insurance.html" class="nav-sub"><span data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</span></a></li>
+    
+      <li><a href="head-spa-guide.html" class="nav-sub" data-fr="Guides →" data-en="Guides →">Guides →</a></li>
     </ul>
     <div class="sp-menu-trigger-wrap">
       <button id="sp-menu-trigger" class="sp-menu-trigger" aria-label="Tirage Exclusif">
@@ -6487,6 +6506,20 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
           <span data-fr="Guide Head Spa Montréal" data-en="Head Spa Montreal Guide">Guide Head Spa Montréal</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="laser-guide.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <span data-fr="Guide Épilation Laser" data-en="Laser Guide Montreal">Guide Épilation Laser</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="facial-guide.html">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <span data-fr="Guide Soins du Visage" data-en="Facial Guide Montreal">Guide Soins du Visage</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
