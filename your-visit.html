@@ -87,6 +87,107 @@ nav.nav-hidden { transform: translateY(-110%); }
   white-space: nowrap;
 }
 .nav-cta:hover { background: var(--brown); color: var(--cream); }
+/* ── HEADER CLEANUP (same fix applied to index.html / facial.html /
+   head-spa.html / laser.html / insurance.html / parking.html /
+   visit-us.html) — assets/css/nav.css loads after this stylesheet with
+   "justify-content: space-between !important" on nav and an unscoped
+   ".logo { position:absolute; left:50% }" that centers the logo at all
+   widths. With unrelated flex items spread by space-between, nav-cta can
+   land under the centered logo. nav.css is shared across pages so we
+   don't edit it — override here with matching+higher specificity
+   (doubled #mainNav ID) instead. */
+@media (min-width: 981px) {
+  #mainNav#mainNav {
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    padding: 1.3rem 3.5rem !important;
+  }
+  #mainNav#mainNav .nav-links {
+    gap: clamp(0.9rem, -1rem + 3.2vw, 2.2rem) !important;
+  }
+  #mainNav#mainNav .nav-cta {
+    margin-left: auto !important;
+    margin-right: 1.5rem !important;
+  }
+  #mainNav#mainNav .lang-switcher {
+    margin-right: 1.5rem !important;
+  }
+  #mainNav#mainNav .nav-search-btn {
+    margin-right: 0 !important;
+  }
+  #mainNav#mainNav .logo-brand { gap: 0.15rem !important; }
+  #mainNav#mainNav .logo-sub { margin-top: 0.1rem !important; opacity: 0.85; }
+  /* GUIDES dropdown label is a <span>, not an <a> — nav.css only colors
+     ".nav-links a" for the light-on-dark-hero / dark-on-scrolled states,
+     so this span falls back to inheriting the page's default dark-brown
+     text and becomes nearly invisible over a dark hero. Hidden on mobile
+     entirely (part of .nav-links, display:none there), so desktop-only
+     is the correct and only place this needs fixing. */
+  html body nav:not(.nav-scrolled) .nav-dd-label:not(#_) { color: rgba(245,237,227,0.82) !important; }
+
+  /* ── STICKY HEADER ON SCROLL — dark elegant background, text always white
+     (same change approved on index.html and rolled out to the main pages)
+     — nav is already position:fixed at all times; only the .nav-scrolled
+     background/text previously switched to light-bg/dark-text. Now it
+     stays the same light/cream text color as the transparent state, just
+     with a dark background. */
+  html body nav.nav-scrolled:not(#_) {
+    background: rgba(58,30,20,0.97) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border-bottom: 1px solid rgba(245,237,227,0.10) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.20) !important;
+  }
+  html body nav.nav-scrolled:not(#_) .logo-text { color: rgba(245,237,227,0.95) !important; }
+  html body nav.nav-scrolled:not(#_) .logo-sub { color: rgba(245,237,227,0.55) !important; }
+  html body nav.nav-scrolled:not(#_) .nav-links a { color: rgba(245,237,227,0.88) !important; }
+  html body nav.nav-scrolled:not(#_) .nav-links a span { color: rgba(245,237,227,0.88) !important; }
+  html body nav.nav-scrolled:not(#_) .nav-dd-label { color: rgba(245,237,227,0.82) !important; }
+  html body nav.nav-scrolled:not(#_) .nav-cta {
+    background: transparent !important;
+    color: rgba(245,237,227,0.95) !important;
+    border-color: rgba(245,237,227,0.4) !important;
+  }
+  html body nav.nav-scrolled:not(#_) .nav-cta:hover {
+    background: rgba(245,237,227,0.12) !important;
+    border-color: rgba(245,237,227,0.7) !important;
+  }
+  html body nav.nav-scrolled:not(#_) .nav-cta span { color: rgba(245,237,227,0.95) !important; }
+  html body nav.nav-scrolled:not(#_) .lang-btn { color: rgba(245,237,227,0.65) !important; }
+  html body nav.nav-scrolled:not(#_) .lang-btn.active { color: rgba(245,237,227,0.95) !important; }
+  html body nav.nav-scrolled:not(#_) .lang-sep { color: rgba(245,237,227,0.35) !important; }
+  html body nav.nav-scrolled:not(#_) .nav-search-btn {
+    color: rgba(245,237,227,0.88) !important;
+    border-color: rgba(245,237,227,0.35) !important;
+  }
+
+  /* ── Dropdown positioning + chevron fix (same root cause as index.html) ──
+     ".nav-dropdown { position: relative }" gets swallowed by a broken
+     dangling-selector chain elsewhere in this stylesheet. Also,
+     assets/js/i18n.js replaces textContent on any [data-fr] element,
+     which was silently deleting the chevron <svg> that used to live
+     inside the same span as data-fr="GUIDES". Fixed by (1) restoring
+     position:relative and (2) the matching HTML change that moves the
+     chevron to a sibling .nav-dd-trigger wrapper. */
+  #mainNav .nav-dropdown { position: relative; }
+  #mainNav .nav-dd-trigger { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+  #mainNav .nav-dd-chevron { width: 8px; height: 6px; flex-shrink: 0; transition: transform 0.25s ease; opacity: 0.75; }
+  #mainNav .nav-dropdown:hover .nav-dd-chevron { transform: rotate(180deg); opacity: 1; }
+  #mainNav .nav-dropdown-menu { opacity: 0; transform: translateY(-6px); transition: opacity 0.2s ease, transform 0.2s ease; pointer-events: none; }
+  #mainNav .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  #mainNav .nav-dropdown-menu li a { transition: background 0.15s ease, color 0.15s ease; }
+  #mainNav .nav-dropdown-menu li a:hover { background: rgba(245,237,227,0.06); }
+}
+/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type */
+@media (min-width: 981px) and (max-width: 1150px) {
+  #mainNav#mainNav .nav-links a {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.03em !important;
+  }
+  #mainNav#mainNav .nav-links {
+    gap: clamp(0.6rem, -1.5rem + 3.2vw, 2.2rem) !important;
+  }
+}
 .lang-switcher { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 400; color: var(--stone); }
 .lang-btn { background: none; border: none; cursor: pointer; font-size: 0.72rem; color: var(--stone); padding: 0.15rem 0.3rem; transition: color 0.2s; }
 .lang-btn.active { color: var(--brown-dark); font-weight: 500; }
@@ -568,7 +669,10 @@ footer { background: #684034 !important; }
     <li><a href="your-visit.html" class="active">Votre Visite</a></li>
   
     <li class="nav-dropdown">
-      <span class="nav-dd-label" data-fr="GUIDES" data-en="GUIDES">GUIDES <svg width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg></span>
+      <span class="nav-dd-trigger">
+        <span class="nav-dd-label" data-fr="GUIDES" data-en="GUIDES">GUIDES</span>
+        <svg class="nav-dd-chevron" width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg>
+      </span>
       <ul class="nav-dropdown-menu">
         <li><a href="head-spa-guide.html" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a></li>
         <li><a href="laser-guide.html" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a></li>

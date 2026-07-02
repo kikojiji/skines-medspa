@@ -135,6 +135,26 @@ body{
 .menu-book svg{opacity:0.55;transition:transform 0.22s,opacity 0.22s;}
 .menu-book:hover svg{transform:translateX(3px);opacity:0.9;}
 
+/* ── Desktop fix: assets/css/nav.css targets the bare `nav` tag (not just
+   #mainNav) with "position:fixed !important; display:flex !important;
+   justify-content:space-between !important" — meant only for the site's
+   main header, but it also catches this page's unrelated
+   `<nav class="menu-nav">` link list, forcing it into a broken fixed
+   horizontal bar instead of the intended vertical list. This is a
+   pre-existing bug on mobile too (same unscoped rule) — flagged
+   separately since fixing it there would touch the shared rule. Desktop
+   only: restore .menu-nav to normal block flow so the page's own design
+   (a centered 520px-wide list, already correct in this file's CSS) can
+   actually render. No HTML/JS change, no content change. */
+@media (min-width: 981px) {
+  html body nav.menu-nav {
+    position: static !important;
+    display: block !important;
+    padding: 0 !important;
+    background: transparent !important;
+    gap: 0 !important;
+  }
+}
 @media(max-width:520px){
   .menu-page{max-width:100%;}
 }

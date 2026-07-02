@@ -28,7 +28,36 @@
     :root { --brown: #3A1E14; --cream: #F5EDE3; --gold: #C9973A; --muted: rgba(58,30,20,0.55); }
     body { background: #FDFAF5; color: var(--brown); font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.8; }
     nav { background: var(--brown); padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between; }
-    
+    /* This local `nav{}` rule is superseded by the shared assets/css/nav.css
+       (loaded later, !important, position:fixed/transparent) — the real nav
+       on this page is the shared #mainNav system (logo + hamburger only;
+       this legal page has no nav-links/cta/lang/search in its HTML). On
+       desktop the hamburger is hidden (by design, same as other pages) and
+       nothing else is in flow, so the nav bar collapses to just its own
+       padding (~37px) and the absolutely-centered logo pokes out/gets
+       cropped against the page content below. Desktop-only: give the nav a
+       stable height so the logo displays fully and cleanly, matching the
+       header height used on every other page. No HTML/JS change, no
+       content change, mobile untouched (this rule only applies ≥981px). */
+    @media (min-width: 981px) {
+      #mainNav#mainNav { min-height: 72px; padding: 1.3rem 3.5rem; }
+      /* This page has no dark hero under the nav (unlike index/facial/etc.),
+         so nav.css's default "transparent nav, near-white logo text" state
+         (meant to sit over a photo/video) leaves the logo nearly invisible
+         against this page's light background. Desktop-only: give the nav a
+         solid, readable surface — same visual treatment already used for
+         the "scrolled" state on every other page, just applied permanently
+         here since there's no hero to protect. */
+      #mainNav#mainNav {
+        background: rgba(249,244,238,0.96) !important;
+        border-bottom: 1px solid rgba(104,64,52,0.10);
+      }
+      #mainNav#mainNav .logo-text,
+      #mainNav#mainNav .logo-sub {
+        color: #4B2E26 !important;
+      }
+    }
+
     .nav-back { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,237,227,0.65); text-decoration: none; }
     .nav-back:hover { color: var(--cream); }
     main { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }

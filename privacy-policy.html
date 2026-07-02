@@ -45,7 +45,26 @@
       align-items: center;
       justify-content: space-between;
     }
-    
+    /* This local nav{} rule is superseded by the shared assets/css/nav.css
+       (loaded later, !important) — see cookie-policy.html for the same fix
+       with full explanation. Desktop-only: (1) stable nav height so the
+       logo isn't cropped by a collapsed empty flex row, (2) solid readable
+       background since this page has no dark hero under the nav for the
+       default transparent/light-logo state to work against. Mobile
+       untouched (≥981px only). */
+    @media (min-width: 981px) {
+      #mainNav#mainNav {
+        min-height: 72px;
+        padding: 1.3rem 3.5rem;
+        background: rgba(249,244,238,0.96) !important;
+        border-bottom: 1px solid rgba(104,64,52,0.10);
+      }
+      #mainNav#mainNav .logo-text,
+      #mainNav#mainNav .logo-sub {
+        color: #4B2E26 !important;
+      }
+    }
+
     .nav-back {
       font-size: 0.72rem;
       letter-spacing: 0.15em;

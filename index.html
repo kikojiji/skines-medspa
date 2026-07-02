@@ -943,9 +943,9 @@
     .stone-top { width: 14px; height: 9px; }
     .stone-mid { width: 26px; height: 16px; top: 11px; }
     .stone-bot { width: 37px; height: 21px; top: 28px; }
-    
-    
-    
+
+
+
     .nav-links { gap: 2.6rem; }
     /* Book Now — quieter, outline style on desktop */
     .nav-cta {
@@ -957,6 +957,173 @@
       border-color: rgba(143,128,120,0.38);
     }
     .nav-cta:hover { background: var(--terracotta-deeper); border-color: var(--terracotta-deeper); color: var(--cream); }
+
+    /* ── HEADER CLEANUP — assets/css/nav.css loads after this stylesheet (linked
+       near end of <body>) with "html body nav#mainNav { justify-content: space-between !important }"
+       and an unscoped "html body nav .logo { position: absolute; left: 50% }" that centers the
+       logo at ALL widths. With 4 unrelated flex items (nav-links, nav-cta, lang-switcher,
+       search-btn) spread by space-between, nav-cta happens to land almost exactly under the
+       centered logo at laptop widths — that's the visual collision/chaos.
+       nav.css is shared by other pages (not yet approved for changes), so instead of editing
+       it we override it here with matching+higher specificity (doubled #mainNav ID selector)
+       so this stays scoped to index.html and only active on desktop. The centered logo itself
+       is kept — it's the same brand placement used on mobile — we only fix the spacing around it. */
+    #mainNav#mainNav {
+      justify-content: flex-start !important;
+      gap: 0 !important;
+      padding: 1.3rem 3.5rem !important;
+    }
+    #mainNav#mainNav .nav-links {
+      gap: clamp(1.6rem, 0.9rem + 1.4vw, 2.6rem) !important;
+    }
+    #mainNav#mainNav .nav-cta {
+      margin-left: auto !important;
+      margin-right: 1.5rem !important;
+    }
+    #mainNav#mainNav .lang-switcher {
+      margin-right: 1.5rem !important;
+    }
+    #mainNav#mainNav .nav-search-btn {
+      margin-right: 0 !important;
+    }
+    /* Logo: keep centered (brand consistency with mobile) but tidy the internal stack */
+    #mainNav#mainNav .logo-brand { gap: 0.15rem !important; }
+    #mainNav#mainNav .logo-sub { margin-top: 0.1rem !important; opacity: 0.85; }
+    /* GUIDES dropdown label is a <span>, not an <a> — nav.css only colors
+       ".nav-links a" for the light-on-dark-hero / dark-on-scrolled states,
+       so this span falls back to inheriting the page's default dark-brown
+       text and becomes nearly invisible over a dark hero. Hidden on mobile
+       entirely (part of .nav-links, display:none there), so desktop-only
+       is the correct and only place this needs fixing. */
+    html body nav:not(.nav-scrolled) .nav-dd-label:not(#_) { color: rgba(245,237,227,0.82) !important; }
+    /* Same root cause hits "Soins/Avis/Contact" and "RÉSERVER": a global
+       "html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo)
+       :not(.nav-link) { color: #684034 !important }" (5 :not() = higher
+       specificity than nav.css's own light-text rule) forces dark-brown
+       text even when the nav is transparent over a dark hero — nearly
+       unreadable (confirmed live: RÉSERVER/Soins/Avis/Contact all render
+       rgb(104,64,52) instead of the intended light cream). The RÉSERVER
+       label is also a <span>, which has its own separate dark-text reset
+       rule, so it needs its own override too. Desktop-only, matches
+       nav.css's intended (but previously losing) colors exactly. */
+    html body nav:not(.nav-scrolled) .nav-links a:not(#_) { color: rgba(245,237,227,0.88) !important; }
+    html body nav:not(.nav-scrolled) .nav-links a:not(#_) span { color: rgba(245,237,227,0.88) !important; }
+    html body nav:not(.nav-scrolled) .nav-cta:not(#_) { color: rgba(245,237,227,0.95) !important; }
+    html body nav:not(.nav-scrolled) .nav-cta:not(#_) span { color: rgba(245,237,227,0.95) !important; }
+    html body nav:not(.nav-scrolled) .lang-sep:not(#_) { color: rgba(245,237,227,0.35) !important; }
+
+    /* ── STICKY HEADER ON SCROLL — dark elegant background, text always
+       white ────────────────────────────────────────────────────────────
+       Requested UX change: nav is already position:fixed at all times
+       (nav.css, unscoped) so it's always "sticky" — what actually changes
+       on scroll is just the .nav-scrolled class nav.js already toggles.
+       Previously nav.css switched that state to a LIGHT cream background
+       with DARK brown text (the usual "light navbar on scroll" pattern).
+       Per request: keep a dark, premium background instead, and keep
+       every nav element the same light/cream color it already uses in
+       the transparent (not-scrolled) state above — no color switching,
+       only the background changes. ":not(#_)" is an always-true ID-level
+       specificity boost (see earlier comments) needed to beat nav.css's
+       own !important rules and the page's various dark-text overrides. */
+    html body nav.nav-scrolled:not(#_) {
+      background: rgba(58,30,20,0.97) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      border-bottom: 1px solid rgba(245,237,227,0.10) !important;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.20) !important;
+    }
+    html body nav.nav-scrolled:not(#_) .logo-text { color: rgba(245,237,227,0.95) !important; }
+    html body nav.nav-scrolled:not(#_) .logo-sub { color: rgba(245,237,227,0.55) !important; }
+    html body nav.nav-scrolled:not(#_) .nav-links a { color: rgba(245,237,227,0.88) !important; }
+    html body nav.nav-scrolled:not(#_) .nav-links a span { color: rgba(245,237,227,0.88) !important; }
+    html body nav.nav-scrolled:not(#_) .nav-dd-label { color: rgba(245,237,227,0.82) !important; }
+    html body nav.nav-scrolled:not(#_) .nav-cta {
+      background: transparent !important;
+      color: rgba(245,237,227,0.95) !important;
+      border-color: rgba(245,237,227,0.4) !important;
+    }
+    html body nav.nav-scrolled:not(#_) .nav-cta:hover {
+      background: rgba(245,237,227,0.12) !important;
+      border-color: rgba(245,237,227,0.7) !important;
+    }
+    html body nav.nav-scrolled:not(#_) .nav-cta span { color: rgba(245,237,227,0.95) !important; }
+    html body nav.nav-scrolled:not(#_) .lang-btn { color: rgba(245,237,227,0.65) !important; }
+    html body nav.nav-scrolled:not(#_) .lang-btn.active { color: rgba(245,237,227,0.95) !important; }
+    html body nav.nav-scrolled:not(#_) .lang-sep { color: rgba(245,237,227,0.35) !important; }
+    html body nav.nav-scrolled:not(#_) .nav-search-btn {
+      color: rgba(245,237,227,0.88) !important;
+      border-color: rgba(245,237,227,0.35) !important;
+    }
+
+    /* Dropdown positioning fix (pre-existing bug, affects the GUIDES
+       dropdown too, not just the new SOINS one below) — a dangling/broken
+       selector chain earlier in this stylesheet (a leftover from an edit
+       that stripped some selector clauses but left the fragments, so they
+       silently concatenated into one unmatched compound selector) swallowed
+       the intended ".nav-dropdown { position: relative }" rule, so it never
+       actually applied. Without it, the dropdown menu (position:absolute)
+       has no positioned ancestor to anchor to and falls back to centering
+       under the fixed nav itself instead of under its own trigger label.
+       Confirmed via computed styles: .nav-dropdown was "position: static".
+       Not scoped by any @media, so this is a real bug on every screen size
+       — but .nav-links (and everything in it) is display:none on mobile,
+       so it was never visible there either. Fixing here is safe and only
+       ever affects desktop rendering. */
+    #mainNav .nav-dropdown { position: relative; }
+    /* SOINS is the first (leftmost) nav item — the shared dropdown menu
+       CSS centers under its trigger (left:50%/translateX(-50%)), which
+       clips ~21px off the left edge of the viewport for this one. GUIDES
+       (further right) stays centered as-is since it has room. */
+    #mainNav .nav-dropdown-soins .nav-dropdown-menu { left: 0; transform: none; }
+
+    /* ── Dropdown chevron visibility fix ──────────────────────────────
+       assets/js/i18n.js has a "backward-compat" pass that runs on load
+       and on every language switch: any element with a [data-fr]
+       attribute gets its textContent replaced with that value. The old
+       markup put the chevron <svg> *inside* the same <span> that carries
+       data-fr="SOINS"/"GUIDES", so that pass silently deleted the SVG —
+       both dropdowns rendered as plain text with no arrow, no visual cue
+       they're hoverable. Fixed by moving the chevron to a sibling
+       <span class="nav-dd-trigger"> that wraps the label span; i18n.js
+       only touches the inner [data-fr] span now, so the chevron survives
+       every language toggle. Pure HTML/CSS restructuring, no JS edited
+       (i18n.js is shared by every page — not touching it here). */
+    #mainNav .nav-dd-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    #mainNav .nav-dd-chevron {
+      width: 8px;
+      height: 6px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      opacity: 0.75;
+    }
+    #mainNav .nav-dropdown:hover .nav-dd-chevron {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    /* Small polish pass so the panel feels intentional rather than an
+       abrupt on/off toggle. */
+    #mainNav .nav-dropdown-menu {
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+    #mainNav .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #mainNav .nav-dropdown-menu li a {
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    #mainNav .nav-dropdown-menu li a:hover {
+      background: rgba(245,237,227,0.06);
+    }
 
     /* Hero — editorial left-aligned split */
     .hero { justify-content: flex-start; min-height: 96vh; }
@@ -974,7 +1141,7 @@
     }
     .hero .eyebrow { justify-content: flex-start; }
     .hero .eyebrow::after { display: none; }
-    .hero p { margin: 0 0 2.8rem; max-width: 410px; font-size: 1.2rem; }
+    .hero p { margin: 0 0 2.8rem; max-width: 410px; font-size: clamp(1.2rem, 1.1rem + 0.2vw, 1.32rem); }
     .hero-actions { justify-content: flex-start; gap: 1rem; }
     /* Hero buttons — refined sizing */
     .btn-light, .btn-line {
@@ -983,10 +1150,20 @@
       min-width: 158px;
     }
 
-    /* Sections — consistent with sub-pages */
-    section { padding: 6rem 4rem; }
+    /* Sections — consistent with sub-pages, fluid padding between 981px and large monitors */
+    section { padding: clamp(6rem, 5.4rem + 1.5vw, 8rem) clamp(4rem, 2.5rem + 3.5vw, 7rem); }
     .booking-band { padding: 3.6rem 4.5rem; }
     footer { padding: 4.5rem 4.5rem 2.5rem; }
+
+    /* Large-content sections without a max-width ceiling — cap line length/whitespace on wide screens */
+    .contact { max-width: 1400px; margin: 0 auto; }
+    .section-copy { max-width: min(470px, 40vw); }
+  }
+
+  /* ── LARGE DESKTOP / ULTRAWIDE — additional scaling above 1440px ── */
+  @media (min-width: 1441px) {
+    .contact { max-width: 1560px; gap: 5rem; }
+    section { padding-left: clamp(7rem, 4vw, 9rem); padding-right: clamp(7rem, 4vw, 9rem); }
   }
   /* ═══════════════════════════════════════════════════════════ */
   /* ── MOBILE REDESIGN — AWU-INSPIRED ──────────────────────── */
@@ -6357,12 +6534,25 @@ html body #sp-stones img {
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#treatments"><span data-fr="Soins" data-en="Services">Soins</span></a></li>
+      <li class="nav-dropdown nav-dropdown-soins">
+        <span class="nav-dd-trigger">
+          <span class="nav-dd-label" data-fr="SOINS" data-en="SERVICES">SOINS</span>
+          <svg class="nav-dd-chevron" width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg>
+        </span>
+        <ul class="nav-dropdown-menu">
+          <li><a href="head-spa.html" data-fr="Head Spa" data-en="Head Spa">Head Spa</a></li>
+          <li><a href="facial.html" data-fr="Facial" data-en="Facial">Facial</a></li>
+          <li><a href="laser.html" data-fr="Laser" data-en="Laser">Laser</a></li>
+        </ul>
+      </li>
       <li><a href="#reviews"><span data-fr="Avis" data-en="Reviews">Avis</span></a></li>
       <li><a href="#contact"><span data-fr="Contact" data-en="Contact">Contact</span></a></li>
     
     <li class="nav-dropdown">
-      <span class="nav-dd-label" data-fr="GUIDES" data-en="GUIDES">GUIDES <svg width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg></span>
+      <span class="nav-dd-trigger">
+        <span class="nav-dd-label" data-fr="GUIDES" data-en="GUIDES">GUIDES</span>
+        <svg class="nav-dd-chevron" width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg>
+      </span>
       <ul class="nav-dropdown-menu">
         <li><a href="head-spa-guide.html" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a></li>
         <li><a href="laser-guide.html" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a></li>
@@ -6960,6 +7150,29 @@ html body #sp-stones img {
 .sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
 .sf-legal a:hover { color: rgba(245,237,227,0.55); }
 .sf-legal-sep { opacity: 0.3; }
+
+/* ── DESKTOP — footer currently stays mobile-narrow at all widths; give it a centered, multi-column layout ── */
+@media (min-width: 981px) {
+  .sf-logo-area,
+  .sf-social-area,
+  .sf-legal { max-width: 1100px; margin-left: auto; margin-right: auto; }
+  .sf-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 1.2rem;
+  }
+  .sf-nav-group { border-left: 1px solid rgba(255,255,255,0.05); }
+  .sf-nav-group:first-child { border-left: none; }
+}
+@media (min-width: 1441px) {
+  .sf-logo-area,
+  .sf-nav,
+  .sf-social-area,
+  .sf-legal { max-width: 1280px; }
+}
 </style>
 <footer class="site-footer">
   <div class="sf-logo-area">
