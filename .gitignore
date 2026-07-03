@@ -48,6 +48,15 @@ assets/laser-neck.png
 !assets/images/**/*.png
 !assets/images/**/*.jpg
 
+# Homepage service-card images (referenced directly from assets/, not
+# assets/images/) — were caught by the blanket *.webp rule above and had
+# never been committed, so they 404 on production (visible in Safari,
+# masked in Chrome by a stale cache from before this rule existed).
+!assets/card-head-spa.webp
+!assets/card-laser.webp
+!assets/card-facial.webp
+!assets/card-giftcard.webp
+
 # Claude worktrees
 .claude/worktrees/
 
