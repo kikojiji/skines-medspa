@@ -1124,6 +1124,46 @@
     #mainNav .nav-dropdown-menu li a:hover {
       background: rgba(245,237,227,0.06);
     }
+    /* Hover-gap fix — the base rule has "top: calc(100% + 12px)", a 12px
+       dead zone between the trigger and the menu. The <li>.nav-dropdown's
+       own hoverable box only covers its in-flow content (the trigger),
+       not that gap, so moving the mouse straight down from SOINS/GUIDES
+       toward the menu exits the hover area and the menu closes before the
+       cursor arrives — reported as "the menu disappears too fast". Fix:
+       an invisible pseudo-element bridges the gap so it's part of the
+       <li>'s own hover hit-area, without changing the visual 12px gap. */
+    #mainNav .nav-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 12px;
+    }
+    /* Reverted the solid-gold panel (user tried it, preferred a dark
+       frosted-glass look instead) — dark, semi-transparent background
+       with a real backdrop-blur so it stays legible over any hero
+       content behind it, and bigger/clearer text than the original
+       0.72rem for easier reading. Opacity lowered further (0.82 → 0.5)
+       per follow-up: keep the blur, make the background more see-through. */
+    #mainNav .nav-dropdown-menu {
+      background: rgba(43,20,8,0.5) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border-color: rgba(245,237,227,0.22) !important;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35) !important;
+      min-width: 220px !important;
+      padding: 8px 0 !important;
+    }
+    #mainNav .nav-dropdown-menu li a:not(#_) {
+      color: rgba(245,237,227,0.92) !important;
+      font-size: 0.84rem !important;
+      padding: 12px 22px !important;
+    }
+    #mainNav .nav-dropdown-menu li a:hover:not(#_) {
+      background: rgba(245,237,227,0.08) !important;
+      color: #E8C078 !important;
+    }
 
     /* Hero — editorial left-aligned split */
     .hero { justify-content: flex-start; min-height: 96vh; }

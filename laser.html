@@ -5263,6 +5263,40 @@ html body div.mobile-nav.open {
   #mainNav .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
   #mainNav .nav-dropdown-menu li a { transition: background 0.15s ease, color 0.15s ease; }
   #mainNav .nav-dropdown-menu li a:hover { background: rgba(245,237,227,0.06); }
+  /* Hover-gap fix — base rule has "top: calc(100% + 12px)", a dead zone
+     between trigger and menu that closed the dropdown before the mouse
+     reached it. Invisible bridge closes the gap without changing the
+     visual spacing. */
+  #mainNav .nav-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
+  /* Dark frosted-glass panel — replaces the near-opaque #2B1408 base
+     panel with a lighter, semi-transparent blurred background (stays
+     legible over any hero behind it) and bigger text than the original
+     0.72rem. */
+  #mainNav .nav-dropdown-menu {
+    background: rgba(43,20,8,0.5) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-color: rgba(245,237,227,0.22) !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.35) !important;
+    min-width: 220px !important;
+    padding: 8px 0 !important;
+  }
+  #mainNav .nav-dropdown-menu li a:not(#_) {
+    color: rgba(245,237,227,0.92) !important;
+    font-size: 0.84rem !important;
+    padding: 12px 22px !important;
+  }
+  #mainNav .nav-dropdown-menu li a:hover:not(#_) {
+    background: rgba(245,237,227,0.08) !important;
+    color: #E8C078 !important;
+  }
 }
 /* laser.html has 5 nav-links (same as facial.html / head-spa.html) — at the
    narrow 981–1150px desktop band the extra "Contact" item makes nav-links
