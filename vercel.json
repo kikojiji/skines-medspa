@@ -12,6 +12,12 @@
   },
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.skines.ca" }],
+      "destination": "https://skines.ca/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.skines.ca" }],
       "destination": "https://skines.ca/:path*",
