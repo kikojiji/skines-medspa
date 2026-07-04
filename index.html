@@ -19,7 +19,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skines Med Spa & Wellness | Head Spa, Facial & Laser Montréal</title>
@@ -36,9 +36,6 @@
 <meta name="twitter:title" content="Skines Med Spa • Montréal" />
 <meta name="twitter:description" content="Luxury Japanese Head Spa, advanced facials, and laser treatments for deep relaxation and natural glow." />
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -936,7 +933,24 @@
     text-decoration: none;
   }
   /* ── DESKTOP EDITORIAL LAYOUT ──────────────────────────── */
+  @media (min-width: 981px) and (max-width: 1150px) {
+    /* index.html's nav (SOINS dropdown + Avis + Contact + GUIDES dropdown)
+       sits right at the edge of the centered logo in this narrow band —
+       measured gap at 981px is ~0.5px, i.e. already touching. Shrinking
+       type/gap here only, same pattern already used on facial.html /
+       head-spa.html / laser.html for the same reason. Above 1150px the
+       original values apply untouched. */
+    #mainNav#mainNav .nav-links {
+      gap: 1.4rem !important;
+    }
+    #mainNav#mainNav .nav-links a,
+    #mainNav#mainNav .nav-dd-label {
+      font-size: 0.64rem !important;
+      letter-spacing: 0.1em !important;
+    }
+  }
   @media (min-width: 981px) {
+    .booking-band { display: none !important; }
     /* Nav refinements */
     nav { padding: 1.3rem 4.5rem; }
     .logo-stones { width: 40px; height: 48px; }
@@ -6894,6 +6908,20 @@ html body #sp-stones img {
       transform-origin: top center; will-change: transform, opacity;
       transition: left 0.58s cubic-bezier(0.22,1,0.36,1), top 0.58s cubic-bezier(0.22,1,0.36,1), transform 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.45s ease, box-shadow 0.45s ease;
     }
+    /* Desktop-only: the card width below is mobile-first (clamped to
+       62vw). positionCards() in the script below computes every slide's
+       left/top offset and shadow as a fraction of this card's own
+       offsetWidth, and re-runs on resize — so widening it here is enough
+       to both enlarge the cards AND proportionally spread them apart,
+       no JS changes needed. Shadow on the active card is deepened with
+       !important since positionCards() sets box-shadow as an inline
+       style per slide, which only a !important CSS rule can override. */
+    @media (min-width: 981px) {
+      .ivc-slide { width: clamp(280px, 22vw, 360px); }
+      .ivc-slide.ivc-active {
+        box-shadow: 0 40px 100px rgba(0,0,0,0.42), 0 0 0 1.5px rgba(201,160,96,0.32) !important;
+      }
+    }
     .ivc-fade-l, .ivc-fade-r { display: none; }
     .ivc-slide img  { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .ivc-slide video{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; opacity: 0; transition: opacity 0.45s ease; }
@@ -6953,13 +6981,13 @@ html body #sp-stones img {
     .ivc-mnav {
       width: 44px; height: 44px; border-radius: 50%;
       background: rgba(245,237,227,0.09); backdrop-filter: blur(10px);
-      border: 1px solid rgba(245,237,227,0.20);
+      border: 1px solid rgba(232,192,120,0.45);
       cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
       transition: background 0.25s, opacity 0.25s;
     }
-    .ivc-mnav:hover { background: rgba(245,237,227,0.20); }
+    .ivc-mnav:hover { background: rgba(232,192,120,0.18); }
     .ivc-mnav.ivc-off { opacity: 0.22; pointer-events: none; }
-    .ivc-mnav svg { stroke: #F5EDE3; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
+    .ivc-mnav svg { stroke: #E8C078; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
     @media (max-width: 580px) {
       .ivc-mnav { display: flex; }
       .ivc-arrow { opacity: 0.75 !important; }
@@ -7051,22 +7079,57 @@ html body #sp-stones img {
         if(!slides.length)return;
         var cW=slides[0].offsetWidth, cH=slides[0].offsetHeight, oW=outer.offsetWidth;
         var cx=(oW-cW)/2;
+        // Desktop only (>=981px): show one more card on each side so the
+        // stack reads as "there are more videos here" symmetrically,
+        // instead of the mobile-first single-card-plus-sliver look.
+        // Mobile/tablet keep the original 3-card cascade untouched.
+        var isDesktop = window.innerWidth >= 981;
+        var n = slides.length;
         track.style.height=(cH+32)+'px';
         for(var i=0;i<slides.length;i++){
           var rel=i-cur, s=slides[i];
+          // Desktop: wrap the relative index around the full loop so the
+          // first/last videos still show neighbors on both sides (a true
+          // circular carousel) instead of running out of "previous"
+          // cards at the very start of the list.
+          if(isDesktop){
+            if(rel>n/2) rel-=n;
+            if(rel<-n/2) rel+=n;
+          }
+          // Desktop-only wider spread so both side cards read as full
+          // videos rather than thin slivers under the active card.
+          // Mobile/tablet keep the original tighter 0.21/0.35 fractions.
+          var f1 = isDesktop ? 0.34 : 0.21;
+          var f2 = isDesktop ? 0.58 : 0.35;
+          var f3 = 0.80;
+          // Opacity, kept moderate on desktop so the side videos stay
+          // clearly visible instead of fading into the background —
+          // mobile's original (more faded) values are untouched.
+          var o1 = isDesktop ? 0.88 : 0.82;
+          var o2 = isDesktop ? 0.68 : 0.55;
+          var o3 = 0.48;
           var lft,ty,sc,op,zi,sh;
           if(rel===0){
             lft=cx;ty=0;sc=1;op=1;zi=10;
             sh='0 28px 72px rgba(0,0,0,0.38),0 0 0 1.5px rgba(201,160,96,0.28)';
           } else if(rel===1){
-            lft=cx+cW*0.21;ty=8;sc=0.88;op=0.82;zi=9;
+            lft=cx+cW*f1;ty=8;sc=0.88;op=o1;zi=9;
             sh='0 12px 32px rgba(0,0,0,0.24)';
           } else if(rel===2){
-            lft=cx+cW*0.35;ty=14;sc=0.77;op=0.55;zi=8;
+            lft=cx+cW*f2;ty=14;sc=0.77;op=o2;zi=8;
             sh='0 6px 18px rgba(0,0,0,0.15)';
+          } else if(rel===3 && isDesktop){
+            lft=cx+cW*f3;ty=20;sc=0.68;op=o3;zi=7;
+            sh='0 4px 14px rgba(0,0,0,0.10)';
           } else if(rel===-1){
-            lft=cx-cW*0.21;ty=8;sc=0.88;op=0.50;zi=9;
+            lft=cx-cW*f1;ty=8;sc=0.88;op=isDesktop?o1:0.50;zi=9;
             sh='0 12px 32px rgba(0,0,0,0.24)';
+          } else if(rel===-2 && isDesktop){
+            lft=cx-cW*f2;ty=14;sc=0.77;op=o2;zi=8;
+            sh='0 6px 18px rgba(0,0,0,0.15)';
+          } else if(rel===-3 && isDesktop){
+            lft=cx-cW*f3;ty=20;sc=0.68;op=o3;zi=7;
+            sh='0 4px 14px rgba(0,0,0,0.10)';
           } else if(rel<-1){
             lft=cx-cW*0.60;ty=0;sc=0.75;op=0;zi=7;sh='none';
           } else {
@@ -7129,14 +7192,28 @@ html body #sp-stones img {
         });
       },{passive:true});
 
+      // Modal itself is position:fixed (see .ivc-modal), so it always
+      // stays visually centered on screen regardless of page scroll —
+      // no body-scroll lock needed, and per feedback the page should
+      // stay scrollable while a video is open.
+      function playModalVideo(){
+        mVid.muted = false;
+        mVid.play().catch(function(){
+          // Autoplay-with-sound blocked — fall back to muted so the
+          // video starts immediately either way; user can unmute via
+          // the native controls bar.
+          mVid.muted = true;
+          mVid.play().catch(function(){});
+        });
+      }
       function openModal(i){
-        mIdx=i;mVid.src=VIDS[i].s;mVid.load();mVid.play().catch(function(){});
+        mIdx=i;mVid.src=VIDS[i].s;mVid.load();playModalVideo();
         modal.classList.add('ivc-open');syncMNav();
       }
       function closeModal(){modal.classList.remove('ivc-open');mVid.pause();mVid.src='';}
       function modalNav(dir){
         mIdx=Math.max(0,Math.min(mIdx+dir,VIDS.length-1));
-        mVid.src=VIDS[mIdx].s;mVid.load();mVid.play().catch(function(){});syncMNav();
+        mVid.src=VIDS[mIdx].s;mVid.load();playModalVideo();syncMNav();
       }
       function syncMNav(){
         btnMP.classList.toggle('ivc-off',mIdx===0);
