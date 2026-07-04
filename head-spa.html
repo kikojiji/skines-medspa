@@ -9,7 +9,7 @@
 (function(){
   document.addEventListener('DOMContentLoaded', function(){
     var trig = document.getElementById('sp-menu-trigger');
-    if (trig) trig.addEventListener('click', function(){ window.location.href = 'tirage.html'; });
+    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
   });
 })();
 
@@ -4875,6 +4875,75 @@ html body div.mobile-nav.open {
     letter-spacing: 0.1em !important;
   }
 }
+@media (min-width: 768px) and (max-width: 980px) {
+  html body nav .nav-links:not(#_) { display: flex !important; }
+  html body nav .lang-switcher:not(#_) { display: flex !important; }
+  html body nav .menu-btn:not(#_) { display: none !important; }
+  html body nav .nav-cta:not(#_) { display: none !important; }
+  #mainNav#mainNav {
+    justify-content: flex-start !important;
+    padding: 1.1rem 1.6rem !important;
+    gap: 0 !important;
+  }
+  #mainNav#mainNav .nav-links {
+    gap: clamp(0.5rem, -1.6rem + 3vw, 1.4rem) !important;
+    flex-wrap: nowrap !important;
+  }
+  #mainNav#mainNav .nav-links li {
+    white-space: nowrap !important;
+  }
+  #mainNav#mainNav .nav-links a:not(#_) {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    color: rgba(245,237,227,0.88) !important;
+  }
+  #mainNav#mainNav .nav-links a:not(#_) span {
+    color: rgba(245,237,227,0.88) !important;
+  }
+  #mainNav#mainNav .nav-dd-label:not(#_) {
+    white-space: nowrap !important;
+    color: rgba(245,237,227,0.88) !important;
+  }
+  #mainNav#mainNav .lang-switcher {
+    margin-left: auto !important;
+    margin-right: 0.8rem !important;
+  }
+  #mainNav#mainNav .lang-btn:not(#_) {
+    color: rgba(245,237,227,0.65) !important;
+  }
+  #mainNav#mainNav .lang-btn.active:not(#_) {
+    color: rgba(245,237,227,0.95) !important;
+  }
+  #mainNav#mainNav .lang-sep:not(#_) {
+    color: rgba(245,237,227,0.35) !important;
+  }
+  #mainNav#mainNav .nav-search-btn:not(#_) {
+    color: rgba(245,237,227,0.88) !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+  #mainNav#mainNav .nav-links .nav-dropdown {
+    position: absolute !important;
+    top: 50% !important;
+    right: 172px !important;
+    transform: translateY(-50%) !important;
+  }
+  #mainNav#mainNav .nav-dropdown-menu {
+    background: rgba(43,20,8,0.85) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-color: rgba(245,237,227,0.22) !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.35) !important;
+  }
+  #mainNav#mainNav .nav-dropdown-menu li a:not(#_) {
+    color: rgba(245,237,227,0.92) !important;
+  }
+  #mainNav#mainNav .nav-dropdown-menu li a:hover:not(#_) {
+    background: rgba(245,237,227,0.08) !important;
+    color: #E8C078 !important;
+  }
+}
 /* ══ CONTRAST FIXES — based on audit ══ */
 
 /* FIX 1: Social bar — excluded from RULE 7 dark override */
@@ -6021,17 +6090,17 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 <body>
 
 <nav id="mainNav">
-  <a class="logo" href="index.html">
+  <a class="logo" href="/">
     <div class="logo-brand">
       <span class="logo-text">SKINES</span>
       <span class="logo-sub">Med Spa · Montréal</span>
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="head-spa.html" class="active">Head Spa</a></li>
-    <li><a href="laser.html">Laser</a></li>
-    <li><a href="facial.html">Facial</a></li>
-    <li><a href="visit-us.html"><span data-fr="Contact" data-en="Contact">Contact</span></a></li>
+    <li><a href="/head-spa" class="active">Head Spa</a></li>
+    <li><a href="/laser">Laser</a></li>
+    <li><a href="/facial">Facial</a></li>
+    <li><a href="/visit-us"><span data-fr="Contact" data-en="Contact">Contact</span></a></li>
   
     <li class="nav-dropdown">
       <span class="nav-dd-trigger">
@@ -6039,9 +6108,9 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
         <svg class="nav-dd-chevron" width="8" height="6" viewBox="0 0 8 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 4 5 7 1"/></svg>
       </span>
       <ul class="nav-dropdown-menu">
-        <li><a href="head-spa-guide.html" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a></li>
-        <li><a href="laser-guide.html" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a></li>
-        <li><a href="facial-guide.html" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a></li>
+        <li><a href="/head-spa-guide" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a></li>
+        <li><a href="/laser-guide" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a></li>
+        <li><a href="/facial-guide" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a></li>
       </ul>
     </li>
   </ul>
@@ -6059,7 +6128,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
     <div class="mobile-nav-header">
-      <a class="logo" href="index.html">
+      <a class="logo" href="/">
         <div class="logo-brand">
           <span class="logo-text">SKINES</span>
           <span class="logo-sub">Med Spa · Montréal</span>
@@ -6073,16 +6142,16 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
       <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="head-spa.html">Head Spa</a></li>
-      <li><a href="laser.html"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
-      <li><a href="facial.html"><span data-fr="Facial" data-en="Facials">Facial</span></a></li>
-      <li><a href="cartes-cadeaux.html"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
-      <li><a href="reviews.html" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
-      <li><a href="visit-us.html" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
-      <li><a href="parking.html" class="nav-sub"><span data-fr="Stationnement" data-en="Private Parking">Stationnement</span></a></li>
-      <li><a href="insurance.html" class="nav-sub"><span data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</span></a></li>
+      <li><a href="/head-spa">Head Spa</a></li>
+      <li><a href="/laser"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
+      <li><a href="/facial"><span data-fr="Facial" data-en="Facials">Facial</span></a></li>
+      <li><a href="/cartes-cadeaux"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
+      <li><a href="/reviews" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
+      <li><a href="/visit-us" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
+      <li><a href="/parking" class="nav-sub"><span data-fr="Stationnement" data-en="Private Parking">Stationnement</span></a></li>
+      <li><a href="/insurance" class="nav-sub"><span data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</span></a></li>
     
-      <li><a href="head-spa-guide.html" class="nav-sub" data-fr="Guides →" data-en="Guides →">Guides →</a></li>
+      <li><a href="/head-spa-guide" class="nav-sub" data-fr="Guides →" data-en="Guides →">Guides →</a></li>
     </ul>
     <div class="sp-menu-trigger-wrap">
       <button id="sp-menu-trigger" class="sp-menu-trigger" aria-label="Tirage Exclusif">
@@ -6632,18 +6701,18 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 <section style="background:#F5EDE3;padding:48px 24px;text-align:center;border-top:1px solid rgba(58,30,20,.10)">
   <p style="font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#C9973A;margin:0 0 20px">Skines Med Spa &amp; Wellness · Montréal</p>
   <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;max-width:700px;margin:0 auto">
-    <a href="facial.html" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Soins du visage à Montréal</a>
-    <a href="laser.html" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Épilation laser Montréal — Clarity II</a>
-    <a href="reviews.html" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Avis clients — Head Spa Montréal</a>
-    <a href="cartes-cadeaux.html" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Cartes-cadeaux spa Montréal</a>
-    <a href="your-visit.html" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Préparer votre visite</a>
+    <a href="/facial" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Soins du visage à Montréal</a>
+    <a href="/laser" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Épilation laser Montréal — Clarity II</a>
+    <a href="/reviews" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Avis clients — Head Spa Montréal</a>
+    <a href="/cartes-cadeaux" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Cartes-cadeaux spa Montréal</a>
+    <a href="/your-visit" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#3A1E14;text-decoration:underline;text-underline-offset:3px">Préparer votre visite</a>
   </div>
 </section>
 <!-- ══ END INTERNAL LINKS ══ -->
 
 <footer class="site-footer">
   <div class="sf-logo-area">
-    <a class="sf-logo" href="index.html">
+    <a class="sf-logo" href="/">
       <img src="assets/images/logo-officiel-cropped.webp?v=1" class="sf-stones" alt="Skines">
       <span class="sf-brand">SKINES</span>
       <span class="sf-tagline-sub">Med Spa · Montréal</span>
@@ -6658,28 +6727,28 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
   <div class="sf-nav">
     <div class="sf-nav-group">
       <span class="sf-nav-label" data-fr="Services" data-en="Services">Services</span>
-      <a class="sf-link" href="head-spa.html">
+      <a class="sf-link" href="/head-spa">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
           <span data-fr="Head Spa" data-en="Head Spa">Head Spa</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="facial.html">
+      <a class="sf-link" href="/facial">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
           <span data-fr="Soins du Visage" data-en="Facials">Facials</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="laser.html">
+      <a class="sf-link" href="/laser">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M12 3 13.8 10.2 21 12 13.8 13.8 12 21 10.2 13.8 3 12 10.2 10.2Z"/></svg></span>
           <span data-fr="Épilation Laser" data-en="Laser Hair Removal">Laser Hair Removal</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="cartes-cadeaux.html">
+      <a class="sf-link" href="/cartes-cadeaux">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
           <span data-fr="Cartes Cadeaux" data-en="Gift Cards">Gift Cards</span>
@@ -6690,28 +6759,28 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 
     <div class="sf-nav-group">
       <span class="sf-nav-label" data-fr="Votre Visite" data-en="Your Visit">Your Visit</span>
-      <a class="sf-link" href="reviews.html">
+      <a class="sf-link" href="/reviews">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg></span>
           <span data-fr="Avis Clients" data-en="Client Reviews">Client Reviews</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="visit-us.html">
+      <a class="sf-link" href="/visit-us">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none"/></svg></span>
           <span data-fr="Contact & Adresse" data-en="Visit Us">Visit Us</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="parking.html">
+      <a class="sf-link" href="/parking">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 17V7h5a3 3 0 0 1 0 6H9"/></svg></span>
           <span data-fr="Stationnement" data-en="Private Parking">Private Parking</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="insurance.html">
+      <a class="sf-link" href="/insurance">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
           <span data-fr="Reçus d'assurance" data-en="Insurance Receipts">Insurance Receipts</span>
@@ -6722,7 +6791,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 
     <div class="sf-nav-group">
       <span class="sf-nav-label" data-fr="Exclusif" data-en="Exclusive">Exclusive</span>
-      <a class="sf-link" href="tirage.html">
+      <a class="sf-link" href="/tirage">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/><circle cx="12" cy="12" r="4" fill="none"/></svg></span>
           <span data-fr="Tirage au Sort" data-en="Giveaway">Giveaway / Exclusive Draw</span>
@@ -6732,21 +6801,21 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
     </div>
     <div class="sf-nav-group">
       <span class="sf-nav-label" data-fr="Guides" data-en="Guides">Guides</span>
-      <a class="sf-link" href="head-spa-guide.html">
+      <a class="sf-link" href="/head-spa-guide">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
           <span data-fr="Guide Head Spa Montréal" data-en="Head Spa Montreal Guide">Guide Head Spa Montréal</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="laser-guide.html">
+      <a class="sf-link" href="/laser-guide">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
           <span data-fr="Guide Épilation Laser" data-en="Laser Guide Montreal">Guide Épilation Laser</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="facial-guide.html">
+      <a class="sf-link" href="/facial-guide">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
           <span data-fr="Guide Soins du Visage" data-en="Facial Guide Montreal">Guide Soins du Visage</span>
@@ -6773,11 +6842,11 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
   <div class="sf-legal">
     <span>© 2026 Skines Med Spa</span>
     <span class="sf-legal-sep">·</span>
-    <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy</a>
+    <a href="/privacy-policy" data-i18n="footer.privacy">Privacy</a>
     <span class="sf-legal-sep">·</span>
-    <a href="terms-and-conditions.html" data-i18n="footer.terms">Terms</a>
+    <a href="/terms-and-conditions" data-i18n="footer.terms">Terms</a>
     <span class="sf-legal-sep">·</span>
-    <a href="cookie-policy.html" data-i18n="footer.cookies">Cookies</a>
+    <a href="/cookie-policy" data-i18n="footer.cookies">Cookies</a>
 
   </div>
 </footer>
@@ -6791,57 +6860,57 @@ const BOOKING = "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share
 
 const DB = [
   // ── HEAD SPA ──
-  { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", price:"$98", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", price:"$144", tag:"head spa scalpcial solo 90 min signature rituel", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", price:"$196", tag:"head spa scalpcial duo 60 min couple deux", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", price:"$288", tag:"head spa scalpcial duo 90 min couple signature", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", price:"$294", tag:"head spa scalpcial trio 60 min groupe trois", url:"head-spa.html" },
-  { icon:"🫧", cat:"Head Spa", name:"Trio 90 min – Signature Scalpcial", meta:"90 min · Rituel trio signature", price:"$378", tag:"head spa scalpcial trio 90 min groupe signature", url:"head-spa.html" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", price:"$98", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", price:"$144", tag:"head spa scalpcial solo 90 min signature rituel", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", price:"$196", tag:"head spa scalpcial duo 60 min couple deux", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", price:"$288", tag:"head spa scalpcial duo 90 min couple signature", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", price:"$294", tag:"head spa scalpcial trio 60 min groupe trois", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Trio 90 min – Signature Scalpcial", meta:"90 min · Rituel trio signature", price:"$378", tag:"head spa scalpcial trio 90 min groupe signature", url:"/head-spa" },
 
   // ── FACIAL ──
-  { icon:"✨", cat:"Soins Visage", name:"Facial", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"facial.html" },
+  { icon:"✨", cat:"Soins Visage", name:"Facial", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"/facial" },
 
   // ── LASER ──
-  { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", price:"$40", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Menton", meta:"Laser · 10 min", price:"$40", tag:"laser épilation menton visage chin", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Favoris", meta:"Laser · 10 min", price:"$40", tag:"laser épilation favoris sideburns visage", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Cou", meta:"Laser · 15 min", price:"$55", tag:"laser épilation cou neck", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Nuque", meta:"Laser · 10 min", price:"$40", tag:"laser épilation nuque nape", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Contour Barbe", meta:"Laser · 10 min", price:"$55", tag:"laser épilation barbe beard contour", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage", meta:"Laser · 15 min", price:"$75", tag:"laser épilation demi visage half face", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage + Cou", meta:"Laser · 20 min", price:"$105", tag:"laser épilation demi visage cou half face neck", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Visage Complet", meta:"Laser · 20 min", price:"$130", tag:"laser épilation visage complet full face", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Aisselles", meta:"Laser · 15 min", price:"$75", tag:"laser épilation aisselles underarms", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Ligne Bikini", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bikini ligne line", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Maillot Intégral", meta:"Laser · 20 min", price:"$120", tag:"laser épilation maillot intégral full bikini", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Bras Complets", meta:"Laser · 30 min", price:"$145", tag:"laser épilation bras complets full arms", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Bras", meta:"Laser · 20 min", price:"$95", tag:"laser épilation demi bras half arms", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Poitrine", meta:"Laser · 20 min", price:"$95", tag:"laser épilation poitrine chest", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Épaules", meta:"Laser · 15 min", price:"$75", tag:"laser épilation épaules shoulders", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Ventre Complet", meta:"Laser · 20 min", price:"$95", tag:"laser épilation ventre abdomen full abdomen", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Dos Complet", meta:"Laser · 30 min", price:"$160", tag:"laser épilation dos complet full back", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Bas du Dos", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bas du dos lower back", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Fesses", meta:"Laser · 15 min", price:"$75", tag:"laser épilation fesses buttocks", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Jambes Complètes", meta:"Laser · 45 min", price:"$215", tag:"laser épilation jambes complètes full legs", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Jambes", meta:"Laser · 30 min", price:"$145", tag:"laser épilation demi jambes half legs", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Corps Complet", meta:"Laser · 1h 30 min", price:"$595", tag:"laser épilation corps complet full body", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Visage + Aisselles", meta:"Forfait · 25 min", price:"$145", tag:"laser forfait visage aisselles bundle", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles", meta:"Forfait · 30 min", price:"$170", tag:"laser forfait bikini aisselles bundle", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Fesses", meta:"Forfait · 15 min", price:"$150", tag:"laser forfait bikini fesses bundle", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Visage + Aisselles", meta:"Forfait · 30 min", price:"$205", tag:"laser forfait bikini visage aisselles bundle", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles + Jambes Complètes", meta:"Forfait · 35 min", price:"$295", tag:"laser forfait bikini aisselles jambes bundle", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Dos Complet + Poitrine", meta:"Forfait · 40 min", price:"$215", tag:"laser forfait dos poitrine bundle", url:"laser.html" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Corps Complet", meta:"Forfait · 1h 30 min", price:"$595", tag:"laser forfait corps complet full body bundle", url:"laser.html" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", price:"$40", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Menton", meta:"Laser · 10 min", price:"$40", tag:"laser épilation menton visage chin", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Favoris", meta:"Laser · 10 min", price:"$40", tag:"laser épilation favoris sideburns visage", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Cou", meta:"Laser · 15 min", price:"$55", tag:"laser épilation cou neck", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Nuque", meta:"Laser · 10 min", price:"$40", tag:"laser épilation nuque nape", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Contour Barbe", meta:"Laser · 10 min", price:"$55", tag:"laser épilation barbe beard contour", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage", meta:"Laser · 15 min", price:"$75", tag:"laser épilation demi visage half face", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage + Cou", meta:"Laser · 20 min", price:"$105", tag:"laser épilation demi visage cou half face neck", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Visage Complet", meta:"Laser · 20 min", price:"$130", tag:"laser épilation visage complet full face", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Aisselles", meta:"Laser · 15 min", price:"$75", tag:"laser épilation aisselles underarms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Ligne Bikini", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bikini ligne line", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Maillot Intégral", meta:"Laser · 20 min", price:"$120", tag:"laser épilation maillot intégral full bikini", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Bras Complets", meta:"Laser · 30 min", price:"$145", tag:"laser épilation bras complets full arms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Bras", meta:"Laser · 20 min", price:"$95", tag:"laser épilation demi bras half arms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Poitrine", meta:"Laser · 20 min", price:"$95", tag:"laser épilation poitrine chest", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Épaules", meta:"Laser · 15 min", price:"$75", tag:"laser épilation épaules shoulders", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Ventre Complet", meta:"Laser · 20 min", price:"$95", tag:"laser épilation ventre abdomen full abdomen", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Dos Complet", meta:"Laser · 30 min", price:"$160", tag:"laser épilation dos complet full back", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Bas du Dos", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bas du dos lower back", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Fesses", meta:"Laser · 15 min", price:"$75", tag:"laser épilation fesses buttocks", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Jambes Complètes", meta:"Laser · 45 min", price:"$215", tag:"laser épilation jambes complètes full legs", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Jambes", meta:"Laser · 30 min", price:"$145", tag:"laser épilation demi jambes half legs", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Corps Complet", meta:"Laser · 1h 30 min", price:"$595", tag:"laser épilation corps complet full body", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Visage + Aisselles", meta:"Forfait · 25 min", price:"$145", tag:"laser forfait visage aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles", meta:"Forfait · 30 min", price:"$170", tag:"laser forfait bikini aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Fesses", meta:"Forfait · 15 min", price:"$150", tag:"laser forfait bikini fesses bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Visage + Aisselles", meta:"Forfait · 30 min", price:"$205", tag:"laser forfait bikini visage aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles + Jambes Complètes", meta:"Forfait · 35 min", price:"$295", tag:"laser forfait bikini aisselles jambes bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Dos Complet + Poitrine", meta:"Forfait · 40 min", price:"$215", tag:"laser forfait dos poitrine bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Corps Complet", meta:"Forfait · 1h 30 min", price:"$595", tag:"laser forfait corps complet full body bundle", url:"/laser" },
 
   // ── INFO / FAQ ──
-  { icon:"📍", cat:"Info", name:"Adresse – 19 Av. Shamrock, Montréal", meta:"Côte-des-Neiges · H2S 1A3", price:"", tag:"adresse address localisation location shamrock montréal côte des neiges où direction", url:"index.html#contact" },
+  { icon:"📍", cat:"Info", name:"Adresse – 19 Av. Shamrock, Montréal", meta:"Côte-des-Neiges · H2S 1A3", price:"", tag:"adresse address localisation location shamrock montréal côte des neiges où direction", url:"/#contact" },
   { icon:"🗺️", cat:"Info", name:"Google Maps – Itinéraire", meta:"Ouvrir dans Maps", price:"", tag:"maps google plan itinéraire chemin où aller direction", url:"https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z" },
   { icon:"📞", cat:"Info", name:"Téléphone – +1 (438) 260-5660", meta:"Appeler Skines Med Spa", price:"", tag:"téléphone phone appel contact numéro 438", url:"tel:+14382605660" },
   { icon:"📧", cat:"Info", name:"Email – Info@skines.ca", meta:"Envoyer un email", price:"", tag:"email mail courriel contact info", url:"mailto:Info@skines.ca" },
-  { icon:"🅿️", cat:"Info", name:"Parking privé", meta:"Parking gratuit à proximité", price:"Gratuit", tag:"stationnement parking gratuit voiture garer", url:"index.html#contact" },
-  { icon:"🏥", cat:"Info", name:"Reçu d'assurance disponible", meta:"Valide pour remboursement", price:"", tag:"assurance insurance reçu remboursement couverture médecin", url:"index.html#contact" },
-  { icon:"🎁", cat:"Info", name:"Cartes Cadeaux", meta:"Offrir une expérience Skines", price:"", tag:"carte cadeau gift card cadeau offrir ami anniversaire", url:"index.html#contact" },
-  { icon:"⭐", cat:"Info", name:"Avis clients – 4.8★ sur Fresha", meta:"Voir tous les avis", price:"", tag:"avis review note 4.8 fresha google clients", url:"reviews.html" },
+  { icon:"🅿️", cat:"Info", name:"Parking privé", meta:"Parking gratuit à proximité", price:"Gratuit", tag:"stationnement parking gratuit voiture garer", url:"/#contact" },
+  { icon:"🏥", cat:"Info", name:"Reçu d'assurance disponible", meta:"Valide pour remboursement", price:"", tag:"assurance insurance reçu remboursement couverture médecin", url:"/#contact" },
+  { icon:"🎁", cat:"Info", name:"Cartes Cadeaux", meta:"Offrir une expérience Skines", price:"", tag:"carte cadeau gift card cadeau offrir ami anniversaire", url:"/#contact" },
+  { icon:"⭐", cat:"Info", name:"Avis clients – 4.8★ sur Fresha", meta:"Voir tous les avis", price:"", tag:"avis review note 4.8 fresha google clients", url:"/reviews" },
   { icon:"📅", cat:"Réserver", name:"Réserver en ligne – Fresha", meta:"Disponibilités en temps réel", price:"", tag:"réserver booking réservation fresha appointment rendez-vous book", url:BOOKING },
   { icon:"📱", cat:"Réserver", name:"Instagram – @skines.spa", meta:"29K abonnés · Photos & updates", price:"", tag:"instagram social media réseaux sociaux skines spa", url:"https://instagram.com/skines.spa" },
   { icon:"🎵", cat:"Réserver", name:"TikTok – @skines.spa", meta:"12K abonnés · Vidéos", price:"", tag:"tiktok social media vidéo", url:"https://tiktok.com/@skines.spa" },
@@ -6985,10 +7054,10 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     });
   });
   // Auto-highlight current page
-  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var path = window.location.pathname.replace(/\/+$/, '') || '/';
   mobileLinks.forEach(function(link) {
-    var href = link.getAttribute('href') || '';
-    if (href === path || href.includes(path.replace('.html',''))) {
+    var href = (link.getAttribute('href') || '').replace(/\/+$/, '') || '/';
+    if (href === path) {
       link.classList.add('menu-active');
     }
   });
