@@ -57,6 +57,15 @@ assets/laser-neck.png
 !assets/card-facial.webp
 !assets/card-giftcard.webp
 
+# Same blanket-ignore trap as above, for the compressed hero/avis videos
+# and their thumbnails added under assets/videos/ — without these
+# exceptions they'd be silently skipped by git and 404 on production.
+!assets/videos/hero-head-spa.mp4
+!assets/videos/avis-hook.mp4
+!assets/videos/avis-hook-thumb.webp
+!assets/videos/avis-test.mp4
+!assets/videos/avis-test-thumb.webp
+
 # Claude worktrees
 .claude/worktrees/
 

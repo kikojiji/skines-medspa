@@ -205,10 +205,27 @@
   @media (min-width: 981px) {
     .hero-bg-desktop { display: block; }
     .hero-bg-mobile { display: none; }
+    /* Desktop hero video has no audio track — the mute/unmute toggle
+       only makes sense for the tablet/mobile hero video. */
+    .sound-toggle { display: none !important; }
   }
   @media (max-width: 980px) {
     .hero-bg-desktop { display: none; }
     .hero-bg-mobile { display: block; }
+    .hero-bg-desktop-video { display: none !important; }
+  }
+  /* Desktop hero video: both copies start invisible (photo shows first,
+     instantly). Whichever twin is "is-active" fades to opacity 1 — set
+     once on the first clip when it's actually ready to play, then
+     toggled between the two clips on every loop to crossfade over the
+     seam where the source clip's first/last frames don't match. */
+  video.hero-bg-desktop-video.hero-bg {
+    opacity: 0;
+    animation: none;
+    transition: opacity 0.6s ease;
+  }
+  video.hero-bg-desktop-video.hero-bg.is-active {
+    opacity: 1;
   }
   .hero::before {
     content: "";
@@ -6857,8 +6874,67 @@ html body #sp-stones img {
   </div>
 
   <header class="hero">
-    <!-- Desktop only: static photo -->
+    <!-- Desktop only: static photo shows immediately; the video fades in
+         on top once it's actually ready to play, so there's no pop/flash
+         while it loads — the photo is the instant, guaranteed frame. -->
     <img class="hero-bg hero-bg-desktop parallax-img" src="assets/card-head-spa.webp" alt="Skines Spa & Wellness — head spa" width="1536" height="1024">
+    <!-- Two copies of the same clip, crossfaded into each other just
+         before the loop point — the source clip's first/last frames
+         don't match, so a plain native loop shows a hard cut/black pop.
+         Fading video A out while video B (restarted from 0) fades in
+         hides that seam; only one is ever visibly "live" at a time. -->
+    <video id="heroVideoDesktopA" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
+      <source src="assets/videos/hero-head-spa.mp4" type="video/mp4">
+    </video>
+    <video id="heroVideoDesktopB" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
+      <source src="assets/videos/hero-head-spa.mp4" type="video/mp4">
+    </video>
+    <script>
+      (function () {
+        var vA = document.getElementById('heroVideoDesktopA');
+        var vB = document.getElementById('heroVideoDesktopB');
+        if (!vA || !vB) return;
+        var CROSSFADE = 0.6; // seconds
+        // The incoming clip is always stacked ON TOP and only ever fades
+        // 0→1. The outgoing clip is never faded out / never dropped below
+        // opacity 1 — it just ends up underneath, fully hidden once the
+        // incoming one finishes fading in. This guarantees full opaque
+        // coverage at every instant, so the photo underneath can never
+        // peek through mid-crossfade.
+        var active = vA, standby = vB;
+        var switching = false;
+
+        function reveal() {
+          vA.style.zIndex = 2;
+          vA.classList.add('is-active');
+        }
+        if (vA.readyState >= 3) { reveal(); }
+        else { vA.addEventListener('canplaythrough', reveal, { once: true }); }
+        var p = vA.play(); if (p && p.catch) p.catch(function(){});
+
+        function onTime() {
+          if (switching || !active.duration) return;
+          if (active.currentTime >= active.duration - CROSSFADE) {
+            switching = true;
+            standby.currentTime = 0;
+            var sp = standby.play(); if (sp && sp.catch) sp.catch(function(){});
+            standby.style.zIndex = 3;
+            standby.classList.add('is-active');
+            var prevActive = active;
+            active = standby;
+            standby = prevActive;
+            active.addEventListener('timeupdate', onTime);
+            setTimeout(function () {
+              standby.pause();
+              standby.classList.remove('is-active');
+              standby.style.zIndex = 1;
+              switching = false;
+            }, CROSSFADE * 1000 + 50);
+          }
+        }
+        vA.addEventListener('timeupdate', onTime);
+      })();
+    </script>
     <!-- Tablet/mobile only: original video -->
     <video id="heroVideo" class="hero-bg hero-bg-mobile parallax-img" autoplay muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
@@ -7129,6 +7205,8 @@ html body #sp-stones img {
         {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-cyrine.mp4',t:'assets/videos/avis-cyrine-thumb.webp?v=1'},
         {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-avii.mp4',  t:'assets/videos/avis-avii-thumb.webp?v=1'},
         {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-yeah.mp4',  t:'assets/videos/avis-yeah-thumb.webp?v=1'},
+        {s:'assets/videos/avis-hook.mp4',                                              t:'assets/videos/avis-hook-thumb.webp'},
+        {s:'assets/videos/avis-test.mp4',                                              t:'assets/videos/avis-test-thumb.webp'},
       ];
       var cur=0, mIdx=0;
       var track  = document.getElementById('ivc-track');
