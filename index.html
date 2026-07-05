@@ -7227,21 +7227,12 @@ html body #sp-stones img {
           '<div class="ivc-voverlay"></div>'+
           '<div class="ivc-playbtn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21"/></svg></div>'+
           '<video playsinline muted loop preload="none"></video>';
-        s.addEventListener('click',function(ev){
-          // Let native <video controls> handle its own clicks (mute,
-          // pause, fullscreen, seek) once the video is showing — don't
-          // toggle it back to the still on those.
-          if(ev.target && ev.target.tagName==='VIDEO' && s.classList.contains('ivc-playing')) return;
-          if(i===cur){
-            var v=s.querySelector('video');
-            // The active card auto-plays a MUTED ambient preview on load.
-            // A click on it should upgrade that to real playback WITH
-            // sound — only a click on an already-audible video pauses it.
-            if(s.classList.contains('ivc-playing') && v && !v.muted) stopInline(s);
-            else playInline(s,i,true); // click = play WITH sound
-          } else {
-            go(i);
-          }
+        s.addEventListener('click',function(){
+          // Only the centered (active) card responds with play/pause;
+          // clicking a side card just navigates to it. The click is the
+          // user gesture that lets the video start unmuted.
+          if(i===cur) togglePlay(s,i);
+          else go(i);
         });
         track.appendChild(s);
       });
@@ -7327,53 +7318,58 @@ html body #sp-stones img {
         }
       }
 
-      // Swaps a slide's still image for its video in place — no resize,
-      // no modal, no covering neighboring cards. Reused both when a card
-      // is navigated to (muted ambient preview) and when the already-
-      // centered card is clicked directly (withSound: real playback with
-      // audio + native controls, allowed because the click is the user
-      // gesture browsers require to start unmuted playback).
-      function playInline(slideEl,idx,withSound){
+      // Custom play/pause only — NO native <video controls> (no mute,
+      // seek, settings or fullscreen UI). The video plays in place inside
+      // the same portrait card; nothing resizes, moves or covers the
+      // neighboring cards.
+      function togglePlay(slideEl,idx){
+        if(slideEl.classList.contains('ivc-playing')) pauseInline(slideEl);
+        else playInline(slideEl,idx);
+      }
+      function playInline(slideEl,idx){
         var nv=slideEl.querySelector('video');
         if(!nv.getAttribute('data-l')){nv.src=VIDS[idx].s;nv.setAttribute('data-l','1');nv.load();}
-        if(withSound){
-          // Only one video should be audible at a time.
-          silenceAllInline(slideEl);
-          nv.muted=false;
-          nv.controls=true;
-        } else {
-          nv.muted=true;
-          nv.controls=false;
-        }
+        // Enforce single playback — every other video is paused + reset.
+        pauseAllExcept(slideEl);
+        nv.controls=false;
+        nv.muted=false;              // sound on (allowed via click gesture)
         nv.style.display='block';nv.style.opacity='0';
         slideEl.classList.add('ivc-playing');
         (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
       }
-      function stopInline(slideEl){
+      // Pause but keep the current frame — a genuine pause, not a revert.
+      function pauseInline(slideEl){
         var ov=slideEl.querySelector('video');
         if(!ov)return;
-        ov.pause();ov.style.opacity='0';ov.controls=false;ov.muted=true;
+        ov.pause();
         slideEl.classList.remove('ivc-playing');
+      }
+      // Fully reset a slide's video: pause, rewind to 0, mute, and fade
+      // back to the still. Used when navigating away so it always
+      // restarts from the beginning next time it's opened.
+      function resetSlideVideo(slideEl){
+        slideEl.classList.remove('ivc-playing');
+        var ov=slideEl.querySelector('video');
+        if(!ov)return;
+        ov.pause();
+        try{ov.currentTime=0;}catch(e){}
+        ov.muted=true;ov.controls=false;ov.style.opacity='0';
         (function(v){setTimeout(function(){v.style.display='none';},350);})(ov);
       }
-      // Mute every other inline video so opening one with sound doesn't
-      // stack audio over a still-audible neighbor.
-      function silenceAllInline(exceptEl){
+      function pauseAllExcept(exceptEl){
         var slides=track.children;
-        for(var i=0;i<slides.length;i++){
-          if(slides[i]===exceptEl)continue;
-          var v=slides[i].querySelector('video');
-          if(v && !v.muted){ v.muted=true; v.controls=false; }
-        }
+        for(var i=0;i<slides.length;i++){ if(slides[i]!==exceptEl) resetSlideVideo(slides[i]); }
       }
 
       function go(newI,instant){
         var slides=track.children, dots=dotsEl.children;
-        if(slides[cur])stopInline(slides[cur]);
+        // Pause + rewind EVERY video and revert to stills on card change,
+        // so the newly active card always opens fresh from 0:00 (it stays
+        // on its still until the user clicks to play).
+        for(var k=0;k<slides.length;k++) resetSlideVideo(slides[k]);
         cur=Math.max(0,Math.min(newI,VIDS.length-1));
         for(var i=0;i<dots.length;i++) dots[i].classList.toggle('ivc-active',i===cur);
         positionCards(instant);
-        playInline(slides[cur],cur);
         btnPL.classList.toggle('ivc-off',cur===0);
         btnNL.classList.toggle('ivc-off',cur===VIDS.length-1);
       }
