@@ -537,6 +537,53 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .sf-legal a:hover { color: rgba(245,237,227,0.55); }
 .sf-legal-sep { opacity: 0.3; }
 
+/* ── DESKTOP — footer currently stays mobile-narrow at all widths; give it a centered, multi-column layout ── */
+@media (min-width: 981px) {
+  .sf-logo-area,
+  .sf-social-area,
+  .sf-legal { max-width: 1100px; margin-left: auto; margin-right: auto; }
+  .sf-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 1.2rem;
+  }
+  .sf-nav-group { border-left: 1px solid rgba(255,255,255,0.05); }
+  .sf-nav-group:first-child { border-left: none; }
+  .sf-nav-exclusive { border-left: none; display: flex; align-items: stretch; }
+}
+@media (min-width: 1441px) {
+  .sf-logo-area,
+  .sf-nav,
+  .sf-social-area,
+  .sf-legal { max-width: 1280px; }
+}
+
+/* ── Exclusif — standalone square highlighted box, same row as the other columns ── */
+.sf-exclusive-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 0.7rem;
+  width: 100%;
+  padding: 1.4rem 1.2rem; margin: 0.8rem 1.6rem;
+  background: rgba(201,160,96,0.10);
+  border: 1px solid rgba(201,160,96,0.35);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.sf-exclusive-card:hover { background: rgba(201,160,96,0.18); border-color: rgba(201,160,96,0.55); }
+.sf-exclusive-icon { flex-shrink: 0; display: flex; }
+.sf-exclusive-icon svg { width: 34px; height: 34px; stroke: #C9973A; }
+.sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.sf-exclusive-text strong { font-size: 0.95rem; font-weight: 600; color: rgba(245,237,227,0.92); letter-spacing: 0.01em; }
+.sf-exclusive-text span { font-size: 0.72rem; color: rgba(245,237,227,0.55); }
+.sf-exclusive-card .sf-chevron { display: none; }
+@media (min-width: 981px) {
+  .sf-exclusive-card { margin: 0; height: 100%; }
+}
+
 
 /* Match main-site footer brand color */
 .site-footer .sf-brand { color: rgba(255,255,255,0.92) !important; }
@@ -986,6 +1033,31 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     </div>
 
     <div class="sf-nav-group">
+      <span class="sf-nav-label" data-fr="Guides" data-en="Guides">Guides</span>
+      <a class="sf-link" href="/head-spa-guide">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <span data-fr="Guide Head Spa Montréal" data-en="Head Spa Montreal Guide">Guide Head Spa Montréal</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/laser-guide">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <span data-fr="Guide Épilation Laser" data-en="Laser Guide Montreal">Guide Épilation Laser</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/facial-guide">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <span data-fr="Guide Soins du Visage" data-en="Facial Guide Montreal">Guide Soins du Visage</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="sf-nav-group">
       <span class="sf-nav-label" data-fr="Votre Visite" data-en="Your Visit">Your Visit</span>
       <a class="sf-link" href="/reviews">
         <span class="sf-link-left">
@@ -1017,36 +1089,12 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
       </a>
     </div>
 
-    <div class="sf-nav-group">
-      <span class="sf-nav-label" data-fr="Exclusif" data-en="Exclusive">Exclusive</span>
-      <a class="sf-link" href="/tirage">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/><circle cx="12" cy="12" r="4" fill="none"/></svg></span>
-          <span data-fr="Tirage au Sort" data-en="Giveaway">Giveaway / Exclusive Draw</span>
-        </span>
-        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-    </div>
-    <div class="sf-nav-group">
-      <span class="sf-nav-label" data-fr="Guides" data-en="Guides">Guides</span>
-      <a class="sf-link" href="/head-spa-guide">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-          <span data-fr="Guide Head Spa Montréal" data-en="Head Spa Montreal Guide">Guide Head Spa Montréal</span>
-        </span>
-        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a class="sf-link" href="/laser-guide">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-          <span data-fr="Guide Épilation Laser" data-en="Laser Guide Montreal">Guide Épilation Laser</span>
-        </span>
-        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a class="sf-link" href="/facial-guide">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-          <span data-fr="Guide Soins du Visage" data-en="Facial Guide Montreal">Guide Soins du Visage</span>
+    <div class="sf-nav-group sf-nav-exclusive">
+      <a class="sf-exclusive-card" href="/tirage">
+        <span class="sf-exclusive-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+        <span class="sf-exclusive-text">
+          <strong data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</strong>
+          <span data-fr="Participez à notre tirage exclusif" data-en="Enter our exclusive giveaway">Participez à notre tirage exclusif</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
