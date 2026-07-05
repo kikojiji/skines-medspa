@@ -7227,7 +7227,10 @@ html body #sp-stones img {
           '<div class="ivc-voverlay"></div>'+
           '<div class="ivc-playbtn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21"/></svg></div>'+
           '<video playsinline muted loop preload="none"></video>';
-        s.addEventListener('click',function(){if(i===cur)openModal(i);else go(i);});
+        s.addEventListener('click',function(){
+          if(i===cur){ if(s.classList.contains('ivc-playing')) stopInline(s); else playInline(s,i); }
+          else go(i);
+        });
         track.appendChild(s);
       });
 
@@ -7312,17 +7315,32 @@ html body #sp-stones img {
         }
       }
 
+      // Swaps a slide's still image for its video in place — no resize,
+      // no modal, no covering neighboring cards. Reused both when a card
+      // is navigated to (auto-play) and when the already-centered card
+      // is clicked directly.
+      function playInline(slideEl,idx){
+        var nv=slideEl.querySelector('video');
+        if(!nv.getAttribute('data-l')){nv.src=VIDS[idx].s;nv.setAttribute('data-l','1');nv.load();}
+        nv.style.display='block';nv.style.opacity='0';
+        slideEl.classList.add('ivc-playing');
+        (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
+      }
+      function stopInline(slideEl){
+        var ov=slideEl.querySelector('video');
+        if(!ov)return;
+        ov.pause();ov.style.opacity='0';
+        slideEl.classList.remove('ivc-playing');
+        (function(v){setTimeout(function(){v.style.display='none';},350);})(ov);
+      }
+
       function go(newI,instant){
         var slides=track.children, dots=dotsEl.children;
-        var ov=slides[cur]?slides[cur].querySelector('video'):null;
-        if(ov){ov.pause();ov.style.opacity='0';(function(v){setTimeout(function(){v.style.display='none';},350);})(ov);}
+        if(slides[cur])stopInline(slides[cur]);
         cur=Math.max(0,Math.min(newI,VIDS.length-1));
         for(var i=0;i<dots.length;i++) dots[i].classList.toggle('ivc-active',i===cur);
         positionCards(instant);
-        var ns=slides[cur], nv=ns.querySelector('video');
-        if(!nv.getAttribute('data-l')){nv.src=VIDS[cur].s;nv.setAttribute('data-l','1');nv.load();}
-        nv.style.display='block';nv.style.opacity='0';
-        (function(v){setTimeout(function(){v.style.opacity='1';v.play().catch(function(){});},55);})(nv);
+        playInline(slides[cur],cur);
         btnPL.classList.toggle('ivc-off',cur===0);
         btnNL.classList.toggle('ivc-off',cur===VIDS.length-1);
       }
