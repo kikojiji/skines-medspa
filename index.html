@@ -7341,12 +7341,16 @@ html body #sp-stones img {
         slideEl.classList.add('ivc-playing');
         (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
       }
-      // Pause but keep the current frame — a genuine pause, not a revert.
+      // Pause and fade back to the clean poster image (a frozen video
+      // frame read as "the photo is stuck"), keeping currentTime so a
+      // click resumes from where it paused rather than restarting.
       function pauseInline(slideEl){
         var ov=slideEl.querySelector('video');
         if(!ov)return;
         ov.pause();
+        ov.style.opacity='0';
         slideEl.classList.remove('ivc-playing');
+        (function(v){setTimeout(function(){v.style.display='none';},350);})(ov);
       }
       // Fully reset a slide's video: pause, rewind to 0, mute, and fade
       // back to the still. Used when navigating away so it always
