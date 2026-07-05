@@ -8000,32 +8000,33 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 }
 
 /* ── overlay ── */
-/* ══ LUXURY EDITORIAL POPUP — Tirage Exclusif ══ */
+/* ══ LUXURY EDITORIAL POPUP — Tirage Exclusif ══════════════════════════
+   Redesigned per brief: this should never read as an ad interrupting
+   the page — no full-viewport dark scrim, no center-screen modal, no
+   blind timer. It's a small docked panel anchored bottom-right, kept
+   out of the reading flow, revealed only once the visitor has actually
+   reached the testimonials section (so it arrives at a moment already
+   about trust/social proof, not mid-headline). Slower, single graceful
+   slide+fade — no bounce/scale-pop — so it feels like it settled onto
+   the page rather than interrupted it. */
 #sp-overlay {
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(8,4,2,0.75);
-  backdrop-filter: blur(14px) saturate(1.15);
-  -webkit-backdrop-filter: blur(14px) saturate(1.15);
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.5s ease;
+  position: fixed; z-index: 400;
+  bottom: 28px; right: 28px;
+  left: auto; top: auto;
+  display: block;
+  background: transparent;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
 #sp-overlay.sp-visible { opacity: 1; pointer-events: all; }
 
-/* ── card: full editorial, no white block ── */
-#sp-card {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  width: min(88vw, 340px);
-  max-height: 88vh;
-  box-shadow: 0 48px 120px rgba(6,2,0,0.65), 0 2px 0 rgba(255,255,255,0.04) inset;
-  transform: scale(0.92) translateY(28px);
-  transition: transform 0.56s cubic-bezier(.16,.9,.28,1), opacity 0.48s ease;
-  opacity: 0;
-}
-#sp-overlay.sp-visible #sp-card { transform: scale(1) translateY(0); opacity: 1; }
+/* Mobile + tablet (≤980px): back to the original full-screen editorial
+   modal per feedback — the docked-panel treatment above is desktop
+   only. Trigger logic (JS below) also branches for this range: opens
+   when the visitor reaches the "Rituel" treatments section, or after
+   15s, whichever comes first. */
+/* ── card: small docked panel, not a full-screen modal ── */
 
 /* ── full-bleed: image fills entire card ── */
 #sp-img-bg {
@@ -8050,26 +8051,25 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   );
 }
 
-/* ── card becomes a fixed-height container ── */
 #sp-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  width: min(88vw, 340px);
-  height: min(82vh, 560px);
-  box-shadow: 0 48px 120px rgba(6,2,0,0.65), 0 2px 0 rgba(255,255,255,0.04) inset;
-  transform: scale(0.92) translateY(28px);
-  transition: transform 0.56s cubic-bezier(.16,.9,.28,1), opacity 0.48s ease;
+  width: min(84vw, 280px);
+  height: min(56vh, 380px);
+  box-shadow: 0 24px 64px rgba(6,2,0,0.45), 0 2px 0 rgba(255,255,255,0.04) inset;
+  transform: translateY(22px);
+  transition: transform 0.8s cubic-bezier(.19,1,.22,1), opacity 0.7s ease;
   opacity: 0;
 }
-#sp-overlay.sp-visible #sp-card { transform: scale(1) translateY(0); opacity: 1; }
+#sp-overlay.sp-visible #sp-card { transform: translateY(0); opacity: 1; }
 
 /* ── title at top ── */
 #sp-top-text {
   position: absolute;
   top: 0; left: 0; right: 0;
   z-index: 2;
-  padding: 28px 24px 0;
+  padding: 20px 18px 0;
   text-align: center;
 }
 
@@ -8079,38 +8079,38 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   bottom: 0; left: 0; right: 0;
   z-index: 2;
   background: transparent;
-  padding: 0 24px 28px;
+  padding: 0 18px 20px;
   text-align: center;
 }
 
 html body #sp-overlay .sp-title {
   font-family: "Old Standard TT", serif !important;
-  font-size: 2.05rem !important;
-  font-weight: 300 !important; line-height: 1.08 !important;
-  color: #F5EDE3 !important; margin: 0 0 6px !important;
+  font-size: 1.5rem !important;
+  font-weight: 300 !important; line-height: 1.1 !important;
+  color: #F5EDE3 !important; margin: 0 0 4px !important;
   letter-spacing: -0.01em !important;
 }
 html body #sp-overlay .sp-title em {
   font-style: italic !important; color: rgba(232,196,176,0.95) !important;
 }
 html body #sp-overlay .sp-desc {
-  font-size: 10px !important; line-height: 1.6 !important;
+  font-size: 8.5px !important; line-height: 1.5 !important;
   color: rgba(245,237,227,0.75) !important;
-  letter-spacing: 0.28em !important;
+  letter-spacing: 0.24em !important;
   text-transform: uppercase !important;
-  margin: 0 0 16px !important;
+  margin: 0 0 12px !important;
   word-spacing: 0.15em !important;
 }
 
 /* ── CTA: gold, large, prominent ── */
 #sp-cta {
   display: block; width: 100%;
-  padding: 17px 24px;
+  padding: 13px 20px;
   background: #C9A060;
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   color: #1A0E06;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.28em;
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.24em;
   text-transform: uppercase; cursor: pointer;
   font-family: "DM Sans", sans-serif;
   text-decoration: none; text-align: center;
@@ -8147,6 +8147,38 @@ html body #sp-overlay .sp-desc {
 }
 #sp-close:hover { background: rgba(8,4,2,0.65); transform: rotate(90deg); }
 #sp-close svg { width: 11px; height: 11px; stroke: rgba(245,237,227,0.80); stroke-width: 1.8; }
+
+/* Mobile + tablet (≤980px): back to the original full-screen editorial
+   modal per feedback — the docked-panel treatment above is desktop
+   only. Trigger logic (JS below) also branches for this range: opens
+   when the visitor reaches the "Rituel" treatments section, or after
+   15s, whichever comes first. Placed after the base rules above (not
+   alongside #sp-overlay's own declaration) so it actually wins the
+   cascade — same ID specificity, so source order decides. */
+@media (max-width: 980px) {
+  #sp-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(8,4,2,0.75);
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  #sp-card {
+    width: min(88vw, 340px);
+    height: min(82vh, 560px);
+    border-radius: 24px;
+    box-shadow: 0 48px 120px rgba(6,2,0,0.65), 0 2px 0 rgba(255,255,255,0.04) inset;
+    transform: scale(0.92) translateY(28px);
+    transition: transform 0.56s cubic-bezier(.16,.9,.28,1), opacity 0.48s ease;
+  }
+  #sp-overlay.sp-visible #sp-card { transform: scale(1) translateY(0); }
+  #sp-top-text { padding: 28px 24px 0; }
+  #sp-form-wrap { padding: 0 24px 28px; }
+  html body #sp-overlay .sp-title { font-size: 2.05rem !important; margin: 0 0 6px !important; }
+  html body #sp-overlay .sp-desc { font-size: 10px !important; letter-spacing: 0.28em !important; margin: 0 0 16px !important; }
+  #sp-cta { padding: 17px 24px; border-radius: 14px; font-size: 11px; letter-spacing: 0.28em; }
+}
 
 /* ══ MOBILE NAV — UNIFIED SURFACE (FINAL — wins all cascades) ══════ */
 html body .mobile-nav,
@@ -9577,27 +9609,18 @@ function openPopup() {
     // restore nav visibility that openMenu() hid
     if (mainNav) mainNav.style.display = '';
   }
+  // No display toggling here on purpose — the panel is a small fixed
+  // dock (not a full-screen modal), so opacity/pointer-events alone
+  // fully cover shown/hidden state; forcing display would fight the
+  // CSS's own mobile-vs-desktop display values.
   var o = document.getElementById('sp-overlay');
-  o.style.display = 'flex';
   requestAnimationFrame(function() { requestAnimationFrame(function() { o.classList.add('sp-visible'); }); });
-  // The overlay's backdrop-filter blur sits directly over the still-
-  // playing autoplay hero video — blurring live video across the full
-  // viewport every frame is one of the heaviest things a browser can
-  // composite. The video is fully hidden behind the popup anyway, so
-  // pausing it while the popup is open costs nothing visually.
-  var hv = document.getElementById('heroVideo');
-  if (hv) hv.pause();
 }
 function closePopup() {
   var o = document.getElementById('sp-overlay');
   o.classList.remove('sp-visible');
-  var hv = document.getElementById('heroVideo');
-  if (hv) hv.play().catch(function(){});
 
   setTimeout(function() {
-    o.style.display = 'none';
-    o.style.opacity = '';
-    o.style.pointerEvents = '';
     // always restore scroll
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
@@ -9613,8 +9636,52 @@ function closePopup() {
   }, 520);
 }
 
-// auto-open: 18s on mobile, 10s on desktop
-setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
+// Desktop (docked panel, ≥981px): reveal once the visitor actually
+// reaches the testimonials section, instead of a blind timer — feels
+// like a natural next beat in the page's own rhythm, not an
+// interruption that can land mid-headline or mid-scroll. Fires once;
+// a short grace delay after entering view keeps it from feeling like
+// it's chasing the scroll.
+//
+// Mobile/tablet (full modal, ≤980px, per feedback): open when the
+// visitor reaches the "Rituel" treatments section, OR after 15s —
+// whichever happens first. Both paths disarm each other so it only
+// ever opens once.
+(function() {
+  if (typeof IntersectionObserver === 'undefined') {
+    setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
+    return;
+  }
+  var isMobileOrTablet = window.innerWidth <= 980;
+  var targetId = isMobileOrTablet ? 'treatments' : 'reviews';
+  var target = document.getElementById(targetId);
+  if (!target) {
+    setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
+    return;
+  }
+  var fired = false;
+  var fallbackTimer = null;
+  function fire() {
+    if (fired) return;
+    fired = true;
+    io.disconnect();
+    if (fallbackTimer) clearTimeout(fallbackTimer);
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !fired) {
+        fire();
+        setTimeout(openPopup, isMobileOrTablet ? 0 : 1400);
+      }
+    });
+  }, { threshold: 0.35 });
+  io.observe(target);
+  if (isMobileOrTablet) {
+    fallbackTimer = setTimeout(function() {
+      if (!fired) { fire(); openPopup(); }
+    }, 15000);
+  }
+})();
 
 // menu trigger
 var trig = document.getElementById('sp-menu-trigger');
