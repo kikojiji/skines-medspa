@@ -7228,11 +7228,15 @@ html body #sp-stones img {
           '<div class="ivc-playbtn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21"/></svg></div>'+
           '<video playsinline muted loop preload="none"></video>';
         s.addEventListener('click',function(){
-          // Only the centered (active) card responds with play/pause;
-          // clicking a side card just navigates to it. The click is the
-          // user gesture that lets the video start unmuted.
-          if(i===cur) togglePlay(s,i);
-          else go(i);
+          // The click is the user gesture that lets the video start
+          // unmuted, so a side-card click must both navigate AND start
+          // playback with sound in this same click — no second click.
+          if(i===cur){
+            togglePlay(s,i);
+          } else {
+            go(i);            // makes it active, resets/repositions everything
+            playInline(s,i);  // same click: play the now-active card with sound
+          }
         });
         track.appendChild(s);
       });
