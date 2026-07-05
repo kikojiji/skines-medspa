@@ -7330,11 +7330,25 @@ html body #sp-stones img {
         if(slideEl.classList.contains('ivc-playing')) pauseInline(slideEl);
         else playInline(slideEl,idx);
       }
+      // Every hide/show is stamped with a token so a stale delayed
+      // "display:none" from an earlier pause/reset can never hide a
+      // video that has since started playing again (that race was why
+      // switching cards would play ~1s of video then silently freeze
+      // on a hidden frame while the audio kept going).
+      function scheduleHide(v){
+        var token = (v._showToken = (v._showToken||0) + 1);
+        setTimeout(function(){ if(v._showToken===token) v.style.display='none'; },350);
+      }
+      function showVideo(v){
+        v._showToken = (v._showToken||0) + 1; // invalidates any pending hide
+      }
+
       function playInline(slideEl,idx){
         var nv=slideEl.querySelector('video');
         if(!nv.getAttribute('data-l')){nv.src=VIDS[idx].s;nv.setAttribute('data-l','1');nv.load();}
         // Enforce single playback — every other video is paused + reset.
         pauseAllExcept(slideEl);
+        showVideo(nv);
         nv.controls=false;
         nv.muted=false;              // sound on (allowed via click gesture)
         nv.style.display='block';nv.style.opacity='0';
@@ -7350,7 +7364,7 @@ html body #sp-stones img {
         ov.pause();
         ov.style.opacity='0';
         slideEl.classList.remove('ivc-playing');
-        (function(v){setTimeout(function(){v.style.display='none';},350);})(ov);
+        scheduleHide(ov);
       }
       // Fully reset a slide's video: pause, rewind to 0, mute, and fade
       // back to the still. Used when navigating away so it always
@@ -7362,7 +7376,7 @@ html body #sp-stones img {
         ov.pause();
         try{ov.currentTime=0;}catch(e){}
         ov.muted=true;ov.controls=false;ov.style.opacity='0';
-        (function(v){setTimeout(function(){v.style.display='none';},350);})(ov);
+        scheduleHide(ov);
       }
       function pauseAllExcept(exceptEl){
         var slides=track.children;
