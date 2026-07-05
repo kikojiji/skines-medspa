@@ -7227,9 +7227,21 @@ html body #sp-stones img {
           '<div class="ivc-voverlay"></div>'+
           '<div class="ivc-playbtn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21"/></svg></div>'+
           '<video playsinline muted loop preload="none"></video>';
-        s.addEventListener('click',function(){
-          if(i===cur){ if(s.classList.contains('ivc-playing')) stopInline(s); else playInline(s,i); }
-          else go(i);
+        s.addEventListener('click',function(ev){
+          // Let native <video controls> handle its own clicks (mute,
+          // pause, fullscreen, seek) once the video is showing — don't
+          // toggle it back to the still on those.
+          if(ev.target && ev.target.tagName==='VIDEO' && s.classList.contains('ivc-playing')) return;
+          if(i===cur){
+            var v=s.querySelector('video');
+            // The active card auto-plays a MUTED ambient preview on load.
+            // A click on it should upgrade that to real playback WITH
+            // sound — only a click on an already-audible video pauses it.
+            if(s.classList.contains('ivc-playing') && v && !v.muted) stopInline(s);
+            else playInline(s,i,true); // click = play WITH sound
+          } else {
+            go(i);
+          }
         });
         track.appendChild(s);
       });
@@ -7317,11 +7329,22 @@ html body #sp-stones img {
 
       // Swaps a slide's still image for its video in place — no resize,
       // no modal, no covering neighboring cards. Reused both when a card
-      // is navigated to (auto-play) and when the already-centered card
-      // is clicked directly.
-      function playInline(slideEl,idx){
+      // is navigated to (muted ambient preview) and when the already-
+      // centered card is clicked directly (withSound: real playback with
+      // audio + native controls, allowed because the click is the user
+      // gesture browsers require to start unmuted playback).
+      function playInline(slideEl,idx,withSound){
         var nv=slideEl.querySelector('video');
         if(!nv.getAttribute('data-l')){nv.src=VIDS[idx].s;nv.setAttribute('data-l','1');nv.load();}
+        if(withSound){
+          // Only one video should be audible at a time.
+          silenceAllInline(slideEl);
+          nv.muted=false;
+          nv.controls=true;
+        } else {
+          nv.muted=true;
+          nv.controls=false;
+        }
         nv.style.display='block';nv.style.opacity='0';
         slideEl.classList.add('ivc-playing');
         (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
@@ -7329,9 +7352,19 @@ html body #sp-stones img {
       function stopInline(slideEl){
         var ov=slideEl.querySelector('video');
         if(!ov)return;
-        ov.pause();ov.style.opacity='0';
+        ov.pause();ov.style.opacity='0';ov.controls=false;ov.muted=true;
         slideEl.classList.remove('ivc-playing');
         (function(v){setTimeout(function(){v.style.display='none';},350);})(ov);
+      }
+      // Mute every other inline video so opening one with sound doesn't
+      // stack audio over a still-audible neighbor.
+      function silenceAllInline(exceptEl){
+        var slides=track.children;
+        for(var i=0;i<slides.length;i++){
+          if(slides[i]===exceptEl)continue;
+          var v=slides[i].querySelector('video');
+          if(v && !v.muted){ v.muted=true; v.controls=false; }
+        }
       }
 
       function go(newI,instant){
