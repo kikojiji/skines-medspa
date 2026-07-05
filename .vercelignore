@@ -7,3 +7,6 @@ package-lock.json
 *.mp4
 *.mov
 *.MOV
+!assets/videos/hero-head-spa.mp4
+!assets/videos/avis-hook.mp4
+!assets/videos/avis-test.mp4
