@@ -606,27 +606,27 @@
     min-width: 55px;
     text-align: center;
   }
-  .reviews { background: var(--cream-pale); text-align: center; }
+  .reviews { background: #684034; text-align: center; }
   .reviews .eyebrow { justify-content: center; }
   .reviews .eyebrow::before { display: none; }
   .rating { color: var(--stone); letter-spacing: 0.22em; margin: 1rem 0 3rem; font-size: 0.8rem; }
 
-  /* Editorial reviews header */
+  /* Editorial reviews header — brown/cream to match the reviews page */
   .reviews-editorial-head { display: flex; flex-direction: column; align-items: center; padding: 0 1.5rem; }
   .reviews-label {
     font-family: var(--sans); font-size: 13px; font-weight: 600;
-    letter-spacing: 0.28em; color: #B38A73; text-transform: uppercase;
+    letter-spacing: 0.28em; color: #D4A96A; text-transform: uppercase;
     margin-bottom: 28px;
   }
   .reviews-heading {
     font-family: "DM Sans", sans-serif !important;
     font-size: clamp(28px, 5vw, 36px);
-    font-weight: 300 !important; line-height: 1.15; color: #2E2A27 !important;
+    font-weight: 300 !important; line-height: 1.15; color: #F5EDE3 !important;
     max-width: 520px; margin: 0 0 24px; letter-spacing: -0.01em;
   }
   .reviews-sub {
     font-family: var(--sans); font-size: 17px; font-weight: 400;
-    line-height: 1.7; color: #7C746E; max-width: 460px;
+    line-height: 1.7; color: rgba(245,237,227,0.65); max-width: 460px;
     margin: 0 0 20px;
   }
   /* Desktop: widen the heading so "Parce que chaque expérience" fits on
@@ -637,6 +637,14 @@
     .reviews-heading { max-width: 820px; font-size: clamp(34px, 3.4vw, 52px); }
     .reviews-sub { max-width: 620px; font-size: clamp(19px, 1.3vw, 22px); }
   }
+  /* Legacy global overrides force every <section> (or its descendants)
+     to a light cream with !important via compound :not() selectors that
+     don't exclude this one — an #id pairing beats them on specificity
+     without touching those shared rules. */
+  #reviews { background: #684034 !important; }
+  #reviews .reviews-label { color: #D4A96A !important; }
+  #reviews .reviews-heading { color: #F5EDE3 !important; }
+  #reviews .reviews-sub { color: rgba(245,237,227,0.65) !important; }
   .reviews-rating {
     font-family: var(--sans); font-size: 12px; font-weight: 500;
     letter-spacing: 0.18em; color: #9E8C84; margin-bottom: 40px;
@@ -7077,14 +7085,26 @@ html body #sp-stones img {
            photo spans the entire viewport width edge-to-edge. */
         width: 100vw;
         position: relative;
+        overflow: hidden;
         left: 50%;
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
+        padding: 3rem 0 3.5rem;
+      }
+      /* Background photo lives on its own layer (not on .ivc-wrap itself)
+         so it can be scaled up slightly to crop out unwanted edge detail
+         without touching or moving any foreground element (cards, badges,
+         arrows, dots, nav) — those all sit in normal flow / their own
+         positioned layers above this pseudo-element's z-index. */
+      .ivc-wrap::before {
+        content: '';
+        position: absolute; inset: 0; z-index: 0; pointer-events: none;
         background:
           linear-gradient(rgba(20,14,8,0.62), rgba(20,14,8,0.62)),
           url('assets/reviews-bg.webp') center 35%/cover no-repeat;
-        padding: 3rem 0 3.5rem;
+        transform: scale(1.12);
+        transform-origin: center;
       }
       .ivc-arrow { background: rgba(245,237,227,0.14); border-color: rgba(245,237,227,0.30); }
       .ivc-arrow:hover { background: rgba(245,237,227,0.24); }
@@ -7092,16 +7112,31 @@ html body #sp-stones img {
       .ivc-dot { background: rgba(245,237,227,0.30); }
       .ivc-dot.ivc-active { background: #E8C078; }
     }
-    .ivc-outer { overflow: hidden; padding: 28px 0 52px; cursor: grab; min-height: calc(min(62vw, 280px) * 16 / 9 + 88px); }
+    .ivc-outer { position: relative; z-index: 1; overflow: hidden; padding: 28px 0 52px; cursor: grab; min-height: calc(min(62vw, 280px) * 16 / 9 + 88px); }
     .ivc-outer:active { cursor: grabbing; }
     .ivc-track { position: relative; width: 100%; min-height: calc(min(62vw, 280px) * 16 / 9 + 36px); }
     .ivc-slide {
-      position: absolute; top: 0; left: 0;
+      position: absolute; top: 0; left: 0; box-sizing: border-box;
       width: clamp(220px, 62vw, 280px);
       aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; cursor: pointer;
       transform-origin: top center; will-change: transform, opacity;
-      transition: left 0.58s cubic-bezier(0.22,1,0.36,1), top 0.58s cubic-bezier(0.22,1,0.36,1), transform 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.45s ease, box-shadow 0.45s ease;
+      /* Thin luxury frame so each card reads as a distinct object against
+         the busy photo background instead of blending into it. Uses
+         `border` (not box-shadow) since positionCards() already drives
+         box-shadow as an inline style per slide — border stays untouched
+         by that JS, so it layers on top with zero script changes. */
+      border: 1.5px solid rgba(255,255,255,0.65);
+      transition: left 0.58s cubic-bezier(0.22,1,0.36,1), top 0.58s cubic-bezier(0.22,1,0.36,1), transform 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
     }
+    /* Soft outer glow layered via a pseudo-element rather than box-shadow,
+       again so it never fights the JS-driven inline box-shadow used for
+       the parallax depth shadow on each slide. */
+    .ivc-slide::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      pointer-events: none;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 8px 30px rgba(255,255,255,0.08);
+    }
+    .ivc-slide.ivc-active { border-color: rgba(255,255,255,0.9); border-width: 2px; }
     /* Tablet + desktop (min-width:768px): the card width below is
        mobile-first (clamped to 62vw). positionCards() in the script
        below computes every slide's left/top offset and shadow as a
@@ -7118,6 +7153,64 @@ html body #sp-stones img {
       }
     }
     .ivc-fade-l, .ivc-fade-r { display: none; }
+    /* Small floating badges in the empty photo gutters beside the
+       carousel — only room for them once the wrap is wide enough that
+       the side cards don't already reach the badge zone. */
+    .ivc-side-badge { display: none; }
+    @media (min-width: 1200px) {
+      .ivc-side-badge {
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+        position: absolute; top: 50%; transform: translateY(-50%);
+        z-index: 5; text-align: center; width: 234px;
+        font-family: "DM Sans", sans-serif; color: #F5EDE3;
+        /* Strong, clearly-legible glass panel — high-opacity dark fill so
+           it reads as a solid card over the busy photo, not a subtle
+           tint that lets the background fight the text. */
+        background: rgba(34,24,18,0.82);
+        backdrop-filter: blur(14px) saturate(120%);
+        -webkit-backdrop-filter: blur(14px) saturate(120%);
+        border: 1px solid rgba(255,255,255,0.45);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 8px 24px rgba(0,0,0,0.30);
+        border-radius: 14px; padding: 26px 20px;
+      }
+      /* Optional extra darkening layer, kept fully behind the text via
+         z-index so contrast can be pushed further without touching the
+         panel's own background (and therefore without affecting its
+         border/blur/shadow). Currently a no-op (transparent) — bump the
+         alpha here first if a card ever needs more contrast. */
+      .ivc-side-badge::before {
+        content: ''; position: absolute; inset: 0; border-radius: inherit;
+        background: rgba(0,0,0,0); pointer-events: none; z-index: 0;
+      }
+      .ivc-side-badge > * { position: relative; z-index: 1; }
+      .ivc-side-badge.ivc-side-l { left: 32px; }
+      .ivc-side-badge.ivc-side-r { right: 32px; }
+      /* !important + #reviews id-prefix on every color here: a legacy
+         global rule (html body section:not(...) * { color: ... !important })
+         applies to every descendant of this section, and its long chain
+         of :not(.class) clauses out-specifies a plain class selector even
+         with !important on both sides — only pairing the id wins. */
+      .ivc-side-badge .ivc-side-stars { font-size: 1.56rem; letter-spacing: 0.1em; opacity: 1; }
+      .ivc-side-badge .ivc-side-num {
+        font-family: "Old Standard TT", serif; font-size: 3.51rem; line-height: 1;
+        font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+      }
+      .ivc-side-badge .ivc-side-label { font-size: 1.01rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.85; }
+      .ivc-side-badge .ivc-side-headline {
+        font-family: "DM Sans", sans-serif; font-size: 1.24rem; font-weight: 600;
+        line-height: 1.3; margin-top: 2px;
+      }
+      .ivc-side-badge .ivc-side-claim {
+        margin-top: 4px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.32);
+        font-size: 1.04rem; line-height: 1.5; opacity: 1;
+        font-style: normal; font-family: "DM Sans", sans-serif;
+      }
+    }
+    #reviews .ivc-side-badge .ivc-side-stars { color: #F7D98A !important; }
+    #reviews .ivc-side-badge .ivc-side-num { color: rgba(255,255,255,0.98) !important; }
+    #reviews .ivc-side-badge .ivc-side-label { color: #F7D98A !important; }
+    #reviews .ivc-side-badge .ivc-side-headline { color: rgba(255,255,255,0.98) !important; }
+    #reviews .ivc-side-badge .ivc-side-claim { color: rgba(255,255,255,0.88) !important; }
     .ivc-slide img  { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .ivc-slide video{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; opacity: 0; transition: opacity 0.45s ease; }
     .ivc-voverlay   { position: absolute; inset: 0; background: linear-gradient(to bottom,transparent 48%,rgba(0,0,0,0.35) 100%); pointer-events: none; z-index: 1; }
@@ -7195,8 +7288,22 @@ html body #sp-stones img {
     <div class="ivc-wrap">
       <div class="ivc-fade-l"></div>
       <div class="ivc-fade-r"></div>
+      <div class="ivc-side-badge ivc-side-l">
+        <span class="ivc-side-stars">★★★★★</span>
+        <span class="ivc-side-label" data-fr="Google" data-en="Google">Google</span>
+        <span class="ivc-side-num">700+</span>
+        <span class="ivc-side-headline" data-fr="raisons de nous faire confiance." data-en="reasons to trust us.">raisons de nous faire confiance.</span>
+        <span class="ivc-side-claim" data-fr="Plus de 700 avis Google reflètent une réputation bâtie sur la constance, le savoir-faire et l'excellence de chaque expérience." data-en="700+ Google reviews reflect a reputation built on consistency, expertise, and excellence in every experience.">Plus de 700 avis Google reflètent une réputation bâtie sur la constance, le savoir-faire et l'excellence de chaque expérience.</span>
+      </div>
       <div class="ivc-outer" id="ivc-outer">
         <div class="ivc-track" id="ivc-track"></div>
+      </div>
+      <div class="ivc-side-badge ivc-side-r">
+        <span class="ivc-side-stars">★★★★★</span>
+        <span class="ivc-side-label" data-fr="Fresha" data-en="Fresha">Fresha</span>
+        <span class="ivc-side-num">600+</span>
+        <span class="ivc-side-headline" data-fr="expériences qui parlent d'elles-mêmes." data-en="experiences that speak for themselves.">expériences qui parlent d'elles-mêmes.</span>
+        <span class="ivc-side-claim" data-fr="Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience." data-en="Our greatest recognition comes from the hundreds of clients who chose to share their experience.">Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience.</span>
       </div>
       <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -7309,12 +7416,14 @@ html body #sp-stones img {
           var f1 = isDesktop ? 0.34 : 0.21;
           var f2 = isDesktop ? 0.58 : 0.35;
           var f3 = 0.80;
+          var f4 = 1.00;
           // Opacity, kept moderate on desktop so the side videos stay
           // clearly visible instead of fading into the background —
           // mobile's original (more faded) values are untouched.
           var o1 = isDesktop ? 0.88 : 0.82;
           var o2 = isDesktop ? 0.68 : 0.55;
           var o3 = 0.48;
+          var o4 = 0.30;
           var lft,ty,sc,op,zi,sh;
           if(rel===0){
             lft=cx;ty=0;sc=1;op=1;zi=10;
@@ -7328,6 +7437,9 @@ html body #sp-stones img {
           } else if(rel===3 && isDesktop){
             lft=cx+cW*f3;ty=20;sc=0.68;op=o3;zi=7;
             sh='0 4px 14px rgba(0,0,0,0.10)';
+          } else if(rel===4 && isDesktop){
+            lft=cx+cW*f4;ty=24;sc=0.60;op=o4;zi=6;
+            sh='0 3px 10px rgba(0,0,0,0.08)';
           } else if(rel===-1){
             lft=cx-cW*f1;ty=8;sc=0.88;op=isDesktop?o1:0.50;zi=9;
             sh='0 12px 32px rgba(0,0,0,0.24)';
@@ -7337,6 +7449,9 @@ html body #sp-stones img {
           } else if(rel===-3 && isDesktop){
             lft=cx-cW*f3;ty=20;sc=0.68;op=o3;zi=7;
             sh='0 4px 14px rgba(0,0,0,0.10)';
+          } else if(rel===-4 && isDesktop){
+            lft=cx-cW*f4;ty=24;sc=0.60;op=o4;zi=6;
+            sh='0 3px 10px rgba(0,0,0,0.08)';
           } else if(rel<-1){
             lft=cx-cW*0.60;ty=0;sc=0.75;op=0;zi=7;sh='none';
           } else {
@@ -7511,21 +7626,6 @@ html body #sp-stones img {
     })();
     </script>
 
-    <div class="reviews-cta">
-      <a class="reviews-cta-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        461+ Avis Fresha
-      </a>
-      <a class="reviews-cta-btn" href="https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z/data=!4m17!1m8!3m7!1s0x4cc91912fb8a5ed7:0xeac8eddd13ab6b1c!2s19+Av.+Shamrock,+Montréal,+QC+H2S+1A3!3b1!8m2!3d45.5344811!4d-73.6167675!16s%2Fg%2F11bw3_q3nb!3m7!1s0x4cc91900204e6e1b:0xe5cc326474452c73!8m2!3d45.5344811!4d-73.6167675!9m1!1b1!16s%2Fg%2F11w514v292?hl=fr-FR&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        4.7 Avis Google
-      </a>
-    </div>
   </section>
 
   <section class="contact" id="contact">

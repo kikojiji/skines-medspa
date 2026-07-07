@@ -420,33 +420,10 @@
     font-size: 1.1rem; opacity: 0.72; max-width: 480px; margin: 0 auto;
   }
 
-  /* ── Stats strip ── */
-  .stats-strip {
-    background: #684034;
-    border-bottom: 1px solid rgba(245,237,227,0.10);
-    display: flex; align-items: stretch; justify-content: center;
-    padding-top: 0;
-  }
-  .stat-item {
-    flex: 1; max-width: 220px; padding: 2rem 1rem; text-align: center;
-    border-right: 1px solid var(--line); text-decoration: none;
-    transition: background 0.2s;
-  }
-  .stat-item:last-child { border-right: none; }
-  a.stat-item:hover { background: var(--terracotta-soft); }
-  .stat-item strong {
-    display: block; font-family: "Old Standard TT", serif;
-    color: var(--brown); font-size: 2.6rem; line-height: 1; font-weight: 400;
-  }
-  .stat-item span {
-    display: block; color: var(--stone); text-transform: uppercase;
-    letter-spacing: 0.18em; font-size: 0.65rem; margin-top: 0.5rem; font-weight: 500;
-  }
-
   /* ── Reviews grid ── */
   .reviews-section {
     background: var(--cream-light);
-    padding: 5rem 4rem;
+    padding: 3.5rem 2rem;
   }
   .reviews-section h2 {
     font-family: "Old Standard TT", serif;
@@ -456,29 +433,43 @@
   .reviews-section h2 em { color: var(--brown); font-style: italic; font-weight: 300; }
   .reviews-intro {
     text-align: center; color: rgba(245,239,232,0.65); font-size: 0.82rem;
-    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 3.5rem;
+    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 2rem;
   }
   .reviews-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem;
-    max-width: 1100px; margin: 0 auto 4rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    max-width: 1360px; margin: 0 auto 3rem;
   }
+  @media (max-width: 1300px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px)  { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px)  { .reviews-grid { grid-template-columns: 1fr; } }
   .review-card {
     background: var(--cream); border: 1px solid var(--line);
-    border-radius: 4px; padding: 1.9rem 1.7rem;
-    display: flex; flex-direction: column; gap: 1rem;
+    border-radius: 4px; padding: 1.1rem 1.15rem;
+    display: flex; flex-direction: column; gap: 0.55rem;
   }
-  .review-stars { color: var(--brown); font-size: 0.82rem; letter-spacing: 0.08em; }
+  .review-stars { color: var(--brown); font-size: 0.72rem; letter-spacing: 0.08em; }
   .review-text {
-    font-family: "Old Standard TT", serif; font-size: 1.1rem;
-    line-height: 1.72; color: var(--ink); font-style: italic; flex: 1;
+    font-family: "Old Standard TT", serif; font-size: 0.88rem;
+    line-height: 1.5; color: var(--ink); font-style: italic; flex: 1;
+    display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+    overflow: hidden;
   }
+  .review-card.expanded .review-text {
+    -webkit-line-clamp: unset; overflow: visible;
+  }
+  .review-toggle {
+    align-self: flex-start; background: none; border: none; padding: 0; cursor: pointer;
+    font-family: "DM Sans", sans-serif; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown);
+  }
+  .review-toggle:hover { text-decoration: underline; }
   .review-author {
-    font-family: "DM Sans", sans-serif; font-size: 0.68rem; letter-spacing: 0.2em;
+    font-family: "DM Sans", sans-serif; font-size: 0.6rem; letter-spacing: 0.16em;
     text-transform: uppercase; color: var(--charcoal); font-weight: 600;
   }
   .review-source {
-    font-family: "DM Sans", sans-serif; font-size: 0.6rem; color: var(--stone);
-    margin-top: 0.15rem; letter-spacing: 0.12em;
+    font-family: "DM Sans", sans-serif; font-size: 0.54rem; color: var(--stone);
+    margin-top: 0.1rem; letter-spacing: 0.1em;
   }
 
   /* ── Platform CTAs ── */
@@ -695,11 +686,7 @@
     section { scroll-margin-top: 70px; }
     /* ── Page layout ── */
     .page-hero { padding: 6rem 1.5rem 3rem; }
-    .stats-strip { flex-wrap: wrap; }
-    .stat-item { min-width: 45%; flex: unset; border-right: none; border-bottom: 1px solid var(--line); }
-    .stat-item:last-child { border-bottom: none; }
     .reviews-section { padding: 3.5rem 1.5rem; }
-    .reviews-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
     footer { background: var(--bg); }
     /* ── Dark drawer ── */
@@ -5243,294 +5230,803 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
   
 
-  <!-- VIDEO REVIEWS SECTION — Luxury Carousel -->
-  <style>
-  /* ── 1. Reduce padding, tighter header ── */
-  .vc-section { background: #684034 !important; padding: 0 0 4rem; }
-  #vc-testimonials { background: #684034 !important; }
-  .vc-header  { text-align: center; padding: 4.5rem 1.4rem 1.8rem; margin-bottom: 0; }
-  .vc-eyebrow { font-size: 0.60rem; letter-spacing: 0.30em; text-transform: uppercase; color: #D4A96A !important; margin: 0 0 1rem; font-family: "DM Sans", sans-serif; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 12px; }
-  .vc-eyebrow::before, .vc-eyebrow::after { content: ''; width: 28px; height: 1px; background: #D4A96A; opacity: 0.5; }
-  .vc-title   { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 9vw, 4.2rem); font-weight: 400; color: rgba(245,237,227,0.97) !important; margin: 0 0 0.9rem; line-height: 1.05; }
-  .vc-title em, #vc-testimonials .vc-title em { font-style: italic; color: #F0C87A !important; }
-  /* ── 2. Stars: gold and visible ── */
-  #vc-testimonials .vc-stars { font-size: 0.92rem; color: #F0C87A !important; letter-spacing: 0.04em; margin: 0 0 0.2rem; }
-  #vc-testimonials .vc-stars span { margin-left: 8px; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,237,227,0.60) !important; font-family: "DM Sans", sans-serif; }
-  #vc-testimonials, #vc-testimonials .vc-header { color: #F5EDE3 !important; background: #684034 !important; }
-  #vc-testimonials .vc-eyebrow { color: #F0C87A !important; }
-  #vc-testimonials .vc-title { color: rgba(245,237,227,0.97) !important; }
+  <section class="reviews" id="reviews">
+    <!-- LUXURY CAROUSEL INDEX -->
+    <style>
+    /* A night-exterior photo behind the video stack on every breakpoint,
+       so the carousel reads as "cards floating over a photo". A dark
+       overlay keeps the glass arrows/dots and card shadows legible
+       against it. This section opens the page (right under the fixed
+       nav), so the photo itself carries the top clearance instead of
+       the heading below it. */
+    .ivc-wrap {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 3rem;
+    }
+    /* Background photo lives on its own layer (not on .ivc-wrap itself)
+       so it can be scaled up slightly to crop out unwanted edge detail
+       without touching or moving any foreground element (cards, badges,
+       arrows, dots, nav) — those all sit in normal flow / their own
+       positioned layers above this pseudo-element's z-index. */
+    .ivc-wrap::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        linear-gradient(rgba(20,14,8,0.62), rgba(20,14,8,0.62)),
+        url('assets/reviews-bg.webp') center 35%/cover no-repeat;
+      transform: scale(1.12);
+      transform-origin: center;
+    }
+    .ivc-arrow { background: rgba(245,237,227,0.14); border-color: rgba(245,237,227,0.30); }
+    .ivc-arrow:hover { background: rgba(245,237,227,0.24); }
+    .ivc-arrow svg { stroke: #F5EDE3; }
+    .ivc-dot { background: rgba(245,237,227,0.30); }
+    .ivc-dot.ivc-active { background: #E8C078; }
+    @media (min-width: 981px) {
+      .ivc-wrap {
+        /* Full-bleed: break out of the section's side padding so the
+           photo spans the entire viewport width edge-to-edge. */
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding: 110px 0 3.5rem;
+      }
+    }
+    .ivc-outer { position: relative; z-index: 1; overflow: hidden; padding: 28px 0 52px; cursor: grab; min-height: calc(min(62vw, 280px) * 16 / 9 + 88px); }
+    .ivc-outer:active { cursor: grabbing; }
+    .ivc-track { position: relative; width: 100%; min-height: calc(min(62vw, 280px) * 16 / 9 + 36px); }
+    .ivc-slide {
+      position: absolute; top: 0; left: 0; box-sizing: border-box;
+      width: clamp(220px, 62vw, 280px);
+      aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; cursor: pointer;
+      transform-origin: top center; will-change: transform, opacity;
+      /* Thin luxury frame so each card reads as a distinct object against
+         the busy photo background instead of blending into it. Uses
+         `border` (not box-shadow) since positionCards() already drives
+         box-shadow as an inline style per slide — border stays untouched
+         by that JS, so it layers on top with zero script changes. */
+      border: 1.5px solid rgba(255,255,255,0.65);
+      transition: left 0.58s cubic-bezier(0.22,1,0.36,1), top 0.58s cubic-bezier(0.22,1,0.36,1), transform 0.58s cubic-bezier(0.22,1,0.36,1), opacity 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+    }
+    /* Soft outer glow layered via a pseudo-element rather than box-shadow,
+       again so it never fights the JS-driven inline box-shadow used for
+       the parallax depth shadow on each slide. */
+    .ivc-slide::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      pointer-events: none;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 8px 30px rgba(255,255,255,0.08);
+    }
+    .ivc-slide.ivc-active { border-color: rgba(255,255,255,0.9); border-width: 2px; }
+    /* Tablet + desktop (min-width:768px): the card width below is
+       mobile-first (clamped to 62vw). positionCards() in the script
+       below computes every slide's left/top offset and shadow as a
+       fraction of this card's own offsetWidth, and re-runs on resize —
+       so widening it here is enough to both enlarge the cards AND
+       proportionally spread them apart, no JS changes needed. Shadow on
+       the active card is deepened with !important since positionCards()
+       sets box-shadow as an inline style per slide, which only a
+       !important CSS rule can override. */
+    @media (min-width: 768px) {
+      .ivc-slide { width: clamp(280px, 22vw, 360px); }
+      .ivc-slide.ivc-active {
+        box-shadow: 0 40px 100px rgba(0,0,0,0.42), 0 0 0 1.5px rgba(201,160,96,0.32) !important;
+      }
+    }
+    .ivc-fade-l, .ivc-fade-r { display: none; }
+    /* Small floating badges in the empty photo gutters beside the
+       carousel — only room for them once the wrap is wide enough that
+       the side cards don't already reach the badge zone. */
+    .ivc-side-badge { display: none; }
+    @media (min-width: 1200px) {
+      .ivc-side-badge {
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+        position: absolute; top: 50%; transform: translateY(-50%);
+        z-index: 5; text-align: center; width: 234px;
+        font-family: "DM Sans", sans-serif; color: #F5EDE3;
+        /* Strong, clearly-legible glass panel — high-opacity dark fill so
+           it reads as a solid card over the busy photo, not a subtle
+           tint that lets the background fight the text. */
+        background: rgba(34,24,18,0.82);
+        backdrop-filter: blur(14px) saturate(120%);
+        -webkit-backdrop-filter: blur(14px) saturate(120%);
+        border: 1px solid rgba(255,255,255,0.45);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 8px 24px rgba(0,0,0,0.30);
+        border-radius: 14px; padding: 26px 20px;
+      }
+      /* Optional extra darkening layer, kept fully behind the text via
+         z-index so contrast can be pushed further without touching the
+         panel's own background (and therefore without affecting its
+         border/blur/shadow). Currently a no-op (transparent) — bump the
+         alpha here first if a card ever needs more contrast. */
+      .ivc-side-badge::before {
+        content: ''; position: absolute; inset: 0; border-radius: inherit;
+        background: rgba(0,0,0,0); pointer-events: none; z-index: 0;
+      }
+      .ivc-side-badge > * { position: relative; z-index: 1; }
+      .ivc-side-badge.ivc-side-l { left: 32px; }
+      .ivc-side-badge.ivc-side-r { right: 32px; }
+      /* !important + #reviews id-prefix on every color here: a legacy
+         global rule (html body section:not(...) * { color: ... !important })
+         applies to every descendant of this section, and its long chain
+         of :not(.class) clauses out-specifies a plain class selector even
+         with !important on both sides — only pairing the id wins. */
+      .ivc-side-badge .ivc-side-stars { font-size: 1.56rem; letter-spacing: 0.1em; opacity: 1; }
+      .ivc-side-badge .ivc-side-num {
+        font-family: "Old Standard TT", serif; font-size: 3.51rem; line-height: 1;
+        font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+      }
+      .ivc-side-badge .ivc-side-label { font-size: 1.01rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.85; }
+      .ivc-side-badge .ivc-side-headline {
+        font-family: "DM Sans", sans-serif; font-size: 1.24rem; font-weight: 600;
+        line-height: 1.3; margin-top: 2px;
+      }
+      .ivc-side-badge .ivc-side-claim {
+        margin-top: 4px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.32);
+        font-size: 1.04rem; line-height: 1.5; opacity: 1;
+        font-style: normal; font-family: "DM Sans", sans-serif;
+      }
+    }
+    #reviews .ivc-side-badge .ivc-side-stars { color: #F7D98A !important; }
+    #reviews .ivc-side-badge .ivc-side-num { color: rgba(255,255,255,0.98) !important; }
+    #reviews .ivc-side-badge .ivc-side-label { color: #F7D98A !important; }
+    #reviews .ivc-side-badge .ivc-side-headline { color: rgba(255,255,255,0.98) !important; }
+    #reviews .ivc-side-badge .ivc-side-claim { color: rgba(255,255,255,0.88) !important; }
+    .ivc-slide img  { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ivc-slide video{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; opacity: 0; transition: opacity 0.45s ease; }
+    .ivc-voverlay   { position: absolute; inset: 0; background: linear-gradient(to bottom,transparent 48%,rgba(0,0,0,0.35) 100%); pointer-events: none; z-index: 1; }
+    .ivc-playbtn {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(58,30,20,0.10); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(58,30,20,0.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .ivc-playbtn svg { fill: #3A1E14; width: 17px; margin-left: 3px; }
+    .ivc-slide.ivc-active .ivc-playbtn { opacity: 0; transform: translate(-50%,-50%) scale(0.75); pointer-events: none; }
+    .ivc-fade-l { position: absolute; top: 0; bottom: 0; left: 0;  width: 80px; z-index: 3; pointer-events: none; background: linear-gradient(to right, #F0E6C8, transparent); }
+    .ivc-fade-r { position: absolute; top: 0; bottom: 0; right: 0; width: 80px; z-index: 3; pointer-events: none; background: linear-gradient(to left,  #F0E6C8, transparent); }
+    .ivc-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(58,30,20,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(58,30,20,0.16);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.25s, opacity 0.3s; opacity: 0;
+    }
+    .ivc-wrap:hover .ivc-arrow { opacity: 0.65; }
+    .ivc-arrow:hover { background: rgba(58,30,20,0.14); opacity: 1 !important; }
+    .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; }
+    .ivc-arrow-l { left: 14px; } .ivc-arrow-r { right: 14px; }
+    .ivc-arrow svg { stroke: #3A1E14; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
+    .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; }
+    .ivc-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(58,30,20,0.18); cursor: pointer; transition: background 0.35s, transform 0.35s; flex-shrink: 0; }
+    .ivc-dot.ivc-active { background: #C9A060; transform: scale(1.45); }
+    .ivc-modal {
+      position: fixed; inset: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: opacity 0.38s ease, visibility 0s linear 0.38s;
+    }
+    .ivc-modal.ivc-open { opacity: 1; visibility: visible; transition: opacity 0.38s ease, visibility 0s linear 0s; }
+    .ivc-modal-bg { position: absolute; inset: 0; background: rgba(6,3,2,0.91); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); cursor: pointer; }
+    .ivc-modal-row { position: relative; z-index: 1; display: flex; align-items: center; gap: 18px; }
+    .ivc-modal-box {
+      position: relative; width: min(80vw,330px); aspect-ratio: 9/16;
+      border-radius: 18px; overflow: hidden; background: #000;
+      box-shadow: 0 36px 90px rgba(0,0,0,0.80);
+      transform: scale(0.88); transition: transform 0.44s cubic-bezier(0.22,1,0.36,1);
+    }
+    .ivc-modal.ivc-open .ivc-modal-box { transform: scale(1); }
+    #ivc-mvid { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ivc-modal-x {
+      position: absolute; top: 11px; right: 11px; width: 31px; height: 31px; border-radius: 50%;
+      background: rgba(0,0,0,0.52); backdrop-filter: blur(8px);
+      border: 1px solid rgba(245,237,227,0.18); cursor: pointer; z-index: 2;
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    }
+    .ivc-modal-x:hover { background: rgba(0,0,0,0.80); }
+    .ivc-modal-x svg { stroke: #F5EDE3; fill: none; stroke-width: 2; stroke-linecap: round; width: 12px; height: 12px; }
+    .ivc-mnav {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(245,237,227,0.09); backdrop-filter: blur(10px);
+      border: 1px solid rgba(232,192,120,0.45);
+      cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      transition: background 0.25s, opacity 0.25s;
+    }
+    .ivc-mnav:hover { background: rgba(232,192,120,0.18); }
+    .ivc-mnav.ivc-off { opacity: 0.22; pointer-events: none; }
+    .ivc-mnav svg { stroke: #E8C078; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
+    @media (max-width: 580px) {
+      .ivc-mnav { display: flex; }
+      .ivc-arrow { opacity: 0.75 !important; }
+      .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; }
+      .ivc-slide.ivc-active .ivc-playbtn { opacity: 1 !important; transform: translate(-50%,-50%) scale(1) !important; pointer-events: auto !important; }
+      .ivc-dot { width: 7px; height: 7px; }
+    }
+    /* Legacy global overrides target every <section> (or ".reviews")
+       with a cream background via compound :not() selectors that don't
+       exclude this section — beats a plain class here on specificity,
+       so an #id rule is needed to force the section itself brown
+       (matching the stats strip / reviews grid / footer) instead of
+       showing cream in the side gutters. */
+    #reviews { background: #684034 !important; }
+    /* Editorial reviews header — sits below the photo/video carousel,
+       same brown (#684034) as the stats strip / reviews grid / footer
+       so the whole page reads as one continuous background instead of
+       a light bar breaking the flow. Single-line heading, tighter
+       vertical rhythm. */
+    .reviews-editorial-head {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 34px 3rem; background: #684034; text-align: center;
+    }
+    .reviews-label {
+      font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.28em; color: #D4A96A; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .reviews-heading {
+      font-family: "DM Sans", sans-serif !important;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 300 !important; line-height: 1.2; color: #F5EDE3 !important;
+      max-width: 720px; margin: 0 0 10px; letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .reviews-sub {
+      font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 400;
+      line-height: 1.5; color: rgba(245,237,227,0.65); max-width: 460px; margin: 0;
+    }
+    @media (max-width: 700px) {
+      .reviews-heading { white-space: normal; font-size: clamp(18px, 5vw, 24px); }
+    }
+    /* Same specificity problem as the section background above — legacy
+       ".reviews h2" / ".reviews p" rules outrank a plain class, so pair
+       the id with the class to win without touching those global rules. */
+    #reviews .reviews-heading { color: #F5EDE3 !important; }
+    #reviews .reviews-sub { color: rgba(245,237,227,0.65) !important; }
+    #reviews .reviews-label { color: #D4A96A !important; }
+    </style>
 
-  /* ── Carousel ── */
-  .vc-wrap  { position: relative; }
-  .vc-outer { overflow: hidden; padding: 30px 0; position: relative; cursor: grab; }
-  .vc-outer:active { cursor: grabbing; }
-  .vc-track { display: flex; gap: 14px; transition: transform 0.62s cubic-bezier(0.22,1,0.36,1); will-change: transform; }
-
-  .vc-slide {
-    flex: 0 0 clamp(200px, 66vw, 310px);
-    width: clamp(200px, 66vw, 310px);
-    aspect-ratio: 9 / 16;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transform: scale(0.80);
-    opacity: 0.38;
-    transition: transform 0.62s cubic-bezier(0.22,1,0.36,1),
-                opacity  0.52s ease,
-                box-shadow 0.52s ease;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-  }
-  .vc-slide.vc-active {
-    transform: scale(1);
-    opacity: 1;
-    box-shadow: 0 22px 64px rgba(0,0,0,0.62), 0 0 0 1.5px rgba(201,160,96,0.20);
-  }
-  .vc-slide img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: cover;
-    display: block;
-  }
-  .vc-slide video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: cover;
-    display: none; opacity: 0;
-    transition: opacity 0.45s ease;
-  }
-  .vc-voverlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 48%, rgba(0,0,0,0.42) 100%);
-    pointer-events: none; z-index: 1;
-  }
-  .vc-playbtn {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 2;
-    width: 52px; height: 52px; border-radius: 50%;
-    background: rgba(245,237,227,0.13);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1.5px solid rgba(245,237,227,0.24);
-    display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
-  .vc-playbtn svg { fill: #F5EDE3; width: 17px; margin-left: 3px; }
-  .vc-slide.vc-active .vc-playbtn { opacity: 0; transform: translate(-50%,-50%) scale(0.75); pointer-events: none; }
-
-  /* Side gradient fades */
-  .vc-fade-l, .vc-fade-r {
-    position: absolute; top: 0; bottom: 0; width: 80px; z-index: 3; pointer-events: none;
-  }
-  .vc-fade-l { left: 0; background: linear-gradient(to right, #160A05 0%, transparent 100%); }
-  .vc-fade-r { right: 0; background: linear-gradient(to left,  #160A05 0%, transparent 100%); }
-
-  /* Arrows */
-  .vc-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    z-index: 4;
-    width: 42px; height: 42px; border-radius: 50%;
-    background: rgba(245,213,160,0.18);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1.5px solid rgba(245,213,160,0.55);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.25s, opacity 0.3s;
-    opacity: 1;
-  }
-  .vc-wrap:hover .vc-arrow { opacity: 1; }
-  .vc-arrow:hover { background: rgba(245,213,160,0.30); opacity: 1 !important; }
-  .vc-arrow.vc-off { opacity: 0 !important; pointer-events: none; }
-  .vc-arrow-l { left: 10px; }
-  .vc-arrow-r { right: 10px; }
-  .vc-arrow svg { stroke: #F5D5A0; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; }
-
-  /* Dots */
-  .vc-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 22px; }
-  .vc-dot  { width: 8px; height: 8px; border-radius: 50%; background: rgba(245,237,227,0.55); cursor: pointer; transition: background 0.35s, width 0.35s, border-radius 0.35s; flex-shrink: 0; }
-  .vc-dot:hover { background: rgba(245,237,227,0.80); }
-  .vc-dot.vc-active { background: #F0C87A; width: 28px; border-radius: 5px; }
-
-  /* ── Modal ── */
-  .vc-modal {
-    position: fixed; inset: 0; z-index: 900;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.38s ease, visibility 0s linear 0.38s;
-  }
-  .vc-modal.vc-open {
-    opacity: 1; visibility: visible;
-    transition: opacity 0.38s ease, visibility 0s linear 0s;
-  }
-  .vc-modal-bg {
-    position: absolute; inset: 0;
-    background: rgba(6,3,2,0.91);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    cursor: pointer;
-  }
-  .vc-modal-row {
-    position: relative; z-index: 1;
-    display: flex; align-items: center; gap: 18px;
-  }
-  .vc-modal-box {
-    position: relative;
-    width: min(80vw, 330px);
-    aspect-ratio: 9 / 16;
-    border-radius: 18px; overflow: hidden;
-    background: #000;
-    box-shadow: 0 36px 90px rgba(0,0,0,0.80);
-    transform: scale(0.88);
-    transition: transform 0.44s cubic-bezier(0.22,1,0.36,1);
-  }
-  .vc-modal.vc-open .vc-modal-box { transform: scale(1); }
-  #vc-mvid { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .vc-modal-x {
-    position: absolute; top: 11px; right: 11px;
-    width: 31px; height: 31px; border-radius: 50%;
-    background: rgba(0,0,0,0.52);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(245,237,227,0.18);
-    cursor: pointer; z-index: 2;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .vc-modal-x:hover { background: rgba(0,0,0,0.80); }
-  .vc-modal-x svg { stroke: #F5EDE3; fill: none; stroke-width: 2; stroke-linecap: round; width: 12px; height: 12px; }
-  .vc-mnav {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(245,237,227,0.09);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(245,237,227,0.20);
-    cursor: pointer; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.25s, opacity 0.25s;
-  }
-  .vc-mnav:hover { background: rgba(245,237,227,0.20); }
-  .vc-mnav.vc-off { opacity: 0.22; pointer-events: none; }
-  .vc-mnav svg { stroke: #F5EDE3; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
-
-  /* Mobile: show dots prominently, show mini arrows */
-  @media (max-width: 580px) {
-    .vc-mnav { display: flex; }
-    .vc-arrow { display: none; }
-    .vc-dots { margin-top: 22px; gap: 8px; }
-    .vc-dot { width: 8px; height: 8px; background: rgba(245,237,227,0.30); }
-    .vc-dot.vc-active { background: #D4A96A; width: 26px; border-radius: 4px; }
-  }
-  </style>
-
-  <section class="vc-section" id="vc-testimonials">
-    <div class="vc-header">
-      <p class="vc-eyebrow" data-fr="1600+ Avis vérifiés" data-en="1600+ Verified Reviews">1600+ Avis vérifiés</p>
-      <h2 class="vc-title" data-i18n-html="reviews.vcTitle">Ce que disent<br>nos <em>clientes</em>.</h2>
-      <p class="vc-stars">★★★★★ <span data-fr="4.8 Fresha · 4.7 Google" data-en="4.8 Fresha · 4.7 Google">4.8 Fresha · 4.7 Google</span></p>
-    </div>
-
-    <div class="vc-wrap">
-      <div class="vc-fade-l"></div>
-      <div class="vc-fade-r"></div>
-      <div class="vc-outer" id="vc-outer">
-        <div class="vc-track" id="vc-track"></div>
+    <div class="ivc-wrap">
+      <div class="ivc-fade-l"></div>
+      <div class="ivc-fade-r"></div>
+      <div class="ivc-side-badge ivc-side-l">
+        <span class="ivc-side-stars">★★★★★</span>
+        <span class="ivc-side-label" data-fr="Google" data-en="Google">Google</span>
+        <span class="ivc-side-num">700+</span>
+        <span class="ivc-side-headline" data-fr="raisons de nous faire confiance." data-en="reasons to trust us.">raisons de nous faire confiance.</span>
+        <span class="ivc-side-claim" data-fr="Plus de 700 avis Google reflètent une réputation bâtie sur la constance, le savoir-faire et l'excellence de chaque expérience." data-en="700+ Google reviews reflect a reputation built on consistency, expertise, and excellence in every experience.">Plus de 700 avis Google reflètent une réputation bâtie sur la constance, le savoir-faire et l'excellence de chaque expérience.</span>
       </div>
-      <button class="vc-arrow vc-arrow-l vc-off" id="vc-pl" aria-label="Précédent">
+      <div class="ivc-outer" id="ivc-outer">
+        <div class="ivc-track" id="ivc-track"></div>
+      </div>
+      <div class="ivc-side-badge ivc-side-r">
+        <span class="ivc-side-stars">★★★★★</span>
+        <span class="ivc-side-label" data-fr="Fresha" data-en="Fresha">Fresha</span>
+        <span class="ivc-side-num">600+</span>
+        <span class="ivc-side-headline" data-fr="expériences qui parlent d'elles-mêmes." data-en="experiences that speak for themselves.">expériences qui parlent d'elles-mêmes.</span>
+        <span class="ivc-side-claim" data-fr="Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience." data-en="Our greatest recognition comes from the hundreds of clients who chose to share their experience.">Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience.</span>
+      </div>
+      <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
-      <button class="vc-arrow vc-arrow-r" id="vc-nl" aria-label="Suivant">
+      <button class="ivc-arrow ivc-arrow-r" id="ivc-nl" aria-label="Suivant">
         <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
     </div>
+    <div class="ivc-dots" id="ivc-dots"></div>
 
-    <div class="vc-dots" id="vc-dots"></div>
+    <div class="reviews-editorial-head fade-up">
+      <div class="reviews-label" data-fr="REAL EXPERIENCES" data-en="REAL EXPERIENCES">REAL EXPERIENCES</div>
+      <h2 class="reviews-heading" data-fr="Parce que chaque expérience raconte une histoire." data-en="Because every experience tells a story.">Parce que chaque expérience raconte une histoire.</h2>
+      <p class="reviews-sub" data-fr="Elles en parlent mieux que nous." data-en="They say it better than we ever could.">Elles en parlent mieux que nous.</p>
+    </div>
+
+    <!-- Index video modal -->
+    <div class="ivc-modal" id="ivc-modal" role="dialog" aria-modal="true">
+      <div class="ivc-modal-bg" id="ivc-mbg"></div>
+      <div class="ivc-modal-row">
+        <button class="ivc-mnav ivc-off" id="ivc-mp" aria-label="Précédent">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="ivc-modal-box">
+          <button class="ivc-modal-x" id="ivc-mx" aria-label="Fermer">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <video id="ivc-mvid" playsinline controls preload="none"></video>
+        </div>
+        <button class="ivc-mnav" id="ivc-mn" aria-label="Suivant">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <script>
+    (function () {
+      var VIDS = [
+        {s:'assets/videos/avis-hook.mp4',                                              t:'assets/videos/avis-hook-thumb.webp'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis6.mp4',             t:'assets/avis6_thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis1.mp4',             t:'assets/avis1_thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis2.mp4',             t:'assets/avis2_thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis3.mp4',             t:'assets/avis3_thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis4.mp4',             t:'assets/avis4_thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis5.mp4',             t:'assets/avis5_thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-cyrine.mp4',t:'assets/videos/avis-cyrine-thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-avii.mp4',  t:'assets/videos/avis-avii-thumb.webp?v=1'},
+        {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-yeah.mp4',  t:'assets/videos/avis-yeah-thumb.webp?v=1'},
+        {s:'assets/videos/avis-test.mp4',                                              t:'assets/videos/avis-test-thumb.webp'},
+      ];
+      var cur=0, mIdx=0;
+      var track  = document.getElementById('ivc-track');
+      var outer  = document.getElementById('ivc-outer');
+      var modal  = document.getElementById('ivc-modal');
+      var mVid   = document.getElementById('ivc-mvid');
+      var dotsEl = document.getElementById('ivc-dots');
+      var btnPL  = document.getElementById('ivc-pl');
+      var btnNL  = document.getElementById('ivc-nl');
+      var btnMP  = document.getElementById('ivc-mp');
+      var btnMN  = document.getElementById('ivc-mn');
+
+      VIDS.forEach(function(v,i){
+        var s = document.createElement('div');
+        s.className = 'ivc-slide'+(i===0?' ivc-active':'');
+        s.innerHTML =
+          '<img src="'+v.t+'" loading="'+(i<3?'eager':'lazy')+'" alt="">'+
+          '<div class="ivc-voverlay"></div>'+
+          '<div class="ivc-playbtn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21"/></svg></div>'+
+          '<video playsinline muted loop preload="none"></video>';
+        s.addEventListener('click',function(){
+          // The click is the user gesture that lets the video start
+          // unmuted, so a side-card click must both navigate AND start
+          // playback with sound in this same click — no second click.
+          if(i===cur){
+            togglePlay(s,i);
+          } else {
+            go(i);            // makes it active, resets/repositions everything
+            playInline(s,i);  // same click: play the now-active card with sound
+          }
+        });
+        track.appendChild(s);
+      });
+
+      VIDS.forEach(function(_,i){
+        var d=document.createElement('div');
+        d.className='ivc-dot'+(i===0?' ivc-active':'');
+        d.addEventListener('click',function(){go(i);});
+        dotsEl.appendChild(d);
+      });
+
+      function positionCards(instant){
+        var slides=track.children;
+        if(!slides.length)return;
+        var cW=slides[0].offsetWidth, cH=slides[0].offsetHeight, oW=outer.offsetWidth;
+        var cx=(oW-cW)/2;
+        // Tablet + desktop (>=768px): show one more card on each side so
+        // the stack reads as "there are more videos here" symmetrically,
+        // instead of the mobile-first single-card-plus-sliver look.
+        // Mobile keeps the original 3-card cascade untouched.
+        var isDesktop = window.innerWidth >= 768;
+        var n = slides.length;
+        track.style.height=(cH+32)+'px';
+        for(var i=0;i<slides.length;i++){
+          var rel=i-cur, s=slides[i];
+          // Desktop: wrap the relative index around the full loop so the
+          // first/last videos still show neighbors on both sides (a true
+          // circular carousel) instead of running out of "previous"
+          // cards at the very start of the list.
+          if(isDesktop){
+            if(rel>n/2) rel-=n;
+            if(rel<-n/2) rel+=n;
+          }
+          // Desktop-only wider spread so both side cards read as full
+          // videos rather than thin slivers under the active card.
+          // Mobile/tablet keep the original tighter 0.21/0.35 fractions.
+          var f1 = isDesktop ? 0.34 : 0.21;
+          var f2 = isDesktop ? 0.58 : 0.35;
+          var f3 = 0.80;
+          var f4 = 1.00;
+          // Opacity, kept moderate on desktop so the side videos stay
+          // clearly visible instead of fading into the background —
+          // mobile's original (more faded) values are untouched.
+          var o1 = isDesktop ? 0.88 : 0.82;
+          var o2 = isDesktop ? 0.68 : 0.55;
+          var o3 = 0.48;
+          var o4 = 0.30;
+          var lft,ty,sc,op,zi,sh;
+          if(rel===0){
+            lft=cx;ty=0;sc=1;op=1;zi=10;
+            sh='0 28px 72px rgba(0,0,0,0.38),0 0 0 1.5px rgba(201,160,96,0.28)';
+          } else if(rel===1){
+            lft=cx+cW*f1;ty=8;sc=0.88;op=o1;zi=9;
+            sh='0 12px 32px rgba(0,0,0,0.24)';
+          } else if(rel===2){
+            lft=cx+cW*f2;ty=14;sc=0.77;op=o2;zi=8;
+            sh='0 6px 18px rgba(0,0,0,0.15)';
+          } else if(rel===3 && isDesktop){
+            lft=cx+cW*f3;ty=20;sc=0.68;op=o3;zi=7;
+            sh='0 4px 14px rgba(0,0,0,0.10)';
+          } else if(rel===4 && isDesktop){
+            lft=cx+cW*f4;ty=24;sc=0.60;op=o4;zi=6;
+            sh='0 3px 10px rgba(0,0,0,0.08)';
+          } else if(rel===-1){
+            lft=cx-cW*f1;ty=8;sc=0.88;op=isDesktop?o1:0.50;zi=9;
+            sh='0 12px 32px rgba(0,0,0,0.24)';
+          } else if(rel===-2 && isDesktop){
+            lft=cx-cW*f2;ty=14;sc=0.77;op=o2;zi=8;
+            sh='0 6px 18px rgba(0,0,0,0.15)';
+          } else if(rel===-3 && isDesktop){
+            lft=cx-cW*f3;ty=20;sc=0.68;op=o3;zi=7;
+            sh='0 4px 14px rgba(0,0,0,0.10)';
+          } else if(rel===-4 && isDesktop){
+            lft=cx-cW*f4;ty=24;sc=0.60;op=o4;zi=6;
+            sh='0 3px 10px rgba(0,0,0,0.08)';
+          } else if(rel<-1){
+            lft=cx-cW*0.60;ty=0;sc=0.75;op=0;zi=7;sh='none';
+          } else {
+            lft=cx+cW*0.50;ty=0;sc=0.70;op=0;zi=7;sh='none';
+          }
+          if(instant) s.style.transition='none';
+          s.style.left=lft+'px';
+          s.style.top=ty+'px';
+          s.style.transformOrigin='top center';
+          s.style.transform='scale('+sc+')';
+          s.style.opacity=op;
+          s.style.zIndex=zi;
+          s.style.boxShadow=sh;
+          s.classList.toggle('ivc-active',i===cur);
+          if(instant)(function(el){requestAnimationFrame(function(){el.style.transition='';});})(s);
+        }
+      }
+
+      // Custom play/pause only — NO native <video controls> (no mute,
+      // seek, settings or fullscreen UI). The video plays in place inside
+      // the same portrait card; nothing resizes, moves or covers the
+      // neighboring cards.
+      function togglePlay(slideEl,idx){
+        if(slideEl.classList.contains('ivc-playing')) pauseInline(slideEl);
+        else playInline(slideEl,idx);
+      }
+      // Every hide/show is stamped with a token so a stale delayed
+      // "display:none" from an earlier pause/reset can never hide a
+      // video that has since started playing again (that race was why
+      // switching cards would play ~1s of video then silently freeze
+      // on a hidden frame while the audio kept going).
+      function scheduleHide(v){
+        var token = (v._showToken = (v._showToken||0) + 1);
+        setTimeout(function(){ if(v._showToken===token) v.style.display='none'; },350);
+      }
+      function showVideo(v){
+        v._showToken = (v._showToken||0) + 1; // invalidates any pending hide
+      }
+
+      function playInline(slideEl,idx){
+        var nv=slideEl.querySelector('video');
+        if(!nv.getAttribute('data-l')){nv.src=VIDS[idx].s;nv.setAttribute('data-l','1');nv.load();}
+        // Enforce single playback — every other video is paused + reset.
+        pauseAllExcept(slideEl);
+        showVideo(nv);
+        nv.controls=false;
+        nv.muted=false;              // sound on (allowed via click gesture)
+        nv.style.display='block';nv.style.opacity='0';
+        slideEl.classList.add('ivc-playing');
+        (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
+      }
+      // Pause and fade back to the clean poster image (a frozen video
+      // frame read as "the photo is stuck"), keeping currentTime so a
+      // click resumes from where it paused rather than restarting.
+      function pauseInline(slideEl){
+        var ov=slideEl.querySelector('video');
+        if(!ov)return;
+        ov.pause();
+        ov.style.opacity='0';
+        slideEl.classList.remove('ivc-playing');
+        scheduleHide(ov);
+      }
+      // Fully reset a slide's video: pause, rewind to 0, mute, and fade
+      // back to the still. Used when navigating away so it always
+      // restarts from the beginning next time it's opened.
+      function resetSlideVideo(slideEl){
+        slideEl.classList.remove('ivc-playing');
+        var ov=slideEl.querySelector('video');
+        if(!ov)return;
+        ov.pause();
+        try{ov.currentTime=0;}catch(e){}
+        ov.muted=true;ov.controls=false;ov.style.opacity='0';
+        scheduleHide(ov);
+      }
+      function pauseAllExcept(exceptEl){
+        var slides=track.children;
+        for(var i=0;i<slides.length;i++){ if(slides[i]!==exceptEl) resetSlideVideo(slides[i]); }
+      }
+
+      function go(newI,instant){
+        var slides=track.children, dots=dotsEl.children;
+        // Pause + rewind EVERY video and revert to stills on card change,
+        // so the newly active card always opens fresh from 0:00 (it stays
+        // on its still until the user clicks to play).
+        for(var k=0;k<slides.length;k++) resetSlideVideo(slides[k]);
+        cur=Math.max(0,Math.min(newI,VIDS.length-1));
+        for(var i=0;i<dots.length;i++) dots[i].classList.toggle('ivc-active',i===cur);
+        positionCards(instant);
+        btnPL.classList.toggle('ivc-off',cur===0);
+        btnNL.classList.toggle('ivc-off',cur===VIDS.length-1);
+      }
+
+      btnPL.addEventListener('click',function(){go(cur-1);});
+      btnNL.addEventListener('click',function(){go(cur+1);});
+
+      var txS=0,tyS=0,drag=false,dragDx=0;
+      outer.addEventListener('touchstart',function(e){
+        txS=e.touches[0].clientX;tyS=e.touches[0].clientY;drag=true;dragDx=0;
+        var sl=track.children;for(var i=0;i<sl.length;i++) sl[i].style.transition='none';
+      },{passive:true});
+      outer.addEventListener('touchmove',function(e){
+        if(!drag)return;
+        var dx=e.touches[0].clientX-txS,dy=e.touches[0].clientY-tyS;
+        if(Math.abs(dy)>Math.abs(dx)+5){drag=false;return;}
+        e.preventDefault();
+        dragDx=dx;
+        track.style.transform='translateX('+dx+'px)';
+      },{passive:false});
+      outer.addEventListener('touchend',function(e){
+        if(!drag)return;drag=false;
+        track.style.transform='';
+        requestAnimationFrame(function(){
+          var sl=track.children;for(var i=0;i<sl.length;i++) sl[i].style.transition='';
+          requestAnimationFrame(function(){
+            if(dragDx<-46&&cur<VIDS.length-1)go(cur+1);
+            else if(dragDx>46&&cur>0)go(cur-1);
+            else go(cur);
+          });
+        });
+      },{passive:true});
+
+      // Modal itself is position:fixed (see .ivc-modal), so it always
+      // stays visually centered on screen regardless of page scroll —
+      // no body-scroll lock needed, and per feedback the page should
+      // stay scrollable while a video is open.
+      function playModalVideo(){
+        mVid.muted = false;
+        mVid.play().catch(function(){
+          // Autoplay-with-sound blocked — fall back to muted so the
+          // video starts immediately either way; user can unmute via
+          // the native controls bar.
+          mVid.muted = true;
+          mVid.play().catch(function(){});
+        });
+      }
+      function openModal(i){
+        mIdx=i;mVid.src=VIDS[i].s;mVid.load();playModalVideo();
+        modal.classList.add('ivc-open');syncMNav();
+      }
+      function closeModal(){modal.classList.remove('ivc-open');mVid.pause();mVid.src='';}
+      function modalNav(dir){
+        mIdx=Math.max(0,Math.min(mIdx+dir,VIDS.length-1));
+        mVid.src=VIDS[mIdx].s;mVid.load();playModalVideo();syncMNav();
+      }
+      function syncMNav(){
+        btnMP.classList.toggle('ivc-off',mIdx===0);
+        btnMN.classList.toggle('ivc-off',mIdx===VIDS.length-1);
+      }
+
+      document.getElementById('ivc-mbg').addEventListener('click',closeModal);
+      document.getElementById('ivc-mx').addEventListener('click',closeModal);
+      btnMP.addEventListener('click',function(){modalNav(-1);});
+      btnMN.addEventListener('click',function(){modalNav(1);});
+
+      document.addEventListener('keydown',function(e){
+        if(!modal.classList.contains('ivc-open'))return;
+        if(e.key==='Escape')closeModal();
+        if(e.key==='ArrowLeft')modalNav(-1);
+        if(e.key==='ArrowRight')modalNav(1);
+      });
+
+      var mTx=0;
+      modal.addEventListener('touchstart',function(e){mTx=e.touches[0].clientX;},{passive:true});
+      modal.addEventListener('touchend',function(e){
+        var dx=e.changedTouches[0].clientX-mTx;
+        if(dx<-60)modalNav(1);else if(dx>60)modalNav(-1);
+      },{passive:true});
+
+      window.addEventListener('resize',function(){positionCards(true);});
+      setTimeout(function(){go(0,true);},200);
+      window.addEventListener('load',function(){go(0,true);});
+    })();
+    </script>
+
   </section>
 
-  <!-- Stats strip -->
-  <div class="stats-strip">
-    <a class="stat-item" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">
-      <strong>4.8</strong><span data-fr="Note Fresha" data-en="Fresha Rating">Note Fresha</span>
-    </a>
-    <a class="stat-item" href="https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z/data=!4m17!1m8!3m7!1s0x4cc91912fb8a5ed7:0xeac8eddd13ab6b1c!2s19+Av.+Shamrock,+Montréal,+QC+H2S+1A3!3b1!8m2!3d45.5344811!4d-73.6167675!16s%2Fg%2F11bw3_q3nb!3m7!1s0x4cc91900204e6e1b:0xe5cc326474452c73!8m2!3d45.5344811!4d-73.6167675!9m1!1b1!16s%2Fg%2F11w514v292?hl=fr-FR&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
-      <strong>4.7</strong><span data-fr="Note Google" data-en="Google Rating">Note Google</span>
-    </a>
-    <div class="stat-item">
-      <strong>461+</strong><span data-fr="Avis Fresha" data-en="Fresha Reviews">Avis Fresha</span>
-    </div>
-    <div class="stat-item">
-      <strong>1600+</strong><span data-fr="Avis Global" data-en="Total Reviews">Avis Global</span>
-    </div>
-  </div>
-
-  <!-- Reviews grid -->
+  <!-- Reviews grid — authentic Google Reviews only, grouped by service -->
   <section class="reviews-section" id="reviews-cards">
     <h2><span data-fr="Avis" data-en="Reviews">Avis</span> <em>Head Spa</em></h2>
-    <p class="reviews-intro" data-fr="★★★★★ · Source : Fresha" data-en="★★★★★ · Source: Fresha">★★★★★ · Source : Fresha</p>
+    <p class="reviews-intro" data-fr="★★★★★ · Avis Google vérifiés" data-en="★★★★★ · Verified Google Reviews">★★★★★ · Avis Google vérifiés</p>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Une expérience absolument transformatrice. Le scalpcial a laissé mon cuir chevelu revigoré et mes cheveux brillants. L'ambiance japonaise est apaisante dès l'entrée — je repars à chaque fois complètement ressourcée. »</p>
-        <div><div class="review-author">Camille R.</div><div class="review-source">Fresha · Mars 2025</div></div>
+        <p class="review-text">« The head spa service was absolutely amazing—so relaxing and impeccably clean. I've had this service done before in Japan, and this was my first time experiencing it outside of Japan. It truly exceeded my expectations. Ghofram and Hamma were both wonderful and made the experience extra special. They provided the service for both myself and my mom, and we couldn't have asked for better care. Highly recommend! »</p>
+        <div><div class="review-author">Stefania M.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le duo 90 min avec ma meilleure amie était magique. Une heure et demie de pur luxe, les mains expertes de l'équipe font une vraie différence. On va revenir chaque mois sans hésiter ! »</p>
-        <div><div class="review-author">Sofia M.</div><div class="review-source">Fresha · Février 2025</div></div>
+        <p class="review-text">« Honestly felt like my brain took a vacation. The relaxing music, the atmosphere, and the head massage together were an unreal experience. And the magical hands of the therapist made everything even more calming and unforgettable. I walked out feeling lighter, calmer, and completely refreshed. »</p>
+        <div><div class="review-author">Puzan J.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Skines est un vrai bijou caché à Montréal. Le soin est ultra professionnel, l'espace est magnifique, et on ressort complètement détendue. Sans aucun doute le meilleur head spa de la ville. »</p>
-        <div><div class="review-author">Anaïs T.</div><div class="review-source">Fresha · Janvier 2025</div></div>
+        <p class="review-text">« Absolutely loved my head spa session! Super relaxing, professional service, and my scalp and hair feel incredible. The ambiance was peaceful and the massage was next-level soothing. I'll definitely be back! »</p>
+        <div><div class="review-author">Kayla Z.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le massage du cuir chevelu était tellement relaxant que je me suis endormie ! Le personnel est attentionné, l'espace est propre et serein. Je recommande vivement le soin 90 minutes. »</p>
-        <div><div class="review-author">Marie-Claude B.</div><div class="review-source">Fresha · Décembre 2024</div></div>
+        <p class="review-text">« J'ai adoré mon expérience chez Skines Head Spa ! Du début à la fin. Meilleure pause détente à Montréal en passant Lucie une superbe professionnelle « mains des fées ». Merci à bientôt. »</p>
+        <div><div class="review-author">Sandra C.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Première visite pour un head spa, et je suis tombée amoureuse. L'équipe explique chaque étape, l'ambiance est zen et luxueuse. Mes cheveux n'ont jamais été aussi soyeux. »</p>
-        <div><div class="review-author">Yasmine H.</div><div class="review-source">Fresha · Novembre 2024</div></div>
+        <p class="review-text">« Quelle belle découverte! Un head spa tout simplement divin! Kenza aux doigts de fée prodigue des soins exceptionnels avec une telle douceur, délicatesse et grand professionnalisme. Et les produits sentent bons! On se sent littéralement revigorée après un tel soin! Merci Kenza et à bientôt! »</p>
+        <div><div class="review-author">Marjorie L.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Un moment de pur bonheur. L'odeur des produits, la douceur des soins, la chaleur de l'équipe — tout est pensé dans les moindres détails. Je suis déjà en train de planifier ma prochaine visite. »</p>
-        <div><div class="review-author">Isabelle L.</div><div class="review-source">Fresha · Octobre 2024</div></div>
+        <p class="review-text">« For a first time visit at this spa. I am speechless as how clean and well organize it is. I want to thank Alexi for the beautiful techniques and soft hands. I took the 90 minutes head spa, not only was I taken before my appointment time but it was really a 90 mins duration. So worth it for the relaxing feeling and the shampoo smells so good. I also want to thank Mo at the front desk :) »</p>
+        <div><div class="review-author">Mc R.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Quel moment magique! J'ai essayé le Signature Scalpcial de 90 minutes, et je le recommande à tout le monde. J'ai pu décompresser comme jamais. L'endroit est beau et propre, tout le monde est super accueillant. Merci mille fois à Alexis <3 »</p>
+        <div><div class="review-author">Marie L.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Le soin est parfait pour la détente. Les différents objets utilisés pour le massage (grattoir, masseur, etc.) créent avec douceur des sensations apaisantes. La musique est bien assortie et les tables confortables. Les produits utilisés sentent bons et semblent être de grande qualité. Le soin est complet, idéal à offrir en cadeau. Une belle expérience à faire en couple, entre amis ou en famille. Nous allons revenir! »</p>
+        <div><div class="review-author">Mylène S.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Excellent head massage au Skines Head Spa. C'était mon tout premier et je n'ai pas été déçu. J'ai tellement relaxé que je ne savais plus où j'étais au moment du réveil. Mes moments préférés : quand l'eau était dans le cou, le massage du haut de la poitrine et le brossage de cheveux. »</p>
+        <div><div class="review-author">Claire D.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« It was really great. 60min visit is not enough. Will book the 90mins next visit. »</p>
+        <div><div class="review-author">Joyce B.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« My experience with Kenza was outstanding! It was my first visit but definitely won't be my last! Definitely recommend the 90 minute treatment with Kenza :) so relaxing. »</p>
+        <div><div class="review-author">Lisa G.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Excellent services, massage and hair treatment were excellent. Very quiet and relaxing environment. Highly recommend. »</p>
+        <div><div class="review-author">Leslie B.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« My mom and I came for a duo head spa and it was a wonderful experience! Would highly recommend. »</p>
+        <div><div class="review-author">Carine A.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« J'ai offert un massage capillaire à ma mère pour la fête des mères. Elle a eu une session avec Lucie et elle a adoré. Lucie lui a donné un service impeccable. Elle a été très attentive aux besoins du client. Ce fut une expérience de haute qualité. Ma mère a immédiatement ressenti les bénéfices du massage. Je le recommande fortement. »</p>
+        <div><div class="review-author">Kassandra T.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Cette expérience fut au-delà de mes attentes. Alexis et Kenza furent attentives et parfaitement professionnelles. À refaire! »</p>
+        <div><div class="review-author">Sonja K.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Kenza était absolument incroyable. Une douceur et présence que j'ai ressenti tout au long du massage. Définitivement à refaire. »</p>
+        <div><div class="review-author">Karen G.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Un moment suspendu, détente incroyable. Kenza a des doigts de fée. Je ne peux que recommander. »</p>
+        <div><div class="review-author">Vanessa M.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Excellent massage capillaire avec Kenza. Très douce et très professionnelle. Moment super relaxant, je recommande. »</p>
+        <div><div class="review-author">Souhir N.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
     </div>
 
     <h2><span data-fr="Avis" data-en="Reviews">Avis</span> <em>Facial</em></h2>
-    <p class="reviews-intro" data-fr="★★★★★ · Source : Google & Fresha" data-en="★★★★★ · Source: Google & Fresha">★★★★★ · Source : Google & Fresha</p>
+    <p class="reviews-intro" data-fr="★★★★★ · Avis Google vérifiés" data-en="★★★★★ · Verified Google Reviews">★★★★★ · Avis Google vérifiés</p>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le soin du visage était incroyable — ma peau n'avait jamais été aussi lumineuse. L'équipe est professionnelle, attentionnée, et l'espace est tellement relaxant. Je recommande à toutes mes amies. »</p>
-        <div><div class="review-author">Léa B.</div><div class="review-source">Google · Avril 2025</div></div>
+        <p class="review-text">« Got a facial with Daria very relaxing & my skin looks so plump. »</p>
+        <div><div class="review-author">Sabrina I.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« HydraDermabrasion Bela MD — résultats visibles dès la première séance. Ma peau était éclatante et hydratée comme jamais. L'expérience en elle-même est déjà un luxe. »</p>
-        <div><div class="review-author">Chloé M.</div><div class="review-source">Google · Mars 2025</div></div>
+        <p class="review-text">« I did both a facial and laser session, and I'm really happy with the results. My skin looks clearer and more radiant. »</p>
+        <div><div class="review-author">Khouloud A.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« J'ai fait un luxury facial et c'était exactement ce dont j'avais besoin. Soin ultra personnalisé, produits de qualité, résultat magnifique. L'endroit est propre, élégant et apaisant. »</p>
-        <div><div class="review-author">Emilie P.</div><div class="review-source">Fresha · Février 2025</div></div>
+        <p class="review-text">« Clara was very professional and attentive. »</p>
+        <div><div class="review-author">Dheliah W.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Loved the esthetician. »</p>
+        <div><div class="review-author">Anna</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Accueil chaleureux et excellent service avec Amina! »</p>
+        <div><div class="review-author">Catherine D.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Très agréable et professionnel!! Wow. »</p>
+        <div><div class="review-author">Myriam T.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Très gentille et attentionnée! »</p>
+        <div><div class="review-author">Sheila T.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Loved the experience with Kenza. »</p>
+        <div><div class="review-author">Lisa A.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
     </div>
 
     <h2><span data-fr="Avis" data-en="Reviews">Avis</span> <em><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></em></h2>
-    <p class="reviews-intro" data-fr="★★★★★ · Source : Google" data-en="★★★★★ · Source: Google">★★★★★ · Source : Google</p>
+    <p class="reviews-intro" data-fr="★★★★★ · Avis Google vérifiés" data-en="★★★★★ · Verified Google Reviews">★★★★★ · Avis Google vérifiés</p>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« J'y suis allée pour un soin laser et j'ai été bluffée par le résultat dès la première séance. L'ambiance est zen, le personnel est aux petits soins. C'est mon endroit coup de cœur à Montréal. »</p>
-        <div><div class="review-author">Nour K.</div><div class="review-source">Google · Mars 2025</div></div>
+        <p class="review-text">« I did both a facial and laser session, and I'm really happy with the results. My skin looks clearer and more radiant. »</p>
+        <div><div class="review-author">Khouloud A.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« Le laser Clarity II est vraiment impressionnant. Moins douloureux que les autres lasers que j'ai essayés, et les résultats sont bien meilleurs. L'équipe est professionnelle et rassurante. »</p>
-        <div><div class="review-author">Sarah T.</div><div class="review-source">Google · Janvier 2025</div></div>
+        <p class="review-text">« What a lovely place and wonderful staff. Can't wait to see my results with laser 😊 »</p>
+        <div><div class="review-author">Jacky I.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">« 5 séances et je suis déjà ravie des résultats ! L'équipe est disponible, répond à toutes mes questions et s'adapte à chaque séance. Je recommande Skines sans hésitation pour l'épilation laser. »</p>
-        <div><div class="review-author">Julie F.</div><div class="review-source">Google · Décembre 2024</div></div>
+        <p class="review-text">« Excellent service. »</p>
+        <div><div class="review-author">Rose T.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Extraordinaire. »</p>
+        <div><div class="review-author">Oussema M.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Très gentille et attentionnée! »</p>
+        <div><div class="review-author">Sheila T.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Accueil chaleureux et excellent service avec Amina! »</p>
+        <div><div class="review-author">Catherine D.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Très agréable et professionnel!! Wow. »</p>
+        <div><div class="review-author">Myriam T.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Magnifique moment offert par Nadine ! Merci je reviendrai :) »</p>
+        <div><div class="review-author">Emilie F.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Excellente expérience comme toujours. 10/10. »</p>
+        <div><div class="review-author">Illona S.</div><div class="review-source">Google Reviews · Avis vérifié</div></div>
       </div>
     </div>
 
@@ -5555,204 +6051,24 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     </div>
   </section>
 
-  <!-- Video modal -->
-  <div class="vc-modal" id="vc-modal" role="dialog" aria-modal="true">
-    <div class="vc-modal-bg" id="vc-mbg"></div>
-    <div class="vc-modal-row">
-      <button class="vc-mnav vc-off" id="vc-mp" aria-label="Précédent">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="vc-modal-box">
-        <button class="vc-modal-x" id="vc-mx" aria-label="Fermer">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-        <video id="vc-mvid" playsinline controls preload="none"></video>
-      </div>
-      <button class="vc-mnav" id="vc-mn" aria-label="Suivant">
-        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-      </button>
-    </div>
-  </div>
-
   <script>
   (function () {
-    var VIDS = [
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis1.mp4',            t:'assets/avis1_thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis2.mp4',            t:'assets/avis2_thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis3.mp4',            t:'assets/avis3_thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis4.mp4',            t:'assets/avis4_thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis5.mp4',            t:'assets/avis5_thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis6.mp4',     t:'assets/videos/avis6-thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-cyrine.mp4',t:'assets/videos/avis-cyrine-thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-avii.mp4', t:'assets/videos/avis-avii-thumb.webp?v=1'},
-      {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/videos/avis-yeah.mp4', t:'assets/videos/avis-yeah-thumb.webp?v=1'},
-    ];
-
-    var cur    = 0;
-    var mIdx   = 0;
-    var track  = document.getElementById('vc-track');
-    var outer  = document.getElementById('vc-outer');
-    var modal  = document.getElementById('vc-modal');
-    var mVid   = document.getElementById('vc-mvid');
-    var dotsEl = document.getElementById('vc-dots');
-    var btnPL  = document.getElementById('vc-pl');
-    var btnNL  = document.getElementById('vc-nl');
-    var btnMP  = document.getElementById('vc-mp');
-    var btnMN  = document.getElementById('vc-mn');
-
-    /* Build slides */
-    VIDS.forEach(function (v, i) {
-      var s = document.createElement('div');
-      s.className = 'vc-slide' + (i === 0 ? ' vc-active' : '');
-      s.innerHTML =
-        '<img src="' + v.t + '" loading="' + (i < 3 ? 'eager' : 'lazy') + '" alt="">' +
-        '<div class="vc-voverlay"></div>' +
-        '<div class="vc-playbtn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21"/></svg></div>' +
-        '<video playsinline muted loop preload="none"></video>';
-      s.addEventListener('click', function () {
-        if (i === cur) { openModal(i); } else { go(i); }
+    var LABEL_MORE = { fr: 'Afficher plus', en: 'Show more' };
+    var LABEL_LESS = { fr: 'Afficher moins', en: 'Show less' };
+    function lang() { return (document.documentElement.lang || 'fr').slice(0,2) === 'en' ? 'en' : 'fr'; }
+    document.querySelectorAll('#reviews-cards .review-card').forEach(function (card) {
+      var text = card.querySelector('.review-text');
+      if (!text || text.scrollHeight <= text.clientHeight + 2) return;
+      var btn = document.createElement('button');
+      btn.className = 'review-toggle';
+      btn.type = 'button';
+      btn.textContent = LABEL_MORE[lang()];
+      btn.addEventListener('click', function () {
+        var open = card.classList.toggle('expanded');
+        btn.textContent = open ? LABEL_LESS[lang()] : LABEL_MORE[lang()];
       });
-      track.appendChild(s);
+      text.insertAdjacentElement('afterend', btn);
     });
-
-    /* Build dots */
-    VIDS.forEach(function (_, i) {
-      var d = document.createElement('div');
-      d.className = 'vc-dot' + (i === 0 ? ' vc-active' : '');
-      d.addEventListener('click', function () { go(i); });
-      dotsEl.appendChild(d);
-    });
-
-    /* Pixel offset so slide[i] is centered in outer */
-    function calcOffset(i) {
-      var slides = track.children;
-      if (!slides[i]) return 0;
-      var sW  = slides[i].offsetWidth;
-      var gap = 14;
-      var ow  = outer.offsetWidth;
-      return i * (sW + gap) - (ow - sW) / 2;
-    }
-
-    /* Navigate carousel */
-    function go(newI, instant) {
-      var slides = track.children;
-      var dots   = dotsEl.children;
-
-      /* Pause old video */
-      var ov = slides[cur] ? slides[cur].querySelector('video') : null;
-      if (ov) {
-        ov.pause();
-        ov.style.opacity = '0';
-        (function (v) { setTimeout(function () { v.style.display = 'none'; }, 350); })(ov);
-      }
-
-      cur = Math.max(0, Math.min(newI, VIDS.length - 1));
-
-      for (var i = 0; i < slides.length; i++) {
-        slides[i].classList.toggle('vc-active', i === cur);
-        dots[i].classList.toggle('vc-active', i === cur);
-      }
-
-      if (instant) { track.style.transition = 'none'; }
-      track.style.transform = 'translateX(' + (-calcOffset(cur)) + 'px)';
-      if (instant) { requestAnimationFrame(function () { track.style.transition = ''; }); }
-
-      /* Play new video */
-      var ns = slides[cur];
-      var nv = ns.querySelector('video');
-      if (!nv.getAttribute('data-l')) {
-        nv.src = VIDS[cur].s;
-        nv.setAttribute('data-l', '1');
-        nv.load();
-      }
-      nv.style.display = 'block';
-      nv.style.opacity = '0';
-      (function (v) {
-        setTimeout(function () { v.style.opacity = '1'; v.play().catch(function(){}); }, 55);
-      })(nv);
-
-      btnPL.classList.toggle('vc-off', cur === 0);
-      btnNL.classList.toggle('vc-off', cur === VIDS.length - 1);
-    }
-
-    /* Arrow clicks */
-    btnPL.addEventListener('click', function () { go(cur - 1); });
-    btnNL.addEventListener('click', function () { go(cur + 1); });
-
-    /* Touch swipe on carousel */
-    var txS = 0, tyS = 0, offS = 0, drag = false;
-    outer.addEventListener('touchstart', function (e) {
-      txS  = e.touches[0].clientX;
-      tyS  = e.touches[0].clientY;
-      offS = calcOffset(cur);
-      drag = true;
-      track.style.transition = 'none';
-    }, {passive: true});
-    outer.addEventListener('touchmove', function (e) {
-      if (!drag) return;
-      var dx = e.touches[0].clientX - txS;
-      var dy = e.touches[0].clientY - tyS;
-      if (Math.abs(dy) > Math.abs(dx) + 5) { drag = false; return; }
-      e.preventDefault();
-      track.style.transform = 'translateX(' + (-offS + dx) + 'px)';
-    }, {passive: false});
-    outer.addEventListener('touchend', function (e) {
-      if (!drag) return;
-      drag = false;
-      track.style.transition = 'transform 0.62s cubic-bezier(0.22,1,0.36,1)';
-      var dx = e.changedTouches[0].clientX - txS;
-      if (dx < -46 && cur < VIDS.length - 1) go(cur + 1);
-      else if (dx > 46 && cur > 0) go(cur - 1);
-      else go(cur);
-    }, {passive: true});
-
-    /* Modal */
-    function openModal(i) {
-      mIdx = i;
-      mVid.src = VIDS[i].s; mVid.load(); mVid.play().catch(function(){});
-      modal.classList.add('vc-open');
-      syncMNav();
-    }
-    function closeModal() {
-      modal.classList.remove('vc-open');
-      mVid.pause(); mVid.src = '';
-    }
-    function modalNav(dir) {
-      mIdx = Math.max(0, Math.min(mIdx + dir, VIDS.length - 1));
-      mVid.src = VIDS[mIdx].s; mVid.load(); mVid.play().catch(function(){});
-      syncMNav();
-    }
-    function syncMNav() {
-      btnMP.classList.toggle('vc-off', mIdx === 0);
-      btnMN.classList.toggle('vc-off', mIdx === VIDS.length - 1);
-    }
-
-    document.getElementById('vc-mbg').addEventListener('click', closeModal);
-    document.getElementById('vc-mx').addEventListener('click', closeModal);
-    btnMP.addEventListener('click', function () { modalNav(-1); });
-    btnMN.addEventListener('click', function () { modalNav(1); });
-
-    /* Keyboard */
-    document.addEventListener('keydown', function (e) {
-      if (!modal.classList.contains('vc-open')) return;
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowLeft')  modalNav(-1);
-      if (e.key === 'ArrowRight') modalNav(1);
-    });
-
-    /* Modal swipe */
-    var mTx = 0;
-    modal.addEventListener('touchstart', function (e) { mTx = e.touches[0].clientX; }, {passive: true});
-    modal.addEventListener('touchend',   function (e) {
-      var dx = e.changedTouches[0].clientX - mTx;
-      if (dx < -60) modalNav(1); else if (dx > 60) modalNav(-1);
-    }, {passive: true});
-
-    /* Resize */
-    window.addEventListener('resize', function () { go(cur, true); });
-
-    /* Init */
-    setTimeout(function () { go(0, true); }, 80);
   })();
   </script>
 
@@ -5856,7 +6172,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 .sf-exclusive-card {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; gap: 0.7rem;
-  width: 100%;
+  width: auto;
   padding: 1.4rem 1.2rem; margin: 0.8rem 1.6rem;
   background: rgba(201,160,96,0.10);
   border: 1px solid rgba(201,160,96,0.35);
@@ -6110,12 +6426,6 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   html body nav a.nav-cta { display: none !important; }
 }
 /* STONE-FINAL */
-#vc-dots .vc-dot { display: inline-block !important; }
-.stats-strip { background: #684034 !important; border-color: rgba(245,237,227,0.10) !important; }
-.stats-strip .stat-item { border-color: rgba(245,237,227,0.15) !important; }
-.stats-strip .stat-item strong { color: #F5EDE3 !important; }
-.stats-strip .stat-item span { color: rgba(245,237,227,0.60) !important; }
-@media (max-width: 580px) { .vc-arrow { display: flex !important; width: 36px !important; height: 36px !important; } .vc-arrow-l { left: 4px !important; } .vc-arrow-r { right: 4px !important; } }
 #reviews-cards { background: #684034 !important; }
 #reviews-cards .platform-cta-title { color: #F5EDE3 !important; }
 #reviews-cards .platform-cta-title em { color: #F0C87A !important; }

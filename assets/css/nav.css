@@ -68,7 +68,12 @@ nav .logo-text {
   line-height: 1 !important;
   text-transform: uppercase !important;
 }
-nav:not(.nav-scrolled) .logo-text { color: rgba(245,237,227,0.95) !important; }
+nav:not(.nav-scrolled) .logo-text {
+  color: rgba(245,237,227,0.95) !important;
+  /* Legibility over busy photo/video hero backgrounds (transparent nav
+     state only — the scrolled solid-bg state doesn't need it). */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45) !important;
+}
 nav.nav-scrolled .logo-text        { color: #4B2E26 !important; }
 
 /* ── MED SPA · MONTRÉAL — valeurs exactes du logo original ── */
@@ -83,8 +88,22 @@ nav .logo-sub {
   display: block !important;
   margin-top: 0.05rem !important;
 }
-nav:not(.nav-scrolled) .logo-sub { color: rgba(245,237,227,0.45) !important; }
+nav:not(.nav-scrolled) .logo-sub {
+  color: rgba(245,237,227,0.45) !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45) !important;
+}
 nav.nav-scrolled .logo-sub        { color: rgba(158,140,132,0.85) !important; }
+
+/* Very soft glass panel behind the wordmark when the nav is transparent,
+   so it stays readable over a busy hero/carousel photo without reading
+   as an obvious box — large radius + low opacity + no border. */
+nav:not(.nav-scrolled) .logo-brand {
+  background: rgba(0,0,0,0.18) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 999px !important;
+  padding: 0.35rem 1.1rem !important;
+}
 
 /* ── Logo brand container ── */
 nav .logo-brand {
