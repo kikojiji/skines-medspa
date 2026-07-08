@@ -7289,7 +7289,7 @@ html body #sp-stones img {
     .ivc-arrow:active { transform: translateY(-50%) scale(0.95); transition: transform 0.12s ease; }
     .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; animation: none; }
     .ivc-arrow-l { left: 14px; } .ivc-arrow-r { right: 14px; }
-    .ivc-arrow svg { stroke: #F7F2EC; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
+    .ivc-arrow svg { stroke: #F7F2EC; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 22px; height: 22px; }
     .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 0; }
     /* :not(#_) id-specificity trick: a global "hide empty divs" rule
        (div[class]:empty:not(input):not(br) { display:none !important })
@@ -7312,8 +7312,9 @@ html body #sp-stones img {
     }
     .ivc-nav-row .ivc-arrow {
       position: static; transform: none; z-index: auto;
-      width: 36px; height: 36px;
+      width: 48px; height: 48px;
     }
+    .ivc-nav-row .ivc-arrow svg { width: 26px; height: 26px; }
     .ivc-nav-row .ivc-arrow:hover { transform: none; }
     .ivc-nav-row .ivc-arrow:active { transform: scale(0.95); }
     .ivc-nav-row .ivc-arrow-l, .ivc-nav-row .ivc-arrow-r { left: auto; right: auto; }
@@ -7394,7 +7395,7 @@ html body #sp-stones img {
         <span class="ivc-side-claim" data-fr="Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience." data-en="Our greatest recognition comes from the hundreds of clients who chose to share their experience.">Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience.</span>
       </div>
       <div class="ivc-nav-row">
-        <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
+        <button class="ivc-arrow ivc-arrow-l" id="ivc-pl" aria-label="Précédent">
           <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <div class="ivc-dots" id="ivc-dots"></div>
@@ -7427,6 +7428,7 @@ html body #sp-stones img {
     (function () {
       var VIDS = [
         {s:'assets/videos/avis-hook.mp4',                                              t:'assets/videos/avis-hook-thumb.webp'},
+        {s:'assets/videos/avis-new.mp4',                                               t:'assets/videos/avis-new-thumb.webp'},
         {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis6.mp4',             t:'assets/avis6_thumb.webp?v=1'},
         {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis1.mp4',             t:'assets/avis1_thumb.webp?v=1'},
         {s:'https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/avis2.mp4',             t:'assets/avis2_thumb.webp?v=1'},
@@ -7627,11 +7629,12 @@ html body #sp-stones img {
         // so the newly active card always opens fresh from 0:00 (it stays
         // on its still until the user clicks to play).
         for(var k=0;k<slides.length;k++) resetSlideVideo(slides[k]);
-        cur=Math.max(0,Math.min(newI,VIDS.length-1));
+        // Loop instead of clamping at the ends — both arrows stay live
+        // always, wrapping from the last video back to the first and
+        // vice versa.
+        cur=((newI%VIDS.length)+VIDS.length)%VIDS.length;
         for(var i=0;i<dots.length;i++) dots[i].classList.toggle('ivc-active',i===cur);
         positionCards(instant);
-        btnPL.classList.toggle('ivc-off',cur===0);
-        btnNL.classList.toggle('ivc-off',cur===VIDS.length-1);
       }
 
       btnPL.addEventListener('click',function(){go(cur-1);});
@@ -7656,8 +7659,8 @@ html body #sp-stones img {
         requestAnimationFrame(function(){
           var sl=track.children;for(var i=0;i<sl.length;i++) sl[i].style.transition='';
           requestAnimationFrame(function(){
-            if(dragDx<-46&&cur<VIDS.length-1)go(cur+1);
-            else if(dragDx>46&&cur>0)go(cur-1);
+            if(dragDx<-46)go(cur+1);
+            else if(dragDx>46)go(cur-1);
             else go(cur);
           });
         });
@@ -10537,7 +10540,7 @@ html body section#treatments.services {
   position: relative;
   /* Tighter bottom gap so the reviews heading sits closer to the cards
      instead of leaving a wide flat gap before it — "rises up". */
-  padding-bottom: 2.5rem !important;
+  padding-bottom: 0.75rem !important;
 }
 html body section#treatments.services::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 160px;
