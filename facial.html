@@ -7761,12 +7761,6 @@ html body nav
     for (var k = 0; k < d.faqs.length; k++) {
       h += '<div class="fcl-faq-item"><p class="fcl-faq-q">' + esc(d.faqs[k].q) + '</p><p class="fcl-faq-a">' + esc(d.faqs[k].a) + '</p></div>';
     }
-    h += '<p class="fcl-section-h">' + esc(d.linksTitle) + '</p>';
-    h += '<div class="fcl-links-wrap">';
-    for (var l = 0; l < d.links.length; l++) {
-      h += '<a href="' + esc(d.links[l].href) + '" class="fcl-pill">' + esc(d.links[l].label) + '</a>';
-    }
-    h += '</div>';
     h += '<div class="fcl-cta-wrap"><a class="fcl-cta" href="' + esc(FRESHA) + '" target="_blank" rel="noreferrer">' + esc(d.cta) + '</a></div>';
     contentEl.innerHTML = h;
     scrollEl.scrollTop = 0;
