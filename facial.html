@@ -6187,7 +6187,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   </div>
 </section>
 
-<section>
+<section class="bundles-section">
   <h2><span data-fr="Combinez. Économisez." data-en="Combine. Save.">Combinez. Économisez.</span></h2>
   <div class="bundles-grid" style="margin-top:2rem;">
     <div class="bundle">
@@ -7446,6 +7446,20 @@ html body nav
 .fcl-img-title{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.03em;color:#3A1E14;margin:.5rem 0 .2rem;text-align:center}
 .fcl-img-caption{font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:rgba(58,30,20,.55);margin:0;text-align:center}
 @media(max-width:640px){.fcl-img-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── Bundles section: smaller, more compact on phones ── */
+@media(max-width:640px){
+  html body .bundles-section h2 { font-size: 1.7rem !important; line-height: 1.25 !important; }
+  html body .bundle { padding: 1rem 1.1rem !important; }
+  html body .bundle-tag { font-size: 0.56rem !important; margin-bottom: 0.5rem !important; }
+  html body .bundle-name { font-size: 1.05rem !important; margin-bottom: 0.1rem !important; }
+  html body .bundle-name-fr { font-size: 0.72rem !important; margin-bottom: 0.5rem !important; }
+  html body .bundle-price { font-size: 1.3rem !important; margin-bottom: 0.1rem !important; }
+  html body .bundle-save { font-size: 0.6rem !important; margin-bottom: 0.45rem !important; }
+  html body .bundle-includes { font-size: 0.7rem !important; line-height: 1.4 !important; margin-bottom: 0.45rem !important; }
+  html body .bundle-desc { font-size: 0.68rem !important; line-height: 1.35 !important; }
+  html body .bundles-section .bundles-grid { gap: 0.7rem !important; }
+}
 </style>
 
 <div id="fclOverlay" class="fcl-overlay" role="dialog" aria-modal="true" aria-label="Détails du soin">
