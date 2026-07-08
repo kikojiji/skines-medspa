@@ -7056,8 +7056,8 @@ html body #sp-stones img {
 
   <section class="booking-band">
     <div class="fade-up">
-      <h2 style="color:#684034!important"><span style="color:#684034!important" data-fr="Réservez votre pause Skines." data-en="Book Your Skines Escape.">Réservez votre pause Skines.</span></h2>
-      <p style="color:#605c59!important"><span style="color:#605c59!important" data-fr="Choisissez votre soin sur Fresha ou appelez directement le studio de Montréal." data-en="Choose your treatment on Fresha or call our Montréal studio directly.">Choisissez votre soin sur Fresha ou appelez directement le studio de Montréal.</span></p>
+      <h2 style="color:#F5EDE3!important"><span style="color:#F5EDE3!important" data-fr="Réservez votre pause Skines." data-en="Book Your Skines Escape.">Réservez votre pause Skines.</span></h2>
+      <p style="color:rgba(245,237,227,0.68)!important"><span style="color:rgba(245,237,227,0.68)!important" data-fr="Choisissez votre soin sur Fresha ou appelez directement le studio de Montréal." data-en="Choose your treatment on Fresha or call our Montréal studio directly.">Choisissez votre soin sur Fresha ou appelez directement le studio de Montréal.</span></p>
     </div>
     <div class="booking-actions">
       <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
@@ -10358,7 +10358,143 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   <link rel="stylesheet" href="assets/css/animations.css?v=1">
 <style>
 
-html body nav 
+html body nav
+</style>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   ART DIRECTION PASS — continuous luxury scroll journey
+   Homepage read top-to-bottom: hero (dark) → services (dark) →
+   booking band → reviews carousel (brown) → footer (brown). The one
+   hard seam was the booking band, which had drifted to a bright cream
+   fill against two dark neighbours — recolored to a dark gradient that
+   bridges the two, plus lighter/faster-scanning service cards and a
+   few soft atmospheric glows for depth. Reviews/video carousel and the
+   footer are untouched below.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Booking band: was a flat cream slab between two dark sections —
+   now a dark gradient that starts at the services section's own tone
+   and ends at the reviews section's tone, so both seams disappear. ── */
+html body section.booking-band {
+  background: linear-gradient(180deg, #2A1810 0%, #4B2E26 52%, #684034 100%) !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  position: relative;
+}
+html body section.booking-band .btn-dark {
+  background: #F5EDE3 !important;
+  color: #3A1E14 !important;
+  border-color: #F5EDE3 !important;
+}
+html body section.booking-band .btn-dark:hover {
+  background: transparent !important;
+  color: #F5EDE3 !important;
+  border-color: rgba(245,237,227,0.55) !important;
+}
+
+/* ── Soft seam blends: a short gradient fade at the top of services
+   and at the top of the booking band, so the transition reads as one
+   continuous surface instead of a cut between two flat blocks. ── */
+html body section#treatments.services {
+  position: relative;
+  /* Tighter bottom gap so the reviews heading sits closer to the cards
+     instead of leaving a wide flat gap before it — "rises up". */
+  padding-bottom: 2.5rem !important;
+}
+html body section#treatments.services::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 160px;
+  background: linear-gradient(180deg, #2C1810 0%, rgba(42,24,16,0) 100%);
+  pointer-events: none; z-index: 1;
+}
+html body section.booking-band::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 90px;
+  background: linear-gradient(180deg, #2A1810 0%, rgba(42,24,16,0) 100%);
+  pointer-events: none; z-index: 1;
+}
+
+/* ── Atmospheric depth: faint warm glows, not a color change — pure
+   light, very low opacity, purely decorative and non-interactive. Also
+   carries the bottom seam blend into the reviews section below, since
+   the booking band that used to sit between them is desktop-hidden —
+   this is the fade that actually smooths the services→reviews cut on
+   desktop, without touching the reviews section itself. ── */
+html body section#treatments.services::after {
+  /* bottom:-2px (instead of inset:0) bleeds the fade 2px past the
+     section's own edge so there's no subpixel rounding gap between this
+     element's background and the flat #684034 that starts immediately
+     below it in the reviews section — that 1px seam was visible as a
+     thin line at the boundary. */
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: -2px;
+  pointer-events: none; z-index: 0;
+  background:
+    linear-gradient(to top, #684034 0%, rgba(104,64,52,0) 170px),
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(201,151,58,0.07), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 100% 100%, rgba(201,151,58,0.05), transparent 60%);
+}
+html body section#treatments.services .section-head,
+html body section#treatments.services .service-grid { position: relative; z-index: 2; }
+
+/* ── Service cards: lighter, shorter, more editorial — faster to scan,
+   less "block" weight, cleaner type hierarchy. ── */
+@media (min-width: 981px) {
+  html body #treatments .service-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    max-width: 1400px !important;
+    gap: 1.4rem !important;
+  }
+}
+html body #treatments .service-card {
+  border-radius: 10px !important;
+  box-shadow: 0 1px 10px rgba(42,24,16,0.12) !important;
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.45s ease !important;
+}
+html body #treatments .service-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 30px rgba(42,24,16,0.22) !important;
+}
+html body #treatments .service-card .card-img {
+  aspect-ratio: 4 / 3 !important;
+}
+html body #treatments .service-card.card-giftcard .card-img {
+  aspect-ratio: 4 / 3 !important;
+}
+html body #treatments .service-card .card-body {
+  min-height: unset !important;
+  padding: 1rem 1.05rem 1.15rem !important;
+  gap: 0.2rem !important;
+}
+html body #treatments .service-card .card-eyebrow {
+  font-size: 0.58rem !important;
+  letter-spacing: 0.22em !important;
+  margin-bottom: 0.25rem !important;
+}
+html body #treatments .service-card h3 {
+  font-size: 1.28rem !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.3rem !important;
+}
+html body #treatments .service-card p {
+  font-size: 0.76rem !important;
+  line-height: 1.45 !important;
+  margin-bottom: 0.55rem !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+html body #treatments .service-card .card-price {
+  font-size: 0.72rem !important;
+  margin-bottom: 0.35rem !important;
+}
+html body #treatments .service-card .card-link {
+  font-size: 0.6rem !important;
+  letter-spacing: 0.18em !important;
+  padding-top: 0.4rem !important;
+}
+@media (min-width: 981px) and (max-width: 1180px) {
+  html body #treatments .service-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
 </body>
