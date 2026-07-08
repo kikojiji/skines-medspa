@@ -1654,6 +1654,26 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
     border-radius: 10px;
   }
 }
+/* Tablet: same compact row treatment as desktop, fewer photos per row */
+@media (min-width: 641px) and (max-width: 980px) {
+  .laser-fullslider { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+  .lfs-track { gap: 10px; }
+  .lfs-slide {
+    min-width: calc((100% - 2 * 10px) / 3);
+    width: calc((100% - 2 * 10px) / 3);
+    border-radius: 8px;
+  }
+}
+/* Mobile: small album — two photos per row instead of one full-bleed image */
+@media (max-width: 640px) {
+  .laser-fullslider { max-width: 100%; margin: 0 auto; padding: 0 0.6rem; }
+  .lfs-track { gap: 8px; }
+  .lfs-slide {
+    min-width: calc((100% - 8px) / 2);
+    width: calc((100% - 8px) / 2);
+    border-radius: 6px;
+  }
+}
 /* Controls — transparent, minimal */
 .lfs-controls { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.2rem; background: transparent; border-top: none; }
 .lfs-btn { background: none; border: none; color: #684034; font-size: 1.8rem; cursor: pointer; opacity: 0.70; transition: opacity 0.2s; line-height: 1; padding: 0.3rem 0.5rem; }
@@ -8002,16 +8022,13 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     track.style.transition = animated
       ? 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)'
       : 'none';
-    if (window.innerWidth >= 981) {
-      // Desktop shows 6 equal-width slides at once (see CSS above) —
-      // percentage-of-track translateX no longer maps to "one slide,"
-      // so measure the actual rendered slide+gap width instead.
-      var gap = parseFloat(getComputedStyle(track).gap) || 0;
-      var step = slides[0].offsetWidth + gap;
-      track.style.transform = 'translateX(-' + (current * step) + 'px)';
-    } else {
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
-    }
+    // All breakpoints now show a row of several equal-width slides at
+    // once (see CSS above) — percentage-of-track translateX only maps
+    // to "one slide" in a single-full-bleed layout, so measure the
+    // actual rendered slide+gap width instead, everywhere.
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var step = slides[0].offsetWidth + gap;
+    track.style.transform = 'translateX(-' + (current * step) + 'px)';
     count.textContent = (current + 1) + ' / ' + total;
   }
   goTo(current, false);
