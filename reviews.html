@@ -764,8 +764,14 @@
     .social-bar { gap: 2rem; padding: 2.5rem 1rem; flex-wrap: wrap; }
     .footer-grid { grid-template-columns: 1fr; }
     .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
-    .platform-btns { flex-direction: column; align-items: stretch; }
-    .cta-btn { justify-content: center; }
+  }
+  /* Stacked, equal-width platform CTA buttons — was only ever applied
+     below 560px, so tablet widths (e.g. 768px) still laid them out with
+     each button sized to its own text, wrapping to two visually
+     mismatched widths instead of one full-width column. */
+  @media (max-width: 900px) {
+    .platform-btns { flex-direction: column; align-items: stretch; max-width: 420px; margin: 0 auto; }
+    .cta-btn { justify-content: center; width: 100%; }
   }
   .lang-switcher { display: flex; align-items: center; gap: 0.3rem; border: 1px solid var(--line); padding: 0.3rem 0.55rem; border-radius: 3px; }
   .lang-btn { background: none; border: none; cursor: pointer; font-family: "DM Sans", sans-serif; font-size: 0.65rem; letter-spacing: 0.18em; font-weight: 600; text-transform: uppercase; color: var(--stone); padding: 0.1rem 0.2rem; transition: color 0.2s; line-height: 1; }
@@ -5450,9 +5456,33 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; animation: none; }
     .ivc-arrow-l { left: 14px; } .ivc-arrow-r { right: 14px; }
     .ivc-arrow svg { stroke: #F7F2EC; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
-    .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; }
+    .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 0; }
+    /* :not(#_) id-specificity trick: a global "hide empty divs" rule
+       (div[class]:empty:not(input):not(br) { display:none !important })
+       has higher specificity than a plain !important class rule (its
+       two :not(element) clauses count toward specificity too) and was
+       matching these dots since they're intentionally content-less,
+       silently hiding the entire dots row. */
     .ivc-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(58,30,20,0.18); cursor: pointer; transition: background 0.35s, transform 0.35s; flex-shrink: 0; }
+    .ivc-dot:not(#_) { display: block !important; }
     .ivc-dot.ivc-active { background: #C9A060; transform: scale(1.45); }
+    /* Nav row below the carousel — arrows moved out of the floating
+       overlay-on-photo position and placed here, flanking the dots,
+       instead of hovering over the video. */
+    .ivc-nav-row {
+      /* Overlaid on the photo near the bottom of the carousel, instead
+         of sitting below it in the empty gap. */
+      position: absolute; left: 0; right: 0; bottom: 14px; z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .ivc-nav-row .ivc-arrow {
+      position: static; transform: none; z-index: auto;
+      width: 36px; height: 36px;
+    }
+    .ivc-nav-row .ivc-arrow:hover { transform: none; }
+    .ivc-nav-row .ivc-arrow:active { transform: scale(0.95); }
+    .ivc-nav-row .ivc-arrow-l, .ivc-nav-row .ivc-arrow-r { left: auto; right: auto; }
     .ivc-modal {
       position: fixed; inset: 0; z-index: 900;
       display: flex; align-items: center; justify-content: center;
@@ -5570,14 +5600,16 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
         <span class="ivc-side-headline" data-fr="expériences qui parlent d'elles-mêmes." data-en="experiences that speak for themselves.">expériences qui parlent d'elles-mêmes.</span>
         <span class="ivc-side-claim" data-fr="Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience." data-en="Our greatest recognition comes from the hundreds of clients who chose to share their experience.">Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience.</span>
       </div>
-      <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="ivc-arrow ivc-arrow-r" id="ivc-nl" aria-label="Suivant">
-        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-      </button>
+      <div class="ivc-nav-row">
+        <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="ivc-dots" id="ivc-dots"></div>
+        <button class="ivc-arrow ivc-arrow-r" id="ivc-nl" aria-label="Suivant">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="ivc-dots" id="ivc-dots"></div>
 
     <div class="reviews-editorial-head fade-up">
       <div class="reviews-label" data-fr="REAL EXPERIENCES" data-en="REAL EXPERIENCES">REAL EXPERIENCES</div>
@@ -6093,7 +6125,6 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 
     <!-- Platform CTAs -->
     <div class="platform-cta">
-      <p class="platform-cta-title"><span data-fr="Laissez votre" data-en="Leave your">Laissez votre</span> <em><span data-fr="avis" data-en="review">avis</span></em></p>
       <div class="platform-btns">
         <a class="cta-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -6490,8 +6521,13 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 #reviews-cards { background: #684034 !important; }
 #reviews-cards .platform-cta-title { color: #F5EDE3 !important; }
 #reviews-cards .platform-cta-title em { color: #F0C87A !important; }
-#reviews-cards .cta-btn { color: #F5EDE3 !important; border-color: rgba(245,237,227,0.55) !important; background: rgba(245,237,227,0.08) !important; }
-#reviews-cards .cta-btn:hover { border-color: #F0C87A !important; color: #F0C87A !important; background: rgba(245,213,160,0.12) !important; }
+#reviews-cards .cta-btn {
+  color: #FFFFFF !important; border-color: rgba(255,255,255,0.55) !important; background: rgba(245,237,227,0.08) !important;
+  font-size: 0.98rem !important; padding: 1.1rem 2.2rem !important; font-weight: 600 !important;
+}
+#reviews-cards .cta-btn span { color: #FFFFFF !important; }
+#reviews-cards .cta-btn:hover { border-color: #F0C87A !important; color: #F0C87A !important; background: rgba(240,200,122,0.18) !important; }
+#reviews-cards .cta-btn:hover span { color: #F0C87A !important; }
 #reviews-cards h2 { color: #F5EDE3 !important; }
 #reviews-cards h2 em { color: #F0C87A !important; font-style: italic; }
 #reviews-cards .reviews-intro { color: rgba(245,237,227,0.70) !important; }

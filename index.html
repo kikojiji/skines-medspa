@@ -1370,20 +1370,13 @@
       width: 34px !important;
       height: 34px !important;
     }
-    /* Move GUIDES next to FR|EN on the right, per feedback — pulled out
-       of the left nav-links flow with position:absolute (no HTML/DOM
-       change, so mobile and desktop — which both rely on .nav-links'
-       normal flow/display rules — are completely unaffected) and
-       anchored a fixed distance from the nav's right edge. That distance
-       is constant across the whole 768–980px range because everything
-       to its right (lang-switcher, search button, paddings) has fixed
-       px widths, not viewport-relative ones. */
-    #mainNav#mainNav .nav-links .nav-dropdown:not(.nav-dropdown-soins) {
-      position: absolute !important;
-      top: 50% !important;
-      right: 172px !important;
-      transform: translateY(-50%) !important;
-    }
+    /* A "move GUIDES next to FR|EN" hack used to live here, pulling the
+       one non-SOINS dropdown out of flow with position:absolute anchored
+       to a fixed right offset. The nav no longer has a GUIDES item —
+       it has AVIS and VISITE, both non-SOINS — so that selector grabbed
+       both and stacked them on the exact same spot (they overlapped,
+       reading as garbled text). Removed; SOINS/AVIS/VISITE all stay in
+       .nav-links' normal flex flow, same as desktop already does. */
     /* Same pre-existing "position:relative got swallowed" bug documented
        above (~line 1071) — that fix was only ever added inside the
        desktop media query, on the assumption mobile hides .nav-links
@@ -7297,9 +7290,33 @@ html body #sp-stones img {
     .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; animation: none; }
     .ivc-arrow-l { left: 14px; } .ivc-arrow-r { right: 14px; }
     .ivc-arrow svg { stroke: #F7F2EC; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
-    .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; }
+    .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 0; }
+    /* :not(#_) id-specificity trick: a global "hide empty divs" rule
+       (div[class]:empty:not(input):not(br) { display:none !important })
+       has higher specificity than a plain !important class rule (its
+       two :not(element) clauses count toward specificity too) and was
+       matching these dots since they're intentionally content-less,
+       silently hiding the entire dots row. */
     .ivc-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(58,30,20,0.18); cursor: pointer; transition: background 0.35s, transform 0.35s; flex-shrink: 0; }
+    .ivc-dot:not(#_) { display: block !important; }
     .ivc-dot.ivc-active { background: #C9A060; transform: scale(1.45); }
+    /* Nav row below the carousel — arrows moved out of the floating
+       overlay-on-photo position and placed here, flanking the dots,
+       instead of hovering over the video. */
+    .ivc-nav-row {
+      /* Overlaid on the photo near the bottom of the carousel, instead
+         of sitting below it in the empty gap. */
+      position: absolute; left: 0; right: 0; bottom: 14px; z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .ivc-nav-row .ivc-arrow {
+      position: static; transform: none; z-index: auto;
+      width: 36px; height: 36px;
+    }
+    .ivc-nav-row .ivc-arrow:hover { transform: none; }
+    .ivc-nav-row .ivc-arrow:active { transform: scale(0.95); }
+    .ivc-nav-row .ivc-arrow-l, .ivc-nav-row .ivc-arrow-r { left: auto; right: auto; }
     .ivc-modal {
       position: fixed; inset: 0; z-index: 900;
       display: flex; align-items: center; justify-content: center;
@@ -7376,14 +7393,16 @@ html body #sp-stones img {
         <span class="ivc-side-headline" data-fr="expériences qui parlent d'elles-mêmes." data-en="experiences that speak for themselves.">expériences qui parlent d'elles-mêmes.</span>
         <span class="ivc-side-claim" data-fr="Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience." data-en="Our greatest recognition comes from the hundreds of clients who chose to share their experience.">Notre plus grande reconnaissance vient des centaines de clients qui ont choisi de partager leur expérience.</span>
       </div>
-      <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="ivc-arrow ivc-arrow-r" id="ivc-nl" aria-label="Suivant">
-        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-      </button>
+      <div class="ivc-nav-row">
+        <button class="ivc-arrow ivc-arrow-l ivc-off" id="ivc-pl" aria-label="Précédent">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="ivc-dots" id="ivc-dots"></div>
+        <button class="ivc-arrow ivc-arrow-r" id="ivc-nl" aria-label="Suivant">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="ivc-dots" id="ivc-dots"></div>
 
     <!-- Index video modal -->
     <div class="ivc-modal" id="ivc-modal" role="dialog" aria-modal="true">
@@ -8761,8 +8780,14 @@ html body .hero .hero-tag-btn:hover {
   border-color: rgba(255,255,255,0.6) !important;
   transform: translateY(-1px) !important;
 }
+/* Tablet: smaller than the 1.55rem desktop size — three pills at full
+   size crowd a narrower viewport. */
+@media (max-width: 980px) {
+  html body .hero .hero-tag-btn:not(#_) { font-size: 1.05rem !important; padding: 0.6rem 1.3rem !important; }
+}
 @media (max-width: 560px) {
-  html body .hero .hero-tag-btn:not(#_) { font-size: 1.15rem !important; padding: 0.75rem 1.5rem !important; }
+  html body .hero .hero-tag-btn:not(#_) { font-size: 0.82rem !important; padding: 0.5rem 1.05rem !important; }
+  html body .hero .hero-service-tags:not(#_) { gap: 0.45rem !important; }
 }
 /* ── MOBILE HERO — DEFINITIVE LAYOUT ───────────────────────────────── */
 @media (max-width: 980px) {

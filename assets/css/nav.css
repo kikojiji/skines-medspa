@@ -98,7 +98,7 @@ nav.nav-scrolled .logo-sub        { color: rgba(158,140,132,0.85) !important; }
    so it stays readable over a busy hero/carousel photo without reading
    as an obvious box — large radius + low opacity + no border. */
 nav:not(.nav-scrolled) .logo-brand {
-  background: rgba(0,0,0,0.18) !important;
+  background: transparent !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
   border-radius: 999px !important;
