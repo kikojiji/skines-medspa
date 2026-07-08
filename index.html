@@ -1173,13 +1173,20 @@
     #mainNav .nav-dropdown-menu {
       opacity: 0;
       transform: translateY(-6px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      /* Delay before the CLOSE actually happens — a brief, single-frame
+         loss of :hover while the cursor crosses the trigger→menu gap no
+         longer instantly kills the menu (that read as "shows then
+         vanishes immediately"). Opening (below) stays instant. */
+      transition: opacity 0.2s ease 0.25s, transform 0.2s ease 0.25s, visibility 0s linear 0.25s;
+      visibility: hidden;
       pointer-events: none;
     }
     #mainNav .nav-dropdown:hover .nav-dropdown-menu {
       opacity: 1;
       transform: translateY(0);
+      visibility: visible;
       pointer-events: auto;
+      transition: opacity 0.2s ease 0s, transform 0.2s ease 0s, visibility 0s linear 0s;
     }
     #mainNav .nav-dropdown-menu li a {
       transition: background 0.15s ease, color 0.15s ease;
@@ -1199,8 +1206,13 @@
       content: '';
       position: absolute;
       top: 100%;
+      /* Menus are left-aligned under their trigger (not centered), so the
+         bridge matches: starts at the li's own left edge and is at least
+         as wide as the menu (220px+), so the whole area under the visible
+         menu stays part of the li's hover hit-area. */
       left: 0;
-      right: 0;
+      transform: none;
+      width: max(100%, 240px);
       height: 12px;
     }
     /* Reverted the solid-gold panel (user tried it, preferred a dark
@@ -1379,18 +1391,25 @@
        real nav too, so SOINS's dropdown menu was falling back to
        centering under the full-width <nav> instead of under itself. */
     #mainNav#mainNav .nav-dropdown { position: relative !important; }
-    #mainNav#mainNav .nav-dropdown-soins .nav-dropdown-menu { left: 0 !important; transform: none !important; }
+    #mainNav#mainNav .nav-dropdown-menu { left: 0 !important; transform: none !important; }
     /* Same "menu disappears too fast" hover-gap fix as desktop (~line
        1149) — also only ever added for min-width:981px. The 12px dead
        zone between trigger and menu (base rule's top: calc(100% + 12px))
-       needs this invisible bridge here too. */
+       needs this invisible bridge here too. Left-aligned to match the
+       menu (not centered). */
     #mainNav#mainNav .nav-dropdown::after {
       content: '';
       position: absolute;
       top: 100%;
       left: 0;
-      right: 0;
+      transform: none;
+      width: max(100%, 240px);
       height: 12px;
+    }
+    #mainNav#mainNav .nav-dropdown-soins::after {
+      left: 0;
+      transform: none;
+      width: max(100%, 240px);
     }
     /* The mobile-redesign block below (max-width: 980px, which overlaps
        this tablet range) has a blanket "nav * { background: transparent
@@ -6703,10 +6722,27 @@ html body #sp-stones img {
 /* Guides nav dropdown */
 .nav-dropdown { position: relative; }
 .nav-dd-label { cursor: pointer; text-transform: uppercase; font-size: 0.76rem; letter-spacing: 0.18em; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; color: inherit; transition: color 0.25s; }
-.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: #2B1408; border: 1px solid rgba(245,237,227,.18); border-radius: 5px; padding: 6px 0; list-style: none; white-space: nowrap; min-width: 200px; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+/* display:none/block toggle removed — it hid the menu the instant :hover
+   was lost with zero grace period, so any single-frame hit-testing hiccup
+   while crossing the trigger→menu gap made it "flash and vanish". Now
+   always in the layout, hidden via visibility+opacity with a short delay
+   before actually hiding (closing) but none when opening. */
+.nav-dropdown-menu {
+  /* Left-aligned under the trigger word (not centered) — a centered
+     220px+ menu under a narrow label like "AVIS" reads as offset from
+     the word instead of dropping straight down from it. */
+  visibility: hidden; position: absolute; top: calc(100% + 12px); left: 0; transform: none;
+  background: #2B1408; border: 1px solid rgba(245,237,227,.18); border-radius: 5px; padding: 6px 0;
+  list-style: none; white-space: nowrap; min-width: 200px; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  opacity: 0;
+  transition: visibility 0s linear 0.25s, opacity 0.2s ease 0.25s;
+}
 .nav-dropdown-menu li a { display: block; padding: 9px 20px; color: rgba(245,237,227,.8) !important; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color .2s; }
 .nav-dropdown-menu li a:hover, .nav-dropdown-menu li a.gd-active { color: #C9973A !important; }
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown:hover .nav-dropdown-menu {
+  visibility: visible; opacity: 1;
+  transition: visibility 0s linear 0s, opacity 0.2s ease 0s;
+}
 </style>
 <script type="application/ld+json">
 [
@@ -6959,7 +6995,11 @@ html body #sp-stones img {
     <div class="hero-content">
       <div class="eyebrow hero-eyebrow" data-fr="Japanese Inspired · Montréal" data-en="Japanese Inspired · Montréal">Japanese Inspired · Montréal</div>
       <h1 class="hero-title"><span data-fr="L'art de prendre" data-en="The Art of">L'art de prendre</span><br><em><span data-fr="soin" data-en="Care">soin</span></em></h1>
-      <p class="hero-sub"><span data-fr="Head Spa · Épilation Laser · Facial" data-en="Head Spa · Laser · Facial">Head Spa · Épilation Laser · Facial</span></p>
+      <div class="hero-service-tags">
+        <a class="hero-tag-btn" href="/head-spa"><span data-fr="Head Spa" data-en="Head Spa">Head Spa</span></a>
+        <a class="hero-tag-btn" href="/laser"><span data-fr="Épilation Laser" data-en="Laser">Épilation Laser</span></a>
+        <a class="hero-tag-btn" href="/facial"><span data-fr="Facial" data-en="Facial">Facial</span></a>
+      </div>
       <div class="hero-actions hero-cta">
         <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
         <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/gift-cards?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Carte Cadeau" data-en="Gift Cards">Carte Cadeau</span></a>
@@ -7226,19 +7266,37 @@ html body #sp-stones img {
     .ivc-slide.ivc-active .ivc-playbtn { opacity: 0; transform: translate(-50%,-50%) scale(0.75); pointer-events: none; }
     .ivc-fade-l { position: absolute; top: 0; bottom: 0; left: 0;  width: 80px; z-index: 3; pointer-events: none; background: linear-gradient(to right, #F0E6C8, transparent); }
     .ivc-fade-r { position: absolute; top: 0; bottom: 0; right: 0; width: 80px; z-index: 3; pointer-events: none; background: linear-gradient(to left,  #F0E6C8, transparent); }
+    /* "Floating Glow" nav arrows — frosted glass circles that quietly
+       breathe (opacity + glow only, never scale) so their existence
+       registers without competing with the video. */
     .ivc-arrow {
       position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
-      width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(58,30,20,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(58,30,20,0.16);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 0 10px rgba(201,151,58,0.10);
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background 0.25s, opacity 0.3s; opacity: 0;
+      opacity: 0.65;
+      transition: background 0.25s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.25s cubic-bezier(0.4,0,0.2,1);
+      animation: ivcArrowBreathe 6s ease-in-out infinite;
     }
-    .ivc-wrap:hover .ivc-arrow { opacity: 0.65; }
-    .ivc-arrow:hover { background: rgba(58,30,20,0.14); opacity: 1 !important; }
-    .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; }
+    @keyframes ivcArrowBreathe {
+      0%, 100% { opacity: 0.65; box-shadow: 0 0 10px rgba(201,151,58,0.10); }
+      50%      { opacity: 1;    box-shadow: 0 0 18px rgba(201,151,58,0.22); }
+    }
+    .ivc-arrow:hover {
+      background: rgba(255,255,255,0.14) !important;
+      box-shadow: 0 0 22px rgba(201,151,58,0.30) !important;
+      opacity: 1 !important;
+      animation-play-state: paused;
+    }
+    .ivc-arrow:active { transform: translateY(-50%) scale(0.95); transition: transform 0.12s ease; }
+    .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; animation: none; }
     .ivc-arrow-l { left: 14px; } .ivc-arrow-r { right: 14px; }
-    .ivc-arrow svg { stroke: #3A1E14; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
+    .ivc-arrow svg { stroke: #F7F2EC; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
     .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; }
     .ivc-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(58,30,20,0.18); cursor: pointer; transition: background 0.35s, transform 0.35s; flex-shrink: 0; }
     .ivc-dot.ivc-active { background: #C9A060; transform: scale(1.45); }
@@ -7278,10 +7336,23 @@ html body #sp-stones img {
     .ivc-mnav svg { stroke: #E8C078; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
     @media (max-width: 580px) {
       .ivc-mnav { display: flex; }
-      .ivc-arrow { opacity: 0.75 !important; }
       .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; }
       .ivc-slide.ivc-active .ivc-playbtn { opacity: 1 !important; transform: translate(-50%,-50%) scale(1) !important; pointer-events: auto !important; }
       .ivc-dot { width: 7px; height: 7px; }
+    }
+    /* Play button wasn't tied to the "is this video actually playing"
+       state at all (only to "is this the active/centered card"), so on
+       mobile — where the rule above force-shows it on the active card —
+       it stayed stuck on top of the video even once playback started.
+       Fade it out ~1s after play begins (transition-delay), same speed
+       it already used to fade in. Same specificity as the mobile rule
+       above (3 classes each) + !important on both, so this must come
+       after it in source order to win. */
+    .ivc-slide.ivc-playing .ivc-playbtn {
+      opacity: 0 !important;
+      transform: translate(-50%,-50%) scale(0.75) !important;
+      pointer-events: none !important;
+      transition: opacity 0.35s ease 1s, transform 0.35s ease 1s !important;
     }
     </style>
 
@@ -7766,7 +7837,7 @@ html body #sp-stones img {
 .sf-exclusive-card {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; gap: 0.7rem;
-  width: 100%;
+  width: auto;
   padding: 1.4rem 1.2rem; margin: 0.8rem 1.6rem;
   background: rgba(201,160,96,0.10);
   border: 1px solid rgba(201,160,96,0.35);
@@ -8651,6 +8722,47 @@ html body .hero .btn-hero-glass:hover {
   background: rgba(255,255,255,0.20) !important;
   border-color: rgba(255,255,255,0.68) !important;
   color: #ffffff !important;
+}
+
+/* ── Hero service tags — Head Spa / Laser / Facial as three small glass
+   pills instead of a plain dot-separated line, same frosted look as the
+   RÉSERVER/CARTE CADEAU buttons but lighter-weight. ── */
+html body .hero .hero-service-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  margin: 0 0 1.6rem !important;
+}
+html body .hero .hero-tag-btn:not(#_) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1rem 2.1rem !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  color: #F5EDE3 !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-radius: 999px !important;
+  font-family: "Old Standard TT", serif !important;
+  font-style: italic !important;
+  font-size: 1.55rem !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.35) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+}
+html body .hero .hero-tag-btn:not(#_) span { color: #F5EDE3 !important; }
+html body .hero .hero-tag-btn:hover {
+  background: rgba(255,255,255,0.20) !important;
+  border-color: rgba(255,255,255,0.6) !important;
+  transform: translateY(-1px) !important;
+}
+@media (max-width: 560px) {
+  html body .hero .hero-tag-btn:not(#_) { font-size: 1.15rem !important; padding: 0.75rem 1.5rem !important; }
 }
 /* ── MOBILE HERO — DEFINITIVE LAYOUT ───────────────────────────────── */
 @media (max-width: 980px) {
@@ -10495,7 +10607,64 @@ html body #treatments .service-card .card-link {
 @media (min-width: 981px) and (max-width: 1180px) {
   html body #treatments .service-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
+
+/* ── Reviews → contact/footer: same hard-cut fix as services → reviews.
+   The brown reviews section ends flush against the light contact
+   section with no blend — fade the top of contact from reviews' brown
+   down to its own light background, 2px overlap to avoid a subpixel
+   seam line, same technique as the services→reviews fix above. ── */
+html body section.contact { position: relative; }
+html body section.contact::before {
+  content: ''; position: absolute; top: -2px; left: 0; right: 0; height: 140px;
+  background: linear-gradient(180deg, #684034 0%, rgba(104,64,52,0) 100%);
+  pointer-events: none; z-index: 0;
+}
+html body section.contact > * { position: relative; z-index: 1; }
+
+/* ── Hero title/subtitle disappearing after the first video crossfade ──
+   The desktop hero crossfades between two <video> layers; the incoming
+   clip is bumped to z-index:3 while it fades in (see the inline <script>
+   right after #heroVideoDesktopB). .hero-content (the title/subtitle/
+   buttons) was z-index:2, so once the first crossfade happened the now
+   z-index:3 video painted on top of the text and hid it for the rest of
+   the loop. Raise the text above the highest z-index the crossfade ever
+   uses (3). */
+html body .hero-content {
+  z-index: 6 !important;
+}
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
+  <script>
+  (function () {
+    // Only one nav dropdown menu should ever be visible at a time. Each
+    // dropdown's CSS :hover has its own independent 0.25s close-delay
+    // (added so a brief hover hiccup while crossing the trigger→menu gap
+    // doesn't instantly kill it) — but that delay meant hovering a new
+    // dropdown right after another could leave both open at once for
+    // that window. On entering any dropdown, snap every other one shut
+    // immediately (transition disabled for one frame so it's a hard cut,
+    // not a competing fade), then hand control back to the normal CSS.
+    var dds = document.querySelectorAll('.nav-dropdown');
+    dds.forEach(function (dd) {
+      dd.addEventListener('mouseenter', function () {
+        dds.forEach(function (other) {
+          if (other === dd) return;
+          var menu = other.querySelector('.nav-dropdown-menu');
+          if (!menu) return;
+          menu.style.transition = 'none';
+          menu.style.opacity = '0';
+          menu.style.visibility = 'hidden';
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              menu.style.transition = '';
+              menu.style.opacity = '';
+              menu.style.visibility = '';
+            });
+          });
+        });
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

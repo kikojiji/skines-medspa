@@ -213,8 +213,17 @@
     nav:not(#_) .nav-dd-trigger { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
     nav:not(#_) .nav-dd-chevron { width: 8px; height: 6px; flex-shrink: 0; transition: transform 0.25s ease; opacity: 0.75; }
     nav:not(#_) .nav-dropdown:hover .nav-dd-chevron { transform: rotate(180deg); opacity: 1; }
-    nav:not(#_) .nav-dropdown-menu { opacity: 0; transform: translateY(-6px); transition: opacity 0.2s ease, transform 0.2s ease; pointer-events: none; }
-    nav:not(#_) .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    nav:not(#_) .nav-dropdown-menu {
+      opacity: 0; transform: translateY(-6px); visibility: hidden;
+      /* Delay before CLOSE only — a single-frame hover loss while crossing
+         the trigger→menu gap no longer instantly kills the menu. */
+      transition: opacity 0.2s ease 0.25s, transform 0.2s ease 0.25s, visibility 0s linear 0.25s;
+      pointer-events: none;
+    }
+    nav:not(#_) .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1; transform: translateY(0); visibility: visible; pointer-events: auto;
+      transition: opacity 0.2s ease 0s, transform 0.2s ease 0s, visibility 0s linear 0s;
+    }
     nav:not(#_) .nav-dropdown-menu li a { transition: background 0.15s ease, color 0.15s ease; }
     nav:not(#_) .nav-dropdown-menu li a:hover { background: rgba(245,237,227,0.06); }
     /* Hover-gap fix — base rule has "top: calc(100% + 12px)", a dead zone
@@ -222,11 +231,15 @@
        reached it. Invisible bridge closes the gap without changing the
        visual spacing. */
     nav:not(#_) .nav-dropdown::after {
+      /* Left-aligned to match the menu (not centered) and widened to
+         match the menu's own footprint (min-width 220px+), so the whole
+         area under the visible menu stays part of the li's hover area. */
       content: '';
       position: absolute;
       top: 100%;
       left: 0;
-      right: 0;
+      transform: none;
+      width: max(100%, 240px);
       height: 12px;
     }
     /* Dark frosted-glass panel — replaces the near-opaque #2B1408 base
@@ -5118,10 +5131,27 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 /* Guides nav dropdown */
 .nav-dropdown { position: relative; }
 .nav-dd-label { cursor: pointer; text-transform: uppercase; font-size: 0.76rem; letter-spacing: 0.18em; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; color: inherit; transition: color 0.25s; }
-.nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: #2B1408; border: 1px solid rgba(245,237,227,.18); border-radius: 5px; padding: 6px 0; list-style: none; white-space: nowrap; min-width: 200px; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+/* display:none/block toggle removed — it hid the menu the instant :hover
+   was lost with zero grace period, so any single-frame hit-testing hiccup
+   while crossing the trigger→menu gap made it "flash and vanish". Now
+   always in the layout, hidden via visibility+opacity with a short delay
+   before actually hiding (closing) but none when opening. */
+.nav-dropdown-menu {
+  /* Left-aligned under the trigger word (not centered) — a centered
+     220px+ menu under a narrow label reads as offset from the word
+     instead of dropping straight down from it. */
+  visibility: hidden; position: absolute; top: calc(100% + 12px); left: 0; transform: none;
+  background: #2B1408; border: 1px solid rgba(245,237,227,.18); border-radius: 5px; padding: 6px 0;
+  list-style: none; white-space: nowrap; min-width: 200px; z-index: 9999; box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  opacity: 0;
+  transition: visibility 0s linear 0.25s, opacity 0.2s ease 0.25s;
+}
 .nav-dropdown-menu li a { display: block; padding: 9px 20px; color: rgba(245,237,227,.8) !important; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color .2s; }
 .nav-dropdown-menu li a:hover, .nav-dropdown-menu li a.gd-active { color: #C9973A !important; }
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown:hover .nav-dropdown-menu {
+  visibility: visible; opacity: 1;
+  transition: visibility 0s linear 0s, opacity 0.2s ease 0s;
+}
 </style>
 
 <!-- ── JSON-LD Schema ── -->
@@ -5389,19 +5419,37 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     .ivc-slide.ivc-active .ivc-playbtn { opacity: 0; transform: translate(-50%,-50%) scale(0.75); pointer-events: none; }
     .ivc-fade-l { position: absolute; top: 0; bottom: 0; left: 0;  width: 80px; z-index: 3; pointer-events: none; background: linear-gradient(to right, #F0E6C8, transparent); }
     .ivc-fade-r { position: absolute; top: 0; bottom: 0; right: 0; width: 80px; z-index: 3; pointer-events: none; background: linear-gradient(to left,  #F0E6C8, transparent); }
+    /* "Floating Glow" nav arrows — frosted glass circles that quietly
+       breathe (opacity + glow only, never scale) so their existence
+       registers without competing with the video. */
     .ivc-arrow {
       position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
-      width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(58,30,20,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(58,30,20,0.16);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 0 10px rgba(201,151,58,0.10);
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background 0.25s, opacity 0.3s; opacity: 0;
+      opacity: 0.65;
+      transition: background 0.25s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.25s cubic-bezier(0.4,0,0.2,1);
+      animation: ivcArrowBreathe 6s ease-in-out infinite;
     }
-    .ivc-wrap:hover .ivc-arrow { opacity: 0.65; }
-    .ivc-arrow:hover { background: rgba(58,30,20,0.14); opacity: 1 !important; }
-    .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; }
+    @keyframes ivcArrowBreathe {
+      0%, 100% { opacity: 0.65; box-shadow: 0 0 10px rgba(201,151,58,0.10); }
+      50%      { opacity: 1;    box-shadow: 0 0 18px rgba(201,151,58,0.22); }
+    }
+    .ivc-arrow:hover {
+      background: rgba(255,255,255,0.14) !important;
+      box-shadow: 0 0 22px rgba(201,151,58,0.30) !important;
+      opacity: 1 !important;
+      animation-play-state: paused;
+    }
+    .ivc-arrow:active { transform: translateY(-50%) scale(0.95); transition: transform 0.12s ease; }
+    .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; animation: none; }
     .ivc-arrow-l { left: 14px; } .ivc-arrow-r { right: 14px; }
-    .ivc-arrow svg { stroke: #3A1E14; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
+    .ivc-arrow svg { stroke: #F7F2EC; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 15px; height: 15px; }
     .ivc-dots { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; }
     .ivc-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(58,30,20,0.18); cursor: pointer; transition: background 0.35s, transform 0.35s; flex-shrink: 0; }
     .ivc-dot.ivc-active { background: #C9A060; transform: scale(1.45); }
@@ -5441,10 +5489,23 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     .ivc-mnav svg { stroke: #E8C078; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; width: 17px; height: 17px; }
     @media (max-width: 580px) {
       .ivc-mnav { display: flex; }
-      .ivc-arrow { opacity: 0.75 !important; }
       .ivc-arrow.ivc-off { opacity: 0 !important; pointer-events: none; }
       .ivc-slide.ivc-active .ivc-playbtn { opacity: 1 !important; transform: translate(-50%,-50%) scale(1) !important; pointer-events: auto !important; }
       .ivc-dot { width: 7px; height: 7px; }
+    }
+    /* Play button wasn't tied to the "is this video actually playing"
+       state at all (only to "is this the active/centered card"), so on
+       mobile — where the rule above force-shows it on the active card —
+       it stayed stuck on top of the video even once playback started.
+       Fade it out ~1s after play begins (transition-delay), same speed
+       it already used to fade in. Same specificity as the mobile rule
+       above (3 classes each) + !important on both, so this must come
+       after it in source order to win. */
+    .ivc-slide.ivc-playing .ivc-playbtn {
+      opacity: 0 !important;
+      transform: translate(-50%,-50%) scale(0.75) !important;
+      pointer-events: none !important;
+      transition: opacity 0.35s ease 1s, transform 0.35s ease 1s !important;
     }
     /* Legacy global overrides target every <section> (or ".reviews")
        with a cream background via compound :not() selectors that don't
@@ -7123,5 +7184,37 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 html body nav 
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
+  <script>
+  (function () {
+    // Only one nav dropdown menu should ever be visible at a time. Each
+    // dropdown's CSS :hover has its own independent 0.25s close-delay
+    // (added so a brief hover hiccup while crossing the trigger→menu gap
+    // doesn't instantly kill it) — but that delay meant hovering a new
+    // dropdown right after another could leave both open at once for
+    // that window. On entering any dropdown, snap every other one shut
+    // immediately (transition disabled for one frame so it's a hard cut,
+    // not a competing fade), then hand control back to the normal CSS.
+    var dds = document.querySelectorAll('.nav-dropdown');
+    dds.forEach(function (dd) {
+      dd.addEventListener('mouseenter', function () {
+        dds.forEach(function (other) {
+          if (other === dd) return;
+          var menu = other.querySelector('.nav-dropdown-menu');
+          if (!menu) return;
+          menu.style.transition = 'none';
+          menu.style.opacity = '0';
+          menu.style.visibility = 'hidden';
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              menu.style.transition = '';
+              menu.style.opacity = '';
+              menu.style.visibility = '';
+            });
+          });
+        });
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
