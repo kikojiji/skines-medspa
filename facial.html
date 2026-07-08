@@ -7802,10 +7802,14 @@ html body nav
 
   var belaFrame = document.querySelector('img[alt="Bela MD+"]');
   if (belaFrame) {
-    belaFrame.closest('.product-img-frame').style.cursor = 'pointer';
-    belaFrame.closest('.product-img-frame').addEventListener('click', function() {
-      openOverlay('bela-md-plus');
-    });
+    var belaCard = belaFrame.closest('.product-card');
+    if (belaCard) {
+      belaCard.style.cursor = 'pointer';
+      belaCard.addEventListener('click', function(e) {
+        if (e.target.closest('.product-cta')) return;
+        openOverlay('bela-md-plus');
+      });
+    }
   }
 })();
 </script>
