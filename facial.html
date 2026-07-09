@@ -1159,10 +1159,10 @@
 }
 .svc-name {
   font-family: "Old Standard TT", serif;
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #3A1E14;
-  line-height: 1.3;
+  line-height: 1.25;
   display: block;
   margin: 0.15rem 0;
 }
@@ -1245,7 +1245,7 @@
 @media (max-width: 560px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   .services-grid.list-view { grid-template-columns: 1fr !important; }
-  .svc-name { font-size: 0.95rem; }
+  .svc-name { font-size: 1.1rem; font-weight: 700; }
   .view-btn { width: 44px; height: 44px; }
 }
 
@@ -2108,7 +2108,8 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 
   /* ─ 7. TYPOGRAPHY WEIGHT BOOST on mobile ─ */
   @media (max-width: 768px) {
-    .svc-name, .price-card-name { font-weight: 500 !important; }
+    .svc-name { font-weight: 700 !important; }
+    .price-card-name { font-weight: 500 !important; }
     .price-card-cat, .svc-duration { font-weight: 500 !important; letter-spacing: 0.18em !important; }
   }
 
@@ -6127,8 +6128,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <div class="svc-card" data-service="luxury-facial">
       <div class="svc-img"><img src="assets/luxury-facial.webp?v=3" alt="Luxury Facial" fetchpriority="high"></div>
       <div class="svc-info">
-        <p class="svc-duration" data-fr="60 À 90 MIN" data-en="60 TO 90 MIN">60 À 90 MIN</p>
         <span class="svc-name">Luxury Facial</span>
+        <p class="svc-duration" data-fr="60 À 90 MIN" data-en="60 TO 90 MIN">60 À 90 MIN</p>
         <div class="svc-price">
           <span class="svc-price-current"><span data-fr="à partir de" data-en="from">à partir de</span> $180</span>
         </div>
@@ -6139,8 +6140,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <div class="svc-card" data-service="personalized-facial">
       <div class="svc-img"><img src="assets/personalized-facial.webp?v=2" alt="Personalized Facial" loading="lazy"></div>
       <div class="svc-info">
-        <p class="svc-duration" data-fr="60 À 75 MIN" data-en="60 TO 75 MIN">60 À 75 MIN</p>
         <span class="svc-name">Personalized Facial</span>
+        <p class="svc-duration" data-fr="60 À 75 MIN" data-en="60 TO 75 MIN">60 À 75 MIN</p>
         <div class="svc-price">
           <span class="svc-price-current"><span data-fr="à partir de" data-en="from">à partir de</span> $135</span>
         </div>
@@ -6151,8 +6152,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <div class="svc-card" data-service="bela-md-plus">
       <div class="svc-img"><img src="assets/bela-facial.webp?v=2" alt="HydraDermabrasion Bela MD+" loading="lazy"></div>
       <div class="svc-info">
-        <p class="svc-duration" data-fr="75 MIN" data-en="75 MIN">75 MIN</p>
         <span class="svc-name">HydraDermabrasion Bela MD+</span>
+        <p class="svc-duration" data-fr="75 MIN" data-en="75 MIN">75 MIN</p>
         <div class="svc-price">
           <span class="svc-price-current"><span data-fr="à partir de" data-en="from">à partir de</span> $150</span>
         </div>
@@ -6163,8 +6164,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <div class="svc-card" data-service="chemical-peel">
       <div class="svc-img"><img src="assets/chemical.webp?v=2" alt="Chemical Peel" loading="lazy"></div>
       <div class="svc-info">
-        <p class="svc-duration" data-fr="60 MIN" data-en="60 MIN">60 MIN</p>
         <span class="svc-name">Chemical Peel</span>
+        <p class="svc-duration" data-fr="60 MIN" data-en="60 MIN">60 MIN</p>
         <div class="svc-price">
           <span class="svc-price-current"><span data-fr="à partir de" data-en="from">à partir de</span> $150</span>
         </div>
@@ -6175,8 +6176,8 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
     <div class="svc-card" data-service="back-facial">
       <div class="svc-img"><img src="assets/back-facial.webp?v=2" alt="Back Facial" loading="lazy"></div>
       <div class="svc-info">
-        <p class="svc-duration" data-fr="60 MIN" data-en="60 MIN">60 MIN</p>
         <span class="svc-name">Back Facial</span>
+        <p class="svc-duration" data-fr="60 MIN" data-en="60 MIN">60 MIN</p>
         <div class="svc-price">
           <span class="svc-price-current"><span data-fr="à partir de" data-en="from">à partir de</span> $150</span>
         </div>
