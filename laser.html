@@ -8054,11 +8054,29 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   goTo(current, false);
   window.addEventListener('resize', () => goTo(current, false));
 
-  prev.addEventListener('click', () => goTo(current - 1));
-  next.addEventListener('click', () => goTo(current + 1));
+  /* ── Autoplay: loops forever, pauses on interaction/offscreen ── */
+  var AUTOPLAY_MS = 3200;
+  var autoplayTimer = null;
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(() => goTo(current + 1), AUTOPLAY_MS);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+  }
+  var autoplayObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.isIntersecting ? startAutoplay() : stopAutoplay());
+  }, { threshold: 0.2 });
+  autoplayObserver.observe(slider);
+
+  prev.addEventListener('click', () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
+  next.addEventListener('click', () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
+  slider.addEventListener('mouseenter', stopAutoplay);
+  slider.addEventListener('mouseleave', startAutoplay);
 
   /* ── Touch swipe (drag-aware, prevents page scroll during horizontal drag) ── */
   slider.addEventListener('touchstart', e => {
+    stopAutoplay();
     startX  = e.touches[0].clientX;
     startY  = e.touches[0].clientY;
     diffX   = 0;
@@ -8091,6 +8109,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     }
     locked = null;
     diffX  = 0;
+    startAutoplay();
   });
 })();
 
