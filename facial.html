@@ -1556,6 +1556,11 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
 .products-intro { color: rgba(245,237,227,0.72) !important; margin-bottom: 2.5rem; max-width: 520px; line-height: 1.75; }
 .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 @media (max-width: 600px) { .products-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .products-section { padding: 3rem 1.4rem 3.5rem; }
+  .products-inner h2 { font-size: 1.7rem !important; line-height: 1.3 !important; margin-bottom: 0.7rem !important; }
+  .products-intro { font-size: 0.85rem !important; margin-bottom: 2rem !important; line-height: 1.65 !important; }
+}
 .product-card { display: flex; flex-direction: column; gap: 0.8rem; padding: 1.4rem; border: 1px solid rgba(245,237,227,0.12); background: rgba(255,255,255,0.04); border-radius: 4px; }
 .product-img-frame { width: 100%; aspect-ratio: 3/2; border: 1px solid rgba(245,237,227,0.15); background: rgba(255,255,255,0.06); border-radius: 3px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
 .product-img-frame img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
