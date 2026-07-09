@@ -470,35 +470,6 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .site-footer .sf-brand { color: rgba(255,255,255,0.92) !important; }
 
 
-/* ── MOBILE READABILITY (90% of traffic) ── */
-@media(max-width:768px){
-  .guide-wrap { padding: 44px 18px 56px; }
-  .guide-intro { font-size: 1.08rem; line-height: 1.85; }
-  .g-h2 { font-size: 1.62rem; line-height: 1.25; }
-  .g-h3 { font-size: 1.02rem; }
-  .g-body { font-size: 1.06rem; line-height: 1.85; }
-  .g-faq-q { font-size: 1.05rem; line-height: 1.5; }
-  .g-faq-a { font-size: 1.02rem; line-height: 1.8; }
-  .g-faq-item { padding: 22px 0; }
-  .g-card-body { font-size: .98rem; line-height: 1.72; }
-  .g-section-eyebrow { font-size: .7rem; }
-  .g-pill { font-size: .9rem; padding: 10px 18px; }
-  /* Tables: full-bleed + compact so columns are readable without cut-off */
-  .g-table-wrap { margin: 22px -18px 30px; width: calc(100% + 36px); -webkit-overflow-scrolling: touch; }
-  .g-table { font-size: .86rem; width: 100%; table-layout: fixed; }
-  .g-table td, .g-table th { word-wrap: break-word; overflow-wrap: break-word; }
-  .g-table .col-label { white-space: normal; }
-  .g-table th:first-child, .g-table td:first-child { width: 30%; }
-  /* checkmark columns (4-col comparison table) stay tight + centered */
-  .g-table td:not(:first-child):not(:nth-child(2)) { text-align: center; }
-  .g-table th, .g-table td { padding: 10px 11px; }
-  .g-table th:first-child, .g-table td:first-child { padding-left: 18px; }
-  .g-table th:last-child, .g-table td:last-child { padding-right: 18px; }
-  .g-table th { font-size: .68rem; letter-spacing: .04em; }
-  .g-cta-block { padding: 32px 22px; }
-  .g-cta-block h2 { font-size: 1.55rem; }
-}
-
 /* Guides nav dropdown */
 .nav-dropdown { position: relative; }
 .nav-dd-label { cursor: pointer; text-transform: uppercase; font-size: 0.76rem; letter-spacing: 0.18em; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; color: inherit; transition: color 0.25s; }
@@ -583,8 +554,66 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .g-pill { font-family: 'DM Sans', sans-serif; font-size: .82rem; color: var(--brown); background: rgba(58,30,20,.06); border: 1px solid var(--line); border-radius: 100px; padding: 8px 18px; text-decoration: none; transition: background .2s; }
 .g-pill:hover { background: rgba(58,30,20,.13); }
 
+/* ── MOBILE READABILITY (90% of traffic) ── */
+@media(max-width:768px){
+  .guide-wrap { padding: 44px 18px 56px; }
+  .guide-intro { font-size: 1.08rem; line-height: 1.85; }
+  .g-h2 { font-size: 1.62rem; line-height: 1.25; }
+  .g-h3 { font-size: 1.02rem; }
+  .g-body { font-size: 1.06rem; line-height: 1.85; }
+  .g-faq-q { font-size: 1.05rem; line-height: 1.5; }
+  .g-faq-a { font-size: 1.02rem; line-height: 1.8; }
+  .g-faq-item { padding: 22px 0; }
+  .g-card-body { font-size: .98rem; line-height: 1.72; }
+  .g-section-eyebrow { font-size: .7rem; }
+  .g-pill { font-size: .9rem; padding: 10px 18px; }
+  /* Tables: full-bleed + compact so columns are readable without cut-off */
+  .g-table-wrap { margin: 22px -18px 30px; width: calc(100% + 36px); -webkit-overflow-scrolling: touch; }
+  .g-table { font-size: .86rem; width: 100%; table-layout: fixed; }
+  .g-table td, .g-table th { word-wrap: break-word; overflow-wrap: break-word; }
+  .g-table .col-label { white-space: normal; }
+  .g-table th:first-child, .g-table td:first-child { width: 30%; }
+  /* checkmark columns (4-col comparison table) stay tight + centered */
+  .g-table td:not(:first-child):not(:nth-child(2)) { text-align: center; }
+  .g-table th, .g-table td { padding: 10px 11px; }
+  .g-table th:first-child, .g-table td:first-child { padding-left: 18px; }
+  .g-table th:last-child, .g-table td:last-child { padding-right: 18px; }
+  .g-table th { font-size: .68rem; letter-spacing: .04em; }
+  .g-cta-block { padding: 32px 22px; }
+  .g-cta-block h2 { font-size: 1.55rem; }
+}
 
+/* ── TABLET (769–1023px): loosen the 760px column, keep tables comfortable ── */
+@media (min-width: 769px) {
+  .guide-wrap, .guide-hero-inner { max-width: 840px; }
+}
 
+/* ── DESKTOP (1024px+): use the available width, scale type and tables up ── */
+@media (min-width: 1024px) {
+  .guide-wrap { max-width: 980px; padding-top: 64px; padding-bottom: 76px; }
+  .guide-hero-inner { max-width: 980px; }
+  .guide-intro { font-size: 1.13rem; line-height: 1.8; max-width: 720px; }
+  .g-body { font-size: 1.04rem; max-width: 740px; }
+  .g-h2 { font-size: clamp(1.8rem, 1.8vw + 1rem, 2.3rem); }
+  .g-h3 { font-size: 1.08rem; }
+  .g-faq-q { font-size: 1.03rem; }
+  .g-faq-a { font-size: 1rem; max-width: 740px; }
+  .g-card-body { font-size: .94rem; }
+  .g-table { font-size: .97rem; }
+  .g-table th, .g-table td { padding: 15px 20px; }
+  .g-table th { font-size: .82rem; }
+}
+
+/* ── LARGE DESKTOP (1440px+): a touch more breathing room ── */
+@media (min-width: 1440px) {
+  .guide-wrap { max-width: 1200px; padding-top: 76px; padding-bottom: 88px; }
+  .guide-hero-inner { max-width: 1200px; }
+  .guide-intro { font-size: 1.2rem; max-width: 780px; }
+  .g-body { font-size: 1.08rem; max-width: 780px; }
+  .g-h2 { font-size: clamp(2rem, 1.4vw + 1.2rem, 2.5rem); }
+  .g-table { font-size: 1.02rem; }
+  .g-table th, .g-table td { padding: 17px 24px; }
+}
 </style>
 </head>
 <body>
@@ -1028,6 +1057,9 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
       </a>
       <a class="sf-social-btn" href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a class="sf-social-btn" href="https://www.youtube.com/channel/UCfaDRlj07kg2zGlH6AsnFUw" target="_blank" rel="noreferrer" aria-label="YouTube">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
       </a>
     </div>
   </div>
