@@ -1189,7 +1189,8 @@ section { padding: 0 !important; }
   transition: background 0.2s, border-color 0.2s;
 }
 .sf-exclusive-card:hover { background: rgba(201,160,96,0.18); border-color: rgba(201,160,96,0.55); }
-.sf-exclusive-icon { flex-shrink: 0; display: flex; }
+.sf-exclusive-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; line-height: 1; }
+.sf-exclusive-icon:not(#_) { color: #C9973A !important; }
 .sf-exclusive-icon svg { width: 26px; height: 26px; stroke: #C9973A; }
 .sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
 .sf-exclusive-text strong { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.01em; }
@@ -1378,10 +1379,10 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   
 
   /* Logo text: Cormorant Garamond, same size everywhere */
-  html body nav 
+  html body nav {}
 
   /* Logo sub: same small caps */
-  html body nav 
+  html body nav {}
 
   /* Search button: column 1, same circle */
   html body nav .nav-search-btn {
@@ -1710,10 +1711,10 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 
     <div class="sf-nav-group sf-nav-exclusive">
       <a class="sf-exclusive-card" href="/tirage">
-        <span class="sf-exclusive-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+        <span class="sf-exclusive-icon">✿</span>
         <span class="sf-exclusive-text">
           <strong data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</strong>
-          <span data-fr="Participez à notre tirage exclusif" data-en="Enter our exclusive giveaway">Participez à notre tirage exclusif</span>
+          <span data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -1818,7 +1819,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   <link rel="stylesheet" href="assets/css/animations.css?v=1">
 <style>
 
-html body nav 
+html body nav {}
 
 /* ══════════════════════════════════════════════════════════════
    MOBILE NAV — ACCORDION REDESIGN (luxury, compact)
@@ -1903,12 +1904,45 @@ html body nav
   letter-spacing: 0.26em !important; text-transform: uppercase !important; text-align: left !important;
   color: rgba(201,160,96,0.65) !important;
 }
-.sf-nav-collapsible .sf-nav-toggle span { color: inherit !important; }
+.sf-nav-collapsible .sf-nav-toggle span:not(#_) { color: inherit !important; }
 .sf-nav-toggle-chevron { flex-shrink: 0; stroke: rgba(201,160,96,0.65); transition: transform 0.3s ease; margin-left: 0.5rem; }
 .sf-nav-collapsible.sf-nav-open .sf-nav-toggle-chevron { transform: rotate(180deg); }
+/* Mobile/tablet: Guides & Votre Visite read as two clear tappable
+   choice cards (bigger, bordered) rather than a small static label —
+   Services stays a plain label since it's never interactive. */
 @media (max-width: 980px) {
+  .sf-nav-collapsible { margin: 0.6rem 1.6rem !important; }
+  .sf-nav-collapsible .sf-nav-toggle {
+    padding: 1rem 1.2rem !important;
+    background: rgba(201,160,96,0.09) !important;
+    border: 1px solid rgba(201,160,96,0.32) !important;
+    border-radius: 10px !important;
+    font-size: 0.95rem !important; font-weight: 600 !important;
+    letter-spacing: 0.03em !important; text-transform: none !important;
+  }
+  .sf-nav-collapsible .sf-nav-toggle:active { background: rgba(201,160,96,0.16) !important; }
+  .sf-nav-toggle-chevron { transform: scale(1.35); }
+  .sf-nav-collapsible.sf-nav-open .sf-nav-toggle-chevron { transform: scale(1.35) rotate(180deg); }
   .sf-nav-panel { max-height: 0; overflow: hidden; transition: max-height 0.32s ease; }
   .sf-nav-collapsible.sf-nav-open .sf-nav-panel { max-height: 500px; }
+  .sf-nav-collapsible.sf-nav-open .sf-nav-toggle { border-radius: 10px 10px 0 0 !important; }
+  .sf-nav-collapsible .sf-nav-panel .sf-link:first-child { border-top: none; }
+  /* Services list: drop the chevrons, they read as noise once Guides/
+     Votre Visite next to them are the only actually-expandable rows. */
+  .sf-nav-group:not(.sf-nav-collapsible) .sf-link .sf-chevron { display: none !important; }
+  /* Tirage au Sort: match the compact single-row height of the
+     Guides/Votre Visite choice cards instead of the taller stacked card. */
+  .sf-exclusive-card {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 1rem 1.2rem !important;
+    gap: 0.7rem !important;
+  }
+  .sf-exclusive-icon { font-size: 1.05rem !important; }
+  .sf-exclusive-icon svg { width: 20px !important; height: 20px !important; }
+  .sf-exclusive-text { align-items: flex-start !important; }
+  .sf-exclusive-text span { display: none !important; }
 }
 @media (min-width: 981px) {
   .sf-nav-panel { max-height: none !important; overflow: visible !important; }

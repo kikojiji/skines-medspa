@@ -6049,7 +6049,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
           "name": "Quelle est la différence entre le Focus Scalpcial et le Signature Scalpcial ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage japonais profond, traitement hydratant et détente. Le Signature Scalpcial (90 min) inclut tout le protocole Focus plus un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée. Le Signature est le rituel le plus complet de Skines."
+            "text": "Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage japonais profond, traitement hydratant et détente. Le Signature Scalpcial (90 min) inclut tout le protocole Focus plus un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu'une phase de vapeur et de masque nourrissant prolongée. Le Signature est le rituel le plus complet de Skines."
           }
         },
         {
@@ -6444,7 +6444,8 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   transition: background 0.2s, border-color 0.2s;
 }
 .sf-exclusive-card:hover { background: rgba(201,160,96,0.18); border-color: rgba(201,160,96,0.55); }
-.sf-exclusive-icon { flex-shrink: 0; display: flex; }
+.sf-exclusive-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; line-height: 1; }
+.sf-exclusive-icon:not(#_) { color: #C9973A !important; }
 .sf-exclusive-icon svg { width: 26px; height: 26px; stroke: #C9973A; }
 .sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
 .sf-exclusive-text strong { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.01em; }
@@ -6626,10 +6627,10 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
   
 
   /* Logo text: Cormorant Garamond, same size everywhere */
-  html body nav 
+  html body nav {}
 
   /* Logo sub: same small caps */
-  html body nav 
+  html body nav {}
 
   /* Search button: column 1, same circle */
   html body nav .nav-search-btn {
@@ -6742,7 +6743,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
     <div class="faq-a" style="display:none;padding-top:1rem;color:var(--stone);font-size:0.95rem;line-height:1.8;">
-      <p data-fr="Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage profond, traitement hydratant et détente complète. Le Signature Scalpcial (90 min) inclut tout le protocole Focus, plus un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée. C'est le rituel le plus complet de Skines." data-en="The Focus Scalpcial (60 min) is a targeted scalp treatment: deep massage, moisturizing treatment, and complete relaxation. The Signature Scalpcial (90 min) includes the full Focus protocol plus a relaxing facial massage and a longer steam and nourishing-mask phase. It's Skines' most complete ritual.">Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage profond, traitement hydratant et détente complète. Le Signature Scalpcial (90 min) inclut tout le protocole Focus, plus un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée. C'est le rituel le plus complet de Skines.</p>
+      <p data-fr="Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage profond, traitement hydratant et détente complète. Le Signature Scalpcial (90 min) inclut tout le protocole Focus, plus un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu'une phase de vapeur et de masque nourrissant prolongée. C'est le rituel le plus complet de Skines." data-en="The Focus Scalpcial (60 min) is a targeted scalp treatment: deep massage, moisturizing treatment, and complete relaxation. The Signature Scalpcial (90 min) includes the full Focus protocol plus a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase. It's Skines' most complete ritual.">Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage profond, traitement hydratant et détente complète. Le Signature Scalpcial (90 min) inclut tout le protocole Focus, plus un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu'une phase de vapeur et de masque nourrissant prolongée. C'est le rituel le plus complet de Skines.</p>
     </div>
   </div>
 
@@ -6915,10 +6916,10 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 
     <div class="sf-nav-group sf-nav-exclusive">
       <a class="sf-exclusive-card" href="/tirage">
-        <span class="sf-exclusive-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+        <span class="sf-exclusive-icon">✿</span>
         <span class="sf-exclusive-text">
           <strong data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</strong>
-          <span data-fr="Participez à notre tirage exclusif" data-en="Enter our exclusive giveaway">Participez à notre tirage exclusif</span>
+          <span data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -7498,7 +7499,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   <link rel="stylesheet" href="assets/css/animations.css?v=1">
 <style>
 
-html body nav 
+html body nav {}
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
 
@@ -7618,12 +7619,45 @@ html body nav
   letter-spacing: 0.26em !important; text-transform: uppercase !important; text-align: left !important;
   color: rgba(201,160,96,0.65) !important;
 }
-.sf-nav-collapsible .sf-nav-toggle span { color: inherit !important; }
+.sf-nav-collapsible .sf-nav-toggle span:not(#_) { color: inherit !important; }
 .sf-nav-toggle-chevron { flex-shrink: 0; stroke: rgba(201,160,96,0.65); transition: transform 0.3s ease; margin-left: 0.5rem; }
 .sf-nav-collapsible.sf-nav-open .sf-nav-toggle-chevron { transform: rotate(180deg); }
+/* Mobile/tablet: Guides & Votre Visite read as two clear tappable
+   choice cards (bigger, bordered) rather than a small static label —
+   Services stays a plain label since it's never interactive. */
 @media (max-width: 980px) {
+  .sf-nav-collapsible { margin: 0.6rem 1.6rem !important; }
+  .sf-nav-collapsible .sf-nav-toggle {
+    padding: 1rem 1.2rem !important;
+    background: rgba(201,160,96,0.09) !important;
+    border: 1px solid rgba(201,160,96,0.32) !important;
+    border-radius: 10px !important;
+    font-size: 0.95rem !important; font-weight: 600 !important;
+    letter-spacing: 0.03em !important; text-transform: none !important;
+  }
+  .sf-nav-collapsible .sf-nav-toggle:active { background: rgba(201,160,96,0.16) !important; }
+  .sf-nav-toggle-chevron { transform: scale(1.35); }
+  .sf-nav-collapsible.sf-nav-open .sf-nav-toggle-chevron { transform: scale(1.35) rotate(180deg); }
   .sf-nav-panel { max-height: 0; overflow: hidden; transition: max-height 0.32s ease; }
   .sf-nav-collapsible.sf-nav-open .sf-nav-panel { max-height: 500px; }
+  .sf-nav-collapsible.sf-nav-open .sf-nav-toggle { border-radius: 10px 10px 0 0 !important; }
+  .sf-nav-collapsible .sf-nav-panel .sf-link:first-child { border-top: none; }
+  /* Services list: drop the chevrons, they read as noise once Guides/
+     Votre Visite next to them are the only actually-expandable rows. */
+  .sf-nav-group:not(.sf-nav-collapsible) .sf-link .sf-chevron { display: none !important; }
+  /* Tirage au Sort: match the compact single-row height of the
+     Guides/Votre Visite choice cards instead of the taller stacked card. */
+  .sf-exclusive-card {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 1rem 1.2rem !important;
+    gap: 0.7rem !important;
+  }
+  .sf-exclusive-icon { font-size: 1.05rem !important; }
+  .sf-exclusive-icon svg { width: 20px !important; height: 20px !important; }
+  .sf-exclusive-text { align-items: flex-start !important; }
+  .sf-exclusive-text span { display: none !important; }
 }
 @media (min-width: 981px) {
   .sf-nav-panel { max-height: none !important; overflow: visible !important; }
@@ -7653,14 +7687,14 @@ html body nav
 
   var DATA = {
     'solo-60': {
-      images: ['assets/60%20min%20SOLO%20ROOM.webp?v=1','assets/IMG_4660.webp?v=1'],
+      images: ['assets/60%20min%20SOLO%20ROOM.webp?v=1','assets/IMG_4654.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · SOLO · 60 MIN',
         title: 'Focus Scalpcial Solo 60 min',
         meta: '60 MIN · 1 PERSONNE · CLARITY SCALP CARE',
         lead: 'Le Head Spa Solo 60 min chez Skines Med Spa & Wellness est notre protocole d\'entrée idéal pour découvrir le soin du cuir chevelu japonais à Montréal. En 60 minutes, vous profitez d\'un massage profond du cuir chevelu, d\'une application de produits capillaires ciblés et d\'un moment de décompression totale dans une chambre privée.',
         sections: [
-          { h: 'Protocole Focus', body: 'Chaque séance commence par une analyse visuelle du cuir chevelu, suivie d\'une application de vapeur douce pour ouvrir les follicules. Le massage japonais profond (Anma) est ensuite pratiqué sur le cuir chevelu, les tempes et la nuque. La séance se termine par l\'application d\'un sérum capillaire adapté à votre type de cuir chevelu.' },
+          { h: 'Protocole Focus', body: 'Chaque séance débute par un massage doux de relaxation, suivi d\'un massage japonais profond (Anma) du cuir chevelu à l\'aide d\'outils professionnels et d\'un massage à l\'huile de soin. La séance se termine par deux shampoings, une phase de vapeur avec masque nourrissant et l\'application d\'un sérum capillaire adapté à votre type de cuir chevelu. L\'évaluation du cuir chevelu se fait avant le début et après la fin de la séance, en dehors du temps de soin.' },
           { h: 'Durée & Cadre', body: 'Séance de 60 min pour une personne, dans une chambre privée entièrement dédiée à votre rituel. Ambiance tamisée, silence, musique douce. Aucun partage avec d\'autres clients.' }
         ],
         forWhoTitle: 'Pour qui ?',
@@ -7668,7 +7702,7 @@ html body nav
         faqTitle: 'Questions fréquentes',
         faqs: [
           { q: 'Faut-il laver ses cheveux avant la séance ?', a: 'Non — le soin inclut un protocole de nettoyage. Venez avec vos cheveux naturels.' },
-          { q: 'Quelle est la différence avec le Signature 90 min ?', a: 'Le Focus 60 min cible le cuir chevelu. Le Signature 90 min ajoute un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée.' },
+          { q: 'Quelle est la différence avec le Signature 90 min ?', a: 'Le Focus 60 min cible le cuir chevelu. Le Signature 90 min ajoute un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée.' },
           { q: 'Peut-on avoir une séance en duo dans une chambre solo ?', a: 'Non — le Solo est réservé à une seule personne. Pour deux personnes, choisissez le Duo.' }
         ],
         linksTitle: 'Voir aussi',
@@ -7682,7 +7716,7 @@ html body nav
         meta: '60 MIN · 1 PERSON · SCALP CARE',
         lead: 'The Solo 60 min Head Spa at Skines Med Spa & Wellness is our ideal entry-level protocol for discovering Japanese scalp care in Montreal. In 60 minutes, you experience a deep scalp massage, targeted hair product application, and complete decompression in a private room.',
         sections: [
-          { h: 'Focus Protocol', body: 'Each session starts with a visual scalp analysis, followed by gentle steam application to open the follicles. A deep Japanese massage (Anma) is then performed on the scalp, temples and neck. The session ends with a scalp serum application tailored to your scalp type.' },
+          { h: 'Focus Protocol', body: 'Each session starts with a gentle relaxation massage, followed by a deep Japanese scalp massage (Anma) using professional tools and a treatment-oil massage. The session ends with two shampoos, a steam and nourishing-mask phase, and a scalp serum application tailored to your scalp type. The scalp assessment takes place before the session starts and after it ends, outside the treatment time.' },
           { h: 'Duration & Setting', body: '60-min session for one person in a fully private room dedicated to your ritual. Soft lighting, silence, gentle music. No sharing with other clients.' }
         ],
         forWhoTitle: 'Who is it for?',
@@ -7690,7 +7724,7 @@ html body nav
         faqTitle: 'Frequently asked questions',
         faqs: [
           { q: 'Should I wash my hair before the session?', a: 'No — the treatment includes a cleansing protocol. Come with your natural hair.' },
-          { q: 'What\'s the difference with the 90 min Signature?', a: 'The 60 min Focus targets the scalp. The 90 min Signature adds a a relaxing facial massage and a longer steam and nourishing-mask phase.' },
+          { q: 'What\'s the difference with the 90 min Signature?', a: 'The 60 min Focus targets the scalp. The 90 min Signature adds a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase.' },
           { q: 'Can two people share a solo room?', a: 'No — Solo is reserved for one person only. For two people, choose the Duo.' }
         ],
         linksTitle: 'See also',
@@ -7700,21 +7734,21 @@ html body nav
       }
     },
     'solo-90': {
-      images: ['assets/90%20min%20solo.webp?v=1','assets/IMG_4660.webp?v=1'],
+      images: ['assets/90%20min%20solo.webp?v=1','assets/IMG_4654.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · SOLO · 90 MIN',
         title: 'Signature Scalpcial Solo 90 min',
         meta: '90 MIN · 1 PERSONNE · RITUEL SIGNATURE',
         lead: 'Le Signature Scalpcial Solo 90 min est notre protocole le plus complet pour une personne. Une heure et demie entièrement dédiée à votre cuir chevelu, votre visage et votre déconnexion totale. Le Head Spa japonais dans sa version la plus profonde à Montréal.',
         sections: [
-          { h: 'Protocole Signature', body: 'Le rituel Signature intègre toutes les étapes du Focus 60 min avec 30 minutes supplémentaires dédiées à la relaxation : un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée, pour une absorption plus profonde et une relaxation plus longue. Un protocole conçu pour une expérience plus longue et une déconnexion profonde.' },
+          { h: 'Protocole Signature', body: 'Le rituel Signature intègre toutes les étapes du Focus 60 min avec 30 minutes supplémentaires dédiées à la relaxation : un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée, pour une absorption plus profonde et une relaxation plus longue. Un protocole conçu pour une expérience plus longue et une déconnexion profonde.' },
           { h: 'Durée & Cadre', body: 'Séance de 90 min pour une personne, chambre privée, ambiance japonaise apaisante. Aucun dérangement pendant toute la durée du soin.' }
         ],
         forWhoTitle: 'Pour qui ?',
         forWho: ['Cuir chevelu très stressé ou sensible', 'Cheveux abîmés, cassants ou ternes', 'Besoin d\'une récupération en profondeur', 'Cadeau ou moment de bien-être complet'],
         faqTitle: 'Questions fréquentes',
         faqs: [
-          { q: 'Qu\'est-ce qui change entre le 60 et 90 min ?', a: 'Le Signature ajoute un un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée.' },
+          { q: 'Qu\'est-ce qui change entre le 60 et 90 min ?', a: 'Le Signature ajoute un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée.' },
           { q: 'Le soin est-il adapté aux cheveux colorés ?', a: 'Oui — les produits utilisés sont adaptés à tous types de cheveux. Signalez toute coloration récente lors de votre arrivée.' }
         ],
         linksTitle: 'Voir aussi',
@@ -7728,14 +7762,14 @@ html body nav
         meta: '90 MIN · 1 PERSON · SIGNATURE RITUAL',
         lead: 'The Solo 90 min Signature Scalpcial is our most complete protocol for one person. Ninety minutes entirely dedicated to your scalp, face and total disconnection. Japanese Head Spa at its deepest in Montreal.',
         sections: [
-          { h: 'Signature Protocol', body: 'The Signature ritual includes all Focus 60 min steps plus 30 extra minutes dedicated to relaxation: a relaxing facial massage and a longer steam and nourishing-mask phase. A protocol designed for a longer experience and deep disconnection.' },
+          { h: 'Signature Protocol', body: 'The Signature ritual includes all Focus 60 min steps plus 30 extra minutes dedicated to relaxation: a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase. A protocol designed for a longer experience and deep disconnection.' },
           { h: 'Duration & Setting', body: '90-min session for one person, private room, soothing Japanese ambiance. No interruptions for the full duration of the treatment.' }
         ],
         forWhoTitle: 'Who is it for?',
         forWho: ['Very stressed or sensitive scalp', 'Damaged, brittle or dull hair', 'Need for deep recovery', 'Gift or complete wellness moment'],
         faqTitle: 'Frequently asked questions',
         faqs: [
-          { q: 'What changes between the 60 and 90 min?', a: 'The Signature adds a a relaxing facial massage and a longer steam and nourishing-mask phase.' },
+          { q: 'What changes between the 60 and 90 min?', a: 'The Signature adds a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase.' },
           { q: 'Is the treatment suitable for colored hair?', a: 'Yes — the products used are adapted to all hair types. Mention any recent coloring upon arrival.' }
         ],
         linksTitle: 'See also',
@@ -7795,16 +7829,16 @@ html body nav
         eyebrow: 'HEAD SPA · DUO · 90 MIN',
         title: 'Signature Scalpcial Duo 90 min',
         meta: '90 MIN · 2 PERSONNES · RITUEL SIGNATURE',
-        lead: 'Le Duo 90 min Signature chez Skines Med Spa & Wellness est notre rituel Head Spa le plus complet pour deux personnes. Quatre-vingt-dix minutes côte à côte — massage relaxant du visage et vapeur/masque nourrissant prolongés — dans une chambre privée à Montréal.',
+        lead: 'Le Duo 90 min Signature chez Skines Med Spa & Wellness est notre rituel Head Spa le plus complet pour deux personnes. Quatre-vingt-dix minutes côte à côte — massage relaxant du visage, du cou, des épaules, du décolleté et des bras, et vapeur/masque nourrissant prolongés — dans une chambre privée à Montréal.',
         sections: [
-          { h: 'Protocole Signature pour deux', body: 'Deux praticiens administrent simultanément le Signature Scalpcial complet : vapeur, massage Anma profond, sérum capillaire, un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée. Le protocole le plus complet de Skines, pour deux.' },
+          { h: 'Protocole Signature pour deux', body: 'Deux praticiens administrent simultanément le Signature Scalpcial complet : vapeur, massage Anma profond, sérum capillaire, un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée. Le protocole le plus complet de Skines, pour deux.' },
           { h: 'Cadre', body: 'Chambre double privée pour toute la durée du rituel 90 min. Aucune interruption, ambiance japonaise immersive.' }
         ],
         forWhoTitle: 'Pour qui ?',
         forWho: ['Anniversaire ou occasion spéciale en couple', 'Deux personnes avec cheveux fatigués ou cuir chevelu sensible', 'Cadeau wellness haut de gamme pour deux'],
         faqTitle: 'Questions fréquentes',
         faqs: [
-          { q: 'Quelle est la différence Duo 60 vs Duo 90 ?', a: 'Le Signature 90 min ajoute un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée pour chaque personne.' }
+          { q: 'Quelle est la différence Duo 60 vs Duo 90 ?', a: 'Le Signature 90 min ajoute un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée pour chaque personne.' }
         ],
         linksTitle: 'Voir aussi',
         links: ['Duo 60 min', 'Solo 90 min', 'Trio 90 min'],
@@ -7815,16 +7849,16 @@ html body nav
         eyebrow: 'HEAD SPA · DUO · 90 MIN',
         title: 'Signature Scalpcial Duo 90 min',
         meta: '90 MIN · 2 PEOPLE · SIGNATURE RITUAL',
-        lead: 'The Duo 90 min Signature at Skines Med Spa & Wellness is our most complete Head Spa ritual for two people. Ninety minutes side by side — relaxing facial massage and a longer steam & nourishing-mask phase — in a private room in Montreal.',
+        lead: 'The Duo 90 min Signature at Skines Med Spa & Wellness is our most complete Head Spa ritual for two people. Ninety minutes side by side — relaxing massage of the face, neck, shoulders, décolleté and arms, and a longer steam & nourishing-mask phase — in a private room in Montreal.',
         sections: [
-          { h: 'Signature protocol for two', body: 'Two practitioners simultaneously administer the complete Signature Scalpcial: steam, deep Anma massage, hair serum, a relaxing facial massage and a longer steam and nourishing-mask phase. Skines\' most complete protocol, for two.' },
+          { h: 'Signature protocol for two', body: 'Two practitioners simultaneously administer the complete Signature Scalpcial: steam, deep Anma massage, hair serum, a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase. Skines\' most complete protocol, for two.' },
           { h: 'Setting', body: 'Private double room for the full 90 min ritual. No interruptions, immersive Japanese ambiance.' }
         ],
         forWhoTitle: 'Who is it for?',
         forWho: ['Anniversary or special occasion as a couple', 'Two people with tired hair or sensitive scalp', 'Premium wellness gift for two'],
         faqTitle: 'Frequently asked questions',
         faqs: [
-          { q: 'What\'s the difference between Duo 60 and Duo 90?', a: 'The Signature 90 min adds a relaxing facial massage and a longer steam and nourishing-mask phase for each person.' }
+          { q: 'What\'s the difference between Duo 60 and Duo 90?', a: 'The Signature 90 min adds a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase for each person.' }
         ],
         linksTitle: 'See also',
         links: ['Duo 60 min', 'Solo 90 min', 'Trio 90 min'],
@@ -7881,16 +7915,16 @@ html body nav
         eyebrow: 'HEAD SPA · TRIO · 90 MIN',
         title: 'Signature Scalpcial Trio 90 min',
         meta: '90 MIN · 3 PERSONNES · RITUEL SIGNATURE',
-        lead: 'Le Trio 90 min Signature est l\'expérience Head Spa la plus complète pour un groupe de trois personnes à Montréal. Quatre-vingt-dix minutes de rituel japonais signature — massage relaxant du visage et vapeur/masque nourrissant prolongés — ensemble dans nos chambres privées.',
+        lead: 'Le Trio 90 min Signature est l\'expérience Head Spa la plus complète pour un groupe de trois personnes à Montréal. Quatre-vingt-dix minutes de rituel japonais signature — massage relaxant du visage, du cou, des épaules, du décolleté et des bras, et vapeur/masque nourrissant prolongés — ensemble dans nos chambres privées.',
         sections: [
-          { h: 'Protocole Signature trio', body: 'Trois praticiens administrent simultanément le Signature Scalpcial pour chaque personne : vapeur, massage Anma profond, sérum capillaire, un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée. Notre rituel le plus complet, pour trois.' },
+          { h: 'Protocole Signature trio', body: 'Trois praticiens administrent simultanément le Signature Scalpcial pour chaque personne : vapeur, massage Anma profond, sérum capillaire, un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée. Notre rituel le plus complet, pour trois.' },
           { h: 'Cadre', body: 'Nos chambres privées pour les 90 min du rituel. Aucune interruption. L\'expérience Head Spa collective la plus luxueuse de Skines.' }
         ],
         forWhoTitle: 'Pour qui ?',
         forWho: ['Groupe d\'amies ou évènement spécial', 'Cadeau collectif haut de gamme', 'Sortie bien-être groupe complète'],
         faqTitle: 'Questions fréquentes',
         faqs: [
-          { q: 'Quelle est la différence Trio 60 vs Trio 90 ?', a: 'Le Signature 90 min inclut un massage relaxant du visage et une phase de vapeur et de masque nourrissant prolongée pour chaque personne du groupe.' }
+          { q: 'Quelle est la différence Trio 60 vs Trio 90 ?', a: 'Le Signature 90 min inclut un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu\'une phase de vapeur et de masque nourrissant prolongée pour chaque personne du groupe.' }
         ],
         linksTitle: 'Voir aussi',
         links: ['Trio 60 min', 'Duo 90 min', 'Solo 90 min'],
@@ -7901,16 +7935,16 @@ html body nav
         eyebrow: 'HEAD SPA · TRIO · 90 MIN',
         title: 'Signature Scalpcial Trio 90 min',
         meta: '90 MIN · 3 PEOPLE · SIGNATURE RITUAL',
-        lead: 'The Trio 90 min Signature is the most complete Head Spa experience for a group of three in Montreal. Ninety minutes of signature Japanese ritual — relaxing facial massage and a longer steam & nourishing-mask phase — together in our private rooms.',
+        lead: 'The Trio 90 min Signature is the most complete Head Spa experience for a group of three in Montreal. Ninety minutes of signature Japanese ritual — relaxing massage of the face, neck, shoulders, décolleté and arms, and a longer steam & nourishing-mask phase — together in our private rooms.',
         sections: [
-          { h: 'Signature trio protocol', body: 'Three practitioners simultaneously administer the Signature Scalpcial for each person: steam, deep Anma massage, hair serum, a relaxing facial massage and a longer steam and nourishing-mask phase. Our most complete ritual, for three.' },
+          { h: 'Signature trio protocol', body: 'Three practitioners simultaneously administer the Signature Scalpcial for each person: steam, deep Anma massage, hair serum, a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase. Our most complete ritual, for three.' },
           { h: 'Setting', body: 'Our private rooms for the full 90 min ritual. No interruptions. The most luxurious group Head Spa experience at Skines.' }
         ],
         forWhoTitle: 'Who is it for?',
         forWho: ['Group of friends or special event', 'Premium collective gift', 'Complete group wellness outing'],
         faqTitle: 'Frequently asked questions',
         faqs: [
-          { q: 'What\'s the difference between Trio 60 and Trio 90?', a: 'The Signature 90 min includes a relaxing facial massage and a longer steam and nourishing-mask phase for each person in the group.' }
+          { q: 'What\'s the difference between Trio 60 and Trio 90?', a: 'The Signature 90 min includes a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase for each person in the group.' }
         ],
         linksTitle: 'See also',
         links: ['Trio 60 min', 'Duo 90 min', 'Solo 90 min'],
