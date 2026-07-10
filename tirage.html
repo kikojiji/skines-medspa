@@ -1112,9 +1112,10 @@ html body .footer-social a:hover {
 .sf-nav-label {
   display: block;
   font-size: 0.60rem; font-weight: 600; letter-spacing: 0.26em;
-  color: rgba(201,160,96,0.65); text-transform: uppercase;
+  text-transform: uppercase;
   padding: 0.8rem 1.6rem 0.38rem;
 }
+.sf-nav-label:not(#_) { color: rgba(201,160,96,0.85) !important; }
 .sf-link {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0.65rem 1.6rem;
@@ -1178,9 +1179,9 @@ html body .footer-social a:hover {
 /* ── Exclusif — standalone square highlighted box, same row as the other columns ── */
 .sf-exclusive-card {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: 0.7rem;
+  text-align: center; gap: 0.45rem;
   width: auto;
-  padding: 1.4rem 1.2rem; margin: 0.8rem 1.6rem;
+  padding: 1rem 1.1rem; margin: 0.6rem 1.6rem;
   background: rgba(201,160,96,0.10);
   border: 1px solid rgba(201,160,96,0.35);
   border-radius: 10px;
@@ -1189,10 +1190,12 @@ html body .footer-social a:hover {
 }
 .sf-exclusive-card:hover { background: rgba(201,160,96,0.18); border-color: rgba(201,160,96,0.55); }
 .sf-exclusive-icon { flex-shrink: 0; display: flex; }
-.sf-exclusive-icon svg { width: 34px; height: 34px; stroke: #C9973A; }
-.sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
-.sf-exclusive-text strong { font-size: 0.95rem; font-weight: 600; color: rgba(245,237,227,0.92); letter-spacing: 0.01em; }
-.sf-exclusive-text span { font-size: 0.72rem; color: rgba(245,237,227,0.55); }
+.sf-exclusive-icon svg { width: 26px; height: 26px; stroke: #C9973A; }
+.sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.sf-exclusive-text strong { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.01em; }
+.sf-exclusive-text strong:not(#_) { color: rgba(245,237,227,0.92) !important; }
+.sf-exclusive-text span { font-size: 0.64rem; }
+.sf-exclusive-text span:not(#_) { color: rgba(245,237,227,0.55) !important; }
 .sf-exclusive-card .sf-chevron { display: none; }
 @media (min-width: 981px) {
   .sf-exclusive-card { margin: 0; height: 100%; }
@@ -1396,8 +1399,12 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
       </a>
     </div>
 
-    <div class="sf-nav-group">
-      <span class="sf-nav-label" data-fr="Guides" data-en="Guides">Guides</span>
+    <div class="sf-nav-group sf-nav-collapsible" id="sfGuides">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Guides" data-en="Guides">Guides</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
       <a class="sf-link" href="/head-spa-guide">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
@@ -1405,10 +1412,15 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
+      </div>
     </div>
 
-    <div class="sf-nav-group">
-      <span class="sf-nav-label" data-fr="Votre Visite" data-en="Your Visit">Your Visit</span>
+    <div class="sf-nav-group sf-nav-collapsible" id="sfVisite">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Votre Visite" data-en="Your Visit">Votre Visite</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
       <a class="sf-link" href="/reviews">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg></span>
@@ -1437,6 +1449,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
+      </div>
     </div>
 
     <div class="sf-nav-group sf-nav-exclusive">
@@ -1486,6 +1499,54 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 <style>
 
 html body nav 
+
+/* ══════════════════════════════════════════════════════════════
+   SITE FOOTER — ACCORDION (Guides / Votre Visite) — mobile/tablet
+   only; Services stays always-expanded; desktop forces everything
+   open regardless of JS state.
+   ══════════════════════════════════════════════════════════════ */
+.sf-nav-collapsible .sf-nav-toggle {
+  display: flex !important; align-items: center !important; justify-content: space-between !important;
+  width: 100% !important; margin: 0 !important; padding: 0.8rem 1.6rem 0.38rem !important;
+  background: none !important; border: none !important; cursor: pointer; appearance: none !important;
+  font-family: inherit !important; font-size: 0.60rem !important; font-weight: 600 !important;
+  letter-spacing: 0.26em !important; text-transform: uppercase !important; text-align: left !important;
+  color: rgba(201,160,96,0.65) !important;
+}
+.sf-nav-collapsible .sf-nav-toggle span { color: inherit !important; }
+.sf-nav-toggle-chevron { flex-shrink: 0; stroke: rgba(201,160,96,0.65); transition: transform 0.3s ease; margin-left: 0.5rem; }
+.sf-nav-collapsible.sf-nav-open .sf-nav-toggle-chevron { transform: rotate(180deg); }
+@media (max-width: 980px) {
+  .sf-nav-panel { max-height: 0; overflow: hidden; transition: max-height 0.32s ease; }
+  .sf-nav-collapsible.sf-nav-open .sf-nav-panel { max-height: 500px; }
+}
+@media (min-width: 981px) {
+  .sf-nav-panel { max-height: none !important; overflow: visible !important; }
+  .sf-nav-toggle-chevron { display: none !important; }
+  .sf-nav-collapsible .sf-nav-toggle { cursor: default !important; }
+}
 </style>
+<script>
+/* ── Footer nav accordions (mobile/tablet only, CSS neutralizes on desktop) ── */
+(function() {
+  var groups = document.querySelectorAll('.sf-nav-collapsible');
+  groups.forEach(function(g) {
+    var btn = g.querySelector('.sf-nav-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isOpen = g.classList.contains('sf-nav-open');
+      groups.forEach(function(o) {
+        o.classList.remove('sf-nav-open');
+        var b = o.querySelector('.sf-nav-toggle');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        g.classList.add('sf-nav-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

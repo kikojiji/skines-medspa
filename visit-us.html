@@ -758,6 +758,7 @@ footer { background: #684034 !important; }
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
     <div class="mobile-nav-header">
       <a class="logo" href="/">
+        <img src="assets/images/logo-officiel-cropped.webp?v=2" class="mnav-logo-stones" alt="" aria-hidden="true">
         <div class="logo-brand">
           <span class="logo-text">SKINES</span>
           <span class="logo-sub">Med Spa · Montréal</span>
@@ -770,29 +771,62 @@ footer { background: #684034 !important; }
       <span class="nav-lang-sep">|</span>
       <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
     </div>
-    <ul class="mobile-nav-links">
-      <li><a href="/head-spa">Head Spa</a></li>
-      <li><a href="/laser"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a></li>
-      <li><a href="/facial"><span data-fr="Facial" data-en="Facials">Facial</span></a></li>
-      <li><a href="/cartes-cadeaux"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a></li>
-      <li><a href="/reviews" class="nav-sub"><span data-fr="Avis clients" data-en="Client Reviews">Avis clients</span></a></li>
-      <li><a href="/visit-us" class="nav-sub"><span data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</span></a></li>
-      <li><a href="/parking" class="nav-sub"><span data-fr="Stationnement" data-en="Private Parking">Stationnement</span></a></li>
-      <li><a href="/insurance" class="nav-sub"><span data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</span></a></li>
-    
-      <li><a href="/head-spa-guide" class="nav-sub" data-fr="Guides →" data-en="Guides →">Guides →</a></li>
-    </ul>
+    <div class="mnav-accordions">
+      <div class="mnav-acc" id="mnavSoins">
+        <button class="mnav-acc-btn" type="button" aria-expanded="false">
+          <span data-fr="Soins" data-en="Treatments">Soins</span>
+          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+        </button>
+        <div class="mnav-acc-panel">
+          <a href="/head-spa">Head Spa</a>
+          <a href="/facial"><span data-fr="Facial" data-en="Facials">Facial</span></a>
+          <a href="/laser"><span data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</span></a>
+        </div>
+      </div>
+      <div class="mnav-acc" id="mnavGuides">
+        <button class="mnav-acc-btn" type="button" aria-expanded="false">
+          <span data-fr="Guides" data-en="Guides">Guides</span>
+          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+        </button>
+        <div class="mnav-acc-panel">
+          <a href="/head-spa-guide" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a>
+          <a href="/laser-guide" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a>
+          <a href="/facial-guide" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a>
+        </div>
+      </div>
+      <div class="mnav-acc" id="mnavVisite">
+        <button class="mnav-acc-btn" type="button" aria-expanded="false">
+          <span data-fr="Votre Visite" data-en="Your Visit">Votre Visite</span>
+          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+        </button>
+        <div class="mnav-acc-panel">
+          <a href="/reviews" data-fr="Avis clients" data-en="Client Reviews">Avis clients</a>
+          <a href="/visit-us" data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</a>
+          <a href="/parking" data-fr="Stationnement" data-en="Private Parking">Stationnement</a>
+          <a href="/insurance" data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</a>
+        </div>
+      </div>
+      <a class="mnav-toplink" href="/cartes-cadeaux"><span data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span></a>
+    </div>
     <div class="sp-menu-trigger-wrap">
       <button id="sp-menu-trigger" class="sp-menu-trigger" aria-label="Tirage Exclusif">
         <span class="sp-menu-trigger-lotus">✿</span>
-        <span class="sp-menu-trigger-label" data-fr="EXPÉRIENCE EXCLUSIVE" data-en="EXCLUSIVE EXPERIENCE">EXPÉRIENCE EXCLUSIVE</span>
-        <span class="sp-menu-trigger-sub" data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
+        <span class="sp-menu-trigger-textwrap">
+          <span class="sp-menu-trigger-label" data-fr="EXPÉRIENCE EXCLUSIVE" data-en="EXCLUSIVE EXPERIENCE">EXPÉRIENCE EXCLUSIVE</span>
+          <span class="sp-menu-trigger-sub" data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
+        </span>
       </button>
     </div>
     <div class="mobile-nav-footer">
       <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
-
+      <div class="mnav-socials">
+        <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/channel/UCfaDRlj07kg2zGlH6AsnFUw" target="_blank" rel="noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg></a>
+      </div>
+      <p class="mnav-copyright">© 2026 Skines Med Spa</p>
     </div>
   </div>
 
@@ -909,7 +943,8 @@ html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !impo
 
 .sf-tagline-sub { font-size:0.58rem; letter-spacing:0.26em; color:rgba(245,237,227,0.30); text-transform:uppercase; padding-left:0.26em; margin-top:0.1rem; }
 .sf-nav { padding:0.8rem 0 0; }
-.sf-nav-label { display:block; font-size:0.60rem; font-weight:600; letter-spacing:0.26em; color:rgba(201,160,96,0.65); text-transform:uppercase; padding:0.8rem 1.6rem 0.38rem; }
+.sf-nav-label { display:block; font-size:0.60rem; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; padding:0.8rem 1.6rem 0.38rem; }
+.sf-nav-label:not(#_) { color:rgba(201,160,96,0.85) !important; }
 .sf-link { display:flex; align-items:center; justify-content:space-between; padding:0.65rem 1.6rem; border-bottom:1px solid rgba(255,255,255,0.05); color:rgba(245,237,227,0.65); text-decoration:none; transition:background 0.18s, color 0.18s; }
 .sf-link:hover { background:rgba(255,255,255,0.03); color:rgba(245,237,227,0.95); }
 .sf-link-left { display:flex; align-items:center; gap:0.95rem; font-size:0.88rem; font-weight:300; line-height:1; }
@@ -953,9 +988,9 @@ html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !impo
 /* ── Exclusif — standalone square highlighted box, same row as the other columns ── */
 .sf-exclusive-card {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: 0.7rem;
+  text-align: center; gap: 0.45rem;
   width: auto;
-  padding: 1.4rem 1.2rem; margin: 0.8rem 1.6rem;
+  padding: 1rem 1.1rem; margin: 0.6rem 1.6rem;
   background: rgba(201,160,96,0.10);
   border: 1px solid rgba(201,160,96,0.35);
   border-radius: 10px;
@@ -964,10 +999,12 @@ html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !impo
 }
 .sf-exclusive-card:hover { background: rgba(201,160,96,0.18); border-color: rgba(201,160,96,0.55); }
 .sf-exclusive-icon { flex-shrink: 0; display: flex; }
-.sf-exclusive-icon svg { width: 34px; height: 34px; stroke: #C9973A; }
-.sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
-.sf-exclusive-text strong { font-size: 0.95rem; font-weight: 600; color: rgba(245,237,227,0.92); letter-spacing: 0.01em; }
-.sf-exclusive-text span { font-size: 0.72rem; color: rgba(245,237,227,0.55); }
+.sf-exclusive-icon svg { width: 26px; height: 26px; stroke: #C9973A; }
+.sf-exclusive-text { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.sf-exclusive-text strong { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.01em; }
+.sf-exclusive-text strong:not(#_) { color: rgba(245,237,227,0.92) !important; }
+.sf-exclusive-text span { font-size: 0.64rem; }
+.sf-exclusive-text span:not(#_) { color: rgba(245,237,227,0.55) !important; }
 .sf-exclusive-card .sf-chevron { display: none; }
 @media (min-width: 981px) {
   .sf-exclusive-card { margin: 0; height: 100%; }
@@ -1336,8 +1373,12 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
       </a>
     </div>
 
-    <div class="sf-nav-group">
-      <span class="sf-nav-label" data-fr="Guides" data-en="Guides">Guides</span>
+    <div class="sf-nav-group sf-nav-collapsible" id="sfGuides">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Guides" data-en="Guides">Guides</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
       <a class="sf-link" href="/head-spa-guide">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
@@ -1359,10 +1400,15 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
+      </div>
     </div>
 
-    <div class="sf-nav-group">
-      <span class="sf-nav-label" data-fr="Votre Visite" data-en="Your Visit">Your Visit</span>
+    <div class="sf-nav-group sf-nav-collapsible" id="sfVisite">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Votre Visite" data-en="Your Visit">Votre Visite</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
       <a class="sf-link" href="/reviews">
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg></span>
@@ -1391,6 +1437,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
+      </div>
     </div>
 
     <div class="sf-nav-group sf-nav-exclusive">
@@ -1512,7 +1559,147 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 <style>
 
 html body nav 
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE NAV — ACCORDION REDESIGN (luxury, compact)
+   ══════════════════════════════════════════════════════════════ */
+#mobileNav .mobile-nav-header .logo { display: flex; align-items: center; gap: 0.6rem; }
+#mobileNav .mnav-logo-stones { width: 26px; height: auto; opacity: 0.9; flex-shrink: 0; }
+#mobileNav .mnav-accordions { padding: 0.3rem 1.5rem 0; }
+#mobileNav .mnav-acc { border-bottom: 1px solid rgba(245,237,227,0.14); }
+#mobileNav .mnav-acc-btn {
+  display: flex !important; align-items: center !important; justify-content: space-between !important;
+  width: 100% !important; background: none !important; border: none !important; cursor: pointer;
+  padding: 0.95rem 0 !important; margin: 0 !important;
+  text-transform: uppercase !important; letter-spacing: 0.2em !important; font-size: 0.82rem !important; font-weight: 500 !important;
+  font-family: "DM Sans", sans-serif !important; color: rgba(245,237,227,0.92) !important;
+  text-align: left !important;
+}
+#mobileNav .mnav-acc-chevron { flex-shrink: 0; stroke: rgba(245,237,227,0.55); transition: transform 0.3s ease; margin-left: 0.6rem; }
+#mobileNav .mnav-acc.mnav-open .mnav-acc-chevron { transform: rotate(180deg); }
+#mobileNav .mnav-acc-panel { max-height: 0; overflow: hidden; transition: max-height 0.32s ease; }
+#mobileNav .mnav-acc.mnav-open .mnav-acc-panel { max-height: 320px; }
+#mobileNav .mnav-acc-panel a {
+  display: block !important; padding: 0.68rem 0 0.68rem 0.1rem !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.92rem !important; letter-spacing: 0.02em !important; text-transform: none !important; font-weight: 400 !important;
+  color: rgba(245,237,227,0.68) !important; text-decoration: none !important;
+}
+#mobileNav .mnav-acc-panel a:last-child { padding-bottom: 0.95rem !important; }
+#mobileNav .mnav-acc-panel a:hover { color: #C9973A !important; }
+#mobileNav .mnav-toplink {
+  display: block !important; padding: 0.95rem 0 !important;
+  text-transform: uppercase !important; letter-spacing: 0.2em !important; font-size: 0.82rem !important; font-weight: 500 !important;
+  font-family: "DM Sans", sans-serif !important;
+  color: rgba(245,237,227,0.92) !important; text-decoration: none !important;
+  border-bottom: 1px solid rgba(245,237,227,0.14);
+}
+#mobileNav .mnav-toplink:hover { color: #C9973A !important; }
+#mobileNav .mnav-acc-btn span, #mobileNav .mnav-toplink span { color: inherit !important; }
+#mobileNav .mnav-acc-panel a span { color: inherit !important; }
+/* Giveaway pill — compact single row (was 3-line stacked block) */
+#mobileNav .sp-menu-trigger {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.7rem !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+}
+#mobileNav .sp-menu-trigger-lotus { display: inline-flex !important; font-size: 1.15rem !important; color: #3A1E14 !important; flex-shrink: 0; }
+#mobileNav .sp-menu-trigger-textwrap { display: flex !important; flex-direction: column !important; gap: 0.15rem !important; align-items: flex-start !important; }
+#mobileNav .sp-menu-trigger-label, #mobileNav .sp-menu-trigger-sub { display: block !important; text-align: left !important; }
+/* Footer: social icons + copyright */
+#mobileNav .mnav-socials { display: flex !important; justify-content: center !important; align-items: center !important; gap: 1.3rem !important; padding-top: 0.3rem !important; }
+#mobileNav .mnav-socials a { color: rgba(245,237,227,0.5) !important; display: flex !important; transition: color 0.2s; }
+#mobileNav .mnav-socials a:hover { color: rgba(245,237,227,0.9) !important; }
+#mobileNav .mnav-copyright { text-align: center !important; font-size: 0.62rem !important; letter-spacing: 0.03em !important; color: rgba(245,237,227,0.28) !important; margin: 0.1rem 0 0 !important; }
+/* MOBILE NAV — TIGHTER SPACING */
+#mobileNav .mobile-nav-footer { margin-top: 0 !important; padding-top: 0.35rem !important; padding-bottom: 0.5rem !important; gap: 0.4rem !important; }
+#mobileNav .mobile-nav-header { padding: 0.6rem 1.4rem !important; }
+#mobileNav .nav-lang-bar { padding: 0.3rem 0 0.3rem !important; }
+#mobileNav .mnav-accordions { padding: 0 1.5rem 0 !important; }
+#mobileNav .sp-menu-trigger-wrap { padding: 10px 1.4rem 4px !important; }
+#mobileNav .mnav-acc-btn { padding: 0.72rem 0 !important; }
+#mobileNav .mnav-toplink { padding: 0.72rem 0 !important; }
+#mobileNav .mnav-acc-panel a { padding: 0.55rem 0 0.55rem 0.1rem !important; }
+#mobileNav .mnav-acc-panel a:last-child { padding-bottom: 0.75rem !important; }
+#mobileNav .btn-dark { padding: 0.62rem !important; }
+#mobileNav .mobile-nav-footer { gap: 0.32rem !important; }
+#mobileNav .mnav-socials { padding-top: 0.1rem !important; }
+#mobileNav .mnav-copyright { margin: 0 !important; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   SITE FOOTER — ACCORDION (Guides / Votre Visite) — mobile/tablet
+   only; Services stays always-expanded; desktop forces everything
+   open regardless of JS state.
+   ══════════════════════════════════════════════════════════════ */
+.sf-nav-collapsible .sf-nav-toggle {
+  display: flex !important; align-items: center !important; justify-content: space-between !important;
+  width: 100% !important; margin: 0 !important; padding: 0.8rem 1.6rem 0.38rem !important;
+  background: none !important; border: none !important; cursor: pointer; appearance: none !important;
+  font-family: inherit !important; font-size: 0.60rem !important; font-weight: 600 !important;
+  letter-spacing: 0.26em !important; text-transform: uppercase !important; text-align: left !important;
+  color: rgba(201,160,96,0.65) !important;
+}
+.sf-nav-collapsible .sf-nav-toggle span { color: inherit !important; }
+.sf-nav-toggle-chevron { flex-shrink: 0; stroke: rgba(201,160,96,0.65); transition: transform 0.3s ease; margin-left: 0.5rem; }
+.sf-nav-collapsible.sf-nav-open .sf-nav-toggle-chevron { transform: rotate(180deg); }
+@media (max-width: 980px) {
+  .sf-nav-panel { max-height: 0; overflow: hidden; transition: max-height 0.32s ease; }
+  .sf-nav-collapsible.sf-nav-open .sf-nav-panel { max-height: 500px; }
+}
+@media (min-width: 981px) {
+  .sf-nav-panel { max-height: none !important; overflow: visible !important; }
+  .sf-nav-toggle-chevron { display: none !important; }
+  .sf-nav-collapsible .sf-nav-toggle { cursor: default !important; }
+}
 </style>
   <script src="/assets/js/fresha-tracking.js" defer></script>
+<script>
+/* ── Mobile nav accordions ── */
+(function() {
+  var accs = document.querySelectorAll('#mobileNav .mnav-acc');
+  accs.forEach(function(acc) {
+    var btn = acc.querySelector('.mnav-acc-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isOpen = acc.classList.contains('mnav-open');
+      accs.forEach(function(a) {
+        a.classList.remove('mnav-open');
+        var b = a.querySelector('.mnav-acc-btn');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        acc.classList.add('mnav-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
+<script>
+/* ── Footer nav accordions (mobile/tablet only, CSS neutralizes on desktop) ── */
+(function() {
+  var groups = document.querySelectorAll('.sf-nav-collapsible');
+  groups.forEach(function(g) {
+    var btn = g.querySelector('.sf-nav-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isOpen = g.classList.contains('sf-nav-open');
+      groups.forEach(function(o) {
+        o.classList.remove('sf-nav-open');
+        var b = o.querySelector('.sf-nav-toggle');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        g.classList.add('sf-nav-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
