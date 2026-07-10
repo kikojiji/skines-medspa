@@ -861,8 +861,586 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
      stylesheet") is unchanged, makes them render-blocking like every
      other stylesheet so the nav is never painted in its unstyled
      state. -->
-<link rel="stylesheet" href="/assets/css/nav.css?v=18">
-<link rel="stylesheet" href="assets/css/animations.css?v=1">
+<!-- nav.css / animations.css: inlined directly (was a separate <link>,
+     even render-blocking in <head> that still costs one extra network
+     round-trip before it applies). Since these rules are the ones that
+     position/color the nav, that gap was enough to show a fast flash of
+     unstyled/unpositioned nav text on some connections. Inlining removes
+     the request entirely, so there is truly zero window where the nav
+     can paint before these rules exist. Source of truth stays
+     assets/css/nav.css / animations.css — re-run scripts/inline this
+     if those files change. -->
+<style id="nav-css-inline">
+/* ══ Skines — Nav officiel (référence: visit-us.html) ══ */
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/assets/fonts/OldStandardTT-Regular.woff2') format('woff2'),
+       url('/assets/fonts/OldStandardTT-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url('/assets/fonts/OldStandardTT-Italic.woff2') format('woff2'),
+       url('/assets/fonts/OldStandardTT-Italic.ttf') format('truetype');
+}
+
+/* ── Nav container ── */
+html body nav#mainNav,
+html body nav {
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 100 !important;
+  padding: 1.15rem 3rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+html body nav.nav-scrolled {
+  background: rgba(249,244,238,0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 1px 0 rgba(104,64,52,0.12) !important;
+}
+html body nav.nav-hidden {
+  transform: translateY(-110%) !important;
+}
+
+/* ── Logo ── */
+html body nav .logo {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+}
+html body nav .logo-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.05rem !important;
+  text-align: center !important;
+}
+
+/* ── SKINES wordmark — valeurs exactes du logo original ── */
+nav .logo-text {
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 1.9rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.42em !important;
+  padding-left: 0.42em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+nav:not(.nav-scrolled) .logo-text {
+  color: rgba(245,237,227,0.95) !important;
+  /* Legibility over busy photo/video hero backgrounds (transparent nav
+     state only — the scrolled solid-bg state doesn't need it). */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45) !important;
+}
+nav.nav-scrolled .logo-text        { color: #4B2E26 !important; }
+
+/* ── MED SPA · MONTRÉAL — valeurs exactes du logo original ── */
+nav .logo-sub {
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 0.52rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.30em !important;
+  padding-left: 0.30em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  display: block !important;
+  margin-top: 0.05rem !important;
+}
+nav:not(.nav-scrolled) .logo-sub {
+  color: rgba(245,237,227,0.45) !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45) !important;
+}
+nav.nav-scrolled .logo-sub        { color: rgba(158,140,132,0.85) !important; }
+
+/* Very soft glass panel behind the wordmark when the nav is transparent,
+   so it stays readable over a busy hero/carousel photo without reading
+   as an obvious box — large radius + low opacity + no border. */
+nav:not(.nav-scrolled) .logo-brand {
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 999px !important;
+  padding: 0.35rem 1.1rem !important;
+}
+
+/* ── Logo brand container ── */
+nav .logo-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.05rem !important;
+  text-align: center !important;
+}
+
+/* ── Hamburger — 3 lignes égales (référence visit-us) ── */
+html body nav .menu-btn {
+  display: none !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 4px !important;
+}
+html body nav .menu-btn span {
+  display: block !important;
+  width: 22px !important;
+  height: 1.5px !important;
+  background: currentColor !important;
+  transition: transform 0.3s !important;
+}
+
+/* ── Nav links — Old Standard TT (même police que le logo) ── */
+html body nav .nav-links a,
+html body nav#mainNav .nav-links a {
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+}
+html body nav:not(.nav-scrolled) .nav-links a {
+  color: rgba(245,237,227,0.82) !important;
+}
+html body nav.nav-scrolled .nav-links a {
+  color: rgba(75,46,38,0.80) !important;
+}
+html body nav .nav-links a:hover {
+  color: rgba(201,160,96,0.9) !important;
+}
+
+/* ── Search button ── */
+html body nav .nav-search-btn {
+  background: none !important;
+  border: 1.5px solid rgba(104,64,52,0.3) !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  color: var(--brown-dark, #4B2E26) !important;
+  transition: border-color 0.2s !important;
+}
+html body nav:not(.nav-scrolled) .nav-search-btn {
+  border-color: rgba(245,237,227,0.35) !important;
+  color: rgba(245,237,227,0.88) !important;
+}
+
+/* ── Colors on dark hero (transparent nav) ── */
+html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.88) !important; }
+html body nav:not(.nav-scrolled) .lang-btn { color: rgba(245,237,227,0.65) !important; }
+html body nav:not(.nav-scrolled) .lang-btn.active { color: rgba(245,237,227,0.95) !important; }
+html body nav.nav-scrolled .menu-btn span { background: #4B2E26 !important; }
+html body nav.nav-scrolled .lang-btn { color: rgba(58,30,20,0.55) !important; }
+html body nav.nav-scrolled .lang-btn.active { color: #4B2E26 !important; }
+
+/* ── sf-brand (logo footer menu mobile) — override global ── */
+.sf-brand,
+.mobile-nav .sf-brand,
+.mobile-nav-footer .sf-brand {
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.42em !important;
+  padding-left: 0.42em !important;
+  text-transform: uppercase !important;
+}
+
+/* ── nav-logo & sf-logo — no browser blue ── */
+.nav-logo,
+nav .nav-logo,
+header .nav-logo,
+a.nav-logo,
+a.sf-logo {
+  font-family: 'Old Standard TT', serif !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.sf-brand { text-decoration: none !important; color: inherit !important; }
+
+/* ══ MENU MOBILE — version officielle (référence: visit-us.html) ══ */
+.mobile-nav {
+  position: fixed !important;
+  inset: 0 !important;
+  background: #684034 !important;
+  z-index: 200 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 1.5rem 2rem 2rem !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+  overflow-y: auto !important;
+}
+.mobile-nav.open {
+  transform: translateX(0) !important;
+}
+
+/* Header: grille 3 colonnes — flèche | logo | vide */
+.mobile-nav-header {
+  display: grid !important;
+  grid-template-columns: 44px 1fr 44px !important;
+  align-items: center !important;
+  justify-items: center !important;
+  margin-bottom: 0 !important;
+  background: #684034 !important;
+  border-bottom: 1px solid rgba(245,237,227,0.07) !important;
+  padding-bottom: 1rem !important;
+}
+.mobile-nav-close {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  justify-self: start !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: rgba(245,237,227,0.70) !important;
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+}
+.mobile-nav-header .logo {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  transform: none !important;
+  text-align: center !important;
+}
+
+/* Logo SKINES dans le menu mobile — mêmes proportions que le logo original */
+.mobile-nav-header .logo-text {
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 1.9rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.42em !important;
+  padding-left: 0.42em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  color: rgba(245,237,227,0.92) !important;
+}
+.mobile-nav-header .logo-sub {
+  font-family: 'Old Standard TT', serif !important;
+  font-size: 0.52rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.30em !important;
+  padding-left: 0.30em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  display: block !important;
+  margin-top: 0.05rem !important;
+  color: rgba(245,237,227,0.45) !important;
+}
+
+/* Sélecteur FR / EN */
+.nav-lang-bar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 1rem 0 0.5rem !important;
+}
+.nav-lang-btn,
+.mobile-lang-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 0.82rem !important;
+  font-weight: 400 !important;
+  color: rgba(245,237,227,0.45) !important;
+  padding: 0.2rem 0.4rem !important;
+  transition: color 0.2s !important;
+}
+.nav-lang-btn.active,
+.mobile-lang-btn.active {
+  color: rgba(245,237,227,0.9) !important;
+  font-weight: 500 !important;
+}
+.nav-lang-sep,
+.mobile-lang-sep {
+  color: rgba(245,237,227,0.2) !important;
+}
+
+/* Liens du menu */
+.mobile-nav-links {
+  list-style: none !important;
+  flex: 1 !important;
+  margin-top: 0.5rem !important;
+}
+.mobile-nav-links li {
+  border-bottom: 1px solid rgba(245,237,227,0.07) !important;
+}
+.mobile-nav-links a {
+  display: block !important;
+  padding: 1.1rem 0 !important;
+  font-size: 0.82rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: rgba(245,237,227,0.85) !important;
+  text-decoration: none !important;
+  transition: color 0.2s !important;
+}
+.mobile-nav-links a:hover { color: rgba(201,160,96,0.9) !important; }
+.mobile-nav-links .nav-sub { color: rgba(245,237,227,0.45) !important; font-size: 0.72rem !important; }
+
+/* Bouton Exclusive Experience */
+.sp-menu-trigger-wrap {
+  padding: 18px 0 10px !important;
+}
+.sp-menu-trigger {
+  width: 100% !important;
+  background: rgb(232,211,163) !important;
+  border: none !important;
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 3px !important;
+  transition: background 0.25s !important;
+}
+.sp-menu-trigger:hover { background: rgb(220,198,148) !important; }
+.sp-menu-trigger-lotus { display: none !important; }
+.sp-menu-trigger-label {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #3A1E14 !important;
+  font-weight: 600 !important;
+}
+.sp-menu-trigger-sub {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(58,30,20,0.6) !important;
+  font-weight: 400 !important;
+}
+
+/* Footer du menu mobile */
+.mobile-nav-footer {
+  margin-top: 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  border-top: 1px solid rgba(245,237,227,0.07) !important;
+  padding-top: 1.5rem !important;
+}
+.btn-dark {
+  background: rgba(245,237,227,0.12) !important;
+  color: rgba(245,237,227,0.88) !important;
+  border: 1px solid rgba(245,237,227,0.2) !important;
+  padding: 1rem !important;
+  font-size: 0.76rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: block !important;
+  transition: all 0.25s !important;
+}
+.btn-dark:hover {
+  background: rgba(245,237,227,0.18) !important;
+  border-color: rgba(245,237,227,0.35) !important;
+}
+.mobile-contact {
+  font-size: 0.8rem !important;
+  color: rgba(245,237,227,0.4) !important;
+  text-align: center !important;
+}
+.mobile-contact a {
+  color: rgba(245,237,227,0.65) !important;
+  text-decoration: none !important;
+}
+
+/* ── Nav mobile (fermée) ── */
+@media (max-width: 860px) {
+  html body nav,
+  html body nav#mainNav {
+    padding: 1rem 1.4rem !important;
+  }
+  html body nav .nav-links,
+  html body nav .nav-cta,
+  html body nav .lang-switcher {
+    display: none !important;
+  }
+  html body nav .menu-btn {
+    display: flex !important;
+    margin-left: auto !important;
+  }
+  html body nav .logo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  html body nav .logo-text {
+    font-size: 1.42rem !important;
+    letter-spacing: 0.40em !important;
+    padding-left: 0.40em !important;
+  }
+  html body nav .logo-sub {
+    font-size: 0.44rem !important;
+    letter-spacing: 0.24em !important;
+    padding-left: 0.24em !important;
+  }
+}
+
+</style>
+<style id="animations-css-inline">
+/* ══ Skines — Unified Animation System ══
+   One easing. One duration per category. No exceptions.
+   Nav sticky hide/show: managed by nav.css — untouched here.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  0.18s;   /* color, border, opacity micro-changes */
+  --dur-base:  0.26s;   /* buttons, links, cards, images        */
+  --dur-slow:  0.40s;   /* mobile menu, popup, modals           */
+}
+
+/* ── Buttons — all variants ── */
+[class*="btn-"],
+a[class*="btn-"],
+button[class*="btn-"],
+.btn-dark, .btn-light, .btn-warm,
+.btn-hero-glass, .headspa-btn,
+.price-card-cta, .svc-book-btn,
+.sp-cta, .sp-menu-trigger,
+.nav-cta, .mobile-cta {
+  transition:
+    background    var(--dur-base) var(--ease),
+    color         var(--dur-base) var(--ease),
+    border-color  var(--dur-base) var(--ease),
+    box-shadow    var(--dur-base) var(--ease),
+    transform     var(--dur-base) var(--ease) !important;
+}
+
+/* ── Links & nav items ── */
+a,
+nav a,
+.nav-links a,
+.mobile-nav-links a,
+.footer a,
+.lang-btn,
+.nav-lang-btn,
+.mobile-lang-btn,
+.sf-legal a,
+.sf-social-btn {
+  transition:
+    color         var(--dur-fast) var(--ease),
+    opacity       var(--dur-fast) var(--ease),
+    border-color  var(--dur-fast) var(--ease) !important;
+}
+
+/* ── Cards & service tiles ── */
+[class*="-card"],
+[class*="svc-card"],
+[class*="price-card"],
+[class*="review-card"],
+[class*="service-card"],
+.card,
+.tile {
+  transition:
+    box-shadow  var(--dur-base) var(--ease),
+    transform   var(--dur-base) var(--ease),
+    border-color var(--dur-base) var(--ease) !important;
+}
+
+/* ── Images ── */
+img {
+  transition:
+    transform   var(--dur-base) var(--ease),
+    opacity     var(--dur-base) var(--ease) !important;
+}
+
+/* ── Mobile menu open/close ── */
+.mobile-nav {
+  transition: transform var(--dur-slow) var(--ease) !important;
+}
+
+/* ── Popup / modal overlay ── */
+#sp-overlay,
+[id*="overlay"],
+[class*="overlay"],
+[class*="modal"],
+[class*="popup"] {
+  transition:
+    opacity     var(--dur-base) var(--ease),
+    visibility  0s linear var(--dur-base) !important;
+}
+#sp-overlay.visible,
+[class*="overlay"].visible,
+[class*="modal"].open,
+[class*="popup"].open {
+  transition:
+    opacity     var(--dur-base) var(--ease),
+    visibility  0s linear 0s !important;
+}
+
+/* ── Hamburger spans ── */
+nav .menu-btn span {
+  transition: transform var(--dur-base) var(--ease) !important;
+}
+
+/* ── Search / input fields ── */
+input, textarea, select {
+  transition:
+    border-color  var(--dur-fast) var(--ease),
+    box-shadow    var(--dur-fast) var(--ease) !important;
+}
+
+/* ── Scroll-reveal & fade-in elements ── */
+[class*="fade"],
+[class*="reveal"],
+[class*="appear"],
+[class*="animate"] {
+  transition:
+    opacity    var(--dur-base) var(--ease),
+    transform  var(--dur-base) var(--ease) !important;
+}
+
+/* ── Keyframe: unified fade-up (replaces all custom fade-ins) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Popup card entry ── */
+#sp-card {
+  animation: fadeUp var(--dur-slow) var(--ease) both;
+}
+
+/* ── NO bounce, NO scale, NO aggressive effects ── */
+* { animation-timing-function: var(--ease) !important; }
+
+</style>
 </head>
 <body>
 
