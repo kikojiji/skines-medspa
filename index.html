@@ -10663,18 +10663,21 @@ html body #treatments .service-card .card-link {
   html body #treatments .service-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-/* ── Reviews → contact/footer: same hard-cut fix as services → reviews.
-   The brown reviews section ends flush against the light contact
-   section with no blend — fade the top of contact from reviews' brown
-   down to its own light background, 2px overlap to avoid a subpixel
-   seam line, same technique as the services→reviews fix above. ── */
-html body section.contact { position: relative; }
-html body section.contact::before {
-  content: ''; position: absolute; top: -2px; left: 0; right: 0; height: 140px;
-  background: linear-gradient(180deg, #684034 0%, rgba(104,64,52,0) 100%);
-  pointer-events: none; z-index: 0;
+/* ── Reviews → contact/footer: direct hard cut, no blended fade — the
+   brown reviews section ends and the light contact section starts
+   immediately on its own cream background. ── */
+html body .contact .eyebrow:not(#_) {
+  font-size: 1.05rem !important;
+  letter-spacing: 0.28em !important;
+  margin-bottom: 1.7rem !important;
 }
-html body section.contact > * { position: relative; z-index: 1; }
+html body .contact .eyebrow:not(#_)::before { width: 44px !important; }
+/* The reviews carousel's own dark photo (.ivc-wrap) already reaches the
+   very bottom of its content, but the base "section { padding: 6rem 4rem }"
+   rule still gives .reviews its own flat brown bottom padding below that —
+   a solid empty brown band between the photo and the (now hard-cut) cream
+   contact section. Drop it so the photo runs straight into the cut. */
+html body .reviews:not(#_) { padding-bottom: 0 !important; }
 
 /* ── Hero title/subtitle disappearing after the first video crossfade ──
    The desktop hero crossfades between two <video> layers; the incoming

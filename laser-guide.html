@@ -315,30 +315,53 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     font-size: 0.6rem !important;
     letter-spacing: 0.02em !important;
     white-space: nowrap !important;
+  }
+  /* Text color must follow nav-scrolled: this range previously forced
+     light cream unconditionally, so once the bar turns cream on scroll
+     (nav-scrolled bg, see base rule above) the nav text became nearly
+     invisible (light-on-light). Split by state like desktop already does. */
+  #mainNav#mainNav:not(.nav-scrolled) .nav-links a:not(#_),
+  #mainNav#mainNav:not(.nav-scrolled) .nav-links a:not(#_) span,
+  #mainNav#mainNav:not(.nav-scrolled) .nav-dd-label:not(#_) {
     color: rgba(245,237,227,0.88) !important;
   }
-  #mainNav#mainNav .nav-links a:not(#_) span {
-    color: rgba(245,237,227,0.88) !important;
+  #mainNav#mainNav.nav-scrolled .nav-links a:not(#_),
+  #mainNav#mainNav.nav-scrolled .nav-links a:not(#_) span,
+  #mainNav#mainNav.nav-scrolled .nav-dd-label:not(#_) {
+    color: var(--brown) !important;
   }
   #mainNav#mainNav .nav-dd-label:not(#_) {
     white-space: nowrap !important;
-    color: rgba(245,237,227,0.88) !important;
   }
   #mainNav#mainNav .lang-switcher {
     margin-left: auto !important;
     margin-right: 0.8rem !important;
   }
-  #mainNav#mainNav .lang-btn:not(#_) {
+  #mainNav#mainNav:not(.nav-scrolled) .lang-btn:not(#_) {
     color: rgba(245,237,227,0.65) !important;
   }
-  #mainNav#mainNav .lang-btn.active:not(#_) {
+  #mainNav#mainNav:not(.nav-scrolled) .lang-btn.active:not(#_) {
     color: rgba(245,237,227,0.95) !important;
   }
-  #mainNav#mainNav .lang-sep:not(#_) {
+  #mainNav#mainNav:not(.nav-scrolled) .lang-sep:not(#_) {
     color: rgba(245,237,227,0.35) !important;
   }
-  #mainNav#mainNav .nav-search-btn:not(#_) {
+  #mainNav#mainNav:not(.nav-scrolled) .nav-search-btn:not(#_) {
     color: rgba(245,237,227,0.88) !important;
+  }
+  #mainNav#mainNav.nav-scrolled .lang-btn:not(#_) {
+    color: rgba(58,30,20,0.55) !important;
+  }
+  #mainNav#mainNav.nav-scrolled .lang-btn.active:not(#_) {
+    color: var(--brown) !important;
+  }
+  #mainNav#mainNav.nav-scrolled .lang-sep:not(#_) {
+    color: rgba(58,30,20,0.25) !important;
+  }
+  #mainNav#mainNav.nav-scrolled .nav-search-btn:not(#_) {
+    color: var(--brown) !important;
+  }
+  #mainNav#mainNav .nav-search-btn:not(#_) {
     width: 34px !important;
     height: 34px !important;
   }
@@ -493,6 +516,10 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .guide-hero { position: relative; background: linear-gradient(155deg, #2A160E 0%, #4B2E26 55%, #351B12 100%); padding: 116px 24px 60px; overflow: hidden; }
 .guide-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 90% at 80% 0%, rgba(201,151,58,.14), transparent 60%); pointer-events: none; }
 .guide-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+/* Campaign photo, full and untouched — no overlay, no text on top.
+   Mobile/tablet gets the portrait crop, desktop the wide crop. */
+.guide-hero-photo { display: block; width: 100%; height: auto; }
+.guide-hero-photo picture, .guide-hero-photo img { display: block; width: 100%; height: auto; }
 .guide-hero .breadcrumb { color: rgba(245,237,227,.55); margin-bottom: 26px; }
 .guide-hero .breadcrumb a { color: var(--gold); }
 .guide-hero .breadcrumb-sep { color: rgba(245,237,227,.30); }
@@ -523,6 +550,15 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .g-h3 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--brown); margin-bottom: 8px; }
 .g-body { font-size: .97rem; line-height: 1.78; color: var(--text); margin-bottom: 20px; }
 .g-body + .g-body { margin-top: -4px; }
+
+/* ZONES DIAGRAM */
+.g-zones-diagram { margin: 24px 0 32px; text-align: center; }
+.g-zones-diagram img {
+  max-width: 340px; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(58,30,20,0.08);
+}
 
 /* TABLE */
 .g-table-wrap { overflow-x: auto; margin: 24px 0 32px; }
@@ -712,6 +748,13 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
   </div>
 </header>
 
+<div class="guide-hero-photo">
+  <picture>
+    <source media="(min-width: 981px)" srcset="assets/images/laser-hero-bg-desktop.webp">
+    <img src="assets/images/laser-hero-bg-mobile.webp" alt="Promotion Laser Full Body — 200$, technologie Clarity II" loading="eager">
+  </picture>
+</div>
+
 <div class="guide-wrap">
 
 
@@ -769,6 +812,9 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
   <section class="g-section">
     <p class="g-section-eyebrow" data-fr="ZONES & TARIFS" data-en="ZONES & PRICING">ZONES & TARIFS</p>
     <h2 class="g-h2" data-fr="Zones et tarifs — Épilation laser chez Skines" data-en="Zones and pricing — Laser at Skines">Zones et tarifs — Épilation laser chez Skines</h2>
+    <figure class="g-zones-diagram">
+      <img src="assets/images/laser-zones-diagram.webp" width="760" height="954" loading="lazy" alt="Schéma des zones d'épilation laser : visage, bras, aisselles, abdomen, bikini, jambes">
+    </figure>
     <p class="g-body" data-fr="💡 Promotion en cours : -50% sur toutes les zones" data-en="💡 Current promotion: -50% on all zones">💡 Promotion en cours : -50% sur toutes les zones</p>
     <p class="g-body" data-fr="Chez Skines, profitez actuellement de 50% de réduction sur l'épilation laser à Montréal." data-en="At Skines, enjoy 50% off laser hair removal in Montreal right now.">Chez Skines, profitez actuellement de 50% de réduction sur l'épilation laser à Montréal.</p>
 
