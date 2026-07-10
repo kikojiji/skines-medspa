@@ -295,11 +295,14 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 }
 
 @media (min-width: 768px) and (max-width: 980px) {
-  html body nav .nav-links:not(#_) { display: flex !important; }
-  html body nav .lang-switcher:not(#_) { display: flex !important; }
-  html body nav .menu-btn:not(#_) { display: none !important; }
+  html body nav .nav-links:not(#_) { display: none !important; }
+  html body nav .lang-switcher:not(#_) { display: none !important; }
+  html body nav .menu-btn:not(#_) { display: flex !important; }
   html body nav .nav-cta:not(#_) { display: none !important; }
   #mainNav#mainNav {
+    display: grid !important;
+    grid-template-columns: 48px 1fr 48px !important;
+    grid-template-rows: 1fr !important;
     justify-content: flex-start !important;
     padding: 1.1rem 1.6rem !important;
     gap: 0 !important;
@@ -819,12 +822,68 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     width: 34px !important; height: 34px !important;
   }
 }
+/* Tablet only (768–980px): the drawer has far more room than a phone —
+   scale up the header icon/text, accordion cards, giveaway pill and the
+   close button; pin the contact/social/copyright block to the true
+   bottom of the panel (RÉSERVER stays put, right after the pill) so the
+   leftover vertical space on a tall tablet screen doesn't read as a
+   dead gap. */
+@media (min-width: 768px) and (max-width: 980px) {
+  #mobileNav .mnav-logo-stones { width: 130px !important; }
+  #mobileNav .mobile-nav-header .logo-text { font-size: 2.15rem !important; }
+  #mobileNav .mobile-nav-header .logo-sub { font-size: 0.75rem !important; }
+  #mobileNav .mobile-nav-close:not(#_) {
+    width: 56px !important; height: 56px !important;
+    top: 1.2rem !important; right: 1.4rem !important;
+    border-radius: 50% !important;
+    background: #E8C078 !important;
+    color: #3A1E14 !important;
+    font-size: 1.5rem !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+  }
+  #mobileNav .mnav-acc-btn, #mobileNav .mnav-toplink {
+    font-size: 1.05rem !important;
+    padding: 1.15rem 1.3rem !important;
+  }
+  #mobileNav .mnav-acc-chevron { transform: scale(1.3); }
+  #mobileNav .mnav-acc.mnav-open .mnav-acc-chevron { transform: scale(1.3) rotate(180deg); }
+  #mobileNav .mnav-acc-panel a {
+    font-size: 1.05rem !important;
+    padding: 0.85rem 0 0.85rem 1.3rem !important;
+  }
+  #mobileNav .sp-menu-trigger { padding: 1.2rem 1.4rem !important; }
+  #mobileNav .sp-menu-trigger-label { font-size: 1.1rem !important; }
+  #mobileNav .sp-menu-trigger-sub { font-size: 0.78rem !important; }
+  #mobileNav .sp-menu-trigger-lotus svg { width: 20px !important; height: 20px !important; }
+  #mobileNav .mobile-nav-footer { flex: 1 1 auto !important; }
+  #mobileNav .mobile-contact {
+    margin-top: auto !important;
+    font-size: 0.95rem !important;
+    padding-top: 1rem !important;
+  }
+  #mobileNav .mnav-socials { padding-top: 0.6rem !important; gap: 1.6rem !important; }
+  #mobileNav .mnav-socials a svg { width: 24px !important; height: 24px !important; }
+  #mobileNav .mnav-copyright { font-size: 0.78rem !important; margin-top: 0.4rem !important; }
+}
 @media (min-width: 981px) {
   .sf-nav-panel { max-height: none !important; overflow: visible !important; }
   .sf-nav-toggle-chevron { display: none !important; }
   .sf-nav-collapsible .sf-nav-toggle { cursor: default !important; }
 }
 </style>
+<!-- nav.css / animations.css: moved here from deep in <body> (were
+     loaded thousands of lines after the hero/nav markup they style).
+     On a slow connection or hard reload, the browser could paint the
+     page using only this file's own inline <style> block first, then
+     re-flow once these arrived -- visible as a flash of unstyled/
+     unpositioned nav text over an already-correct hero. Loading them
+     here instead, still after the main inline stylesheet so the
+     cascade order these rules depend on ("loads after this
+     stylesheet") is unchanged, makes them render-blocking like every
+     other stylesheet so the nav is never painted in its unstyled
+     state. -->
+<link rel="stylesheet" href="/assets/css/nav.css?v=18">
+<link rel="stylesheet" href="assets/css/animations.css?v=1">
 </head>
 <body>
 
@@ -1301,8 +1360,6 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 </footer>
 
 <script src="/assets/js/i18n.js?v=4"></script>
-<link rel="stylesheet" href="/assets/css/nav.css?v=18">
-<link rel="stylesheet" href="assets/css/animations.css?v=1">
 <script src="/assets/js/fresha-tracking.js" defer></script>
 
 <script>
