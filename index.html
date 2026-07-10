@@ -7081,8 +7081,8 @@ html body #sp-stones img {
          zero delay, no layout shift — the video fades in on top only
          once it can actually play smoothly, same pattern as the desktop
          photo→video crossfade above. -->
-    <img class="hero-bg hero-bg-mobile hero-bg-mobile-poster parallax-img" src="assets/hero-mobile-poster.webp?v=2" alt="Skines Spa & Wellness — ambiance" width="720" height="1280">
-    <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="metadata" poster="assets/hero-mobile-poster.webp?v=2" aria-label="Ambiance spa chaleureuse">
+    <img class="hero-bg hero-bg-mobile hero-bg-mobile-poster parallax-img" src="assets/hero-mobile-poster.webp" alt="Skines Spa & Wellness — ambiance" width="720" height="1280">
+    <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="metadata" poster="assets/hero-mobile-poster.webp" aria-label="Ambiance spa chaleureuse">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
@@ -7090,20 +7090,18 @@ html body #sp-stones img {
       (function () {
         var v = document.getElementById('heroVideo');
         if (!v) return;
-        // The mobile/tablet source is a fast-cut montage: the first ~10s
-        // is a branded intro clip (old logo lockup) followed by unrelated
-        // B-roll, before it settles into the actual spa scene the poster
-        // shows. Jumping past that on load — and again every time native
-        // loop wraps back to 0 — means visitors only ever see the spa
-        // scene, never the old-branded intro or the B-roll in between.
-        var SKIP_TO = 10;
-        function skipIntro() {
-          if (v.currentTime < SKIP_TO) { try { v.currentTime = SKIP_TO; } catch (e) {} }
+        // The mobile/tablet source is a fast-cut montage (branded intro
+        // over the spa scene for ~2s, then it hard-cuts to unrelated
+        // B-roll) — on a slow connection, canplaythrough can fire well
+        // after playback has already advanced past the frame the poster
+        // shows, so revealing "as-is" can jump straight to a later,
+        // unrelated scene. Rewinding to 0 right before the fade-in
+        // guarantees what appears always matches the poster frame, so
+        // there's never a visible jump/flash on reveal.
+        function reveal() {
+          try { v.currentTime = 0; } catch (e) {}
+          v.classList.add('is-active');
         }
-        function reveal() { v.classList.add('is-active'); }
-        skipIntro();
-        v.addEventListener('loadedmetadata', skipIntro);
-        v.addEventListener('timeupdate', skipIntro);
         if (v.readyState >= 3) { reveal(); }
         else { v.addEventListener('canplaythrough', reveal, { once: true }); }
       })();
