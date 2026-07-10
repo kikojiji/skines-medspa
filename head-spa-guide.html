@@ -1426,5 +1426,23 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
   });
 })();
 </script>
+<script>
+/* ── Force-hide sticky nav near the bottom of the page (mobile/tablet) ──
+   The existing scroll-direction hide/show logic can leave the nav
+   visible right as the footer comes into view, overlapping it. This
+   hides it unconditionally once the user is near the end of the page. */
+(function() {
+  var nav = document.getElementById('mainNav') || document.querySelector('nav');
+  if (!nav) return;
+  function checkBottom() {
+    if (window.innerWidth > 980) return;
+    var atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+    if (atBottom) nav.classList.add('nav-hidden');
+  }
+  window.addEventListener('scroll', checkBottom, { passive: true });
+  window.addEventListener('resize', checkBottom, { passive: true });
+  checkBottom();
+})();
+</script>
 </body>
 </html>
