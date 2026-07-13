@@ -1542,6 +1542,7 @@ var _fp = '';
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data.success) {
+          window.skinesTrackLead('tirage');   // GA4 generate_lead — fires once, only on success
           document.getElementById('t-form').style.display = 'none';
           var successEl = document.getElementById('t-success');
           successEl.style.display = 'block';
@@ -2088,6 +2089,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 </footer>
 
 <script src="/assets/js/i18n.js?v=4"></script>
+<script src="/assets/js/lead-tracking.js?v=1"></script>
 <style>
 
 html body nav {}
