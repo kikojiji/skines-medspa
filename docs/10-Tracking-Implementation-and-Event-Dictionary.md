@@ -1,6 +1,8 @@
 # Doc 10 — Level-1 Tracking Implementation & Event Dictionary
 
-**Status:** IMPLEMENTED (Consent + Attribution + Core Tracking). Meta Pixel next.
+**Status:** IMPLEMENTED (Consent + Attribution + Core Tracking + Meta Pixel browser).
+CAPI, TikTok, and dashboard remain out of scope for now.
+**Meta Pixel ID:** `1824751787932125` (browser only; ads-consent gated; no CAPI, no Advanced Matching).
 **Scope:** First-party measurement on skines.ca. NO completed-booking / revenue data
 (those live on Fresha and remain out of scope — see Doc 08 M-01).
 **Honesty rule:** `booking_intent` / `gift_card_intent` are INTENT signals (a qualified
@@ -101,11 +103,12 @@ Apply to **both** properties (A `G-VFB8SY59FX`, B `G-N46K5NG8TW`) unless noted.
 
 ---
 
-## 10.6 Meta Pixel mapping (implemented as a separate, ads-consent-gated module)
+## 10.6 Meta Pixel mapping — IMPLEMENTED (`assets/js/skines-meta-pixel.js`)
 
-Browser Pixel only in this phase (CAPI is a later commit). The Pixel loads and fires **only after
-Advertising consent**. `eventID` = the event's `event_id` (reserved for future CAPI deduplication).
-No value/currency is sent.
+Pixel `1824751787932125`. Browser Pixel only (CAPI is a later commit). `fbevents.js` loads and every
+event fires **only after Advertising consent**; revoking ads consent stops Meta while GA4 continues.
+`eventID` = the event's `event_id` (reserved for future CAPI deduplication). No Advanced Matching,
+no PII, no value/currency. Validated via real `facebook.com/tr` beacons for all six events + PageView.
 
 | Internal event | Meta standard event | Notes |
 |---|---|---|
