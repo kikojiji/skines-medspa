@@ -1,8 +1,8 @@
 # Doc 10 — Level-1 Tracking Implementation & Event Dictionary
 
-**Status:** IMPLEMENTED (Consent + Attribution + Core Tracking + Meta Pixel browser).
-CAPI, TikTok, and dashboard remain out of scope for now.
-**Meta Pixel ID:** `1824751787932125` (browser only; ads-consent gated; no CAPI, no Advanced Matching).
+**Status:** IMPLEMENTED (Consent + Attribution + Core Tracking + Meta Pixel + Meta CAPI).
+TikTok and dashboard remain out of scope for now.
+**Meta Pixel ID:** `1824751787932125` (browser + CAPI; ads-consent gated; no Advanced Matching).
 **Scope:** First-party measurement on skines.ca. NO completed-booking / revenue data
 (those live on Fresha and remain out of scope — see Doc 08 M-01).
 **Honesty rule:** `booking_intent` / `gift_card_intent` are INTENT signals (a qualified
@@ -120,3 +120,36 @@ no PII, no value/currency. Validated via real `facebook.com/tr` beacons for all 
 | (page load) | `PageView` | after consent |
 
 `CompletedBooking` / `Purchase` are intentionally never mapped until verified Fresha data exists.
+
+## 10.7 Meta CAPI — IMPLEMENTED (server-side; second delivery channel)
+
+Browser Pixel and server CAPI send the **same** approved events; Meta deduplicates on `event_id`.
+
+```
+sk:track (browser)
+   ├── skines-meta-pixel.js  → fbq('track', EV, data, {eventID})          [channel 1: browser]
+   └── skines-capi.js        → POST /api/capi { event_name, event_id,     [channel 2: server]
+                                fbp, fbc, custom_data, event_source_url }
+                                   → api/_lib/meta-capi.js → Graph API
+                                     (adds client_ip_address + client_user_agent)
+```
+
+- **Single mapping source:** `skines-capi.js` reuses the Pixel's map (`window.__skinesMetaMap`),
+  so `event_name` + `custom_data` are identical across both channels. PageView shares its id via a
+  `sk:meta-pageview` broadcast.
+- **Consent:** `skines-capi.js` sends nothing until Advertising consent.
+- **Secrets (Vercel env only — never in repo, never sent to client):**
+  `META_PIXEL_ID`, `META_CAPI_TOKEN`, `META_TEST_EVENT_CODE` (set only during Test Events validation).
+- **Server guarantees (`api/_lib/meta-capi.js`, defense-in-depth):** only the 5 approved events
+  (no Purchase); `custom_data` whitelisted to `content_type`/`content_category`/`contact_method`/
+  `content_name`; `value`/`currency`/`email`/`phone`/health/treatment/insurance keys are dropped;
+  no Advanced Matching (user_data = fbp/fbc/ip/ua only).
+- **user_data:** `fbp`/`fbc` from first-party cookies (+ ip/ua added server-side). No PII.
+
+### Required env (production)
+Set in Vercel → Project → Settings → Environment Variables:
+```
+META_PIXEL_ID        = 1824751787932125
+META_CAPI_TOKEN      = <Conversions API access token>   (secret)
+META_TEST_EVENT_CODE = <TESTxxxxx>   (set ONLY while validating; remove after)
+```

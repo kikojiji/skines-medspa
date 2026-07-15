@@ -64,6 +64,9 @@
         return null;
     }
   }
+  // Expose the single mapping so the CAPI channel (skines-capi.js) sends the
+  // IDENTICAL event_name + custom_data — the basis for browser/server dedup.
+  window.__skinesMetaMap = mapEvent;
 
   // ─── Pixel lifecycle ────────────────────────────────────────────────────────
   var ready = false;
@@ -84,7 +87,15 @@
     if (!adsConsented()) return;
     loadPixel();
     window.fbq('init', PIXEL_ID);
-    window.fbq('track', 'PageView', {}, { eventID: eventId() });
+    var pvId = eventId();
+    window.fbq('track', 'PageView', {}, { eventID: pvId });
+    // Broadcast the PageView id so the CAPI channel can send a deduplicated
+    // server PageView with the SAME event_id. Async so the CAPI listener
+    // (loaded after this module) is attached before we dispatch.
+    setTimeout(function () {
+      try { document.dispatchEvent(new CustomEvent('sk:meta-pageview', { detail: { event_id: pvId } })); }
+      catch (e) {}
+    }, 0);
     ready = true;
     while (pending.length) forward(pending.shift());
     if (DEV) console.log('[Skines Meta] Pixel initialized', PIXEL_ID);
