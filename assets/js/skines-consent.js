@@ -138,20 +138,22 @@
     s.textContent = [
       '.sk-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;',
       'background:#F5EDE3;color:#3A1E14;font-family:"DM Sans",system-ui,sans-serif;',
-      'box-shadow:0 -6px 24px rgba(58,30,20,.18);padding:18px 20px;}',
+      'box-shadow:0 -5px 18px rgba(58,30,20,.15);padding:11px 16px;}',
       '.sk-consent *{box-sizing:border-box;}',
-      '.sk-consent__wrap{max-width:1100px;margin:0 auto;display:flex;gap:20px;',
-      'align-items:flex-start;flex-wrap:wrap;}',
-      '.sk-consent__txt{flex:1 1 320px;min-width:260px;}',
-      '.sk-consent__title{font-weight:600;font-size:1.02rem;margin:0 0 4px;}',
-      '.sk-consent__body{font-size:.86rem;line-height:1.5;margin:0;opacity:.9;}',
+      '.sk-consent__wrap{max-width:1100px;margin:0 auto;display:flex;gap:14px;',
+      'align-items:center;flex-wrap:wrap;}',
+      '.sk-consent__txt{flex:1 1 300px;min-width:240px;}',
+      '.sk-consent__title{font-weight:600;font-size:.9rem;margin:0 0 2px;}',
+      '.sk-consent__body{font-size:.76rem;line-height:1.4;margin:0;opacity:.88;}',
       '.sk-consent__body a{color:#3A1E14;text-decoration:underline;}',
-      '.sk-consent__actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}',
-      '.sk-consent__btn{cursor:pointer;border-radius:999px;padding:10px 18px;',
-      'font-size:.85rem;font-weight:500;border:1.5px solid #3A1E14;background:#3A1E14;',
+      '.sk-consent__actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}',
+      '.sk-consent__btn{cursor:pointer;border-radius:999px;padding:9px 16px;',
+      'font-size:.82rem;font-weight:500;border:1.5px solid #3A1E14;background:#3A1E14;',
       'color:#F5EDE3;transition:opacity .2s;}',
       '.sk-consent__btn:hover{opacity:.85;}',
       '.sk-consent__btn--ghost{background:transparent;color:#3A1E14;}',
+      '.sk-consent__btn--big{padding:12px 30px;font-size:.94rem;font-weight:700;order:0;}',
+      '.sk-consent__btn--sm{padding:6px 12px;font-size:.74rem;font-weight:400;border-width:1px;opacity:.9;}',
       '.sk-consent__panel{flex-basis:100%;margin-top:8px;display:none;gap:14px;flex-wrap:wrap;}',
       '.sk-consent__panel.is-open{display:flex;}',
       '.sk-consent__cat{flex:1 1 220px;min-width:200px;border:1px solid rgba(58,30,20,.25);',
@@ -181,9 +183,9 @@
             ' <a href="/cookie-policy">' + t.policy + '</a></p>' +
         '</div>' +
         '<div class="sk-consent__actions">' +
-          '<button type="button" class="sk-consent__btn sk-consent__btn--ghost" data-sk="customize">' + t.customize + '</button>' +
-          '<button type="button" class="sk-consent__btn sk-consent__btn--ghost" data-sk="reject">' + t.reject + '</button>' +
-          '<button type="button" class="sk-consent__btn" data-sk="accept">' + t.accept + '</button>' +
+          '<button type="button" class="sk-consent__btn sk-consent__btn--big" data-sk="accept">' + t.accept + '</button>' +
+          '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="reject">' + t.reject + '</button>' +
+          '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="customize">' + t.customize + '</button>' +
         '</div>' +
         '<div class="sk-consent__panel" data-sk="panel">' +
           cat('analytics', t.analytics, t.analyticsDesc) +
@@ -248,6 +250,25 @@
     onChange: function (fn) { if (typeof fn === 'function') subscribers.push(fn); }
   };
 
+  // Reveal the banner only after the visitor scrolls past the hero video
+  // (so it never covers the landing view). Fallback: if they don't scroll,
+  // show it after 12s so consent can still be given. Consent stays denied
+  // until then, so nothing non-essential fires in the meantime.
+  function showDeferred() {
+    var shown = false;
+    function trigger() {
+      if (shown) return; shown = true;
+      window.removeEventListener('scroll', onScroll);
+      show();
+    }
+    function onScroll() {
+      if (window.pageYOffset > (window.innerHeight * 0.7)) trigger();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    setTimeout(trigger, 12000);
+    onScroll(); // in case the page is already scrolled (reload mid-page)
+  }
+
   // ── Boot ──────────────────────────────────────────────────────────────────
   function boot() {
     var stored = read();
@@ -255,7 +276,7 @@
       apply(stored);          // silently re-apply, no banner
     } else {
       apply({ v: VERSION, necessary: true, analytics: false, ads: false, ts: null }); // stay denied
-      show();
+      showDeferred();
     }
   }
 

@@ -23,7 +23,7 @@
   gtag('config', 'G-N46K5NG8TW');
 </script>
 <!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
-<script defer src="/assets/js/skines-consent.js?v=1"></script>
+<script defer src="/assets/js/skines-consent.js?v=2"></script>
 <!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
 <script defer src="/assets/js/skines-attribution.js?v=1"></script>
 <!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
@@ -10982,11 +10982,9 @@ function closePopup() {
     });
   }, { threshold: 0.35 });
   io.observe(target);
-  if (isMobileOrTablet) {
-    fallbackTimer = setTimeout(function() {
-      if (!fired) { fire(); openPopup(); }
-    }, 15000);
-  }
+  // Scroll-only reveal: the giveaway popup opens only when the visitor scrolls
+  // down to the treatments/reviews section (past the hero video). The old
+  // 15s time-based fallback was removed so it never interrupts the landing view.
 })();
 
 // menu trigger
