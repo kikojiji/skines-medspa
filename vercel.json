@@ -17,6 +17,11 @@
       "permanent": false
     },
     {
+      "source": "/tiktok",
+      "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=bio",
+      "permanent": false
+    },
+    {
       "source": "/",
       "has": [{ "type": "host", "value": "www.skines.ca" }],
       "destination": "https://skines.ca/",
