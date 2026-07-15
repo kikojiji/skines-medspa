@@ -12,6 +12,11 @@
   },
   "redirects": [
     {
+      "source": "/web",
+      "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=bio",
+      "permanent": false
+    },
+    {
       "source": "/",
       "has": [{ "type": "host", "value": "www.skines.ca" }],
       "destination": "https://skines.ca/",
