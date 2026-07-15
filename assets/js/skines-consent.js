@@ -153,7 +153,9 @@
       '.sk-consent__btn:hover{opacity:.85;}',
       '.sk-consent__btn--ghost{background:transparent;color:#3A1E14;}',
       '.sk-consent__btn--big{padding:14px 42px;font-size:1.05rem;font-weight:800;order:0;letter-spacing:.01em;}',
-      '.sk-consent__btn--sm{padding:5px 10px;font-size:.68rem;font-weight:400;border-width:1px;opacity:.82;}',
+      '.sk-consent__btn--sm{padding:4px 10px;font-size:.64rem;font-weight:400;border-width:1px;opacity:.8;}',
+      '.sk-consent__secondary{display:flex;flex-direction:column;gap:5px;}',
+      '.sk-consent__secondary .sk-consent__btn{width:100%;text-align:center;}',
       '.sk-consent__panel{flex-basis:100%;margin-top:8px;display:none;gap:14px;flex-wrap:wrap;}',
       '.sk-consent__panel.is-open{display:flex;}',
       '.sk-consent__cat{flex:1 1 220px;min-width:200px;border:1px solid rgba(58,30,20,.25);',
@@ -184,8 +186,10 @@
         '</div>' +
         '<div class="sk-consent__actions">' +
           '<button type="button" class="sk-consent__btn sk-consent__btn--big" data-sk="accept">' + t.accept + '</button>' +
-          '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="reject">' + t.reject + '</button>' +
-          '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="customize">' + t.customize + '</button>' +
+          '<div class="sk-consent__secondary">' +
+            '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="reject">' + t.reject + '</button>' +
+            '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="customize">' + t.customize + '</button>' +
+          '</div>' +
         '</div>' +
         '<div class="sk-consent__panel" data-sk="panel">' +
           cat('analytics', t.analytics, t.analyticsDesc) +
