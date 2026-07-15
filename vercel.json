@@ -17,7 +17,7 @@
       "permanent": false
     },
     {
-      "source": "/tiktok",
+      "source": "/website",
       "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=bio",
       "permanent": false
     },
