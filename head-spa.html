@@ -6828,7 +6828,7 @@ input, textarea, select {
 <section style="text-align:center;">
 
   <p style="text-align:center;font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;line-height:1.6;margin:0.5rem 0 1rem;font-family:'Cormorant Garamond',serif;"><span data-fr="Le luxe sans compromis" data-en="Luxury without compromise">Le luxe sans compromis</span><br><em style="font-weight:400;font-size:0.9em;"><span data-fr="Les tarifs les plus raffinés du Head Spa à Montréal" data-en="The most refined Head Spa prices in Montréal">Les tarifs les plus raffinés du Head Spa à Montréal</span></em></p>
-  <div style="display:inline-flex;align-items:center;justify-content:center;gap:0.7rem;background:rgba(245,192,106,0.13);color:#7a4a28;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.6rem 1.4rem;border-radius:10px;margin-bottom:1.8rem;border:1px solid rgba(245,192,106,0.38);">
+  <div style="display:none;align-items:center;justify-content:center;gap:0.7rem;background:rgba(245,192,106,0.13);color:#7a4a28;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.6rem 1.4rem;border-radius:10px;margin-bottom:1.8rem;border:1px solid rgba(245,192,106,0.38);">
     <span data-fr="✦ Économisez 30 % sur toutes les séances" data-en="✦ Save 30% on all sessions">✦ Économisez 30 % sur toutes les séances</span>
   </div>
   <div class="view-toggle-row" style="justify-content:space-between;align-items:center;">
@@ -8655,6 +8655,7 @@ html body nav {}
   }
 
   function openOverlay(key){
+    return; // TEMP: service detail popups disabled at owner's request (being revised). Delete this line (or git revert) to restore.
     if(!DATA[key]) return;
     currentKey = key;
     savedY = window.scrollY;
