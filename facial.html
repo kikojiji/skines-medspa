@@ -8672,7 +8672,10 @@ html body nav {}
   }
 
   closeBtn.addEventListener('click', closeOverlay);
-  backdropEl.addEventListener('click', closeOverlay);
+  // Close when clicking anywhere outside the panel (backdrop or overlay free-space)
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay || e.target === backdropEl) closeOverlay();
+  });
   document.addEventListener('keydown', function(e) {
     if ((e.key === 'Escape' || e.key === 'Esc') && overlay.classList.contains('fcl-open')) {
       closeOverlay();
