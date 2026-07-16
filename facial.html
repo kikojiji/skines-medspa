@@ -8114,6 +8114,8 @@ html body nav {}
 .fcl-img-item>*:first-child{aspect-ratio:1/1;overflow:hidden;border-radius:6px;display:block;max-width:130px;margin:0 auto}
 .fcl-img-item img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s ease}
 .fcl-img-item:hover img{transform:scale(1.03)}
+.fcl-img-item img.fcl-zoom{transform:scale(1.6);transform-origin:top center}
+.fcl-img-item:hover img.fcl-zoom{transform:scale(1.68)}
 .fcl-img-title{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.03em;color:#3A1E14;margin:.5rem 0 .2rem;text-align:center}
 .fcl-img-caption{font-family:'DM Sans',sans-serif;font-size:.66rem;line-height:1.45;color:rgba(58,30,20,.55);margin:0;text-align:center}
 @media(max-width:640px){.fcl-img-grid{grid-template-columns:repeat(2,1fr)}}
@@ -8444,6 +8446,7 @@ html body nav {}
     },
     'bela-md-plus': {
       images: ['assets/bela-md-step1-microdermabrasion.webp', 'assets/bela-md-aqua-cleansing.jpg', 'assets/bela-md-step2-ultrasons.webp', 'assets/bela-md-step3-tonification.webp', 'assets/bela-md-h2-infusion.webp', 'assets/bela-md-electroporation.jpg', 'assets/bela-md-serums.webp'],
+      imageZoom: [true, true, true, true, false, true, false],
       imageCaptions: {
         fr: [
           { title: 'Microdermabrasion diamant', body: 'Exfoliation médicale à sec qui élimine les cellules mortes et stimule le renouvellement cellulaire.' },
@@ -8629,7 +8632,8 @@ html body nav {}
       var capLang = (svc.imageCaptions && (svc.imageCaptions[getLang()] || svc.imageCaptions.fr)) || null;
       h += '<div class="fcl-img-frame"><div class="fcl-img-grid">';
       for (var ig = 0; ig < svc.images.length; ig++) {
-        h += '<div class="fcl-img-item"><img src="' + esc(svc.images[ig]) + '" alt="' + esc(d.title) + '" loading="lazy">';
+        var zc = (svc.imageZoom && svc.imageZoom[ig]) ? ' fcl-zoom' : '';
+        h += '<div class="fcl-img-item"><span class="fcl-img-box"><img class="fcl-img' + zc + '" src="' + esc(svc.images[ig]) + '" alt="' + esc(d.title) + '" loading="lazy"></span>';
         if (capLang && capLang[ig]) {
           h += '<p class="fcl-img-title">' + esc(capLang[ig].title) + '</p>';
           h += '<p class="fcl-img-caption">' + esc(capLang[ig].body) + '</p>';
