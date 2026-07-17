@@ -7491,9 +7491,11 @@ input, textarea, select {
      reviews section) instead of the darker #684034 — owner request.
      Children are recoloured to match (a legacy rule paints each child),
      so the bar stays one uniform tone including the dropdown menus. */
-  html body #mainNav.nav-scrolled { background: #684034 !important; }
-  html body #mainNav.nav-scrolled * { background: #684034 !important; }
-  html body #mainNav.nav-scrolled .nav-cta { background: transparent !important; }
+  /* Only the bar itself carries the background (it transitions smoothly);
+     keep every child transparent so nothing pops in before the bar —
+     except the hover dropdown menu, which needs its own solid panel. */
+  html body #mainNav.nav-scrolled *:not(.nav-dropdown-menu) { background: transparent !important; }
+  html body #mainNav.nav-scrolled .nav-dropdown-menu { background: #684034 !important; }
 </style>
 </head>
 <body>
