@@ -7952,6 +7952,8 @@ input, textarea, select {
         font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.65);
       }
       .ivc-side-badge .ivc-side-label { font-size: 1.01rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.85; }
+      .ivc-side-badge .ivc-side-starline { display: flex; align-items: baseline; justify-content: center; gap: 10px; }
+      .ivc-side-badge .ivc-side-rating { font-family: "Old Standard TT", serif; font-size: 1.72rem; font-weight: 700; line-height: 1; }
       .ivc-side-badge .ivc-side-headline {
         font-family: "DM Sans", sans-serif; font-size: 1.24rem; font-weight: 600;
         line-height: 1.3; margin-top: 2px;
@@ -7965,6 +7967,7 @@ input, textarea, select {
     #reviews .ivc-side-badge .ivc-side-stars { color: #F7D98A !important; }
     #reviews .ivc-side-badge .ivc-side-num { color: rgba(255,255,255,0.98) !important; }
     #reviews .ivc-side-badge .ivc-side-label { color: #F7D98A !important; }
+    #reviews .ivc-side-badge .ivc-side-rating { color: rgba(255,255,255,0.98) !important; }
     #reviews .ivc-side-badge .ivc-side-headline { color: rgba(255,255,255,0.98) !important; }
     #reviews .ivc-side-badge .ivc-side-claim { color: rgba(255,255,255,0.88) !important; }
     .ivc-slide img  { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -8101,7 +8104,7 @@ input, textarea, select {
       <div class="ivc-fade-l"></div>
       <div class="ivc-fade-r"></div>
       <div class="ivc-side-badge ivc-side-l">
-        <span class="ivc-side-stars">★★★★★</span>
+        <div class="ivc-side-starline"><span class="ivc-side-stars">★★★★★</span><span class="ivc-side-rating">4.7</span></div>
         <span class="ivc-side-label" data-fr="Google" data-en="Google">Google</span>
         <span class="ivc-side-num">700+</span>
         <span class="ivc-side-headline" data-fr="raisons de nous faire confiance." data-en="reasons to trust us.">raisons de nous faire confiance.</span>
@@ -8111,7 +8114,7 @@ input, textarea, select {
         <div class="ivc-track" id="ivc-track"></div>
       </div>
       <div class="ivc-side-badge ivc-side-r">
-        <span class="ivc-side-stars">★★★★★</span>
+        <div class="ivc-side-starline"><span class="ivc-side-stars">★★★★★</span><span class="ivc-side-rating">4.8</span></div>
         <span class="ivc-side-label" data-fr="Fresha" data-en="Fresha">Fresha</span>
         <span class="ivc-side-num">600+</span>
         <span class="ivc-side-headline" data-fr="expériences qui parlent d'elles-mêmes." data-en="experiences that speak for themselves.">expériences qui parlent d'elles-mêmes.</span>
