@@ -1151,7 +1151,7 @@
        specificity boost (see earlier comments) needed to beat nav.css's
        own !important rules and the page's various dark-text overrides. */
     html body nav.nav-scrolled:not(#_) {
-      background: rgba(58,30,20,0.97) !important;
+      background: rgba(104,64,52,0.97) !important;
       backdrop-filter: blur(14px) !important;
       -webkit-backdrop-filter: blur(14px) !important;
       border-bottom: 1px solid rgba(245,237,227,0.10) !important;
@@ -7485,6 +7485,15 @@ input, textarea, select {
 /* ── NO bounce, NO scale, NO aggressive effects ── */
 * { animation-timing-function: var(--ease) !important; }
 
+</style>
+<style id="sk-nav-tint">
+  /* Scrolled nav bar: use the site's warmer #684034 maroon (same as the
+     reviews section) instead of the darker #3A1E14 — owner request.
+     Children are recoloured to match (a legacy rule paints each child),
+     so the bar stays one uniform tone including the dropdown menus. */
+  html body #mainNav.nav-scrolled { background: #684034 !important; }
+  html body #mainNav.nav-scrolled * { background: #684034 !important; }
+  html body #mainNav.nav-scrolled .nav-cta { background: transparent !important; }
 </style>
 </head>
 <body>
