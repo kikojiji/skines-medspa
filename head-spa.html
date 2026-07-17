@@ -6685,6 +6685,41 @@ input, textarea, select {
 * { animation-timing-function: var(--ease) !important; }
 
 </style>
+<style id="sk-family-fix">
+  /* Family section — light, readable text over the dark family photo
+     (a global "light-theme" block was forcing this text dark brown). */
+  #skFamilyTitle,
+  #skFamilyTitle em,
+  #skFamilyDesc {
+    color: #F5EDE3 !important;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.78), 0 1px 4px rgba(0,0,0,0.6) !important;
+  }
+  #skFamilyDesc {
+    color: rgba(245,237,227,0.94) !important;
+  }
+  /* Desktop: center the text block in the middle of the photo + enlarge the description */
+  @media (min-width: 981px) {
+    html body .family-section .family-content {
+      top: 50% !important;
+      bottom: auto !important;
+      left: 0 !important; right: 0 !important;
+      transform: translateY(-50%) !important;
+      text-align: center !important;
+      padding: 0 2.4rem !important;
+      max-width: 960px !important;
+      margin: 0 auto !important;
+    }
+    #skFamilyDesc {
+      font-size: 1.35rem !important;
+      max-width: 620px !important;
+      margin: 1.1rem auto 0 !important;
+    }
+    /* Soft radial scrim so the centered text stays readable over the photo */
+    html body .family-section .family-overlay {
+      background: radial-gradient(ellipse 72% 58% at center, rgba(0,0,0,0.56) 0%, rgba(0,0,0,0.32) 58%, rgba(0,0,0,0.52) 100%) !important;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -6871,8 +6906,8 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   <div class="family-overlay"></div>
   <div class="family-content">
     <div class="family-eyebrow" data-en="Family Ritual" data-fr="Rituel en Famille">Family Ritual</div>
-    <h2 class="family-title" data-i18n-html="headSpa.familyTitle">A Full Family<br><em>Wellness Experience</em></h2>
-    <p class="family-desc" data-en="Share a calming head spa ritual together in a warm, private, luxury environment." data-fr="Partagez un rituel Head Spa apaisant dans un cadre privé, chaleureux et luxueux.">Share a calming head spa ritual together in a warm, private, luxury environment.</p>
+    <h2 id="skFamilyTitle" class="family-title" data-i18n-html="headSpa.familyTitle">A Full Family<br><em>Wellness Experience</em></h2>
+    <p id="skFamilyDesc" class="family-desc" data-en="Share a calming head spa ritual together in a warm, private, luxury environment." data-fr="Partagez un rituel Head Spa apaisant dans un cadre privé, chaleureux et luxueux.">Share a calming head spa ritual together in a warm, private, luxury environment.</p>
     <a class="family-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
   </div>
 </div>
