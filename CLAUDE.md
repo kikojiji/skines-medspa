@@ -17,10 +17,13 @@ direct-booking link approved for this site.
 **Button styling (always):**
 ```css
 background: #F5EDE3;   /* cream */
-color: #3A1E14;        /* dark brown text */
+color: #684034;        /* brand maroon text */
 border: 1.5px solid #F5EDE3;
 ```
 Never a dark background on a booking button.
+
+**Colour rule:** never use the old dark maroon `#3A1E14` (`rgba(58,30,20,…)`)
+anywhere — always use the brand maroon `#684034` (`rgba(104,64,52,…)`).
 
 This applies automatically — Claude should not need to be reminded per page or per session.
 
