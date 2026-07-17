@@ -193,13 +193,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --cream: #F5EDE3;
-  --brown: #3A1E14;
+  --brown: #684034;
   --brown-mid: #684034;
   --gold: #C9973A;
   --charcoal: #1E1410;
-  --line: rgba(58,30,20,.12);
-  --text: #3A1E14;
-  --text-soft: rgba(58,30,20,.70);
+  --line: rgba(104,64,52,.12);
+  --text: #684034;
+  --text-soft: rgba(104,64,52,.70);
 }
 html { scroll-behavior: smooth; }
 body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; }
@@ -260,7 +260,7 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
      stays the same light/cream text color as the transparent state, just
      with a dark background. */
   html body nav.nav-scrolled:not(#_) {
-    background: rgba(58,30,20,0.97) !important;
+    background: rgba(104,64,52,0.97) !important;
     backdrop-filter: blur(14px) !important;
     -webkit-backdrop-filter: blur(14px) !important;
     border-bottom: 1px solid rgba(245,237,227,0.10) !important;
@@ -410,13 +410,13 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     color: rgba(245,237,227,0.88) !important;
   }
   #mainNav#mainNav.nav-scrolled .lang-btn:not(#_) {
-    color: rgba(58,30,20,0.55) !important;
+    color: rgba(104,64,52,0.55) !important;
   }
   #mainNav#mainNav.nav-scrolled .lang-btn.active:not(#_) {
     color: var(--brown) !important;
   }
   #mainNav#mainNav.nav-scrolled .lang-sep:not(#_) {
-    color: rgba(58,30,20,0.25) !important;
+    color: rgba(104,64,52,0.25) !important;
   }
   #mainNav#mainNav.nav-scrolled .nav-search-btn:not(#_) {
     color: var(--brown) !important;
@@ -482,12 +482,12 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .g-table th { background: var(--brown); color: var(--cream); font-weight: 500; letter-spacing: .08em; padding: 12px 16px; text-align: left; font-size: .78rem; text-transform: uppercase; }
 .g-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--text); vertical-align: top; }
 .g-table tr:last-child td { border-bottom: none; }
-.g-table tr:nth-child(even) td { background: rgba(58,30,20,.03); }
+.g-table tr:nth-child(even) td { background: rgba(104,64,52,.03); }
 .g-table .col-label { font-weight: 500; color: var(--brown); white-space: nowrap; }
 
 /* FORMAT CARDS */
 .g-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0 32px; }
-.g-card { background: rgba(58,30,20,.04); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+.g-card { background: rgba(104,64,52,.04); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
 .g-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--brown); margin-bottom: 8px; }
 .g-card-meta { font-size: .8rem; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
 .g-card-body { font-size: .88rem; line-height: 1.65; color: var(--text-soft); }
@@ -511,8 +511,8 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .g-links-section { margin: 40px 0; }
 .g-links-section p.g-section-eyebrow { margin-bottom: 16px; }
 .g-pills { display: flex; flex-wrap: wrap; gap: 10px; }
-.g-pill { font-family: 'DM Sans', sans-serif; font-size: .82rem; color: var(--brown); background: rgba(58,30,20,.06); border: 1px solid var(--line); border-radius: 100px; padding: 8px 18px; text-decoration: none; transition: background .2s; }
-.g-pill:hover { background: rgba(58,30,20,.13); }
+.g-pill { font-family: 'DM Sans', sans-serif; font-size: .82rem; color: var(--brown); background: rgba(104,64,52,.06); border: 1px solid var(--line); border-radius: 100px; padding: 8px 18px; text-decoration: none; transition: background .2s; }
+.g-pill:hover { background: rgba(104,64,52,.13); }
 
 
 
@@ -764,8 +764,8 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
   padding: 12px 16px !important;
   text-align: left !important;
 }
-#mobileNav .sp-menu-trigger-lotus { display: inline-flex !important; font-size: 1.15rem !important; color: #3A1E14 !important; flex-shrink: 0; }
-#mobileNav .sp-menu-trigger-lotus svg { width: 15px !important; height: 15px !important; stroke: #3A1E14 !important; }
+#mobileNav .sp-menu-trigger-lotus { display: inline-flex !important; font-size: 1.15rem !important; color: #684034 !important; flex-shrink: 0; }
+#mobileNav .sp-menu-trigger-lotus svg { width: 15px !important; height: 15px !important; stroke: #684034 !important; }
 #mobileNav .sp-menu-trigger-textwrap { display: flex !important; flex-direction: column !important; gap: 0.15rem !important; align-items: flex-start !important; }
 #mobileNav .sp-menu-trigger-label, #mobileNav .sp-menu-trigger-sub { display: block !important; text-align: left !important; }
 /* Footer: social icons + copyright */
@@ -884,7 +884,7 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
     top: 1.2rem !important; right: 1.4rem !important;
     border-radius: 50% !important;
     background: #E8C078 !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     font-size: 1.5rem !important;
     display: flex !important; align-items: center !important; justify-content: center !important;
   }
@@ -1117,7 +1117,7 @@ html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0
 html body nav:not(.nav-scrolled) .lang-btn { color: rgba(245,237,227,0.65) !important; }
 html body nav:not(.nav-scrolled) .lang-btn.active { color: rgba(245,237,227,0.95) !important; }
 html body nav.nav-scrolled .menu-btn span { background: #4B2E26 !important; }
-html body nav.nav-scrolled .lang-btn { color: rgba(58,30,20,0.55) !important; }
+html body nav.nav-scrolled .lang-btn { color: rgba(104,64,52,0.55) !important; }
 html body nav.nav-scrolled .lang-btn.active { color: #4B2E26 !important; }
 
 /* ── sf-brand (logo footer menu mobile) — override global ── */
@@ -1296,14 +1296,14 @@ a.sf-logo {
   font-size: 1.05rem !important;
   letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
-  color: #3A1E14 !important;
+  color: #684034 !important;
   font-weight: 600 !important;
 }
 .sp-menu-trigger-sub {
   font-size: 0.62rem !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  color: rgba(58,30,20,0.6) !important;
+  color: rgba(104,64,52,0.6) !important;
   font-weight: 400 !important;
 }
 

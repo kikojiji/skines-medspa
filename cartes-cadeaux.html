@@ -66,7 +66,7 @@
   :root {
     --cream: #F0E6C8;
     --brown: #684034;
-    --brown-dark: #3A1E14;
+    --brown-dark: #684034;
     --brown-mid: #8B5E3C;
     --gold: #C9A96E;
     --text: #3D2B1F;
@@ -131,16 +131,16 @@
   .gc-png-card {
     background: none; border: none; padding: 0; cursor: pointer;
     border-radius: 14px; overflow: hidden;
-    box-shadow: 0 6px 32px rgba(58,30,20,0.13);
+    box-shadow: 0 6px 32px rgba(104,64,52,0.13);
     transition: transform 0.28s ease, box-shadow 0.28s ease;
     display: flex; flex-direction: column;
   }
   .gc-png-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 48px rgba(58,30,20,0.22);
+    box-shadow: 0 16px 48px rgba(104,64,52,0.22);
   }
   .gc-png-card.selected {
-    box-shadow: 0 0 0 3px #C9A96E, 0 16px 48px rgba(58,30,20,0.22);
+    box-shadow: 0 0 0 3px #C9A96E, 0 16px 48px rgba(104,64,52,0.22);
     transform: translateY(-4px);
   }
   .gc-png-img-wrap {
@@ -163,7 +163,7 @@
   }
   .gc-png-label {
     font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(58,30,20,0.45); font-family: "DM Sans", sans-serif;
+    color: rgba(104,64,52,0.45); font-family: "DM Sans", sans-serif;
     flex: 1;
   }
   .gc-png-price {
@@ -172,7 +172,7 @@
   }
   .gc-png-cta {
     font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(58,30,20,0.40); font-family: "DM Sans", sans-serif;
+    color: rgba(104,64,52,0.40); font-family: "DM Sans", sans-serif;
     transition: color 0.2s;
   }
   .gc-png-card:hover .gc-png-cta { color: #7A4A38; }
@@ -183,7 +183,7 @@
     position: absolute; inset: 0;
     background:
       radial-gradient(ellipse 80% 60% at 80% 30%, rgba(201,169,110,0.10) 0%, transparent 70%),
-      linear-gradient(160deg, #3A1E14 0%, #5C3020 50%, #1a0f0a 100%);
+      linear-gradient(160deg, #684034 0%, #5C3020 50%, #1a0f0a 100%);
   }
   .hero-deco {
     position: absolute; top: 2.5rem; right: 2rem;
@@ -286,7 +286,7 @@
   .gift-card-btn:hover { background: #684034; }
 
   /* Card colors */
-  .banner-headspa { background: linear-gradient(135deg, #3A1E14, #6B3D2E); }
+  .banner-headspa { background: linear-gradient(135deg, #684034, #6B3D2E); }
   .banner-laser   { background: linear-gradient(135deg, #1a1a2e, #2d3a6b); }
   .banner-facial  { background: linear-gradient(135deg, #2e1a2e, #5c3a5c); }
   .banner-custom  { background: linear-gradient(135deg, #1a2a1a, #3a5c3a); }
@@ -506,28 +506,28 @@
 
   /* ══════════════════════════════════════════════════════════
      GLOBAL DARK THEME LOCK — no beige/cream anywhere in nav or footer
-     All dark sections → #3A1E14  |  text → #F5EDE3  |  gold → #F5C06A
+     All dark sections → #684034  |  text → #F5EDE3  |  gold → #F5C06A
      ══════════════════════════════════════════════════════════ */
 
   /* Fix CSS variable remaps that accidentally set charcoal/ink to cream */
   :root {
-    --charcoal: #3A1E14 !important;
-    --ink:      #3A1E14 !important;
-    --color-dark: #3A1E14 !important;
-    --bg:        #3A1E14 !important;
-    --cream-pale: #3A1E14 !important;
+    --charcoal: #684034 !important;
+    --ink:      #684034 !important;
+    --color-dark: #684034 !important;
+    --bg:        #684034 !important;
+    --cream-pale: #684034 !important;
     --cream-light: #4A2218 !important;
     --brown:     #4A2218 !important;
-    --brown-dark: #3A1E14 !important;
-    --terracotta-dark: #3A1E14 !important;
-    --color-light: #3A1E14 !important;
+    --brown-dark: #684034 !important;
+    --terracotta-dark: #684034 !important;
+    --color-light: #684034 !important;
     --color-primary: #4A2218 !important;
   }
 
   /* Nav — always deep dark brown when scrolled */
   nav.nav-scrolled,
-  nav.nav-scrolled * { background: #3A1E14 !important; }
-  nav.nav-scrolled { background: #3A1E14 !important; border-bottom: 1px solid rgba(245,192,106,0.10) !important; }
+  nav.nav-scrolled * { background: #684034 !important; }
+  nav.nav-scrolled { background: #684034 !important; border-bottom: 1px solid rgba(245,192,106,0.10) !important; }
 
 
   /* Footer — deep dark */
@@ -537,7 +537,7 @@
   footer a:hover { color: #F5C06A !important; }
 
   /* Service nav strip between pages */
-  .service-nav { background: #3A1E14 !important; border-color: rgba(245,192,106,0.10) !important; }
+  .service-nav { background: #684034 !important; border-color: rgba(245,192,106,0.10) !important; }
   .service-nav-btn { border-color: rgba(245,192,106,0.12) !important; }
   .service-nav-btn.active { background: #4A2218 !important; }
   .service-nav-name { color: rgba(245,237,227,0.80) !important; }
@@ -554,13 +554,13 @@
   .booking-band *, .band * { color: #F5EDE3 !important; }
 
   /* Scroll-to-top button */
-  .scroll-top { background: #F5C06A !important; color: #3A1E14 !important; }
+  .scroll-top { background: #F5C06A !important; color: #684034 !important; }
 
   /* Make sure body/html background stays dark (not cream) unless section overrides */
-  html, body { background: #3A1E14 !important; }
+  html, body { background: #684034 !important; }
   /* nav * background fix — children shouldn't inherit dark bg */
   nav.nav-scrolled * { background: transparent !important; }
-  nav.nav-scrolled { background: #3A1E14 !important; }
+  nav.nav-scrolled { background: #684034 !important; }
 
   /* ══════════════════════════════════════════════════════════
      FINAL TEXT & COLOR FIX — definitive, highest specificity
@@ -568,18 +568,18 @@
      ══════════════════════════════════════════════════════════ */
 
   /* 1 ─ DARK SECTIONS: force dark bg using element+class (beats section:not selector) */
-  section.booking-band, div.booking-band, .booking-band { background: #3A1E14 !important; }
+  section.booking-band, div.booking-band, .booking-band { background: #684034 !important; }
   section.booking-band h2, .booking-band h2 { color: #F5EDE3 !important; font-size: clamp(1.8rem,4vw,2.55rem); }
   section.booking-band p, .booking-band p  { color: rgba(245,237,227,0.80) !important; }
   section.booking-band .eyebrow, .booking-band .eyebrow { color: #F5C06A !important; }
-  section.booking-band .btn-dark, .booking-band .btn-dark { background: #F5C06A !important; color: #3A1E14 !important; border-color: #F5C06A !important; }
+  section.booking-band .btn-dark, .booking-band .btn-dark { background: #F5C06A !important; color: #684034 !important; border-color: #F5C06A !important; }
   section.booking-band .btn-line, .booking-band .btn-line { color: rgba(245,237,227,0.65) !important; border-color: rgba(245,237,227,0.35) !important; }
-  section.band, div.band, .band { background: #3A1E14 !important; }
+  section.band, div.band, .band { background: #684034 !important; }
   section.band h2, .band h2    { color: #F5EDE3 !important; }
   section.band p, .band p      { color: rgba(245,237,227,0.78) !important; }
 
-  section.gallery-carousel { background: #3A1E14 !important; }
-  section.laser-fullslider  { background: #3A1E14 !important; }
+  section.gallery-carousel { background: #684034 !important; }
+  section.laser-fullslider  { background: #684034 !important; }
 
   /* 2 ─ CREAM SECTIONS: force dark readable text (beats earlier cream-on-cream bugs) */
 
@@ -621,14 +621,14 @@
   .ritual-pill                             { color: rgba(61,43,31,0.65) !important; border-color: rgba(61,43,31,0.18) !important; }
 
   /* 3 ─ NAV always dark */
-  nav, nav.nav-scrolled                    { background: #3A1E14 !important; }
+  nav, nav.nav-scrolled                    { background: #684034 !important; }
   nav *, nav.nav-scrolled *                { background: transparent !important; }
   
   nav .nav-cta                             { background: rgba(245,237,227,0.10) !important; color: #F5EDE3 !important; border-color: rgba(245,237,227,0.25) !important; }
   nav .menu-btn, nav .nav-search-btn       { color: #F5EDE3 !important; }
 
   /* 4 ─ FOOTER always dark */
-  footer                                   { background: #3A1E14 !important; }
+  footer                                   { background: #684034 !important; }
   footer h3, footer h4, .footer-logo-text  { color: #F5EDE3 !important; }
   footer p, footer li, footer a            { color: rgba(245,237,227,0.65) !important; }
   footer a:hover                           { color: #F5C06A !important; }
@@ -648,22 +648,22 @@
   .ritual-close, .ritual-close *           { color: #F5EDE3 !important; }
 
   /* 8 ─ SCROLL TOP */
-  .scroll-top { background: #F5C06A !important; color: #3A1E14 !important; }
+  .scroll-top { background: #F5C06A !important; color: #684034 !important; }
 
   /* ── BOOK buttons gold everywhere + no beige gaps ── */
   .price-card-cta, .svc-book-btn, .product-cta {
     background: #F5C06A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     border-color: #F5C06A !important;
     font-weight: 600 !important;
   }
   .price-card-cta:hover, .svc-book-btn:hover, .product-cta:hover {
     background: #D4913A !important;
     border-color: #D4913A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
   }
   .price-card-img-placeholder {
-    background: linear-gradient(135deg, rgba(58,30,20,0.60) 0%, rgba(74,34,24,0.80) 100%) !important;
+    background: linear-gradient(135deg, rgba(104,64,52,0.60) 0%, rgba(74,34,24,0.80) 100%) !important;
     opacity: 1 !important;
     color: #F5C06A !important;
   }
@@ -686,11 +686,11 @@
   section.booking-band,
   section.band,
   section.technology-section,
-  section.products-section    { background: #3A1E14 !important; }
+  section.products-section    { background: #684034 !important; }
 
   /* 3. Price cards — dark bg with VISIBLE cream text */
   .price-card                 { background: #4A2218 !important; border-color: rgba(245,192,106,0.14) !important; }
-  .price-card-img             { background: #3A1E14 !important; }
+  .price-card-img             { background: #684034 !important; }
   .price-card-cat,
   .price-card-duration        { color: rgba(245,237,227,0.52) !important; }
   .price-card-name            { color: #F5EDE3 !important; font-family: "DM Sans", sans-serif !important; font-size: 1.15rem !important; }
@@ -699,13 +699,13 @@
   .price-original,
   .fpl-orig                   { color: rgba(245,237,227,0.35) !important; text-decoration: line-through; }
   .price-card-discount        { color: rgba(245,192,106,0.75) !important; font-size: 0.72rem !important; }
-  .price-card-cta             { background: #F5C06A !important; color: #3A1E14 !important; border-color: #F5C06A !important; font-weight: 600 !important; }
+  .price-card-cta             { background: #F5C06A !important; color: #684034 !important; border-color: #F5C06A !important; font-weight: 600 !important; }
 
   /* 4. Tab panel area stays dark (price cards live here) */
   .price-tab-panel,
   .prices-section,
   #panel-bundles,
-  #panel-zones                { background: #3A1E14 !important; }
+  #panel-zones                { background: #684034 !important; }
 
   /* 5. Fix contact section empty space — remove extra height */
   .contact                    { background: #F0E6C8 !important; padding-bottom: 3rem !important; }
@@ -756,7 +756,7 @@
   .ritual-tags { display: none !important; }
 
   /* ─ 3. SEARCH MODAL — light text on dark bg ─ */
-  .search-overlay-inner      { background: #3A1E14 !important; }
+  .search-overlay-inner      { background: #684034 !important; }
   .search-input              { 
     background: rgba(255,255,255,0.08) !important;
     color: #F5EDE3 !important;
@@ -974,7 +974,7 @@
     .booking-band, section.booking-band,
     .band, section.band,
     .technology-section, .products-section {
-      background: #3A1E14 !important;
+      background: #684034 !important;
     }
     .family-section { background: transparent !important; }
   }
@@ -1683,7 +1683,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .product-cta,
   html body a.product-cta {
     background: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     border: none !important;
     border-radius: 3px !important;
     padding: 0.85rem 2rem !important;
@@ -1696,14 +1696,14 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .btn-dark span,
   html body .ritual-close-cta span,
   html body .svc-book-btn span,
-  html body .product-cta span { color: #3A1E14 !important; }
+  html body .product-cta span { color: #684034 !important; }
   html body .btn-dark:hover,
   html body a.btn-dark:hover,
   html body .ritual-close-cta:hover,
   html body .svc-book-btn:hover,
   html body .product-cta:hover {
     background: #c9a45a !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     transform: translateY(-1px) !important;
   }
 
@@ -1729,9 +1729,9 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   /* Booking band specific overrides (light bg) */
   html body .booking-band .btn-dark {
     background: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
   }
-  html body .booking-band .btn-dark span { color: #3A1E14 !important; }
+  html body .booking-band .btn-dark span { color: #684034 !important; }
   html body .booking-band .btn-warm,
   html body .booking-band .btn-line {
     color: #684034 !important;
@@ -1762,7 +1762,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .price-card-cta,
   html body a.price-card-cta {
     background: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     border: none !important;
     border-radius: 3px !important;
     padding: 0.80rem 1.8rem !important;
@@ -1780,7 +1780,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .btn-dark span,
   html body .ritual-close-cta span,
   html body .product-cta span,
-  html body .price-card-cta span { color: #3A1E14 !important; }
+  html body .price-card-cta span { color: #684034 !important; }
 
   html body .svc-card .svc-book-btn:hover,
   html body .svc-book-btn:hover,
@@ -1789,14 +1789,14 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .product-cta:hover,
   html body .price-card-cta:hover {
     background: #c9a45a !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     transform: translateY(-1px) !important;
   }
 
   /* Active tab: PAQUETS / ZONES → gold */
   html body .price-tab-btn.active {
     background: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     font-weight: 700 !important;
   }
   html body .price-tab-btn:not(.active) {
@@ -1811,11 +1811,11 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   /* Booking band: keep gold btn, secondary stays outlined */
   html body .booking-band .btn-dark {
     background: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     display: inline-block !important;
     width: auto !important;
   }
-  html body .booking-band .btn-dark span { color: #3A1E14 !important; }
+  html body .booking-band .btn-dark span { color: #684034 !important; }
   html body .booking-band .btn-warm,
   html body .booking-band .btn-line {
     background: transparent !important;
@@ -1842,7 +1842,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .band .btn-warm {
     background: #D6B36A !important;
     background-color: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     border: none !important;
     outline: none !important;
     border-radius: 3px !important;
@@ -1860,7 +1860,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .btn-warm span, html body .svc-book-btn span,
   html body .ritual-close-cta span, html body .product-cta span,
   html body .price-card-cta span, html body .special-offer-cta span {
-    color: #3A1E14 !important;
+    color: #684034 !important;
   }
   html body .btn-dark:hover, html body .btn-light:hover,
   html body .btn-warm:hover, html body .svc-book-btn:hover,
@@ -1869,7 +1869,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   html body .price-card-cta:hover, html body .special-offer-cta:hover {
     background: #c9a45a !important;
     background-color: #c9a45a !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     transform: translateY(-1px) !important;
   }
 
@@ -1908,7 +1908,7 @@ html body .svc-card .svc-tag { color: #ba724a !important; }
   /* Price tabs: gold active */
   html body .price-tab-btn.active {
     background: #D6B36A !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     font-weight: 700 !important;
     border-bottom: 2px solid #c9a45a !important;
   }
@@ -3364,7 +3364,7 @@ html body nav.nav-scrolled:not(.nav-hidden) {
   box-shadow: 0 1px 16px rgba(74,35,24,0.08) !important;
 }
 
-html body nav.nav-scrolled .menu-btn span { background: #3a1e14 !important; }
+html body nav.nav-scrolled .menu-btn span { background: #684034 !important; }
 html body nav:not(.nav-scrolled) 
 html body nav:not(.nav-scrolled) 
 html body nav:not(.nav-scrolled) .menu-btn  { color: #ffffff !important; }
@@ -3622,7 +3622,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   border: 1px solid rgba(245,237,227,0.20) !important;
 }
 #mobileNav .sp-menu-trigger { background: rgb(232,211,163) !important; }
-#mobileNav .sp-menu-trigger * { color: #3A1E14 !important; }
+#mobileNav .sp-menu-trigger * { color: #684034 !important; }
 
 /* Guides nav dropdown */
 .nav-dropdown { position: relative; }
@@ -3906,7 +3906,7 @@ html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0
 html body nav:not(.nav-scrolled) .lang-btn { color: rgba(245,237,227,0.65) !important; }
 html body nav:not(.nav-scrolled) .lang-btn.active { color: rgba(245,237,227,0.95) !important; }
 html body nav.nav-scrolled .menu-btn span { background: #4B2E26 !important; }
-html body nav.nav-scrolled .lang-btn { color: rgba(58,30,20,0.55) !important; }
+html body nav.nav-scrolled .lang-btn { color: rgba(104,64,52,0.55) !important; }
 html body nav.nav-scrolled .lang-btn.active { color: #4B2E26 !important; }
 
 /* ── sf-brand (logo footer menu mobile) — override global ── */
@@ -4085,14 +4085,14 @@ a.sf-logo {
   font-size: 1.05rem !important;
   letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
-  color: #3A1E14 !important;
+  color: #684034 !important;
   font-weight: 600 !important;
 }
 .sp-menu-trigger-sub {
   font-size: 0.62rem !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  color: rgba(58,30,20,0.6) !important;
+  color: rgba(104,64,52,0.6) !important;
   font-weight: 400 !important;
 }
 
@@ -4750,9 +4750,9 @@ input, textarea, select {
 }
 /* STONE-FINAL */
 html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
-html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #3A1E14 !important; }
+html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #684034 !important; }
 html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.9) !important; }
-html body nav.nav-scrolled .menu-btn span { background: #3A1E14 !important; }
+html body nav.nav-scrolled .menu-btn span { background: #684034 !important; }
 html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
 html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
 html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
@@ -5057,8 +5057,8 @@ html body nav {}
   padding: 12px 16px !important;
   text-align: left !important;
 }
-#mobileNav .sp-menu-trigger-lotus { display: inline-flex !important; font-size: 1.15rem !important; color: #3A1E14 !important; flex-shrink: 0; }
-#mobileNav .sp-menu-trigger-lotus svg { width: 15px !important; height: 15px !important; stroke: #3A1E14 !important; }
+#mobileNav .sp-menu-trigger-lotus { display: inline-flex !important; font-size: 1.15rem !important; color: #684034 !important; flex-shrink: 0; }
+#mobileNav .sp-menu-trigger-lotus svg { width: 15px !important; height: 15px !important; stroke: #684034 !important; }
 #mobileNav .sp-menu-trigger-textwrap { display: flex !important; flex-direction: column !important; gap: 0.15rem !important; align-items: flex-start !important; }
 #mobileNav .sp-menu-trigger-label, #mobileNav .sp-menu-trigger-sub { display: block !important; text-align: left !important; }
 /* Footer: social icons + copyright */
@@ -5175,7 +5175,7 @@ html body nav {}
     top: 1.2rem !important; right: 1.4rem !important;
     border-radius: 50% !important;
     background: #E8C078 !important;
-    color: #3A1E14 !important;
+    color: #684034 !important;
     font-size: 1.5rem !important;
     display: flex !important; align-items: center !important; justify-content: center !important;
   }
