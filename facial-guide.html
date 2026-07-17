@@ -490,6 +490,9 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
   .sf-nav-group { border-left: 1px solid rgba(255,255,255,0.05); }
   .sf-nav-group:first-child { border-left: none; }
   .sf-nav-exclusive { border-left: none; display: flex; flex-direction: column; }
+  /* Centered, slightly larger column headers so all four line up the same */
+  .sf-nav-label { text-align: center !important; font-size: 0.7rem !important; }
+  .sf-nav .sf-nav-group.sf-nav-collapsible .sf-nav-toggle { justify-content: center !important; text-align: center !important; font-size: 0.7rem !important; }
 }
 @media (min-width: 1441px) {
   .sf-logo-area,
