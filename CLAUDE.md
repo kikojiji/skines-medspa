@@ -31,29 +31,42 @@ This applies automatically — Claude should not need to be reminded per page or
 
 **Always use the full official brand name:**
 ```
-Skines Med Spa & Wellness
+Skines Head Spa & Wellness
 ```
 
-**Never use** (unless referring to a legal, historical, or third-party source —
-e.g. an existing Instagram handle, a Google Maps listing name already indexed
-by Google, or a quote from a third party):
-- Skine's Spa
-- Skines Spa
-- Skines Head Spa
-- Skines Wellness
+This is the real-world / Google-Maps-displayed name and the brand's original
+Head Spa identity. On 2026-07-17 the site was migrated back to this name after a
+period using "Skines Med Spa & Wellness" — that variant created entity
+inconsistency and weakened relevance for the primary target query "Head Spa
+Montréal". **Do not reintroduce "Med Spa" as the business/brand/entity name.**
+
+**Positioning (entity hierarchy):**
+- PRIMARY BRAND: `Skines Head Spa & Wellness`
+- PRIMARY POSITIONING: Luxury Japanese Head Spa in Montréal
+- SECONDARY POSITIONING: Medical Aesthetics & advanced skin treatments
+
+**"Medical Aesthetics" / "med spa" / "medical spa" MAY still be used** when
+describing a **service line, treatment category, page topic, or commercial
+offering** (facials, Bela MD+, laser, etc.). It must NOT be used as the business
+name, logo text, schema `name`/`Organization` name, email brand, or sitewide
+identity. Keep Medical Aesthetics visible and strong — the migration must not
+make the business look like it only offers Head Spa.
+
+**Never use as the brand/entity name:** `Skines Med Spa`, `Skines Med Spa &
+Wellness`, `Skine's Spa`, `Skines Spa`, `Skines Medspa`, `Skines Medical Spa`,
+`Skines Wellness`.
+
+**Do NOT add "Montréal" to the business name** unless proven part of the
+real-world registered/displayed brand. Do not create a new Google Business
+Profile or change the GBP name if it already displays `Skines Head Spa & Wellness`.
 
 This matters for entity consistency in Google's Knowledge Graph and Schema.org
-`name`/`alternateName` fields — inconsistent brand naming across the site
-fragments the entity and weakens SEO.
+`name`/`alternateName` fields — inconsistent brand naming fragments the entity
+and weakens SEO.
 
 **Known existing exceptions (do not "fix" without confirming first):**
-- `@skines.spa` — actual Instagram/TikTok handle, third-party platform constraint.
-- "Skines Head Spa & wellness" in Google Maps URLs — reflects the live GBP listing name, third-party source.
-
-**Known inconsistencies found in a 2026-06-30 scan (not yet corrected, flagged for review):**
-- `facial.html:6552`, `head-spa.html:6612/6619`, `index.html:7113/7120`,
-  `laser.html:7479/7486`, `reviews.html:6119/6126` — internal JS search-index
-  text uses "Skines Spa" instead of the full brand name.
+- `@skines.spa` / `@skines.ca` — actual Instagram/TikTok/Threads handles, third-party platform constraint.
+- `package.json` name `skines-medspa` — internal npm package identifier, not brand-facing.
 
 ## Pre-commit safety check
 

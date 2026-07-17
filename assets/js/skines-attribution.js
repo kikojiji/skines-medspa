@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — First-Party Attribution Engine
+ * Skines Head Spa — First-Party Attribution Engine
  * ---------------------------------------------------------------------------
  * Captures and persists marketing attribution on skines.ca itself, so the
  * business OWNS its acquisition data independently of any ad platform.

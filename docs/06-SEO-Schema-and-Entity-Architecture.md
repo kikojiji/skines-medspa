@@ -5,7 +5,7 @@
 ---
 
 ## 6.1 SEO architecture (on-page, verified)
-- **Titles:** unique, keyword + geo + price patterns per page (e.g. "Épilation Laser Montréal dès 40$ – Skines Med Spa & Wellness").
+- **Titles:** unique, keyword + geo + price patterns per page (e.g. "Épilation Laser Montréal dès 40$ – Skines Head Spa & Wellness").
 - **Meta descriptions:** present and unique on all content pages.
 - **Canonicals:** present on all content + legal pages (self-referential, `https://skines.ca/<slug>`).
 - **Robots:** default indexable; **`/menu` = `noindex,nofollow`**; legal pages `index,follow`.
@@ -62,7 +62,7 @@ Fresha    : https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?...
 ### Entity-consistency findings (documented, not fixed)
 - **Two Instagram identities** and **two TikTok identities** appear in code.
 - `CLAUDE.md` records that the *live* IG/TikTok handle is `@skines.spa` and the Google Business Profile name is "Skines Head Spa & wellness" — i.e. schema `sameAs` may assert handles that differ from the live accounts.
-- Brand name itself standardized to **"Skines Med Spa & Wellness"** in code, but historical variants (Skines Spa, Skines Head Spa) exist in third-party/GBP contexts (per CLAUDE.md).
+- Brand name itself standardized to **"Skines Head Spa & Wellness"** in code, but historical variants (Skines Spa, Skines Head Spa) exist in third-party/GBP contexts (per CLAUDE.md).
 - **Net:** the Knowledge-Graph entity is fragmented across ≥2 IG and ≥2 TikTok references + brand-name variants. Whether each destination account exists/matches: `🔒 requires login — not verified`.
 
 ## 6.4 Domains in the identity surface

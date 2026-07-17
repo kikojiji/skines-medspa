@@ -1,6 +1,6 @@
 # Architecture Decision Record (ADR) Library — Index
 
-**Subject:** Skines Med Spa & Wellness — skines.ca
+**Subject:** Skines Head Spa & Wellness — skines.ca
 **Nature:** These ADRs are **reverse-engineered** from the deployed codebase. The original decisions were not written down at the time; each record below reconstructs the decision, its evident context, and its consequences **from code evidence**. Where motive cannot be proven it is marked *(inferred)*.
 **Status legend:** `Active` = in force in current code · `Active (implicit)` = in force but never formally chosen · `Latent` = a hook/allowance exists for a decision not yet taken.
 **Rule:** Documentation only. Consequences are stated as facts/trade-offs, never as recommendations.

@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — Meta CAPI dispatcher (client trigger) — ADS-CONSENT GATED
+ * Skines Head Spa — Meta CAPI dispatcher (client trigger) — ADS-CONSENT GATED
  * ---------------------------------------------------------------------------
  * The SECOND Meta delivery channel. Listens to the same `sk:track` bus as the
  * browser Pixel and POSTs the SAME approved event to our server (/api/capi),

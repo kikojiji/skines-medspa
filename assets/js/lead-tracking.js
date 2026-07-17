@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — Lead tracking (compatibility fallback)
+ * Skines Head Spa — Lead tracking (compatibility fallback)
  * ---------------------------------------------------------------------------
  * generate_lead is now owned by the core layer (assets/js/skines-tracker.js),
  * which attaches the attribution snapshot + event_id and de-dupes per formKey.

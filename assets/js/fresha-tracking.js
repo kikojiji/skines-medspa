@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — Fresha Booking-Intent Detector
+ * Skines Head Spa — Fresha Booking-Intent Detector
  * ---------------------------------------------------------------------------
  * Detects clicks on Fresha links and reports them through the core tracking
  * layer (window.skinesTrack) as an INTENT signal — never a completed booking.

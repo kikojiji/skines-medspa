@@ -45,7 +45,7 @@ Google Fonts            fonts.googleapis.com / fonts.gstatic.com
 8. respond {success:true, id:"SK-00XX"}
 Client on success → skinesTrackLead('tirage') → GA4 generate_lead
 ```
-- **From addresses:** `Skines Med Spa <noreply@skines.ca>` / `<Info@skines.ca>`. **Admin inbox:** `skinesca@gmail.com`.
+- **From addresses:** `Skines Head Spa <noreply@skines.ca>` / `<Info@skines.ca>`. **Admin inbox:** `skinesca@gmail.com`.
 - **Redis seed:** customer seq starts 65 (first ID `SK-0066`), admin seq starts 19 (`SK-0020`).
 
 ### `/api/_lib/` shared modules

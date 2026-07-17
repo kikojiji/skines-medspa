@@ -1,8 +1,8 @@
-# Skines Med Spa & Wellness
+# Skines Head Spa & Wellness
 
 ## About
 
-Skines Med Spa & Wellness is a luxury medical spa and wellness center located in Montreal, Quebec, Canada — Petite Italie (Little Italy) neighborhood, near Jean-Talon Market.
+Skines Head Spa & Wellness is a luxury Japanese Head Spa and medical aesthetics clinic located in Montreal, Quebec, Canada — Petite Italie (Little Italy) neighborhood, near Jean-Talon Market. Its primary identity is a Japanese Head Spa; medical aesthetics (facials, laser) is a strong secondary service line.
 
 The clinic specializes in three core service categories:
 - Japanese Head Spa (Scalpcial)
@@ -128,7 +128,7 @@ Note: Skines uses the term "réduction durable des poils" (durable hair reductio
 
 Page: https://skines.ca/cartes-cadeaux
 
-Skines Med Spa & Wellness offers gift cards usable for any service. Available for purchase online and in-clinic. No expiry restrictions disclosed on site.
+Skines Head Spa & Wellness offers gift cards usable for any service. Available for purchase online and in-clinic. No expiry restrictions disclosed on site.
 
 ---
 
@@ -136,7 +136,7 @@ Skines Med Spa & Wellness offers gift cards usable for any service. Available fo
 
 Page: https://skines.ca/reviews
 
-Client reviews for Skines Med Spa & Wellness Montreal.
+Client reviews for Skines Head Spa & Wellness Montreal.
 
 ---
 
@@ -154,13 +154,13 @@ Pages:
 
 ## Languages
 
-The Skines Med Spa & Wellness website is fully bilingual: French (primary) and English.
+The Skines Head Spa & Wellness website is fully bilingual: French (primary) and English.
 
 ---
 
 ## Brand Notes
 
-- Official brand name: Skines Med Spa & Wellness
+- Official brand name: Skines Head Spa & Wellness
 - Instagram/TikTok handle: @skines.spa (third-party platform constraint)
 - Technology used for laser: Clarity II by Lutronic (755nm Alexandrite + 1064nm Nd:YAG)
 - Head Spa protocol name: Scalpcial

@@ -7,8 +7,8 @@ import {
   rateLimit, getClientIp, sendViaResend,
 } from './_lib/security.js';
 
-const FROM       = "Skines Med Spa <noreply@skines.ca>";
-const FROM_ADMIN = "Skines Med Spa <Info@skines.ca>";
+const FROM       = "Skines Head Spa <noreply@skines.ca>";
+const FROM_ADMIN = "Skines Head Spa <Info@skines.ca>";
 const ADMIN = 'skinesca@gmail.com';
 const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 
@@ -258,7 +258,7 @@ export default async function handler(req, res) {
   <!-- ─── BRAND WORDMARK ─── -->
   <tr><td bgcolor="#EAE0D5" style="background:#EAE0D5;padding:44px 36px 30px;text-align:center;">
     <p style="margin:0 0 7px;font-size:23px;letter-spacing:0.52em;color:#2C1810;font-family:Georgia,'Times New Roman',serif;font-weight:400;">SKINES</p>
-    <p style="margin:0 0 20px;font-size:7px;letter-spacing:0.30em;text-transform:uppercase;color:rgba(90,60,40,0.40);font-family:Arial,Helvetica,sans-serif;font-weight:700;">MED SPA &nbsp;&middot;&nbsp; MONTR&Eacute;AL</p>
+    <p style="margin:0 0 20px;font-size:7px;letter-spacing:0.30em;text-transform:uppercase;color:rgba(90,60,40,0.40);font-family:Arial,Helvetica,sans-serif;font-weight:700;">HEAD SPA &nbsp;&middot;&nbsp; MONTR&Eacute;AL</p>
     <table role="presentation" width="130" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;"><tr>
       <td style="height:1px;background:rgba(182,106,90,0.22);font-size:0;line-height:0;">&nbsp;</td>
       <td style="padding:0 11px;color:rgba(182,106,90,0.55);font-size:10px;line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
@@ -358,7 +358,7 @@ export default async function handler(req, res) {
       <td style="padding:0 11px;color:rgba(182,106,90,0.22);font-size:9px;line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
       <td style="height:1px;background:rgba(182,106,90,0.14);font-size:0;">&nbsp;</td>
     </tr></table>
-    <p style="margin:0;font-size:7.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(90,60,40,0.22);font-family:Arial,Helvetica,sans-serif;">Skines Med Spa &nbsp;&mdash;&nbsp; Syst&egrave;me automatique</p>
+    <p style="margin:0;font-size:7.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(90,60,40,0.22);font-family:Arial,Helvetica,sans-serif;">Skines Head Spa &nbsp;&mdash;&nbsp; Syst&egrave;me automatique</p>
   </td></tr>
 
 </table>
@@ -383,7 +383,7 @@ export default async function handler(req, res) {
   <!-- ─── LOGO HEADER ─── -->
   <tr><td style="padding:0 0 28px;text-align:center;">
     <img src="${LOGO}" alt="Skines" width="48" style="width:48px;height:auto;display:block;margin:0 auto 10px;">
-    <p style="margin:0;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(90,70,55,0.52);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES MED SPA &amp; WELLNESS</p>
+    <p style="margin:0;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(90,70,55,0.52);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES HEAD SPA &amp; WELLNESS</p>
   </td></tr>
 
   <!-- ─── MAIN CARD ─── -->
@@ -413,7 +413,7 @@ export default async function handler(req, res) {
 
         <!-- Main message -->
         <p style="margin:0 0 10px;font-size:15px;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;line-height:1.8;text-align:center;">
-          Votre participation au <em>Tirage Exclusif</em><br>de <strong>Skines Med Spa</strong> a bien &eacute;t&eacute; enregistr&eacute;e.
+          Votre participation au <em>Tirage Exclusif</em><br>de <strong>Skines Head Spa</strong> a bien &eacute;t&eacute; enregistr&eacute;e.
         </p>
 
         <p style="margin:0 0 28px;font-size:13px;color:rgba(90,70,55,0.60);font-family:Arial,Helvetica,sans-serif;line-height:1.7;text-align:center;">
@@ -439,7 +439,7 @@ export default async function handler(req, res) {
 
       <!-- Cream footer strip -->
       <tr><td style="padding:20px 44px 24px;text-align:center;background:#FAF6F0;border-top:1px solid rgba(182,106,90,0.09);">
-        <p style="margin:0 0 5px;font-size:7.5px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(90,70,55,0.45);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES MED SPA &amp; WELLNESS</p>
+        <p style="margin:0 0 5px;font-size:7.5px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(90,70,55,0.45);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES HEAD SPA &amp; WELLNESS</p>
         <p style="margin:0;font-size:11px;color:rgba(90,70,55,0.38);font-family:Arial,Helvetica,sans-serif;letter-spacing:0.05em;">
           Montr&eacute;al, Canada &nbsp;&middot;&nbsp; <a href="https://skines.ca" style="color:rgba(90,70,55,0.38);text-decoration:none;">skines.ca</a>
         </p>

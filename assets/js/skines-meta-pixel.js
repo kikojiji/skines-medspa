@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — Meta Pixel (browser) — ADS-CONSENT GATED
+ * Skines Head Spa — Meta Pixel (browser) — ADS-CONSENT GATED
  * ---------------------------------------------------------------------------
  * Subscribes to the core layer's `sk:track` bus and forwards events to the
  * Meta Pixel. This is BROWSER PIXEL ONLY — no Conversions API here.

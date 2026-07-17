@@ -1,6 +1,6 @@
 # Skines Digital Infrastructure — Documentation Library (INDEX)
 
-**Business:** Skines Med Spa & Wellness — Montréal, QC — skines.ca
+**Business:** Skines Head Spa & Wellness — Montréal, QC — skines.ca
 **Type:** Current-state technical reference. **Audit only** — no fixes, no recommendations.
 **Compiled:** 2026-07-14
 **Evidence basis:** Every statement verified against the deployed codebase. Anything not verifiable from code is marked `🔒 requires login/screenshot — not verified`.

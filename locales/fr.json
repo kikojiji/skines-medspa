@@ -54,7 +54,7 @@
     "parking": "Stationnement Privé",
     "insurance": "Reçus d'Assurance",
     "giveaway": "Tirage Exclusif",
-    "copyright": "© 2026 Skines Med Spa",
+    "copyright": "© 2026 Skines Head Spa",
     "privacy": "Confidentialité",
     "terms": "Conditions",
     "cookies": "Témoins"
@@ -77,10 +77,10 @@
     "giveawayBtn": "Participer au tirage →",
     "giveawayDecline": "Non merci",
     "journeyTitle": "Commencez votre voyage.",
-    "journeySubtitle": "Skines Med Spa · Montréal"
+    "journeySubtitle": "Skines Head Spa · Montréal"
   },
   "headSpa": {
-    "pageTitle": "Head Spa · Skines Med Spa Montréal",
+    "pageTitle": "Head Spa Montréal · Skines Head Spa & Wellness",
     "heroEyebrow": "Head Spa Signature",
     "heroTitle": "HEAD SPA",
     "heroSubtitle": "Un soin rituel complet pour le cuir chevelu, les cheveux et l'esprit.",
@@ -100,7 +100,7 @@
     "bookService": "Réserver ce soin"
   },
   "facial": {
-    "pageTitle": "Soins du Visage · Skines Med Spa Montréal",
+    "pageTitle": "Soins du Visage · Skines Head Spa Montréal",
     "heroEyebrow": "Soins Facials",
     "heroTitle": "FACIAL",
     "heroSubtitle": "Des soins adaptés à chaque type de peau.",
@@ -113,7 +113,7 @@
     "reserveBtn": "RÉSERVER MON FACIAL"
   },
   "laser": {
-    "pageTitle": "Épilation Laser · Skines Med Spa Montréal",
+    "pageTitle": "Épilation Laser · Skines Head Spa Montréal",
     "heroEyebrow": "Épilation Laser",
     "heroTitle": "ÉPILATION LASER",
     "heroSubtitle": "Une technologie d'exception. Pensée pour toutes les peaux.",
@@ -126,7 +126,7 @@
     "firstSession": "Première séance"
   },
   "giftCards": {
-    "pageTitle": "Cartes Cadeaux · Skines Med Spa Montréal",
+    "pageTitle": "Cartes Cadeaux · Skines Head Spa Montréal",
     "heroTitle": "CARTES CADEAUX",
     "heroSubtitle": "Offrez une expérience inoubliable.",
     "buyBtn": "Acheter une carte cadeau",
@@ -138,7 +138,7 @@
     "allServices": "tous nos soins"
   },
   "visitUs": {
-    "pageTitle": "Contact & Adresse · Skines Med Spa Montréal",
+    "pageTitle": "Contact & Adresse · Skines Head Spa Montréal",
     "heroEyebrow": "Contact & Adresse",
     "heroTitle": "Directions & Accessibilité",
     "heroSubtitle": "Tout ce dont vous avez besoin pour arriver confortablement — en voiture, en métro ou à pied.",
@@ -148,7 +148,7 @@
     "metroJeanTalonDesc": "À quelques minutes à pied de la station Jean-Talon.",
     "metroCastelnauTitle": "En métro ?",
     "metroCastelnauName": "Métro De Castelnau",
-    "metroCastelnauDesc": "À deux pas de Skines Med Spa & Wellness.",
+    "metroCastelnauDesc": "À deux pas de Skines Head Spa & Wellness.",
     "parkingTitle": "En voiture ?",
     "parkingName": "Stationnement Privé",
     "parkingDesc": "Un espace gratuit réservé exclusivement pour vous.",
@@ -161,7 +161,7 @@
     "callUs": "Appeler Skines"
   },
   "reviews": {
-    "pageTitle": "Avis Clients · Skines Med Spa Montréal",
+    "pageTitle": "Avis Clients · Skines Head Spa Montréal",
     "heroEyebrow": "Avis Clients",
     "heroTitle": "Parce que chaque expérience raconte une histoire.",
     "statsReviews": "Avis vérifiés",
@@ -171,8 +171,8 @@
     "source": "Source"
   },
   "parking": {
-    "pageTitle": "Stationnement Privé · Skines Med Spa Montréal",
-    "heroEyebrow": "Skines Med Spa · Inclus pour tous les clients",
+    "pageTitle": "Stationnement Privé · Skines Head Spa Montréal",
+    "heroEyebrow": "Skines Head Spa · Inclus pour tous les clients",
     "heroTitle": "Stationnement privé.",
     "heroSubtitle": "Un espace calme, gratuit, réservé exclusivement pour vous.",
     "infoEyebrow": "Ce que vous devez savoir",
@@ -192,8 +192,8 @@
     "helpSubtitle": "Notre équipe est disponible pour vous aider à trouver le stationnement."
   },
   "insurance": {
-    "pageTitle": "Reçus d'Assurance · Skines Med Spa Montréal",
-    "heroEyebrow": "Skines Med Spa · Remboursement",
+    "pageTitle": "Reçus d'Assurance · Skines Head Spa Montréal",
+    "heroEyebrow": "Skines Head Spa · Remboursement",
     "heroTitle": "Reçus d'assurance.",
     "heroSubtitle": "Certains de nos soins donnent droit à des reçus reconnus par de nombreux assureurs privés.",
     "howTitle": "Comment ça fonctionne",
@@ -213,8 +213,8 @@
     "ctaBtn": "RÉSERVER ET OBTENIR MON REÇU"
   },
   "yourVisit": {
-    "pageTitle": "Votre Visite · Skines Med Spa Montréal",
-    "heroPill": "Votre Visite · Skines Med Spa",
+    "pageTitle": "Votre Visite · Skines Head Spa Montréal",
+    "heroPill": "Votre Visite · Skines Head Spa",
     "heroTitle": "Votre expérience.",
     "heroSubtitle": "De votre arrivée jusqu'à votre départ, chaque détail est pensé pour votre confort.",
     "heroBtn": "RÉSERVER UN SOIN",
@@ -234,7 +234,7 @@
     "faqSubtitle": "Des réponses claires pour vous préparer à votre expérience Skines."
   },
   "giveaway": {
-    "pageTitle": "Tirage Exclusif · Skines Med Spa Montréal",
+    "pageTitle": "Tirage Exclusif · Skines Head Spa Montréal",
     "heroTitle": "Gagnez une expérience bien‑être",
     "heroSubtitle": "Places limitées — participez maintenant.",
     "enterBtn": "PARTICIPER AU TIRAGE →",

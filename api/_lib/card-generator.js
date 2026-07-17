@@ -153,7 +153,7 @@ function buildSvg({ logoB64, photoB64, photoMime, rows }) {
         transform="rotate(45 ${CTR} ${ORN_Y})"/>
   <line x1="${CTR + 9}" y1="${ORN_Y}" x2="${CTR + ORN_HALF}" y2="${ORN_Y}"
         stroke="#D4B896" stroke-width="1"/>
-  <text x="${CTR}" y="${SUB_Y}" class="sub">SKINE'S MED SPA &amp; WELLNESS</text>
+  <text x="${CTR}" y="${SUB_Y}" class="sub">SKINES HEAD SPA &amp; WELLNESS</text>
   <line x1="${CX + 40}" y1="${HEAD_SEP}" x2="${CX + CW - 40}" y2="${HEAD_SEP}"
         stroke="rgba(182,106,90,0.11)" stroke-width="1"/>
 
@@ -177,7 +177,7 @@ function buildSvg({ logoB64, photoB64, photoMime, rows }) {
   <line x1="${CX}" y1="${FOOTER_SEP}" x2="${CX + CW}" y2="${FOOTER_SEP}"
         stroke="rgba(182,106,90,0.09)" stroke-width="1"/>
   <text x="${CTR}" y="${FOOTER_MID}" class="footer-txt">
-    GENERATED AUTOMATICALLY · SKINE'S GIVEAWAY · MONTREAL, CANADA
+    GENERATED AUTOMATICALLY · SKINES GIVEAWAY · MONTREAL, CANADA
   </text>
 
 </g>

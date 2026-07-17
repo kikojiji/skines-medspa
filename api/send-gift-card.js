@@ -67,7 +67,7 @@ export default async function handler(req, res) {
 
         <tr><td style="background:#3A1E14;padding:32px 40px;text-align:center;border-bottom:1px solid rgba(201,169,110,0.25);">
           <p style="margin:0;font-size:11px;letter-spacing:0.35em;color:rgba(245,237,227,0.50);text-transform:uppercase;font-family:Arial,sans-serif;">S K I N E S</p>
-          <p style="margin:4px 0 0;font-size:10px;letter-spacing:0.25em;color:rgba(245,237,227,0.35);text-transform:uppercase;font-family:Arial,sans-serif;">MED SPA · MONTRÉAL</p>
+          <p style="margin:4px 0 0;font-size:10px;letter-spacing:0.25em;color:rgba(245,237,227,0.35);text-transform:uppercase;font-family:Arial,sans-serif;">HEAD SPA · MONTRÉAL</p>
         </td></tr>
 
         <tr><td style="background:#C9A96E;padding:20px 40px;text-align:center;">
@@ -79,13 +79,13 @@ export default async function handler(req, res) {
             Bonjour <strong>${safeToName}</strong>,
           </p>
           <p style="margin:0 0 32px;font-size:14px;color:rgba(245,237,227,0.75);font-family:Arial,sans-serif;line-height:1.7;">
-            <strong style="color:#F5EDE3;">${safeFromName}</strong> vous offre une expérience Skines Med Spa.<br>
+            <strong style="color:#F5EDE3;">${safeFromName}</strong> vous offre une expérience Skines Head Spa.<br>
             Votre carte cadeau d'une valeur de&nbsp;<strong style="color:#C9A96E;">${safeAmount}</strong> est prête à être utilisée.
           </p>
 
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:32px;">
             <tr><td style="background:linear-gradient(135deg,#3A1E14,#5C2E1A);border:1px solid rgba(201,169,110,0.35);border-radius:8px;padding:28px 32px;">
-              <p style="margin:0;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(201,169,110,0.60);font-family:Arial,sans-serif;">Carte Cadeau · Skines Med Spa</p>
+              <p style="margin:0;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(201,169,110,0.60);font-family:Arial,sans-serif;">Carte Cadeau · Skines Head Spa</p>
               <p style="margin:10px 0 0;font-size:42px;color:#C9A96E;font-family:Georgia,serif;font-weight:400;line-height:1;">${safeAmount}</p>
               <p style="margin:12px 0 0;font-size:11px;color:rgba(245,237,227,0.40);font-family:Arial,sans-serif;letter-spacing:0.12em;">Valable 12 mois · Tous soins Skines</p>
             </td></tr>
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
 
         <tr><td style="background:#3A1E14;padding:20px 40px;text-align:center;border-top:1px solid rgba(201,169,110,0.12);">
           <p style="margin:0;font-size:10px;color:rgba(245,237,227,0.35);letter-spacing:0.15em;font-family:Arial,sans-serif;">
-            SKINES MED SPA · 19 Av. Shamrock, Montréal · info@skines.ca
+            SKINES HEAD SPA · 19 Av. Shamrock, Montréal · info@skines.ca
           </p>
         </td></tr>
 
@@ -142,7 +142,7 @@ export default async function handler(req, res) {
 
         <tr><td style="background:#3A1E14;padding:28px 40px;text-align:center;border-bottom:1px solid rgba(201,169,110,0.25);">
           <p style="margin:0;font-size:11px;letter-spacing:0.35em;color:rgba(245,237,227,0.50);text-transform:uppercase;font-family:Arial,sans-serif;">S K I N E S</p>
-          <p style="margin:4px 0 0;font-size:10px;letter-spacing:0.25em;color:rgba(245,237,227,0.35);text-transform:uppercase;font-family:Arial,sans-serif;">MED SPA · MONTRÉAL</p>
+          <p style="margin:4px 0 0;font-size:10px;letter-spacing:0.25em;color:rgba(245,237,227,0.35);text-transform:uppercase;font-family:Arial,sans-serif;">HEAD SPA · MONTRÉAL</p>
         </td></tr>
 
         <tr><td style="background:#C9A96E;padding:16px 40px;text-align:center;">
@@ -181,7 +181,7 @@ export default async function handler(req, res) {
 
         <tr><td style="background:#3A1E14;padding:16px 40px;text-align:center;border-top:1px solid rgba(201,169,110,0.12);">
           <p style="margin:0;font-size:10px;color:rgba(245,237,227,0.30);letter-spacing:0.15em;font-family:Arial,sans-serif;">
-            SKINES MED SPA · 19 Av. Shamrock, Montréal · info@skines.ca
+            SKINES HEAD SPA · 19 Av. Shamrock, Montréal · info@skines.ca
           </p>
         </td></tr>
 

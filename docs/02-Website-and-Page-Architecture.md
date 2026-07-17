@@ -51,7 +51,7 @@
 
 ## 2.4 Business facts embedded in the site (verified strings)
 ```
-Legal/brand name : Skines Med Spa & Wellness
+Legal/brand name : Skines Head Spa & Wellness
 Address          : 19 Av. Shamrock, Montréal, QC H2S 1A3
 Phone            : +1 (438) 260-5660  (tel:+14382605660)
 Email            : Info@skines.ca  (admin ops: skinesca@gmail.com)

@@ -54,7 +54,7 @@
     "parking": "Private Parking",
     "insurance": "Insurance Receipts",
     "giveaway": "Giveaway / Exclusive Draw",
-    "copyright": "© 2026 Skines Med Spa",
+    "copyright": "© 2026 Skines Head Spa",
     "privacy": "Privacy",
     "terms": "Terms",
     "cookies": "Cookies"
@@ -77,10 +77,10 @@
     "giveawayBtn": "Enter the giveaway →",
     "giveawayDecline": "No thanks",
     "journeyTitle": "Start your journey.",
-    "journeySubtitle": "Skines Med Spa · Montréal"
+    "journeySubtitle": "Skines Head Spa · Montréal"
   },
   "headSpa": {
-    "pageTitle": "Head Spa · Skines Med Spa Montréal",
+    "pageTitle": "Head Spa Montréal · Skines Head Spa & Wellness",
     "heroEyebrow": "Signature Head Spa",
     "heroTitle": "HEAD SPA",
     "heroSubtitle": "A complete ritual treatment for the scalp, hair and mind.",
@@ -100,7 +100,7 @@
     "bookService": "Book this service"
   },
   "facial": {
-    "pageTitle": "Facials · Skines Med Spa Montréal",
+    "pageTitle": "Facials · Skines Head Spa Montréal",
     "heroEyebrow": "Facial Treatments",
     "heroTitle": "FACIAL",
     "heroSubtitle": "Treatments tailored to every skin type.",
@@ -113,7 +113,7 @@
     "reserveBtn": "BOOK MY FACIAL"
   },
   "laser": {
-    "pageTitle": "Laser Hair Removal · Skines Med Spa Montréal",
+    "pageTitle": "Laser Hair Removal · Skines Head Spa Montréal",
     "heroEyebrow": "Laser Hair Removal",
     "heroTitle": "LASER HAIR REMOVAL",
     "heroSubtitle": "Exceptional technology. Designed for all skin types.",
@@ -126,7 +126,7 @@
     "firstSession": "First session"
   },
   "giftCards": {
-    "pageTitle": "Gift Cards · Skines Med Spa Montréal",
+    "pageTitle": "Gift Cards · Skines Head Spa Montréal",
     "heroTitle": "GIFT CARDS",
     "heroSubtitle": "Give an unforgettable experience.",
     "buyBtn": "Buy a gift card",
@@ -138,7 +138,7 @@
     "allServices": "all our treatments"
   },
   "visitUs": {
-    "pageTitle": "Contact & Address · Skines Med Spa Montréal",
+    "pageTitle": "Contact & Address · Skines Head Spa Montréal",
     "heroEyebrow": "Contact & Address",
     "heroTitle": "Directions & Accessibility",
     "heroSubtitle": "Everything you need to arrive in comfort — by car, metro, or on foot.",
@@ -148,7 +148,7 @@
     "metroJeanTalonDesc": "A short walk from Jean-Talon Station.",
     "metroCastelnauTitle": "Coming by Metro?",
     "metroCastelnauName": "De Castelnau Metro",
-    "metroCastelnauDesc": "Just a short walk from Skines Med Spa & Wellness.",
+    "metroCastelnauDesc": "Just a short walk from Skines Head Spa & Wellness.",
     "parkingTitle": "Driving to Skines?",
     "parkingName": "Private Parking",
     "parkingDesc": "A complimentary space reserved exclusively for you.",
@@ -161,7 +161,7 @@
     "callUs": "Call Skines"
   },
   "reviews": {
-    "pageTitle": "Client Reviews · Skines Med Spa Montréal",
+    "pageTitle": "Client Reviews · Skines Head Spa Montréal",
     "heroEyebrow": "Client Reviews",
     "heroTitle": "Because every experience tells a story.",
     "statsReviews": "Verified Reviews",
@@ -171,8 +171,8 @@
     "source": "Source"
   },
   "parking": {
-    "pageTitle": "Private Parking · Skines Med Spa Montréal",
-    "heroEyebrow": "Skines Med Spa · Included for all clients",
+    "pageTitle": "Private Parking · Skines Head Spa Montréal",
+    "heroEyebrow": "Skines Head Spa · Included for all clients",
     "heroTitle": "Private parking.",
     "heroSubtitle": "A quiet, complimentary space reserved exclusively for you.",
     "infoEyebrow": "What you need to know",
@@ -192,8 +192,8 @@
     "helpSubtitle": "Our team is available to help you find the parking."
   },
   "insurance": {
-    "pageTitle": "Insurance Receipts · Skines Med Spa Montréal",
-    "heroEyebrow": "Skines Med Spa · Insurance",
+    "pageTitle": "Insurance Receipts · Skines Head Spa Montréal",
+    "heroEyebrow": "Skines Head Spa · Insurance",
     "heroTitle": "Insurance receipts.",
     "heroSubtitle": "Some of our treatments are eligible for receipts recognized by many private insurers.",
     "howTitle": "How it works",
@@ -213,8 +213,8 @@
     "ctaBtn": "BOOK AND GET MY RECEIPT"
   },
   "yourVisit": {
-    "pageTitle": "Your Visit · Skines Med Spa Montréal",
-    "heroPill": "Your Visit · Skines Med Spa",
+    "pageTitle": "Your Visit · Skines Head Spa Montréal",
+    "heroPill": "Your Visit · Skines Head Spa",
     "heroTitle": "Your experience.",
     "heroSubtitle": "From your arrival to your departure, every detail is designed for your comfort.",
     "heroBtn": "BOOK A TREATMENT",
@@ -234,7 +234,7 @@
     "faqSubtitle": "Clear answers to prepare you for your Skines experience."
   },
   "giveaway": {
-    "pageTitle": "Exclusive Giveaway · Skines Med Spa Montréal",
+    "pageTitle": "Exclusive Giveaway · Skines Head Spa Montréal",
     "heroTitle": "Win a wellness experience",
     "heroSubtitle": "Limited spots — enter now.",
     "enterBtn": "ENTER THE GIVEAWAY →",

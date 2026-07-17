@@ -1,6 +1,6 @@
 # Skines Digital Infrastructure Documentation — v1
 
-**Subject:** Skines Med Spa & Wellness — skines.ca
+**Subject:** Skines Head Spa & Wellness — skines.ca
 **Type:** Current-state technical reference (audit only — NO fixes, NO recommendations)
 **Date:** 2026-07-14
 **Author:** Audit Engineer pass over the deployed codebase

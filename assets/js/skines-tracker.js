@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — Core Tracking Layer
+ * Skines Head Spa — Core Tracking Layer
  * ---------------------------------------------------------------------------
  * ONE internal entry point for every website event. Loaded `defer` on every
  * page, AFTER skines-consent.js and skines-attribution.js.

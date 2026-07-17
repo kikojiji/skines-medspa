@@ -1,5 +1,5 @@
 /**
- * Skines Med Spa — Consent Manager (Quebec Law 25 / Google Consent Mode v2)
+ * Skines Head Spa — Consent Manager (Quebec Law 25 / Google Consent Mode v2)
  * ---------------------------------------------------------------------------
  * Single source of truth for user consent. Loaded `defer` on every page.
  *
