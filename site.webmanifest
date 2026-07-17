@@ -1,0 +1,12 @@
+{
+  "name": "Skines Med Spa & Wellness",
+  "short_name": "Skines",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#3A1E14",
+  "background_color": "#F5EDE3",
+  "display": "standalone",
+  "start_url": "/"
+}
