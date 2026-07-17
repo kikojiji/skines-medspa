@@ -1613,7 +1613,11 @@ input, textarea, select {
 .sf-lang-sep-bar { color: rgba(245,237,227,0.13); font-size: 0.65rem; letter-spacing: 0; font-weight: 300; }
 
 /* ── Nav sections ── */
-.sf-nav { padding: 0.8rem 0 0; }
+.sf-nav { padding: 0.8rem 0 0; display: flex; flex-direction: column; }
+/* Footer column/stack order (mobile flex + desktop grid): Services · Votre Visite · Tirage · Guides */
+.sf-nav #sfVisite { order: 2; }
+.sf-nav .sf-nav-exclusive { order: 3; }
+.sf-nav #sfGuides { order: 4; }
 .sf-nav-group { }
 .sf-nav-label {
   display: block;
@@ -1673,7 +1677,7 @@ input, textarea, select {
   }
   .sf-nav-group { border-left: 1px solid rgba(255,255,255,0.05); }
   .sf-nav-group:first-child { border-left: none; }
-  .sf-nav-exclusive { border-left: none; display: flex; align-items: stretch; }
+  .sf-nav-exclusive { border-left: none; display: flex; align-items: center; }
 }
 @media (min-width: 1441px) {
   .sf-logo-area,
@@ -1706,7 +1710,7 @@ input, textarea, select {
 .sf-exclusive-text span:not(#_) { color: rgba(245,237,227,0.55) !important; }
 .sf-exclusive-card .sf-chevron { display: none; }
 @media (min-width: 981px) {
-  .sf-exclusive-card { margin: 0; height: 100%; }
+  .sf-exclusive-card { margin: 0; height: auto; width: 100%; }
 }
 
 /* ── Mobile nav logo fix ── */
