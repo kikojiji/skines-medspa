@@ -87,36 +87,33 @@ function getDevice(ua) {
   return 'Desktop';
 }
 
-/* ── SVG Icon paths ── */
+/* ── Field icons — emoji (render reliably in Gmail/Outlook, unlike inline SVG) ── */
 const ICONS = {
-  phone: `<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 9.69a2 2 0 011.72-2.12l3-.09a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L9.91 11.1a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/>`,
-  email: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
-  insta: `<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>`,
-  cal:   `<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>`,
+  phone: '\u{1F4DE}',           // 📞
+  email: '\u{2709}\u{FE0F}',    // ✉️
+  insta: '\u{1F4F8}',           // 📸
+  cal:   '\u{1F4C5}',           // 📅
 };
 
-function iconField(iconPath, label, value) {
+function iconField(emoji, label, value) {
   if (!value || value === '—' || value === 'Unknown' || value === null) {
     return `<td width="50%" style="padding:0 0 26px;vertical-align:top;"></td>`;
   }
   return `<td width="50%" style="padding:0 0 26px;vertical-align:top;">
   <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-    <td width="38" valign="top" style="padding-right:12px;">
+    <td width="42" valign="top" style="padding-right:12px;">
       <table role="presentation" cellpadding="0" cellspacing="0"
-             bgcolor="#1E1208" style="background:#1E1208;width:34px;height:34px;
-             border-radius:17px;border:1px solid rgba(201,151,58,0.22);"><tr>
-        <td align="center" valign="middle" width="34" height="34">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="#C9973A" stroke-width="1.7" stroke-linecap="round"
-               stroke-linejoin="round">${iconPath}</svg>
-        </td>
+             bgcolor="#2A1B0E" style="background:#2A1B0E;width:38px;height:38px;
+             border-radius:19px;border:1px solid rgba(201,151,58,0.30);"><tr>
+        <td align="center" valign="middle" width="38" height="38"
+            style="font-size:18px;line-height:38px;">${emoji}</td>
       </tr></table>
     </td>
     <td valign="top">
-      <p style="margin:0 0 4px;font-size:7.5px;letter-spacing:0.20em;text-transform:uppercase;
-                color:rgba(201,167,122,0.45);font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
-      <p style="margin:0;font-size:13px;color:#F0E8DF;font-family:Georgia,'Times New Roman',serif;
-                line-height:1.42;word-break:break-all;overflow-wrap:anywhere;">${value}</p>
+      <p style="margin:0 0 5px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+                color:rgba(201,167,122,0.80);font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
+      <p style="margin:0;font-size:15px;color:#F0E8DF;font-family:Georgia,'Times New Roman',serif;
+                line-height:1.45;word-break:break-all;overflow-wrap:anywhere;">${value}</p>
     </td>
   </tr></table>
 </td>`;
