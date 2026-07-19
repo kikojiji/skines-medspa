@@ -3485,8 +3485,8 @@ input::placeholder, textarea::placeholder { color: rgba(245,237,227,0.35) !impor
   .btn-primary:active, .btn-dark:active { transform: scale(0.98); }
 
   /* ── FADE-UP ANIMATIONS (pre-animation state) ── */
-  .fade-up { opacity: 0; transform: translateY(40px); }
-  .fade-up.animated { opacity: 1; transform: translateY(0); transition: opacity 1.2s ease, transform 1.2s ease; }
+  .fade-up { opacity: 0; transform: translateY(18px); }
+  .fade-up.animated { opacity: 1; transform: translateY(0); transition: opacity 0.65s ease, transform 0.65s ease; }
 
   /* ══════════════════════════════════════════════════════════
      DEFINITIVE SERVICE CARD OVERRIDE — always last, always wins
@@ -9013,12 +9013,12 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     // Fade-up on scroll for all .fade-up elements
     gsap.utils.toArray(".fade-up").forEach((el) => {
       gsap.fromTo(el,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 18 },
         {
-          opacity: 1, y: 0, duration: 1.2, ease: "power3.out",
+          opacity: 1, y: 0, duration: 0.65, ease: "power2.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 95%",
+            start: "top 88%",
             toggleActions: "play none none none"
           }
         }
@@ -9027,12 +9027,12 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 
     // Service cards stagger
     gsap.fromTo(".service-card",
-      { opacity: 0, y: 40 },
+      { opacity: 0, y: 18 },
       {
-        opacity: 1, y: 0, duration: 1.2, ease: "power3.out", stagger: 0.15,
+        opacity: 1, y: 0, duration: 0.65, ease: "power2.out", stagger: 0.08,
         scrollTrigger: {
           trigger: ".service-grid",
-          start: "top 95%",
+          start: "top 88%",
           toggleActions: "play none none none"
         }
       }
