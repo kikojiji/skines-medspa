@@ -6727,6 +6727,24 @@ input, textarea, select {
       background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.42) 68%, rgba(0,0,0,0.82) 100%) !important;
     }
   }
+
+  /* Family title/desc — warm brand tones (champagne + gold) instead of plain
+     white, kept legible with a soft shadow. Placed last + id-scoped so it
+     wins over the earlier "!important" white rules. */
+  html body #skFamilyTitle,
+  html body .family-section .family-title {
+    color: #E8CE97 !important;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.55) !important;
+  }
+  html body #skFamilyTitle em,
+  html body .family-section .family-title em {
+    color: #D6B36A !important;
+  }
+  html body #skFamilyDesc,
+  html body .family-section .family-desc {
+    color: #F2E7D4 !important;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.7) !important;
+  }
 </style>
 </head>
 <body>
