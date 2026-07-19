@@ -6542,6 +6542,11 @@ section#treatments .treatments-title em {
   margin: 0 auto 1.6rem;
   display: block;
 }
+/* Hidden on phones — the section title alone carries it there; the
+   subtitle only shows on tablet/desktop where there's room. */
+@media (max-width: 768px) {
+  .treatments-subtitle { display: none !important; }
+}
 section#treatments .treatments-rule {
   margin-top: 0 !important;
 }
@@ -7775,7 +7780,7 @@ input, textarea, select {
     <div class="section-head fade-up">
       <p class="treatments-eyebrow" data-fr="SKINES · MONTRÉAL" data-en="SKINES · MONTRÉAL">SKINES · MONTRÉAL</p>
       <h2 class="treatments-title" data-i18n-html="home.treatmentsTitleHtml">Un sanctuaire<br><em>pensé pour vous.</em></h2>
-      <p class="treatments-subtitle" data-i18n="home.treatmentsSubtitle">Chaque soin est une invitation à ralentir, à se ressourcer et à repartir pleinement soi-même.</p>
+      <p class="treatments-subtitle" data-i18n="home.treatmentsSubtitle">Une invitation à ralentir et à repartir pleinement soi-même.</p>
       <div class="treatments-rule"></div>
     </div>
     <div class="service-grid">
