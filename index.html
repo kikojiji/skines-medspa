@@ -10998,7 +10998,9 @@ function closePopup() {
     return;
   }
   var isMobileOrTablet = window.innerWidth <= 980;
-  var targetId = isMobileOrTablet ? 'treatments' : 'reviews';
+  // Open only once the visitor reaches the reviews section (on every device),
+  // so it never interrupts the earlier part of the page.
+  var targetId = 'reviews';
   var target = document.getElementById(targetId);
   if (!target) {
     setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
@@ -11016,7 +11018,7 @@ function closePopup() {
     entries.forEach(function(entry) {
       if (entry.isIntersecting && !fired) {
         fire();
-        setTimeout(openPopup, isMobileOrTablet ? 0 : 1400);
+        setTimeout(openPopup, isMobileOrTablet ? 700 : 1400);
       }
     });
   }, { threshold: 0.35 });
