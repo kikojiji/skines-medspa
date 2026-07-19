@@ -5172,9 +5172,6 @@ html body .services-grid.list-view .svc-card .svc-price-current {
   color: #7a4a30 !important;
   opacity: 1 !important;
   font-weight: 700 !important;
-  /* #sk-hide-prices globally hides .svc-price-current; re-show the discounted
-     price inside the service cards so it appears next to the struck original. */
-  display: inline-block !important;
 }
 html body .services-grid .svc-card .svc-price-original,
 html body .services-grid.list-view .svc-card .svc-price-original {
@@ -5248,9 +5245,9 @@ html body .services-grid.list-view .svc-info .svc-name {
   font-size: 0.95rem !important;
   flex-shrink: 0 !important;
 }
-/* Price row */
+/* Price row — hidden (prices are not shown on the page) */
 html body .services-grid.list-view .svc-info .svc-price {
-  display: flex !important;
+  display: none !important;
   align-items: center !important;
   gap: 0.4rem !important;
   flex-shrink: 0 !important;
