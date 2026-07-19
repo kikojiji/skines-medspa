@@ -5909,6 +5909,15 @@ html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) 
   text-transform: none !important;
   color: #F5EDE3 !important;
 }
+/* Mobile: shrink the hero title so "CORPS COMPLET —" fits cleanly on one
+   line instead of wrapping into a cramped 4-line block. */
+@media (max-width: 979px) {
+  html body header.hero .hero-copy h1.laser-hero-h1 {
+    font-size: clamp(1.35rem, 6.2vw, 2rem) !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.14 !important;
+  }
+}
 .laser-hero-lead {
   color: rgba(245,237,227,0.70) !important;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
