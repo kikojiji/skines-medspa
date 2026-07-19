@@ -45,6 +45,48 @@ let _fallback = 0; // used when Redis is not configured
 // ── Device fingerprint tracker: fp → { emails: Set, count: number } ──────────
 const fpMap = new Map();
 
+// ── Persistent duplicate guard via Upstash Redis ─────────────────────────────
+// In-memory Sets don't survive across serverless instances, so the same email
+// could slip through on a different/cold instance. Claim each identifier in
+// Redis atomically (SETNX) so a duplicate is caught no matter which instance
+// handles the request. Falls back to the in-memory Sets when Redis isn't set.
+const _redisUrl    = process.env.UPSTASH_REDIS_REST_URL;
+const _redisToken  = process.env.UPSTASH_REDIS_REST_TOKEN;
+const redisEnabled = !!(_redisUrl && _redisToken);
+const _memSets = { email: seenEmails, phone: seenPhones, username: seenUsernames };
+
+async function claimGuard(kind, key) {
+  // true  = value was free and is now claimed (allow)
+  // false = value already registered (duplicate → block)
+  if (redisEnabled) {
+    try {
+      const r = await fetch(`${_redisUrl}/setnx/${encodeURIComponent(`tirage:${kind}:${key}`)}/1`,
+        { headers: { Authorization: `Bearer ${_redisToken}` } });
+      const d = await r.json();
+      return d.result === 1;          // 1 = newly claimed, 0 = already existed
+    } catch (e) {
+      console.error('[tirage] redis claim error:', e.message);
+      return true;                    // fail-open: never block real users on a Redis outage
+    }
+  }
+  const set = _memSets[kind];
+  if (set.has(key)) return false;
+  set.add(key);
+  return true;
+}
+
+async function releaseGuard(kind, key) {
+  if (!key) return;
+  if (redisEnabled) {
+    try {
+      await fetch(`${_redisUrl}/del/${encodeURIComponent(`tirage:${kind}:${key}`)}`,
+        { headers: { Authorization: `Bearer ${_redisToken}` } });
+    } catch (_) { /* best-effort rollback */ }
+    return;
+  }
+  _memSets[kind].delete(key);
+}
+
 // ── Cloudflare Turnstile server-side verification ─────────────────────────────
 async function verifyTurnstile(token, ip) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
@@ -159,19 +201,20 @@ export default async function handler(req, res) {
   const phoneKey    = phone.replace(/\D/g, '');
   const usernameKey = username.toLowerCase().replace(/[@\s]/g, '');
 
-  if (seenEmails.has(emailKey)) {
+  // Atomic claims (persistent across serverless instances). Roll back earlier
+  // claims if a later one turns out to be a duplicate.
+  if (!(await claimGuard('email', emailKey))) {
     return res.status(409).json({ error: 'Cette adresse email est déjà inscrite au tirage.' });
   }
-  if (seenPhones.has(phoneKey)) {
+  if (!(await claimGuard('phone', phoneKey))) {
+    await releaseGuard('email', emailKey);
     return res.status(409).json({ error: 'Ce numéro de téléphone est déjà inscrit au tirage.' });
   }
-  if (usernameKey && seenUsernames.has(usernameKey)) {
+  if (usernameKey && !(await claimGuard('username', usernameKey))) {
+    await releaseGuard('email', emailKey);
+    await releaseGuard('phone', phoneKey);
     return res.status(409).json({ error: 'Ce pseudo Instagram/TikTok est déjà inscrit au tirage.' });
   }
-
-  seenEmails.add(emailKey);
-  seenPhones.add(phoneKey);
-  if (usernameKey) seenUsernames.add(usernameKey);
 
   // ── Device fingerprint tracking ───────────────────────────────────────────
   const fp = sanitizeText(req.body.fp, 64);
@@ -180,9 +223,9 @@ export default async function handler(req, res) {
     const isNewEmail = !entry.emails.has(emailKey);
     if (isNewEmail && entry.emails.size >= 2) {
       // 3rd+ different email from same device — almost certainly abuse
-      seenEmails.delete(emailKey);
-      seenPhones.delete(phoneKey);
-      seenUsernames.delete(usernameKey);
+      await releaseGuard('email', emailKey);
+      await releaseGuard('phone', phoneKey);
+      if (usernameKey) await releaseGuard('username', usernameKey);
       console.warn('[tirage] fingerprint abuse blocked', {
         fp: fp.slice(0, 8) + '***',
         priorEmails: entry.emails.size,
@@ -472,9 +515,9 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('[send-tirage] failed:', err.message);
     // Roll back all duplicate guards so the participant can retry
-    seenEmails.delete(emailKey);
-    seenPhones.delete(phoneKey);
-    if (usernameKey) seenUsernames.delete(usernameKey);
+    await releaseGuard('email', emailKey);
+    await releaseGuard('phone', phoneKey);
+    if (usernameKey) await releaseGuard('username', usernameKey);
     return res.status(500).json({ error: "Erreur lors de l'envoi. Réessayez." });
   }
 }
