@@ -101,9 +101,9 @@
 
     /* 7b. Move the globe glyph next to the active language so it follows the
        current choice (🌐 FR | EN  ↔  FR | 🌐 EN) */
-    document.querySelectorAll('.lang-switcher').forEach(function (sw) {
+    document.querySelectorAll('.lang-switcher, .nav-lang-bar, .sf-lang-bar').forEach(function (sw) {
       var globe = sw.querySelector('.lang-globe');
-      var active = sw.querySelector('.lang-btn.active');
+      var active = sw.querySelector('button.active');
       if (globe && active) sw.insertBefore(globe, active);
     });
 
