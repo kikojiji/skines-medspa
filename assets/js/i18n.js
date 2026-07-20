@@ -99,6 +99,14 @@
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
+    /* 7b. Move the globe glyph next to the active language so it follows the
+       current choice (🌐 FR | EN  ↔  FR | 🌐 EN) */
+    document.querySelectorAll('.lang-switcher').forEach(function (sw) {
+      var globe = sw.querySelector('.lang-globe');
+      var active = sw.querySelector('.lang-btn.active');
+      if (globe && active) sw.insertBefore(globe, active);
+    });
+
     /* 8. html[lang] attribute */
     document.documentElement.setAttribute('lang', lang === 'fr' ? 'fr-CA' : 'en-CA');
 
