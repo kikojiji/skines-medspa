@@ -7551,6 +7551,55 @@ input, textarea, select {
 </style>
 </head>
 <body>
+<!-- ── Entry intro splash (once per session, non-blocking) ── -->
+<style id="sk-intro-css">
+  #sk-intro{
+    position:fixed; inset:0; z-index:100000; background:#684034;
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity .55s ease, visibility .55s ease;
+  }
+  #sk-intro.sk-intro-hide{ opacity:0; visibility:hidden; pointer-events:none; }
+  #sk-intro .sk-intro-inner{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    opacity:0; transform:translateY(14px);
+    animation:skIntroIn .85s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  #sk-intro .sk-intro-stones{ width:78px; height:auto; display:block; margin-bottom:22px; filter:drop-shadow(0 10px 26px rgba(0,0,0,.35)); }
+  #sk-intro .sk-intro-word{
+    font-family:"Cormorant Garamond",serif; color:#F5EDE3 !important; font-weight:500; line-height:1;
+    font-size:2.5rem; letter-spacing:.42em; text-indent:.42em;
+  }
+  #sk-intro .sk-intro-sub{
+    margin-top:14px; color:rgba(245,237,227,.72) !important;
+    font-family:"DM Sans",sans-serif; font-size:.6rem; letter-spacing:.34em; text-transform:uppercase;
+  }
+  @keyframes skIntroIn{ to{ opacity:1; transform:translateY(0); } }
+  @media (prefers-reduced-motion:reduce){ #sk-intro .sk-intro-inner{ animation-duration:.01s; } }
+</style>
+<div id="sk-intro" aria-hidden="true">
+  <div class="sk-intro-inner">
+    <img src="assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones">
+    <span class="sk-intro-word">SKINES</span>
+    <span class="sk-intro-sub">Head&nbsp;Spa&nbsp;·&nbsp;Montréal</span>
+  </div>
+</div>
+<script>
+  (function(){
+    var el=document.getElementById('sk-intro'); if(!el) return;
+    var KEY='sk-intro-seen';
+    try{ if(sessionStorage.getItem(KEY)){ if(el.parentNode) el.parentNode.removeChild(el); return; } }catch(e){}
+    var root=document.documentElement; root.style.overflow='hidden';
+    var done=false;
+    function dismiss(){
+      if(done) return; done=true;
+      el.classList.add('sk-intro-hide'); root.style.overflow='';
+      try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 650);
+    }
+    var t=setTimeout(dismiss, 1350);
+    el.addEventListener('click', function(){ clearTimeout(t); dismiss(); }); // tap to skip
+  })();
+</script>
 <nav id="mainNav">
     <a class="logo" href="/">
       <div class="logo-brand">
