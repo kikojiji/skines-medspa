@@ -7596,15 +7596,12 @@ input, textarea, select {
     // ── Hold the hero video paused at frame 0 while the splash is up, then
     //    start it from the beginning as the logo lifts — so the reveal is a
     //    fresh, coordinated play (not a video already running behind it).
-    var holding=false;
     function heroVids(){ return ['heroVideo','heroVideoDesktopA'].map(function(id){return document.getElementById(id);}).filter(Boolean); }
-    function repause(e){ if(holding){ try{ e.target.pause(); }catch(_){} } }
-    function holdVideos(){
-      heroVids().forEach(function(v){ v.addEventListener('play', repause); try{ v.pause(); v.currentTime=0; }catch(_){} });
-    }
-    function releaseVideos(){
-      holding=false;
-      heroVids().forEach(function(v){ v.removeEventListener('play', repause); try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
+    // Start the hero video from the beginning as the splash lifts. We do NOT
+    // pause it while the splash is shown (it's hidden behind the overlay
+    // anyway) so buffering/autoplay is never blocked on mobile.
+    function startVideosFresh(){
+      heroVids().forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
     }
     function play(){
       var el=ensure();
@@ -7612,13 +7609,11 @@ input, textarea, select {
       var inner=el.querySelector('.sk-intro-inner');
       if(inner){ inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
       var root=document.documentElement; root.style.overflow='hidden';
-      holding=true;
-      if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', holdVideos, {once:true}); } else { holdVideos(); }
       var done=false;
       function dismiss(){
         if(done) return; done=true;
         el.classList.add('sk-intro-hide'); root.style.overflow='';
-        releaseVideos(); // logo lifts → video starts from the beginning
+        startVideosFresh(); // logo lifts → video starts from the beginning
         try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
         setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 1250); // after the 1.2s slide-up
       }
@@ -7853,12 +7848,24 @@ input, textarea, select {
         // unrelated scene. Rewinding to 0 right before the fade-in
         // guarantees what appears always matches the poster frame, so
         // there's never a visible jump/flash on reveal.
+        var revealed = false;
         function reveal() {
+          if (revealed) return; revealed = true;
           try { v.currentTime = 0; } catch (e) {}
           v.classList.add('is-active');
+          // Kick playback explicitly — autoplay alone is unreliable on mobile.
+          var p = v.play && v.play();
+          if (p && p.catch) p.catch(function () {});
         }
-        if (v.readyState >= 3) { reveal(); }
-        else { v.addEventListener('canplaythrough', reveal, { once: true }); }
+        // Reveal on the FIRST usable event instead of the strict
+        // "canplaythrough" (which often never fires on iOS Safari / slow
+        // mobile networks, leaving the hero stuck on the poster).
+        ['loadeddata', 'canplay', 'playing', 'canplaythrough'].forEach(function (ev) {
+          v.addEventListener(ev, reveal, { once: true });
+        });
+        if (v.readyState >= 2) { reveal(); }
+        // Hard fallback: never leave it hidden, even if no media event fires.
+        setTimeout(reveal, 2500);
       })();
     </script>
     <div class="hero-content">
