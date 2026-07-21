@@ -148,7 +148,7 @@
   function initTransitions() {
     if (!document.getElementById('sk-xtion-css')) {
       var st = document.createElement('style'); st.id = 'sk-xtion-css';
-      st.textContent = '#sk-intro.sk-intro-drop-start{transform:translateY(-100%)!important;transition:none!important}#sk-intro.sk-intro-drop{transform:translateY(0)!important;transition:transform .5s cubic-bezier(.76,0,.24,1)!important}';
+      st.textContent = '#sk-intro.sk-intro-drop-start{transform:translateY(-100%)!important;transition:none!important}#sk-intro.sk-intro-drop{transform:translateY(0)!important;transition:transform .45s cubic-bezier(.5,0,.2,1)!important}';
       document.head.appendChild(st);
     }
     var TARGETS = {'/':1,'/index.html':1,'/facial':1,'/facial.html':1,'/head-spa':1,'/head-spa.html':1,'/laser':1,'/laser.html':1};
@@ -178,7 +178,7 @@
       requestAnimationFrame(function () { requestAnimationFrame(function () {
         el.classList.remove('sk-intro-drop-start'); el.classList.add('sk-intro-drop');
       }); });
-      setTimeout(function () { location.href = url.href; }, 500);
+      setTimeout(function () { location.href = url.href; }, 470);
     });
   }
 
