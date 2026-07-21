@@ -6791,6 +6791,59 @@ input, textarea, select {
 </style>
 </head>
 <body>
+<!-- Entry intro splash (once per session, non-blocking) -->
+<style id="sk-intro-css">
+  #sk-intro{
+    position:fixed; inset:0; z-index:100000; background:#684034;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 1.2s cubic-bezier(.76,0,.24,1); will-change:transform;
+  }
+  #sk-intro.sk-intro-hide{ transform:translateY(-100%); pointer-events:none; }
+  #sk-intro .sk-intro-inner{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    opacity:0; transform:translateY(14px);
+    animation:skIntroIn .85s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  #sk-intro .sk-intro-stones{ width:98px; height:auto; display:block; margin-bottom:20px; filter:drop-shadow(0 10px 26px rgba(0,0,0,.35)); }
+  #sk-intro .sk-intro-word{
+    font-family:"Cormorant Garamond",serif; color:#F5EDE3 !important; font-weight:500; line-height:1;
+    font-size:1.75rem; letter-spacing:.4em; text-indent:.4em;
+  }
+  #sk-intro .sk-intro-sub{
+    margin-top:13px; color:rgba(245,237,227,.72) !important;
+    font-family:"DM Sans",sans-serif; font-size:.58rem; letter-spacing:.34em; text-indent:.34em; text-transform:uppercase;
+  }
+  @keyframes skIntroIn{ to{ opacity:1; transform:translateY(0); } }
+  @media (prefers-reduced-motion:reduce){ #sk-intro .sk-intro-inner{ animation-duration:.01s; } }
+</style>
+<div id="sk-intro" aria-hidden="true">
+  <div class="sk-intro-inner">
+    <img src="assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones">
+    <span class="sk-intro-word">SKINES</span>
+    <span class="sk-intro-sub">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span>
+  </div>
+</div>
+<script>
+  (function(){
+    var KEY='sk-intro-seen';
+    var el=document.getElementById('sk-intro'); if(!el) return;
+    try{ if(sessionStorage.getItem(KEY)){ if(el.parentNode) el.parentNode.removeChild(el); return; } }catch(e){}
+    var root=document.documentElement; root.style.overflow='hidden';
+    function startVideosFresh(){
+      document.querySelectorAll('header.hero video, .hero video').forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
+    }
+    var done=false;
+    function dismiss(){
+      if(done) return; done=true;
+      el.classList.add('sk-intro-hide'); root.style.overflow='';
+      startVideosFresh();
+      try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 1250);
+    }
+    var t=setTimeout(dismiss, 1600);
+    el.onclick=function(){ clearTimeout(t); dismiss(); };
+  })();
+</script>
 
 <nav id="mainNav">
   <a class="logo" href="/">
