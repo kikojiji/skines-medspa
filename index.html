@@ -7608,6 +7608,9 @@ input, textarea, select {
       heroVids().forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
     }
     function play(){
+      // Jump back to the top (behind the splash) so the reveal always lands
+      // on the hero video from the start — even if the page was scrolled down.
+      try{ var sb=document.documentElement.style.scrollBehavior; document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0,0); document.documentElement.style.scrollBehavior=sb; }catch(_){}
       var el=ensure();
       el.classList.remove('sk-intro-hide');
       var inner=el.querySelector('.sk-intro-inner');
