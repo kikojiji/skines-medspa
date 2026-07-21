@@ -7596,7 +7596,7 @@ input, textarea, select {
       try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
       setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 650);
     }
-    var t=setTimeout(dismiss, 1100);
+    var t=setTimeout(dismiss, 1600);
     el.addEventListener('click', function(){ clearTimeout(t); dismiss(); }); // tap to skip
   })();
 </script>
