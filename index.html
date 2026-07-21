@@ -7556,9 +7556,10 @@ input, textarea, select {
   #sk-intro{
     position:fixed; inset:0; z-index:100000; background:#684034;
     display:flex; align-items:center; justify-content:center;
-    transition:opacity .55s ease, visibility .55s ease;
+    transition:transform 1.2s cubic-bezier(.76,0,.24,1); will-change:transform;
   }
-  #sk-intro.sk-intro-hide{ opacity:0; visibility:hidden; pointer-events:none; }
+  /* Exit: the whole splash slides up like a lifting curtain, revealing the page */
+  #sk-intro.sk-intro-hide{ transform:translateY(-100%); pointer-events:none; }
   #sk-intro .sk-intro-inner{
     display:flex; flex-direction:column; align-items:center; text-align:center;
     opacity:0; transform:translateY(14px);
@@ -7585,19 +7586,33 @@ input, textarea, select {
 </div>
 <script>
   (function(){
-    var el=document.getElementById('sk-intro'); if(!el) return;
     var KEY='sk-intro-seen';
-    try{ if(sessionStorage.getItem(KEY)){ if(el.parentNode) el.parentNode.removeChild(el); return; } }catch(e){}
-    var root=document.documentElement; root.style.overflow='hidden';
-    var done=false;
-    function dismiss(){
-      if(done) return; done=true;
-      el.classList.add('sk-intro-hide'); root.style.overflow='';
-      try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 650);
+    var MARKUP='<div class="sk-intro-inner"><img src="assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones"><span class="sk-intro-word">SKINES</span><span class="sk-intro-sub">Head&nbsp;Spa&nbsp;·&nbsp;Montréal</span></div>';
+    function ensure(){
+      var el=document.getElementById('sk-intro');
+      if(!el){ el=document.createElement('div'); el.id='sk-intro'; el.setAttribute('aria-hidden','true'); el.innerHTML=MARKUP; document.body.insertBefore(el, document.body.firstChild); }
+      return el;
     }
-    var t=setTimeout(dismiss, 1600);
-    el.addEventListener('click', function(){ clearTimeout(t); dismiss(); }); // tap to skip
+    function play(){
+      var el=ensure();
+      el.classList.remove('sk-intro-hide');
+      var inner=el.querySelector('.sk-intro-inner');
+      if(inner){ inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
+      var root=document.documentElement; root.style.overflow='hidden';
+      var done=false;
+      function dismiss(){
+        if(done) return; done=true;
+        el.classList.add('sk-intro-hide'); root.style.overflow='';
+        try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+        setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 1250); // after the 1.2s slide-up
+      }
+      var t=setTimeout(dismiss, 1600);
+      el.onclick=function(){ clearTimeout(t); dismiss(); }; // tap to skip
+    }
+    // expose so clicking the SKINES logo can replay it (see i18n.js)
+    window.skReplayIntro=play;
+    try{ if(sessionStorage.getItem(KEY)){ var e0=document.getElementById('sk-intro'); if(e0&&e0.parentNode) e0.parentNode.removeChild(e0); return; } }catch(e){}
+    play();
   })();
 </script>
 <nav id="mainNav">

@@ -124,6 +124,20 @@
         applyLang(btn.getAttribute('data-lang'));
       });
     });
+
+    /* Clicking the SKINES logo replays the entry splash: on the homepage it
+       replays in place, on other pages it clears the once-per-session flag so
+       the splash plays again when the homepage loads. */
+    document.querySelectorAll('a.logo').forEach(function (logo) {
+      logo.addEventListener('click', function (e) {
+        if (typeof window.skReplayIntro === 'function') {
+          e.preventDefault();
+          window.skReplayIntro();
+        } else {
+          try { sessionStorage.removeItem('sk-intro-seen'); } catch (_) {}
+        }
+      });
+    });
   }
 
   /* ── Auto-load saved language ── */
