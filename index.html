@@ -237,6 +237,10 @@
     .hero-bg-desktop { display: none; }
     .hero-bg-mobile { display: block; }
     .hero-bg-desktop-video { display: none !important; }
+    /* No poster image on mobile — show the brand maroon under the video so
+       the transition from the intro splash straight into the video is
+       seamless (never a black flash or a static frame). */
+    html body .hero, html body header.hero { background: #684034 !important; }
   }
   /* Desktop hero video: both copies start invisible (photo shows first,
      instantly). Whichever twin is "is-active" fades to opacity 1 — set
@@ -7827,12 +7831,10 @@ input, textarea, select {
         vA.addEventListener('timeupdate', onTime);
       })();
     </script>
-    <!-- Tablet/mobile: poster (first frame of the clip) shows instantly,
-         zero delay, no layout shift — the video fades in on top only
-         once it can actually play smoothly, same pattern as the desktop
-         photo→video crossfade above. -->
-    <img class="hero-bg hero-bg-mobile hero-bg-mobile-poster parallax-img" src="assets/hero-mobile-poster.webp?v=3" alt="Skines Head Spa & Wellness — ambiance" width="720" height="1280">
-    <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="metadata" poster="assets/hero-mobile-poster.webp?v=3" aria-label="Ambiance spa chaleureuse">
+    <!-- Tablet/mobile: no poster image — the video plays directly (the hero
+         shows the brand maroon underneath until the first frame paints, so
+         there's no static image between the intro splash and the video). -->
+    <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
