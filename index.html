@@ -7615,14 +7615,17 @@ input, textarea, select {
     function startVideosFresh(){
       heroVids().forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
     }
-    function play(){
+    function play(hold, skipFade){
       // Jump back to the top (behind the splash) so the reveal always lands
       // on the hero video from the start — even if the page was scrolled down.
       try{ var sb=document.documentElement.style.scrollBehavior; document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0,0); document.documentElement.style.scrollBehavior=sb; }catch(_){}
       var el=ensure();
-      el.classList.remove('sk-intro-hide');
+      el.classList.remove('sk-intro-hide','sk-intro-drop','sk-intro-drop-start');
       var inner=el.querySelector('.sk-intro-inner');
-      if(inner){ inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
+      if(inner){
+        if(skipFade){ inner.style.animation='none'; inner.style.opacity='1'; inner.style.transform='none'; } // arrived via transition — logo already shown
+        else { inner.style.opacity=''; inner.style.transform=''; inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
+      }
       var root=document.documentElement; root.style.overflow='hidden';
       var done=false;
       function dismiss(){
@@ -7632,13 +7635,17 @@ input, textarea, select {
         try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
         setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 1250); // after the 1.2s slide-up
       }
-      var t=setTimeout(dismiss, 1600);
+      var t=setTimeout(dismiss, hold||1600);
       el.onclick=function(){ clearTimeout(t); dismiss(); }; // tap to skip
     }
     // expose so clicking the SKINES logo can replay it (see i18n.js)
-    window.skReplayIntro=play;
+    window.skReplayIntro=function(){ play(1600, false); };
+    // Arrived via an internal page-transition? lift the curtain quickly and
+    // keep the logo already visible (no re-fade) for a seamless hand-off.
+    var viaX=false; try{ viaX=sessionStorage.getItem('sk-xtion')==='1'; if(viaX) sessionStorage.removeItem('sk-xtion'); }catch(e){}
+    if(viaX){ play(400, true); return; }
     try{ if(sessionStorage.getItem(KEY)){ var e0=document.getElementById('sk-intro'); if(e0&&e0.parentNode) e0.parentNode.removeChild(e0); return; } }catch(e){}
-    play();
+    play(1600, false);
   })();
 </script>
 <nav id="mainNav">
@@ -11473,7 +11480,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     <div id="searchResults" class="search-results"></div>
   </div>
 </div>
-<script src="/assets/js/i18n.js?v=4"></script>
+<script src="/assets/js/i18n.js?v=5"></script>
 <style>
 
 html body nav

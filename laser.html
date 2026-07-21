@@ -7135,9 +7135,12 @@ input, textarea, select {
 </div>
 <script>
   (function(){
-    var KEY='sk-intro-seen';
+    var KEY='sk-intro-seen', XT='sk-xtion';
     var el=document.getElementById('sk-intro'); if(!el) return;
-    try{ if(sessionStorage.getItem(KEY)){ if(el.parentNode) el.parentNode.removeChild(el); return; } }catch(e){}
+    var viaX=false;
+    try{ viaX=sessionStorage.getItem(XT)==='1'; if(viaX) sessionStorage.removeItem(XT); }catch(e){}
+    if(!viaX){ try{ if(sessionStorage.getItem(KEY)){ if(el.parentNode) el.parentNode.removeChild(el); return; } }catch(e){} }
+    if(viaX){ var inr=el.querySelector('.sk-intro-inner'); if(inr){ inr.style.animation='none'; inr.style.opacity='1'; inr.style.transform='none'; } }
     var root=document.documentElement; root.style.overflow='hidden';
     function startVideosFresh(){
       document.querySelectorAll('header.hero video, .hero video').forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
@@ -7150,7 +7153,7 @@ input, textarea, select {
       try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
       setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 1250);
     }
-    var t=setTimeout(dismiss, 1600);
+    var t=setTimeout(dismiss, viaX?400:1600);
     el.onclick=function(){ clearTimeout(t); dismiss(); };
   })();
 </script>
@@ -9358,7 +9361,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 #mobileNav.open ~ a.float-book-btn { display: none !important; }
 </style>
 <script>(function(){ var b=document.getElementById('floatBook'); if(!b)return; window.addEventListener('scroll',function(){ b.classList.toggle('visible',window.scrollY>320); },{passive:true}); })();</script>
-<script src="/assets/js/i18n.js?v=4"></script>
+<script src="/assets/js/i18n.js?v=5"></script>
 <style>
 
 html body nav {}

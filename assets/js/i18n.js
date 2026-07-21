@@ -140,9 +140,52 @@
     });
   }
 
+  /* ── Page-transition curtain ─────────────────────────────────────────────
+     Leaving a splash page (home / facial / head-spa / laser) via an internal
+     link drops the maroon+logo curtain down over the page, then navigates.
+     The destination page's inline splash script lifts it back up and restarts
+     the hero video (it reads the 'sk-xtion' flag set here). */
+  function initTransitions() {
+    if (!document.getElementById('sk-xtion-css')) {
+      var st = document.createElement('style'); st.id = 'sk-xtion-css';
+      st.textContent = '#sk-intro.sk-intro-drop-start{transform:translateY(-100%)!important;transition:none!important}#sk-intro.sk-intro-drop{transform:translateY(0)!important;transition:transform .5s cubic-bezier(.76,0,.24,1)!important}';
+      document.head.appendChild(st);
+    }
+    var TARGETS = {'/':1,'/index.html':1,'/facial':1,'/facial.html':1,'/head-spa':1,'/head-spa.html':1,'/laser':1,'/laser.html':1};
+    document.addEventListener('click', function (e) {
+      if (!document.getElementById('sk-intro-css')) return; // only drop when leaving a splash page
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      if (a.target === '_blank' || a.hasAttribute('download')) return;
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return;
+      var url; try { url = new URL(href, location.href); } catch (_) { return; }
+      if (url.origin !== location.origin) return;
+      if (!TARGETS[url.pathname]) return;
+      if (url.pathname === location.pathname) return;
+      e.preventDefault();
+      try { sessionStorage.setItem('sk-xtion', '1'); } catch (_) {}
+      var el = document.getElementById('sk-intro');
+      if (!el) {
+        el = document.createElement('div'); el.id = 'sk-intro'; el.setAttribute('aria-hidden', 'true');
+        el.innerHTML = '<div class="sk-intro-inner"><img src="assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones"><span class="sk-intro-word">SKINES</span><span class="sk-intro-sub">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
+        document.body.appendChild(el);
+      }
+      el.classList.remove('sk-intro-hide');
+      var inner = el.querySelector('.sk-intro-inner');
+      if (inner) { inner.style.animation = 'none'; inner.style.opacity = '1'; inner.style.transform = 'none'; }
+      el.classList.add('sk-intro-drop-start');
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        el.classList.remove('sk-intro-drop-start'); el.classList.add('sk-intro-drop');
+      }); });
+      setTimeout(function () { location.href = url.href; }, 500);
+    });
+  }
+
   /* ── Auto-load saved language ── */
   function init() {
     initHandlers();
+    initTransitions();
     var saved = 'fr';
     try { saved = sessionStorage.getItem('skines-lang') || 'fr'; } catch (e) {}
     applyLang(saved);
