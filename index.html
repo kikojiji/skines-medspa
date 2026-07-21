@@ -7644,7 +7644,8 @@ input, textarea, select {
     // keep the logo already visible (no re-fade) for a seamless hand-off.
     var viaX=false; try{ viaX=sessionStorage.getItem('sk-xtion')==='1'; if(viaX) sessionStorage.removeItem('sk-xtion'); }catch(e){}
     if(viaX){ play(400, true); return; }
-    try{ if(sessionStorage.getItem(KEY)){ var e0=document.getElementById('sk-intro'); if(e0&&e0.parentNode) e0.parentNode.removeChild(e0); return; } }catch(e){}
+    // Always play the full intro on a direct landing/reload (no longer gated
+    // to once-per-session — the splash is the intended entry on every visit).
     play(1600, false);
   })();
 </script>

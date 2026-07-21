@@ -7139,7 +7139,6 @@ input, textarea, select {
     var el=document.getElementById('sk-intro'); if(!el) return;
     var viaX=false;
     try{ viaX=sessionStorage.getItem(XT)==='1'; if(viaX) sessionStorage.removeItem(XT); }catch(e){}
-    if(!viaX){ try{ if(sessionStorage.getItem(KEY)){ if(el.parentNode) el.parentNode.removeChild(el); return; } }catch(e){} }
     if(viaX){ var inr=el.querySelector('.sk-intro-inner'); if(inr){ inr.style.animation='none'; inr.style.opacity='1'; inr.style.transform='none'; } }
     var root=document.documentElement; root.style.overflow='hidden';
     function startVideosFresh(){
