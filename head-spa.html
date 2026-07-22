@@ -6835,13 +6835,17 @@ input, textarea, select {
     var frozen=true;
     function onPlay(e){ if(frozen){ try{ e.target.pause(); }catch(_){} } }
     vids().forEach(function(v){ v.addEventListener('play', onPlay); try{ v.pause(); v.currentTime=0; }catch(_){} });
-    function playVideos(){ frozen=false; vids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
+    function playVideos(){ frozen=false; vids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); } /* no currentTime reset — never restart the hero video on reveal */
     var done=false;
     function dismiss(){
       if(done) return; done=true;
       el.classList.add('sk-intro-hide'); root.style.overflow='';
       try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-      setTimeout(playVideos, 900); // start the hero video only once the curtain is fully up — no decode during the lift
+      // Desktop can decode during the lift, so start the hero video as the
+      // curtain begins rising — it's already in motion on reveal, no frozen
+      // frame and no visible "restart". Mobile keeps the freeze-until-up
+      // behaviour to avoid decode jank during the lift.
+      setTimeout(playVideos, window.innerWidth > 980 ? 0 : 900);
       setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
     }
     var t=setTimeout(dismiss, viaX?500:1600);

@@ -6730,7 +6730,7 @@ input, textarea, select {
     var frozen=true;
     function onPlay(e){ if(frozen){ try{ e.target.pause(); }catch(_){} } }
     vids().forEach(function(v){ v.addEventListener('play', onPlay); try{ v.pause(); v.currentTime=0; }catch(_){} });
-    function playVideos(){ frozen=false; vids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
+    function playVideos(){ frozen=false; vids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); } /* no currentTime reset — never restart the hero video on reveal */
     var done=false;
     function dismiss(){
       if(done) return; done=true;
