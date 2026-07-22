@@ -7609,12 +7609,13 @@ input, textarea, select {
     //    start it from the beginning as the logo lifts — so the reveal is a
     //    fresh, coordinated play (not a video already running behind it).
     function heroVids(){ return ['heroVideo','heroVideoDesktopA'].map(function(id){return document.getElementById(id);}).filter(Boolean); }
-    // Start the hero video from the beginning as the splash lifts. We do NOT
-    // pause it while the splash is shown (it's hidden behind the overlay
-    // anyway) so buffering/autoplay is never blocked on mobile.
-    function startVideosFresh(){
-      heroVids().forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
-    }
+    // Keep the hero video frozen at frame 0 while the curtain is covering AND
+    // lifting (so no video decode ever stutters the animation), then start it
+    // fresh the moment the curtain is fully up.
+    var frozen=true;
+    function onPlay(e){ if(frozen){ try{ e.target.pause(); }catch(_){} } }
+    function freezeVideos(){ frozen=true; heroVids().forEach(function(v){ v.addEventListener('play', onPlay); try{ v.pause(); v.currentTime=0; }catch(_){} }); }
+    function playVideos(){ frozen=false; heroVids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
     function play(hold, skipFade){
       // Jump back to the top (behind the splash) so the reveal always lands
       // on the hero video from the start — even if the page was scrolled down.
@@ -7627,12 +7628,13 @@ input, textarea, select {
         else { inner.style.opacity=''; inner.style.transform=''; inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
       }
       var root=document.documentElement; root.style.overflow='hidden';
-      startVideosFresh(); // reset+play now, while the curtain still covers, so the decode stays hidden and the lift is smooth
+      freezeVideos(); // hold the video at frame 0 while covered + lifting
       var done=false;
       function dismiss(){
         if(done) return; done=true;
         el.classList.add('sk-intro-hide'); root.style.overflow='';
         try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+        setTimeout(playVideos, 900); // start the video only once the curtain is fully up
         setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
       }
       var t=setTimeout(dismiss, hold||1600);
@@ -11481,7 +11483,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     <div id="searchResults" class="search-results"></div>
   </div>
 </div>
-<script src="/assets/js/i18n.js?v=6"></script>
+<script src="/assets/js/i18n.js?v=7"></script>
 <style>
 
 html body nav

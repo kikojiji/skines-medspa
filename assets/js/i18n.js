@@ -165,6 +165,8 @@
       if (url.pathname === location.pathname) return;
       e.preventDefault();
       try { sessionStorage.setItem('sk-xtion', '1'); } catch (_) {}
+      // pause the outgoing hero video so it doesn't stutter the drop animation
+      document.querySelectorAll('header.hero video, .hero video').forEach(function (v) { try { v.pause(); } catch (_) {} });
       var el = document.getElementById('sk-intro');
       if (!el) {
         el = document.createElement('div'); el.id = 'sk-intro'; el.setAttribute('aria-hidden', 'true');

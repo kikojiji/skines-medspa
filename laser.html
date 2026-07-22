@@ -7141,15 +7141,17 @@ input, textarea, select {
     try{ viaX=sessionStorage.getItem(XT)==='1'; if(viaX) sessionStorage.removeItem(XT); }catch(e){}
     if(viaX){ var inr=el.querySelector('.sk-intro-inner'); if(inr){ inr.style.animation='none'; inr.style.opacity='1'; inr.style.transform='none'; } }
     var root=document.documentElement; root.style.overflow='hidden';
-    function startVideosFresh(){
-      document.querySelectorAll('header.hero video, .hero video').forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} });
-    }
-    startVideosFresh(); // reset+play now, while the curtain still covers, so the video decode happens hidden and the lift stays smooth
+    function vids(){ return document.querySelectorAll('header.hero video, .hero video'); }
+    var frozen=true;
+    function onPlay(e){ if(frozen){ try{ e.target.pause(); }catch(_){} } }
+    vids().forEach(function(v){ v.addEventListener('play', onPlay); try{ v.pause(); v.currentTime=0; }catch(_){} });
+    function playVideos(){ frozen=false; vids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
     var done=false;
     function dismiss(){
       if(done) return; done=true;
       el.classList.add('sk-intro-hide'); root.style.overflow='';
       try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+      setTimeout(playVideos, 900); // start the hero video only once the curtain is fully up — no decode during the lift
       setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
     }
     var t=setTimeout(dismiss, viaX?500:1600);
@@ -9360,7 +9362,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
 #mobileNav.open ~ a.float-book-btn { display: none !important; }
 </style>
 <script>(function(){ var b=document.getElementById('floatBook'); if(!b)return; window.addEventListener('scroll',function(){ b.classList.toggle('visible',window.scrollY>320); },{passive:true}); })();</script>
-<script src="/assets/js/i18n.js?v=6"></script>
+<script src="/assets/js/i18n.js?v=7"></script>
 <style>
 
 html body nav {}
