@@ -9165,14 +9165,34 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (window.innerWidth >= 980) {
-      gsap.timeline()
+    // Runs at every width — phone and desktop get the same staged reveal.
+    // Built paused so GSAP renders the "from" state immediately: the hero
+    // stays hidden behind the splash instead of animating where nobody can
+    // see it, then plays once the curtain is gone.
+    {
+      // Ordered hero entrance, all measured from the moment it is released:
+      //   0.30s  eyebrow
+      //   0.60s  "L'art de prendre soin"
+      //   1.50s  Head Spa  →  1.62s  Épilation Laser  →  1.74s  Facial
+      //          (the tags run their own CSS heroTagReveal; the body class
+      //           below unfreezes them at exactly this moment)
+      //   2.35s  Réserver + Carte Cadeau
+      // .hero-sub is not in the markup, so it is no longer part of the
+      // timeline — .hero-cta is positioned absolutely instead of relative to
+      // a tween that never ran.
+      var heroTl = gsap.timeline({ paused: true })
         .from(".hero-eyebrow", { y: 20, opacity: 0, duration: 1, ease: "power3.out", delay: 0.3 })
         .from(".hero-title",   { y: 30, opacity: 0, duration: 1.2, ease: "power3.out" }, "-=0.7")
-        .from(".hero-sub",     { y: 20, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.7")
-        .from(".hero-cta",     { y: 15, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
-    } else {
-      gsap.set([".hero-eyebrow", ".hero-title", ".hero-sub", ".hero-cta"], { clearProps: "all" });
+        .from(".hero-cta",     { y: 15, opacity: 0, duration: 0.8, ease: "power3.out" }, 2.35);
+
+      var HERO_AFTER_SPLASH_MS = 1000; // ≈ the video's second second
+      (function whenSplashGone() {
+        if (document.getElementById('sk-intro')) { setTimeout(whenSplashGone, 100); return; }
+        setTimeout(function () {
+          document.body.classList.add('sk-hero-go'); // release the tag stagger
+          heroTl.play();
+        }, HERO_AFTER_SPLASH_MS);
+      })();
     }
 
     // Fade-up on scroll for all .fade-up elements
@@ -9773,6 +9793,17 @@ html body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animatio
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* The delays above are counted from page load, which is entirely behind the
+   splash — the tags would finish revealing before the curtain ever lifts.
+   Freeze the animation (delay included) and release it as part of the hero
+   sequence, so the order reads: title → Head Spa → Laser → Facial → CTAs.
+   The animation itself is unchanged; only when it starts. */
+html body .hero .hero-service-tags .hero-tag-btn:not(#_) {
+  animation-play-state: paused;
+}
+html body.sk-hero-go .hero .hero-service-tags .hero-tag-btn:not(#_) {
+  animation-play-state: running;
+}
 @media (prefers-reduced-motion: reduce) {
   html body .hero .hero-service-tags .hero-tag-btn:not(#_) {
     animation: none !important;
@@ -9841,7 +9872,8 @@ html body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animatio
     letter-spacing: 0.30em !important;
     text-shadow: 0 1px 8px rgba(0,0,0,0.70) !important;
     margin: 0 0 0.9rem !important;
-    opacity: 1 !important;
+    /* no opacity here — it would beat the inline value GSAP writes and kill
+       the staged hero entrance; these already compute to 1 on their own */
   }
   /* 6. Title — pure white (target h1 + all child spans/em) */
   html body .hero .hero-title,
@@ -9849,7 +9881,6 @@ html body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animatio
   html body .hero .hero-title em,
   html body .hero .hero-title em span {
     color: #FFFFFF !important;
-    opacity: 1 !important;
   }
   html body .hero .hero-title {
     font-size: clamp(2.5rem, 9.5vw, 3.5rem) !important;
@@ -9933,7 +9964,9 @@ html body header.hero .hero-content .hero-sub *,
 html body header.hero .hero-content .btn-hero-glass,
 html body header.hero .hero-content .btn-hero-glass * {
   color: #FFFFFF !important;
-  opacity: 1 !important;
+  /* No `opacity: 1 !important` here: it beat the inline opacity GSAP writes
+     and silently killed the hero entrance animation. These elements already
+     compute to opacity 1 on their own, so forcing it bought nothing. */
 }
 /* ════════════════════════════════════════════════════════════════════ */
 
