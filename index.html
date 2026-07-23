@@ -7563,6 +7563,18 @@ input, textarea, select {
 </style>
 </head>
 <body>
+<!-- Error collector — must stay ahead of every other script so it can catch
+     failures in the splash itself. Read back via ?diag=1. -->
+<script>
+  window.__skErrors = [];
+  window.addEventListener('error', function (e) {
+    window.__skErrors.push((e.message || 'error') + ' @ ' + (e.filename || '?') + ':' + (e.lineno || '?'));
+  }, true);
+  window.addEventListener('unhandledrejection', function (e) {
+    window.__skErrors.push('promise: ' + (e.reason && e.reason.message ? e.reason.message : e.reason));
+  });
+  window.__skMark = function (k) { (window.__skMarks = window.__skMarks || []).push(k + '@' + Math.round(performance.now())); };
+</script>
 <!-- ── Entry intro splash (once per session, non-blocking) ── -->
 <style id="sk-intro-css">
   #sk-intro{
@@ -7632,6 +7644,7 @@ input, textarea, select {
         if(skipFade){ inner.style.animation='none'; inner.style.opacity='1'; inner.style.transform='none'; } // arrived via transition — logo already shown
         else { inner.style.opacity=''; inner.style.transform=''; inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
       }
+      if(window.__skMark) window.__skMark('splash-play-called');
       var root=document.documentElement; root.style.overflow='hidden';
       freezeVideos(); // hold the video at frame 0 while covered + lifting
       var done=false;
@@ -7649,6 +7662,7 @@ input, textarea, select {
     window.skReplayIntro=function(){ play(1600, false); };
     // Arrived via an internal page-transition? lift the curtain quickly and
     // keep the logo already visible (no re-fade) for a seamless hand-off.
+    if(window.__skMark) window.__skMark('splash-script-reached-end');
     var viaX=false; try{ viaX=sessionStorage.getItem('sk-xtion')==='1'; if(viaX) sessionStorage.removeItem('sk-xtion'); }catch(e){}
     if(viaX){ play(500, true); return; }
     // Always play the full intro on a direct landing/reload (no longer gated
@@ -9198,9 +9212,12 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     setTimeout(forceHero, 9000);
 
     if (!document.getElementById('sk-intro')) {
-      document.body.classList.add('sk-hero-go'); // let the tags reveal normally
-      forceHero();
+      forceHero(); // no curtain to wait for — just make sure the hero is up
     } else {
+      // Commit to the entrance. Only now does the stylesheet start hiding the
+      // tags (every hiding rule is gated on this class), so if we never get
+      // here the hero renders normally instead of vanishing.
+      document.body.classList.add('sk-hero-staged');
       // Ordered hero entrance, all measured from the moment it is released.
       // Positions are absolute so the order stays readable at a glance:
       //   0.15s  eyebrow                         (ends 0.75)
@@ -9821,27 +9838,26 @@ html body .hero .hero-tag-btn:hover {
    a slow fade + subtle rise, so the hero never "pops" while assets settle.
    Reserve the final layout box from the start (opacity/transform only)
    so this never contributes to CLS. ── */
-html body .hero .hero-service-tags .hero-tag-btn:not(#_) {
+   NOTE: every hiding rule below is gated on `body.sk-hero-staged`, a class
+   JS adds only once it has actually committed to running the entrance. With
+   JS broken, absent, or simply never reaching this code, nothing here
+   applies and the tags render normally. Content must never depend on a
+   script to become visible — that is exactly how the hero went blank on
+   Safari/iOS. ── */
+html body.sk-hero-staged .hero .hero-service-tags .hero-tag-btn:not(#_) {
   opacity: 0;
   transform: translateY(10px);
   /* Delays are in step with the GSAP hero timeline — change both together. */
   animation: heroTagReveal 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.95s forwards;
+  animation-play-state: paused;
 }
-html body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(2) { animation-delay: 1.05s; }
-html body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animation-delay: 1.15s; }
+html body.sk-hero-staged .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(2) { animation-delay: 1.05s; }
+html body.sk-hero-staged .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animation-delay: 1.15s; }
 @keyframes heroTagReveal {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-/* The delays above are counted from page load, which is entirely behind the
-   splash — the tags would finish revealing before the curtain ever lifts.
-   Freeze the animation (delay included) and release it as part of the hero
-   sequence, so the order reads: title → Head Spa → Laser → Facial → CTAs.
-   The animation itself is unchanged; only when it starts. */
-html body .hero .hero-service-tags .hero-tag-btn:not(#_) {
-  animation-play-state: paused;
-}
-html body.sk-hero-go .hero .hero-service-tags .hero-tag-btn:not(#_) {
+html body.sk-hero-staged.sk-hero-go .hero .hero-service-tags .hero-tag-btn:not(#_) {
   animation-play-state: running;
 }
 /* ── Hero safety net ──────────────────────────────────────────────────
@@ -12016,6 +12032,36 @@ html body .hero-content {
   window.addEventListener('scroll', checkBottom, { passive: true });
   window.addEventListener('resize', checkBottom, { passive: true });
   checkBottom();
+})();
+</script>
+<!-- Diagnostics: only ever runs for ?diag=1 — reports what actually happened
+     on the visitor's own device. Safe to remove once the iOS issue is closed. -->
+<script>
+(function(){
+  if (location.search.indexOf('diag=1') === -1) return;
+  function show(){
+    var q = function(s){ var e=document.querySelector(s); if(!e) return s+': MISSING';
+      var c=getComputedStyle(e); return s+': op='+c.opacity+' vis='+c.visibility+' disp='+c.display; };
+    var intro=document.getElementById('sk-intro');
+    var introCs=intro?getComputedStyle(intro):null;
+    var lines=[
+      'UA: '+navigator.userAgent,
+      'reduced-motion: '+(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),
+      'gsap: '+(typeof gsap)+'  ScrollTrigger: '+(typeof ScrollTrigger),
+      'body class: '+(document.body.className||'(none)'),
+      'sk-intro in DOM: '+!!intro+(introCs?(' op='+introCs.opacity+' vis='+introCs.visibility+' w='+Math.round(intro.getBoundingClientRect().width)+' h='+Math.round(intro.getBoundingClientRect().height)+' z='+introCs.zIndex+' pos='+introCs.position):''),
+      q('.hero-title'), q('.hero-eyebrow'), q('.hero-cta'), q('.hero-tag-btn'),
+      'marks: '+((window.__skMarks||[]).join(' | ')||'NONE'),
+      'ERRORS: '+((window.__skErrors||[]).join(' || ')||'none')
+    ];
+    var box=document.getElementById('sk-diag')||document.createElement('div');
+    box.id='sk-diag';
+    box.setAttribute('style','position:fixed;left:0;right:0;bottom:0;max-height:60vh;overflow:auto;z-index:2147483647;background:#000;color:#0f0;font:11px/1.45 monospace;padding:10px;white-space:pre-wrap;word-break:break-word');
+    box.textContent='— SKINES DIAG @'+Math.round(performance.now())+'ms —\n'+lines.join('\n');
+    if(!box.parentNode) document.body.appendChild(box);
+  }
+  var n=0; var id=setInterval(function(){ show(); if(++n>12) clearInterval(id); }, 1000);
+  show();
 })();
 </script>
 <style id="mnav-stable-css">
