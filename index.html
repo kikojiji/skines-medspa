@@ -7574,6 +7574,27 @@ input, textarea, select {
     window.__skErrors.push('promise: ' + (e.reason && e.reason.message ? e.reason.message : e.reason));
   });
   window.__skMark = function (k) { (window.__skMarks = window.__skMarks || []).push(k + '@' + Math.round(performance.now())); };
+
+  // Runs before the hero markup is parsed, so the staged entrance can hide
+  // the tags on the very first paint — no flash of them arriving ahead of
+  // the title. Every hiding rule is gated on this class.
+  document.documentElement.className += ' sk-js';
+
+  // Independent watchdog. Deliberately knows nothing about GSAP or the
+  // splash: if the entrance has not shown the hero within 6s — script never
+  // ran, library failed to load, animation stalled — this reveals it anyway.
+  // Content must never be able to stay hidden. (Guards the Safari/iOS case.)
+  setTimeout(function () {
+    if (!document.body || document.body.classList.contains('sk-hero-done')) return;
+    document.body.classList.add('sk-hero-forced');
+    var sel = '.hero-eyebrow, .hero-title, .hero-cta, .hero-cta .btn-hero-glass, .hero-tag-btn';
+    Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
+      ['opacity', 'visibility', 'transform', 'pointer-events'].forEach(function (p) {
+        el.style.removeProperty(p);
+      });
+    });
+    window.__skMark && window.__skMark('watchdog-fired');
+  }, 6000);
 </script>
 <!-- ── Entry intro splash (once per session, non-blocking) ── -->
 <style id="sk-intro-css">
@@ -9188,18 +9209,13 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     // Built paused so GSAP renders the "from" state immediately: the hero
     // stays hidden behind the splash instead of animating where nobody can
     // see it, then plays once the curtain is gone.
-    // This script sits near the end of <body>, so on a slow phone it can run
-    // AFTER the curtain has already lifted. Staging the entrance then would
-    // hide a hero the visitor is already looking at and replay it — worse
-    // than no animation. So only stage it while the splash is still up;
-    // otherwise leave the hero exactly as it is.
-    // Whatever happens below, the hero ends up visible. forceHero() is the
-    // floor: it is called when the entrance finishes, and unconditionally by
-    // a timer, so a stalled animation or a splash that never tore down can
-    // no longer leave the title and the CTAs invisible (the failure seen on
-    // Safari/iOS).
+    // The entrance runs whether or not the splash showed. If the curtain is
+    // up we wait for it; if it never appeared we start almost immediately.
+    // Either way the order is the same — title first, then the tags, then
+    // the CTAs — because "tags first, with no transition" is exactly the
+    // wrong result, and that is what skipping the sequence produced.
     function forceHero() {
-      document.body.classList.add('sk-hero-forced');
+      document.body.classList.add('sk-hero-forced', 'sk-hero-done');
       // The class alone loses to an inline `!important`, so strip the inline
       // values too — belt and braces, since this is the last line of defence.
       var sel = '.hero-eyebrow, .hero-title, .hero-cta, .hero-cta .btn-hero-glass, .hero-tag-btn';
@@ -9209,15 +9225,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
         });
       });
     }
-    setTimeout(forceHero, 9000);
-
-    if (!document.getElementById('sk-intro')) {
-      forceHero(); // no curtain to wait for — just make sure the hero is up
-    } else {
-      // Commit to the entrance. Only now does the stylesheet start hiding the
-      // tags (every hiding rule is gated on this class), so if we never get
-      // here the hero renders normally instead of vanishing.
-      document.body.classList.add('sk-hero-staged');
+    {
       // Ordered hero entrance, all measured from the moment it is released.
       // Positions are absolute so the order stays readable at a glance:
       //   0.15s  eyebrow                         (ends 0.75)
@@ -9837,27 +9845,29 @@ html body .hero .hero-tag-btn:hover {
    Buttons stay invisible on first paint and reveal ~1.5s after load with
    a slow fade + subtle rise, so the hero never "pops" while assets settle.
    Reserve the final layout box from the start (opacity/transform only)
-   so this never contributes to CLS. ── */
-   NOTE: every hiding rule below is gated on `body.sk-hero-staged`, a class
-   JS adds only once it has actually committed to running the entrance. With
-   JS broken, absent, or simply never reaching this code, nothing here
-   applies and the tags render normally. Content must never depend on a
-   script to become visible — that is exactly how the hero went blank on
-   Safari/iOS. ── */
-html body.sk-hero-staged .hero .hero-service-tags .hero-tag-btn:not(#_) {
+   so this never contributes to CLS.
+
+   NOTE: every hiding rule below is gated on `html.sk-js`, set by the very
+   first script on the page — early enough to hide the tags on the first
+   paint, so they never flash in ahead of the title. With JS disabled they
+   simply render. And should the entrance never run (script missing, library
+   failed, animation stalled), the watchdog in that same early script
+   reveals everything after 6s: content can never stay hidden, which is
+   exactly how the hero went blank on Safari/iOS. ── */
+html.sk-js body .hero .hero-service-tags .hero-tag-btn:not(#_) {
   opacity: 0;
   transform: translateY(10px);
   /* Delays are in step with the GSAP hero timeline — change both together. */
   animation: heroTagReveal 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.95s forwards;
   animation-play-state: paused;
 }
-html body.sk-hero-staged .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(2) { animation-delay: 1.05s; }
-html body.sk-hero-staged .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animation-delay: 1.15s; }
+html.sk-js body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(2) { animation-delay: 1.05s; }
+html.sk-js body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animation-delay: 1.15s; }
 @keyframes heroTagReveal {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-html body.sk-hero-staged.sk-hero-go .hero .hero-service-tags .hero-tag-btn:not(#_) {
+html.sk-js body.sk-hero-go .hero .hero-service-tags .hero-tag-btn:not(#_) {
   animation-play-state: running;
 }
 /* ── Hero safety net ──────────────────────────────────────────────────
