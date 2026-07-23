@@ -5323,5 +5323,92 @@ html body nav {}
   checkBottom();
 })();
 </script>
+<style id="mnav-stable-css">
+/* ══════════════════════════════════════════════════════════════
+   MOBILE NAV — STABLE SHELL
+   The panel is exactly one viewport tall and never changes size.
+   Header, giveaway pill and footer are pinned; the accordion list is
+   the single scrolling region, so opening SOINS / GUIDES / VOTRE VISITE
+   scrolls inside the panel instead of pushing RESERVER and the contact
+   details off the bottom of the screen.
+   Colours, fonts and the Skines identity are untouched — only sizing,
+   spacing and overflow.
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 980px) {
+  html body #mobileNav {
+    height: 100vh !important;
+    height: 100dvh !important;          /* keeps the real height under iOS Safari chrome */
+    max-height: 100dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;        /* the panel itself never scrolls */
+  }
+
+  /* Pinned: always on screen, never squeezed */
+  html body #mobileNav .mobile-nav-header,
+  html body #mobileNav .nav-lang-bar,
+  html body #mobileNav .sp-menu-trigger-wrap,
+  html body #mobileNav .mobile-nav-footer {
+    flex: 0 0 auto !important;
+  }
+
+  /* The one scrolling region */
+  html body #mobileNav .mnav-accordions {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;           /* required for a flex child to scroll */
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    gap: 0.5rem !important;
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.85rem !important;   /* the last item can clear the edge */
+  }
+
+  /* A long section scrolls inside itself rather than stretching the list */
+  html body #mobileNav .mnav-acc.mnav-open .mnav-acc-panel {
+    max-height: min(42vh, 300px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+
+  html body #mobileNav .mobile-nav-footer {
+    margin-top: 0 !important;
+  }
+}
+
+/* Phones — larger, clearer type (tablets already run a bigger scale) */
+@media (max-width: 767px) {
+  html body #mobileNav .mnav-acc-btn,
+  html body #mobileNav .mnav-toplink {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.16em !important;
+    padding: 0.85rem 1.15rem !important;   /* tighter box, same larger type */
+  }
+  html body #mobileNav .mnav-acc-panel a {
+    font-size: 1rem !important;
+    padding: 0.72rem 0 0.72rem 1.15rem !important;
+  }
+  html body #mobileNav .mnav-acc-panel a:last-child {
+    padding-bottom: 0.9rem !important;
+  }
+  html body #mobileNav .mobile-nav-footer .btn-dark {
+    font-size: 0.9rem !important;
+    letter-spacing: 0.2em !important;
+    padding: 0.95rem !important;
+  }
+  html body #mobileNav .mobile-nav-footer .mobile-contact {
+    font-size: 0.86rem !important;
+  }
+  /* Trim the header so the section list gets the room instead — the logo
+     lockup is unchanged, just sized for a phone screen. */
+  html body #mobileNav .mnav-logo-stones {
+    width: 56px !important;
+  }
+  html body #mobileNav .mobile-nav-header {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+  }
+}
+</style>
 </body>
 </html>

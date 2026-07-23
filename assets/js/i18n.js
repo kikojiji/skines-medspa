@@ -141,19 +141,25 @@
   }
 
   /* ── Page-transition curtain ─────────────────────────────────────────────
-     Leaving a splash page (home / facial / head-spa / laser) via an internal
-     link drops the maroon+logo curtain down over the page, then navigates.
-     The destination page's inline splash script lifts it back up and restarts
-     the hero video (it reads the 'sk-xtion' flag set here). */
+     Going from the HOMEPAGE to a service page (head-spa / laser / facial)
+     drops the maroon+logo curtain down over the page, then navigates. The
+     destination page's inline splash script holds the logo for a beat, lifts
+     the curtain back up, and only then starts the hero video (it reads the
+     'sk-xtion' flag set here).
+
+     Scoped to home → service on purpose: any other navigation is left alone,
+     so a service page reached directly just plays its own full splash. */
   function initTransitions() {
     if (!document.getElementById('sk-xtion-css')) {
       var st = document.createElement('style'); st.id = 'sk-xtion-css';
-      st.textContent = '#sk-intro.sk-intro-drop-start{transform:translateY(-100%)!important;transition:none!important}#sk-intro.sk-intro-drop{transform:translateY(0)!important;transition:transform .45s cubic-bezier(.5,0,.2,1)!important}';
+      st.textContent = '#sk-intro.sk-intro-drop-start{transform:translateY(-100%)!important;transition:none!important}#sk-intro.sk-intro-drop{transform:translateY(0)!important;transition:transform .5s cubic-bezier(.5,0,.2,1)!important}';
       document.head.appendChild(st);
     }
-    var TARGETS = {'/':1,'/index.html':1,'/facial':1,'/facial.html':1,'/head-spa':1,'/head-spa.html':1,'/laser':1,'/laser.html':1};
+    var HOME = {'/':1,'/index.html':1};
+    var SERVICES = {'/facial':1,'/facial.html':1,'/head-spa':1,'/head-spa.html':1,'/laser':1,'/laser.html':1};
     document.addEventListener('click', function (e) {
       if (!document.getElementById('sk-intro-css')) return; // only drop when leaving a splash page
+      if (!HOME[location.pathname]) return;                 // …and only from the homepage
       var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a) return;
       if (a.target === '_blank' || a.hasAttribute('download')) return;
@@ -161,7 +167,7 @@
       if (!href || href.charAt(0) === '#') return;
       var url; try { url = new URL(href, location.href); } catch (_) { return; }
       if (url.origin !== location.origin) return;
-      if (!TARGETS[url.pathname]) return;
+      if (!SERVICES[url.pathname]) return;                  // …to a service page
       if (url.pathname === location.pathname) return;
       e.preventDefault();
       try { sessionStorage.setItem('sk-xtion', '1'); } catch (_) {}
@@ -180,7 +186,7 @@
       requestAnimationFrame(function () { requestAnimationFrame(function () {
         el.classList.remove('sk-intro-drop-start'); el.classList.add('sk-intro-drop');
       }); });
-      setTimeout(function () { location.href = url.href; }, 470);
+      setTimeout(function () { location.href = url.href; }, 520); // just after the .5s drop lands
     });
   }
 
