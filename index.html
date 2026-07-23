@@ -7650,10 +7650,17 @@ input, textarea, select {
     // Keep the hero video frozen at frame 0 while the curtain is covering AND
     // lifting (so no video decode ever stutters the animation), then start it
     // fresh the moment the curtain is fully up.
+    // NOTE: this script runs at parse time, before the <video> elements exist,
+    // so we cannot rely on getElementById here. A capture-phase 'play' listener
+    // on the document catches the videos whenever they appear and autoplay.
+    var HERO_IDS={heroVideo:1, heroVideoDesktopA:1};
     var frozen=true;
-    function onPlay(e){ if(frozen){ try{ e.target.pause(); }catch(_){} } }
-    function freezeVideos(){ frozen=true; heroVids().forEach(function(v){ v.addEventListener('play', onPlay); try{ v.pause(); v.currentTime=0; }catch(_){} }); }
-    function playVideos(){ frozen=false; heroVids().forEach(function(v){ v.removeEventListener('play', onPlay); try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
+    document.addEventListener('play', function(e){
+      var t=e.target;
+      if(frozen && t && HERO_IDS[t.id]){ try{ t.pause(); t.currentTime=0; }catch(_){} }
+    }, true);
+    function freezeVideos(){ frozen=true; heroVids().forEach(function(v){ try{ v.pause(); v.currentTime=0; }catch(_){} }); }
+    function playVideos(){ frozen=false; heroVids().forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
     function play(hold, skipFade){
       // Jump back to the top (behind the splash) so the reveal always lands
       // on the hero video from the start — even if the page was scrolled down.
