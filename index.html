@@ -7681,10 +7681,32 @@ input, textarea, select {
       var done=false;
       function dismiss(){
         if(done) return; done=true;
-        el.classList.add('sk-intro-hide'); root.style.overflow='';
+        root.style.overflow='';
         try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-        setTimeout(playVideos, 900); // start the video only once the curtain is fully up
-        setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
+        el.style.pointerEvents='none';
+        var reduced=false; try{ reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+        if(reduced){
+          // Under Reduce Motion, Safari forces every CSS transition-duration
+          // to 0, so `.sk-intro-hide` would make the curtain vanish in place
+          // instead of lifting. Drive the lift by hand with rAF — a scripted
+          // transform is not a CSS transition, so it still plays. Keep it a
+          // touch quicker than the full 0.9s to respect the spirit of the
+          // setting while the reveal still reads as a rising curtain.
+          el.style.transition='none';
+          var h=el.offsetHeight||window.innerHeight||800, dur=560;
+          requestAnimationFrame(function loop(ts){
+            if(loop._s==null) loop._s=ts;
+            var p=Math.min((ts-loop._s)/dur,1), e=1-Math.pow(1-p,3); // easeOutCubic
+            el.style.transform='translateY('+(-e*h)+'px)';
+            if(p<1) requestAnimationFrame(loop);
+            else if(el.parentNode) el.parentNode.removeChild(el);
+          });
+          setTimeout(playVideos, dur);
+        } else {
+          el.classList.add('sk-intro-hide');
+          setTimeout(playVideos, 900); // start the video only once the curtain is fully up
+          setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
+        }
       }
       var t=setTimeout(dismiss, hold||1600);
       el.onclick=function(){ clearTimeout(t); dismiss(); }; // tap to skip

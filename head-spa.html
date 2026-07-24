@@ -6845,14 +6845,29 @@ input, textarea, select {
     var done=false;
     function dismiss(){
       if(done) return; done=true;
-      el.classList.add('sk-intro-hide'); root.style.overflow='';
+      root.style.overflow='';
       try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-      // Desktop can decode during the lift, so start the hero video as the
-      // curtain begins rising — it's already in motion on reveal, no frozen
-      // frame and no visible "restart". Mobile keeps the freeze-until-up
-      // behaviour to avoid decode jank during the lift.
-      setTimeout(playVideos, 900); // start the hero video only once the curtain is fully up — never behind the splash
-      setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
+      el.style.pointerEvents='none';
+      var reduced=false; try{ reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+      if(reduced){
+        // Under Reduce Motion, Safari forces CSS transition-duration to 0, so
+        // the curtain would vanish in place instead of lifting. Drive the lift
+        // by hand with rAF (not a CSS transition, so it isn't suppressed).
+        el.style.transition='none';
+        var h=el.offsetHeight||window.innerHeight||800, dur=560;
+        requestAnimationFrame(function loop(ts){
+          if(loop._s==null) loop._s=ts;
+          var p=Math.min((ts-loop._s)/dur,1), e=1-Math.pow(1-p,3); // easeOutCubic
+          el.style.transform='translateY('+(-e*h)+'px)';
+          if(p<1) requestAnimationFrame(loop);
+          else if(el.parentNode) el.parentNode.removeChild(el);
+        });
+        setTimeout(playVideos, dur);
+      } else {
+        el.classList.add('sk-intro-hide');
+        setTimeout(playVideos, 900); // start the hero video only once the curtain is fully up — never behind the splash
+        setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
+      }
     }
     // viaX = arrived from the homepage behind the dropped curtain: hold the
     // logo ~1s (on top of the ~0.5s drop) before lifting, so the splash reads
