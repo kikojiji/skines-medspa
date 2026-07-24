@@ -6378,7 +6378,11 @@ input, textarea, select {
           // unmuted, so a side-card click must both navigate AND start
           // playback with sound in this same click — no second click.
           if(i===cur){
-            togglePlay(s,i);
+            // If it's autoplaying muted (from a swipe), the first tap gives
+            // it sound rather than pausing; otherwise toggle play/pause.
+            var av=s.querySelector('video');
+            if(s.classList.contains('ivc-playing') && av && av.muted){ playInline(s,i); }
+            else { togglePlay(s,i); }
           } else {
             go(i);            // makes it active, resets/repositions everything
             playInline(s,i);  // same click: play the now-active card with sound
@@ -6509,6 +6513,20 @@ input, textarea, select {
         slideEl.classList.add('ivc-playing');
         (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
       }
+      // Muted autoplay for the active card as you swipe/navigate on mobile
+      // (TikTok-style). Same as playInline but stays muted, so iOS lets it
+      // start without a tap; a tap then unmutes it (see the click handler).
+      function autoplayInline(slideEl,idx){
+        var nv=slideEl.querySelector('video');
+        if(!nv.getAttribute('data-l')){nv.src=VIDS[idx].s;nv.setAttribute('data-l','1');nv.load();}
+        pauseAllExcept(slideEl);
+        showVideo(nv);
+        nv.controls=false;
+        nv.muted=true;               // muted so autoplay is allowed on iOS
+        nv.style.display='block';nv.style.opacity='0';
+        slideEl.classList.add('ivc-playing');
+        (function(v){setTimeout(function(){v.style.opacity='1';var p=v.play();if(p&&p.catch)p.catch(function(){});},55);})(nv);
+      }
       // Pause and fade back to the clean poster image (a frozen video
       // frame read as "the photo is stuck"), keeping currentTime so a
       // click resumes from where it paused rather than restarting.
@@ -6549,6 +6567,11 @@ input, textarea, select {
         cur=((newI%VIDS.length)+VIDS.length)%VIDS.length;
         for(var i=0;i<dots.length;i++) dots[i].classList.toggle('ivc-active',i===cur);
         positionCards(instant);
+        // Mobile: autoplay the newly-active video muted (TikTok-style). The
+        // reset loop above already stopped, muted and rewound every other
+        // video. `instant` marks the initial layout calls — skip those so
+        // nothing plays until the user actually swipes/taps through.
+        if(!instant && window.innerWidth < 768){ autoplayInline(track.children[cur], cur); }
       }
 
       btnPL.addEventListener('click',function(){go(cur-1);});
