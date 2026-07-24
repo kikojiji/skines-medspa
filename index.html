@@ -9245,7 +9245,19 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
         });
       });
     }
-    {
+    // Reduced-motion guard. The stylesheet's prefers-reduced-motion rule
+    // forces the hero TAGS visible immediately, but the eyebrow/title/CTA are
+    // hidden by GSAP's `.from()` "from" state below — which that CSS does not
+    // touch. Building the timeline would therefore hide the title while the
+    // tags are already shown, so they arrive out of order (tags first, title
+    // late) — exactly the "tags fixed, title after" glitch on iOS with Reduce
+    // Motion on. When reduced motion is requested, skip the timeline entirely
+    // and just reveal everything at once.
+    var prefersReduced = false;
+    try { prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (prefersReduced) {
+      forceHero();
+    } else {
       // Ordered hero entrance, all measured from the moment it is released.
       // Positions are absolute so the order stays readable at a glance:
       //   0.15s  eyebrow                         (ends 0.75)
