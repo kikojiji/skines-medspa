@@ -5895,13 +5895,14 @@ html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) 
 }
 .laser-hero-h1 {
   color: #ffffff !important;
-  font-size: clamp(1.6rem, 5.5vw, 3.8rem) !important;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(3.5rem, 16vw, 8rem) !important;
   font-weight: 300 !important;
-  letter-spacing: 0.06em !important;
-  line-height: 1.1 !important;
-  margin: 0 0 0.8rem !important;
+  letter-spacing: 0.14em !important;
+  line-height: 1 !important;
+  margin: 0 0 0.7rem !important;
   text-transform: uppercase !important;
-  text-align: center !important;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.45) !important;
 }
 .laser-hero-h1 em {
   font-style: italic !important;
@@ -5909,21 +5910,15 @@ html body footer .footer-bottom a:not(.btn-dark):not(.btn-light):not(.btn-warm) 
   text-transform: none !important;
   color: #F5EDE3 !important;
 }
-/* Mobile: shrink the hero title so "CORPS COMPLET —" fits cleanly on one
-   line instead of wrapping into a cramped 4-line block. */
-@media (max-width: 979px) {
-  html body header.hero .hero-copy h1.laser-hero-h1 {
-    font-size: clamp(1.35rem, 6.2vw, 2rem) !important;
-    letter-spacing: 0.03em !important;
-    line-height: 1.14 !important;
-  }
-}
+/* Title uses the same fluid clamp as head-spa/facial, so no separate
+   mobile shrink is needed — "ÉPILATION LASER" scales with the viewport. */
 .laser-hero-lead {
-  color: rgba(245,237,227,0.70) !important;
+  color: rgba(245,237,227,0.72) !important;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-style: italic !important;
-  font-size: 1.1rem !important;
-  margin: 0 0 1rem !important;
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
+  letter-spacing: 0.04em !important;
+  margin: 0 0 0 !important;
 }
 .laser-hero-meta {
   display: flex !important;
@@ -5963,10 +5958,12 @@ html body .laser-hero-copy .btn-hero-glass {
   justify-content: center !important;
   padding: 0 2.8rem !important;
   height: 60px !important;
-  background: #ffffff !important;
-  border: none !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.38) !important;
   border-radius: 15px !important;
-  color: #2B2B2B !important;
+  color: #F5EDE3 !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
   font-family: 'Old Standard TT', serif !important;
   font-size: 0.78rem !important;
   font-weight: 400 !important;
@@ -5979,7 +5976,7 @@ html body .laser-hero-copy .btn-hero-glass {
 html body .laser-hero-copy .btn-hero-glass:hover {
   box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 4px 12px rgba(0,0,0,0.14) !important;
   transform: translateY(-1px) !important;
-  color: #2B2B2B !important;
+  color: #F5EDE3 !important;
 }
 
 /* ── Laser hero video — full height like homepage ── */
@@ -7307,17 +7304,11 @@ input, textarea, select {
     <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hero-laazer-main.mp4" type="video/mp4">
   </video>
   <div class="hero-copy laser-hero-copy">
-    <div class="eyebrow laser-hero-eyebrow" data-fr="Offre Spéciale · Première Séance" data-en="Special Offer · First Session">Offre Spéciale · Première Séance</div>
-    <h1 class="laser-hero-h1" data-i18n-html="laser.promoTitleHtml">Corps Complet —<br><em>Première Séance</em></h1>
-    <p class="laser-hero-lead" data-fr="Première séance corps complet · De la tête aux pieds" data-en="Full body first session · Head to toe">Première séance corps complet · De la tête aux pieds</p>
-    <div class="laser-hero-meta">
-      <span class="laser-hero-price">$200</span>
-      <span class="laser-hero-sep">·</span>
-      <span class="laser-hero-duration">1h 30 min</span>
-    </div>
+    <div class="eyebrow laser-hero-eyebrow" data-fr="Épilation Laser · Skines" data-en="Laser Hair Removal · Skines">Épilation Laser · Skines</div>
+    <h1 class="laser-hero-h1">ÉPILATION LASER</h1>
+    <p class="laser-hero-lead" data-fr="Épilation laser · De la tête aux pieds" data-en="Laser hair removal · Head to toe">Épilation laser · De la tête aux pieds</p>
     <div class="laser-hero-actions">
       <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
-      <p class="laser-hero-promo" data-fr="Profitez de jusqu'à 50% de réduction sur toutes vos séances laser. Une offre exclusive, disponible dès maintenant." data-en="Enjoy up to 50% off all your laser sessions. An exclusive offer, available now.">Profitez de jusqu'à 50% de réduction sur toutes vos séances laser.<br>Une offre exclusive, disponible dès maintenant.</p>
     </div>
   </div>
 </header>

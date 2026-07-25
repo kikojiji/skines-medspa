@@ -57,7 +57,7 @@
   <link rel="manifest" href="/site.webmanifest">
 <title>Head Spa Montréal | Scalpcial – Skines Head Spa & Wellness</title>
 <!-- TEMP: on-site prices hidden at owner's request. Delete this <style> (or `git revert` the commit) to restore all price displays. -->
-<style id="sk-hide-prices">.svc-price,.svc-price-current,.svc-price-old,.svc-price-note,.bundle-save,.hero-promo-badge,.promo-badge,.svc-discount-label,.discount-label,.discount-badge2,.rabais,.headspa-hero-lead,.save-amount,.saving,.discount-badge,.economie,.bundle-price,.laser-hero-price,.hero-price,.special-offer-price,.price-original,.price-discounted,.price-note,.price,.prix,.tarif,.search-result-price{display:none !important}</style>
+<style id="sk-hide-prices">.svc-price,.svc-price-current,.svc-price-old,.svc-price-note,.bundle-save,.hero-promo-badge,.promo-badge,.svc-discount-label,.discount-label,.discount-badge2,.rabais,.save-amount,.saving,.discount-badge,.economie,.bundle-price,.laser-hero-price,.hero-price,.special-offer-price,.price-original,.price-discounted,.price-note,.price,.prix,.tarif,.search-result-price,.headspa-hero-promo{display:none !important}</style>
 <meta name="description" content="Head Spa japonais à Montréal — Scalpcial Focus ou Signature (60–90 min) en Solo, Duo ou Trio. Massage profond du cuir chevelu. Réservez chez Skines Head Spa.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Japanese Head Spa Montréal · Skines Head Spa & Wellness">
@@ -5626,10 +5626,12 @@ html body .headspa-btn {
   justify-content: center !important;
   padding: 0 2.8rem !important;
   height: 60px !important;
-  background: #ffffff !important;
-  border: none !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.38) !important;
   border-radius: 15px !important;
-  color: #2B2B2B !important;
+  color: #F5EDE3 !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
   font-family: 'Old Standard TT', serif !important;
   font-size: 0.78rem !important;
   font-weight: 400 !important;
@@ -5642,7 +5644,7 @@ html body .headspa-btn {
 html body .headspa-btn:hover {
   box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 4px 12px rgba(0,0,0,0.14) !important;
   transform: translateY(-1px) !important;
-  color: #2B2B2B !important;
+  color: #F5EDE3 !important;
 }
 @media (max-width: 480px) {
   header.hero .headspa-hero-copy { padding: 4rem 1.2rem 0 !important; }
@@ -7006,10 +7008,9 @@ input, textarea, select {
   <div class="hero-copy headspa-hero-copy">
     <div class="eyebrow headspa-hero-eyebrow" data-fr="Rituel Japonais · Head Spa" data-en="Japanese Ritual · Head Spa">Rituel Japonais · Head Spa</div>
     <h1 class="headspa-hero-h1">HEAD SPA</h1>
-    <p class="headspa-hero-lead"><span class="hero-promo-badge">−30%</span><span data-fr=" sur toutes les expériences" data-en=" on all experiences"> sur toutes les expériences</span></p>
+    <p class="headspa-hero-lead" data-fr="Soin japonais du cuir chevelu" data-en="Japanese scalp treatment">Soin japonais du cuir chevelu</p>
     <div class="headspa-hero-actions">
       <a class="btn-hero-glass headspa-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
-      <p class="headspa-hero-promo" data-fr="Offrez à votre corps et votre esprit un véritable moment de relâchement profond. Réservez votre expérience Skines dès maintenant." data-en="Give your body and mind a truly deep moment of release. Book your Skines experience now.">Offrez à votre corps et votre esprit un véritable moment de relâchement profond.<br>Réservez votre expérience Skines dès maintenant.</p>
     </div>
   </div>
 </header>
