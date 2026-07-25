@@ -7581,9 +7581,12 @@ input, textarea, select {
   document.documentElement.className += ' sk-js';
 
   // Independent watchdog. Deliberately knows nothing about GSAP or the
-  // splash: if the entrance has not shown the hero within 6s — script never
+  // splash: if the entrance has not shown the hero within 8s — script never
   // ran, library failed to load, animation stalled — this reveals it anyway.
-  // Content must never be able to stay hidden. (Guards the Safari/iOS case.)
+  // (8s, not 6s: on phones the entrance is deliberately held until the hero
+  //  video's logo intro passes, so a valid entrance can legitimately still be
+  //  animating past 6s — the watchdog must not cut it.) Content must never be
+  //  able to stay hidden. (Guards the Safari/iOS case.)
   setTimeout(function () {
     if (!document.body || document.body.classList.contains('sk-hero-done')) return;
     document.body.classList.add('sk-hero-forced');
@@ -7594,7 +7597,7 @@ input, textarea, select {
       });
     });
     window.__skMark && window.__skMark('watchdog-fired');
-  }, 6000);
+  }, 8000);
 </script>
 <!-- ── Entry intro splash (once per session, non-blocking) ── -->
 <style id="sk-intro-css">
@@ -9281,51 +9284,43 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
         });
       });
     }
-    // Reduced-motion guard. The stylesheet's prefers-reduced-motion rule
-    // forces the hero TAGS visible immediately, but the eyebrow/title/CTA are
-    // hidden by GSAP's `.from()` "from" state below — which that CSS does not
-    // touch. Building the timeline would therefore hide the title while the
-    // tags are already shown, so they arrive out of order (tags first, title
-    // late) — exactly the "tags fixed, title after" glitch on iOS with Reduce
-    // Motion on. When reduced motion is requested, skip the timeline entirely
-    // and just reveal everything at once.
-    var prefersReduced = false;
-    try { prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    if (prefersReduced) {
-      forceHero();
-    } else {
-      // Ordered hero entrance, all measured from the moment it is released.
-      // Positions are absolute so the order stays readable at a glance:
-      //   0.15s  eyebrow                         (ends 0.75)
-      //   0.40s  "L'art de prendre soin"         (ends 1.30)
-      //   0.95s  Head Spa → 1.05s Laser → 1.15s Facial   (ends 1.65)
-      //          (the tags run their own CSS heroTagReveal; the body class
-      //           below unfreezes them at exactly this moment — keep those
-      //           delays in sync with the stylesheet)
-      //   1.55s  Réserver + Carte Cadeau         (ends 2.15)
-      // .hero-sub is not in the markup, so it is no longer part of the
-      // timeline — .hero-cta is positioned absolutely instead of relative to
-      // a tween that never ran.
-      var heroTl = gsap.timeline({ paused: true, onComplete: forceHero })
-        .from(".hero-eyebrow", { y: 20, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.15)
-        .from(".hero-title",   { y: 30, opacity: 0, duration: 0.9, ease: "power3.out" }, 0.40)
-        .from(".hero-cta",     { y: 15, opacity: 0, duration: 0.6, ease: "power3.out" }, 1.55);
+    // The staged hero entrance is driven entirely by GSAP (JS/rAF), so it
+    // plays in order — title, then the tags, then the CTAs — even under Reduce
+    // Motion, where CSS animations/transitions are forced instant (that used
+    // to leave the tags shown while the title lagged, out of order). The tags
+    // are part of this timeline now, not a separate CSS animation.
+    //   0.15s  eyebrow
+    //   0.40s  "L'art de prendre soin"
+    //   0.95s  Head Spa → Laser → Facial   (staggered)
+    //   1.70s  Réserver + Carte Cadeau
+    // Explicit .fromTo on every group (not .from): under Reduce Motion a bare
+    // .from doesn't animate its inferred end value here, so the title/CTA would
+    // snap at the end while the .fromTo tags animated — out of order. Stating
+    // both ends keeps all four groups animating in sequence.
+    var heroTl = gsap.timeline({ paused: true, onComplete: forceHero })
+      .fromTo(".hero-eyebrow", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.15)
+      .fromTo(".hero-title",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.40)
+      .fromTo(".hero-tag-btn", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.12, ease: "power3.out" }, 0.95)
+      .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.70);
 
-      var HERO_AFTER_SPLASH_MS = 400; // short beat after the curtain clears
-      var heroReleased = false;
-      function releaseHero() {
-        if (heroReleased) return; heroReleased = true;
-        document.body.classList.add('sk-hero-go'); // release the tag stagger
-        heroTl.play();
-      }
-      (function whenSplashGone() {
-        if (document.getElementById('sk-intro')) { setTimeout(whenSplashGone, 100); return; }
-        setTimeout(releaseHero, HERO_AFTER_SPLASH_MS);
-      })();
-      // Don't wait on the splash forever — release on a deadline measured from
-      // load, so a splash that never tears down cannot hold the hero hostage.
-      setTimeout(releaseHero, 5000);
+    // On phones the hero video plays its own baked-in "SKINES" logo intro
+    // (~2s) as the curtain lifts, so hold the text back until that has passed —
+    // the entrance then begins on the clean footage. Desktop starts promptly.
+    var isPhone = window.innerWidth < 768;
+    var HERO_AFTER_SPLASH_MS = isPhone ? 2000 : 400;
+    var heroReleased = false;
+    function releaseHero() {
+      if (heroReleased) return; heroReleased = true;
+      document.body.classList.add('sk-hero-go');
+      heroTl.play();
     }
+    (function whenSplashGone() {
+      if (document.getElementById('sk-intro')) { setTimeout(whenSplashGone, 100); return; }
+      setTimeout(releaseHero, HERO_AFTER_SPLASH_MS);
+    })();
+    // Safety deadline measured from load, so a splash that never tears down
+    // cannot hold the hero hostage.
+    setTimeout(releaseHero, 6500);
 
     // Fade-up on scroll for all .fade-up elements
     gsap.utils.toArray(".fade-up").forEach((el) => {
@@ -9924,13 +9919,10 @@ html body .hero .hero-tag-btn:hover {
    exactly how the hero went blank on Safari/iOS. ── */
 html.sk-js body .hero .hero-service-tags .hero-tag-btn:not(#_) {
   opacity: 0;
-  transform: translateY(10px);
-  /* Delays are in step with the GSAP hero timeline — change both together. */
-  animation: heroTagReveal 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.95s forwards;
-  animation-play-state: paused;
+  transform: translateY(12px);
+  /* Reveal is driven by the GSAP hero timeline (see the entrance script), so
+     the order holds even under Reduce Motion — no CSS animation here. */
 }
-html.sk-js body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(2) { animation-delay: 1.05s; }
-html.sk-js body .hero .hero-service-tags .hero-tag-btn:not(#_):nth-child(3) { animation-delay: 1.15s; }
 @keyframes heroTagReveal {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -9954,13 +9946,10 @@ html body.sk-hero-forced .hero .hero-service-tags .hero-tag-btn {
   transform: none !important;
   pointer-events: auto !important;
 }
-@media (prefers-reduced-motion: reduce) {
-  html body .hero .hero-service-tags .hero-tag-btn:not(#_) {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
+/* Under Reduce Motion the GSAP timeline still drives the tag reveal (JS/rAF
+   isn't suppressed), so no forced-visible override here — that used to show
+   the tags before the title and break the order. The safety net above still
+   guarantees they end up visible. */
 /* ── MOBILE HERO — DEFINITIVE LAYOUT ───────────────────────────────── */
 @media (max-width: 980px) {
   /* 1. Hero container */
