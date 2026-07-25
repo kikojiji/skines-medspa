@@ -3799,6 +3799,9 @@ html body .hero-sub, html body .section-copy,
 html body .card-desc, html body .price-desc {
   color: #3a3530 !important;
 }
+/* Keep the transparent hero RESERVER button text cream — beats the global
+   span color rule above (id-level specificity via :not(#_)). */
+html body .btn-hero-glass span:not(#_) { color: #F5EDE3 !important; }
 
 /* 7. Links */
 html body a:not(.btn-dark):not(.btn-light):not(.btn-warm):not(.logo):not(.nav-link):not(.btn-hero-glass) {
