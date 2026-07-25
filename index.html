@@ -9580,11 +9580,12 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
    slide+fade — no bounce/scale-pop — so it feels like it settled onto
    the page rather than interrupted it. */
 #sp-overlay {
-  position: fixed; z-index: 400;
-  bottom: 150px; left: 28px;
-  right: auto; top: auto;
-  display: block;
-  background: transparent;
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(8,4,2,0.75);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.7s ease;
@@ -9623,16 +9624,16 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 
 #sp-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
-  width: min(84vw, 280px);
-  height: min(56vh, 380px);
-  box-shadow: 0 24px 64px rgba(6,2,0,0.45), 0 2px 0 rgba(255,255,255,0.04) inset;
-  transform: translateY(22px);
-  transition: transform 0.8s cubic-bezier(.19,1,.22,1), opacity 0.7s ease;
+  width: min(90vw, 420px);
+  height: min(84vh, 640px);
+  box-shadow: 0 48px 120px rgba(6,2,0,0.65), 0 2px 0 rgba(255,255,255,0.04) inset;
+  transform: scale(0.94) translateY(24px);
+  transition: transform 0.7s cubic-bezier(.16,.9,.28,1), opacity 0.6s ease;
   opacity: 0;
 }
-#sp-overlay.sp-visible #sp-card { transform: translateY(0); opacity: 1; }
+#sp-overlay.sp-visible #sp-card { transform: scale(1) translateY(0); opacity: 1; }
 
 /* ── title at top ── */
 #sp-top-text {
@@ -11335,9 +11336,10 @@ function closePopup() {
     return;
   }
   var isMobileOrTablet = window.innerWidth <= 980;
-  // Open only once the visitor reaches the reviews section (on every device),
-  // so it never interrupts the earlier part of the page.
-  var targetId = 'reviews';
+  // Open only once the visitor reaches the contact / map section near the
+  // foot of the page (on every device), so it never interrupts the earlier
+  // part of the page — it lands as a closing beat by the address & map.
+  var targetId = 'contact';
   var target = document.getElementById(targetId);
   if (!target) {
     setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
