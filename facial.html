@@ -6742,12 +6742,33 @@ input, textarea, select {
     function onPlay(e){ if(frozen && isHeroVid(e.target)){ try{ e.target.pause(); e.target.currentTime=0; }catch(_){} } }
     document.addEventListener('play', onPlay, true);
     function playVideos(){ frozen=false; document.removeEventListener('play', onPlay, true); vids().forEach(function(v){ try{ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); } /* released only once the curtain is fully up */
+    // ── Staged hero entrance ──
+    // Hero copy hidden behind the curtain, then revealed top-to-bottom ~1.5s
+    // after the curtain lifts. rAF-driven, so it animates under Reduce Motion.
+    var heroRevealed=false;
+    function heroGroups(){ var c=document.querySelector('header.hero .hero-copy'); return c?Array.prototype.slice.call(c.children):[]; }
+    function hideHeroGroups(){ heroGroups().forEach(function(el){ el.style.opacity='0'; }); }
+    function rafFadeUp(el){
+      var dur=560, s=null;
+      requestAnimationFrame(function loop(ts){
+        if(s==null) s=ts;
+        var p=Math.min((ts-s)/dur,1), e=1-Math.pow(1-p,3);
+        el.style.opacity=e; el.style.transform='translateY('+((1-e)*14)+'px)';
+        if(p<1) requestAnimationFrame(loop);
+        else { el.style.opacity=''; el.style.transform=''; }
+      });
+    }
+    function revealHeroStaged(){
+      if(heroRevealed) return; heroRevealed=true;
+      heroGroups().forEach(function(el,i){ setTimeout(function(){ rafFadeUp(el); }, i*240); });
+    }
     var done=false;
     function dismiss(){
       if(done) return; done=true;
       root.style.overflow='';
       try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
       el.style.pointerEvents='none';
+      hideHeroGroups(); // hold the hero copy hidden behind the lifting curtain
       var reduced=false; try{ reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
       if(reduced){
         // Under Reduce Motion, Safari forces CSS transition-duration to 0, so
@@ -6763,10 +6784,12 @@ input, textarea, select {
           else if(el.parentNode) el.parentNode.removeChild(el);
         });
         setTimeout(playVideos, dur);
+        setTimeout(revealHeroStaged, dur + 1500); // reveal ~1.5s after the curtain is up
       } else {
         el.classList.add('sk-intro-hide');
         setTimeout(playVideos, 900); // start the hero video only once the curtain is fully up — no decode during the lift
         setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
+        setTimeout(revealHeroStaged, 900 + 1500); // reveal ~1.5s after the curtain is up
       }
     }
     // viaX = arrived from the homepage behind the dropped curtain: hold the
