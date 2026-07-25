@@ -9995,19 +9995,19 @@ html body.sk-hero-forced .hero .hero-service-tags .hero-tag-btn {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: flex-start !important;
-    flex: 1 1 auto !important;            /* fill the hero so the CTA can sit low */
+    justify-content: flex-end !important;   /* stack sits low in the hero */
+    flex: 1 1 auto !important;
     text-align: center !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: max(8rem, 42svh) 1.8rem max(4rem, 9svh) !important;
+    padding: max(6rem, 10svh) 1.8rem max(4rem, 9svh) !important;
     gap: 0 !important;
     background: none !important;
     box-sizing: border-box !important;
   }
-  /* Push the RÉSERVER / CARTE CADEAU buttons down to the lower part of the
-     hero (per request) instead of sitting right under the tags. */
-  html body .hero-content .hero-actions.hero-cta { margin-top: auto !important; }
+  /* Title + tags sit low, with a small (~1cm) fixed gap to the RÉSERVER /
+     CARTE CADEAU buttons — the buttons follow right after, not floated apart. */
+  html body .hero-content .hero-actions.hero-cta { margin-top: 2.4rem !important; }
   /* 5. Eyebrow — white (target element + child spans) */
   html body .hero .hero-eyebrow,
   html body .hero .hero-eyebrow span {
