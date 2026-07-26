@@ -5935,7 +5935,7 @@ input, textarea, select {
     </div>
       <div class="mnav-acc" id="mnavGuides">
         <button class="mnav-acc-btn" type="button" aria-expanded="false">
-          <span data-fr="Guides" data-en="Guides">Guides</span>
+          <span data-fr="Guide Skines" data-en="Skines Guide">Guide Skines</span>
           <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
         </button>
         <div class="mnav-acc-panel">
@@ -8023,6 +8023,12 @@ html body nav {}
   color: rgba(245,237,227,0.92) !important; text-decoration: none !important;
 }
 #mobileNav .mnav-toplink:active { background: rgba(201,160,96,0.16) !important; }
+/* Guides — smaller centered pill hugging its label, not a full-width box */
+#mobileNav #mnavGuides { display: flex !important; flex-direction: column !important; align-items: center !important; }
+#mobileNav #mnavGuides .mnav-acc-btn { width: auto !important; justify-content: center !important; gap: 0.55rem !important; border-radius: 999px !important; padding: 0.6rem 1.7rem !important; font-size: 0.78rem !important; }
+#mobileNav #mnavGuides.mnav-open .mnav-acc-btn { border-radius: 999px !important; }
+#mobileNav #mnavGuides .mnav-acc-panel { width: 100% !important; text-align: center !important; }
+#mobileNav #mnavGuides .mnav-acc-panel a { padding-left: 0 !important; text-align: center !important; }
 #mobileNav .mnav-toplink:hover { color: #C9973A !important; }
 #mobileNav .mnav-acc-btn span, #mobileNav .mnav-toplink span { color: inherit !important; }
 #mobileNav .mnav-acc-panel a span { color: inherit !important; }
