@@ -9465,6 +9465,9 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
       if (!isOpen) {
         acc.classList.add('mnav-open');
         btn.setAttribute('aria-expanded', 'true');
+        // Bring the opened section up so its links are fully visible, instead
+        // of expanding cramped near the bottom of the menu.
+        setTimeout(function(){ try { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e) { acc.scrollIntoView(); } }, 90);
       }
     });
   });

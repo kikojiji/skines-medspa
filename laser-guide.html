@@ -2090,6 +2090,7 @@ input, textarea, select {
       if (!isOpen) {
         acc.classList.add('mnav-open');
         btn.setAttribute('aria-expanded', 'true');
+        setTimeout(function(){ try { acc.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e) { acc.scrollIntoView(); } }, 90);
       }
     });
   });
