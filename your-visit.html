@@ -2541,26 +2541,26 @@ html body nav {}
 #mobileNav .mnav-acc-panel a:last-child { padding-bottom: 0.95rem !important; }
 #mobileNav .mnav-acc-panel a:hover { color: #C9973A !important; }
 #mobileNav .mnav-toplink {
-  display: flex !important; flex-direction: column !important; align-items: center !important; gap: 3px !important;
-  padding: 14px 18px !important;
+  display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 3px !important;
+  padding: 10px 18px !important; min-height: 57px !important; box-sizing: border-box !important;
   background: rgb(232,211,163) !important; border: none !important; border-radius: 14px !important;
   text-align: center !important; text-decoration: none !important;
 }
 #mobileNav .mnav-toplink .mnav-toplink-label {
-  font-family: "DM Sans", sans-serif !important; font-size: 1.05rem !important; letter-spacing: 0.22em !important;
+  font-family: "DM Sans", sans-serif !important; font-size: 1.05rem !important; letter-spacing: 0.22em !important; line-height: 1.1 !important;
   text-transform: uppercase !important; color: #684034 !important; font-weight: 600 !important;
 }
 #mobileNav .mnav-toplink .mnav-toplink-sub {
-  font-family: "DM Sans", sans-serif !important; font-size: 0.62rem !important; letter-spacing: 0.16em !important;
+  font-family: "DM Sans", sans-serif !important; font-size: 0.62rem !important; letter-spacing: 0.16em !important; line-height: 1.2 !important;
   text-transform: uppercase !important; color: rgba(104,64,52,0.6) !important; font-weight: 400 !important;
 }
 #mobileNav .mnav-toplink:active { background: rgb(220,198,148) !important; }
-/* Guides — smaller centered pill hugging its label, not a full-width box */
-#mobileNav #mnavGuides { display: flex !important; flex-direction: column !important; align-items: center !important; }
-#mobileNav #mnavGuides .mnav-acc-btn { width: auto !important; justify-content: center !important; gap: 0.55rem !important; border-radius: 999px !important; padding: 0.6rem 1.7rem !important; font-size: 0.78rem !important; }
-#mobileNav #mnavGuides.mnav-open .mnav-acc-btn { border-radius: 999px !important; }
-#mobileNav #mnavGuides .mnav-acc-panel { width: 100% !important; text-align: center !important; }
-#mobileNav #mnavGuides .mnav-acc-panel a { padding-left: 0 !important; text-align: center !important; }
+/* Guides — full width like the other buttons, with a gold accent */
+#mobileNav #mnavGuides { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+#mobileNav .sp-menu-trigger-wrap { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+#mobileNav #mnavGuides .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
+#mobileNav #mnavGuides .mnav-acc-btn span { color: #F5C06A !important; }
+#mobileNav #mnavGuides .mnav-acc-chevron { stroke: #F5C06A !important; }
 #mobileNav .mnav-toplink:hover { color: #C9973A !important; }
 #mobileNav .mnav-acc-btn span, #mobileNav .mnav-toplink span { color: inherit !important; }
 #mobileNav .mnav-acc-panel a span { color: inherit !important; }
@@ -2587,7 +2587,7 @@ html body nav {}
 #mobileNav .mobile-nav-header { padding: 0.6rem 1.4rem !important; }
 #mobileNav .nav-lang-bar { padding: 0.3rem 0 0.3rem !important; }
 #mobileNav .mnav-accordions { padding: 0 1.5rem 0 !important; }
-#mobileNav .sp-menu-trigger-wrap { padding: 10px 1.4rem 4px !important; }
+#mobileNav .sp-menu-trigger-wrap { padding: 10px 1.5rem 4px !important; }
 #mobileNav .mnav-acc-btn { padding: 0.72rem 1.1rem !important; }
 #mobileNav .mnav-toplink { padding: 0.72rem 1.1rem !important; }
 #mobileNav .mnav-acc-panel a { padding: 0.55rem 0 0.55rem 1.1rem !important; }
