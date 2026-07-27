@@ -12274,49 +12274,51 @@ html body .hero-content {
 #sk-xcurtain.sk-xcurtain-down{ transform:translateY(0); }</style>
 <script id="sk-xtion-js">
 (function(){
-  // Page-transition for internal page links inside the mobile menu, as one
-  // fluid gesture:
-  //   1. the menu slides back out to the right (same speed it opened, 0.72s);
-  //   2. as it finishes, a maroon curtain glides smoothly down from the top
-  //      (CSS transition, ease-in-out, 0.9s) to cover the page;
-  //   3. then we navigate — the destination lifts its splash up on arrival.
-  function slideThenDrop(href){
+  // Smooth splash transition on ANY internal page link, anywhere on the site.
+  // Clicking a link that leads to another page: the maroon curtain glides down
+  // to cover the page, then we navigate; the destination lifts (rises) its
+  // splash on arrival. Links inside the open mobile menu first slide the menu
+  // back out to the right, then drop the curtain.
+  var busy = false;
+  function dropThenGo(href){
+    if(busy) return; busy = true;
     try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    var nav = document.getElementById('mobileNav');
-    if(nav){
-      nav.style.pointerEvents = 'none';
-      nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
-      nav.style.setProperty('transform', 'translateX(100%)', 'important'); // 1) slide right
-    }
     var gone = false; function go(){ if(gone) return; gone = true; window.location.href = href; }
     var reduced = false; try{ reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-    setTimeout(function(){
-      var c = document.createElement('div');
-      c.id = 'sk-xcurtain';
-      c.appendChild(document.createElement('span')); // keep it non-:empty (a global rule hides empty divs)
-      c.style.setProperty('display','block','important');
-      document.body.appendChild(c);
-      if(reduced){
-        c.style.transition = 'none';
-        c.classList.add('sk-xcurtain-down');
-        setTimeout(go, 80);
-      } else {
-        // double-rAF so the browser paints the start (up) state before transitioning down
-        requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('sk-xcurtain-down'); }); });
-        setTimeout(go, 940); // navigate once the curtain has fully covered
-      }
-    }, 560); // begin just as the menu slide finishes
+    var c = document.createElement('div');
+    c.id = 'sk-xcurtain';
+    c.appendChild(document.createElement('span')); // keep it non-:empty (a global rule hides empty divs)
+    c.style.setProperty('display','block','important');
+    document.body.appendChild(c);
+    if(reduced){
+      c.style.transition = 'none';
+      c.classList.add('sk-xcurtain-down');
+      setTimeout(go, 80);
+    } else {
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('sk-xcurtain-down'); }); });
+      setTimeout(go, 940); // navigate once the curtain has fully covered
+    }
+  }
+  function slideThenDrop(href, nav){
+    if(busy) return;
+    try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
+    nav.style.pointerEvents = 'none';
+    nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
+    nav.style.setProperty('transform', 'translateX(100%)', 'important'); // slide menu right
+    setTimeout(function(){ dropThenGo(href); }, 560); // then drop the curtain
   }
   document.addEventListener('click', function(ev){
-    var a = ev.target.closest ? ev.target.closest('#mobileNav a[href]') : null;
+    var a = ev.target.closest ? ev.target.closest('a[href]') : null;
     if(!a) return;
     var href = a.getAttribute('href') || '';
-    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return; // internal page only
-    if(a.getAttribute('target') === '_blank') return;
+    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return; // internal page paths only
+    if(a.getAttribute('target') === '_blank' || a.hasAttribute('download')) return;
     if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
     ev.preventDefault();
     ev.stopImmediatePropagation();
-    slideThenDrop(href);
+    var menu = a.closest('#mobileNav');
+    if(menu && menu.classList.contains('open')) slideThenDrop(href, menu);
+    else dropThenGo(href);
   }, true); // capture: run before the page's own link handlers
 })();
 </script>
