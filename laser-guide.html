@@ -2245,5 +2245,39 @@ input, textarea, select {
   }
 }
 </style>
+<style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }</style>
+<script id="sk-xtion-js">
+(function(){
+  // Seamless page-transition for internal page links inside the mobile menu.
+  // The open menu is already a full-screen maroon panel — the SAME colour as
+  // the splash curtain. So instead of closing the menu (which would flash the
+  // page behind it), we keep it in place, fade its contents out, and navigate.
+  // The destination reads `sk-xtion` and lifts its own splash on arrival — one
+  // continuous maroon hand-off with no page flash.
+  function fadeGo(href){
+    try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
+    document.documentElement.style.overflow = 'hidden';
+    var nav = document.getElementById('mobileNav');
+    if(nav){
+      nav.style.pointerEvents = 'none';
+      var kids = nav.children;
+      for(var i=0;i<kids.length;i++){ kids[i].style.transition = 'opacity .42s ease'; kids[i].style.opacity = '0'; }
+    }
+    var gone = false; function go(){ if(gone) return; gone = true; window.location.href = href; }
+    setTimeout(go, 560);
+  }
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest ? ev.target.closest('#mobileNav a[href]') : null;
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return; // internal page only
+    if(a.getAttribute('target') === '_blank') return;
+    if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
+    ev.preventDefault();
+    ev.stopImmediatePropagation(); // keep the maroon menu covering (no close, no flash)
+    fadeGo(href);
+  }, true); // capture: run before the page's own link handlers
+})();
+</script>
 </body>
 </html>
