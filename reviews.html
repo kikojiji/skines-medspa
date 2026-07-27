@@ -8396,15 +8396,17 @@ html body nav {}
   }
 }
 </style>
-<style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }</style>
+<style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }
+#sk-xcurtain{ position:fixed; left:0; top:0; right:0; bottom:0; inset:0; display:block !important; background:#684034; z-index:100002; transform:translateY(-100vh); will-change:transform; pointer-events:none; transition:transform .9s cubic-bezier(.65,0,.35,1); }
+#sk-xcurtain.sk-xcurtain-down{ transform:translateY(0); }</style>
 <script id="sk-xtion-js">
 (function(){
-  // Page-transition for internal page links inside the mobile menu, in two
-  // clean beats:
+  // Page-transition for internal page links inside the mobile menu, as one
+  // fluid gesture:
   //   1. the menu slides back out to the right (same speed it opened, 0.72s);
-  //   2. once it is gone, a maroon curtain drops smoothly down from the top to
-  //      cover the page — then we navigate. The destination lifts its own
-  //      splash up on arrival (drop down here, rise up there).
+  //   2. as it finishes, a maroon curtain glides smoothly down from the top
+  //      (CSS transition, ease-in-out, 0.9s) to cover the page;
+  //   3. then we navigate — the destination lifts its splash up on arrival.
   function slideThenDrop(href){
     try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
     var nav = document.getElementById('mobileNav');
@@ -8414,23 +8416,23 @@ html body nav {}
       nav.style.setProperty('transform', 'translateX(100%)', 'important'); // 1) slide right
     }
     var gone = false; function go(){ if(gone) return; gone = true; window.location.href = href; }
-    // 2) after the menu has slid off, drop the maroon curtain down
+    var reduced = false; try{ reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
     setTimeout(function(){
       var c = document.createElement('div');
       c.id = 'sk-xcurtain';
-      c.style.cssText = 'position:fixed;left:0;top:0;right:0;bottom:0;inset:0;width:100%;height:100%;background:#684034;z-index:100002;transform:translateY(-100%);will-change:transform;pointer-events:none;';
+      c.appendChild(document.createElement('span')); // keep it non-:empty (a global rule hides empty divs)
+      c.style.setProperty('display','block','important');
       document.body.appendChild(c);
-      var h = window.innerHeight || c.offsetHeight || 800, dur = 660;
-      // Scripted transform (rAF) so it stays smooth and also animates under
-      // Reduce Motion, where a CSS transition would be forced to 0.
-      requestAnimationFrame(function loop(ts){
-        if(loop._s == null) loop._s = ts;
-        var p = Math.min((ts - loop._s)/dur, 1), e = 1 - Math.pow(1-p, 3); // easeOutCubic
-        c.style.transform = 'translateY(' + (-h*(1-e)) + 'px)';
-        if(p < 1) requestAnimationFrame(loop); else go();
-      });
-      setTimeout(go, dur + 240); // safety net
-    }, 680); // let the menu finish sliding first
+      if(reduced){
+        c.style.transition = 'none';
+        c.classList.add('sk-xcurtain-down');
+        setTimeout(go, 80);
+      } else {
+        // double-rAF so the browser paints the start (up) state before transitioning down
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('sk-xcurtain-down'); }); });
+        setTimeout(go, 940); // navigate once the curtain has fully covered
+      }
+    }, 560); // begin just as the menu slide finishes
   }
   document.addEventListener('click', function(ev){
     var a = ev.target.closest ? ev.target.closest('#mobileNav a[href]') : null;
