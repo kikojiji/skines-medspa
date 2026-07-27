@@ -2875,23 +2875,21 @@ html body nav {}
 <style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }</style>
 <script id="sk-xtion-js">
 (function(){
-  // Seamless page-transition for internal page links inside the mobile menu.
-  // The open menu is already a full-screen maroon panel — the SAME colour as
-  // the splash curtain. So instead of closing the menu (which would flash the
-  // page behind it), we keep it in place, fade its contents out, and navigate.
-  // The destination reads `sk-xtion` and lifts its own splash on arrival — one
-  // continuous maroon hand-off with no page flash.
-  function fadeGo(href){
+  // Page-transition for internal page links inside the mobile menu.
+  // The menu slides back out to the right — the same movement/speed it opened
+  // with — then we navigate; the destination reads `sk-xtion` and lifts its
+  // splash on arrival. We keep the `open` class (so the panel stays visible
+  // during the slide) and drive the slide with an inline !important transform.
+  function slideGo(href){
     try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    document.documentElement.style.overflow = 'hidden';
     var nav = document.getElementById('mobileNav');
     if(nav){
       nav.style.pointerEvents = 'none';
-      var kids = nav.children;
-      for(var i=0;i<kids.length;i++){ kids[i].style.transition = 'opacity .42s ease'; kids[i].style.opacity = '0'; }
+      nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
+      nav.style.setProperty('transform', 'translateX(100%)', 'important'); // slide right
     }
     var gone = false; function go(){ if(gone) return; gone = true; window.location.href = href; }
-    setTimeout(go, 560);
+    setTimeout(go, 700); // navigate once the menu has slid off (matches the 0.72s open)
   }
   document.addEventListener('click', function(ev){
     var a = ev.target.closest ? ev.target.closest('#mobileNav a[href]') : null;
@@ -2901,8 +2899,8 @@ html body nav {}
     if(a.getAttribute('target') === '_blank') return;
     if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
     ev.preventDefault();
-    ev.stopImmediatePropagation(); // keep the maroon menu covering (no close, no flash)
-    fadeGo(href);
+    ev.stopImmediatePropagation(); // we control the close + navigate timing
+    slideGo(href);
   }, true); // capture: run before the page's own link handlers
 })();
 </script>
