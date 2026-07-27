@@ -10287,21 +10287,38 @@ html body #tarifs .section-head h2 span {
 <style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }</style>
 <script id="sk-xtion-js">
 (function(){
-  // Page-transition for internal page links inside the mobile menu.
-  // The menu slides back out to the right — the same movement/speed it opened
-  // with — then we navigate; the destination reads `sk-xtion` and lifts its
-  // splash on arrival. We keep the `open` class (so the panel stays visible
-  // during the slide) and drive the slide with an inline !important transform.
-  function slideGo(href){
+  // Page-transition for internal page links inside the mobile menu, in two
+  // clean beats:
+  //   1. the menu slides back out to the right (same speed it opened, 0.72s);
+  //   2. once it is gone, a maroon curtain drops smoothly down from the top to
+  //      cover the page — then we navigate. The destination lifts its own
+  //      splash up on arrival (drop down here, rise up there).
+  function slideThenDrop(href){
     try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
     var nav = document.getElementById('mobileNav');
     if(nav){
       nav.style.pointerEvents = 'none';
       nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
-      nav.style.setProperty('transform', 'translateX(100%)', 'important'); // slide right
+      nav.style.setProperty('transform', 'translateX(100%)', 'important'); // 1) slide right
     }
     var gone = false; function go(){ if(gone) return; gone = true; window.location.href = href; }
-    setTimeout(go, 700); // navigate once the menu has slid off (matches the 0.72s open)
+    // 2) after the menu has slid off, drop the maroon curtain down
+    setTimeout(function(){
+      var c = document.createElement('div');
+      c.id = 'sk-xcurtain';
+      c.style.cssText = 'position:fixed;left:0;top:0;right:0;bottom:0;inset:0;width:100%;height:100%;background:#684034;z-index:100002;transform:translateY(-100%);will-change:transform;pointer-events:none;';
+      document.body.appendChild(c);
+      var h = window.innerHeight || c.offsetHeight || 800, dur = 660;
+      // Scripted transform (rAF) so it stays smooth and also animates under
+      // Reduce Motion, where a CSS transition would be forced to 0.
+      requestAnimationFrame(function loop(ts){
+        if(loop._s == null) loop._s = ts;
+        var p = Math.min((ts - loop._s)/dur, 1), e = 1 - Math.pow(1-p, 3); // easeOutCubic
+        c.style.transform = 'translateY(' + (-h*(1-e)) + 'px)';
+        if(p < 1) requestAnimationFrame(loop); else go();
+      });
+      setTimeout(go, dur + 240); // safety net
+    }, 680); // let the menu finish sliding first
   }
   document.addEventListener('click', function(ev){
     var a = ev.target.closest ? ev.target.closest('#mobileNav a[href]') : null;
@@ -10311,8 +10328,8 @@ html body #tarifs .section-head h2 span {
     if(a.getAttribute('target') === '_blank') return;
     if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
     ev.preventDefault();
-    ev.stopImmediatePropagation(); // we control the close + navigate timing
-    slideGo(href);
+    ev.stopImmediatePropagation();
+    slideThenDrop(href);
   }, true); // capture: run before the page's own link handlers
 })();
 </script>
