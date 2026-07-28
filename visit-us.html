@@ -743,7 +743,59 @@ footer { background: #684034 !important; }
 }
 </script>
 
-<!-- nav.css / animations.css: moved here from deep in <body> (were
+<!-- nav.css / animations.css: moved here from deep in <body>
+<style id="sk-intro-css">
+  #sk-intro{ position:fixed; inset:0; z-index:100000; background:#684034; display:flex; align-items:center; justify-content:center; transition:transform .9s cubic-bezier(.45,0,.2,1); will-change:transform; backface-visibility:hidden; -webkit-backface-visibility:hidden; }
+  #sk-intro.sk-intro-hide{ transform:translateY(-100%); pointer-events:none; }
+  #sk-intro .sk-intro-inner{ display:flex; flex-direction:column; align-items:center; text-align:center; opacity:0; transform:translateY(14px); animation:skIntroIn .85s cubic-bezier(.2,.7,.2,1) forwards; }
+  #sk-intro .sk-intro-stones{ width:98px; height:auto; display:block; margin-bottom:20px; filter:drop-shadow(0 10px 26px rgba(0,0,0,.35)); }
+  #sk-intro .sk-intro-word{ font-family:"Cormorant Garamond",serif; color:#F5EDE3 !important; font-weight:500; line-height:1; font-size:1.75rem; letter-spacing:.4em; text-indent:.4em; }
+  #sk-intro .sk-intro-sub{ margin-top:13px; color:rgba(245,237,227,.72) !important; font-family:"DM Sans",sans-serif; font-size:.58rem; letter-spacing:.34em; text-indent:.34em; text-transform:uppercase; }
+  @keyframes skIntroIn{ to{ opacity:1; transform:translateY(0); } }
+  @media (prefers-reduced-motion:reduce){ #sk-intro .sk-intro-inner{ animation-duration:.01s; } }
+</style>
+<div id="sk-intro" aria-hidden="true">
+  <div class="sk-intro-inner">
+    <img src="/assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones">
+    <span class="sk-intro-word">SKINES</span>
+    <span class="sk-intro-sub">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span>
+  </div>
+</div>
+<script>
+  (function(){
+    var KEY='sk-intro-seen', XT='sk-xtion';
+    var el=document.getElementById('sk-intro'); if(!el) return;
+    var viaX=false;
+    try{ viaX=sessionStorage.getItem(XT)==='1'; if(viaX) sessionStorage.removeItem(XT); }catch(e){}
+    if(viaX){ var inr=el.querySelector('.sk-intro-inner'); if(inr){ inr.style.animation='none'; inr.style.opacity='1'; inr.style.transform='none'; } }
+    var root=document.documentElement; root.style.overflow='hidden';
+    var done=false;
+    function dismiss(){
+      if(done) return; done=true;
+      root.style.overflow='';
+      try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+      el.style.pointerEvents='none';
+      var reduced=false; try{ reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+      if(reduced){
+        el.style.transition='none';
+        var h=el.offsetHeight||window.innerHeight||800, dur=560;
+        requestAnimationFrame(function loop(ts){
+          if(loop._s==null) loop._s=ts;
+          var p=Math.min((ts-loop._s)/dur,1), e=1-Math.pow(1-p,3);
+          el.style.transform='translateY('+(-e*h)+'px)';
+          if(p<1) requestAnimationFrame(loop);
+          else if(el.parentNode) el.parentNode.removeChild(el);
+        });
+      } else {
+        el.classList.add('sk-intro-hide');
+        setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
+      }
+    }
+    var t=setTimeout(dismiss, viaX?1000:1600);
+    el.onclick=function(){ clearTimeout(t); dismiss(); };
+  })();
+</script>
+ (were
      loaded thousands of lines after the hero/nav markup they style).
      On a slow connection or hard reload, the browser could paint the
      page using only this file's own inline <style> block first, then
