@@ -11555,6 +11555,29 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     });
   });
 
+  // 5. Scroll away → mute. Any playing video that leaves the viewport is muted
+  //    (its sound must not keep playing once it's off-screen). Covers the hero
+  //    and the review circles; the "only one source at a time" silenceAll logic
+  //    above handles the rest.
+  if (typeof IntersectionObserver !== 'undefined') {
+    var muteOnExit = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) {
+        if (en.isIntersecting) return;
+        var v = en.target;
+        if (!v || v.muted) return;
+        v.muted = true;
+        if (v === heroVideo) {
+          if (muteBtn)     { muteBtn.classList.remove('unmuted'); muteBtn.setAttribute('aria-label', 'Activer le son'); }
+          if (soundToggle) soundToggle.setAttribute('aria-pressed', 'false');
+        }
+        var w = v.closest && v.closest('.review-circle-wrap');
+        if (w) { var b = w.querySelector('.circ-sound-btn'); if (b) { b.innerHTML = CIRC_SVG_MUTED; b.style.opacity = '0'; b.style.display = 'none'; } w.classList.remove('playing'); }
+      });
+    }, { threshold: 0.35 });
+    if (heroVideo) muteOnExit.observe(heroVideo);
+    document.querySelectorAll('.review-circle-wrap video').forEach(function(v) { muteOnExit.observe(v); });
+  }
+
 })();
 </script>
 
