@@ -11571,11 +11571,25 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
           if (soundToggle) soundToggle.setAttribute('aria-pressed', 'false');
         }
         var w = v.closest && v.closest('.review-circle-wrap');
-        if (w) { var b = w.querySelector('.circ-sound-btn'); if (b) { b.innerHTML = CIRC_SVG_MUTED; b.style.opacity = '0'; b.style.display = 'none'; } w.classList.remove('playing'); }
+        if (w) { try { v.pause(); } catch (e) {} var b = w.querySelector('.circ-sound-btn'); if (b) { b.innerHTML = CIRC_SVG_MUTED; b.style.opacity = '0'; b.style.display = 'none'; } w.classList.remove('playing'); }
       });
     }, { threshold: 0.35 });
     if (heroVideo) muteOnExit.observe(heroVideo);
     document.querySelectorAll('.review-circle-wrap video').forEach(function(v) { muteOnExit.observe(v); });
+
+    // Reviews (avis) carousel: when it scrolls out of view, STOP it —
+    // pause AND mute every video inside, and clear the playing state.
+    var ivcOuter = document.getElementById('ivc-outer');
+    if (ivcOuter) {
+      var ivcExit = new IntersectionObserver(function(entries) {
+        entries.forEach(function(en) {
+          if (en.isIntersecting) return;
+          ivcOuter.querySelectorAll('video').forEach(function(v) { try { v.pause(); } catch (e) {} v.muted = true; });
+          ivcOuter.querySelectorAll('.ivc-playing').forEach(function(s) { s.classList.remove('ivc-playing'); });
+        });
+      }, { threshold: 0.25 });
+      ivcExit.observe(ivcOuter);
+    }
   }
 
 })();
