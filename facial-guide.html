@@ -2336,13 +2336,14 @@ input, textarea, select {
     var c = document.createElement('div');
     c.id = 'sk-xcurtain';
     c.innerHTML = LOGO;
-    document.body.appendChild(c);
+    document.body.appendChild(c); // starts at translateY(-100vh) from CSS
     if(reduced){
       c.style.transition = 'none';
-      c.classList.add('sk-xcurtain-down');
+      c.style.transform = 'translateY(0)';
       setTimeout(go, 80);
     } else {
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('sk-xcurtain-down'); }); });
+      void c.offsetHeight; // force reflow so the start frame paints before the class flips (iOS Safari)
+      c.classList.add('sk-xcurtain-down');
       setTimeout(go, 940);
     }
   }
