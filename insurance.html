@@ -783,7 +783,7 @@ footer { background: #684034 !important; }
     var KEY='sk-intro-seen', XT='sk-xtion';
     var el=document.getElementById('sk-intro'); if(!el) return;
     var viaX=false;
-    try{ viaX=sessionStorage.getItem(XT)==='1'; if(viaX) sessionStorage.removeItem(XT); }catch(e){}
+    var _ux=location.search.indexOf('x=1')>-1; try{ viaX=_ux||sessionStorage.getItem(XT)==='1'; if(viaX){ try{sessionStorage.removeItem(XT);}catch(_e){} } }catch(e){ viaX=_ux; } if(_ux){ try{ history.replaceState(null,'',location.pathname+location.hash); }catch(_e2){} }
     if(viaX){ var inr=el.querySelector('.sk-intro-inner'); if(inr){ inr.style.animation='none'; inr.style.opacity='1'; inr.style.transform='none'; } }
     var root=document.documentElement; root.style.overflow='hidden';
     var done=false;
@@ -2929,21 +2929,22 @@ html body nav {}
 #sk-xcurtain.sk-xcurtain-down{ transform:translateY(0); }</style>
 <script id="sk-xtion-js">
 (function(){
-  // One continuous splash on internal page navigation: a maroon curtain that
-  // carries the SAME logo as the arrival splash glides DOWN to cover the page,
-  // then we navigate and the destination lifts that same splash UP. Because the
-  // leaving curtain and the arriving splash are visually identical, it reads as
-  // a single splash that drops then rises — not two different overlays.
+  // One continuous splash on internal navigation: a maroon curtain carrying the
+  // SAME logo as the splash glides down to cover, then we navigate WITH ?x=1 so
+  // the destination knows to skip its intro fade and just lift the splash up.
+  // ?x=1 (not only sessionStorage) survives iOS private mode / storage limits.
   var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72);font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
+  function withX(u){ return u + (u.indexOf('?')>-1 ? '&' : '?') + 'x=1'; }
   var busy = false;
   function dropThenGo(href){
     if(busy) return; busy = true;
     try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    var gone = false; function go(){ if(gone) return; gone = true; window.location.href = href; }
+    var target = withX(href);
+    var gone = false; function go(){ if(gone) return; gone = true; window.location.href = target; }
     var reduced = false; try{ reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
     var c = document.createElement('div');
     c.id = 'sk-xcurtain';
-    c.innerHTML = LOGO; // same logo as the splash → one continuous identity
+    c.innerHTML = LOGO;
     document.body.appendChild(c);
     if(reduced){
       c.style.transition = 'none';
@@ -2951,7 +2952,7 @@ html body nav {}
       setTimeout(go, 80);
     } else {
       requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('sk-xcurtain-down'); }); });
-      setTimeout(go, 940); // navigate once the curtain has fully covered
+      setTimeout(go, 940);
     }
   }
   function slideThenDrop(href, nav){
@@ -2959,14 +2960,14 @@ html body nav {}
     try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
     nav.style.pointerEvents = 'none';
     nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
-    nav.style.setProperty('transform', 'translateX(100%)', 'important'); // slide menu right
-    setTimeout(function(){ dropThenGo(href); }, 560); // then drop the curtain
+    nav.style.setProperty('transform', 'translateX(100%)', 'important');
+    setTimeout(function(){ dropThenGo(href); }, 560);
   }
   document.addEventListener('click', function(ev){
     var a = ev.target.closest ? ev.target.closest('a[href]') : null;
     if(!a) return;
     var href = a.getAttribute('href') || '';
-    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return; // internal page paths only
+    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return;
     if(a.getAttribute('target') === '_blank' || a.hasAttribute('download')) return;
     if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
     ev.preventDefault();
@@ -2974,7 +2975,7 @@ html body nav {}
     var menu = a.closest('#mobileNav');
     if(menu && menu.classList.contains('open')) slideThenDrop(href, menu);
     else dropThenGo(href);
-  }, true); // capture: run before the page's own link handlers
+  }, true);
 })();
 </script>
 </body>
