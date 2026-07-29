@@ -5219,7 +5219,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
 </style>
 <div id="sk-intro" aria-hidden="true">
   <div class="sk-intro-inner">
-    <img src="/assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones">
+    <img src="/assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones" decoding="sync" fetchpriority="high">
     <span class="sk-intro-word">SKINES</span>
     <span class="sk-intro-sub">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span>
   </div>
@@ -5892,6 +5892,7 @@ input, textarea, select {
     html body #mainNav .nav-dropdown-guide::after { top: 100%; height: 14px; left: 0; width: max(100%, 240px); }
   }
 </style>
+  <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
 </head>
 <body>
 
@@ -5937,7 +5938,7 @@ input, textarea, select {
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
     <div class="mobile-nav-header">
       <a class="logo" href="/">
-        <img src="assets/images/logo-officiel-cropped.webp?v=2" class="mnav-logo-stones" alt="" aria-hidden="true">
+        <img src="assets/images/logo-officiel-cropped.webp?v=2" class="mnav-logo-stones" alt="" aria-hidden="true" decoding="sync" fetchpriority="high">
         <div class="logo-brand">
           <span class="logo-text">SKINES</span>
           <span class="logo-sub">Head Spa · Montréal</span>
@@ -7340,7 +7341,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="/">
-      <img src="assets/images/logo-officiel-cropped.webp?v=2" class="sf-stones" alt="Skines">
+      <img src="assets/images/logo-officiel-cropped.webp?v=2" class="sf-stones" alt="Skines" decoding="sync" fetchpriority="high">
       <span class="sf-brand">SKINES</span>
       <span class="sf-tagline-sub">Head Spa · Montréal</span>
     </a>
@@ -8470,7 +8471,7 @@ html body nav {}
   // SAME logo as the splash glides down to cover, then we navigate WITH ?x=1 so
   // the destination knows to skip its intro fade and just lift the splash up.
   // ?x=1 (not only sessionStorage) survives iOS private mode / storage limits.
-  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72);font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
+  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));" decoding="sync" fetchpriority="high"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72);font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
   function withX(u){ return u + (u.indexOf('?')>-1 ? '&' : '?') + 'x=1'; }
   var busy = false;
   function dropThenGo(href){
