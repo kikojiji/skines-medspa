@@ -2678,15 +2678,16 @@ html body nav {}
 }
 </style>
 <style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }
-#sk-xcurtain{ position:fixed; left:0; top:0; right:0; bottom:0; inset:0; display:block !important; background:#684034; z-index:100002; transform:translateY(-100vh); will-change:transform; pointer-events:none; transition:transform .9s cubic-bezier(.65,0,.35,1); }
+#sk-xcurtain{ position:fixed; left:0; top:0; right:0; bottom:0; inset:0; display:flex !important; align-items:center; justify-content:center; background:#684034; z-index:100002; transform:translateY(-100vh); will-change:transform; pointer-events:none; transition:transform .9s cubic-bezier(.65,0,.35,1); }
 #sk-xcurtain.sk-xcurtain-down{ transform:translateY(0); }</style>
 <script id="sk-xtion-js">
 (function(){
-  // Smooth splash transition on ANY internal page link, anywhere on the site.
-  // Clicking a link that leads to another page: the maroon curtain glides down
-  // to cover the page, then we navigate; the destination lifts (rises) its
-  // splash on arrival. Links inside the open mobile menu first slide the menu
-  // back out to the right, then drop the curtain.
+  // One continuous splash on internal page navigation: a maroon curtain that
+  // carries the SAME logo as the arrival splash glides DOWN to cover the page,
+  // then we navigate and the destination lifts that same splash UP. Because the
+  // leaving curtain and the arriving splash are visually identical, it reads as
+  // a single splash that drops then rises — not two different overlays.
+  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72);font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
   var busy = false;
   function dropThenGo(href){
     if(busy) return; busy = true;
@@ -2695,8 +2696,7 @@ html body nav {}
     var reduced = false; try{ reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
     var c = document.createElement('div');
     c.id = 'sk-xcurtain';
-    c.appendChild(document.createElement('span')); // keep it non-:empty (a global rule hides empty divs)
-    c.style.setProperty('display','block','important');
+    c.innerHTML = LOGO; // same logo as the splash → one continuous identity
     document.body.appendChild(c);
     if(reduced){
       c.style.transition = 'none';
