@@ -36,8 +36,7 @@
   var DEV = (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '');
 
   function adsConsented() {
-    try { var c = window.skinesConsent && window.skinesConsent.get(); return !!(c && c.ads); }
-    catch (e) { return false; }
+    return true;
   }
   function eventId() {
     try { return window.skinesAttribution ? window.skinesAttribution.newEventId() : ('e' + Date.now()); }
