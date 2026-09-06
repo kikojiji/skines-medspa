@@ -30,13 +30,14 @@
   'use strict';
 
   // ─── TikTok Pixel ID (public value). Empty = module stays inert. ───
-  var PIXEL_ID = 'DADNG2RC77UDHLL3H8P0';
+  var PIXEL_ID = 'DAEC8GJC77UDHLL3IQ8G';
   // ───────────────────────────────────────────────────────────────────────────
 
   var DEV = (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '');
 
   function adsConsented() {
-    return true;
+    try { var c = window.skinesConsent && window.skinesConsent.get(); return !!(c && c.ads); }
+    catch (e) { return false; }
   }
   function eventId() {
     try { return window.skinesAttribution ? window.skinesAttribution.newEventId() : ('e' + Date.now()); }
