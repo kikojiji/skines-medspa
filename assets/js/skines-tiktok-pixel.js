@@ -49,11 +49,11 @@
     p = p || {};
     switch (name) {
       case 'service_view':
-        return { ev: 'ViewContent',      data: { content_type: 'product', content_category: p.service_category } };
+        return { ev: 'ViewContent',      data: { content_type: 'product', content_id: p.service_category || 'service', content_name: p.button_text, content_category: p.service_category } };
       case 'booking_intent':
-        return { ev: 'InitiateCheckout', data: { content_type: 'product', content_category: p.service_category || 'booking' } };
+        return { ev: 'InitiateCheckout', data: { content_type: 'product', content_id: p.service_category || 'booking', content_name: p.button_text, content_category: p.service_category || 'booking' } };
       case 'gift_card_intent':
-        return { ev: 'InitiateCheckout', data: { content_type: 'product', content_category: 'gift_card' } };
+        return { ev: 'InitiateCheckout', data: { content_type: 'product', content_id: 'gift_card', content_name: p.button_text, content_category: 'gift_card' } };
       case 'phone_click':
         return { ev: 'Contact',          data: { contact_method: 'phone' } };
       case 'email_click':
