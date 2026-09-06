@@ -242,6 +242,13 @@
     };
     write(c);
     apply(c);
+    try {
+      gtag('event', 'cookie_consent', {
+        choice: (c.analytics && c.ads) ? 'accept' : (!c.analytics && !c.ads) ? 'reject' : 'custom',
+        analytics_consent: c.analytics,
+        ads_consent: c.ads
+      });
+    } catch (e) {}
     hide();
   }
 
