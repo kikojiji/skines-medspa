@@ -8614,10 +8614,10 @@ input, textarea, select {
     .sk-wr{background:#faf5ee;padding:clamp(4rem,9vw,6.5rem) 1.4rem;position:relative;overflow:hidden;}
     /* faint award watermark behind the whole section */
     .sk-wr::after{content:"";position:absolute;right:-6%;bottom:-8%;width:min(46vw,420px);height:min(46vw,420px);
-      background:url("/assets/best-in-class-2026-fresha.png") no-repeat center/contain;opacity:.05;pointer-events:none;}
+      background:url("/assets/best-in-class-2026-fresha.png?v=2") no-repeat center/contain;opacity:.05;pointer-events:none;}
     .sk-wr__head{max-width:1100px;margin:0 auto 3rem;text-align:center;position:relative;z-index:1;
       display:flex;flex-direction:column;align-items:center;}
-    .sk-wr__badge{width:clamp(130px,26vw,158px);height:auto;margin-bottom:1.1rem;mix-blend-mode:multiply;}
+    .sk-wr__badge{width:clamp(130px,26vw,158px);height:auto;margin-bottom:1.1rem;filter:drop-shadow(0 10px 22px rgba(88,60,140,.22));}
     .sk-wr__eyebrow{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:#b98a3e;font-weight:600;}
     .sk-wr__title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:#4b2e26;
       font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.5rem 0 1.3rem;text-wrap:balance;}
@@ -8643,11 +8643,12 @@ input, textarea, select {
     @media(max-width:900px){
       .sk-wr__grid{grid-template-columns:1fr;max-width:540px;gap:1.5rem;}
       .sk-wr__card{padding:1.9rem 1.6rem;}
+      .sk-wr__badge{width:180px;}
     }
   </style>
   <section class="sk-wr" id="skReviews" aria-label="Avis clients">
     <div class="sk-wr__head">
-      <img class="sk-wr__badge" src="/assets/best-in-class-2026-fresha.png" alt="Fresha — Best in Class 2026" width="132" height="165" loading="lazy" decoding="async">
+      <img class="sk-wr__badge" src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="132" height="165" loading="lazy" decoding="async">
       <div class="sk-wr__eyebrow" data-fr="Avis vérifiés · Best in Class 2026" data-en="Verified reviews · Best in Class 2026">Avis vérifiés · Best in Class 2026</div>
       <h2 class="sk-wr__title" data-fr="Ce que disent nos clients" data-en="What our clients say">Ce que disent nos clients</h2>
       <div class="sk-wr__ratings">
