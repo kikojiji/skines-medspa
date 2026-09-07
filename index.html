@@ -7595,7 +7595,7 @@ input, textarea, select {
   setTimeout(function () {
     if (!document.body || document.body.classList.contains('sk-hero-done')) return;
     document.body.classList.add('sk-hero-forced');
-    var sel = '.hero-eyebrow, .hero-title, .hero-cta, .hero-cta .btn-hero-glass, .hero-tag-btn';
+    var sel = '.hero-eyebrow, .hero-title, .hero-cta, .hero-cta .btn-hero-glass, .hero-tag-btn, #heroTrust';
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
       ['opacity', 'visibility', 'transform', 'pointer-events'].forEach(function (p) {
         el.style.removeProperty(p);
@@ -7861,7 +7861,18 @@ input, textarea, select {
       #heroTrust .hero-trust__stars{color:#e8bd5c !important;letter-spacing:2px;font-size:1rem;line-height:1;}
       #heroTrust .hero-trust__txt{color:#F5EDE3 !important;font-size:.9rem;letter-spacing:.03em;}
       #heroTrust .hero-trust__txt strong{color:#fff !important;font-weight:700;}
-      @media (max-width:600px){ #heroTrust{margin:14px auto 2px;padding:6px 14px;} #heroTrust .hero-trust__txt{font-size:.84rem;} }
+      /* Hidden until the GSAP hero timeline reveals it (right after the service
+         buttons) — matches how .hero-tag-btn / .hero-cta are gated. */
+      html.sk-js #heroTrust{opacity:0;transform:translateY(12px);}
+      html body.sk-hero-forced #heroTrust{opacity:1 !important;transform:none !important;}
+      /* Desktop: bigger, more presence. */
+      @media (min-width:1024px){
+        #heroTrust{gap:12px;padding:10px 22px;margin:22px auto 6px;}
+        #heroTrust .hero-trust__stars{font-size:1.2rem;letter-spacing:3px;}
+        #heroTrust .hero-trust__txt{font-size:1.06rem;}
+      }
+      /* Mobile: neat + proportional. */
+      @media (max-width:600px){ #heroTrust{margin:14px auto 2px;padding:7px 15px;gap:8px;} #heroTrust .hero-trust__stars{font-size:.95rem;letter-spacing:1.5px;} #heroTrust .hero-trust__txt{font-size:.83rem;} }
       </style>
       <div id="heroTrust" aria-label="Avis clients vérifiés">
         <span class="hero-trust__stars" aria-hidden="true">★★★★★</span>
@@ -9380,7 +9391,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
       document.body.classList.add('sk-hero-forced', 'sk-hero-done');
       // The class alone loses to an inline `!important`, so strip the inline
       // values too — belt and braces, since this is the last line of defence.
-      var sel = '.hero-eyebrow, .hero-title, .hero-cta, .hero-cta .btn-hero-glass, .hero-tag-btn';
+      var sel = '.hero-eyebrow, .hero-title, .hero-cta, .hero-cta .btn-hero-glass, .hero-tag-btn, #heroTrust';
       Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) {
         ['opacity', 'visibility', 'transform', 'pointer-events'].forEach(function (p) {
           el.style.removeProperty(p);
@@ -9404,7 +9415,8 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
       .fromTo(".hero-eyebrow", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.15)
       .fromTo(".hero-title",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.40)
       .fromTo(".hero-tag-btn", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.12, ease: "power3.out" }, 0.95)
-      .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.70);
+      .fromTo("#heroTrust",    { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 1.55)
+      .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.95);
 
     // On phones the hero video plays its own baked-in "SKINES" logo intro
     // (~2s) as the curtain lifts, so hold the text back until that has passed —
