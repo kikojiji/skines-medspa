@@ -8609,6 +8609,89 @@ input, textarea, select {
 
   </section>
 
+  <!-- ── Written client reviews (curated from /reviews; staff names removed) ── -->
+  <style>
+    .sk-wr{background:#faf5ee;padding:clamp(4rem,9vw,6.5rem) 1.4rem;position:relative;overflow:hidden;}
+    /* faint award watermark behind the whole section */
+    .sk-wr::after{content:"";position:absolute;right:-6%;bottom:-8%;width:min(46vw,420px);height:min(46vw,420px);
+      background:url("/assets/best-in-class-2026-fresha.png") no-repeat center/contain;opacity:.05;pointer-events:none;}
+    .sk-wr__head{max-width:1100px;margin:0 auto 3rem;text-align:center;position:relative;z-index:1;
+      display:flex;flex-direction:column;align-items:center;}
+    .sk-wr__badge{width:clamp(130px,26vw,158px);height:auto;margin-bottom:1.1rem;mix-blend-mode:multiply;}
+    .sk-wr__eyebrow{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:#b98a3e;font-weight:600;}
+    .sk-wr__title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:#4b2e26;
+      font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.5rem 0 1.3rem;text-wrap:balance;}
+    .sk-wr__ratings{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;}
+    .sk-wr__pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid rgba(104,64,52,.12);
+      border-radius:999px;padding:.55rem 1.1rem;font-size:.86rem;color:#684034;box-shadow:0 2px 12px rgba(104,64,52,.06);}
+    .sk-wr__pill b{font-size:1rem;color:#4b2e26;font-variant-numeric:tabular-nums;}
+    .sk-wr__pill em{font-style:normal;color:#9e8c84;font-size:.78rem;}
+    #skReviews .sk-wr__stars{color:#c9973a !important;letter-spacing:.06em;}
+    .sk-wr__grid{max-width:1100px;margin:0 auto;display:grid;gap:1.4rem;
+      grid-template-columns:repeat(3,1fr);position:relative;z-index:1;}
+    .sk-wr__card{background:#fff;border:1px solid rgba(104,64,52,.10);border-radius:18px;
+      padding:2rem 1.8rem 1.7rem;display:flex;flex-direction:column;gap:1.1rem;
+      box-shadow:0 4px 26px rgba(104,64,52,.06);}
+    .sk-wr__card .sk-wr__stars{letter-spacing:.12em;font-size:1rem;}
+    .sk-wr__quote{color:#5a4038;font-size:.95rem;line-height:1.7;margin:0;flex:1;}
+    .sk-wr__author{color:#684034;font-weight:700;font-size:.84rem;letter-spacing:.02em;}
+    .sk-wr__author span{display:block;font-weight:400;color:#9e8c84;font-size:.74rem;margin-top:.2rem;}
+    .sk-wr__cta{text-align:center;margin-top:2.6rem;position:relative;z-index:1;}
+    .sk-wr__cta a{color:#684034;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+      text-decoration:none;border-bottom:1px solid rgba(104,64,52,.35);padding-bottom:3px;font-weight:600;}
+    .sk-wr__cta a:hover{color:#b98a3e;border-color:#b98a3e;}
+    @media(max-width:900px){
+      .sk-wr__grid{grid-template-columns:1fr;max-width:540px;gap:1.5rem;}
+      .sk-wr__card{padding:1.9rem 1.6rem;}
+    }
+  </style>
+  <section class="sk-wr" id="skReviews" aria-label="Avis clients">
+    <div class="sk-wr__head">
+      <img class="sk-wr__badge" src="/assets/best-in-class-2026-fresha.png" alt="Fresha — Best in Class 2026" width="132" height="165" loading="lazy" decoding="async">
+      <div class="sk-wr__eyebrow" data-fr="Avis vérifiés · Best in Class 2026" data-en="Verified reviews · Best in Class 2026">Avis vérifiés · Best in Class 2026</div>
+      <h2 class="sk-wr__title" data-fr="Ce que disent nos clients" data-en="What our clients say">Ce que disent nos clients</h2>
+      <div class="sk-wr__ratings">
+        <span class="sk-wr__pill"><span class="sk-wr__stars">★★★★★</span> <b>4,8</b> <em>Fresha</em></span>
+        <span class="sk-wr__pill"><span class="sk-wr__stars">★★★★★</span> <b>4,7</b> <em>Google</em></span>
+      </div>
+    </div>
+    <div class="sk-wr__grid">
+      <figure class="sk-wr__card">
+        <div class="sk-wr__stars" aria-label="5 sur 5">★★★★★</div>
+        <blockquote class="sk-wr__quote">The head spa service was absolutely amazing—so relaxing and impeccably clean. I've had this service done before in Japan, and this was my first time experiencing it outside of Japan. It truly exceeded my expectations. The whole team was wonderful and made the experience extra special. They took care of both myself and my mom, and we couldn't have asked for better care. Highly recommend!</blockquote>
+        <figcaption class="sk-wr__author">Stefania M.<span>Head Spa</span></figcaption>
+      </figure>
+      <figure class="sk-wr__card">
+        <div class="sk-wr__stars" aria-label="5 sur 5">★★★★★</div>
+        <blockquote class="sk-wr__quote">Honestly felt like my brain took a vacation. The relaxing music, the atmosphere, and the head massage together were an unreal experience. And the magical hands of the therapist made everything even more calming and unforgettable. I walked out feeling lighter, calmer, and completely refreshed.</blockquote>
+        <figcaption class="sk-wr__author">Puzan J.<span>Head Spa</span></figcaption>
+      </figure>
+      <figure class="sk-wr__card">
+        <div class="sk-wr__stars" aria-label="5 sur 5">★★★★★</div>
+        <blockquote class="sk-wr__quote">Quel moment magique ! J'ai essayé le Signature Scalpcial de 90 minutes, et je le recommande à tout le monde. J'ai pu décompresser comme jamais. L'endroit est beau et propre, tout le monde est super accueillant.</blockquote>
+        <figcaption class="sk-wr__author">Marie L.<span>Head Spa · Scalpcial 90 min</span></figcaption>
+      </figure>
+      <figure class="sk-wr__card">
+        <div class="sk-wr__stars" aria-label="5 sur 5">★★★★★</div>
+        <blockquote class="sk-wr__quote">Got a facial with Shayma — very relaxing, and my skin looks so plump.</blockquote>
+        <figcaption class="sk-wr__author">Souhir N.<span>Soin du visage</span></figcaption>
+      </figure>
+      <figure class="sk-wr__card">
+        <div class="sk-wr__stars" aria-label="5 sur 5">★★★★★</div>
+        <blockquote class="sk-wr__quote">I did both a facial and a laser session, and I'm really happy with the results. My skin looks clearer and more radiant.</blockquote>
+        <figcaption class="sk-wr__author">Sabrina I.<span>Facial · Épilation laser</span></figcaption>
+      </figure>
+      <figure class="sk-wr__card">
+        <div class="sk-wr__stars" aria-label="5 sur 5">★★★★★</div>
+        <blockquote class="sk-wr__quote">For a first time visit at this spa, I am speechless at how clean and well organized it is. I took the 90 minutes head spa — not only was I taken before my appointment time, but it really was a full 90 minutes duration. So worth it for the relaxing feeling, and the shampoo smells so good.</blockquote>
+        <figcaption class="sk-wr__author">Mc R.<span>Head Spa · 90 min</span></figcaption>
+      </figure>
+    </div>
+    <div class="sk-wr__cta">
+      <a href="/reviews" data-fr="Lire tous les avis" data-en="Read all reviews">Lire tous les avis</a>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div>
       <div class="eyebrow" data-fr="Nous trouver" data-en="Find Us">Nous trouver</div>
