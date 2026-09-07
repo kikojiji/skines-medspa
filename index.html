@@ -7856,10 +7856,12 @@ input, textarea, select {
       #heroTrust{display:inline-flex;align-items:center;justify-content:center;gap:9px;
         margin:18px auto 4px;flex-wrap:wrap;font-family:"DM Sans",sans-serif;
         padding:7px 16px;border-radius:999px;
-        background:rgba(20,14,10,0.34);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-        border:1px solid rgba(255,255,255,0.16);}
-      #heroTrust .hero-trust__stars{color:#e8bd5c !important;letter-spacing:2px;font-size:1rem;line-height:1;}
-      #heroTrust .hero-trust__txt{color:#F5EDE3 !important;font-size:.9rem;letter-spacing:.03em;}
+        background:rgba(18,12,9,0.48);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+        border:1px solid rgba(255,255,255,0.18);}
+      #heroTrust .hero-trust__stars{color:#efc463 !important;letter-spacing:2px;font-size:1rem;line-height:1;
+        text-shadow:0 1px 4px rgba(0,0,0,0.5);}
+      #heroTrust .hero-trust__txt{color:#FBF7F1 !important;font-size:.9rem;letter-spacing:.03em;
+        text-shadow:0 1px 5px rgba(0,0,0,0.55);}
       #heroTrust .hero-trust__txt strong{color:#fff !important;font-weight:700;}
       /* Hidden until the GSAP hero timeline reveals it (right after the service
          buttons) — matches how .hero-tag-btn / .hero-cta are gated. */
@@ -9415,8 +9417,8 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
       .fromTo(".hero-eyebrow", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.15)
       .fromTo(".hero-title",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.40)
       .fromTo(".hero-tag-btn", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.12, ease: "power3.out" }, 0.95)
-      .fromTo("#heroTrust",    { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 1.55)
-      .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.95);
+      .fromTo("#heroTrust",    { y: 14, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, 1.5)
+      .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 2.0);
 
     // On phones the hero video plays its own baked-in "SKINES" logo intro
     // (~2s) as the curtain lifts, so hold the text back until that has passed —
