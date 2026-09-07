@@ -7603,133 +7603,6 @@ input, textarea, select {
     window.__skMark && window.__skMark('watchdog-fired');
   }, 8000);
 </script>
-<!-- ── Entry intro splash (once per session, non-blocking) ── -->
-<style id="sk-intro-css">
-  #sk-intro{
-    /* Explicit offsets as well as `inset`: Safari before iOS 14.5 ignores
-       `inset`, leaving the overlay with no box at all — the splash simply
-       never appears on those iPhones. */
-    position:fixed; top:0; right:0; bottom:0; left:0; inset:0;
-    width:100%; height:100%;
-    z-index:100000; background:#684034;
-    display:flex; align-items:center; justify-content:center;
-    transition:transform .9s cubic-bezier(.45,0,.2,1); will-change:transform; backface-visibility:hidden; -webkit-backface-visibility:hidden;
-  }
-  /* Exit: the whole splash slides up like a lifting curtain, revealing the page */
-  #sk-intro.sk-intro-hide{ transform:translateY(-100%); pointer-events:none; }
-  #sk-intro .sk-intro-inner{
-    display:flex; flex-direction:column; align-items:center; text-align:center;
-    opacity:1; transform:none;
-    animation:none;
-  }
-  #sk-intro .sk-intro-stones{ width:98px; height:auto; display:block; margin-bottom:20px; filter:drop-shadow(0 10px 26px rgba(0,0,0,.35)); }
-  #sk-intro .sk-intro-word{
-    font-family:"Cormorant Garamond",serif; color:#F5EDE3 !important; font-weight:500; line-height:1;
-    font-size:1.75rem; letter-spacing:.4em; text-indent:.4em;
-  }
-  #sk-intro .sk-intro-sub{
-    margin-top:13px; color:rgba(245,237,227,.72) !important;
-    font-family:"DM Sans",sans-serif; font-size:.58rem; letter-spacing:.34em; text-indent:.34em; text-transform:uppercase;
-  }
-  @keyframes skIntroIn{ to{ opacity:1; transform:translateY(0); } }
-  @media (prefers-reduced-motion:reduce){ #sk-intro .sk-intro-inner{ animation-duration:.01s; } }
-</style>
-<div id="sk-intro" aria-hidden="true">
-  <div class="sk-intro-inner">
-    <img src="assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones" decoding="sync" fetchpriority="high">
-    <span class="sk-intro-word">SKINES</span>
-    <span class="sk-intro-sub">Head&nbsp;Spa&nbsp;·&nbsp;Montréal</span>
-  </div>
-</div>
-<script>
-  (function(){
-    var KEY='sk-intro-seen';
-    var MARKUP='<div class="sk-intro-inner"><img src="assets/images/logo-officiel-cropped.webp" alt="" class="sk-intro-stones" decoding="sync" fetchpriority="high"><span class="sk-intro-word">SKINES</span><span class="sk-intro-sub">Head&nbsp;Spa&nbsp;·&nbsp;Montréal</span></div>';
-    function ensure(){
-      var el=document.getElementById('sk-intro');
-      if(!el){ el=document.createElement('div'); el.id='sk-intro'; el.setAttribute('aria-hidden','true'); el.innerHTML=MARKUP; document.body.insertBefore(el, document.body.firstChild); }
-      return el;
-    }
-    // ── Hold the hero video paused at frame 0 while the splash is up, then
-    //    start it from the beginning as the logo lifts — so the reveal is a
-    //    fresh, coordinated play (not a video already running behind it).
-    function heroVids(){ return ['heroVideo','heroVideoDesktopA'].map(function(id){return document.getElementById(id);}).filter(Boolean); }
-    // Keep the hero video frozen at frame 0 while the curtain is covering AND
-    // lifting (so no video decode ever stutters the animation), then start it
-    // fresh the moment the curtain is fully up.
-    // NOTE: this script runs at parse time, before the <video> elements exist,
-    // so we cannot rely on getElementById here. A capture-phase 'play' listener
-    // on the document catches the videos whenever they appear and autoplay.
-    var HERO_IDS={heroVideo:1, heroVideoDesktopA:1};
-    // Play the hero video in full from the very start — including its baked-in
-    // "SKINES" logo intro — the moment the curtain lifts. Frozen at frame 0
-    // while the splash is up, then started fresh from 0 as it rises.
-    var frozen=true;
-    document.addEventListener('play', function(e){
-      var t=e.target;
-      if(frozen && t && HERO_IDS[t.id]){ try{ t.pause(); t.currentTime=0; }catch(_){} }
-    }, true);
-    function freezeVideos(){ frozen=true; heroVids().forEach(function(v){ try{ v.pause(); v.currentTime=0; }catch(_){} }); }
-    function playVideos(){ frozen=false; heroVids().forEach(function(v){ try{ v.currentTime=0; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }catch(_){} }); }
-    function play(hold, skipFade){
-      // Jump back to the top (behind the splash) so the reveal always lands
-      // on the hero video from the start — even if the page was scrolled down.
-      try{ var sb=document.documentElement.style.scrollBehavior; document.documentElement.style.scrollBehavior='auto'; window.scrollTo(0,0); document.documentElement.style.scrollBehavior=sb; }catch(_){}
-      var el=ensure();
-      el.classList.remove('sk-intro-hide','sk-intro-drop','sk-intro-drop-start');
-      var inner=el.querySelector('.sk-intro-inner');
-      if(inner){
-        if(skipFade){ inner.style.animation='none'; inner.style.opacity='1'; inner.style.transform='none'; } // arrived via transition — logo already shown
-        else { inner.style.opacity=''; inner.style.transform=''; inner.style.animation='none'; void inner.offsetWidth; inner.style.animation=''; } // restart entry animation
-      }
-      if(window.__skMark) window.__skMark('splash-play-called');
-      var root=document.documentElement; root.style.overflow='hidden';
-      freezeVideos(); // hold the video at frame 0 while covered + lifting
-      var done=false;
-      function dismiss(){
-        if(done) return; done=true;
-        root.style.overflow='';
-        try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
-        el.style.pointerEvents='none';
-        var reduced=false; try{ reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-        if(reduced){
-          // Under Reduce Motion, Safari forces every CSS transition-duration
-          // to 0, so `.sk-intro-hide` would make the curtain vanish in place
-          // instead of lifting. Drive the lift by hand with rAF — a scripted
-          // transform is not a CSS transition, so it still plays. Keep it a
-          // touch quicker than the full 0.9s to respect the spirit of the
-          // setting while the reveal still reads as a rising curtain.
-          el.style.transition='none';
-          var h=el.offsetHeight||window.innerHeight||800, dur=560;
-          requestAnimationFrame(function loop(ts){
-            if(loop._s==null) loop._s=ts;
-            var p=Math.min((ts-loop._s)/dur,1), e=1-Math.pow(1-p,3); // easeOutCubic
-            el.style.transform='translateY('+(-e*h)+'px)';
-            if(p<1) requestAnimationFrame(loop);
-            else if(el.parentNode) el.parentNode.removeChild(el);
-          });
-          setTimeout(playVideos, dur);
-        } else {
-          el.classList.add('sk-intro-hide');
-          setTimeout(playVideos, 900); // start the video only once the curtain is fully up
-          setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 950);
-        }
-      }
-      var t=setTimeout(dismiss, hold||1600);
-      el.onclick=function(){ clearTimeout(t); dismiss(); }; // tap to skip
-    }
-    // expose so clicking the SKINES logo can replay it (see i18n.js)
-    window.skReplayIntro=function(){ play(1600, false); };
-    // Arrived via an internal page-transition? lift the curtain quickly and
-    // keep the logo already visible (no re-fade) for a seamless hand-off.
-    if(window.__skMark) window.__skMark('splash-script-reached-end');
-    var viaX=false; var _ux=location.search.indexOf('x=1')>-1; try{ viaX=_ux||sessionStorage.getItem('sk-xtion')==='1'; if(viaX){ try{sessionStorage.removeItem('sk-xtion');}catch(_e){} } }catch(e){ viaX=_ux; } if(_ux){ try{ history.replaceState(null,'',location.pathname+location.hash); }catch(_e2){} }
-    if(viaX){ play(500, true); return; }
-    // Always play the full intro on a direct landing/reload (no longer gated
-    // to once-per-session — the splash is the intended entry on every visit).
-    play(1600, false);
-  })();
-</script>
 <nav id="mainNav">
     <a class="logo" href="/">
       <div class="logo-brand">
@@ -9324,7 +9197,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     // (~2s) as the curtain lifts, so hold the text back until that has passed —
     // the entrance then begins on the clean footage. Desktop starts promptly.
     var isPhone = window.innerWidth < 768;
-    var HERO_AFTER_SPLASH_MS = isPhone ? 2000 : 400;
+    var HERO_AFTER_SPLASH_MS = isPhone ? 500 : 300;
     var heroReleased = false;
     function releaseHero() {
       if (heroReleased) return; heroReleased = true;
