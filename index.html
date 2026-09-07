@@ -7852,6 +7852,21 @@ input, textarea, select {
         <a class="hero-tag-btn" href="/laser"><span data-fr="Épilation Laser" data-en="Laser">Épilation Laser</span></a>
         <a class="hero-tag-btn" href="/facial"><span data-fr="Facial" data-en="Facial">Facial</span></a>
       </div>
+      <style>
+      #heroTrust{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+        margin:18px auto 4px;flex-wrap:wrap;font-family:"DM Sans",sans-serif;
+        padding:7px 16px;border-radius:999px;
+        background:rgba(20,14,10,0.34);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+        border:1px solid rgba(255,255,255,0.16);}
+      #heroTrust .hero-trust__stars{color:#e8bd5c !important;letter-spacing:2px;font-size:1rem;line-height:1;}
+      #heroTrust .hero-trust__txt{color:#F5EDE3 !important;font-size:.9rem;letter-spacing:.03em;}
+      #heroTrust .hero-trust__txt strong{color:#fff !important;font-weight:700;}
+      @media (max-width:600px){ #heroTrust{margin:14px auto 2px;padding:6px 14px;} #heroTrust .hero-trust__txt{font-size:.84rem;} }
+      </style>
+      <div id="heroTrust" aria-label="Avis clients vérifiés">
+        <span class="hero-trust__stars" aria-hidden="true">★★★★★</span>
+        <span class="hero-trust__txt"><strong>4,8</strong> Fresha&nbsp;· <strong>4,7</strong> Google&nbsp;· <span data-fr="avis vérifiés" data-en="verified reviews">avis vérifiés</span></span>
+      </div>
       <div class="hero-actions hero-cta">
         <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
         <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/gift-cards?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Carte Cadeau" data-en="Gift Cards">Carte Cadeau</span></a>
@@ -8651,11 +8666,26 @@ input, textarea, select {
     .sk-wr__cta a:hover{color:#b98a3e;border-color:#b98a3e;}
     @media(max-width:1180px){.sk-wr__grid{grid-template-columns:repeat(3,1fr);max-width:960px;}}
     @media(max-width:820px){.sk-wr__grid{grid-template-columns:repeat(2,1fr);max-width:660px;}}
-    @media(max-width:560px){
-      .sk-wr__grid{grid-template-columns:1fr;max-width:460px;gap:1.4rem;}
-      .sk-wr__card{padding:1.8rem 1.6rem;}
-      .sk-wr__quote{font-size:.95rem;-webkit-line-clamp:3;}
-      .sk-wr__badge{width:180px;}
+    @media(max-width:640px){
+      /* Mobile: swipeable horizontal bar of smaller cards instead of a long
+         vertical stack. The card nearest the centre grows + brightens as you
+         scroll (JS toggles .is-active). */
+      .sk-wr__grid{
+        display:flex;grid-template-columns:none;max-width:none;
+        overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+        gap:14px;padding:8px 18px 20px;scroll-padding:18px;scrollbar-width:none;}
+      .sk-wr__grid::-webkit-scrollbar{display:none;}
+      .sk-wr__card{
+        flex:0 0 78%;scroll-snap-align:center;
+        padding:1.4rem 1.35rem;gap:.7rem;
+        transform:scale(.9);opacity:.5;
+        transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s ease,box-shadow .5s ease;}
+      .sk-wr__card.is-active{transform:scale(1);opacity:1;box-shadow:0 12px 36px rgba(104,64,52,.18);}
+      .sk-wr__quote{font-size:.92rem;-webkit-line-clamp:4;}
+      .sk-wr__badge{width:170px;}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .sk-wr__card{transition:none;transform:none;opacity:1;}
     }
   </style>
   <section class="sk-wr" id="skReviews" aria-label="Avis clients">
@@ -8763,6 +8793,30 @@ input, textarea, select {
             });
           }
         });
+
+        // Mobile carousel: highlight (grow) the card nearest the centre as you swipe.
+        var grid = document.querySelector('#skReviews .sk-wr__grid');
+        if(grid){
+          var cards = [].slice.call(grid.querySelectorAll('.sk-wr__card'));
+          var isCarousel = function(){ return window.matchMedia('(max-width:640px)').matches; };
+          var ticking = false;
+          var update = function(){
+            ticking = false;
+            if(!isCarousel()){ cards.forEach(function(c){ c.classList.remove('is-active'); }); return; }
+            var gr = grid.getBoundingClientRect(), center = gr.left + gr.width/2;
+            var best = null, bestD = Infinity;
+            cards.forEach(function(c){
+              var r = c.getBoundingClientRect();
+              var d = Math.abs(r.left + r.width/2 - center);
+              if(d < bestD){ bestD = d; best = c; }
+            });
+            cards.forEach(function(c){ c.classList.toggle('is-active', c === best); });
+          };
+          var onScroll = function(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } };
+          grid.addEventListener('scroll', onScroll, {passive:true});
+          window.addEventListener('resize', update);
+          update();
+        }
       })();
     </script>
   </section>
