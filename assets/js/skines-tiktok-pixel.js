@@ -63,6 +63,9 @@
         return null;
     }
   }
+  // Expose the mapping so the Events API channel (skines-tiktok-capi.js) sends
+  // the IDENTICAL event name + properties — the basis for browser/server dedup.
+  window.__skinesTiktokMap = mapEvent;
 
   // ─── Pixel lifecycle ────────────────────────────────────────────────────────
   var ready = false;

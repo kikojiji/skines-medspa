@@ -34,6 +34,7 @@
 <script defer src="/assets/js/skines-tiktok-pixel.js?v=3"></script>
 <!-- Meta CAPI dispatcher (server channel; ads-consent gated; dedup via event_id). -->
 <script defer src="/assets/js/skines-capi.js?v=1"></script>
+<script defer src="/assets/js/skines-tiktok-capi.js?v=1"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -7807,7 +7808,7 @@ input, textarea, select {
     <!-- Tablet/mobile: no poster image — the video plays directly (the hero
          shows the brand maroon underneath until the first frame paints, so
          there's no static image between the intro splash and the video). -->
-    <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
+    <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="auto" poster="assets/hero-mobile-poster.webp" aria-label="Ambiance spa chaleureuse">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
