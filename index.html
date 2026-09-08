@@ -7863,6 +7863,12 @@ input, textarea, select {
       #heroTrust .hero-trust__txt{color:#FBF7F1 !important;font-size:.9rem;letter-spacing:.03em;
         text-shadow:0 1px 5px rgba(0,0,0,0.55);}
       #heroTrust .hero-trust__txt strong{color:#fff !important;font-weight:700;}
+      #heroTrust .hero-trust__vf{color:#eccf8f !important;font-weight:600;}
+      /* Mobile: place the trust pill BELOW the Réserver / Carte Cadeau buttons. */
+      @media (max-width:600px){
+        .hero-content .hero-actions.hero-cta{order:1;}
+        #heroTrust{order:2;margin:18px auto 2px;}
+      }
       /* Hidden until the GSAP hero timeline reveals it (right after the service
          buttons) — matches how .hero-tag-btn / .hero-cta are gated. */
       html.sk-js #heroTrust{opacity:0;transform:translateY(12px);}
@@ -7878,7 +7884,7 @@ input, textarea, select {
       </style>
       <div id="heroTrust" aria-label="Avis clients vérifiés">
         <span class="hero-trust__stars" aria-hidden="true">★★★★★</span>
-        <span class="hero-trust__txt"><strong>4,8</strong> Fresha&nbsp;· <strong>4,7</strong> Google&nbsp;· <span data-fr="avis vérifiés" data-en="verified reviews">avis vérifiés</span></span>
+        <span class="hero-trust__txt"><strong>4,8</strong> Fresha&nbsp;· <strong>4,7</strong> Google&nbsp;· <span class="hero-trust__vf" data-fr="avis vérifiés" data-en="verified reviews">avis vérifiés</span></span>
       </div>
       <div class="hero-actions hero-cta">
         <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
