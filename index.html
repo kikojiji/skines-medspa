@@ -11623,25 +11623,51 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     if (y <= fadeStart) return 1;
     return Math.max(0, Math.min(1, 1 - (y - fadeStart) / (end - fadeStart)));
   }
-  function syncHeroVolume() {
-    if (heroVideo && !heroVideo.muted) {
-      try { heroVideo.volume = heroVisibleFraction(); } catch (e) {}
+  // iOS Safari ignores `video.volume`, so route the video's audio through a
+  // Web Audio GainNode — its gain IS adjustable on iOS. Falls back to
+  // `video.volume` where Web Audio isn't available.
+  var audioCtx = null, gainNode = null, graphReady = false;
+  function setupAudioGraph() {
+    if (graphReady) return;
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC || !heroVideo) return;
+    try {
+      audioCtx = new AC();
+      var srcNode = audioCtx.createMediaElementSource(heroVideo);
+      gainNode = audioCtx.createGain();
+      srcNode.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      graphReady = true;
+    } catch (e) { graphReady = false; }
+  }
+  function applyLevel(level) {
+    if (graphReady && gainNode) {
+      try { gainNode.gain.value = level; } catch (e) {}
+    } else if (heroVideo) {
+      try { heroVideo.volume = level; } catch (e) {}
     }
+  }
+  function syncHeroVolume() {
+    if (heroVideo && !heroVideo.muted) { applyLevel(heroVisibleFraction()); }
   }
   function toggleSound() {
     if (!heroVideo) return;
+    var on = heroVideo.muted;               // about to turn on?
+    if (on) {
+      setupAudioGraph();                    // build graph on the user gesture
+      if (audioCtx && audioCtx.state === 'suspended') { audioCtx.resume(); }
+    }
     heroVideo.muted = !heroVideo.muted;
-    var on = !heroVideo.muted;
+    on = !heroVideo.muted;
     if (muteBtn)     muteBtn.classList.toggle('unmuted', on);
     if (soundToggle) soundToggle.setAttribute('aria-pressed', String(on));
     if (muteBtn)     muteBtn.setAttribute('aria-label', on ? 'Couper le son' : 'Activer le son');
     if (on) {
-      syncHeroVolume();                              // set level for current scroll
+      applyLevel(heroVisibleFraction());
       if (muteBtn) muteBtn.classList.add('sound-hidden');   // hide the button once sound is on
     } else {
       if (muteBtn) muteBtn.classList.remove('sound-hidden');
     }
-    // Try to resume play after unmute (browser autoplay policy)
     if (on && heroVideo.paused) { var p = heroVideo.play(); if (p && p.catch) p.catch(function(){}); }
   }
   if (muteBtn)     muteBtn.addEventListener('click', toggleSound);
