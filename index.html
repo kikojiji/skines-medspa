@@ -342,10 +342,16 @@
       70%  { box-shadow: 0 0 0 15px rgba(232,189,92,0); }
       100% { box-shadow: 0 0 0 0 rgba(232,189,92,0); }
     }
-    .mobile-mute-btn:not(.unmuted) { animation: skMutePulse 2s ease-out infinite; }
+    .mobile-mute-btn:not(.unmuted) {
+      animation: skMutePulse 2s ease-out infinite;
+      border: 2px solid rgba(232,189,92,0.9);   /* always-visible gold ring cue */
+    }
     /* Once the viewer enables the sound, the button fades away for good. */
     .mobile-mute-btn.sound-hidden { opacity: 0 !important; transform: scale(0.7) !important; pointer-events: none !important; animation: none !important; }
-    @media (prefers-reduced-motion: reduce) { .mobile-mute-btn:not(.unmuted) { animation: none; } }
+    /* Reduce Motion: no pulse, but keep a steady glowing ring so the cue still shows. */
+    @media (prefers-reduced-motion: reduce) {
+      .mobile-mute-btn:not(.unmuted) { animation: none; box-shadow: 0 0 0 4px rgba(232,189,92,0.28); }
+    }
     .mobile-mute-btn svg {
       width: 17px;
       height: 17px;
@@ -11623,47 +11629,20 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     if (y <= fadeStart) return 1;
     return Math.max(0, Math.min(1, 1 - (y - fadeStart) / (end - fadeStart)));
   }
-  // iOS Safari ignores `video.volume`, so route the video's audio through a
-  // Web Audio GainNode — its gain IS adjustable on iOS. Falls back to
-  // `video.volume` where Web Audio isn't available.
-  var audioCtx = null, gainNode = null, graphReady = false;
-  function setupAudioGraph() {
-    if (graphReady) return;
-    var AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC || !heroVideo) return;
-    try {
-      audioCtx = new AC();
-      var srcNode = audioCtx.createMediaElementSource(heroVideo);
-      gainNode = audioCtx.createGain();
-      srcNode.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-      graphReady = true;
-    } catch (e) { graphReady = false; }
-  }
-  function applyLevel(level) {
-    if (graphReady && gainNode) {
-      try { gainNode.gain.value = level; } catch (e) {}
-    } else if (heroVideo) {
-      try { heroVideo.volume = level; } catch (e) {}
-    }
-  }
   function syncHeroVolume() {
-    if (heroVideo && !heroVideo.muted) { applyLevel(heroVisibleFraction()); }
+    if (heroVideo && !heroVideo.muted) {
+      try { heroVideo.volume = heroVisibleFraction(); } catch (e) {}
+    }
   }
   function toggleSound() {
     if (!heroVideo) return;
-    var on = heroVideo.muted;               // about to turn on?
-    if (on) {
-      setupAudioGraph();                    // build graph on the user gesture
-      if (audioCtx && audioCtx.state === 'suspended') { audioCtx.resume(); }
-    }
     heroVideo.muted = !heroVideo.muted;
-    on = !heroVideo.muted;
+    var on = !heroVideo.muted;
     if (muteBtn)     muteBtn.classList.toggle('unmuted', on);
     if (soundToggle) soundToggle.setAttribute('aria-pressed', String(on));
     if (muteBtn)     muteBtn.setAttribute('aria-label', on ? 'Couper le son' : 'Activer le son');
     if (on) {
-      applyLevel(heroVisibleFraction());
+      try { heroVideo.volume = heroVisibleFraction(); } catch (e) {}
       if (muteBtn) muteBtn.classList.add('sound-hidden');   // hide the button once sound is on
     } else {
       if (muteBtn) muteBtn.classList.remove('sound-hidden');
