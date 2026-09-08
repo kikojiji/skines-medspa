@@ -8101,63 +8101,80 @@ input, textarea, select {
         var EN = document.documentElement.lang === 'en';
         var MORE = EN ? 'Read more' : 'Afficher plus';
         var LESS = EN ? 'Read less' : 'Afficher moins';
-        document.querySelectorAll('#skReviews .sk-wr__card').forEach(function(card){
-          var q = card.querySelector('.sk-wr__quote');
-          var btn = card.querySelector('.sk-wr__more');
-          if(!q || !btn) return;
-          // show the toggle only when the quote is actually clamped/overflowing
-          if(q.scrollHeight - q.clientHeight > 4){
-            btn.hidden = false; btn.textContent = MORE;
-            btn.addEventListener('click', function(){
-              var open = card.classList.toggle('is-open');
-              btn.textContent = open ? LESS : MORE;
-            });
-          }
+        var grid = document.querySelector('#skReviews .sk-wr__grid');
+        if(!grid) return;
+
+        var isCarousel = function(){ return window.matchMedia('(max-width:640px)').matches; };
+        var originals = [].slice.call(grid.querySelectorAll('.sk-wr__card'));
+        var allCards  = function(){ return [].slice.call(grid.querySelectorAll('.sk-wr__card')); };
+
+        // Seamless loop: clone the set once so the marquee never shows a seam.
+        var clonesAdded = false;
+        function addClones(){
+          if(clonesAdded) return;
+          originals.forEach(function(c){ var cl = c.cloneNode(true); cl.setAttribute('aria-hidden','true'); grid.appendChild(cl); });
+          clonesAdded = true;
+        }
+        // Reveal "Afficher plus" on any card whose quote overflows (clones too).
+        function initMore(){
+          allCards().forEach(function(card){
+            var q = card.querySelector('.sk-wr__quote'), btn = card.querySelector('.sk-wr__more');
+            if(!q || !btn) return;
+            if(q.scrollHeight - q.clientHeight > 4){ btn.hidden = false; btn.textContent = MORE; }
+          });
+        }
+        // Delegated toggle — works for original and cloned cards.
+        grid.addEventListener('click', function(e){
+          var btn = e.target && e.target.closest ? e.target.closest('.sk-wr__more') : null;
+          if(!btn) return;
+          var card = btn.closest('.sk-wr__card');
+          var open = card.classList.toggle('is-open');
+          btn.textContent = open ? LESS : MORE;
         });
 
-        // Mobile carousel: highlight (grow) the card nearest the centre as you swipe.
-        var grid = document.querySelector('#skReviews .sk-wr__grid');
-        if(grid){
-          var cards = [].slice.call(grid.querySelectorAll('.sk-wr__card'));
-          var isCarousel = function(){ return window.matchMedia('(max-width:640px)').matches; };
-          var ticking = false;
-          var update = function(){
-            ticking = false;
-            if(!isCarousel()){ cards.forEach(function(c){ c.classList.remove('is-active'); }); return; }
-            var gr = grid.getBoundingClientRect(), center = gr.left + gr.width/2;
-            var best = null, bestD = Infinity;
-            cards.forEach(function(c){
-              var r = c.getBoundingClientRect();
-              var d = Math.abs(r.left + r.width/2 - center);
-              if(d < bestD){ bestD = d; best = c; }
-            });
-            cards.forEach(function(c){ c.classList.toggle('is-active', c === best); });
-          };
-          var onScroll = function(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } };
-          grid.addEventListener('scroll', onScroll, {passive:true});
-          window.addEventListener('resize', update);
-          update();
+        // Grow whichever card is nearest the centre.
+        var ticking = false;
+        var update = function(){
+          ticking = false;
+          var cards = allCards();
+          if(!isCarousel()){ cards.forEach(function(c){ c.classList.remove('is-active'); }); return; }
+          var gr = grid.getBoundingClientRect(), center = gr.left + gr.width/2;
+          var best=null, bestD=Infinity;
+          cards.forEach(function(c){ var r=c.getBoundingClientRect(); var d=Math.abs(r.left+r.width/2-center); if(d<bestD){bestD=d;best=c;} });
+          cards.forEach(function(c){ c.classList.toggle('is-active', c===best); });
+        };
+        var onScroll = function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } };
+        grid.addEventListener('scroll', onScroll, {passive:true});
 
-          // Auto-advance the carousel right → left while it is on screen.
-          // Pauses when the viewer touches/scrolls it, resumes shortly after.
-          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          var idx = 0, autoTimer = null, resumeTimer = null;
-          var targetFor = function(i){ var c = cards[i]; return c.offsetLeft - (grid.clientWidth - c.offsetWidth) / 2; };
-          var tick = function(){
-            if(!isCarousel()) return;
-            idx = (idx + 1) % cards.length;
-            grid.scrollTo({ left: Math.max(0, targetFor(idx)), behavior: 'smooth' });
-          };
-          var start = function(){ if(autoTimer || reduceMotion) return; autoTimer = setInterval(tick, 3200); };
-          var stop = function(){ if(autoTimer){ clearInterval(autoTimer); autoTimer = null; } };
-          var pauseThenResume = function(){ stop(); clearTimeout(resumeTimer); resumeTimer = setTimeout(start, 5000); };
-          ['touchstart','pointerdown','wheel'].forEach(function(ev){ grid.addEventListener(ev, pauseThenResume, {passive:true}); });
-          if('IntersectionObserver' in window){
-            new IntersectionObserver(function(entries){
-              entries.forEach(function(e){ if(e.isIntersecting && isCarousel()){ start(); } else { stop(); } });
-            }, { threshold: 0.35 }).observe(grid);
-          } else { start(); }
+        // Continuous marquee (right → left). Only a viewer touch stops it — and
+        // then it stays put so they can read / tap "Afficher plus".
+        var rafId = null, stopped = false, setWidth = 0, SPEED = 0.5;
+        function measure(){
+          var all = allCards();
+          setWidth = (all.length > originals.length) ? (all[originals.length].offsetLeft - all[0].offsetLeft) : 0;
         }
+        function frame(){
+          if(stopped){ rafId = null; return; }
+          grid.scrollLeft += SPEED;
+          if(setWidth && grid.scrollLeft >= setWidth){ grid.scrollLeft -= setWidth; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function play(){ if(stopped || rafId || !isCarousel()) return; grid.style.scrollSnapType = 'none'; rafId = requestAnimationFrame(frame); }
+        function halt(){ if(rafId){ cancelAnimationFrame(rafId); rafId = null; } }
+        ['touchstart','pointerdown','wheel'].forEach(function(ev){
+          grid.addEventListener(ev, function(){ stopped = true; halt(); grid.style.scrollSnapType = 'x mandatory'; }, {passive:true});
+        });
+
+        function boot(){
+          if(!isCarousel()){ halt(); return; }
+          addClones(); initMore(); measure(); update(); play();
+        }
+        if('IntersectionObserver' in window){
+          new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if(e.isIntersecting && isCarousel()){ boot(); } else { halt(); } });
+          }, { threshold: 0.2 }).observe(grid);
+        } else { boot(); }
+        window.addEventListener('resize', function(){ if(!isCarousel()){ halt(); } else { measure(); if(!stopped) play(); } });
       })();
     </script>
   </section>
