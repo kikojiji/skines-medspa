@@ -7864,8 +7864,8 @@ input, textarea, select {
         text-shadow:0 1px 5px rgba(0,0,0,0.55);}
       #heroTrust .hero-trust__txt strong{color:#fff !important;font-weight:700;}
       #heroTrust .hero-trust__vf{color:#eccf8f !important;font-weight:600;}
-      /* Mobile: place the trust pill BELOW the Réserver / Carte Cadeau buttons. */
-      @media (max-width:600px){
+      /* Mobile + tablet: place the trust pill BELOW the Réserver / Carte Cadeau buttons. */
+      @media (max-width:1023px){
         .hero-content .hero-actions.hero-cta{order:1;}
         #heroTrust{order:2;margin:18px auto 2px;}
       }
@@ -7880,7 +7880,7 @@ input, textarea, select {
         #heroTrust .hero-trust__txt{font-size:1.06rem;}
       }
       /* Mobile: neat + proportional. */
-      @media (max-width:600px){ #heroTrust{margin:14px auto 2px;padding:7px 15px;gap:8px;} #heroTrust .hero-trust__stars{font-size:.95rem;letter-spacing:1.5px;} #heroTrust .hero-trust__txt{font-size:.83rem;} }
+      @media (max-width:600px){ #heroTrust{margin:9px auto 0;padding:6px 14px;gap:7px;flex-wrap:nowrap;white-space:nowrap;max-width:96vw;} #heroTrust .hero-trust__stars{font-size:.74rem;letter-spacing:.5px;} #heroTrust .hero-trust__txt{font-size:.72rem;letter-spacing:.01em;} }
       </style>
       <div id="heroTrust" aria-label="Avis clients vérifiés">
         <span class="hero-trust__stars" aria-hidden="true">★★★★★</span>
