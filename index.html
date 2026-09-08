@@ -333,9 +333,19 @@
       padding: 0;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, opacity 0.5s ease, transform 0.5s ease;
     }
     .mobile-mute-btn:active { background: rgba(0, 0, 0, 0.65); }
+    /* Enticing pulse while muted — invites a tap to turn the sound on. */
+    @keyframes skMutePulse {
+      0%   { box-shadow: 0 0 0 0 rgba(232,189,92,0.55); }
+      70%  { box-shadow: 0 0 0 15px rgba(232,189,92,0); }
+      100% { box-shadow: 0 0 0 0 rgba(232,189,92,0); }
+    }
+    .mobile-mute-btn:not(.unmuted) { animation: skMutePulse 2s ease-out infinite; }
+    /* Once the viewer enables the sound, the button fades away for good. */
+    .mobile-mute-btn.sound-hidden { opacity: 0 !important; transform: scale(0.7) !important; pointer-events: none !important; animation: none !important; }
+    @media (prefers-reduced-motion: reduce) { .mobile-mute-btn:not(.unmuted) { animation: none; } }
     .mobile-mute-btn svg {
       width: 17px;
       height: 17px;
@@ -11598,6 +11608,26 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   var heroVideo   = document.getElementById('heroVideo');
   var muteBtn     = document.getElementById('mobileMuteBtn');
   var soundToggle = document.querySelector('.sound-toggle');
+  // Volume follows scroll: full at the very top, then fades down gradually and
+  // continuously as you scroll, reaching 0 exactly at the Contact / Google-map
+  // section — and rising back up as you scroll up again.
+  function heroVisibleFraction() {
+    var stop = document.getElementById('contact');
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (!stop) return 1;
+    var vh = window.innerHeight || 1;
+    var stopTop = stop.getBoundingClientRect().top + y;   // contact's document offset
+    var end = stopTop - vh;                               // silent once the map is in view
+    if (end <= 0) return 1;
+    var fadeStart = end * 0.6;                            // stay at full volume for the first 60%
+    if (y <= fadeStart) return 1;
+    return Math.max(0, Math.min(1, 1 - (y - fadeStart) / (end - fadeStart)));
+  }
+  function syncHeroVolume() {
+    if (heroVideo && !heroVideo.muted) {
+      try { heroVideo.volume = heroVisibleFraction(); } catch (e) {}
+    }
+  }
   function toggleSound() {
     if (!heroVideo) return;
     heroVideo.muted = !heroVideo.muted;
@@ -11605,11 +11635,18 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     if (muteBtn)     muteBtn.classList.toggle('unmuted', on);
     if (soundToggle) soundToggle.setAttribute('aria-pressed', String(on));
     if (muteBtn)     muteBtn.setAttribute('aria-label', on ? 'Couper le son' : 'Activer le son');
+    if (on) {
+      syncHeroVolume();                              // set level for current scroll
+      if (muteBtn) muteBtn.classList.add('sound-hidden');   // hide the button once sound is on
+    } else {
+      if (muteBtn) muteBtn.classList.remove('sound-hidden');
+    }
     // Try to resume play after unmute (browser autoplay policy)
     if (on && heroVideo.paused) { var p = heroVideo.play(); if (p && p.catch) p.catch(function(){}); }
   }
   if (muteBtn)     muteBtn.addEventListener('click', toggleSound);
   if (soundToggle) soundToggle.addEventListener('click', toggleSound);
+  window.addEventListener('scroll', syncHeroVolume, { passive: true });
 
   // 2. Language switcher (desktop + mobile nav)
   function applyLang(lang) {
