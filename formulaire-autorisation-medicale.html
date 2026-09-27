@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Formulaire d'autorisation médicale · Skines Head Spa & Wellness</title>
+<link rel="canonical" href="https://skines.ca/formulaire-autorisation-medicale">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --maroon: #684034; --cream: #F5EDE3; --gold: #C9973A; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'DM Sans', sans-serif; color: var(--maroon); background: #FDFAF5; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+  .doc-header { text-align: center; margin-bottom: 2.5rem; }
+  .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.14em; margin: 0 0 0.3rem; }
+  .doc-tagline { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(104,64,52,0.5); margin: 0 0 1.6rem; }
+  .doc-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 500; margin: 0; }
+  .doc-section { border-top: 1px solid rgba(104,64,52,0.15); padding-top: 1.4rem; margin-top: 1.8rem; }
+  .doc-section h2 { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 0 0 1rem; }
+  .doc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; margin-bottom: 1rem; }
+  .doc-field { border-bottom: 1px solid rgba(104,64,52,0.35); padding-bottom: 0.4rem; min-height: 2.2rem; }
+  .doc-field-label { display: block; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(104,64,52,0.55); margin-bottom: 0.3rem; }
+  .doc-para { font-size: 0.92rem; line-height: 1.85; color: rgba(104,64,52,0.85); }
+  .doc-blank-line { border-bottom: 1px solid rgba(104,64,52,0.35); min-height: 2.4rem; margin-bottom: 0.8rem; }
+  .doc-sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+  .print-bar { text-align: center; margin: 0 0 2rem; }
+  .print-btn { background: var(--cream); color: var(--maroon); border: 1.5px solid var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 4px; cursor: pointer; }
+  .print-btn:hover { background: var(--maroon); color: var(--cream); }
+  .doc-footer { margin-top: 2.5rem; text-align: center; font-size: 0.75rem; color: rgba(104,64,52,0.5); }
+  @media print {
+    .print-bar { display: none; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="print-bar"><button class="print-btn" onclick="window.print()">Imprimer / Enregistrer en PDF</button></div>
+
+<div class="doc">
+  <div class="doc-header">
+    <p class="doc-brand">SKINES</p>
+    <p class="doc-tagline">Head Spa &amp; Wellness · Montréal</p>
+    <p class="doc-title">Formulaire d'autorisation médicale</p>
+  </div>
+
+  <p class="doc-para">
+    Cette cliente de Skines Head Spa &amp; Wellness souhaite bénéficier d'un traitement d'épilation laser (technologie Clarity II). Elle a indiqué, dans son formulaire de santé, une condition ou un traitement pouvant modifier la façon dont sa peau réagit à la lumière. Nous vous serions reconnaissants de confirmer, à votre discrétion professionnelle, que ce traitement est approprié pour elle.
+  </p>
+
+  <div class="doc-section">
+    <h2>Renseignements — Cliente</h2>
+    <div class="doc-row">
+      <div class="doc-field"><span class="doc-field-label">Nom complet</span></div>
+      <div class="doc-field"><span class="doc-field-label">Date de naissance</span></div>
+    </div>
+    <div class="doc-row">
+      <div class="doc-field"><span class="doc-field-label">Date du rendez-vous prévu</span></div>
+      <div class="doc-field"><span class="doc-field-label">Soin prévu</span></div>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h2>Condition ou traitement signalé (indiqué par la cliente)</h2>
+    <div class="doc-blank-line"></div>
+    <div class="doc-blank-line"></div>
+  </div>
+
+  <div class="doc-section">
+    <h2>Avis du médecin</h2>
+    <div class="doc-row">
+      <div class="doc-field"><span class="doc-field-label">☐ Traitement laser approprié</span></div>
+      <div class="doc-field"><span class="doc-field-label">☐ Traitement laser non recommandé</span></div>
+    </div>
+    <p class="doc-field-label" style="margin-top:1rem;">Remarques (optionnel)</p>
+    <div class="doc-blank-line"></div>
+    <div class="doc-blank-line"></div>
+  </div>
+
+  <div class="doc-section">
+    <h2>Signature</h2>
+    <div class="doc-sig-row">
+      <div>
+        <div class="doc-field"><span class="doc-field-label">Nom du médecin</span></div>
+      </div>
+      <div>
+        <div class="doc-field"><span class="doc-field-label">Numéro de permis</span></div>
+      </div>
+    </div>
+    <div class="doc-sig-row">
+      <div>
+        <div class="doc-field" style="min-height:3rem;"><span class="doc-field-label">Signature</span></div>
+      </div>
+      <div>
+        <div class="doc-field"><span class="doc-field-label">Date</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="doc-footer">
+    Une fois complété, merci de retourner ce formulaire par courriel à <a href="mailto:Info@skines.ca" style="color:var(--gold);">Info@skines.ca</a>, ou de le remettre à votre esthéticienne le jour du rendez-vous.<br>
+    Skines Head Spa &amp; Wellness · 19 Av. Shamrock, Montréal, QC H2S 1A3 · +1 (438) 260-5660
+  </p>
+</div>
+</body>
+</html>

@@ -61,7 +61,7 @@
 <title>Épilation Laser Montréal – Skines Head Spa & Wellness</title>
 <meta name="description" content="Épilation laser permanente à Montréal — technologie Clarity II (755nm + 1064nm), tous types de peau. 40+ zones disponibles. Réservez chez Skines Head Spa.">
 <!-- TEMP: on-site prices hidden at owner's request. Delete this <style> (or `git revert` the commit) to restore all price displays. -->
-<style id="sk-hide-prices">.svc-price,.svc-price-current,.svc-price-old,.svc-price-note,.bundle-save,.hero-promo-badge,.promo-badge,.svc-discount-label,.discount-label,.discount-badge2,.rabais,.headspa-hero-lead,.save-amount,.saving,.discount-badge,.economie,.bundle-price,.laser-hero-price,.laser-hero-sep,.laser-hero-promo,.hero-price,.special-offer-price,.price-original,.price-discounted,.price-note,.price,.prix,.tarif,.search-result-price{display:none !important}</style>
+<style id="sk-hide-prices">.svc-price,.svc-price-current,.svc-price-old,.svc-price-note,.bundle-save,.hero-promo-badge,.promo-badge,.svc-discount-label,.discount-label,.discount-badge2,.rabais,.headspa-hero-lead,.save-amount,.saving,.discount-badge,.economie,.bundle-price,.laser-hero-price,.laser-hero-sep,.laser-hero-promo,.hero-price,.price-original,.price-discounted,.price-note,.price,.prix,.tarif,.search-result-price{display:none !important}</style>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Épilation Laser · Skines Head Spa Montréal">
 <meta property="og:description" content="Épilation laser Clarity II à Montréal — 40+ zones, précision et confort. Réservez votre séance chez Skines.">
@@ -7193,7 +7193,7 @@ input, textarea, select {
         <span class="sp-menu-trigger-lotus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 8v1"/><path d="M13 15v1"/><path d="M13 11.5v1"/></svg></span>
         <span class="sp-menu-trigger-textwrap">
           <span class="sp-menu-trigger-label" data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</span>
-          <span class="sp-menu-trigger-sub" data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
+          <span class="sp-menu-trigger-sub" data-fr="Tirage Exclusif · Places Limitées" data-en="Exclusive Draw · Limited Spots">Tirage Exclusif · Places Limitées</span>
         </span>
       </button>
     </div>
@@ -7233,22 +7233,71 @@ input, textarea, select {
       <a class="btn-hero-glass" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
     </div>
   </div>
+
+  <!-- Hero price callout — big "$200", appears instantly at 0.5s, stays visible -->
+  <a class="hero-price-flash-overlay" id="heroPriceFlashOverlay" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer" aria-hidden="true" tabindex="-1">
+    <span class="hero-price-flash-amount">$200</span>
+    <span class="hero-price-flash-caption" data-fr="Corps Complet · Première Séance" data-en="Full Body · First Session">Corps Complet · Première Séance</span>
+  </a>
+  <style>
+    /* ID-scoped + !important: this page has an earlier global override
+       block (html body [class*="overlay"], html body span:not(...), etc.)
+       that would otherwise force a dark bg and dark text onto this element. */
+    #heroPriceFlashOverlay {
+      position: absolute !important; inset: 0 !important; z-index: 4 !important;
+      display: flex !important; flex-direction: column !important;
+      align-items: center !important; justify-content: center !important;
+      gap: 0.5rem !important;
+      text-decoration: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      background: transparent !important;
+    }
+    #heroPriceFlashOverlay.hpf-show {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #heroPriceFlashOverlay .hero-price-flash-amount {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 400 !important;
+      font-size: clamp(4.5rem, 20vw, 10rem) !important;
+      line-height: 1 !important;
+      color: #ffffff !important;
+      text-shadow: 0 0 60px rgba(255,255,255,0.35), 0 6px 40px rgba(0,0,0,0.55) !important;
+    }
+    #heroPriceFlashOverlay .hero-price-flash-caption {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.85rem !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      color: #F5EDE3 !important;
+    }
+  </style>
+  <script>
+  (function() {
+    var overlay = document.getElementById('heroPriceFlashOverlay');
+    if (!overlay) return;
+    setTimeout(function() {
+      overlay.classList.add('hpf-show');
+    }, 500);
+  })();
+  </script>
 </header>
 
 <!-- ══ LASER PHOTO STRIP — remplacer les src quand les vraies photos arrivent ══ -->
 <section id="tarifs" style="background: var(--cream-light);">
   <div class="section-head">
     <div>
-      <div class="eyebrow"><span data-fr="Nos Tarifs · Clarity II" data-en="Pricing · Clarity II">Nos Tarifs · Clarity II</span></div>
-      <h2><span data-fr="50 % de réduction · Première séance" data-en="50% Off · First Session">50 % de réduction · Première séance</span></h2>
+      <div class="eyebrow"><span data-fr="Rituel Découverte · Clarity II" data-en="Discovery Ritual · Clarity II">Rituel Découverte · Clarity II</span></div>
+      <h2><span data-fr="Votre Première Séance · Corps Complet" data-en="Your First Session · Full Body">Votre Première Séance · Corps Complet</span></h2>
     </div>
-    <p><span data-fr="Profitez de 50 % de rabais sur votre première séance. Tarifs exacts sur Fresha." data-en="Enjoy 50% off your first session. Exact pricing on Fresha.">Profitez de 50 % de rabais sur votre première séance. Tarifs exacts sur Fresha.</span></p>
+    <p><span data-fr="Traitez l'ensemble du corps en une seule séance de 1h30 avec la technologie Clarity II — $200." data-en="Treat your whole body in a single 1h30 session with Clarity II technology — $200.">Traitez l'ensemble du corps en une seule séance de 1h30 avec la technologie Clarity II — $200.</span></p>
   </div>
 
   <!-- Special Offer -->
   <div class="special-offer-card">
     <div>
-      <div class="special-offer-badge"><span data-fr="Offre Spéciale" data-en="Special Offer">Offre Spéciale</span></div>
+      <div class="special-offer-badge"><span data-fr="Rituel Découverte" data-en="Discovery Ritual">Rituel Découverte</span></div>
       <h3><span data-fr="Corps Complet — Première Séance" data-en="Full Body — First Session">Corps Complet — Première Séance</span></h3>
       <p><span data-fr="Première séance corps complet / Full body first session" data-en="Full body first session — head to toe">Première séance corps complet · De la tête aux pieds</span></p>
     </div>
@@ -7421,124 +7470,14 @@ input, textarea, select {
 
       <div class="price-card">
         <div class="price-card-img">
-          <img src="assets/laser-visage-aisselles.webp?v=1" alt="Visage + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+          <img src="assets/laser-corps-complet.webp?v=1" alt="Corps Complet" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
         </div>
         <div class="price-card-body">
-          <div class="price-card-cat">LASER · 25 MIN</div>
-          <div class="price-card-name"><span data-fr="Visage + Aisselles" data-en="Face + Underarms">Visage + Aisselles</span></div>
-          <div class="price-block">
-            <span class="price-original">$290</span>
-            <span class="price-discounted">$145</span>
-          </div>
+          <div class="price-card-cat">LASER · 1H 30 MIN</div>
+          <div class="price-card-name"><span data-fr="Corps Complet" data-en="Full Body">Corps Complet</span></div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-bikini-aisselles.webp?v=1" alt="Bikini + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 30 MIN</div>
-          <div class="price-card-name"><span data-fr="Bikini + Aisselles" data-en="Bikini + Underarms">Bikini + Aisselles</span></div>
-          <div class="price-block">
-            <span class="price-original">$340</span>
-            <span class="price-discounted">$170</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-fesses.webp?v=1" alt="Bikini + Fesses" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 15 MIN</div>
-          <div class="price-card-name"><span data-fr="Bikini + Fesses" data-en="Bikini + Buttocks">Bikini + Fesses</span></div>
-          <div class="price-block">
-            <span class="price-original">$300</span>
-            <span class="price-discounted">$150</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-lips.webp?v=1" alt="Bikini + Visage + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 30 MIN</div>
-          <div class="price-card-name"><span data-fr="Bikini + Visage + Aisselles" data-en="Bikini + Face + Underarms">Bikini + Visage + Aisselles</span></div>
-          <div class="price-block">
-            <span class="price-original">$480</span>
-            <span class="price-discounted">$240</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-bikini-aisselles-jambes.webp?v=1" alt="Bikini + Aisselles + Jambes Complètes" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 35 MIN</div>
-          <div class="price-card-name"><span data-fr="Bikini + Aisselles + Jambes Complètes" data-en="Bikini + Underarms + Full Legs">Bikini + Aisselles + Jambes Complètes</span></div>
-          <div class="price-block">
-            <span class="price-original">$560</span>
-            <span class="price-discounted">$280</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-demi-jambes.webp?v=1" alt="Bikini + Aisselles + Demi-Jambes" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 30 MIN</div>
-          <div class="price-card-name"><span data-fr="Bikini + Aisselles + Demi-Jambes" data-en="Bikini + Underarms + Half Legs">Bikini + Aisselles + Demi-Jambes</span></div>
-          <div class="price-block">
-            <span class="price-original">$460</span>
-            <span class="price-discounted">$230</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-bikini-fesses-aisselles.webp?v=1" alt="Bikini + Fesses + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 30 MIN</div>
-          <div class="price-card-name"><span data-fr="Bikini + Fesses + Aisselles" data-en="Bikini + Buttocks + Underarms">Bikini + Fesses + Aisselles</span></div>
-          <div class="price-block">
-            <span class="price-original">$390</span>
-            <span class="price-discounted">$195</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-dos-poitrine.webp?v=1" alt="Dos Complet + Poitrine" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 40 MIN</div>
-          <div class="price-card-name"><span data-fr="Dos Complet + Poitrine" data-en="Full Back + Chest">Dos Complet + Poitrine</span></div>
-          <div class="price-block">
-            <span class="price-original">$380</span>
-            <span class="price-discounted">$190</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
-
       <div class="price-card">
         <div class="price-card-img">
           <img src="assets/laser-dos-epaules.webp?v=1" alt="Dos Complet + Épaules" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
@@ -7546,14 +7485,9 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 30 MIN</div>
           <div class="price-card-name"><span data-fr="Dos Complet + Épaules" data-en="Full Back + Shoulders">Dos Complet + Épaules</span></div>
-          <div class="price-block">
-            <span class="price-original">$360</span>
-            <span class="price-discounted">$180</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
-
       <div class="price-card">
         <div class="price-card-img">
           <img src="assets/laser-dos-poitrine-abdomen.webp?v=1" alt="Dos Complet + Poitrine + Abdomen" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
@@ -7561,14 +7495,9 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 35 MIN</div>
           <div class="price-card-name"><span data-fr="Dos Complet + Poitrine + Abdomen" data-en="Full Back + Chest + Abdomen">Dos Complet + Poitrine + Abdomen</span></div>
-          <div class="price-block">
-            <span class="price-original">$560</span>
-            <span class="price-discounted">$280</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
-
       <div class="price-card">
         <div class="price-card-img">
           <img src="assets/laser-dos-poitrine-barbe.webp?v=1" alt="Dos + Poitrine + Contour Barbe + Ligne Nombril" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
@@ -7576,28 +7505,90 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 45 MIN</div>
           <div class="price-card-name"><span data-fr="Dos + Poitrine + Contour Barbe + Ligne Nombril" data-en="Full Back + Chest + Beard Contour + Umbilical Line">Dos + Poitrine + Contour Barbe + Ligne Nombril</span></div>
-          <div class="price-block">
-            <span class="price-original">$510</span>
-            <span class="price-discounted">$255</span>
-          </div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-visage-aisselles.webp?v=1" alt="Visage + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 25 MIN</div>
+          <div class="price-card-name"><span data-fr="Visage + Aisselles" data-en="Face + Underarms">Visage + Aisselles</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-bikini-aisselles.webp?v=1" alt="Bikini + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 30 MIN</div>
+          <div class="price-card-name"><span data-fr="Bikini + Aisselles" data-en="Bikini + Underarms">Bikini + Aisselles</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-fesses.webp?v=1" alt="Bikini + Fesses" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 15 MIN</div>
+          <div class="price-card-name"><span data-fr="Bikini + Fesses" data-en="Bikini + Buttocks">Bikini + Fesses</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-lips.webp?v=1" alt="Bikini + Visage + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 30 MIN</div>
+          <div class="price-card-name"><span data-fr="Bikini + Visage + Aisselles" data-en="Bikini + Face + Underarms">Bikini + Visage + Aisselles</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-bikini-aisselles-jambes.webp?v=1" alt="Bikini + Aisselles + Jambes Complètes" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 35 MIN</div>
+          <div class="price-card-name"><span data-fr="Bikini + Aisselles + Jambes Complètes" data-en="Bikini + Underarms + Full Legs">Bikini + Aisselles + Jambes Complètes</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-demi-jambes.webp?v=1" alt="Bikini + Aisselles + Demi-Jambes" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 30 MIN</div>
+          <div class="price-card-name"><span data-fr="Bikini + Aisselles + Demi-Jambes" data-en="Bikini + Underarms + Half Legs">Bikini + Aisselles + Demi-Jambes</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-bikini-fesses-aisselles.webp?v=1" alt="Bikini + Fesses + Aisselles" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 30 MIN</div>
+          <div class="price-card-name"><span data-fr="Bikini + Fesses + Aisselles" data-en="Bikini + Buttocks + Underarms">Bikini + Fesses + Aisselles</span></div>
+          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-img">
+          <img src="assets/laser-dos-poitrine.webp?v=1" alt="Dos Complet + Poitrine" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
+        </div>
+        <div class="price-card-body">
+          <div class="price-card-cat">LASER · 40 MIN</div>
+          <div class="price-card-name"><span data-fr="Dos Complet + Poitrine" data-en="Full Back + Chest">Dos Complet + Poitrine</span></div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card-img">
-          <img src="assets/laser-corps-complet.webp?v=1" alt="Corps Complet" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;price-card-img-placeholder&quot;>⚡</div>'">
-        </div>
-        <div class="price-card-body">
-          <div class="price-card-cat">LASER · 1H 30 MIN</div>
-          <div class="price-card-name"><span data-fr="Corps Complet" data-en="Full Body">Corps Complet</span></div>
-          <div class="price-block">
-            <span class="price-original">$900</span>
-            <span class="price-discounted">$450</span>
-          </div>
-          <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -7620,10 +7611,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 10 MIN</div>
           <div class="price-card-name"><span data-fr="Lèvre Supérieure" data-en="Upper Lip">Lèvre Supérieure</span></div>
-          <div class="price-block">
-            <span class="price-original">$80</span>
-            <span class="price-discounted">$40</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7635,10 +7622,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 10 MIN</div>
           <div class="price-card-name"><span data-fr="Menton" data-en="Chin">Menton</span></div>
-          <div class="price-block">
-            <span class="price-original">$80</span>
-            <span class="price-discounted">$40</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7650,10 +7633,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 10 MIN</div>
           <div class="price-card-name"><span data-fr="Favoris" data-en="Sideburns">Favoris</span></div>
-          <div class="price-block">
-            <span class="price-original">$110</span>
-            <span class="price-discounted">$55</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7665,10 +7644,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Cou" data-en="Neck">Cou</span></div>
-          <div class="price-block">
-            <span class="price-original">$140</span>
-            <span class="price-discounted">$70</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7680,10 +7655,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Nuque" data-en="Nape">Nuque</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7695,10 +7666,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Contour Barbe" data-en="Beard Contour">Contour Barbe</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7710,10 +7677,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 10 MIN</div>
           <div class="price-card-name"><span data-fr="Demi-Visage" data-en="Half Face">Demi-Visage</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7725,10 +7688,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Demi-Visage + Cou" data-en="Half Face + Neck">Demi-Visage + Cou</span></div>
-          <div class="price-block">
-            <span class="price-original">$240</span>
-            <span class="price-discounted">$120</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7740,10 +7699,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Visage Complet" data-en="Full Face">Visage Complet</span></div>
-          <div class="price-block">
-            <span class="price-original">$190</span>
-            <span class="price-discounted">$95</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7755,10 +7710,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Aisselles" data-en="Underarms">Aisselles</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7770,10 +7721,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Ligne Bikini" data-en="Bikini Line">Ligne Bikini</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7785,10 +7732,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 25 MIN</div>
           <div class="price-card-name"><span data-fr="Maillot Intégral" data-en="Full Bikini">Maillot Intégral</span></div>
-          <div class="price-block">
-            <span class="price-original">$240</span>
-            <span class="price-discounted">$120</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7800,10 +7743,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 30 MIN</div>
           <div class="price-card-name"><span data-fr="Bras Complets" data-en="Full Arms">Bras Complets</span></div>
-          <div class="price-block">
-            <span class="price-original">$300</span>
-            <span class="price-discounted">$150</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7815,10 +7754,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Demi-Bras" data-en="Half Arms">Demi-Bras</span></div>
-          <div class="price-block">
-            <span class="price-original">$160</span>
-            <span class="price-discounted">$80</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7830,10 +7765,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 10 MIN</div>
           <div class="price-card-name"><span data-fr="Aréoles" data-en="Areola">Aréoles</span></div>
-          <div class="price-block">
-            <span class="price-original">$80</span>
-            <span class="price-discounted">$40</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7845,10 +7776,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 25 MIN</div>
           <div class="price-card-name"><span data-fr="Poitrine" data-en="Chest">Poitrine</span></div>
-          <div class="price-block">
-            <span class="price-original">$150</span>
-            <span class="price-discounted">$75</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7860,10 +7787,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Épaules" data-en="Shoulders">Épaules</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7875,10 +7798,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Ventre Complet" data-en="Full Abdomen">Ventre Complet</span></div>
-          <div class="price-block">
-            <span class="price-original">$150</span>
-            <span class="price-discounted">$75</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7890,10 +7809,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Bas du Ventre" data-en="Lower Abdomen">Bas du Ventre</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7905,10 +7820,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 10 MIN</div>
           <div class="price-card-name"><span data-fr="Ligne Nombril" data-en="Umbilical Line">Ligne Nombril</span></div>
-          <div class="price-block">
-            <span class="price-original">$90</span>
-            <span class="price-discounted">$45</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7920,10 +7831,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 25 MIN</div>
           <div class="price-card-name"><span data-fr="Dos Complet" data-en="Full Back">Dos Complet</span></div>
-          <div class="price-block">
-            <span class="price-original">$300</span>
-            <span class="price-discounted">$150</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7935,10 +7842,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Bas du Dos" data-en="Lower Back">Bas du Dos</span></div>
-          <div class="price-block">
-            <span class="price-original">$130</span>
-            <span class="price-discounted">$65</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7950,10 +7853,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 15 MIN</div>
           <div class="price-card-name"><span data-fr="Fesses" data-en="Buttocks">Fesses</span></div>
-          <div class="price-block">
-            <span class="price-original">$150</span>
-            <span class="price-discounted">$75</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7965,10 +7864,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 35 MIN</div>
           <div class="price-card-name"><span data-fr="Jambes Complètes" data-en="Full Legs">Jambes Complètes</span></div>
-          <div class="price-block">
-            <span class="price-original">$360</span>
-            <span class="price-discounted">$180</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -7980,10 +7875,6 @@ input, textarea, select {
         <div class="price-card-body">
           <div class="price-card-cat">LASER · 20 MIN</div>
           <div class="price-card-name"><span data-fr="Demi-Jambes" data-en="Half Legs">Demi-Jambes</span></div>
-          <div class="price-block">
-            <span class="price-original">$200</span>
-            <span class="price-discounted">$100</span>
-          </div>
           <a class="price-card-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
         </div>
       </div>
@@ -8456,6 +8347,81 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
     </div>
   </div>
 
+  <div style="border-bottom:1px solid rgba(104,64,52,0.12);padding:1.6rem 0;">
+    <button onclick="(function(b){var a=b.nextElementSibling,s=b.querySelector('svg');var o=a.style.display==='block';a.style.display=o?'none':'block';s.style.transform=o?'':'rotate(180deg)'})(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:400;color:#684034;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+      <span data-fr="Pourquoi pourrais-je avoir besoin d'une note médicale ?" data-en="Why might I need a doctor's note?">Pourquoi pourrais-je avoir besoin d'une note médicale ?</span>
+      <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#684034" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div style="display:none;padding-top:1rem;color:rgba(104,64,52,0.65);font-size:0.95rem;line-height:1.8;">
+      <p data-fr="Certaines conditions de santé ou certains médicaments changent la façon dont votre peau réagit à la lumière et guérit. Une note de votre médecin nous permet de confirmer que le traitement vous convient, en toute sérénité." data-en="Certain health conditions or medications change how your skin reacts to light and heals. A note from your doctor lets us confirm the treatment is right for you, with complete peace of mind.">Certaines conditions de santé ou certains médicaments changent la façon dont votre peau réagit à la lumière et guérit. Une note de votre médecin nous permet de confirmer que le traitement vous convient, en toute sérénité.</p>
+    </div>
+  </div>
+
+  <div style="border-bottom:1px solid rgba(104,64,52,0.12);padding:1.6rem 0;">
+    <button onclick="(function(b){var a=b.nextElementSibling,s=b.querySelector('svg');var o=a.style.display==='block';a.style.display=o?'none':'block';s.style.transform=o?'':'rotate(180deg)'})(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:400;color:#684034;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+      <span data-fr="Que se passe-t-il après l'envoi de mon formulaire de santé ?" data-en="What happens after I submit my health form?">Que se passe-t-il après l'envoi de mon formulaire de santé ?</span>
+      <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#684034" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div style="display:none;padding-top:1rem;color:rgba(104,64,52,0.65);font-size:0.95rem;line-height:1.8;">
+      <p data-fr="Notre équipe examine chaque formulaire de santé sous 48 heures et vous contacte avant votre rendez-vous. Votre réservation est confirmée dès réception de la note médicale ou de notre validation." data-en="Our team reviews every health form within 48 hours and will contact you before your appointment. Your booking is confirmed as soon as we receive your doctor's note or give our approval.">Notre équipe examine chaque formulaire de santé sous 48 heures et vous contacte avant votre rendez-vous. Votre réservation est confirmée dès réception de la note médicale ou de notre validation.</p>
+    </div>
+  </div>
+
+  <div style="border-bottom:1px solid rgba(104,64,52,0.12);padding:1.6rem 0;">
+    <button onclick="(function(b){var a=b.nextElementSibling,s=b.querySelector('svg');var o=a.style.display==='block';a.style.display=o?'none':'block';s.style.transform=o?'':'rotate(180deg)'})(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:400;color:#684034;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+      <span data-fr="Je me sens bien, mais j'ai une condition sur la liste — puis-je quand même être traitée ?" data-en="I feel fine, but I have a condition on the list — can I still be treated?">Je me sens bien, mais j'ai une condition sur la liste — puis-je quand même être traitée ?</span>
+      <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#684034" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div style="display:none;padding-top:1rem;color:rgba(104,64,52,0.65);font-size:0.95rem;line-height:1.8;">
+      <p data-fr="Oui, très probablement — une fois la note médicale reçue. Même lorsque tout va bien, nos praticiennes sont professionnellement responsables de chaque soin et ne peuvent se fier à la seule appréciation de la cliente en présence d'une condition médicale. Votre médecin connaît votre historique; ensemble, nous assurons une expérience sûre." data-en="Yes, most likely — once we've received the doctor's note. Even when you feel perfectly well, our practitioners are professionally responsible for every treatment and cannot rely on a client's own assessment alone when a medical condition is involved. Your doctor knows your health history; together, we make sure the experience is safe.">Oui, très probablement — une fois la note médicale reçue. Même lorsque tout va bien, nos praticiennes sont professionnellement responsables de chaque soin et ne peuvent se fier à la seule appréciation de la cliente en présence d'une condition médicale. Votre médecin connaît votre historique; ensemble, nous assurons une expérience sûre.</p>
+    </div>
+  </div>
+
+  <div style="padding:1.6rem 0;">
+    <button onclick="(function(b){var a=b.nextElementSibling,s=b.querySelector('svg');var o=a.style.display==='block';a.style.display=o?'none':'block';s.style.transform=o?'':'rotate(180deg)'})(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:400;color:#684034;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+      <span data-fr="Puis-je communiquer en français ou en anglais ?" data-en="Can I communicate in French or English?">Puis-je communiquer en français ou en anglais ?</span>
+      <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#684034" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div style="display:none;padding-top:1rem;color:rgba(104,64,52,0.65);font-size:0.95rem;line-height:1.8;">
+      <p data-fr="Bien sûr. Notre équipe vous accompagne dans les deux langues, du formulaire de santé jusqu'à votre rendez-vous." data-en="Of course. Our team supports you in both languages, from your health form through to your appointment.">Bien sûr. Notre équipe vous accompagne dans les deux langues, du formulaire de santé jusqu'à votre rendez-vous.</p>
+    </div>
+  </div>
+
+  <!-- ══ YOUR SAFETY FIRST — medical clearance note, placed just before the booking CTA ══ -->
+  <div style="margin-top:3.5rem;border:1px solid rgba(201,151,58,0.25);border-radius:4px;padding:3rem 2.5rem;background:#FDFAF5;">
+    <p style="text-align:center;font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:#C9973A;margin-bottom:1rem;" data-fr="Votre sécurité" data-en="Your Safety">Votre sécurité</p>
+    <h2 style="text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,4vw,2.3rem);font-weight:400;font-style:italic;color:#684034;line-height:1.25;margin-bottom:1.8rem;" data-fr="Votre sécurité, avant tout." data-en="Your safety, before anything else.">Votre sécurité, avant tout.</h2>
+    <p style="color:rgba(104,64,52,0.75);font-size:0.98rem;line-height:1.9;margin-bottom:1.2rem;" data-fr="Les traitements au laser agissent en profondeur sur la peau. Certaines conditions de santé ou certains médicaments peuvent modifier la façon dont votre peau réagit à la lumière et guérit. Dans ces cas, nous demandons une courte note de votre médecin confirmant que le traitement vous convient." data-en="Laser treatments interact with the skin in depth. Certain health conditions or medications can change how your skin reacts to light and how it heals. When this is the case, we ask for a short note from your doctor confirming the treatment is suitable for you.">Les traitements au laser agissent en profondeur sur la peau. Certaines conditions de santé ou certains médicaments peuvent modifier la façon dont votre peau réagit à la lumière et guérit. Dans ces cas, nous demandons une courte note de votre médecin confirmant que le traitement vous convient.</p>
+    <p style="color:rgba(104,64,52,0.75);font-size:0.98rem;line-height:1.9;margin-bottom:2.2rem;" data-fr="Ce n'est pas un refus — c'est notre façon de prendre soin de vous. Même lorsque vous vous sentez parfaitement bien, nos praticiennes sont professionnellement responsables de chaque soin qu'elles réalisent, et ne peuvent procéder sur la seule décision de la cliente lorsqu'une condition médicale est en jeu. Votre médecin connaît votre historique; ensemble, nous veillons à une expérience sûre, efficace et belle." data-en="This isn't a refusal — it's how we care for you. Even when you feel perfectly well, our practitioners are professionally responsible for every treatment they perform, and they cannot proceed on a client's decision alone when a medical condition is involved. Your doctor knows your health history; together, we make sure your experience is safe, effective and beautiful.">Ce n'est pas un refus — c'est notre façon de prendre soin de vous. Même lorsque vous vous sentez parfaitement bien, nos praticiennes sont professionnellement responsables de chaque soin qu'elles réalisent, et ne peuvent procéder sur la seule décision de la cliente lorsqu'une condition médicale est en jeu. Votre médecin connaît votre historique; ensemble, nous veillons à une expérience sûre, efficace et belle.</p>
+
+    <details style="border-top:1px solid rgba(104,64,52,0.14);padding-top:1.4rem;">
+      <summary style="cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#684034;">
+        <span data-fr="Conditions pouvant nécessiter une note médicale" data-en="Conditions that may require a doctor's note">Conditions pouvant nécessiter une note médicale</span>
+      </summary>
+      <!-- TODO(clinic): have this list reviewed and validated by the clinic's medical staff before publishing. -->
+      <ul style="margin:1.3rem 0 0;padding-left:1.3rem;color:rgba(104,64,52,0.68);font-size:0.9rem;line-height:2;">
+        <li data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</li>
+        <li data-fr="Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière" data-en="Autoimmune conditions (e.g. lupus, scleroderma) or light sensitivity">Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière</li>
+        <li data-fr="Isotrétinoïne (Accutane) au cours des 6 à 12 derniers mois, ou médicaments photosensibilisants (certains antibiotiques, rétinoïdes, millepertuis)" data-en="Isotretinoin (Accutane) in the last 6–12 months, or photosensitizing medications (some antibiotics, retinoids, St. John's wort)">Isotrétinoïne (Accutane) au cours des 6 à 12 derniers mois, ou médicaments photosensibilisants (certains antibiotiques, rétinoïdes, millepertuis)</li>
+        <li data-fr="Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone traitée" data-en="Active herpes / cold sores, skin infection or open wounds in the area">Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone traitée</li>
+        <li data-fr="Épilepsie ou crises déclenchées par la lumière" data-en="Epilepsy or light-triggered seizures">Épilepsie ou crises déclenchées par la lumière</li>
+        <li data-fr="Antécédents de chéloïdes ou de cicatrisation anormale" data-en="History of keloids or abnormal scarring">Antécédents de chéloïdes ou de cicatrisation anormale</li>
+        <li data-fr="Cancer de la peau ou grain de beauté suspect dans la zone à traiter" data-en="Skin cancer or suspicious moles in the treatment area">Cancer de la peau ou grain de beauté suspect dans la zone à traiter</li>
+        <li data-fr="Diabète non contrôlé, troubles de la coagulation ou anticoagulants" data-en="Uncontrolled diabetes, blood-clotting disorders or anticoagulants">Diabète non contrôlé, troubles de la coagulation ou anticoagulants</li>
+        <li data-fr="Vitiligo ou psoriasis" data-en="Vitiligo or psoriasis">Vitiligo ou psoriasis</li>
+        <li data-fr="Bronzage récent ou autobronzant" data-en="Recent tanning or self-tanner">Bronzage récent ou autobronzant</li>
+      </ul>
+      <p style="margin-top:1.3rem;font-size:0.85rem;font-style:italic;color:rgba(104,64,52,0.55);">
+        <span data-fr="Cette liste n'est pas exhaustive. Si vous avez un doute, " data-en="This list is not exhaustive. If you're unsure, ">Cette liste n'est pas exhaustive. Si vous avez un doute, </span><a href="mailto:Info@skines.ca" style="color:#C9973A;text-decoration:underline;"><span data-fr="écrivez-nous" data-en="write to us">écrivez-nous</span></a><span data-fr=" — nous répondrons avec plaisir avant votre réservation." data-en=" — we'll gladly answer before you book."> — nous répondrons avec plaisir avant votre réservation.</span>
+      </p>
+    </details>
+    <div style="text-align:center;margin-top:1.8rem;">
+      <a href="/formulaire-sante" style="display:inline-flex;align-items:center;gap:0.5rem;color:#684034;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;">
+        <span data-fr="Remplir mon formulaire de santé" data-en="Fill out my health form">Remplir mon formulaire de santé</span>
+      </a>
+    </div>
+  </div>
+
   <div style="text-align:center;margin-top:3rem;">
     <a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#F5EDE3;color:#684034;text-decoration:none;padding:1rem 2.6rem;text-transform:uppercase;letter-spacing:0.22em;font-size:0.78rem;font-weight:600;border:1.5px solid #F5EDE3;transition:all 0.25s;">
       <span data-fr="Réserver mon épilation laser" data-en="Book my laser session">Réserver mon épilation laser</span>
@@ -8596,7 +8562,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
         <span class="sf-exclusive-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 8v1"/><path d="M13 15v1"/><path d="M13 11.5v1"/></svg></span>
         <span class="sf-exclusive-text">
           <strong data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</strong>
-          <span data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
+          <span data-fr="Tirage Exclusif · Places Limitées" data-en="Exclusive Draw · Limited Spots">Tirage Exclusif · Places Limitées</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -8641,46 +8607,46 @@ const BOOKING = "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share
 
 const DB = [
   // ── HEAD SPA ──
-  { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", price:"$98", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", price:"$145", tag:"head spa scalpcial solo 90 min signature rituel", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", price:"$196", tag:"head spa scalpcial duo 60 min couple deux", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", price:"$260", tag:"head spa scalpcial duo 90 min couple signature", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", price:"$294", tag:"head spa scalpcial trio 60 min groupe trois", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", tag:"head spa scalpcial solo 90 min signature rituel", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", tag:"head spa scalpcial duo 60 min couple deux", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", tag:"head spa scalpcial duo 90 min couple signature", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", tag:"head spa scalpcial trio 60 min groupe trois", url:"/head-spa" },
 
   // ── FACIAL ──
   { icon:"✨", cat:"Soins Visage", name:"Facial", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"/facial" },
 
   // ── LASER ──
-  { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", price:"$40", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Menton", meta:"Laser · 10 min", price:"$40", tag:"laser épilation menton visage chin", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Favoris", meta:"Laser · 10 min", price:"$40", tag:"laser épilation favoris sideburns visage", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Cou", meta:"Laser · 15 min", price:"$55", tag:"laser épilation cou neck", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Nuque", meta:"Laser · 10 min", price:"$40", tag:"laser épilation nuque nape", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Contour Barbe", meta:"Laser · 10 min", price:"$55", tag:"laser épilation barbe beard contour", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage", meta:"Laser · 15 min", price:"$75", tag:"laser épilation demi visage half face", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage + Cou", meta:"Laser · 20 min", price:"$105", tag:"laser épilation demi visage cou half face neck", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Visage Complet", meta:"Laser · 20 min", price:"$130", tag:"laser épilation visage complet full face", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Aisselles", meta:"Laser · 15 min", price:"$75", tag:"laser épilation aisselles underarms", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Ligne Bikini", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bikini ligne line", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Maillot Intégral", meta:"Laser · 20 min", price:"$120", tag:"laser épilation maillot intégral full bikini", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Bras Complets", meta:"Laser · 30 min", price:"$145", tag:"laser épilation bras complets full arms", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Bras", meta:"Laser · 20 min", price:"$80", tag:"laser épilation demi bras half arms", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Poitrine", meta:"Laser · 20 min", price:"$75", tag:"laser épilation poitrine chest", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Épaules", meta:"Laser · 20 min", price:"$65", tag:"laser épilation épaules shoulders", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Ventre Complet", meta:"Laser · 20 min", price:"$75", tag:"laser épilation ventre abdomen full abdomen", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Dos Complet", meta:"Laser · 25 min", price:"$150", tag:"laser épilation dos complet full back", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Bas du Dos", meta:"Laser · 15 min", price:"$65", tag:"laser épilation bas du dos lower back", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Fesses", meta:"Laser · 15 min", price:"$75", tag:"laser épilation fesses buttocks", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Jambes Complètes", meta:"Laser · 35 min", price:"$180", tag:"laser épilation jambes complètes full legs", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Jambes", meta:"Laser · 20 min", price:"$100", tag:"laser épilation demi jambes half legs", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Corps Complet", meta:"Laser · 1h 30 min", price:"$450", tag:"laser épilation corps complet full body", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Visage + Aisselles", meta:"Forfait · 25 min", price:"$145", tag:"laser forfait visage aisselles bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles", meta:"Forfait · 30 min", price:"$170", tag:"laser forfait bikini aisselles bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Fesses", meta:"Forfait · 15 min", price:"$150", tag:"laser forfait bikini fesses bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Visage + Aisselles", meta:"Forfait · 30 min", price:"$240", tag:"laser forfait bikini visage aisselles bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles + Jambes Complètes", meta:"Forfait · 35 min", price:"$280", tag:"laser forfait bikini aisselles jambes bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Dos Complet + Poitrine", meta:"Forfait · 40 min", price:"$190", tag:"laser forfait dos poitrine bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Corps Complet", meta:"Forfait · 1h 30 min", price:"$450", tag:"laser forfait corps complet full body bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Menton", meta:"Laser · 10 min", tag:"laser épilation menton visage chin", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Favoris", meta:"Laser · 10 min", tag:"laser épilation favoris sideburns visage", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Cou", meta:"Laser · 15 min", tag:"laser épilation cou neck", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Nuque", meta:"Laser · 10 min", tag:"laser épilation nuque nape", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Contour Barbe", meta:"Laser · 10 min", tag:"laser épilation barbe beard contour", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage", meta:"Laser · 15 min", tag:"laser épilation demi visage half face", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage + Cou", meta:"Laser · 20 min", tag:"laser épilation demi visage cou half face neck", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Visage Complet", meta:"Laser · 20 min", tag:"laser épilation visage complet full face", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Aisselles", meta:"Laser · 15 min", tag:"laser épilation aisselles underarms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Ligne Bikini", meta:"Laser · 15 min", tag:"laser épilation bikini ligne line", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Maillot Intégral", meta:"Laser · 20 min", tag:"laser épilation maillot intégral full bikini", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Bras Complets", meta:"Laser · 30 min", tag:"laser épilation bras complets full arms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Bras", meta:"Laser · 20 min", tag:"laser épilation demi bras half arms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Poitrine", meta:"Laser · 20 min", tag:"laser épilation poitrine chest", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Épaules", meta:"Laser · 20 min", tag:"laser épilation épaules shoulders", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Ventre Complet", meta:"Laser · 20 min", tag:"laser épilation ventre abdomen full abdomen", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Dos Complet", meta:"Laser · 25 min", tag:"laser épilation dos complet full back", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Bas du Dos", meta:"Laser · 15 min", tag:"laser épilation bas du dos lower back", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Fesses", meta:"Laser · 15 min", tag:"laser épilation fesses buttocks", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Jambes Complètes", meta:"Laser · 35 min", tag:"laser épilation jambes complètes full legs", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Jambes", meta:"Laser · 20 min", tag:"laser épilation demi jambes half legs", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Corps Complet", meta:"Laser · 1h 30 min", tag:"laser épilation corps complet full body", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Visage + Aisselles", meta:"Forfait · 25 min", tag:"laser forfait visage aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles", meta:"Forfait · 30 min", tag:"laser forfait bikini aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Fesses", meta:"Forfait · 15 min", tag:"laser forfait bikini fesses bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Visage + Aisselles", meta:"Forfait · 30 min", tag:"laser forfait bikini visage aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles + Jambes Complètes", meta:"Forfait · 35 min", tag:"laser forfait bikini aisselles jambes bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Dos Complet + Poitrine", meta:"Forfait · 40 min", tag:"laser forfait dos poitrine bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Corps Complet", meta:"Forfait · 1h 30 min", tag:"laser forfait corps complet full body bundle", url:"/laser" },
 
   // ── INFO / FAQ ──
   { icon:"📍", cat:"Info", name:"Adresse – 19 Av. Shamrock, Montréal", meta:"Côte-des-Neiges · H2S 1A3", price:"", tag:"adresse address localisation location shamrock montréal côte des neiges où direction", url:"/#contact" },
@@ -9711,7 +9677,7 @@ html body #tarifs .section-head h2 span {
           { q: 'La séance se déroule-t-elle dans un cadre confidentiel ?', a: 'Oui. Toutes les séances bikini sont réalisées en cabine privée par une esthéticienne formée, dans le respect total de la confidentialité et du confort de la cliente.' }
         ],
         linksTitle: 'Découvrir aussi',
-        links: [{ href: '/laser', label: 'Jambes & Corps' }, { href: '/laser', label: 'Corps Complet — $200' }],
+        links: [{ href: '/laser', label: 'Jambes & Corps' }, { href: '/laser', label: 'Corps Complet' }],
         cta: 'Réserver une séance'
       },
       en: {
@@ -9732,7 +9698,7 @@ html body #tarifs .section-head h2 span {
           { q: 'Is the session performed in a private setting?', a: 'Yes. All bikini sessions are performed in a private room by a trained esthetician, with full respect for your confidentiality and comfort.' }
         ],
         linksTitle: 'Also discover',
-        links: [{ href: '/laser', label: 'Legs & Body' }, { href: '/laser', label: 'Full Body — $200' }],
+        links: [{ href: '/laser', label: 'Legs & Body' }, { href: '/laser', label: 'Full Body' }],
         cta: 'Book a session'
       }
     },
@@ -9756,7 +9722,7 @@ html body #tarifs .section-head h2 span {
           { q: 'Combien de temps dure une séance jambes complètes ?', a: 'En général, une séance jambes complètes dure entre 30 et 60 minutes, selon la densité des poils et la surface à traiter.' }
         ],
         linksTitle: 'Découvrir aussi',
-        links: [{ href: '/laser', label: 'Bikini & Intime' }, { href: '/laser', label: 'Corps Complet — $200' }],
+        links: [{ href: '/laser', label: 'Bikini & Intime' }, { href: '/laser', label: 'Corps Complet' }],
         cta: 'Réserver une séance'
       },
       en: {
@@ -9777,7 +9743,7 @@ html body #tarifs .section-head h2 span {
           { q: 'How long does a full legs session take?', a: 'Generally, a full legs session takes 30 to 60 minutes, depending on hair density and the exact area.' }
         ],
         linksTitle: 'Also discover',
-        links: [{ href: '/laser', label: 'Bikini & Intimate' }, { href: '/laser', label: 'Full Body — $200' }],
+        links: [{ href: '/laser', label: 'Bikini & Intimate' }, { href: '/laser', label: 'Full Body' }],
         cta: 'Book a session'
       }
     },
@@ -9801,7 +9767,7 @@ html body #tarifs .section-head h2 span {
           { q: 'Combien de séances pour le dos complet ?', a: 'En moyenne, 6 à 12 séances sont recommandées pour le dos. Le cycle de repousse et la densité des poils influencent le nombre de séances nécessaires.' }
         ],
         linksTitle: 'Découvrir aussi',
-        links: [{ href: '/laser', label: 'Corps Complet — $200' }, { href: '/laser', label: 'Bikini & Intime' }],
+        links: [{ href: '/laser', label: 'Corps Complet' }, { href: '/laser', label: 'Bikini & Intime' }],
         cta: 'Réserver une séance'
       },
       en: {
@@ -9822,53 +9788,53 @@ html body #tarifs .section-head h2 span {
           { q: 'How many sessions for the full back?', a: 'On average, 6 to 12 sessions are recommended for the back. Regrowth cycle and hair density affect the number of sessions required.' }
         ],
         linksTitle: 'Also discover',
-        links: [{ href: '/laser', label: 'Full Body — $200' }, { href: '/laser', label: 'Bikini & Intimate' }],
+        links: [{ href: '/laser', label: 'Full Body' }, { href: '/laser', label: 'Bikini & Intimate' }],
         cta: 'Book a session'
       }
     },
     'corps-complet': {
       images: ['assets/laser-full-zones.webp?v=1','assets/laser-corps-complet.webp?v=1'],
       fr: {
-        eyebrow: 'Offre Spéciale · Clarity II',
+        eyebrow: 'Rituel Découverte · Clarity II',
         title: 'Corps Complet — Première Séance',
-        meta: '1h 30 min · $200 · 50 % de réduction',
-        lead: "L’offre Corps Complet de Skines Head Spa & Wellness permet de traiter l’ensemble de vos zones prioritaires en une seule séance de 1h 30 min à Montréal. C’est le point d’entrée idéal pour découvrir la technologie Clarity II au meilleur tarif de première séance.",
+        meta: '1h 30 min · Toutes zones prioritaires',
+        lead: "L'offre Corps Complet de Skines Head Spa & Wellness permet de traiter l'ensemble de vos zones prioritaires en une seule séance de 1h 30 min à Montréal. C'est le point d'entrée idéal pour découvrir la technologie Clarity II.",
         sections: [
           { h: 'Ce que comprend la séance', body: 'La séance Corps Complet couvre toutes vos zones prioritaires : visage, aisselles, bikini, bras, jambes, dos, poitrine, ventre. Votre esthéticienne établit avec vous l’ordre de traitement en début de séance selon vos objectifs.' },
-          { h: 'Une offre de première séance exclusive', body: 'L’offre à $200 est disponible uniquement pour la première séance corps complet. Elle permet de tester la Clarity II sur l’ensemble de vos zones avant de définir un protocole de suivi personnalisé avec votre esthéticienne.' }
+          { h: 'Une offre de première séance exclusive', body: 'Cette offre est réservée à votre toute première séance corps complet. Elle permet de tester la Clarity II sur l’ensemble de vos zones avant de définir un protocole de suivi personnalisé avec votre esthéticienne.' }
         ],
         forWhoTitle: 'Pour qui ?',
-        forWho: ['Première séance d’épilation laser à Montréal', 'Traitement de plusieurs zones simultanément', 'Meilleur rapport qualité/prix pour découvrir la technologie Clarity II', 'Skines Head Spa & Wellness — Montréal'],
+        forWho: ['Première séance d’épilation laser à Montréal', 'Traitement de plusieurs zones simultanément', 'Une découverte complète de la technologie Clarity II', 'Skines Head Spa & Wellness — Montréal'],
         faqTitle: 'Questions fréquentes',
         faqs: [
           { q: 'Toutes les zones sont-elles traitées en une seule séance ?', a: 'Oui. La séance de 1h 30 min est conçue pour couvrir l’ensemble des zones ciblées. Votre esthéticienne organise la séance pour optimiser le temps disponible selon vos priorités.' },
-          { q: 'Quel est le prix des séances suivantes ?', a: 'Les tarifs des séances suivantes sont disponibles par zone sur Fresha. Votre esthéticienne vous proposera un plan de suivi adapté à l’issue de la première séance.' },
+          { q: 'Quel est le tarif des séances suivantes ?', a: 'Les tarifs des séances suivantes sont disponibles par zone sur Fresha. Votre esthéticienne vous proposera un plan de suivi adapté à l’issue de la première séance.' },
           { q: 'Combien de séances corps complet sont recommandées ?', a: 'Pour une réduction durable sur l’ensemble du corps, un protocole de 6 à 12 séances est généralement recommandé. La fréquence est adaptée zone par zone selon les cycles de repousse.' }
         ],
         linksTitle: 'Découvrir aussi',
         links: [{ href: '/laser', label: 'Bikini & Intime' }, { href: '/laser', label: 'Visage & Cou' }],
-        cta: 'Réserver — $200 · Première séance'
+        cta: 'Réserver ma première séance'
       },
       en: {
-        eyebrow: 'Special Offer · Clarity II',
+        eyebrow: 'Discovery Ritual · Clarity II',
         title: 'Full Body — First Session',
-        meta: '1h 30 min · $200 · 50% off',
-        lead: "Skines Head Spa & Wellness' Full Body offer lets you treat all your priority zones in a single 1h 30 min session in Montreal. It’s the ideal starting point to discover Clarity II technology at the best first-session rate.",
+        meta: '1h 30 min · All priority zones',
+        lead: "Skines Head Spa & Wellness' Full Body offer lets you treat all your priority zones in a single 1h 30 min session in Montreal. It's the ideal starting point to discover Clarity II technology.",
         sections: [
           { h: 'What the session includes', body: 'The Full Body session covers all your priority zones: face, underarms, bikini, arms, legs, back, chest, abdomen. Your esthetician establishes the treatment order at the start of the session based on your goals.' },
-          { h: 'An exclusive first-session offer', body: 'The $200 offer is available for the first full body session only. It lets you experience the Clarity II across all your zones before defining a personalized follow-up protocol with your esthetician.' }
+          { h: 'An exclusive first-session offer', body: 'This offer is reserved for your very first full body session. It lets you experience the Clarity II across all your zones before defining a personalized follow-up protocol with your esthetician.' }
         ],
         forWhoTitle: 'Who is it for?',
-        forWho: ['First laser hair removal session in Montreal', 'Treating multiple zones simultaneously', 'Best value introduction to Clarity II technology', 'Skines Head Spa & Wellness — Montreal'],
+        forWho: ['First laser hair removal session in Montreal', 'Treating multiple zones simultaneously', 'A complete introduction to Clarity II technology', 'Skines Head Spa & Wellness — Montreal'],
         faqTitle: 'Frequently asked questions',
         faqs: [
           { q: 'Are all zones treated in one session?', a: 'Yes. The 1h 30 min session is designed to cover all targeted zones. Your esthetician organizes the session to optimize the available time based on your priorities.' },
-          { q: 'What are the prices for follow-up sessions?', a: 'Follow-up session pricing is available by zone on Fresha. Your esthetician will suggest a tailored follow-up plan at the end of your first session.' },
+          { q: 'What are the rates for follow-up sessions?', a: 'Follow-up session pricing is available by zone on Fresha. Your esthetician will suggest a tailored follow-up plan at the end of your first session.' },
           { q: 'How many full body sessions are recommended?', a: 'For lasting reduction across the whole body, a protocol of 6 to 12 sessions is generally recommended. Frequency is adapted zone by zone according to regrowth cycles.' }
         ],
         linksTitle: 'Also discover',
         links: [{ href: '/laser', label: 'Bikini & Intimate' }, { href: '/laser', label: 'Face & Neck' }],
-        cta: 'Book — $200 · First session'
+        cta: 'Book my first session'
       }
     }
   };

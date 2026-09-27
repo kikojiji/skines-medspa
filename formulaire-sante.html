@@ -49,17 +49,17 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-<title>Votre Visite · Skines Head Spa & Wellness Montréal</title>
-<meta name="description" content="Tout ce que vous devez savoir avant votre visite chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
+<title>Formulaire de Santé · Skines Head Spa & Wellness Montréal</title>
+<meta name="description" content="Formulaire de santé à remplir avant votre rendez-vous chez Skines Head Spa & Wellness Montréal, pour une expérience laser sûre et personnalisée.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Votre Visite · Skines Head Spa Montréal">
-<meta property="og:description" content="Stationnement gratuit, reçus d'assurance, ambiance luxe — découvrez l'expérience Skines avant votre arrivée.">
+<meta property="og:title" content="Formulaire de Santé · Skines Head Spa Montréal">
+<meta property="og:description" content="Un formulaire simple avant votre rendez-vous, pour une expérience laser sûre et sereine chez Skines.">
 <meta property="og:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
-<link rel="canonical" href="https://skines.ca/your-visit">
-<meta property="og:url" content="https://skines.ca/your-visit">
+<link rel="canonical" href="https://skines.ca/formulaire-sante">
+<meta property="og:url" content="https://skines.ca/formulaire-sante">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Votre Visite · Skines Head Spa Montréal">
-<meta name="twitter:description" content="Stationnement gratuit, ambiance luxe — tout ce que vous devez savoir avant votre première visite chez Skines.">
+<meta name="twitter:title" content="Reçus d'Assurance · Skines Head Spa Montréal">
+<meta name="twitter:description" content="Reçus d'assurance disponibles pour certains soins chez Skines Head Spa Montréal. Renseignez-vous avant votre rendez-vous.">
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -112,14 +112,14 @@ nav.nav-hidden { transform: translateY(-110%); }
 }
 .nav-cta:hover { background: var(--brown); color: var(--cream); }
 /* ── HEADER CLEANUP (same fix applied to index.html / facial.html /
-   head-spa.html / laser.html / insurance.html / parking.html /
-   visit-us.html) — assets/css/nav.css loads after this stylesheet with
-   "justify-content: space-between !important" on nav and an unscoped
-   ".logo { position:absolute; left:50% }" that centers the logo at all
-   widths. With unrelated flex items spread by space-between, nav-cta can
-   land under the centered logo. nav.css is shared across pages so we
-   don't edit it — override here with matching+higher specificity
-   (doubled #mainNav ID) instead. */
+   head-spa.html / laser.html) — assets/css/nav.css loads after this
+   stylesheet with "justify-content: space-between !important" on nav and
+   an unscoped ".logo { position:absolute; left:50% }" that centers the
+   logo at all widths. With unrelated flex items spread by space-between,
+   nav-cta can land under the centered logo (confirmed here: nav-cta was
+   rendering at x:752-862, directly inside the logo's 617-823 span at
+   1440px). nav.css is shared across pages so we don't edit it — override
+   here with matching+higher specificity (doubled #mainNav ID) instead. */
 @media (min-width: 981px) {
   #mainNav#mainNav {
     justify-content: flex-start !important;
@@ -127,7 +127,18 @@ nav.nav-hidden { transform: translateY(-110%); }
     padding: 1.3rem 3.5rem !important;
   }
   #mainNav#mainNav .nav-links {
-    gap: clamp(0.9rem, -1rem + 3.2vw, 2.2rem) !important;
+    gap: clamp(0.55rem, -1.3rem + 3vw, 2.2rem) !important;
+  }
+  /* This page's nav row runs right up against the centered logo at
+     common desktop widths — shrink the link labels slightly so the
+     whole row stays narrower. */
+  #mainNav#mainNav .nav-links a {
+    font-size: 0.70rem !important;
+    letter-spacing: 0.06em !important;
+  }
+  #mainNav#mainNav .nav-dd-label {
+    font-size: 0.70rem !important;
+    letter-spacing: 0.06em !important;
   }
   #mainNav#mainNav .nav-cta {
     margin-left: auto !important;
@@ -236,7 +247,8 @@ nav.nav-hidden { transform: translateY(-110%); }
     color: #E8C078 !important;
   }
 }
-/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type */
+/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type,
+   same as facial.html / head-spa.html / laser.html */
 @media (min-width: 981px) and (max-width: 1150px) {
   #mainNav#mainNav .nav-links a {
     font-size: 0.54rem !important;
@@ -700,8 +712,8 @@ footer { background: #684034 !important; }
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Votre Visite",
-      "item": "https://skines.ca/your-visit"
+      "name": "Formulaire de santé",
+      "item": "https://skines.ca/formulaire-sante"
     }
   ]
 }
@@ -711,56 +723,40 @@ footer { background: #684034 !important; }
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "name": "Votre Visite · Skines Head Spa Montréal",
-  "description": "Questions fréquemment posées sur votre visite chez Skines Head Spa",
-  "url": "https://skines.ca/your-visit",
+  "name": "Assurances · Skines Head Spa Montréal",
+  "description": "Questions fréquemment posées sur les reçus d'assurance chez Skines",
+  "url": "https://skines.ca/insurance",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Y a-t-il un stationnement privé disponible ?",
+      "name": "Dois-je demander le reçu à l'avance ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui. Skines dispose d'un stationnement privé et entièrement gratuit pour tous nos clients. Vous trouverez facilement une place directement sur place, au 19 Av. Shamrock, Montréal. Aucun frais, aucune recherche — il suffit d'arriver."
+        "text": "Non, vous pouvez le demander directement au moment du règlement. Cependant, il est préférable de nous le mentionner en début de séance pour éviter tout délai."
       }
     },
     {
       "@type": "Question",
-      "name": "Les reçus d'assurance sont-ils disponibles ?",
+      "name": "Sous quel format est fourni le reçu ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui. Des reçus d'assurance sont disponibles pour les soins admissibles effectués par nos thérapeutes certifiés. Le remboursement dépend toutefois de votre assureur et de votre couverture personnelle. Nous vous encourageons à vérifier avec votre compagnie d'assurance avant votre visite."
+        "text": "Nous fournissons un reçu officiel sur demande. Pour toute question sur le contenu du reçu, contactez-nous au +1 (438) 260-5660."
       }
     },
     {
       "@type": "Question",
-      "name": "Dois-je prendre rendez-vous à l'avance ?",
+      "name": "Mon assurance couvre-t-elle les soins Skines ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui, une réservation préalable est fortement recommandée. Nos créneaux sont souvent réservés plusieurs jours à l'avance. Réservez facilement en ligne via Fresha ou en nous contactant au +1 (438) 260-5660."
+        "text": "Cela dépend entièrement de votre régime. Contactez votre assureur avant votre visite pour vérifier votre couverture."
       }
     },
     {
       "@type": "Question",
-      "name": "Peut-on acheter des cartes cadeaux ?",
+      "name": "Puis-je obtenir un reçu pour une carte cadeau utilisée ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolument. Nos cartes cadeaux sont disponibles en plusieurs montants et font un cadeau raffiné pour vos proches. Vous pouvez les commander sur notre page Cartes Cadeaux ou les acquérir directement en studio. Elles sont valides pour tous nos soins."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Combien de temps à l'avance dois-je arriver ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nous vous recommandons d'arriver environ 5 à 10 minutes avant l'heure de votre rendez-vous. Cela vous laisse le temps de vous installer confortablement, de vous détendre et de commencer votre expérience en douceur — sans précipitation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "À quoi ressemble une visite chez Skines ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dès votre arrivée, vous êtes accueilli dans un espace calme et luxueux. Votre thérapeute vous accueille personnellement, échange avec vous sur vos besoins, et vous accompagne tout au long de votre soin dans un espace entièrement privé. Chaque soin est adapté à votre peau et à votre ressenti. En fin de séance, vous repartez avec des recommandations personnalisées."
+        "text": "Oui. Le reçu est émis au moment de l'utilisation de la carte cadeau, et non lors de son achat. Il sera établi au nom du bénéficiaire du soin."
       }
     }
   ]
@@ -1405,6 +1401,7 @@ input, textarea, select {
   <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
 </head>
 <body>
+
 <nav id="mainNav">
   <a class="logo" href="/">
     <div class="logo-brand">
@@ -1416,7 +1413,7 @@ input, textarea, select {
     <li><a href="/head-spa">Head Spa</a></li>
     <li><a href="/laser">Laser</a></li>
     <li><a href="/facial">Facial</a></li>
-    <li><a href="/your-visit" class="active">Votre Visite</a></li>
+    <li><a href="/insurance" class="active">Assurance</a></li>
   
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
@@ -1520,234 +1517,293 @@ input, textarea, select {
     </div>
   </div>
 
-<style>
-/* ── Reset section base padding ── */
-section { padding: 0 !important; }
 
-/* ── Hero ── */
-.yv-hero {
-  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
-  background: #684034;
-  padding: 0 2rem 4rem; padding-top: 80px;
-  position: relative; overflow: hidden;
+<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
+<script>window._tsk = window._tsk || '1x00000000000000000000AA';</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInitHealthForm&render=explicit" async defer></script>
+<style>
+.hf-hero { min-height: 42vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #FDFAF5, #F5EDE3); padding: 7rem 1.5rem 3rem; }
+.hf-hero-inner { max-width: 640px; }
+.hf-eyebrow { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: #C9973A; margin-bottom: 1rem; }
+.hf-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; font-style: italic; color: #684034; margin: 0 0 1rem; line-height: 1.2; }
+.hf-hero p { font-family: 'DM Sans', sans-serif; font-size: 0.98rem; color: rgba(104,64,52,0.7); line-height: 1.8; margin: 0; }
+
+.hf-safety { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
+.hf-safety p { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; line-height: 1.85; color: rgba(104,64,52,0.75); margin: 0 0 1.2rem; }
+.hf-safety details { border-top: 1px solid rgba(104,64,52,0.14); padding-top: 1.2rem; margin-top: 1.4rem; }
+.hf-safety summary { cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #684034; }
+.hf-safety ul { margin: 1.1rem 0 0; padding-left: 1.2rem; color: rgba(104,64,52,0.68); font-size: 0.88rem; line-height: 1.9; }
+
+.hf-form-section { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
+.hf-form-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.22); border-radius: 6px; padding: 2.5rem 2rem; }
+.hf-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+@media (max-width: 560px) { .hf-field-row { grid-template-columns: 1fr; } }
+.hf-field { margin-bottom: 1.2rem; }
+.hf-field label { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.6); margin-bottom: 0.5rem; }
+.hf-field input[type="text"], .hf-field input[type="email"], .hf-field input[type="tel"], .hf-field select, .hf-field textarea {
+  width: 100%; box-sizing: border-box; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #3A1E14;
+  border: 1px solid rgba(104,64,52,0.22); border-radius: 4px; padding: 0.75rem 0.9rem; background: #FDFAF5;
 }
-.yv-hero::before {
-  content:''; position:absolute; inset:0;
-  background: radial-gradient(ellipse at 65% 35%, rgba(201,160,96,0.07) 0%, transparent 65%);
-}
-.yv-hero-inner { max-width:680px; margin:0 auto; width:100%; position:relative; }
-.yv-pill {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  background:rgba(201,160,96,0.10); border:1px solid rgba(201,160,96,0.22);
-  border-radius:40px; padding:0.45rem 1rem;
-  font-size:0.63rem; letter-spacing:0.18em; color:rgba(201,160,96,0.80);
-  text-transform:uppercase; margin-bottom:2rem; width:fit-content;
-}
-.yv-hero h1 {
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(3.5rem,11vw,6rem);
-  font-weight:300; color:rgba(245,237,227,0.95);
-  line-height:0.95; letter-spacing:-0.02em; margin-bottom:1.5rem;
-}
-.yv-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
-.yv-hero-sub { font-size:0.95rem; color:rgba(245,237,227,0.42); max-width:400px; line-height:1.75; margin-bottom:2.8rem; }
-.yv-hero-links { display:flex; flex-direction:column; gap:0; }
-.yv-hero-link {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.07);
-  text-decoration:none; transition:opacity 0.2s;
-}
-.yv-hero-link:first-child { border-top:1px solid rgba(255,255,255,0.07); }
-.yv-hero-link:hover { opacity:0.75; }
-.yv-hero-link-left { display:flex; align-items:center; gap:0.9rem; }
-.yv-hero-link-icon { width:32px; height:32px; border-radius:6px; background:rgba(201,160,96,0.10); display:flex; align-items:center; justify-content:center; }
-.yv-hero-link-icon svg { width:16px; height:16px; stroke:rgba(201,160,96,0.75); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.yv-hero-link span { font-size:0.90rem; font-weight:300; color:rgba(245,237,227,0.80); letter-spacing:0.02em; }
-.yv-hero-link svg.arr { width:14px; height:14px; stroke:rgba(255,255,255,0.22); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.yv-scroll-hint { display:flex; flex-direction:column; align-items:center; gap:0.6rem; margin-top:3rem; opacity:0.25; }
-.yv-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
-.yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
+.hf-field textarea { min-height: 90px; resize: vertical; }
+.hf-conditions { border: 1px solid rgba(104,64,52,0.14); border-radius: 4px; padding: 1.1rem 1.2rem; background: #FDFAF5; }
+.hf-condition-row { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.5rem 0; font-family: 'DM Sans', sans-serif; font-size: 0.86rem; color: rgba(104,64,52,0.8); line-height: 1.5; }
+.hf-condition-row input { margin-top: 0.2rem; flex-shrink: 0; }
+.hf-consent { display: flex; align-items: flex-start; gap: 0.65rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: rgba(104,64,52,0.75); line-height: 1.6; margin: 1.4rem 0; }
+.hf-consent input { margin-top: 0.25rem; flex-shrink: 0; }
+.hf-file-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; color: #684034; border: 1px dashed rgba(104,64,52,0.3); border-radius: 4px; padding: 0.7rem 1rem; cursor: pointer; width: 100%; box-sizing: border-box; }
+.hf-file-name { font-size: 0.78rem; color: rgba(104,64,52,0.55); margin-top: 0.4rem; }
+.hf-submit-btn { width: 100%; background: #F5EDE3; color: #684034; border: 1.5px solid #F5EDE3; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; transition: all 0.25s; }
+.hf-submit-btn:hover { background: #684034; color: #F5EDE3; }
+.hf-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.hf-clearance-link { display: block; text-align: center; margin-top: 1.4rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; color: #C9973A; text-decoration: underline; }
+.hf-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.hf-success-icon { width: 56px; height: 56px; border-radius: 50%; background: #F5EDE3; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+.hf-success-icon svg { width: 26px; height: 26px; stroke: #684034; fill: none; stroke-width: 2.2; }
+.hf-success h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; font-style: italic; color: #684034; margin: 0 0 0.8rem; }
+.hf-success p { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: rgba(104,64,52,0.7); line-height: 1.7; max-width: 460px; margin: 0 auto; }
+.hf-error { display: none; background: #FDF0EC; color: #9A3520; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; padding: 0.9rem 1rem; border-radius: 4px; margin-bottom: 1.2rem; }
 </style>
 
-<style>
-section { padding: 0 !important; }
-
-/* Hero */
-.yv-hero {
-  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
-  background: #684034;
-  padding: 0 2rem 4.5rem; padding-top: 80px;
-  position: relative; overflow: hidden;
-}
-.yv-hero::before {
-  content:''; position:absolute; inset:0;
-  background: radial-gradient(ellipse at 70% 30%, rgba(201,160,96,0.07) 0%, transparent 65%);
-}
-.yv-hero-inner { max-width:680px; margin:0 auto; width:100%; position:relative; }
-.yv-pill {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  background:rgba(201,160,96,0.10); border:1px solid rgba(201,160,96,0.22);
-  border-radius:40px; padding:0.45rem 1rem;
-  font-size:0.63rem; letter-spacing:0.18em; color:rgba(201,160,96,0.80);
-  text-transform:uppercase; margin-bottom:2rem; width:fit-content;
-}
-.yv-hero h1 {
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(3.5rem,11vw,6rem);
-  font-weight:300; color:rgba(245,237,227,0.95);
-  line-height:0.95; letter-spacing:-0.02em; margin-bottom:1.5rem;
-}
-.yv-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
-.yv-hero-sub {
-  font-size:0.95rem; color:rgba(245,237,227,0.42);
-  max-width:420px; line-height:1.8; margin-bottom:2.5rem;
-}
-.yv-hero-cta {
-  display:inline-flex; align-items:center; gap:0.55rem;
-  padding:0.85rem 2rem; border:1px solid rgba(201,160,96,0.38); border-radius:2px;
-  color:rgba(245,237,227,0.85); font-size:0.70rem; font-weight:500; letter-spacing:0.20em;
-  text-transform:uppercase; text-decoration:none; transition:all 0.25s;
-}
-.yv-hero-cta:hover { border-color:rgba(201,160,96,0.80); color:#fff; background:rgba(201,160,96,0.08); }
-.yv-scroll-hint { display:flex; flex-direction:column; align-items:center; gap:0.6rem; margin-top:3.5rem; opacity:0.22; }
-.yv-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
-.yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
-</style>
-
-<!-- ══ HERO ══ -->
-<header class="yv-hero">
-  <div class="yv-hero-inner">
-    <div class="yv-pill fade-up" data-fr="Votre Visite · Skines Head Spa" data-en="Your Visit · Skines Head Spa">Votre Visite · Skines Head Spa</div>
-    <h1 class="fade-up" data-i18n-html="yourVisit.heroTitleHtml">Votre<br><em>expérience.</em></h1>
-    <p class="yv-hero-sub fade-up" data-fr="De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme et de luxe discret." data-en="From arrival to departure, every moment is designed to envelop you in calm and quiet luxury.">De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme et de luxe discret.</p>
-    <a class="yv-hero-cta fade-up" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">
-      <span data-fr="RÉSERVER UN SOIN" data-en="BOOK A TREATMENT">RÉSERVER UN SOIN</span>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <div class="yv-scroll-hint">
-      <div class="yv-scroll-line"></div>
-      <span data-fr="Explorer" data-en="Explore">Explorer</span>
-    </div>
+<!-- HERO -->
+<header class="hf-hero">
+  <div class="hf-hero-inner fade-up">
+    <span class="hf-eyebrow" data-fr="Votre sécurité" data-en="Your Safety">Votre sécurité</span>
+    <h1 data-fr="Votre formulaire de santé." data-en="Your health form.">Votre formulaire de santé.</h1>
+    <p data-fr="Quelques minutes avant votre rendez-vous, pour que votre expérience soit sûre, sereine et adaptée à vous." data-en="A few minutes before your appointment, so your experience is safe, calm and tailored to you.">Quelques minutes avant votre rendez-vous, pour que votre expérience soit sûre, sereine et adaptée à vous.</p>
   </div>
 </header>
 
-<!-- ══ WHAT TO EXPECT (strip) ═════════════════════════ -->
-<div class="visit-strip">
-  <div class="visit-strip-inner fade-up">
-    <span class="visit-eyebrow" data-fr="L'Expérience" data-en="The Experience">L'Expérience</span>
-    <h2 data-i18n-html="yourVisit.timelineTitleHtml">Ce qui vous<br><em>attend.</em></h2>
-    <p data-fr="De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme, de soin et de luxe discret." data-en="From arrival to departure, every moment is designed to envelop you in calm, care, and quiet luxury.">De votre arrivée jusqu'à votre départ, chaque moment est pensé pour vous envelopper dans un univers de calme, de soin et de luxe discret.</p>
-    <div class="visit-timeline">
-      <div class="timeline-step">
-        <div class="timeline-num">01</div>
-        <div class="timeline-content">
-          <h4 data-fr="À votre arrivée" data-en="Upon arrival">À votre arrivée</h4>
-          <p data-fr="Un espace serein vous accueille. Ambiance apaisante, musique douce, lumière tamisée. Votre thérapeute vous reçoit personnellement et prend le temps de comprendre vos attentes." data-en="A serene space welcomes you. Soothing atmosphere, soft music, dimmed light. Your therapist greets you personally and takes time to understand your expectations.">Un espace serein vous accueille. Ambiance apaisante, musique douce, lumière tamisée. Votre thérapeute vous reçoit personnellement et prend le temps de comprendre vos attentes.</p>
+<!-- SAFETY CONTEXT -->
+<section class="hf-safety">
+  <p data-fr="Les traitements au laser agissent en profondeur sur la peau. Certaines conditions de santé ou certains médicaments peuvent modifier la façon dont votre peau réagit à la lumière et guérit. Dans ces cas, nous demandons une courte note de votre médecin confirmant que le traitement vous convient." data-en="Laser treatments interact with the skin in depth. Certain health conditions or medications can change how your skin reacts to light and how it heals. When this is the case, we ask for a short note from your doctor confirming the treatment is suitable for you.">Les traitements au laser agissent en profondeur sur la peau. Certaines conditions de santé ou certains médicaments peuvent modifier la façon dont votre peau réagit à la lumière et guérit. Dans ces cas, nous demandons une courte note de votre médecin confirmant que le traitement vous convient.</p>
+  <p data-fr="Ce n'est pas un refus — c'est notre façon de prendre soin de vous. Même lorsque vous vous sentez parfaitement bien, nos praticiennes sont professionnellement responsables de chaque soin qu'elles réalisent, et ne peuvent procéder sur la seule décision de la cliente lorsqu'une condition médicale est en jeu." data-en="This isn't a refusal — it's how we care for you. Even when you feel perfectly well, our practitioners are professionally responsible for every treatment they perform, and they cannot proceed on a client's decision alone when a medical condition is involved.">Ce n'est pas un refus — c'est notre façon de prendre soin de vous. Même lorsque vous vous sentez parfaitement bien, nos praticiennes sont professionnellement responsables de chaque soin qu'elles réalisent, et ne peuvent procéder sur la seule décision de la cliente lorsqu'une condition médicale est en jeu.</p>
+  <details>
+    <summary><span data-fr="Conditions pouvant nécessiter une note médicale" data-en="Conditions that may require a doctor's note">Conditions pouvant nécessiter une note médicale</span></summary>
+    <!-- TODO(clinic): have this list reviewed and validated by the clinic's medical staff before publishing. -->
+    <ul>
+      <li data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</li>
+      <li data-fr="Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière" data-en="Autoimmune conditions (e.g. lupus, scleroderma) or light sensitivity">Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière</li>
+      <li data-fr="Isotrétinoïne (Accutane) au cours des 6 à 12 derniers mois, ou médicaments photosensibilisants" data-en="Isotretinoin (Accutane) in the last 6–12 months, or photosensitizing medications">Isotrétinoïne (Accutane) au cours des 6 à 12 derniers mois, ou médicaments photosensibilisants</li>
+      <li data-fr="Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone traitée" data-en="Active herpes / cold sores, skin infection or open wounds in the area">Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone traitée</li>
+      <li data-fr="Épilepsie ou crises déclenchées par la lumière" data-en="Epilepsy or light-triggered seizures">Épilepsie ou crises déclenchées par la lumière</li>
+      <li data-fr="Antécédents de chéloïdes ou de cicatrisation anormale" data-en="History of keloids or abnormal scarring">Antécédents de chéloïdes ou de cicatrisation anormale</li>
+      <li data-fr="Cancer de la peau ou grain de beauté suspect dans la zone à traiter" data-en="Skin cancer or suspicious moles in the treatment area">Cancer de la peau ou grain de beauté suspect dans la zone à traiter</li>
+      <li data-fr="Diabète non contrôlé, troubles de la coagulation ou anticoagulants" data-en="Uncontrolled diabetes, blood-clotting disorders or anticoagulants">Diabète non contrôlé, troubles de la coagulation ou anticoagulants</li>
+      <li data-fr="Vitiligo ou psoriasis" data-en="Vitiligo or psoriasis">Vitiligo ou psoriasis</li>
+      <li data-fr="Bronzage récent ou autobronzant" data-en="Recent tanning or self-tanner">Bronzage récent ou autobronzant</li>
+    </ul>
+    <p style="margin-top:1.2rem;font-size:0.85rem;font-style:italic;color:rgba(104,64,52,0.55);">
+      <span data-fr="Cette liste n'est pas exhaustive. Si vous avez un doute, " data-en="This list is not exhaustive. If you're unsure, ">Cette liste n'est pas exhaustive. Si vous avez un doute, </span><a href="mailto:Info@skines.ca" style="color:#C9973A;">écrivez-nous</a><span data-fr=" — nous répondrons avec plaisir avant votre réservation." data-en=" — we'll gladly answer before you book."> — nous répondrons avec plaisir avant votre réservation.</span>
+    </p>
+  </details>
+</section>
+
+<!-- FORM -->
+<section class="hf-form-section">
+  <div class="hf-form-card">
+
+    <div class="hf-success" id="hfSuccess">
+      <div class="hf-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h2 data-fr="Merci." data-en="Thank you.">Merci.</h2>
+      <p data-fr="Votre formulaire a bien été reçu. Notre équipe l'examine sous 48 heures et vous contactera avant votre rendez-vous." data-en="Your form has been received. Our team reviews it within 48 hours and will contact you before your appointment.">Votre formulaire a bien été reçu. Notre équipe l'examine sous 48 heures et vous contactera avant votre rendez-vous.</p>
+    </div>
+
+    <form id="hfForm" novalidate>
+      <div class="hf-error" id="hfError"></div>
+
+      <!-- honeypot -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <div id="hf-ts-wrap" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden;" aria-hidden="true"></div>
+
+      <div class="hf-field-row">
+        <div class="hf-field">
+          <label data-fr="Prénom *" data-en="First name *">Prénom *</label>
+          <input type="text" name="firstName" required>
+        </div>
+        <div class="hf-field">
+          <label data-fr="Nom *" data-en="Last name *">Nom *</label>
+          <input type="text" name="lastName" required>
         </div>
       </div>
-      <div class="timeline-step">
-        <div class="timeline-num">02</div>
-        <div class="timeline-content">
-          <h4 data-fr="Préparation & confort" data-en="Preparation & comfort">Préparation & confort</h4>
-          <p data-fr="Installez-vous dans un espace entièrement privé. Le déroulement de votre soin vous est expliqué en détail, à votre rythme." data-en="Settle into a fully private space. Your treatment is explained in detail, at your own pace.">Installez-vous dans un espace entièrement privé. Le déroulement de votre soin vous est expliqué en détail, à votre rythme.</p>
+      <div class="hf-field-row">
+        <div class="hf-field">
+          <label data-fr="Courriel *" data-en="Email *">Courriel *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="hf-field">
+          <label data-fr="Téléphone *" data-en="Phone *">Téléphone *</label>
+          <input type="tel" name="phone" required>
         </div>
       </div>
-      <div class="timeline-step">
-        <div class="timeline-num">03</div>
-        <div class="timeline-content">
-          <h4 data-fr="Pendant le soin" data-en="During your treatment">Pendant le soin</h4>
-          <p data-fr="Chaque traitement est adapté à votre peau, votre état et vos préférences. Précision, douceur, et attention aux détails — nous n'avons pas d'autres priorités que vous." data-en="Every treatment is tailored to your skin, your state, and your preferences. Precision, gentleness, and attention to detail — you are our only priority.">Chaque traitement est adapté à votre peau, votre état et vos préférences. Précision, douceur, et attention aux détails — nous n'avons pas d'autres priorités que vous.</p>
+      <div class="hf-field-row">
+        <div class="hf-field">
+          <label data-fr="Soin concerné" data-en="Treatment">Soin concerné</label>
+          <select name="service">
+            <option value="Épilation Laser">Épilation Laser</option>
+            <option value="Soins du visage">Soins du visage</option>
+            <option value="Head Spa">Head Spa</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <div class="hf-field">
+          <label data-fr="Date de rendez-vous (si connue)" data-en="Appointment date (if known)">Date de rendez-vous (si connue)</label>
+          <input type="text" name="appointmentDate" placeholder="JJ/MM/AAAA">
         </div>
       </div>
-      <div class="timeline-step">
-        <div class="timeline-num">04</div>
-        <div class="timeline-content">
-          <h4 data-fr="Après le soin" data-en="After your treatment">Après le soin</h4>
-          <p data-fr="Prenez le temps de vous reposer. Votre thérapeute vous partagera des recommandations personnalisées. Repartez lumineux, détendu — et déjà impatient de revenir." data-en="Take time to rest. Your therapist will share personalized recommendations. Leave glowing, relaxed — and already looking forward to your next visit.">Prenez le temps de vous reposer. Votre thérapeute vous partagera des recommandations personnalisées. Repartez lumineux, détendu — et déjà impatient de revenir.</p>
+
+      <div class="hf-field">
+        <label data-fr="Cochez toute condition qui vous concerne" data-en="Check any condition that applies to you">Cochez toute condition qui vous concerne</label>
+        <div class="hf-conditions" id="hfConditions">
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="pregnancy"><span data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="autoimmune"><span data-fr="Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière" data-en="Autoimmune conditions or light sensitivity">Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="isotretinoin"><span data-fr="Isotrétinoïne (Accutane) récente ou médicaments photosensibilisants" data-en="Recent isotretinoin (Accutane) or photosensitizing medications">Isotrétinoïne (Accutane) récente ou médicaments photosensibilisants</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="herpes"><span data-fr="Herpès actif / feux sauvages, infection cutanée ou plaie ouverte" data-en="Active herpes / cold sores, skin infection or open wound">Herpès actif / feux sauvages, infection cutanée ou plaie ouverte</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="epilepsy"><span data-fr="Épilepsie ou crises déclenchées par la lumière" data-en="Epilepsy or light-triggered seizures">Épilepsie ou crises déclenchées par la lumière</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="keloids"><span data-fr="Antécédents de chéloïdes ou de cicatrisation anormale" data-en="History of keloids or abnormal scarring">Antécédents de chéloïdes ou de cicatrisation anormale</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="skinCancer"><span data-fr="Cancer de la peau ou grain de beauté suspect dans la zone à traiter" data-en="Skin cancer or suspicious moles in the treatment area">Cancer de la peau ou grain de beauté suspect dans la zone à traiter</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="diabetes"><span data-fr="Diabète non contrôlé, troubles de la coagulation ou anticoagulants" data-en="Uncontrolled diabetes, blood-clotting disorders or anticoagulants">Diabète non contrôlé, troubles de la coagulation ou anticoagulants</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="vitiligo"><span data-fr="Vitiligo ou psoriasis" data-en="Vitiligo or psoriasis">Vitiligo ou psoriasis</span></label>
+          <label class="hf-condition-row"><input type="checkbox" name="conditions" value="tanning"><span data-fr="Bronzage récent ou autobronzant" data-en="Recent tanning or self-tanner">Bronzage récent ou autobronzant</span></label>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- ══ FAQ ════════════════════════════════════════════ -->
-<section class="visit-faq">
-  <div class="visit-faq-inner">
-    <div class="faq-header fade-up">
-      <span class="visit-eyebrow" data-fr="Questions fréquentes" data-en="Frequently Asked Questions">Questions fréquentes</span>
-      <h2 data-i18n-html="yourVisit.faqTitleHtml">Tout ce que vous<br>souhaitez savoir.</h2>
-      <p data-fr="Des réponses claires pour vous préparer à votre visite en toute sérénité." data-en="Clear answers to prepare you for your visit with complete peace of mind.">Des réponses claires pour vous préparer à votre visite en toute sérénité.</p>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        <span data-fr="Y a-t-il un stationnement privé disponible ?" data-en="Is private parking available?">Y a-t-il un stationnement privé disponible ?</span>
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner" data-fr="Oui. Skines dispose d'un stationnement privé et entièrement gratuit pour tous nos clients. Vous trouverez facilement une place directement sur place, au 19 Av. Shamrock, Montréal. Aucun frais, aucune recherche — il suffit d'arriver." data-en="Yes. Skines has a private, fully complimentary parking space for all our clients. You'll easily find a spot right on site at 19 Av. Shamrock, Montréal. No charge, no searching — just arrive.">Oui. Skines dispose d'un stationnement privé et entièrement gratuit pour tous nos clients. Vous trouverez facilement une place directement sur place, au 19 Av. Shamrock, Montréal. Aucun frais, aucune recherche — il suffit d'arriver.</div>
+      <div class="hf-field">
+        <label data-fr="Précisions (optionnel)" data-en="Details (optional)">Précisions (optionnel)</label>
+        <textarea name="notes"></textarea>
       </div>
-    </div>
 
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        <span data-fr="Les reçus d'assurance sont-ils disponibles ?" data-en="Are insurance receipts available?">Les reçus d'assurance sont-ils disponibles ?</span>
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner" data-fr="Oui. Des reçus d'assurance sont disponibles pour les soins admissibles effectués par nos thérapeutes certifiés. Le remboursement dépend toutefois de votre assureur et de votre couverture personnelle. Nous vous encourageons à vérifier avec votre compagnie d'assurance avant votre visite." data-en="Yes. Insurance receipts are available for eligible treatments performed by our certified therapists. However, reimbursement depends on your insurer and personal coverage. We encourage you to check with your insurance company before your visit.">Oui. Des reçus d'assurance sont disponibles pour les soins admissibles effectués par nos thérapeutes certifiés. Le remboursement dépend toutefois de votre assureur et de votre couverture personnelle. Nous vous encourageons à vérifier avec votre compagnie d'assurance avant votre visite.</div>
+      <div class="hf-field">
+        <label data-fr="Note de votre médecin (optionnel — PDF ou image)" data-en="Doctor's note (optional — PDF or image)">Note de votre médecin (optionnel — PDF ou image)</label>
+        <label class="hf-file-label">
+          <input type="file" name="attachment" id="hfFile" accept=".pdf,image/*" style="display:none;">
+          <span data-fr="Choisir un fichier" data-en="Choose a file">Choisir un fichier</span>
+        </label>
+        <div class="hf-file-name" id="hfFileName"></div>
       </div>
-    </div>
 
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        <span data-fr="Dois-je prendre rendez-vous à l'avance ?" data-en="Do I need to book in advance?">Dois-je prendre rendez-vous à l'avance ?</span>
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner" data-fr="Oui, une réservation préalable est fortement recommandée. Nos créneaux sont souvent réservés plusieurs jours à l'avance. Réservez facilement en ligne via Fresha ou en nous contactant au +1 (438) 260-5660." data-en="Yes, advance booking is strongly recommended. Our slots are often reserved several days ahead. Book easily online via Fresha or by contacting us at +1 (438) 260-5660.">Oui, une réservation préalable est fortement recommandée. Nos créneaux sont souvent réservés plusieurs jours à l'avance. Réservez facilement en ligne via <a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">Fresha</a> ou en nous contactant directement au <a href="tel:+14382605660">+1 (438) 260-5660</a>.</div>
+      <a class="hf-clearance-link" href="/formulaire-autorisation-medicale" target="_blank" data-fr="Télécharger le formulaire à faire remplir par votre médecin" data-en="Download the form for your doctor to complete">Télécharger le formulaire à faire remplir par votre médecin</a>
+
+      <div class="hf-consent">
+        <input type="checkbox" name="consent" required>
+        <span data-fr="Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour évaluer ma sécurité avant mon rendez-vous." data-en="I confirm the information provided is accurate and I agree that Skines Head Spa &amp; Wellness may use it to assess my safety before my appointment.">Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour évaluer ma sécurité avant mon rendez-vous.</span>
       </div>
-    </div>
 
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        <span data-fr="Peut-on acheter des cartes cadeaux ?" data-en="Can I purchase gift cards?">Peut-on acheter des cartes cadeaux ?</span>
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner" data-fr="Absolument. Nos cartes cadeaux sont disponibles en plusieurs montants et font un cadeau raffiné pour vos proches. Vous pouvez les commander sur notre page Cartes Cadeaux ou les acquérir directement en studio. Elles sont valides pour tous nos soins." data-en="Absolutely. Our gift cards are available in multiple amounts and make a refined gift for your loved ones. You can order them on our Gift Cards page or purchase them directly in studio. They are valid for all our treatments.">Absolument. Nos cartes cadeaux sont disponibles en plusieurs montants et font un cadeau raffiné pour vos proches. Vous pouvez les <a href="/cartes-cadeaux">commander ici</a> ou les acquérir directement en studio. Elles sont valides pour tous nos soins.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        <span data-fr="Combien de temps à l'avance dois-je arriver ?" data-en="How early should I arrive?">Combien de temps à l'avance dois-je arriver ?</span>
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner" data-fr="Nous vous recommandons d'arriver environ 5 à 10 minutes avant l'heure de votre rendez-vous. Cela vous laisse le temps de vous installer confortablement, de vous détendre et de commencer votre expérience en douceur — sans précipitation." data-en="We recommend arriving about 5 to 10 minutes before your appointment. This gives you time to settle in comfortably, relax, and begin your experience gently — without rushing.">Nous vous recommandons d'arriver environ 5 à 10 minutes avant l'heure de votre rendez-vous. Cela vous laisse le temps de vous installer confortablement, de vous détendre et de commencer votre expérience en douceur — sans précipitation.</div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-up">
-      <button class="faq-q" aria-expanded="false">
-        <span data-fr="À quoi ressemble une visite chez Skines ?" data-en="What does a visit to Skines look like?">À quoi ressemble une visite chez Skines ?</span>
-        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-      </button>
-      <div class="faq-a" role="region">
-        <div class="faq-a-inner" data-fr="Dès votre arrivée, vous êtes accueilli dans un espace calme et luxueux. Votre thérapeute vous accueille personnellement, échange avec vous sur vos besoins, et vous accompagne tout au long de votre soin dans un espace entièrement privé. Chaque soin est adapté à votre peau et à votre ressenti. En fin de séance, vous repartez avec des recommandations personnalisées." data-en="From the moment you arrive, you are welcomed into a calm and luxurious space. Your therapist greets you personally, discusses your needs, and guides you throughout your treatment in a fully private space. Every treatment is tailored to your skin and how you feel. At the end of your session, you leave with personalized recommendations.">Dès votre arrivée, vous êtes accueilli dans un espace calme et luxueux. Votre thérapeute vous accueille personnellement, échange avec vous sur vos besoins, et vous accompagne tout au long de votre soin dans un espace entièrement privé. Chaque soin est adapté à votre peau et à votre ressenti. En fin de séance, vous repartez avec des recommandations personnalisées.</div>
-      </div>
-    </div>
-
+      <button type="submit" class="hf-submit-btn" id="hfSubmitBtn" data-fr="Envoyer mon formulaire" data-en="Submit my form">Envoyer mon formulaire</button>
+    </form>
   </div>
 </section>
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
-<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
+
+<script>
+(function() {
+  var fileInput = document.getElementById('hfFile');
+  var fileNameEl = document.getElementById('hfFileName');
+  fileInput.addEventListener('change', function() {
+    fileNameEl.textContent = fileInput.files[0] ? fileInput.files[0].name : '';
+  });
+
+  function fileToBase64(file) {
+    return new Promise(function(resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function() { resolve(reader.result.split(',')[1]); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  var submitting = false;
+  document.getElementById('hfForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (submitting) return;
+    var form = this;
+    var errorEl = document.getElementById('hfError');
+    errorEl.style.display = 'none';
+
+    var firstName = form.firstName.value.trim();
+    var lastName  = form.lastName.value.trim();
+    var email     = form.email.value.trim();
+    var phone     = form.phone.value.trim();
+    var consent   = form.consent.checked;
+
+    if (!firstName || !lastName || !email || !phone || !consent) {
+      errorEl.textContent = document.documentElement.lang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    var conditions = Array.prototype.slice.call(form.querySelectorAll('input[name="conditions"]:checked')).map(function(el) { return el.value; });
+    var btn = document.getElementById('hfSubmitBtn');
+    var currentLang = (window.skinesGetLang && window.skinesGetLang()) || document.documentElement.lang || 'fr';
+
+    submitting = true;
+    btn.disabled = true;
+    btn.textContent = currentLang === 'en' ? 'Sending…' : 'Envoi en cours…';
+
+    var basePayload = {
+      firstName: firstName, lastName: lastName, email: email, phone: phone,
+      service: form.service.value, appointmentDate: form.appointmentDate.value.trim(),
+      notes: form.notes.value.trim(), conditions: conditions,
+      lang: currentLang,
+      website: form.website.value || '',
+      cfToken: window._hfTsToken || '',
+    };
+
+    function doSubmit(payload) {
+      fetch('/api/send-health-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.success) {
+          form.style.display = 'none';
+          document.getElementById('hfSuccess').style.display = 'block';
+        } else {
+          throw new Error(data.error || 'Erreur');
+        }
+      })
+      .catch(function(err) {
+        errorEl.textContent = err.message || (currentLang === 'en' ? 'Something went wrong — please try again.' : 'Une erreur est survenue — veuillez réessayer.');
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        submitting = false;
+        btn.textContent = currentLang === 'en' ? 'Submit my form' : 'Envoyer mon formulaire';
+      });
+    }
+
+    var file = fileInput.files[0];
+    if (file) {
+      fileToBase64(file).then(function(b64) {
+        basePayload.attachmentBase64 = b64;
+        basePayload.attachmentName = file.name;
+        doSubmit(basePayload);
+      }).catch(function() { doSubmit(basePayload); });
+    } else {
+      doSubmit(basePayload);
+    }
+  });
+
+  /* Turnstile — invisible widget, same pattern as /tirage */
+  var _hfTsId = null;
+  window._tsInitHealthForm = function() {
+    if (typeof turnstile === 'undefined') return;
+    _hfTsId = turnstile.render('#hf-ts-wrap', {
+      sitekey: window._tsk || '',
+      size: 'invisible',
+      callback: function(token) { window._hfTsToken = token; },
+    });
+    try { turnstile.execute(_hfTsId); } catch (e) {}
+  };
+  if (typeof turnstile !== 'undefined') { window._tsInitHealthForm(); }
+  else { window.addEventListener('load', function() { setTimeout(window._tsInitHealthForm, 300); }); }
+})();
+</script>
+
+
 <style>
 /* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
 .site-footer {
@@ -2125,7 +2181,7 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 /* STONE-FINAL */
 html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
 html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #684034 !important; }
-html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.9) !important; }
+html body nav:not(.nav-scrolled) .menu-btn span { background: #684034 !important; }
 html body nav.nav-scrolled .menu-btn span { background: #684034 !important; }
 html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
 html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
@@ -2447,6 +2503,14 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
     nav.classList.toggle('nav-hidden', y > lastY + 8 && y > 120);
     lastY = y;
   }, {passive: true});
+})();
+
+/* ── sp-menu-trigger → tirage ── */
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    var trig = document.getElementById('sp-menu-trigger');
+    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
+  });
 })();
 
 /* ── Mobile nav ── */

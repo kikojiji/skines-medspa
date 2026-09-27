@@ -6895,7 +6895,7 @@ input, textarea, select {
         <span class="sp-menu-trigger-lotus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 8v1"/><path d="M13 15v1"/><path d="M13 11.5v1"/></svg></span>
         <span class="sp-menu-trigger-textwrap">
           <span class="sp-menu-trigger-label" data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</span>
-          <span class="sp-menu-trigger-sub" data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
+          <span class="sp-menu-trigger-sub" data-fr="Tirage Exclusif · Places Limitées" data-en="Exclusive Draw · Limited Spots">Tirage Exclusif · Places Limitées</span>
         </span>
       </button>
     </div>
@@ -6939,12 +6939,9 @@ input, textarea, select {
 
 <section style="text-align:center;">
 
-  <p style="text-align:center;font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;line-height:1.6;margin:0.5rem 0 1rem;font-family:'Cormorant Garamond',serif;"><span data-fr="Le luxe sans compromis" data-en="Luxury without compromise">Le luxe sans compromis</span><br><em style="font-weight:400;font-size:0.9em;"><span data-fr="Les tarifs les plus raffinés du Head Spa à Montréal" data-en="The most refined Head Spa prices in Montréal">Les tarifs les plus raffinés du Head Spa à Montréal</span></em></p>
-  <div style="display:none;align-items:center;justify-content:center;gap:0.7rem;background:rgba(245,192,106,0.13);color:#7a4a28;font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.6rem 1.4rem;border-radius:10px;margin-bottom:1.8rem;border:1px solid rgba(245,192,106,0.38);">
-    <span data-fr="✦ Économisez 30 % sur toutes les séances" data-en="✦ Save 30% on all sessions">✦ Économisez 30 % sur toutes les séances</span>
-  </div>
+  <p style="text-align:center;font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;line-height:1.6;margin:0.5rem 0 1rem;font-family:'Cormorant Garamond',serif;"><span data-fr="Le luxe sans compromis" data-en="Luxury without compromise">Le luxe sans compromis</span><br><em style="font-weight:400;font-size:0.9em;"><span data-fr="L'expérience Head Spa la plus raffinée de Montréal" data-en="Montréal's most refined Head Spa experience">L'expérience Head Spa la plus raffinée de Montréal</span></em></p>
   <div class="view-toggle-row" style="justify-content:center;align-items:center;">
-    <div class="eyebrow" style="margin:0;letter-spacing:0.18em;font-size:0.65rem;" data-fr="Nos Tarifs Exclusifs" data-en="Our Exclusive Pricing">Nos Tarifs Exclusifs</div>
+    <div class="eyebrow" style="margin:0;letter-spacing:0.18em;font-size:0.65rem;" data-fr="Nos Rituels Signature" data-en="Our Signature Rituals">Nos Rituels Signature</div>
     <button class="view-btn active" data-view="grid" aria-label="Vue grille">
       <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
     </button>
@@ -6958,12 +6955,12 @@ input, textarea, select {
 <script>
 /* ── Edit services here ─────────────────────────────────── */
 const SERVICES = [
-  { key: "solo-60",  category: "SOLO · 60 MIN",  name: "Solo 60 min Focus Scalpcial",      price: "$98",  originalPrice: "$140", discount: "30% de rabais", discountEn: "30% off", img: "/assets/60%20min%20SOLO%20ROOM.webp?v=1" },
-  { key: "solo-90",  category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  price: "$144", originalPrice: "$180", discount: "20% de rabais", discountEn: "20% off", img: "/assets/90%20min%20solo.webp?v=2" },
-  { key: "duo-60",   category: "DUO · 60 MIN",   name: "Duo 60 min Focus Scalpcial",       price: "$196", originalPrice: "$280", discount: "30% de rabais", discountEn: "30% off", img: "/assets/DUO%20ROOM.webp?v=1" },
-  { key: "duo-90",   category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   price: "$288", originalPrice: "$360", discount: "20% de rabais", discountEn: "20% off", img: "/assets/90min%20duo%20canada.webp?v=1" },
-  { key: "trio-60",  category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      price: "$294", originalPrice: "$420", discount: "30% de rabais", discountEn: "30% off", img: "/assets/TRIO%2060%20ROOM.webp?v=1" },
-  { key: "trio-90",  category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  price: "", originalPrice: "", discount: "", discountEn: "", img: "/assets/trio%2090%20min%20.webp?v=1" },
+  { key: "solo-60",  category: "SOLO · 60 MIN",  name: "Solo 60 min Focus Scalpcial",      img: "/assets/60%20min%20SOLO%20ROOM.webp?v=1" },
+  { key: "solo-90",  category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  img: "/assets/90%20min%20solo.webp?v=2" },
+  { key: "duo-60",   category: "DUO · 60 MIN",   name: "Duo 60 min Focus Scalpcial",       img: "/assets/DUO%20ROOM.webp?v=1" },
+  { key: "duo-90",   category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   img: "/assets/90min%20duo%20canada.webp?v=1" },
+  { key: "trio-60",  category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      img: "/assets/TRIO%2060%20ROOM.webp?v=1" },
+  { key: "trio-90",  category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  img: "/assets/trio%2090%20min%20.webp?v=1" },
 ];
 /* ─────────────────────────────────────────────────────────── */
 
@@ -6975,11 +6972,6 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
     <div class="svc-info">
       <p class="svc-duration">${s.category}</p>
       <span class="svc-name">${s.name}</span>
-      <div class="svc-price">
-        <span class="svc-price-original">${s.originalPrice}</span>
-        <span class="svc-price-current">${s.price}</span>
-      </div>
-      <span class="svc-discount-label" data-fr="${s.discount}" data-en="${s.discountEn}">${s.discount}</span>
       <a class="svc-book-btn" href="${BOOKING}" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
     </div>
   </div>
@@ -7012,41 +7004,6 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
 
 </div>
 
-<section style="padding:5rem 1.4rem 6rem; background:#FDFAF5; display:none;">
-  <div style="text-align:center;max-width:700px;margin:0 auto 3.5rem;">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);color:#684034;margin:1rem 0 0.6rem;font-weight:400;font-style:italic;"><span data-i18n="headSpa.combineTitle">Combinez. Profitez pleinement.</span></h2>
-    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(104,64,52,0.55);font-size:1.05rem;" data-fr="Offrez-vous une expérience complète — corps, visage et esprit." data-en="Give yourself a complete experience — body, face and mind.">Offrez-vous une expérience complète — corps, visage et esprit.</p>
-  </div>
-  <div class="bundles-grid" style="margin-top:0;max-width:1000px;margin-left:auto;margin-right:auto;">
-    <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(104,64,52,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;"><span data-fr="Forfait · Bien-être Total" data-en="Bundle · Total Wellness">Forfait · Bien-être Total</span></div>
-      <div class="bundle-name" style="color:#684034!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Scalp &amp; Glow</div>
-      <div class="bundle-name-fr" style="color:rgba(104,64,52,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + Luxury Facial</div>
-      <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$265</div>
-      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;"><span data-fr="Économisez $35" data-en="Save $35">Économisez $35</span></div>
-      <div class="bundle-includes" style="color:rgba(104,64,52,0.70)!important;font-size:0.88rem;line-height:1.7;border-top:1px solid rgba(201,151,58,0.20);padding-top:1rem;margin-bottom:1rem;">Head Spa Signature 60 min<br>+ Luxury Facial 60 min</div>
-      <div class="bundle-desc" style="color:rgba(104,64,52,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"<span data-fr="Régénérez votre cuir chevelu et révélez l'éclat de votre peau en une seule visite." data-en="Regenerate your scalp and reveal your skin's radiance in a single visit.">Régénérez votre cuir chevelu et révélez l'éclat de votre peau en une seule visite.</span>"</div>
-    </div>
-    <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(104,64,52,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;"><span data-fr="Forfait · Détente Complète" data-en="Bundle · Complete Relaxation">Forfait · Détente Complète</span></div>
-      <div class="bundle-name" style="color:#684034!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Full Reset</div>
-      <div class="bundle-name-fr" style="color:rgba(104,64,52,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + Personalized Facial</div>
-      <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$245</div>
-      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;"><span data-fr="Économisez $30" data-en="Save $30">Économisez $30</span></div>
-      <div class="bundle-includes" style="color:rgba(104,64,52,0.70)!important;font-size:0.88rem;line-height:1.7;border-top:1px solid rgba(201,151,58,0.20);padding-top:1rem;margin-bottom:1rem;">Head Spa Focus 60 min<br>+ Personalized Facial 60 min</div>
-      <div class="bundle-desc" style="color:rgba(104,64,52,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"<span data-fr="Un soin complet de la tête au visage — relaxation profonde et peau revitalisée." data-en="A complete head-to-face treatment — deep relaxation and revitalized skin.">Un soin complet de la tête au visage — relaxation profonde et peau revitalisée.</span>"</div>
-    </div>
-    <div class="bundle" style="background:#FFFFFF!important;border:1px solid rgba(201,151,58,0.40)!important;border-radius:2px;padding:2.2rem 1.8rem;box-shadow:0 2px 20px rgba(104,64,52,0.06)!important;">
-      <div class="bundle-tag" style="color:#C9973A!important;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;"><span data-fr="Forfait · Hydration Totale" data-en="Bundle · Total Hydration">Forfait · Hydration Totale</span></div>
-      <div class="bundle-name" style="color:#684034!important;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;line-height:1.1;">The Hydra Ritual</div>
-      <div class="bundle-name-fr" style="color:rgba(104,64,52,0.50)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;margin-bottom:1.2rem;">Head Spa + HydraDermabrasion</div>
-      <div class="bundle-price" style="color:#C9973A!important;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;line-height:1;">$285</div>
-      <div class="bundle-save" style="color:rgba(201,151,58,0.80)!important;font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1.2rem;"><span data-fr="Économisez $40" data-en="Save $40">Économisez $40</span></div>
-      <div class="bundle-includes" style="color:rgba(104,64,52,0.70)!important;font-size:0.88rem;line-height:1.7;border-top:1px solid rgba(201,151,58,0.20);padding-top:1rem;margin-bottom:1rem;">Head Spa Signature 90 min<br>+ HydraDermabrasion Bela MD+</div>
-      <div class="bundle-desc" style="color:rgba(104,64,52,0.45)!important;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;">"<span data-fr="Hydratation intensive du cuir chevelu à la peau — une renaissance complète." data-en="Intensive scalp-to-skin hydration — a complete renewal.">Hydratation intensive du cuir chevelu à la peau — une renaissance complète.</span>"</div>
-    </div>
-  </div>
-</section>
 
 
 
@@ -7646,7 +7603,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
         <span class="sf-exclusive-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><path d="M13 8v1"/><path d="M13 15v1"/><path d="M13 11.5v1"/></svg></span>
         <span class="sf-exclusive-text">
           <strong data-fr="Tirage au Sort" data-en="Giveaway">Tirage au Sort</strong>
-          <span data-fr="Jusqu'à 50% · Places limitées" data-en="Up to 50% off · Limited Spots">Jusqu'à 50% · Places limitées</span>
+          <span data-fr="Tirage Exclusif · Places Limitées" data-en="Exclusive Draw · Limited Spots">Tirage Exclusif · Places Limitées</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -7691,47 +7648,47 @@ const BOOKING = "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share
 
 const DB = [
   // ── HEAD SPA ──
-  { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", price:"$98", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", price:"$144", tag:"head spa scalpcial solo 90 min signature rituel", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", price:"$196", tag:"head spa scalpcial duo 60 min couple deux", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", price:"$288", tag:"head spa scalpcial duo 90 min couple signature", url:"/head-spa" },
-  { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", price:"$294", tag:"head spa scalpcial trio 60 min groupe trois", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 60 min – Focus Scalpcial", meta:"60 min · Soin du cuir chevelu", tag:"head spa scalpcial solo 60 min cuir chevelu massage détente", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Solo 90 min – Signature Scalpcial", meta:"90 min · Rituel signature complet", tag:"head spa scalpcial solo 90 min signature rituel", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 60 min – Focus Scalpcial", meta:"60 min · Pour deux personnes", tag:"head spa scalpcial duo 60 min couple deux", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Duo 90 min – Signature Scalpcial", meta:"90 min · Rituel duo signature", tag:"head spa scalpcial duo 90 min couple signature", url:"/head-spa" },
+  { icon:"🫧", cat:"Head Spa", name:"Trio 60 min – Focus Scalpcial", meta:"60 min · Pour trois personnes", tag:"head spa scalpcial trio 60 min groupe trois", url:"/head-spa" },
   { icon:"🫧", cat:"Head Spa", name:"Trio 90 min – Signature Scalpcial", meta:"90 min · Rituel trio signature", price:"", tag:"head spa scalpcial trio 90 min groupe signature", url:"/head-spa" },
 
   // ── FACIAL ──
   { icon:"✨", cat:"Soins Visage", name:"Facial", meta:"Soins avancés pour le visage", price:"", tag:"facial visage soin hydratation anti-age peau traitement", url:"/facial" },
 
   // ── LASER ──
-  { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", price:"$40", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Menton", meta:"Laser · 10 min", price:"$40", tag:"laser épilation menton visage chin", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Favoris", meta:"Laser · 10 min", price:"$40", tag:"laser épilation favoris sideburns visage", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Cou", meta:"Laser · 15 min", price:"$55", tag:"laser épilation cou neck", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Nuque", meta:"Laser · 10 min", price:"$40", tag:"laser épilation nuque nape", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Contour Barbe", meta:"Laser · 10 min", price:"$55", tag:"laser épilation barbe beard contour", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage", meta:"Laser · 15 min", price:"$75", tag:"laser épilation demi visage half face", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage + Cou", meta:"Laser · 20 min", price:"$105", tag:"laser épilation demi visage cou half face neck", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Visage Complet", meta:"Laser · 20 min", price:"$130", tag:"laser épilation visage complet full face", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Aisselles", meta:"Laser · 15 min", price:"$75", tag:"laser épilation aisselles underarms", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Ligne Bikini", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bikini ligne line", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Maillot Intégral", meta:"Laser · 20 min", price:"$120", tag:"laser épilation maillot intégral full bikini", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Bras Complets", meta:"Laser · 30 min", price:"$145", tag:"laser épilation bras complets full arms", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Bras", meta:"Laser · 20 min", price:"$95", tag:"laser épilation demi bras half arms", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Poitrine", meta:"Laser · 20 min", price:"$95", tag:"laser épilation poitrine chest", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Épaules", meta:"Laser · 15 min", price:"$75", tag:"laser épilation épaules shoulders", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Ventre Complet", meta:"Laser · 20 min", price:"$95", tag:"laser épilation ventre abdomen full abdomen", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Dos Complet", meta:"Laser · 30 min", price:"$160", tag:"laser épilation dos complet full back", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Bas du Dos", meta:"Laser · 15 min", price:"$75", tag:"laser épilation bas du dos lower back", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Fesses", meta:"Laser · 15 min", price:"$75", tag:"laser épilation fesses buttocks", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Jambes Complètes", meta:"Laser · 45 min", price:"$215", tag:"laser épilation jambes complètes full legs", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Jambes", meta:"Laser · 30 min", price:"$145", tag:"laser épilation demi jambes half legs", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser", name:"Corps Complet", meta:"Laser · 1h 30 min", price:"$595", tag:"laser épilation corps complet full body", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Visage + Aisselles", meta:"Forfait · 25 min", price:"$145", tag:"laser forfait visage aisselles bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles", meta:"Forfait · 30 min", price:"$170", tag:"laser forfait bikini aisselles bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Fesses", meta:"Forfait · 15 min", price:"$150", tag:"laser forfait bikini fesses bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Visage + Aisselles", meta:"Forfait · 30 min", price:"$205", tag:"laser forfait bikini visage aisselles bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles + Jambes Complètes", meta:"Forfait · 35 min", price:"$295", tag:"laser forfait bikini aisselles jambes bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Dos Complet + Poitrine", meta:"Forfait · 40 min", price:"$215", tag:"laser forfait dos poitrine bundle", url:"/laser" },
-  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Corps Complet", meta:"Forfait · 1h 30 min", price:"$595", tag:"laser forfait corps complet full body bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Lèvre Supérieure", meta:"Laser · 10 min", tag:"laser épilation lèvre supérieure visage poil upper lip", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Menton", meta:"Laser · 10 min", tag:"laser épilation menton visage chin", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Favoris", meta:"Laser · 10 min", tag:"laser épilation favoris sideburns visage", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Cou", meta:"Laser · 15 min", tag:"laser épilation cou neck", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Nuque", meta:"Laser · 10 min", tag:"laser épilation nuque nape", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Contour Barbe", meta:"Laser · 10 min", tag:"laser épilation barbe beard contour", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage", meta:"Laser · 15 min", tag:"laser épilation demi visage half face", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Visage + Cou", meta:"Laser · 20 min", tag:"laser épilation demi visage cou half face neck", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Visage Complet", meta:"Laser · 20 min", tag:"laser épilation visage complet full face", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Aisselles", meta:"Laser · 15 min", tag:"laser épilation aisselles underarms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Ligne Bikini", meta:"Laser · 15 min", tag:"laser épilation bikini ligne line", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Maillot Intégral", meta:"Laser · 20 min", tag:"laser épilation maillot intégral full bikini", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Bras Complets", meta:"Laser · 30 min", tag:"laser épilation bras complets full arms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Bras", meta:"Laser · 20 min", tag:"laser épilation demi bras half arms", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Poitrine", meta:"Laser · 20 min", tag:"laser épilation poitrine chest", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Épaules", meta:"Laser · 15 min", tag:"laser épilation épaules shoulders", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Ventre Complet", meta:"Laser · 20 min", tag:"laser épilation ventre abdomen full abdomen", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Dos Complet", meta:"Laser · 30 min", tag:"laser épilation dos complet full back", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Bas du Dos", meta:"Laser · 15 min", tag:"laser épilation bas du dos lower back", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Fesses", meta:"Laser · 15 min", tag:"laser épilation fesses buttocks", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Jambes Complètes", meta:"Laser · 45 min", tag:"laser épilation jambes complètes full legs", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Demi-Jambes", meta:"Laser · 30 min", tag:"laser épilation demi jambes half legs", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser", name:"Corps Complet", meta:"Laser · 1h 30 min", tag:"laser épilation corps complet full body", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Visage + Aisselles", meta:"Forfait · 25 min", tag:"laser forfait visage aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles", meta:"Forfait · 30 min", tag:"laser forfait bikini aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Fesses", meta:"Forfait · 15 min", tag:"laser forfait bikini fesses bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Visage + Aisselles", meta:"Forfait · 30 min", tag:"laser forfait bikini visage aisselles bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Bikini + Aisselles + Jambes Complètes", meta:"Forfait · 35 min", tag:"laser forfait bikini aisselles jambes bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Dos Complet + Poitrine", meta:"Forfait · 40 min", tag:"laser forfait dos poitrine bundle", url:"/laser" },
+  { icon:"⚡", cat:"Épilation Laser – Forfaits", name:"Corps Complet", meta:"Forfait · 1h 30 min", tag:"laser forfait corps complet full body bundle", url:"/laser" },
 
   // ── INFO / FAQ ──
   { icon:"📍", cat:"Info", name:"Adresse – 19 Av. Shamrock, Montréal", meta:"Côte-des-Neiges · H2S 1A3", price:"", tag:"adresse address localisation location shamrock montréal côte des neiges où direction", url:"/#contact" },
