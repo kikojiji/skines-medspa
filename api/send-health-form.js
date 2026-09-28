@@ -183,6 +183,7 @@ export default async function handler(req, res) {
     console.error('[health-form] config error:', err.message);
     return res.status(500).json({ error: "Configuration serveur incomplète. Contactez l'administrateur." });
   }
+  const FROM_DISPLAY = `Formulaire Laser · Skines <${FROM_EMAIL}>`;
 
   const safeFirst   = escapeHtml(firstName);
   const safeLast    = escapeHtml(lastName);
@@ -363,7 +364,7 @@ export default async function handler(req, res) {
   try {
     const results = await Promise.allSettled([
       sendViaResend({
-        from: FROM_EMAIL,
+        from: FROM_DISPLAY,
         to: email,
         replyTo: OWNER_EMAIL,
         subject: lang === 'en'
@@ -372,7 +373,7 @@ export default async function handler(req, res) {
         html: clientHtml,
       }),
       sendViaResend({
-        from: FROM_EMAIL,
+        from: FROM_DISPLAY,
         to: OWNER_EMAIL,
         replyTo: email,
         subject: `${hasFlaggedCondition ? '⚠ Note médicale requise — ' : ''}${hasAppointment ? 'Formulaire de santé' : 'Demande de consultation (72h)'} — ${firstName} ${lastName}`,
@@ -380,7 +381,7 @@ export default async function handler(req, res) {
         attachments: attachment ? [signatureAttachment, attachment] : [signatureAttachment],
       }),
       sendViaResend({
-        from: FROM_EMAIL,
+        from: FROM_DISPLAY,
         to: STAFF_EMAIL,
         subject: `${hasFlaggedCondition ? '⚠ Note médicale requise — ' : ''}${hasAppointment ? 'Formulaire de santé reçu' : 'Demande de consultation (72h)'} — ${firstName} ${lastName.charAt(0)}.`,
         html: staffHtml,

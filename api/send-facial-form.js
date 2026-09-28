@@ -149,6 +149,7 @@ export default async function handler(req, res) {
     console.error('[facial-form] config error:', err.message);
     return res.status(500).json({ error: "Configuration serveur incomplète. Contactez l'administrateur." });
   }
+  const FROM_DISPLAY = `Formulaire Facial · Skines <${FROM_EMAIL}>`;
 
   const safeFirst   = escapeHtml(firstName);
   const safeLast    = escapeHtml(lastName);
@@ -312,7 +313,7 @@ export default async function handler(req, res) {
   try {
     const results = await Promise.allSettled([
       sendViaResend({
-        from: FROM_EMAIL,
+        from: FROM_DISPLAY,
         to: email,
         replyTo: OWNER_EMAIL,
         subject: lang === 'en'
@@ -321,7 +322,7 @@ export default async function handler(req, res) {
         html: clientHtml,
       }),
       sendViaResend({
-        from: FROM_EMAIL,
+        from: FROM_DISPLAY,
         to: OWNER_EMAIL,
         replyTo: email,
         subject: `${isPregnant ? '⚠ Grossesse — ' : ''}${hasAppointment ? 'Fiche de consultation facial' : 'Demande de consultation (72h)'} — ${firstName} ${lastName}`,
@@ -329,7 +330,7 @@ export default async function handler(req, res) {
         attachments: [signatureAttachment],
       }),
       sendViaResend({
-        from: FROM_EMAIL,
+        from: FROM_DISPLAY,
         to: STAFF_EMAIL,
         subject: `${isPregnant ? '⚠ Grossesse — ' : ''}${hasAppointment ? 'Fiche de consultation' : 'Demande de consultation (72h)'} — ${firstName} ${lastName.charAt(0)}.`,
         html: staffHtml,
