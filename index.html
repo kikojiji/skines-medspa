@@ -11607,27 +11607,22 @@ function closePopup() {
   }, 520);
 }
 
-// Desktop (docked panel, ≥981px): reveal once the visitor actually
-// reaches the testimonials section, instead of a blind timer — feels
-// like a natural next beat in the page's own rhythm, not an
-// interruption that can land mid-headline or mid-scroll. Fires once;
-// a short grace delay after entering view keeps it from feeling like
-// it's chasing the scroll.
-//
-// Mobile/tablet (full modal, ≤980px, per feedback): open when the
-// visitor reaches the "Rituel" treatments section, OR after 15s —
-// whichever happens first. Both paths disarm each other so it only
-// ever opens once.
+// Reveal once the visitor actually reaches the "Ce que disent nos
+// clients" reviews section, instead of a blind timer or the map/contact
+// section further down — feels like a natural next beat in the page's
+// own rhythm (right after the hero + services), not an interruption
+// that can land mid-headline or mid-scroll. Same trigger on mobile,
+// tablet and desktop. Fires once; a short grace delay after entering
+// view keeps it from feeling like it's chasing the scroll.
 (function() {
   if (typeof IntersectionObserver === 'undefined') {
     setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
     return;
   }
   var isMobileOrTablet = window.innerWidth <= 980;
-  // Open only once the visitor reaches the contact / map section near the
-  // foot of the page (on every device), so it never interrupts the earlier
-  // part of the page — it lands as a closing beat by the address & map.
-  var targetId = 'contact';
+  // Open once the visitor reaches the reviews section ("Ce que disent
+  // nos clients"), on every device.
+  var targetId = 'skReviews';
   var target = document.getElementById(targetId);
   if (!target) {
     setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
