@@ -49,17 +49,17 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-<title>Fiche de Consultation Facial · Skines Head Spa & Wellness Montréal</title>
-<meta name="description" content="Fiche de consultation facial à remplir avant votre soin du visage chez Skines Head Spa & Wellness Montréal, pour un soin Dermalogica ou Bela MD+ adapté à votre peau.">
+<title>Formulaires · Skines Head Spa & Wellness Montréal</title>
+<meta name="description" content="Fiches de consultation optionnelles avant votre rendez-vous Head Spa, Épilation Laser ou Soin du Visage chez Skines Montréal.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fiche de Consultation Facial · Skines Head Spa Montréal">
-<meta property="og:description" content="Une fiche simple avant votre soin du visage, pour un résultat personnalisé chez Skines.">
+<meta property="og:title" content="Formulaires · Skines Head Spa Montréal">
+<meta property="og:description" content="Remplissez votre fiche de consultation avant votre rendez-vous, en quelques minutes.">
 <meta property="og:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
-<link rel="canonical" href="https://skines.ca/formulaire-facial">
-<meta property="og:url" content="https://skines.ca/formulaire-facial">
+<link rel="canonical" href="https://skines.ca/formulaires">
+<meta property="og:url" content="https://skines.ca/formulaires">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Reçus d'Assurance · Skines Head Spa Montréal">
-<meta name="twitter:description" content="Reçus d'assurance disponibles pour certains soins chez Skines Head Spa Montréal. Renseignez-vous avant votre rendez-vous.">
+<meta name="twitter:title" content="Formulaires · Skines Head Spa Montréal">
+<meta name="twitter:description" content="Remplissez votre fiche de consultation avant votre rendez-vous, en quelques minutes.">
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -112,14 +112,14 @@ nav.nav-hidden { transform: translateY(-110%); }
 }
 .nav-cta:hover { background: var(--brown); color: var(--cream); }
 /* ── HEADER CLEANUP (same fix applied to index.html / facial.html /
-   head-spa.html / laser.html) — assets/css/nav.css loads after this
-   stylesheet with "justify-content: space-between !important" on nav and
-   an unscoped ".logo { position:absolute; left:50% }" that centers the
-   logo at all widths. With unrelated flex items spread by space-between,
-   nav-cta can land under the centered logo (confirmed here: nav-cta was
-   rendering at x:752-862, directly inside the logo's 617-823 span at
-   1440px). nav.css is shared across pages so we don't edit it — override
-   here with matching+higher specificity (doubled #mainNav ID) instead. */
+   head-spa.html / laser.html / insurance.html / parking.html /
+   visit-us.html) — assets/css/nav.css loads after this stylesheet with
+   "justify-content: space-between !important" on nav and an unscoped
+   ".logo { position:absolute; left:50% }" that centers the logo at all
+   widths. With unrelated flex items spread by space-between, nav-cta can
+   land under the centered logo. nav.css is shared across pages so we
+   don't edit it — override here with matching+higher specificity
+   (doubled #mainNav ID) instead. */
 @media (min-width: 981px) {
   #mainNav#mainNav {
     justify-content: flex-start !important;
@@ -127,18 +127,7 @@ nav.nav-hidden { transform: translateY(-110%); }
     padding: 1.3rem 3.5rem !important;
   }
   #mainNav#mainNav .nav-links {
-    gap: clamp(0.55rem, -1.3rem + 3vw, 2.2rem) !important;
-  }
-  /* This page's nav row runs right up against the centered logo at
-     common desktop widths — shrink the link labels slightly so the
-     whole row stays narrower. */
-  #mainNav#mainNav .nav-links a {
-    font-size: 0.70rem !important;
-    letter-spacing: 0.06em !important;
-  }
-  #mainNav#mainNav .nav-dd-label {
-    font-size: 0.70rem !important;
-    letter-spacing: 0.06em !important;
+    gap: clamp(0.9rem, -1rem + 3.2vw, 2.2rem) !important;
   }
   #mainNav#mainNav .nav-cta {
     margin-left: auto !important;
@@ -247,8 +236,7 @@ nav.nav-hidden { transform: translateY(-110%); }
     color: #E8C078 !important;
   }
 }
-/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type,
-   same as facial.html / head-spa.html / laser.html */
+/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type */
 @media (min-width: 981px) and (max-width: 1150px) {
   #mainNav#mainNav .nav-links a {
     font-size: 0.54rem !important;
@@ -712,52 +700,8 @@ footer { background: #684034 !important; }
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Fiche de consultation facial",
-      "item": "https://skines.ca/formulaire-facial"
-    }
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "name": "Assurances · Skines Head Spa Montréal",
-  "description": "Questions fréquemment posées sur les reçus d'assurance chez Skines",
-  "url": "https://skines.ca/insurance",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Dois-je demander le reçu à l'avance ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non, vous pouvez le demander directement au moment du règlement. Cependant, il est préférable de nous le mentionner en début de séance pour éviter tout délai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Sous quel format est fourni le reçu ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nous fournissons un reçu officiel sur demande. Pour toute question sur le contenu du reçu, contactez-nous au +1 (438) 260-5660."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Mon assurance couvre-t-elle les soins Skines ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend entièrement de votre régime. Contactez votre assureur avant votre visite pour vérifier votre couverture."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un reçu pour une carte cadeau utilisée ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Le reçu est émis au moment de l'utilisation de la carte cadeau, et non lors de son achat. Il sera établi au nom du bénéficiaire du soin."
-      }
+      "name": "Formulaires",
+      "item": "https://skines.ca/formulaires"
     }
   ]
 }
@@ -1401,7 +1345,6 @@ input, textarea, select {
   <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
 </head>
 <body>
-
 <nav id="mainNav">
   <a class="logo" href="/">
     <div class="logo-brand">
@@ -1413,7 +1356,7 @@ input, textarea, select {
     <li><a href="/head-spa">Head Spa</a></li>
     <li><a href="/laser">Laser</a></li>
     <li><a href="/facial">Facial</a></li>
-    <li><a href="/insurance" class="active">Assurance</a></li>
+    <li><a href="/your-visit" class="active">Votre Visite</a></li>
   
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
@@ -1522,423 +1465,164 @@ input, textarea, select {
     </div>
   </div>
 
-
-<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
-<script>window._tsk = window._tsk || '1x00000000000000000000AA';</script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInitFacialForm&render=explicit" async defer></script>
 <style>
-.ff-hero { min-height: 48vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: linear-gradient(180deg, rgba(43,20,8,0.58), rgba(43,20,8,0.74)), url('/assets/card-facial.webp') center/cover no-repeat; padding: 8rem 1.5rem 3.5rem; }
-.ff-hero-inner { max-width: 640px; position: relative; z-index: 1; }
-.ff-eyebrow { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: #E8C078; margin-bottom: 1rem; }
-.ff-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; font-style: italic; color: #F5EDE3; margin: 0 0 1rem; line-height: 1.2; text-shadow: 0 2px 18px rgba(0,0,0,0.4); }
-.ff-hero p { font-family: 'DM Sans', sans-serif; font-size: 0.98rem; color: rgba(245,237,227,0.88); line-height: 1.8; margin: 0; text-shadow: 0 1px 10px rgba(0,0,0,0.35); }
+/* ── Reset section base padding ── */
+section { padding: 0 !important; }
 
-.ff-safety { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
-.ff-safety p { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; line-height: 1.85; color: rgba(104,64,52,0.75); margin: 0 0 1.2rem; }
-.ff-safety details { border-top: 1px solid rgba(104,64,52,0.14); padding-top: 1.2rem; margin-top: 1.4rem; }
-.ff-safety summary { cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #684034; }
-.ff-safety ul { margin: 1.1rem 0 0; padding-left: 1.2rem; color: rgba(104,64,52,0.68); font-size: 0.88rem; line-height: 1.9; }
-
-.ff-form-section { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
-.ff-form-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.22); border-radius: 6px; padding: 2.5rem 2rem; }
-.ff-field-row { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 1rem; margin-bottom: 1.2rem; }
-.ff-field-row .ff-field:only-child { grid-column: 1 / -1; }
-@media (max-width: 560px) { .ff-field-row { grid-template-columns: 1fr; } }
-.ff-field { margin-bottom: 1.2rem; }
-.ff-field > label { display: block; min-height: 2.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; line-height: 1.35; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.6); margin-bottom: 0.5rem; }
-.ff-field input[type="text"], .ff-field input[type="email"], .ff-field input[type="tel"], .ff-field input[type="date"], .ff-field select, .ff-field textarea {
-  width: 100%; box-sizing: border-box; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #3A1E14;
-  border: 1px solid rgba(104,64,52,0.22); border-radius: 4px; padding: 0.75rem 0.9rem; background: #FDFAF5;
+/* ── Hero ── */
+.yv-hero {
+  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  background: #684034;
+  padding: 0 2rem 4rem; padding-top: 80px;
+  position: relative; overflow: hidden;
 }
-.ff-field textarea { min-height: 90px; resize: vertical; }
-.ff-checks { border: 1px solid rgba(104,64,52,0.14); border-radius: 4px; padding: 1.1rem 1.2rem; background: #FDFAF5; }
-.ff-check-row { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.5rem 0; font-family: 'DM Sans', sans-serif; font-size: 0.86rem; color: rgba(104,64,52,0.8); line-height: 1.5; }
-.ff-check-row input { margin-top: 0.2rem; flex-shrink: 0; }
-.ff-radio-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-.ff-radio-row label { display: flex; align-items: center; gap: 0.4rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: rgba(104,64,52,0.8); text-transform: none; letter-spacing: 0; }
-.ff-consent { display: flex; align-items: flex-start; gap: 0.65rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: rgba(104,64,52,0.75); line-height: 1.6; margin: 1.4rem 0; }
-.ff-consent input { margin-top: 0.25rem; flex-shrink: 0; }
-.ff-submit-btn { width: 100%; background: #F5EDE3; color: #684034; border: 1.5px solid #F5EDE3; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; transition: all 0.25s; }
-.ff-submit-btn:hover { background: #684034; color: #F5EDE3; }
-.ff-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.ff-success { display: none; text-align: center; padding: 2.5rem 1rem; }
-.ff-success-icon { width: 56px; height: 56px; border-radius: 50%; background: #F5EDE3; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
-.ff-success-icon svg { width: 26px; height: 26px; stroke: #684034; fill: none; stroke-width: 2.2; }
-.ff-success h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; font-style: italic; color: #684034; margin: 0 0 0.8rem; }
-.ff-success p { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: rgba(104,64,52,0.7); line-height: 1.7; max-width: 460px; margin: 0 auto; }
-.ff-error { display: none; background: #FDF0EC; color: #9A3520; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; padding: 0.9rem 1rem; border-radius: 4px; margin-bottom: 1.2rem; }
-.ff-section-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: #684034; margin: 2rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid rgba(104,64,52,0.14); }
-.ff-consent-text { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; line-height: 1.75; color: rgba(104,64,52,0.72); margin: 0 0 1rem; }
-.ff-sig-wrap { position: relative; border: 1px solid rgba(104,64,52,0.25); border-radius: 4px; background: #FDFAF5; touch-action: none; }
-.ff-sig-canvas { display: block; width: 100%; height: 160px; touch-action: none; cursor: crosshair; }
-.ff-sig-clear { position: absolute; top: 0.6rem; right: 0.6rem; background: #F5EDE3; border: 1px solid rgba(104,64,52,0.2); color: #684034; font-family: 'DM Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.7rem; border-radius: 3px; cursor: pointer; }
-.ff-sig-hint { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: rgba(104,64,52,0.5); margin: 0.5rem 0 1.5rem; }
+.yv-hero::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 65% 35%, rgba(201,160,96,0.07) 0%, transparent 65%);
+}
+.yv-hero-inner { max-width:680px; margin:0 auto; width:100%; position:relative; }
+.yv-pill {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:rgba(201,160,96,0.10); border:1px solid rgba(201,160,96,0.22);
+  border-radius:40px; padding:0.45rem 1rem;
+  font-size:0.63rem; letter-spacing:0.18em; color:rgba(201,160,96,0.80);
+  text-transform:uppercase; margin-bottom:2rem; width:fit-content;
+}
+.yv-hero h1 {
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3.5rem,11vw,6rem);
+  font-weight:300; color:rgba(245,237,227,0.95);
+  line-height:0.95; letter-spacing:-0.02em; margin-bottom:1.5rem;
+}
+.yv-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
+.yv-hero-sub { font-size:0.95rem; color:rgba(245,237,227,0.42); max-width:400px; line-height:1.75; margin-bottom:2.8rem; }
+.yv-hero-links { display:flex; flex-direction:column; gap:0; }
+.yv-hero-link {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.07);
+  text-decoration:none; transition:opacity 0.2s;
+}
+.yv-hero-link:first-child { border-top:1px solid rgba(255,255,255,0.07); }
+.yv-hero-link:hover { opacity:0.75; }
+.yv-hero-link-left { display:flex; align-items:center; gap:0.9rem; }
+.yv-hero-link-icon { width:32px; height:32px; border-radius:6px; background:rgba(201,160,96,0.10); display:flex; align-items:center; justify-content:center; }
+.yv-hero-link-icon svg { width:16px; height:16px; stroke:rgba(201,160,96,0.75); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.yv-hero-link span { font-size:0.90rem; font-weight:300; color:rgba(245,237,227,0.80); letter-spacing:0.02em; }
+.yv-hero-link svg.arr { width:14px; height:14px; stroke:rgba(255,255,255,0.22); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.yv-scroll-hint { display:flex; flex-direction:column; align-items:center; gap:0.6rem; margin-top:3rem; opacity:0.25; }
+.yv-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
+.yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
 </style>
 
-<!-- HERO -->
-<header class="ff-hero">
-  <div class="ff-hero-inner fade-up">
-    <span class="ff-eyebrow" data-fr="Avant votre soin" data-en="Before your treatment">Avant votre soin</span>
-    <h1 data-fr="Votre fiche de consultation Facial." data-en="Your Facial consultation form.">Votre fiche de consultation Facial.</h1>
-    <p data-fr="Quelques minutes avant votre rendez-vous, pour que votre esthéticienne adapte votre soin du visage — Dermalogica ou Bela MD+ — à votre peau." data-en="A few minutes before your appointment, so your esthetician can tailor your facial — Dermalogica or Bela MD+ — to your skin.">Quelques minutes avant votre rendez-vous, pour que votre esthéticienne adapte votre soin du visage — Dermalogica ou Bela MD+ — à votre peau.</p>
+<style>
+section { padding: 0 !important; }
+
+/* Hero */
+.yv-hero {
+  min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+  background: #684034;
+  padding: 0 2rem 4.5rem; padding-top: 80px;
+  position: relative; overflow: hidden;
+}
+.yv-hero::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(201,160,96,0.07) 0%, transparent 65%);
+}
+.yv-hero-inner { max-width:680px; margin:0 auto; width:100%; position:relative; }
+.yv-pill {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:rgba(201,160,96,0.10); border:1px solid rgba(201,160,96,0.22);
+  border-radius:40px; padding:0.45rem 1rem;
+  font-size:0.63rem; letter-spacing:0.18em; color:rgba(201,160,96,0.80);
+  text-transform:uppercase; margin-bottom:2rem; width:fit-content;
+}
+.yv-hero h1 {
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3.5rem,11vw,6rem);
+  font-weight:300; color:rgba(245,237,227,0.95);
+  line-height:0.95; letter-spacing:-0.02em; margin-bottom:1.5rem;
+}
+.yv-hero h1 em { font-style:italic; color:rgba(201,160,96,0.80); display:block; }
+.yv-hero-sub {
+  font-size:0.95rem; color:rgba(245,237,227,0.42);
+  max-width:420px; line-height:1.8; margin-bottom:2.5rem;
+}
+.yv-hero-cta {
+  display:inline-flex; align-items:center; gap:0.55rem;
+  padding:0.85rem 2rem; border:1px solid rgba(201,160,96,0.38); border-radius:2px;
+  color:rgba(245,237,227,0.85); font-size:0.70rem; font-weight:500; letter-spacing:0.20em;
+  text-transform:uppercase; text-decoration:none; transition:all 0.25s;
+}
+.yv-hero-cta:hover { border-color:rgba(201,160,96,0.80); color:#fff; background:rgba(201,160,96,0.08); }
+.yv-scroll-hint { display:flex; flex-direction:column; align-items:center; gap:0.6rem; margin-top:3.5rem; opacity:0.22; }
+.yv-scroll-hint span { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(245,237,227,1); }
+.yv-scroll-line { width:1px; height:40px; background:rgba(245,237,227,0.6); }
+</style>
+
+<!-- ══ HERO ══ -->
+<style>
+.hub-section { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem 7rem; }
+.hub-eyebrow-row { text-align: center; margin-bottom: 3rem; }
+.hub-eyebrow-row span { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: #C9973A; }
+.hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.hub-card { display: block; text-decoration: none; border-radius: 10px; overflow: hidden; background: #FFFFFF; border: 1px solid rgba(104,64,52,0.12); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hub-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(43,20,8,0.14); }
+.hub-card-img { aspect-ratio: 4/5; background-size: cover; background-position: center; }
+.hub-card-body { padding: 1.6rem 1.6rem 1.8rem; }
+.hub-card-body h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; font-weight: 400; color: #684034; margin: 0 0 0.5rem; }
+.hub-card-body p { font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: rgba(104,64,52,0.6); line-height: 1.6; margin: 0 0 1.2rem; }
+.hub-card-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #C9973A; }
+.hub-card-cta svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; }
+@media (max-width: 860px) { .hub-grid { grid-template-columns: 1fr; } .hub-section { padding: 4rem 1.5rem 5rem; } }
+</style>
+
+<header class="yv-hero">
+  <div class="yv-hero-inner">
+    <div class="yv-pill fade-up" data-fr="Avant votre rendez-vous" data-en="Before your appointment">Avant votre rendez-vous</div>
+    <h1 class="fade-up" data-fr="Vos fiches de consultation." data-en="Your consultation forms.">Vos fiches de<br><em>consultation.</em></h1>
+    <p class="yv-hero-sub fade-up" data-fr="Quelques minutes avant votre rendez-vous, pour que votre soin soit pensé pour vous. Optionnel — sauf si vous avez une condition, un doute ou une grossesse à nous signaler." data-en="A few minutes before your appointment, so your treatment is tailored to you. Optional — unless you have a condition, a question, or a pregnancy to let us know about.">Quelques minutes avant votre rendez-vous, pour que votre soin soit pensé pour vous. Optionnel — sauf si vous avez une condition, un doute ou une grossesse à nous signaler.</p>
+    <div class="yv-scroll-hint">
+      <div class="yv-scroll-line"></div>
+      <span data-fr="Explorer" data-en="Explore">Explorer</span>
+    </div>
   </div>
 </header>
 
-<!-- SAFETY CONTEXT -->
-<section class="ff-safety">
-  <p data-fr="Chaque soin du visage est adapté à votre peau. Certaines conditions cutanées, allergies ou traitements en cours peuvent influencer le choix des produits et la technique utilisée par votre esthéticienne." data-en="Every facial is tailored to your skin. Certain skin conditions, allergies or current treatments can influence the products and technique your esthetician uses.">Chaque soin du visage est adapté à votre peau. Certaines conditions cutanées, allergies ou traitements en cours peuvent influencer le choix des produits et la technique utilisée par votre esthéticienne.</p>
-  <p data-fr="Ce n'est pas une formalité — c'est ce qui permet à votre esthéticienne de personnaliser votre soin en toute sérénité, pour un résultat à la hauteur de vos attentes." data-en="This isn't a formality — it's what lets your esthetician personalize your treatment with confidence, for a result that meets your expectations.">Ce n'est pas une formalité — c'est ce qui permet à votre esthéticienne de personnaliser votre soin en toute sérénité, pour un résultat à la hauteur de vos attentes.</p>
-  <details>
-    <summary><span data-fr="Ce qui peut influencer votre soin" data-en="What can influence your treatment">Ce qui peut influencer votre soin</span></summary>
-    <ul>
-      <li data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</li>
-      <li data-fr="Peau sensible, rosacée, eczéma ou psoriasis" data-en="Sensitive skin, rosacea, eczema or psoriasis">Peau sensible, rosacée, eczéma ou psoriasis</li>
-      <li data-fr="Allergies aux produits, ingrédients ou parfums" data-en="Allergies to products, ingredients or fragrance">Allergies aux produits, ingrédients ou parfums</li>
-      <li data-fr="Utilisation récente de rétinol, vitamine C, AHA/BHA" data-en="Recent use of retinol, vitamin C, AHA/BHA">Utilisation récente de rétinol, vitamine C, AHA/BHA</li>
-      <li data-fr="Peeling ou exfoliation récente" data-en="Recent peel or exfoliation">Peeling ou exfoliation récente</li>
-      <li data-fr="Coup de soleil récent ou peau irritée" data-en="Recent sunburn or irritated skin">Coup de soleil récent ou peau irritée</li>
-    </ul>
-    <p style="margin-top:1.2rem;font-size:0.85rem;font-style:italic;color:rgba(104,64,52,0.55);">
-      <span data-fr="Cette liste n'est pas exhaustive. Si vous avez un doute, " data-en="This list is not exhaustive. If you're unsure, ">Cette liste n'est pas exhaustive. Si vous avez un doute, </span><a href="mailto:Info@skines.ca" style="color:#C9973A;">écrivez-nous</a><span data-fr=" — nous répondrons avec plaisir avant votre réservation." data-en=" — we'll gladly answer before you book."> — nous répondrons avec plaisir avant votre réservation.</span>
-    </p>
-  </details>
-</section>
-
-<!-- FORM -->
-<section class="ff-form-section">
-  <div class="ff-form-card">
-
-    <div class="ff-success" id="ffSuccess">
-      <div class="ff-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <h2 data-fr="Merci." data-en="Thank you.">Merci.</h2>
-      <p data-fr="Votre fiche a bien été reçue. Votre esthéticienne la consultera avant votre rendez-vous pour préparer votre soin." data-en="Your form has been received. Your esthetician will review it before your appointment to prepare your treatment.">Votre fiche a bien été reçue. Votre esthéticienne la consultera avant votre rendez-vous pour préparer votre soin.</p>
-    </div>
-
-    <form id="ffForm" novalidate>
-      <div class="ff-error" id="ffError"></div>
-
-      <!-- honeypot -->
-      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
-      <div id="ff-ts-wrap" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden;" aria-hidden="true"></div>
-
-      <div class="ff-field-row">
-        <div class="ff-field">
-          <label data-fr="Prénom *" data-en="First name *">Prénom *</label>
-          <input type="text" name="firstName" required>
-        </div>
-        <div class="ff-field">
-          <label data-fr="Nom *" data-en="Last name *">Nom *</label>
-          <input type="text" name="lastName" required>
-        </div>
+<section class="hub-section">
+  <div class="hub-grid">
+    <a class="hub-card fade-up" href="/formulaire-headspa">
+      <div class="hub-card-img" style="background-image:url('/assets/card-head-spa.webp');"></div>
+      <div class="hub-card-body">
+        <h3 data-fr="Head Spa" data-en="Head Spa">Head Spa</h3>
+        <p data-fr="Avant votre rituel du cuir chevelu." data-en="Before your scalp ritual.">Avant votre rituel du cuir chevelu.</p>
+        <span class="hub-card-cta"><span data-fr="Remplir la fiche" data-en="Fill out the form">Remplir la fiche</span> <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
-      <div class="ff-field-row">
-        <div class="ff-field">
-          <label data-fr="Courriel *" data-en="Email *">Courriel *</label>
-          <input type="email" name="email" required>
-        </div>
-        <div class="ff-field">
-          <label data-fr="Téléphone *" data-en="Phone *">Téléphone *</label>
-          <input type="tel" name="phone" required>
-        </div>
+    </a>
+    <a class="hub-card fade-up" href="/formulaire-sante">
+      <div class="hub-card-img" style="background-image:url('/assets/card-laser.webp');"></div>
+      <div class="hub-card-body">
+        <h3 data-fr="Épilation Laser" data-en="Laser Hair Removal">Épilation Laser</h3>
+        <p data-fr="Avant votre séance laser." data-en="Before your laser session.">Avant votre séance laser.</p>
+        <span class="hub-card-cta"><span data-fr="Remplir la fiche" data-en="Fill out the form">Remplir la fiche</span> <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
-      <div class="ff-field-row">
-        <div class="ff-field">
-          <label data-fr="Soin concerné" data-en="Treatment">Soin concerné</label>
-          <select name="service">
-            <option value="Luxury Facial">Luxury Facial</option>
-            <option value="Soin Personnalisé">Soin Personnalisé</option>
-            <option value="HydraDermabrasion Bela MD+">HydraDermabrasion Bela MD+</option>
-            <option value="Peeling Chimique">Peeling Chimique</option>
-            <option value="Soin du Dos">Soin du Dos</option>
-          </select>
-        </div>
-        <div class="ff-field">
-          <label data-fr="Date de rendez-vous (si connue)" data-en="Appointment date (if known)">Date de rendez-vous (si connue)</label>
-          <input type="date" name="appointmentDate">
-          <p style="margin:0.5rem 0 0;font-family:'DM Sans',sans-serif;font-size:0.76rem;color:rgba(104,64,52,0.5);" data-fr="Pas encore réservé ? Pas grave — nous traiterons votre fiche comme une demande de consultation et vous répondrons sous 72 heures." data-en="Haven't booked yet? No problem — we'll treat your form as a consultation request and get back to you within 72 hours.">Pas encore réservé ? Pas grave — nous traiterons votre fiche comme une demande de consultation et vous répondrons sous 72 heures.</p>
-        </div>
+    </a>
+    <a class="hub-card fade-up" href="/formulaire-facial">
+      <div class="hub-card-img" style="background-image:url('/assets/card-facial.webp');"></div>
+      <div class="hub-card-body">
+        <h3 data-fr="Soins du Visage" data-en="Facials">Soins du Visage</h3>
+        <p data-fr="Avant votre soin du visage." data-en="Before your facial.">Avant votre soin du visage.</p>
+        <span class="hub-card-cta"><span data-fr="Remplir la fiche" data-en="Fill out the form">Remplir la fiche</span> <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
-
-      <div class="ff-field">
-        <label data-fr="Êtes-vous enceinte ou allaitez-vous ?" data-en="Are you pregnant or breastfeeding?">Êtes-vous enceinte ou allaitez-vous ?</label>
-        <div class="ff-radio-row">
-          <label><input type="radio" name="pregnancy" value="oui" required> <span data-fr="Oui" data-en="Yes">Oui</span></label>
-          <label><input type="radio" name="pregnancy" value="non" required> <span data-fr="Non" data-en="No">Non</span></label>
-        </div>
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Vos principales préoccupations" data-en="Your main skin concerns">Vos principales préoccupations</label>
-        <div class="ff-checks">
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="acne"><span data-fr="Acné / imperfections" data-en="Acne / breakouts">Acné / imperfections</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="wrinkles"><span data-fr="Ridules" data-en="Fine lines">Ridules</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="dryness"><span data-fr="Sécheresse" data-en="Dryness">Sécheresse</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="sensitivity"><span data-fr="Sensibilité / rougeurs" data-en="Sensitivity / redness">Sensibilité / rougeurs</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="pigmentation"><span data-fr="Taches / pigmentation" data-en="Spots / pigmentation">Taches / pigmentation</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="pores"><span data-fr="Pores dilatés" data-en="Enlarged pores">Pores dilatés</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="dullness"><span data-fr="Manque d'éclat" data-en="Dull skin">Manque d'éclat</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="concerns" value="sagging"><span data-fr="Relâchement" data-en="Loss of firmness">Relâchement</span></label>
-        </div>
-      </div>
-
-      <div class="ff-field-row">
-        <div class="ff-field">
-          <label data-fr="Comment décririez-vous votre peau ?" data-en="How would you describe your skin?">Comment décririez-vous votre peau ?</label>
-          <select name="skinType">
-            <option value="Sèche">Sèche</option>
-            <option value="Normale">Normale</option>
-            <option value="Mixte">Mixte</option>
-            <option value="Grasse">Grasse</option>
-            <option value="Sensible">Sensible</option>
-          </select>
-        </div>
-        <div class="ff-field">
-          <label data-fr="Votre peau réagit-elle facilement ?" data-en="Does your skin react easily?">Votre peau réagit-elle facilement ?</label>
-          <select name="reactivity">
-            <option value="Jamais">Jamais</option>
-            <option value="Parfois">Parfois</option>
-            <option value="Souvent">Souvent</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Produits actifs utilisés actuellement" data-en="Active ingredients currently used">Produits actifs utilisés actuellement</label>
-        <div class="ff-checks">
-          <label class="ff-check-row"><input type="checkbox" name="actives" value="retinol"><span data-fr="Rétinol" data-en="Retinol">Rétinol</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="actives" value="vitaminC"><span data-fr="Vitamine C" data-en="Vitamin C">Vitamine C</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="actives" value="ahaBha"><span data-fr="AHA / BHA" data-en="AHA / BHA">AHA / BHA</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="actives" value="benzoyl"><span data-fr="Peroxyde de benzoyle" data-en="Benzoyl peroxide">Peroxyde de benzoyle</span></label>
-        </div>
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Conditions cutanées connues" data-en="Known skin conditions">Conditions cutanées connues</label>
-        <div class="ff-checks">
-          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="eczema"><span data-fr="Eczéma" data-en="Eczema">Eczéma</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="rosacea"><span data-fr="Rosacée" data-en="Rosacea">Rosacée</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="psoriasis"><span data-fr="Psoriasis" data-en="Psoriasis">Psoriasis</span></label>
-          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="dermatitis"><span data-fr="Dermatite" data-en="Dermatitis">Dermatite</span></label>
-        </div>
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Allergies ou intolérances (produits, ingrédients, parfums)" data-en="Allergies or intolerances (products, ingredients, fragrance)">Allergies ou intolérances (produits, ingrédients, parfums)</label>
-        <input type="text" name="allergies">
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Peelings ou exfoliations récents (optionnel)" data-en="Recent peels or exfoliation (optional)">Peelings ou exfoliations récents (optionnel)</label>
-        <input type="text" name="recentPeels">
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Vos objectifs pour votre peau" data-en="Your skin goals">Vos objectifs pour votre peau</label>
-        <textarea name="goals"></textarea>
-      </div>
-
-      <div class="ff-field">
-        <label data-fr="Précisions (optionnel)" data-en="Details (optional)">Précisions (optionnel)</label>
-        <textarea name="notes"></textarea>
-      </div>
-
-      <!-- CONSENT — TODO(clinic): have this wording reviewed by a lawyer before relying on it as a legal consent record. -->
-      <div class="ff-section-title" data-fr="Votre consentement" data-en="Your consent">Votre consentement</div>
-      <p class="ff-consent-text" data-fr="Ce soin du visage est réalisé avec des produits professionnels Dermalogica ou la technologie Bela MD+, selon le soin choisi. Il s'agit d'un service esthétique — nettoyage, exfoliation, extractions si nécessaire, masque et massage adaptés à votre peau." data-en="This facial is performed with professional Dermalogica products or Bela MD+ technology, depending on the treatment chosen. It is an aesthetic service — cleansing, exfoliation, extractions if needed, mask and massage tailored to your skin.">Ce soin du visage est réalisé avec des produits professionnels Dermalogica ou la technologie Bela MD+, selon le soin choisi. Il s'agit d'un service esthétique — nettoyage, exfoliation, extractions si nécessaire, masque et massage adaptés à votre peau.</p>
-      <p class="ff-consent-text" data-fr="Une légère rougeur ou sensation de chaleur est possible et temporaire. Une réaction aux produits reste possible malgré nos précautions — c'est pourquoi vos allergies déclarées ci-dessus sont importantes. Le rasage, d'autres soins esthétiques ou l'absence de traitement sont des alternatives possibles." data-en="Mild, temporary redness or warmth is possible. A reaction to products remains possible despite our precautions — which is why the allergies you declared above matter. Other aesthetic services or no treatment are possible alternatives.">Une légère rougeur ou sensation de chaleur est possible et temporaire. Une réaction aux produits reste possible malgré nos précautions — c'est pourquoi vos allergies déclarées ci-dessus sont importantes. Le rasage, d'autres soins esthétiques ou l'absence de traitement sont des alternatives possibles.</p>
-
-      <div class="ff-checks">
-        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="read" required><span data-fr="J'ai lu et compris les informations ci-dessus" data-en="I have read and understood the information above">J'ai lu et compris les informations ci-dessus</span></label>
-        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="accurate" required><span data-fr="Je confirme l'exactitude des informations de cette fiche, y compris mes allergies" data-en="I confirm this form's information is accurate, including my allergies">Je confirme l'exactitude des informations de cette fiche, y compris mes allergies</span></label>
-        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="consentToTreatment" required><span data-fr="Je consens à recevoir ce soin esthétique" data-en="I consent to receiving this aesthetic service">Je consens à recevoir ce soin esthétique</span></label>
-        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="notMedical" required><span data-fr="Je comprends qu'il s'agit d'un service esthétique et non d'un acte médical" data-en="I understand this is an aesthetic service, not a medical act">Je comprends qu'il s'agit d'un service esthétique et non d'un acte médical</span></label>
-      </div>
-
-      <!-- SIGNATURE — touch-friendly canvas, works with a finger on mobile -->
-      <div class="ff-section-title" data-fr="Votre signature" data-en="Your signature">Votre signature</div>
-      <div class="ff-sig-wrap">
-        <canvas id="ffSigCanvas" class="ff-sig-canvas" height="160"></canvas>
-        <button type="button" class="ff-sig-clear" id="ffSigClear" data-fr="Effacer" data-en="Clear">Effacer</button>
-      </div>
-      <p class="ff-sig-hint" data-fr="Signez ci-dessus avec votre doigt (mobile) ou votre souris." data-en="Sign above with your finger (mobile) or your mouse.">Signez ci-dessus avec votre doigt (mobile) ou votre souris.</p>
-
-      <div class="ff-consent">
-        <input type="checkbox" name="consent" required>
-        <span data-fr="Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour adapter mon soin." data-en="I confirm the information provided is accurate and I agree that Skines Head Spa &amp; Wellness may use it to tailor my treatment.">Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour adapter mon soin.</span>
-      </div>
-
-      <button type="submit" class="ff-submit-btn" id="ffSubmitBtn" data-fr="Envoyer ma fiche" data-en="Submit my form">Envoyer ma fiche</button>
-    </form>
+    </a>
   </div>
 </section>
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
-
-<script>
-(function() {
-  /* Signature pad — mouse + touch, works with a finger on mobile */
-  var sigCanvas = document.getElementById('ffSigCanvas');
-  var sigCtx = sigCanvas.getContext('2d');
-  var sigDrawing = false;
-  var sigHasStroke = false;
-
-  function sigResize() {
-    var ratio = window.devicePixelRatio || 1;
-    var rect = sigCanvas.getBoundingClientRect();
-    sigCanvas.width = rect.width * ratio;
-    sigCanvas.height = 160 * ratio;
-    sigCtx.scale(ratio, ratio);
-    sigCtx.strokeStyle = '#684034';
-    sigCtx.lineWidth = 2;
-    sigCtx.lineCap = 'round';
-    sigCtx.lineJoin = 'round';
-  }
-  sigResize();
-  window.addEventListener('resize', function() {
-    var data = sigHasStroke ? sigCanvas.toDataURL() : null;
-    sigResize();
-    if (data) {
-      var img = new Image();
-      img.onload = function() { sigCtx.drawImage(img, 0, 0, sigCanvas.getBoundingClientRect().width, 160); };
-      img.src = data;
-    }
-  });
-
-  function sigPoint(e) {
-    var rect = sigCanvas.getBoundingClientRect();
-    var t = (e.touches && e.touches[0]) || e;
-    return { x: t.clientX - rect.left, y: t.clientY - rect.top };
-  }
-  function sigStart(e) {
-    e.preventDefault();
-    sigDrawing = true;
-    sigHasStroke = true;
-    var p = sigPoint(e);
-    sigCtx.beginPath();
-    sigCtx.moveTo(p.x, p.y);
-  }
-  function sigMove(e) {
-    if (!sigDrawing) return;
-    e.preventDefault();
-    var p = sigPoint(e);
-    sigCtx.lineTo(p.x, p.y);
-    sigCtx.stroke();
-  }
-  function sigEnd() { sigDrawing = false; }
-
-  sigCanvas.addEventListener('mousedown', sigStart);
-  sigCanvas.addEventListener('mousemove', sigMove);
-  window.addEventListener('mouseup', sigEnd);
-  sigCanvas.addEventListener('touchstart', sigStart, { passive: false });
-  sigCanvas.addEventListener('touchmove', sigMove, { passive: false });
-  sigCanvas.addEventListener('touchend', sigEnd);
-
-  document.getElementById('ffSigClear').addEventListener('click', function() {
-    sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
-    sigHasStroke = false;
-  });
-
-  var submitting = false;
-  document.getElementById('ffForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (submitting) return;
-    var form = this;
-    var errorEl = document.getElementById('ffError');
-    errorEl.style.display = 'none';
-    var currentLang = (window.skinesGetLang && window.skinesGetLang()) || document.documentElement.lang || 'fr';
-
-    var firstName = form.firstName.value.trim();
-    var lastName  = form.lastName.value.trim();
-    var email     = form.email.value.trim();
-    var phone     = form.phone.value.trim();
-    var consent   = form.consent.checked;
-    var pregnancyEl = form.querySelector('input[name="pregnancy"]:checked');
-
-    var consentPoints = Array.prototype.slice.call(form.querySelectorAll('input[name="consentPoints"]:checked')).map(function(el) { return el.value; });
-    var allConsentPoints = form.querySelectorAll('input[name="consentPoints"]').length;
-
-    if (!firstName || !lastName || !email || !phone || !consent || !pregnancyEl) {
-      errorEl.textContent = currentLang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.';
-      errorEl.style.display = 'block';
-      return;
-    }
-    if (consentPoints.length < allConsentPoints) {
-      errorEl.textContent = currentLang === 'en' ? 'Please check every consent statement.' : 'Veuillez cocher chaque énoncé de consentement.';
-      errorEl.style.display = 'block';
-      return;
-    }
-    if (!sigHasStroke) {
-      errorEl.textContent = currentLang === 'en' ? 'Please sign the form before submitting.' : 'Veuillez signer le formulaire avant de l\'envoyer.';
-      errorEl.style.display = 'block';
-      return;
-    }
-
-    var concerns = Array.prototype.slice.call(form.querySelectorAll('input[name="concerns"]:checked')).map(function(el) { return el.value; });
-    var actives = Array.prototype.slice.call(form.querySelectorAll('input[name="actives"]:checked')).map(function(el) { return el.value; });
-    var skinConditions = Array.prototype.slice.call(form.querySelectorAll('input[name="skinConditions"]:checked')).map(function(el) { return el.value; });
-    var signatureBase64 = sigCanvas.toDataURL('image/png').split(',')[1];
-    var btn = document.getElementById('ffSubmitBtn');
-
-    submitting = true;
-    btn.disabled = true;
-    btn.textContent = currentLang === 'en' ? 'Sending…' : 'Envoi en cours…';
-
-    var payload = {
-      firstName: firstName, lastName: lastName, email: email, phone: phone,
-      service: form.service.value, appointmentDate: form.appointmentDate.value.trim(),
-      pregnancy: pregnancyEl.value,
-      concerns: concerns, skinType: form.skinType.value, reactivity: form.reactivity.value,
-      actives: actives, skinConditions: skinConditions,
-      allergies: form.allergies.value.trim(), recentPeels: form.recentPeels.value.trim(),
-      goals: form.goals.value.trim(), notes: form.notes.value.trim(),
-      consentPoints: consentPoints, signatureBase64: signatureBase64,
-      lang: currentLang,
-      website: form.website.value || '',
-      cfToken: window._ffTsToken || '',
-    };
-
-    fetch('/api/send-facial-form', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.success) {
-        form.style.display = 'none';
-        document.getElementById('ffSuccess').style.display = 'block';
-      } else {
-        throw new Error(data.error || 'Erreur');
-      }
-    })
-    .catch(function(err) {
-      errorEl.textContent = err.message || (currentLang === 'en' ? 'Something went wrong — please try again.' : 'Une erreur est survenue — veuillez réessayer.');
-      errorEl.style.display = 'block';
-      btn.disabled = false;
-      submitting = false;
-      btn.textContent = currentLang === 'en' ? 'Submit my form' : 'Envoyer ma fiche';
-    });
-  });
-
-  /* Turnstile — invisible widget, same pattern as /tirage */
-  var _ffTsId = null;
-  window._tsInitFacialForm = function() {
-    if (typeof turnstile === 'undefined') return;
-    _ffTsId = turnstile.render('#ff-ts-wrap', {
-      sitekey: window._tsk || '',
-      size: 'invisible',
-      callback: function(token) { window._ffTsToken = token; },
-    });
-    try { turnstile.execute(_ffTsId); } catch (e) {}
-  };
-  if (typeof turnstile !== 'undefined') { window._tsInitFacialForm(); }
-  else { window.addEventListener('load', function() { setTimeout(window._tsInitFacialForm, 300); }); }
-})();
-</script>
-
-
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 <style>
 /* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
 .site-footer {
@@ -2317,7 +2001,7 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 /* STONE-FINAL */
 html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
 html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #684034 !important; }
-html body nav:not(.nav-scrolled) .menu-btn span { background: #684034 !important; }
+html body nav:not(.nav-scrolled) .menu-btn span { background: rgba(245,237,227,0.9) !important; }
 html body nav.nav-scrolled .menu-btn span { background: #684034 !important; }
 html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
 html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
@@ -2669,14 +2353,6 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
     nav.classList.toggle('nav-hidden', y > lastY + 8 && y > 120);
     lastY = y;
   }, {passive: true});
-})();
-
-/* ── sp-menu-trigger → tirage ── */
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
-    var trig = document.getElementById('sp-menu-trigger');
-    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
-  });
 })();
 
 /* ── Mobile nav ── */
