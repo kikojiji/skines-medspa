@@ -7,8 +7,8 @@ import {
   rateLimit, getClientIp, sendViaResend,
 } from './_lib/security.js';
 
-const FROM       = "Skines Head Spa <noreply@mail.skines.ca>";
-const FROM_ADMIN = "Skines Head Spa <noreply@mail.skines.ca>";
+const FROM       = "Tirage · Skines <noreply@mail.skines.ca>";
+const FROM_ADMIN = "Tirage · Skines <noreply@mail.skines.ca>";
 const ADMIN = 'skinesca@gmail.com';
 const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 
