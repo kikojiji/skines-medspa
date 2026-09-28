@@ -7208,6 +7208,17 @@ input, textarea, select {
           <a href="/facial-guide" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a>
         </div>
       </div>
+      <div class="mnav-acc" id="mnavFormulaires">
+        <button class="mnav-acc-btn" type="button" aria-expanded="false">
+          <span data-fr="Formulaires" data-en="Forms">Formulaires</span>
+          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+        </button>
+        <div class="mnav-acc-panel">
+          <a href="/formulaire-headspa" data-fr="Formulaire Head Spa" data-en="Head Spa Form">Formulaire Head Spa</a>
+          <a href="/formulaire-sante" data-fr="Formulaire de Santé (Laser)" data-en="Health Form (Laser)">Formulaire de Santé (Laser)</a>
+          <a href="/formulaire-facial" data-fr="Fiche de Consultation Facial" data-en="Facial Consultation Form">Fiche de Consultation Facial</a>
+        </div>
+      </div>
     <div class="mobile-nav-footer">
       <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
@@ -7936,6 +7947,7 @@ input, textarea, select {
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
 .sf-nav #sfGuides { order: 4; }
+.sf-nav #sfFormulaires { order: 5; }
 .sf-nav-group { }
 .sf-nav-label {
   display: block;
@@ -8415,11 +8427,6 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
         <span data-fr="Cette liste n'est pas exhaustive. Si vous avez un doute, " data-en="This list is not exhaustive. If you're unsure, ">Cette liste n'est pas exhaustive. Si vous avez un doute, </span><a href="mailto:Info@skines.ca" style="color:#C9973A;text-decoration:underline;"><span data-fr="écrivez-nous" data-en="write to us">écrivez-nous</span></a><span data-fr=" — nous répondrons avec plaisir avant votre réservation." data-en=" — we'll gladly answer before you book."> — nous répondrons avec plaisir avant votre réservation.</span>
       </p>
     </details>
-    <div style="text-align:center;margin-top:1.8rem;">
-      <a href="/formulaire-sante" style="display:inline-flex;align-items:center;gap:0.5rem;color:#684034;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;">
-        <span data-fr="Remplir mon formulaire de santé" data-en="Fill out my health form">Remplir mon formulaire de santé</span>
-      </a>
-    </div>
   </div>
 
   <div style="text-align:center;margin-top:3rem;">
@@ -8513,6 +8520,36 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
         <span class="sf-link-left">
           <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
           <span data-fr="Guide Soins du Visage" data-en="Facial Guide Montreal">Guide Soins du Visage</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      </div>
+    </div>
+
+    <div class="sf-nav-group sf-nav-collapsible" id="sfFormulaires">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Formulaires" data-en="Forms">Formulaires</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
+      <a class="sf-link" href="/formulaire-headspa">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Formulaire Head Spa" data-en="Head Spa Form">Formulaire Head Spa</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/formulaire-sante">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Formulaire de Santé (Laser)" data-en="Health Form (Laser)">Formulaire de Santé (Laser)</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/formulaire-facial">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Fiche de Consultation Facial" data-en="Facial Consultation Form">Fiche de Consultation Facial</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -9418,10 +9455,14 @@ html body nav {}
 #mobileNav .mnav-toplink:active { background: rgb(220,198,148) !important; }
 /* Guides — full width like the other buttons, with a gold accent */
 #mobileNav #mnavGuides { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+#mobileNav #mnavFormulaires { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
 #mobileNav .sp-menu-trigger-wrap { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
 #mobileNav #mnavGuides .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
 #mobileNav #mnavGuides .mnav-acc-btn span { color: #F5C06A !important; }
 #mobileNav #mnavGuides .mnav-acc-chevron { stroke: #F5C06A !important; }
+#mobileNav #mnavFormulaires .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
+#mobileNav #mnavFormulaires .mnav-acc-btn span { color: #F5C06A !important; }
+#mobileNav #mnavFormulaires .mnav-acc-chevron { stroke: #F5C06A !important; }
 #mobileNav .mnav-toplink:hover { color: #C9973A !important; }
 #mobileNav .mnav-acc-btn span, #mobileNav .mnav-toplink span { color: inherit !important; }
 #mobileNav .mnav-acc-panel a span { color: inherit !important; }

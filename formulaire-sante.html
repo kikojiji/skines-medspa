@@ -1504,6 +1504,17 @@ input, textarea, select {
           <a href="/facial-guide" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a>
         </div>
       </div>
+      <div class="mnav-acc" id="mnavFormulaires">
+        <button class="mnav-acc-btn" type="button" aria-expanded="false">
+          <span data-fr="Formulaires" data-en="Forms">Formulaires</span>
+          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+        </button>
+        <div class="mnav-acc-panel">
+          <a href="/formulaire-headspa" data-fr="Formulaire Head Spa" data-en="Head Spa Form">Formulaire Head Spa</a>
+          <a href="/formulaire-sante" data-fr="Formulaire de Santé (Laser)" data-en="Health Form (Laser)">Formulaire de Santé (Laser)</a>
+          <a href="/formulaire-facial" data-fr="Fiche de Consultation Facial" data-en="Facial Consultation Form">Fiche de Consultation Facial</a>
+        </div>
+      </div>
     <div class="mobile-nav-footer">
       <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
@@ -1536,11 +1547,12 @@ input, textarea, select {
 
 .hf-form-section { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
 .hf-form-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.22); border-radius: 6px; padding: 2.5rem 2rem; }
-.hf-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+.hf-field-row { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 1rem; margin-bottom: 1.2rem; }
+.hf-field-row .hf-field:only-child { grid-column: 1 / -1; }
 @media (max-width: 560px) { .hf-field-row { grid-template-columns: 1fr; } }
 .hf-field { margin-bottom: 1.2rem; }
-.hf-field label { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.6); margin-bottom: 0.5rem; }
-.hf-field input[type="text"], .hf-field input[type="email"], .hf-field input[type="tel"], .hf-field select, .hf-field textarea {
+.hf-field > label { display: block; min-height: 2.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; line-height: 1.35; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.6); margin-bottom: 0.5rem; }
+.hf-field input[type="text"], .hf-field input[type="email"], .hf-field input[type="tel"], .hf-field input[type="date"], .hf-field select, .hf-field textarea {
   width: 100%; box-sizing: border-box; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #3A1E14;
   border: 1px solid rgba(104,64,52,0.22); border-radius: 4px; padding: 0.75rem 0.9rem; background: #FDFAF5;
 }
@@ -1562,6 +1574,12 @@ input, textarea, select {
 .hf-success h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; font-style: italic; color: #684034; margin: 0 0 0.8rem; }
 .hf-success p { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: rgba(104,64,52,0.7); line-height: 1.7; max-width: 460px; margin: 0 auto; }
 .hf-error { display: none; background: #FDF0EC; color: #9A3520; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; padding: 0.9rem 1rem; border-radius: 4px; margin-bottom: 1.2rem; }
+.hf-section-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: #684034; margin: 2rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid rgba(104,64,52,0.14); }
+.hf-consent-text { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; line-height: 1.75; color: rgba(104,64,52,0.72); margin: 0 0 1rem; }
+.hf-sig-wrap { position: relative; border: 1px solid rgba(104,64,52,0.25); border-radius: 4px; background: #FDFAF5; touch-action: none; }
+.hf-sig-canvas { display: block; width: 100%; height: 160px; touch-action: none; cursor: crosshair; }
+.hf-sig-clear { position: absolute; top: 0.6rem; right: 0.6rem; background: #F5EDE3; border: 1px solid rgba(104,64,52,0.2); color: #684034; font-family: 'DM Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.7rem; border-radius: 3px; cursor: pointer; }
+.hf-sig-hint { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: rgba(104,64,52,0.5); margin: 0.5rem 0 1.5rem; }
 </style>
 
 <!-- HERO -->
@@ -1645,9 +1663,12 @@ input, textarea, select {
             <option value="Autre">Autre</option>
           </select>
         </div>
+      </div>
+      <div class="hf-field-row">
         <div class="hf-field">
           <label data-fr="Date de rendez-vous (si connue)" data-en="Appointment date (if known)">Date de rendez-vous (si connue)</label>
-          <input type="text" name="appointmentDate" placeholder="JJ/MM/AAAA">
+          <input type="date" name="appointmentDate">
+          <p style="margin:0.5rem 0 0;font-family:'DM Sans',sans-serif;font-size:0.76rem;color:rgba(104,64,52,0.5);" data-fr="Pas encore réservé ? Pas grave — nous traiterons votre formulaire comme une demande de consultation et vous répondrons sous 72 heures." data-en="Haven't booked yet? No problem — we'll treat your form as a consultation request and get back to you within 72 hours.">Pas encore réservé ? Pas grave — nous traiterons votre formulaire comme une demande de consultation et vous répondrons sous 72 heures.</p>
         </div>
       </div>
 
@@ -1683,6 +1704,116 @@ input, textarea, select {
 
       <a class="hf-clearance-link" href="/formulaire-autorisation-medicale" target="_blank" data-fr="Télécharger le formulaire à faire remplir par votre médecin" data-en="Download the form for your doctor to complete">Télécharger le formulaire à faire remplir par votre médecin</a>
 
+      <!-- FITZPATRICK — self-reported, confirmed in person by the esthetician -->
+      <div class="hf-section-title" data-fr="Votre type de peau" data-en="Your skin type">Votre type de peau</div>
+      <div class="hf-field-row">
+        <div class="hf-field">
+          <label data-fr="Couleur des yeux" data-en="Eye color">Couleur des yeux</label>
+          <select name="fp_eyes">
+            <option value="Bleu/vert/gris clair">Bleu / vert / gris clair</option>
+            <option value="Bleu/vert/gris">Bleu / vert / gris</option>
+            <option value="Marron">Marron</option>
+            <option value="Brun foncé/noir">Brun foncé / noir</option>
+          </select>
+        </div>
+        <div class="hf-field">
+          <label data-fr="Couleur naturelle des cheveux" data-en="Natural hair color">Couleur naturelle des cheveux</label>
+          <select name="fp_hair">
+            <option value="Blond roux/blond clair">Blond roux / blond clair</option>
+            <option value="Blond">Blond</option>
+            <option value="Brun">Brun</option>
+            <option value="Brun foncé">Brun foncé</option>
+            <option value="Noir">Noir</option>
+          </select>
+        </div>
+      </div>
+      <div class="hf-field-row">
+        <div class="hf-field">
+          <label data-fr="Couleur de peau (zones non exposées au soleil)" data-en="Skin color (unexposed areas)">Couleur de peau (zones non exposées au soleil)</label>
+          <select name="fp_skin">
+            <option value="Blanc laiteux/rosé">Blanc laiteux / rosé</option>
+            <option value="Blanc/beige clair">Blanc / beige clair</option>
+            <option value="Beige/brun clair">Beige / brun clair</option>
+            <option value="Brun modéré">Brun modéré</option>
+            <option value="Brun foncé">Brun foncé</option>
+            <option value="Noir/brun très foncé">Noir / brun très foncé</option>
+          </select>
+        </div>
+        <div class="hf-field">
+          <label data-fr="Réaction au soleil sans protection" data-en="Reaction to unprotected sun exposure">Réaction au soleil sans protection</label>
+          <select name="fp_reaction">
+            <option value="Coups de soleil sévères, cloques">Coups de soleil sévères, cloques</option>
+            <option value="Coups de soleil, bronzage léger">Coups de soleil, bronzage léger</option>
+            <option value="Coups de soleil légers, bronzage progressif">Coups de soleil légers, bronzage progressif</option>
+            <option value="Bronzage facile, coups de soleil rares">Bronzage facile, coups de soleil rares</option>
+            <option value="Bronzage très facile, coups de soleil très rares">Bronzage très facile, coups de soleil très rares</option>
+            <option value="Ne brûle jamais">Ne brûle jamais</option>
+          </select>
+        </div>
+      </div>
+      <div class="hf-field-row">
+        <div class="hf-field">
+          <label data-fr="Dernière exposition solaire/autobronzant sur la zone" data-en="Last sun/tanner exposure on the area">Dernière exposition solaire/autobronzant sur la zone</label>
+          <select name="fp_lastSun">
+            <option value="Moins de 2 semaines">Moins de 2 semaines</option>
+            <option value="2 à 4 semaines">2 à 4 semaines</option>
+            <option value="Plus d'un mois">Plus d'un mois</option>
+            <option value="Jamais / ne s'applique pas">Jamais / ne s'applique pas</option>
+          </select>
+        </div>
+        <div class="hf-field">
+          <label data-fr="Fréquence d'exposition au soleil de la zone" data-en="Frequency of sun exposure on the area">Fréquence d'exposition au soleil de la zone</label>
+          <select name="fp_frequency">
+            <option value="Quotidienne">Quotidienne</option>
+            <option value="Fréquente">Fréquente</option>
+            <option value="Occasionnelle">Occasionnelle</option>
+            <option value="Rare">Rare</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PRE/POST-CARE ACKNOWLEDGMENT -->
+      <div class="hf-section-title" data-fr="Avant votre rendez-vous" data-en="Before your appointment">Avant votre rendez-vous</div>
+      <div class="hf-conditions">
+        <label class="hf-condition-row"><input type="checkbox" name="preCare" value="shaved"><span data-fr="J'ai rasé (ou je raserai) la zone 24h avant mon rendez-vous" data-en="I have shaved (or will shave) the area 24h before my appointment">J'ai rasé (ou je raserai) la zone 24h avant mon rendez-vous</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="preCare" value="noWaxing"><span data-fr="Je n'ai pas épilé à la cire, pincé ou utilisé d'épilateur depuis 4 semaines" data-en="No waxing/tweezing/epilator in the last 4 weeks">Je n'ai pas épilé à la cire, pincé ou utilisé d'épilateur depuis 4 semaines</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="preCare" value="noTanner"><span data-fr="Je n'ai pas utilisé d'autobronzant depuis 2 semaines" data-en="No self-tanner in the last 2 weeks">Je n'ai pas utilisé d'autobronzant depuis 2 semaines</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="preCare" value="noSun"><span data-fr="Je n'ai pas été exposée au soleil ou au solarium depuis 2 semaines" data-en="No sun or tanning bed exposure in the last 2 weeks">Je n'ai pas été exposée au soleil ou au solarium depuis 2 semaines</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="preCare" value="noCream"><span data-fr="Je n'appliquerai aucune crème ou produit actif sur la zone le jour du rendez-vous" data-en="I will not apply any cream or active product to the area on appointment day">Je n'appliquerai aucune crème ou produit actif sur la zone le jour du rendez-vous</span></label>
+      </div>
+
+      <div class="hf-section-title" data-fr="Après votre séance" data-en="After your session">Après votre séance</div>
+      <div class="hf-conditions">
+        <label class="hf-condition-row"><input type="checkbox" name="postCare" value="understand"><span data-fr="Je comprends qu'une rougeur ou un léger gonflement est normal et temporaire" data-en="I understand mild redness or swelling is normal and temporary">Je comprends qu'une rougeur ou un léger gonflement est normal et temporaire</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="postCare" value="spf"><span data-fr="J'éviterai le soleil et j'utiliserai un FPS 30-50 pendant 4 semaines" data-en="I will avoid the sun and use SPF 30-50 for 4 weeks">J'éviterai le soleil et j'utiliserai un FPS 30-50 pendant 4 semaines</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="postCare" value="heat"><span data-fr="J'éviterai la chaleur intense (sauna, bain chaud, sport intense) pendant 24-48h" data-en="I will avoid intense heat (sauna, hot bath, intense exercise) for 24-48h">J'éviterai la chaleur intense (sauna, bain chaud, sport intense) pendant 24-48h</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="postCare" value="noWaxBetween"><span data-fr="Je ne pratiquerai pas l'épilation à la cire ou à la pince entre les séances" data-en="I will not wax or tweeze between sessions">Je ne pratiquerai pas l'épilation à la cire ou à la pince entre les séances</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="postCare" value="contact"><span data-fr="Je contacterai Skines si je remarque une réaction inhabituelle" data-en="I will contact Skines if I notice an unusual reaction">Je contacterai Skines si je remarque une réaction inhabituelle</span></label>
+      </div>
+
+      <!-- CONSENT — TODO(clinic): have this wording reviewed by a lawyer before relying on it as a legal consent record. -->
+      <div class="hf-section-title" data-fr="Votre consentement" data-en="Your consent">Votre consentement</div>
+      <p class="hf-consent-text" data-fr="L'épilation au laser utilise l'énergie lumineuse pour cibler la mélanine du follicule pileux et réduire la repousse des poils. Il s'agit d'un service esthétique, pas d'un acte médical. Plusieurs séances sont généralement nécessaires (6 à 10 selon la zone, le type de poil et de peau)." data-en="Laser hair removal uses light energy to target melanin in the hair follicle and reduce hair regrowth. It is an aesthetic service, not a medical act. Several sessions are generally needed (6 to 10 depending on the area, hair and skin type).">L'épilation au laser utilise l'énergie lumineuse pour cibler la mélanine du follicule pileux et réduire la repousse des poils. Il s'agit d'un service esthétique, pas d'un acte médical. Plusieurs séances sont généralement nécessaires (6 à 10 selon la zone, le type de poil et de peau).</p>
+      <p class="hf-consent-text" data-fr="Une réduction significative est attendue, mais les résultats varient d'une personne à l'autre et une repousse partielle liée aux hormones reste possible — aucun résultat permanent n'est garanti." data-en="Significant reduction is expected, but results vary from person to person and partial hormonal regrowth remains possible — no permanent result is guaranteed.">Une réduction significative est attendue, mais les résultats varient d'une personne à l'autre et une repousse partielle liée aux hormones reste possible — aucun résultat permanent n'est garanti.</p>
+      <p class="hf-consent-text" data-fr="Une rougeur, un gonflement ou un inconfort léger et temporaire sont normaux après la séance. Plus rarement : brûlures, ampoules, changement temporaire ou permanent de la pigmentation, cicatrices, ou pousse paradoxale de poils. Le port des lunettes de protection fournies est obligatoire en tout temps durant la séance. Le rasage, l'épilation à la cire et l'électrolyse sont des alternatives possibles." data-en="Mild, temporary redness, swelling or discomfort are normal after the session. More rarely: burns, blisters, temporary or permanent pigmentation change, scarring, or paradoxical hair growth. Wearing the provided protective eyewear is mandatory at all times during the session. Shaving, waxing and electrolysis are possible alternatives.">Une rougeur, un gonflement ou un inconfort léger et temporaire sont normaux après la séance. Plus rarement : brûlures, ampoules, changement temporaire ou permanent de la pigmentation, cicatrices, ou pousse paradoxale de poils. Le port des lunettes de protection fournies est obligatoire en tout temps durant la séance. Le rasage, l'épilation à la cire et l'électrolyse sont des alternatives possibles.</p>
+
+      <div class="hf-conditions">
+        <label class="hf-condition-row"><input type="checkbox" name="consentPoints" value="read" required><span data-fr="J'ai lu et compris les informations ci-dessus" data-en="I have read and understood the information above">J'ai lu et compris les informations ci-dessus</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="consentPoints" value="questions" required><span data-fr="J'ai eu l'occasion de poser mes questions" data-en="I had the opportunity to ask my questions">J'ai eu l'occasion de poser mes questions</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="consentPoints" value="varies" required><span data-fr="Je comprends que les résultats varient d'une personne à l'autre" data-en="I understand results vary from person to person">Je comprends que les résultats varient d'une personne à l'autre</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="consentPoints" value="accurate" required><span data-fr="Je confirme l'exactitude des informations de mon formulaire de santé" data-en="I confirm my health form information is accurate">Je confirme l'exactitude des informations de mon formulaire de santé</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="consentPoints" value="consentToTreatment" required><span data-fr="Je consens à recevoir ce soin esthétique" data-en="I consent to receiving this aesthetic service">Je consens à recevoir ce soin esthétique</span></label>
+        <label class="hf-condition-row"><input type="checkbox" name="consentPoints" value="notMedical" required><span data-fr="Je comprends qu'il s'agit d'un service esthétique et non d'un acte médical" data-en="I understand this is an aesthetic service, not a medical act">Je comprends qu'il s'agit d'un service esthétique et non d'un acte médical</span></label>
+      </div>
+
+      <!-- SIGNATURE — touch-friendly canvas, works with a finger on mobile -->
+      <div class="hf-section-title" data-fr="Votre signature" data-en="Your signature">Votre signature</div>
+      <div class="hf-sig-wrap">
+        <canvas id="hfSigCanvas" class="hf-sig-canvas" height="160"></canvas>
+        <button type="button" class="hf-sig-clear" id="hfSigClear" data-fr="Effacer" data-en="Clear">Effacer</button>
+      </div>
+      <p class="hf-sig-hint" data-fr="Signez ci-dessus avec votre doigt (mobile) ou votre souris." data-en="Sign above with your finger (mobile) or your mouse.">Signez ci-dessus avec votre doigt (mobile) ou votre souris.</p>
+
       <div class="hf-consent">
         <input type="checkbox" name="consent" required>
         <span data-fr="Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour évaluer ma sécurité avant mon rendez-vous." data-en="I confirm the information provided is accurate and I agree that Skines Head Spa &amp; Wellness may use it to assess my safety before my appointment.">Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour évaluer ma sécurité avant mon rendez-vous.</span>
@@ -1703,6 +1834,68 @@ input, textarea, select {
   var fileNameEl = document.getElementById('hfFileName');
   fileInput.addEventListener('change', function() {
     fileNameEl.textContent = fileInput.files[0] ? fileInput.files[0].name : '';
+  });
+
+  /* Signature pad — mouse + touch, works with a finger on mobile */
+  var sigCanvas = document.getElementById('hfSigCanvas');
+  var sigCtx = sigCanvas.getContext('2d');
+  var sigDrawing = false;
+  var sigHasStroke = false;
+
+  function sigResize() {
+    var ratio = window.devicePixelRatio || 1;
+    var rect = sigCanvas.getBoundingClientRect();
+    sigCanvas.width = rect.width * ratio;
+    sigCanvas.height = 160 * ratio;
+    sigCtx.scale(ratio, ratio);
+    sigCtx.strokeStyle = '#684034';
+    sigCtx.lineWidth = 2;
+    sigCtx.lineCap = 'round';
+    sigCtx.lineJoin = 'round';
+  }
+  sigResize();
+  window.addEventListener('resize', function() {
+    var data = sigHasStroke ? sigCanvas.toDataURL() : null;
+    sigResize();
+    if (data) {
+      var img = new Image();
+      img.onload = function() { sigCtx.drawImage(img, 0, 0, sigCanvas.getBoundingClientRect().width, 160); };
+      img.src = data;
+    }
+  });
+
+  function sigPoint(e) {
+    var rect = sigCanvas.getBoundingClientRect();
+    var t = (e.touches && e.touches[0]) || e;
+    return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+  }
+  function sigStart(e) {
+    e.preventDefault();
+    sigDrawing = true;
+    sigHasStroke = true;
+    var p = sigPoint(e);
+    sigCtx.beginPath();
+    sigCtx.moveTo(p.x, p.y);
+  }
+  function sigMove(e) {
+    if (!sigDrawing) return;
+    e.preventDefault();
+    var p = sigPoint(e);
+    sigCtx.lineTo(p.x, p.y);
+    sigCtx.stroke();
+  }
+  function sigEnd() { sigDrawing = false; }
+
+  sigCanvas.addEventListener('mousedown', sigStart);
+  sigCanvas.addEventListener('mousemove', sigMove);
+  window.addEventListener('mouseup', sigEnd);
+  sigCanvas.addEventListener('touchstart', sigStart, { passive: false });
+  sigCanvas.addEventListener('touchmove', sigMove, { passive: false });
+  sigCanvas.addEventListener('touchend', sigEnd);
+
+  document.getElementById('hfSigClear').addEventListener('click', function() {
+    sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+    sigHasStroke = false;
   });
 
   function fileToBase64(file) {
@@ -1727,16 +1920,36 @@ input, textarea, select {
     var email     = form.email.value.trim();
     var phone     = form.phone.value.trim();
     var consent   = form.consent.checked;
+    var currentLang = (window.skinesGetLang && window.skinesGetLang()) || document.documentElement.lang || 'fr';
+
+    var consentPoints = Array.prototype.slice.call(form.querySelectorAll('input[name="consentPoints"]:checked')).map(function(el) { return el.value; });
+    var allConsentPoints = form.querySelectorAll('input[name="consentPoints"]').length;
 
     if (!firstName || !lastName || !email || !phone || !consent) {
-      errorEl.textContent = document.documentElement.lang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.';
+      errorEl.textContent = currentLang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (consentPoints.length < allConsentPoints) {
+      errorEl.textContent = currentLang === 'en' ? 'Please check every consent statement.' : 'Veuillez cocher chaque énoncé de consentement.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (!sigHasStroke) {
+      errorEl.textContent = currentLang === 'en' ? 'Please sign the form before submitting.' : 'Veuillez signer le formulaire avant de l\'envoyer.';
       errorEl.style.display = 'block';
       return;
     }
 
     var conditions = Array.prototype.slice.call(form.querySelectorAll('input[name="conditions"]:checked')).map(function(el) { return el.value; });
+    var preCare = Array.prototype.slice.call(form.querySelectorAll('input[name="preCare"]:checked')).map(function(el) { return el.value; });
+    var postCare = Array.prototype.slice.call(form.querySelectorAll('input[name="postCare"]:checked')).map(function(el) { return el.value; });
+    var fitzpatrick = {
+      eyes: form.fp_eyes.value, hair: form.fp_hair.value, skin: form.fp_skin.value,
+      reaction: form.fp_reaction.value, lastSun: form.fp_lastSun.value, frequency: form.fp_frequency.value,
+    };
+    var signatureBase64 = sigCanvas.toDataURL('image/png').split(',')[1];
     var btn = document.getElementById('hfSubmitBtn');
-    var currentLang = (window.skinesGetLang && window.skinesGetLang()) || document.documentElement.lang || 'fr';
 
     submitting = true;
     btn.disabled = true;
@@ -1746,6 +1959,8 @@ input, textarea, select {
       firstName: firstName, lastName: lastName, email: email, phone: phone,
       service: form.service.value, appointmentDate: form.appointmentDate.value.trim(),
       notes: form.notes.value.trim(), conditions: conditions,
+      preCare: preCare, postCare: postCare, consentPoints: consentPoints,
+      fitzpatrick: fitzpatrick, signatureBase64: signatureBase64,
       lang: currentLang,
       website: form.website.value || '',
       cfToken: window._hfTsToken || '',
@@ -1837,6 +2052,7 @@ input, textarea, select {
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
 .sf-nav #sfGuides { order: 4; }
+.sf-nav #sfFormulaires { order: 5; }
 .sf-nav-group { }
 .sf-nav-label {
   display: block;
@@ -2409,6 +2625,36 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
       </div>
     </div>
 
+    <div class="sf-nav-group sf-nav-collapsible" id="sfFormulaires">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Formulaires" data-en="Forms">Formulaires</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
+      <a class="sf-link" href="/formulaire-headspa">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Formulaire Head Spa" data-en="Head Spa Form">Formulaire Head Spa</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/formulaire-sante">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Formulaire de Santé (Laser)" data-en="Health Form (Laser)">Formulaire de Santé (Laser)</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/formulaire-facial">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Fiche de Consultation Facial" data-en="Facial Consultation Form">Fiche de Consultation Facial</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      </div>
+    </div>
+
     <div class="sf-nav-group sf-nav-collapsible" id="sfVisite">
       <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
         <span data-fr="Votre Visite" data-en="Your Visit">Votre Visite</span>
@@ -2639,10 +2885,14 @@ html body nav {}
 #mobileNav .mnav-toplink:active { background: rgb(220,198,148) !important; }
 /* Guides — full width like the other buttons, with a gold accent */
 #mobileNav #mnavGuides { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+#mobileNav #mnavFormulaires { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
 #mobileNav .sp-menu-trigger-wrap { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
 #mobileNav #mnavGuides .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
 #mobileNav #mnavGuides .mnav-acc-btn span { color: #F5C06A !important; }
 #mobileNav #mnavGuides .mnav-acc-chevron { stroke: #F5C06A !important; }
+#mobileNav #mnavFormulaires .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
+#mobileNav #mnavFormulaires .mnav-acc-btn span { color: #F5C06A !important; }
+#mobileNav #mnavFormulaires .mnav-acc-chevron { stroke: #F5C06A !important; }
 #mobileNav .mnav-toplink:hover { color: #C9973A !important; }
 #mobileNav .mnav-acc-btn span, #mobileNav .mnav-toplink span { color: inherit !important; }
 #mobileNav .mnav-acc-panel a span { color: inherit !important; }

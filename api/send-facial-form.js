@@ -1,17 +1,13 @@
-// Vercel Serverless Function — Pre-appointment health & safety form
-// POST /api/send-health-form
+// Vercel Serverless Function — Pre-appointment skin consultation form (facials)
+// POST /api/send-facial-form
 //
 // Sends 3 emails via Resend on submission:
 //   1. Client  — reassuring confirmation (FR/EN)
 //   2. Owner   — full submission details (reply-to: client)
 //   3. Staff   — appointment-relevant details only (no unnecessary personal data)
 //
-// All addresses come from environment variables ONLY — never hardcode a
-// client-facing "from"/"to" address here. Required env vars:
-//   RESEND_API_KEY   (already used by sendViaResend, shared with other forms)
-//   FROM_EMAIL       e.g. "Skines Head Spa & Wellness <noreply@skines.ca>"
-//   OWNER_EMAIL      e.g. "Info@skines.ca"
-//   STAFF_EMAIL      the esthetician's inbox
+// All addresses come from environment variables ONLY. Required env vars:
+//   RESEND_API_KEY, FROM_EMAIL, OWNER_EMAIL, STAFF_EMAIL (shared with /api/send-health-form)
 //
 // Never use "medical/médical/nurse/infirmière" in any client-facing copy
 // below — say "esthéticienne / esthetician" instead.
@@ -23,7 +19,6 @@ import {
 } from './_lib/security.js';
 
 const LOGO = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
-const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024; // 5 MB, base64-decoded size
 
 function requireEnv(name) {
   const v = process.env[name];
@@ -31,7 +26,6 @@ function requireEnv(name) {
   return v;
 }
 
-// ── Cloudflare Turnstile server-side verification (same pattern as /api/send-tirage) ──
 async function verifyTurnstile(token, ip) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) return true;
@@ -45,44 +39,42 @@ async function verifyTurnstile(token, ip) {
     const d = await r.json();
     return d.success === true;
   } catch (err) {
-    console.error('[health-form] turnstile fetch error:', err.message);
+    console.error('[facial-form] turnstile fetch error:', err.message);
     return true;
   }
 }
 
-const CONDITION_LABELS = {
-  pregnancy:   'Grossesse ou allaitement',
-  autoimmune:  "Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière",
-  isotretinoin:"Isotrétinoïne (Accutane) récente ou médicaments photosensibilisants",
-  herpes:      "Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone",
-  epilepsy:    "Épilepsie ou crises déclenchées par la lumière",
-  keloids:     "Antécédents de chéloïdes ou de cicatrisation anormale",
-  skinCancer:  "Cancer de la peau ou grain de beauté suspect dans la zone à traiter",
-  diabetes:    "Diabète non contrôlé, troubles de la coagulation ou anticoagulants",
-  vitiligo:    "Vitiligo ou psoriasis",
-  tanning:     "Bronzage récent ou autobronzant",
+const CONCERN_LABELS = {
+  acne: 'Acné / imperfections',
+  wrinkles: 'Ridules',
+  dryness: 'Sécheresse',
+  sensitivity: 'Sensibilité / rougeurs',
+  pigmentation: 'Taches / pigmentation',
+  pores: 'Pores dilatés',
+  dullness: "Manque d'éclat",
+  sagging: 'Relâchement',
 };
 
-const PRECARE_LABELS = {
-  shaved:    "A rasé (ou rasera) la zone 24h avant le rendez-vous",
-  noWaxing:  "Pas de cire/pince/épilateur depuis 4 semaines",
-  noTanner:  "Pas d'autobronzant depuis 2 semaines",
-  noSun:     "Pas de soleil/solarium depuis 2 semaines",
-  noCream:   "N'appliquera aucune crème/actif le jour du rendez-vous",
+const ACTIVE_LABELS = {
+  retinol: 'Rétinol',
+  vitaminC: 'Vitamine C',
+  ahaBha: 'AHA / BHA',
+  benzoyl: 'Peroxyde de benzoyle',
 };
 
-const POSTCARE_LABELS = {
-  understand:    "Comprend que rougeur/gonflement léger est normal",
-  spf:           "Évitera le soleil, FPS 30-50 pendant 4 semaines",
-  heat:          "Évitera la chaleur intense 24-48h",
-  noWaxBetween:  "Pas de cire/pince entre les séances",
-  contact:       "Contactera Skines en cas de réaction inhabituelle",
+const SKIN_CONDITION_LABELS = {
+  eczema: 'Eczéma',
+  rosacea: 'Rosacée',
+  psoriasis: 'Psoriasis',
+  dermatitis: 'Dermatite',
 };
 
-const CONSENT_POINT_KEYS = ['read', 'questions', 'varies', 'accurate', 'consentToTreatment', 'notMedical'];
+const CONSENT_POINT_KEYS = ['read', 'accurate', 'consentToTreatment', 'notMedical'];
 
-function lastNameSlug(value) {
-  return String(value || 'cliente').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40) || 'cliente';
+function listHtml(map, keys) {
+  return keys.length
+    ? `<ul style="margin:0;padding-left:18px;">${keys.map((k) => `<li>${escapeHtml(map[k])}</li>`).join('')}</ul>`
+    : '<p style="margin:0;">Aucune.</p>';
 }
 
 export default async function handler(req, res) {
@@ -113,66 +105,40 @@ export default async function handler(req, res) {
   const phone     = sanitizeText(req.body.phone, 30);
   const service   = sanitizeText(req.body.service, 120);
   const apptDate  = sanitizeText(req.body.appointmentDate, 60);
-  const notes     = sanitizeText(req.body.notes, 1000);
   const lang      = req.body.lang === 'en' ? 'en' : 'fr';
 
   if (!validateEmail(email)) return res.status(400).json({ error: 'Adresse email invalide.' });
   if (!validatePhone(phone)) return res.status(400).json({ error: 'Numéro de téléphone invalide.' });
 
-  const rawConditions = Array.isArray(req.body.conditions) ? req.body.conditions : [];
-  const conditions = rawConditions
-    .map((k) => sanitizeText(String(k), 40))
-    .filter((k) => Object.prototype.hasOwnProperty.call(CONDITION_LABELS, k));
-  const hasFlaggedCondition = conditions.length > 0;
+  const pregnancy = req.body.pregnancy === 'oui' ? 'oui' : 'non';
+  const isPregnant = pregnancy === 'oui';
 
-  const rawPreCare = Array.isArray(req.body.preCare) ? req.body.preCare : [];
-  const preCare = rawPreCare
-    .map((k) => sanitizeText(String(k), 40))
-    .filter((k) => Object.prototype.hasOwnProperty.call(PRECARE_LABELS, k));
+  const skinType   = sanitizeText(req.body.skinType, 40);
+  const reactivity = sanitizeText(req.body.reactivity, 40);
+  const allergies  = sanitizeText(req.body.allergies, 300);
+  const recentPeels = sanitizeText(req.body.recentPeels, 300);
+  const goals      = sanitizeText(req.body.goals, 800);
+  const notes      = sanitizeText(req.body.notes, 1000);
 
-  const rawPostCare = Array.isArray(req.body.postCare) ? req.body.postCare : [];
-  const postCare = rawPostCare
-    .map((k) => sanitizeText(String(k), 40))
-    .filter((k) => Object.prototype.hasOwnProperty.call(POSTCARE_LABELS, k));
+  const concerns = (Array.isArray(req.body.concerns) ? req.body.concerns : [])
+    .map((k) => sanitizeText(String(k), 30)).filter((k) => k in CONCERN_LABELS);
+  const actives = (Array.isArray(req.body.actives) ? req.body.actives : [])
+    .map((k) => sanitizeText(String(k), 30)).filter((k) => k in ACTIVE_LABELS);
+  const skinConditions = (Array.isArray(req.body.skinConditions) ? req.body.skinConditions : [])
+    .map((k) => sanitizeText(String(k), 30)).filter((k) => k in SKIN_CONDITION_LABELS);
 
-  const rawConsentPoints = Array.isArray(req.body.consentPoints) ? req.body.consentPoints : [];
-  const consentPoints = rawConsentPoints
-    .map((k) => sanitizeText(String(k), 40))
-    .filter((k) => CONSENT_POINT_KEYS.includes(k));
+  const consentPoints = (Array.isArray(req.body.consentPoints) ? req.body.consentPoints : [])
+    .map((k) => sanitizeText(String(k), 40)).filter((k) => CONSENT_POINT_KEYS.includes(k));
   if (consentPoints.length < CONSENT_POINT_KEYS.length) {
     return res.status(400).json({ error: 'Veuillez cocher chaque énoncé de consentement.' });
   }
 
-  const fpRaw = req.body.fitzpatrick && typeof req.body.fitzpatrick === 'object' ? req.body.fitzpatrick : {};
-  const fitzpatrick = {
-    eyes: sanitizeText(fpRaw.eyes, 60),
-    hair: sanitizeText(fpRaw.hair, 60),
-    skin: sanitizeText(fpRaw.skin, 60),
-    reaction: sanitizeText(fpRaw.reaction, 80),
-    lastSun: sanitizeText(fpRaw.lastSun, 60),
-    frequency: sanitizeText(fpRaw.frequency, 40),
-  };
-
-  // Signature: required, base64 PNG from the on-page canvas — forwarded as an
-  // email attachment only, never stored server-side.
   const sigB64 = req.body.signatureBase64;
   if (!sigB64 || typeof sigB64 !== 'string' || sigB64.length < 100) {
     return res.status(400).json({ error: 'Signature manquante.' });
   }
-  const signatureAttachment = { filename: `signature-${lastNameSlug(req.body.lastName)}.png`, content: sigB64 };
-
-  // Optional attachment: client sends { attachmentName, attachmentType, attachmentBase64 }
-  // (base64 payload of a PDF/image, no server-side storage — forwarded as an email attachment only)
-  let attachment = null;
-  const attB64 = req.body.attachmentBase64;
-  if (attB64 && typeof attB64 === 'string') {
-    const approxBytes = Math.ceil((attB64.length * 3) / 4);
-    if (approxBytes > MAX_ATTACHMENT_BYTES) {
-      return res.status(400).json({ error: 'Le fichier joint dépasse 5 Mo.' });
-    }
-    const attName = sanitizeText(req.body.attachmentName || 'note-medicale', 120);
-    attachment = { filename: attName, content: attB64 };
-  }
+  const sigSlug = String(lastName || 'cliente').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40) || 'cliente';
+  const signatureAttachment = { filename: `signature-${sigSlug}.png`, content: sigB64 };
 
   let FROM_EMAIL, OWNER_EMAIL, STAFF_EMAIL;
   try {
@@ -180,7 +146,7 @@ export default async function handler(req, res) {
     OWNER_EMAIL = requireEnv('OWNER_EMAIL');
     STAFF_EMAIL = requireEnv('STAFF_EMAIL');
   } catch (err) {
-    console.error('[health-form] config error:', err.message);
+    console.error('[facial-form] config error:', err.message);
     return res.status(500).json({ error: "Configuration serveur incomplète. Contactez l'administrateur." });
   }
 
@@ -190,24 +156,14 @@ export default async function handler(req, res) {
   const safePhone   = escapeHtml(phone);
   const safeService = escapeHtml(service || '—');
   const safeAppt    = escapeHtml(apptDate || '—');
+  const safeGoals   = escapeHtml(goals || '—');
   const safeNotes   = escapeHtml(notes || '—');
-  const conditionsHtml = hasFlaggedCondition
-    ? `<ul style="margin:0;padding-left:18px;">${conditions.map((k) => `<li>${escapeHtml(CONDITION_LABELS[k])}</li>`).join('')}</ul>`
-    : '<p style="margin:0;">Aucune condition signalée.</p>';
-  const fitzpatrickHtml = `<ul style="margin:0;padding-left:18px;">
-    <li>Yeux : ${escapeHtml(fitzpatrick.eyes || '—')}</li>
-    <li>Cheveux : ${escapeHtml(fitzpatrick.hair || '—')}</li>
-    <li>Peau (non exposée) : ${escapeHtml(fitzpatrick.skin || '—')}</li>
-    <li>Réaction au soleil : ${escapeHtml(fitzpatrick.reaction || '—')}</li>
-    <li>Dernière exposition sur la zone : ${escapeHtml(fitzpatrick.lastSun || '—')}</li>
-    <li>Fréquence d'exposition : ${escapeHtml(fitzpatrick.frequency || '—')}</li>
-  </ul>`;
-  const preCareHtml = preCare.length
-    ? `<ul style="margin:0;padding-left:18px;">${preCare.map((k) => `<li>${escapeHtml(PRECARE_LABELS[k])}</li>`).join('')}</ul>`
-    : '<p style="margin:0;">Aucune case cochée.</p>';
-  const postCareHtml = postCare.length
-    ? `<ul style="margin:0;padding-left:18px;">${postCare.map((k) => `<li>${escapeHtml(POSTCARE_LABELS[k])}</li>`).join('')}</ul>`
-    : '<p style="margin:0;">Aucune case cochée.</p>';
+  const safeAllergies = escapeHtml(allergies || 'Aucune déclarée');
+  const safeRecentPeels = escapeHtml(recentPeels || 'Aucun');
+
+  const concernsHtml = listHtml(CONCERN_LABELS, concerns);
+  const activesHtml = listHtml(ACTIVE_LABELS, actives);
+  const skinConditionsHtml = listHtml(SKIN_CONDITION_LABELS, skinConditions);
 
   const logoBadgeHtml = `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 14px;"><tr>
     <td align="center" valign="middle" width="44" height="44" style="width:44px;height:44px;border-radius:22px;background:#F5EDE3;border:1px solid rgba(201,151,58,0.30);"><img src="${LOGO}" alt="Skines" width="24" style="width:24px;height:auto;display:block;margin:10px auto;"></td>
@@ -220,31 +176,27 @@ export default async function handler(req, res) {
   <p style="margin:0 0 18px;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:#C9973A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${title}</p>
 </td></tr>`;
 
-  /* ── 1. CLIENT EMAIL — reassuring, warm, bilingual FR/EN ── */
+  /* ── 1. CLIENT EMAIL ── */
   const hasAppointment = Boolean(apptDate);
   const clientCopy = lang === 'en'
     ? {
-        title: hasAppointment ? 'YOUR HEALTH FORM · SKINES' : 'YOUR CONSULTATION REQUEST · SKINES',
+        title: hasAppointment ? 'YOUR SKIN CONSULTATION · SKINES' : 'YOUR CONSULTATION REQUEST · SKINES',
         heading: `Thank you, ${safeFirst}.`,
-        body: !hasAppointment
-          ? "We've received your request as a consultation. Since you haven't booked an appointment yet, our team will get back to you within 72 hours" + (hasFlaggedCondition ? ", including guidance on the condition you indicated, before you book." : " to help you plan your session.")
-          : (hasFlaggedCondition
-              ? "We've received your health form. Because you've indicated a condition that can affect how your skin reacts to laser treatment, our team will review your form and reach out within 48 hours to guide you through next steps — this isn't a refusal, it's how we take care of you."
-              : "We've received your health form. Our team reviews every submission before your appointment, as part of our care for you."),
+        body: hasAppointment
+          ? "We've received your skin consultation form. Your esthetician will review it before your appointment to prepare a facial tailored to your skin."
+          : "We've received your request as a consultation. Since you haven't booked an appointment yet, our team will get back to you within 72 hours to answer your questions and help you choose the right treatment.",
         footer: hasAppointment
-          ? 'Our team reviews every health form within 48 hours and will contact you before your appointment.'
+          ? 'Your esthetician reviews every form before your appointment.'
           : 'Our team responds to every consultation request within 72 hours.',
       }
     : {
-        title: hasAppointment ? 'VOTRE FORMULAIRE DE SANTÉ · SKINES' : 'VOTRE DEMANDE DE CONSULTATION · SKINES',
+        title: hasAppointment ? 'VOTRE CONSULTATION FACIAL · SKINES' : 'VOTRE DEMANDE DE CONSULTATION · SKINES',
         heading: `Merci, ${safeFirst}.`,
-        body: !hasAppointment
-          ? "Nous avons bien reçu votre demande, que nous traitons comme une consultation. Puisque vous n'avez pas encore de rendez-vous réservé, notre équipe vous répondra sous 72 heures" + (hasFlaggedCondition ? ", notamment pour vous guider au sujet de la condition indiquée, avant votre réservation." : " pour vous aider à planifier votre séance.")
-          : (hasFlaggedCondition
-              ? "Nous avons bien reçu votre formulaire de santé. Puisque vous avez indiqué une condition pouvant modifier la façon dont votre peau réagit au laser, notre équipe examine votre formulaire et vous contactera sous 48 heures pour vous guider dans les prochaines étapes — ce n'est pas un refus, c'est notre façon de prendre soin de vous."
-              : "Nous avons bien reçu votre formulaire de santé. Notre équipe examine chaque formulaire avant votre rendez-vous, par souci de votre sécurité."),
+        body: hasAppointment
+          ? "Nous avons bien reçu votre fiche de consultation facial. Votre esthéticienne la consultera avant votre rendez-vous pour préparer un soin adapté à votre peau."
+          : "Nous avons bien reçu votre demande, que nous traitons comme une consultation. Puisque vous n'avez pas encore de rendez-vous réservé, notre équipe vous répondra sous 72 heures pour répondre à vos questions et vous aider à choisir le soin qui vous convient.",
         footer: hasAppointment
-          ? 'Notre équipe examine chaque formulaire de santé sous 48 heures et vous contacte avant votre rendez-vous.'
+          ? 'Votre esthéticienne examine chaque fiche avant votre rendez-vous.'
           : 'Notre équipe répond à chaque demande de consultation sous 72 heures.',
       };
 
@@ -252,10 +204,6 @@ export default async function handler(req, res) {
 <body style="margin:0;padding:0;background:#F2EBE1;font-family:Georgia,'Times New Roman',serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#F2EBE1;padding:40px 16px 48px;"><tr><td align="center">
 <table width="540" cellpadding="0" cellspacing="0" style="max-width:100%;">
-  <tr><td style="padding:0 0 28px;text-align:center;">
-    <img src="${LOGO}" alt="Skines" width="48" style="width:48px;height:auto;display:block;margin:0 auto 10px;">
-    <p style="margin:0;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(90,70,55,0.52);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES HEAD SPA &amp; WELLNESS</p>
-  </td></tr>
   <tr><td style="background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid rgba(182,106,90,0.13);">
     <table cellpadding="0" cellspacing="0" width="100%">
       ${cardTop(clientCopy.title)}
@@ -292,7 +240,7 @@ export default async function handler(req, res) {
       <td valign="middle" width="44" height="44" align="center" style="width:44px;height:44px;border-radius:22px;background:#FFFFFF;border:1px solid rgba(104,64,52,0.15);"><img src="${LOGO}" alt="Skines" width="24" style="width:24px;height:auto;display:block;margin:10px auto;"></td>
       <td valign="middle" style="padding-left:14px;">
         <p style="margin:0 0 4px;font-size:20px;letter-spacing:0.3em;color:#2C1810;font-family:Georgia,'Times New Roman',serif;">SKINES</p>
-        <p style="margin:0;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${hasFlaggedCondition ? 'Formulaire de santé — Note médicale requise' : 'Formulaire de santé — Aucune condition signalée'}</p>
+        <p style="margin:0;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${isPregnant ? '⚠ Grossesse déclarée — Fiche de consultation facial' : 'Fiche de consultation facial'}</p>
       </td>
     </tr></table>
   </td></tr>
@@ -305,21 +253,20 @@ export default async function handler(req, res) {
         <p style="margin:0 0 6px;"><strong>Service :</strong> ${safeService}</p>
         <p style="margin:0 0 14px;"><strong>Date de rendez-vous indiquée :</strong> ${safeAppt}</p>
         ${!hasAppointment ? '<p style="margin:0 0 14px;padding:12px 14px;background:#EEF3FA;border-radius:6px;color:#2E5A8A;"><strong>Demande de consultation</strong> — aucun rendez-vous réservé. La cliente a été informée d\'une réponse sous 72 heures.</p>' : ''}
-        <p style="margin:0 0 6px;"><strong>Conditions signalées :</strong></p>
-        <div style="margin:0 0 14px;">${conditionsHtml}</div>
-        <p style="margin:0 0 6px;"><strong>Type de peau (auto-évalué, à confirmer en personne) :</strong></p>
-        <div style="margin:0 0 14px;">${fitzpatrickHtml}</div>
-        <p style="margin:0 0 6px;"><strong>Consignes pré-rendez-vous confirmées :</strong></p>
-        <div style="margin:0 0 14px;">${preCareHtml}</div>
-        <p style="margin:0 0 6px;"><strong>Consignes post-séance reconnues :</strong></p>
-        <div style="margin:0 0 14px;">${postCareHtml}</div>
+        ${isPregnant ? '<p style="margin:0 0 14px;padding:12px 14px;background:#FDF0EC;border-radius:6px;color:#9A3520;"><strong>Grossesse ou allaitement déclaré :</strong> adapter le protocole (éviter certains actifs) avant la séance.</p>' : ''}
+        <p style="margin:0 0 6px;"><strong>Préoccupations :</strong></p>
+        <div style="margin:0 0 14px;">${concernsHtml}</div>
+        <p style="margin:0 0 6px;"><strong>Type de peau :</strong> ${escapeHtml(skinType || '—')} &nbsp;·&nbsp; <strong>Réactivité :</strong> ${escapeHtml(reactivity || '—')}</p>
+        <p style="margin:14px 0 6px;"><strong>Actifs utilisés :</strong></p>
+        <div style="margin:0 0 14px;">${activesHtml}</div>
+        <p style="margin:0 0 6px;"><strong>Conditions cutanées connues :</strong></p>
+        <div style="margin:0 0 14px;">${skinConditionsHtml}</div>
+        <p style="margin:0 0 6px;"><strong>Allergies / intolérances :</strong> ${safeAllergies}</p>
+        <p style="margin:0 0 14px;"><strong>Peelings récents :</strong> ${safeRecentPeels}</p>
+        <p style="margin:0 0 6px;"><strong>Objectifs :</strong></p>
+        <p style="margin:0 0 14px;white-space:pre-wrap;">${safeGoals}</p>
         <p style="margin:0 0 6px;"><strong>Précisions :</strong></p>
         <p style="margin:0;white-space:pre-wrap;">${safeNotes}</p>
-        <p style="margin:14px 0 0;padding:12px 14px;background:${attachment ? '#F3F8F1' : '#FDF8EC'};border-radius:6px;color:${attachment ? '#3D6B3D' : '#8A6A1F'};">
-          <strong>Note du médecin :</strong> ${attachment
-            ? `fournie (voir pièce jointe « ${escapeHtml(attachment.filename)} »). En la fournissant, le médecin confirme que le soin convient à la cliente — cette validation lui appartient.`
-            : "non fournie pour l'instant. Sans validation du médecin, cette condition reste sous la responsabilité de l'esthéticienne : à examiner avant de confirmer le rendez-vous."}
-        </p>
         <p style="margin:14px 0 0;color:#684034;"><strong>Signature :</strong> voir pièce jointe (${escapeHtml(signatureAttachment.filename)})</p>
       </td></tr>
     </table>
@@ -328,7 +275,7 @@ export default async function handler(req, res) {
 </td></tr></table>
 </body></html>`;
 
-  /* ── 3. STAFF EMAIL — appointment-relevant only, no extra personal data ── */
+  /* ── 3. STAFF EMAIL — appointment-relevant only ── */
   const staffHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <body style="margin:0;padding:0;background:#EAE0D5;font-family:Georgia,'Times New Roman',serif;">
 <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#EAE0D5" style="background:#EAE0D5;"><tr><td align="center">
@@ -338,7 +285,7 @@ export default async function handler(req, res) {
       <td valign="middle" width="40" height="40" align="center" style="width:40px;height:40px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(104,64,52,0.15);"><img src="${LOGO}" alt="Skines" width="22" style="width:22px;height:auto;display:block;margin:9px auto;"></td>
       <td valign="middle" style="padding-left:14px;">
         <p style="margin:0 0 4px;font-size:18px;letter-spacing:0.3em;color:#2C1810;font-family:Georgia,'Times New Roman',serif;">SKINES</p>
-        <p style="margin:0;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${hasFlaggedCondition ? 'Note médicale requise avant le rendez-vous' : 'Formulaire de santé reçu'}</p>
+        <p style="margin:0;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">${isPregnant ? '⚠ Grossesse déclarée' : 'Fiche de consultation reçue'}</p>
       </td>
     </tr></table>
   </td></tr>
@@ -348,11 +295,13 @@ export default async function handler(req, res) {
         <p style="margin:0 0 6px;"><strong>Cliente :</strong> ${safeFirst} ${safeLast.charAt(0)}.</p>
         <p style="margin:0 0 6px;"><strong>Service :</strong> ${safeService}</p>
         <p style="margin:0 0 14px;"><strong>Date de rendez-vous indiquée :</strong> ${safeAppt}</p>
-        ${!hasAppointment ? '<p style="margin:0 0 14px;padding:12px 14px;background:#EEF3FA;border-radius:6px;color:#2E5A8A;"><strong>Demande de consultation</strong> — aucun rendez-vous réservé. La cliente a été informée d\'une réponse sous 72 heures.</p>' : ''}
-        <p style="margin:0 0 6px;"><strong>Conditions signalées :</strong></p>
-        <div style="margin:0 0 14px;">${conditionsHtml}</div>
-        <p style="margin:0 0 6px;"><strong>Type de peau (auto-évalué, à confirmer en personne) :</strong></p>
-        <div style="margin:0;">${fitzpatrickHtml}</div>
+        ${!hasAppointment ? '<p style="margin:0 0 14px;padding:12px 14px;background:#EEF3FA;border-radius:6px;color:#2E5A8A;"><strong>Demande de consultation</strong> — pas encore de rendez-vous. Réponse promise sous 72 heures.</p>' : ''}
+        ${isPregnant ? '<p style="margin:0 0 14px;padding:12px 14px;background:#FDF0EC;border-radius:6px;color:#9A3520;"><strong>Grossesse ou allaitement déclaré</strong> — adapter le protocole.</p>' : ''}
+        <p style="margin:0 0 6px;"><strong>Préoccupations :</strong></p>
+        <div style="margin:0 0 14px;">${concernsHtml}</div>
+        <p style="margin:0 0 6px;"><strong>Type de peau :</strong> ${escapeHtml(skinType || '—')} &nbsp;·&nbsp; <strong>Réactivité :</strong> ${escapeHtml(reactivity || '—')}</p>
+        <p style="margin:14px 0 6px;"><strong>Conditions cutanées connues :</strong></p>
+        <div style="margin:0;">${skinConditionsHtml}</div>
       </td></tr>
     </table>
   </td></tr>
@@ -367,40 +316,36 @@ export default async function handler(req, res) {
         to: email,
         replyTo: OWNER_EMAIL,
         subject: lang === 'en'
-          ? (hasAppointment ? 'Your health form — Skines Head Spa & Wellness' : 'Your consultation request — Skines Head Spa & Wellness')
-          : (hasAppointment ? 'Votre formulaire de santé — Skines Head Spa & Wellness' : 'Votre demande de consultation — Skines Head Spa & Wellness'),
+          ? (hasAppointment ? 'Your Facial consultation — Skines Head Spa & Wellness' : 'Your consultation request — Skines Head Spa & Wellness')
+          : (hasAppointment ? 'Votre consultation facial — Skines Head Spa & Wellness' : 'Votre demande de consultation — Skines Head Spa & Wellness'),
         html: clientHtml,
       }),
       sendViaResend({
         from: FROM_EMAIL,
         to: OWNER_EMAIL,
         replyTo: email,
-        subject: `${hasFlaggedCondition ? '⚠ Note médicale requise — ' : ''}${hasAppointment ? 'Formulaire de santé' : 'Demande de consultation (72h)'} — ${firstName} ${lastName}`,
+        subject: `${isPregnant ? '⚠ Grossesse — ' : ''}${hasAppointment ? 'Fiche de consultation facial' : 'Demande de consultation (72h)'} — ${firstName} ${lastName}`,
         html: ownerHtml,
-        attachments: attachment ? [signatureAttachment, attachment] : [signatureAttachment],
+        attachments: [signatureAttachment],
       }),
       sendViaResend({
         from: FROM_EMAIL,
         to: STAFF_EMAIL,
-        subject: `${hasFlaggedCondition ? '⚠ Note médicale requise — ' : ''}${hasAppointment ? 'Formulaire de santé reçu' : 'Demande de consultation (72h)'} — ${firstName} ${lastName.charAt(0)}.`,
+        subject: `${isPregnant ? '⚠ Grossesse — ' : ''}${hasAppointment ? 'Fiche de consultation' : 'Demande de consultation (72h)'} — ${firstName} ${lastName.charAt(0)}.`,
         html: staffHtml,
       }),
     ]);
 
     const failures = results.filter((r) => r.status === 'rejected');
-    failures.forEach((f) => console.error('[health-form] email failed:', f.reason?.message));
+    failures.forEach((f) => console.error('[facial-form] email failed:', f.reason?.message));
 
-    // Succeed as long as the client confirmation went out; log the rest.
     if (results[0].status === 'rejected') {
       throw new Error('client email failed');
     }
 
-    return res.status(200).json({
-      success: true,
-      partial: failures.length > 0,
-    });
+    return res.status(200).json({ success: true, partial: failures.length > 0 });
   } catch (err) {
-    console.error('[health-form] failed:', err.message);
+    console.error('[facial-form] failed:', err.message);
     return res.status(500).json({ error: "Erreur lors de l'envoi. Réessayez ou contactez-nous directement." });
   }
 }

@@ -11,48 +11,71 @@
   :root { --maroon: #684034; --cream: #F5EDE3; --gold: #C9973A; }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: 'DM Sans', sans-serif; color: var(--maroon); background: #FDFAF5; }
-  .doc { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 4rem; }
-  .doc-header { text-align: center; margin-bottom: 2.5rem; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 0 2rem 4rem; }
+  .doc-topbar { height: 6px; background: linear-gradient(90deg, var(--cream), var(--gold), var(--cream)); }
+  .doc-header { text-align: center; margin: 2.5rem 0 2rem; }
+  .doc-stones { width: 56px; height: auto; margin: 0 auto 1rem; display: block; opacity: 0.9; }
   .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.14em; margin: 0 0 0.3rem; }
-  .doc-tagline { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(104,64,52,0.5); margin: 0 0 1.6rem; }
-  .doc-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 500; margin: 0; }
+  .doc-tagline { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(104,64,52,0.5); margin: 0 0 1.8rem; }
+  .doc-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2rem; font-weight: 500; margin: 0 0 0.5rem; }
+  .doc-subtitle { font-size: 0.85rem; color: rgba(104,64,52,0.6); margin: 0; }
+  .doc-intro-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.25); border-radius: 6px; padding: 1.6rem 1.8rem; margin-bottom: 1rem; }
   .doc-section { border-top: 1px solid rgba(104,64,52,0.15); padding-top: 1.4rem; margin-top: 1.8rem; }
   .doc-section h2 { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 0 0 1rem; }
   .doc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; margin-bottom: 1rem; }
   .doc-field { border-bottom: 1px solid rgba(104,64,52,0.35); padding-bottom: 0.4rem; min-height: 2.2rem; }
   .doc-field-label { display: block; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(104,64,52,0.55); margin-bottom: 0.3rem; }
-  .doc-para { font-size: 0.92rem; line-height: 1.85; color: rgba(104,64,52,0.85); }
+  .doc-para { font-size: 0.92rem; line-height: 1.85; color: rgba(104,64,52,0.85); margin: 0 0 1rem; }
+  .doc-para:last-child { margin-bottom: 0; }
   .doc-blank-line { border-bottom: 1px solid rgba(104,64,52,0.35); min-height: 2.4rem; margin-bottom: 0.8rem; }
   .doc-sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
-  .print-bar { text-align: center; margin: 0 0 2rem; }
+  .doc-list { margin: 0; padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.9; color: rgba(104,64,52,0.8); }
+  .print-bar { text-align: center; padding: 1.5rem 0; }
   .print-btn { background: var(--cream); color: var(--maroon); border: 1.5px solid var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 4px; cursor: pointer; }
   .print-btn:hover { background: var(--maroon); color: var(--cream); }
-  .doc-footer { margin-top: 2.5rem; text-align: center; font-size: 0.75rem; color: rgba(104,64,52,0.5); }
+  .doc-footer { margin-top: 2.8rem; padding-top: 1.5rem; border-top: 1px solid rgba(104,64,52,0.15); text-align: center; font-size: 0.75rem; color: rgba(104,64,52,0.5); line-height: 1.8; }
+  .doc-confidential { text-align: center; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.4); margin-top: 0.8rem; }
   @media print {
     .print-bar { display: none; }
     body { background: #fff; }
+    .doc-intro-card { border: 1px solid #ccc; }
   }
 </style>
 </head>
 <body>
+<div class="doc-topbar"></div>
 <div class="print-bar"><button class="print-btn" onclick="window.print()">Imprimer / Enregistrer en PDF</button></div>
 
 <div class="doc">
   <div class="doc-header">
+    <img class="doc-stones" src="https://skines.ca/assets/images/logo-officiel-cropped.PNG" alt="Skines">
     <p class="doc-brand">SKINES</p>
     <p class="doc-tagline">Head Spa &amp; Wellness · Montréal</p>
     <p class="doc-title">Formulaire d'autorisation médicale</p>
+    <p class="doc-subtitle">À l'attention du médecin traitant — épilation au laser (Clarity II)</p>
   </div>
 
-  <p class="doc-para">
-    Cette cliente de Skines Head Spa &amp; Wellness souhaite bénéficier d'un traitement d'épilation laser (technologie Clarity II). Elle a indiqué, dans son formulaire de santé, une condition ou un traitement pouvant modifier la façon dont sa peau réagit à la lumière. Nous vous serions reconnaissants de confirmer, à votre discrétion professionnelle, que ce traitement est approprié pour elle.
-  </p>
+  <div class="doc-intro-card">
+    <p class="doc-para">
+      Cette cliente de Skines Head Spa &amp; Wellness souhaite bénéficier d'un traitement d'épilation au laser (technologie Clarity II, double longueur d'onde 755 nm / 1064 nm). Il s'agit d'un service esthétique, réalisé par une esthéticienne formée à l'utilisation sécuritaire du laser — non d'un acte médical.
+    </p>
+    <p class="doc-para">
+      Dans son formulaire de santé, elle a indiqué une condition ou un traitement pouvant modifier la façon dont sa peau réagit à la lumière et guérit. Par prudence, nous demandons votre confirmation, à votre discrétion professionnelle, que ce traitement esthétique est approprié pour elle avant de procéder.
+    </p>
+    <p class="doc-para">
+      Votre validation ci-dessous nous permet de planifier son rendez-vous en toute sérénité, pour elle comme pour notre équipe.
+    </p>
+  </div>
 
   <div class="doc-section">
     <h2>Renseignements — Cliente</h2>
     <div class="doc-row">
       <div class="doc-field"><span class="doc-field-label">Nom complet</span></div>
       <div class="doc-field"><span class="doc-field-label">Date de naissance</span></div>
+    </div>
+    <div class="doc-row">
+      <div class="doc-field"><span class="doc-field-label">Téléphone</span></div>
+      <div class="doc-field"><span class="doc-field-label">Courriel</span></div>
     </div>
     <div class="doc-row">
       <div class="doc-field"><span class="doc-field-label">Date du rendez-vous prévu</span></div>
@@ -67,12 +90,20 @@
   </div>
 
   <div class="doc-section">
+    <h2>Ce que ce formulaire confirme</h2>
+    <ul class="doc-list">
+      <li>Que l'épilation au laser (Clarity II) ne présente pas de contre-indication connue pour cette cliente, compte tenu de la condition signalée ci-dessus;</li>
+      <li>Ou, le cas échéant, les précautions ou ajustements que Skines devrait prévoir avant la séance.</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
     <h2>Avis du médecin</h2>
     <div class="doc-row">
       <div class="doc-field"><span class="doc-field-label">☐ Traitement laser approprié</span></div>
       <div class="doc-field"><span class="doc-field-label">☐ Traitement laser non recommandé</span></div>
     </div>
-    <p class="doc-field-label" style="margin-top:1rem;">Remarques (optionnel)</p>
+    <p class="doc-field-label" style="margin-top:1rem;">Remarques ou précautions particulières (optionnel)</p>
     <div class="doc-blank-line"></div>
     <div class="doc-blank-line"></div>
   </div>
@@ -101,6 +132,7 @@
     Une fois complété, merci de retourner ce formulaire par courriel à <a href="mailto:Info@skines.ca" style="color:var(--gold);">Info@skines.ca</a>, ou de le remettre à votre esthéticienne le jour du rendez-vous.<br>
     Skines Head Spa &amp; Wellness · 19 Av. Shamrock, Montréal, QC H2S 1A3 · +1 (438) 260-5660
   </p>
+  <p class="doc-confidential">Document confidentiel — à usage professionnel uniquement</p>
 </div>
 </body>
 </html>

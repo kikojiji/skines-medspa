@@ -49,17 +49,17 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-<title>Nous Trouver · Skines Head Spa & Wellness Montréal</title>
-<meta name="description" content="Tout ce que vous devez savoir avant votre visite chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
+<title>Fiche de Consultation Head Spa · Skines Head Spa & Wellness Montréal</title>
+<meta name="description" content="Fiche de consultation Head Spa à remplir avant votre rituel du cuir chevelu chez Skines Head Spa & Wellness Montréal, pour un Scalpcial Focus ou Signature adapté à votre cuir chevelu.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nous Trouver · Skines Head Spa Montréal">
-<meta property="og:description" content="Stationnement gratuit, reçus d'assurance, ambiance luxe — découvrez l'expérience Skines avant votre arrivée.">
+<meta property="og:title" content="Fiche de Consultation Head Spa · Skines Head Spa Montréal">
+<meta property="og:description" content="Une fiche simple avant votre Head Spa, pour un rituel personnalisé chez Skines.">
 <meta property="og:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
-<link rel="canonical" href="https://skines.ca/visit-us">
-<meta property="og:url" content="https://skines.ca/visit-us">
+<link rel="canonical" href="https://skines.ca/formulaire-headspa">
+<meta property="og:url" content="https://skines.ca/formulaire-headspa">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nous Trouver · Skines Head Spa Montréal">
-<meta name="twitter:description" content="Stationnement gratuit, ambiance luxe — découvrez l'expérience Skines avant votre arrivée. 19 Av. Shamrock, Montréal.">
+<meta name="twitter:title" content="Fiche de Consultation Head Spa · Skines Head Spa Montréal">
+<meta name="twitter:description" content="Fiche de consultation Head Spa à remplir avant votre rituel du cuir chevelu chez Skines Head Spa & Wellness Montréal.">
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -112,14 +112,14 @@ nav.nav-hidden { transform: translateY(-110%); }
 }
 .nav-cta:hover { background: var(--brown); color: var(--cream); }
 /* ── HEADER CLEANUP (same fix applied to index.html / facial.html /
-   head-spa.html / laser.html / insurance.html / parking.html) —
-   assets/css/nav.css loads after this stylesheet with "justify-content:
-   space-between !important" on nav and an unscoped ".logo {
-   position:absolute; left:50% }" that centers the logo at all widths. With
-   unrelated flex items spread by space-between, nav-cta can land under
-   the centered logo. nav.css is shared across pages so we don't edit it —
-   override here with matching+higher specificity (doubled #mainNav ID)
-   instead. */
+   head-spa.html / laser.html) — assets/css/nav.css loads after this
+   stylesheet with "justify-content: space-between !important" on nav and
+   an unscoped ".logo { position:absolute; left:50% }" that centers the
+   logo at all widths. With unrelated flex items spread by space-between,
+   nav-cta can land under the centered logo (confirmed here: nav-cta was
+   rendering at x:752-862, directly inside the logo's 617-823 span at
+   1440px). nav.css is shared across pages so we don't edit it — override
+   here with matching+higher specificity (doubled #mainNav ID) instead. */
 @media (min-width: 981px) {
   #mainNav#mainNav {
     justify-content: flex-start !important;
@@ -129,10 +129,9 @@ nav.nav-hidden { transform: translateY(-110%); }
   #mainNav#mainNav .nav-links {
     gap: clamp(0.55rem, -1.3rem + 3vw, 2.2rem) !important;
   }
-  /* This page has one more nav item (Nous Trouver) than the others the
-     shared hack was tuned for, so at ~1200-1350px the links row runs
-     past its start point and overlaps the centered logo. Shrink the
-     link labels slightly so the whole row stays narrower. */
+  /* This page's nav row runs right up against the centered logo at
+     common desktop widths — shrink the link labels slightly so the
+     whole row stays narrower. */
   #mainNav#mainNav .nav-links a {
     font-size: 0.70rem !important;
     letter-spacing: 0.06em !important;
@@ -248,7 +247,8 @@ nav.nav-hidden { transform: translateY(-110%); }
     color: #E8C078 !important;
   }
 }
-/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type */
+/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type,
+   same as facial.html / head-spa.html / laser.html */
 @media (min-width: 981px) and (max-width: 1150px) {
   #mainNav#mainNav .nav-links a {
     font-size: 0.54rem !important;
@@ -607,7 +607,7 @@ footer {
 /* ── Responsive ── */
 @media (max-width: 860px) {
   nav { padding: 1rem 1.4rem; }
-  .nav-links, .nav-cta, .lang-switcher { display: none; }
+  .nav-links, .nav-cta, .lang-switcher, .nav-search-btn { display: none; }
   .menu-btn { display: flex; }
 
   .visit-section { padding: 4.5rem 1.5rem; }
@@ -654,7 +654,7 @@ footer { background: #684034 !important; }
 .sp-menu-trigger { width: 100%; background: rgb(232,211,163); border: none; border-radius: 14px; padding: 14px 18px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: background 0.25s; }
 .sp-menu-trigger:hover { background: rgb(220,198,148); }
 .sp-menu-trigger-lotus { display: none; }
-.sp-menu-trigger-label { font-family: "DM Sans", sans-serif; font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase; color: #684034; font-weight: 600; }
+.sp-menu-trigger-label { font-family: "Old Standard TT", serif; font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase; color: #684034; font-weight: 600; }
 .sp-menu-trigger-sub { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(104,64,52,0.6); font-weight: 400; }
 
 /* ── nav header: arrow left, logo center ── */
@@ -696,35 +696,8 @@ footer { background: #684034 !important; }
 .nav-dropdown-menu li a:hover, .nav-dropdown-menu li a.gd-active { color: #C9973A !important; }
 .nav-dropdown:hover .nav-dropdown-menu { display: block; }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  "@id": "https://skines.ca/#business",
-  "name": "Skines Head Spa & Wellness",
-  "telephone": "+14382605660",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "19 Av. Shamrock",
-    "addressLocality": "Montréal",
-    "addressRegion": "QC",
-    "postalCode": "H2S 1A3",
-    "addressCountry": "CA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.5344811,
-    "longitude": -73.6167675
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00",
-    "closes": "22:00"
-  }
-}
-</script>
 
+<!-- ── JSON-LD Schema ── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -739,8 +712,8 @@ footer { background: #684034 !important; }
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Nous Trouver",
-      "item": "https://skines.ca/visit-us"
+      "name": "Fiche de consultation head spa",
+      "item": "https://skines.ca/formulaire-headspa"
     }
   ]
 }
@@ -1384,6 +1357,7 @@ input, textarea, select {
   <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
 </head>
 <body>
+
 <nav id="mainNav">
   <a class="logo" href="/">
     <div class="logo-brand">
@@ -1395,7 +1369,7 @@ input, textarea, select {
     <li><a href="/head-spa">Head Spa</a></li>
     <li><a href="/laser">Laser</a></li>
     <li><a href="/facial">Facial</a></li>
-    <li><a href="/visit-us" class="active">Nous Trouver</a></li>
+    <li><a href="/insurance" class="active">Assurance</a></li>
   
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
@@ -1421,7 +1395,7 @@ input, textarea, select {
   <button class="nav-search-btn" aria-label="Rechercher">
     <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
   </button>
-  <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
@@ -1510,141 +1484,475 @@ input, textarea, select {
     </div>
   </div>
 
+
+<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
+<script>window._tsk = window._tsk || '1x00000000000000000000AA';</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInitHeadSpaForm&render=explicit" async defer></script>
 <style>
-/* ══ CINEMATIC CARD SYSTEM — single unified design ══ */
-section { padding: 0 !important; }
-body { background: #080503; }
+.hs-hero { min-height: 42vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #FDFAF5, #F5EDE3); padding: 7rem 1.5rem 3rem; }
+.hs-hero-inner { max-width: 640px; }
+.hs-eyebrow { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: #C9973A; margin-bottom: 1rem; }
+.hs-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; font-style: italic; color: #684034; margin: 0 0 1rem; line-height: 1.2; }
+.hs-hero p { font-family: 'DM Sans', sans-serif; font-size: 0.98rem; color: rgba(104,64,52,0.7); line-height: 1.8; margin: 0; }
 
-/* Nav — dark theme */
-html body nav { background: rgba(8,5,3,0.96) !important; border-bottom: 1px solid rgba(245,237,227,0.06) !important; }
-html body nav {}
-html body nav {}
-html body nav.nav-scrolled { background: rgba(8,5,3,0.98) !important; }
-html body nav:not(.nav-scrolled) .menu-btn span,
-html body nav.nav-scrolled .menu-btn span { background: rgba(245,237,227,0.80) !important; }
-html body nav .nav-search-btn { border-color: rgba(245,237,227,0.22) !important; color: rgba(245,237,227,0.80) !important; }
-html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !important; color: rgba(245,237,227,1) !important; }
+.hs-safety { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
+.hs-safety p { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; line-height: 1.85; color: rgba(104,64,52,0.75); margin: 0 0 1.2rem; }
+.hs-safety details { border-top: 1px solid rgba(104,64,52,0.14); padding-top: 1.2rem; margin-top: 1.4rem; }
+.hs-safety summary { cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #684034; }
+.hs-safety ul { margin: 1.1rem 0 0; padding-left: 1.2rem; color: rgba(104,64,52,0.68); font-size: 0.88rem; line-height: 1.9; }
 
-/* Page header */
-.dirs-header { padding: 108px 24px 32px; text-align: center; }
-.dirs-header h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2rem,8vw,2.8rem); font-weight:400; color:rgba(245,237,227,0.90); letter-spacing:-0.01em; line-height:1.1; margin-bottom:1rem; }
-.dirs-divider { display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
-.dirs-divider svg { width:16px; height:16px; }
-.dirs-subtitle { font-family:"DM Sans",sans-serif; font-size:0.84rem; font-weight:300; color:rgba(245,237,227,0.32); line-height:1.75; max-width:300px; margin:0 auto; }
+.hs-form-section { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
+.hs-form-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.22); border-radius: 6px; padding: 2.5rem 2rem; }
+.hs-field-row { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 1rem; margin-bottom: 1.2rem; }
+.hs-field-row .hs-field:only-child { grid-column: 1 / -1; }
+@media (max-width: 560px) { .hs-field-row { grid-template-columns: 1fr; } }
+.hs-field { margin-bottom: 1.2rem; }
+.hs-field > label { display: block; min-height: 2.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; line-height: 1.35; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.6); margin-bottom: 0.5rem; }
+.hs-field input[type="text"], .hs-field input[type="email"], .hs-field input[type="tel"], .hs-field input[type="date"], .hs-field select, .hs-field textarea {
+  width: 100%; box-sizing: border-box; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #3A1E14;
+  border: 1px solid rgba(104,64,52,0.22); border-radius: 4px; padding: 0.75rem 0.9rem; background: #FDFAF5;
+}
+.hs-field textarea { min-height: 90px; resize: vertical; }
+.hs-checks { border: 1px solid rgba(104,64,52,0.14); border-radius: 4px; padding: 1.1rem 1.2rem; background: #FDFAF5; }
+.hs-check-row { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.5rem 0; font-family: 'DM Sans', sans-serif; font-size: 0.86rem; color: rgba(104,64,52,0.8); line-height: 1.5; }
+.hs-check-row input { margin-top: 0.2rem; flex-shrink: 0; }
+.hs-radio-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.hs-radio-row label { display: flex; align-items: center; gap: 0.4rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: rgba(104,64,52,0.8); text-transform: none; letter-spacing: 0; }
+.hs-consent { display: flex; align-items: flex-start; gap: 0.65rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: rgba(104,64,52,0.75); line-height: 1.6; margin: 1.4rem 0; }
+.hs-consent input { margin-top: 0.25rem; flex-shrink: 0; }
+.hs-submit-btn { width: 100%; background: #F5EDE3; color: #684034; border: 1.5px solid #F5EDE3; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; transition: all 0.25s; }
+.hs-submit-btn:hover { background: #684034; color: #F5EDE3; }
+.hs-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.hs-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.hs-success-icon { width: 56px; height: 56px; border-radius: 50%; background: #F5EDE3; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+.hs-success-icon svg { width: 26px; height: 26px; stroke: #684034; fill: none; stroke-width: 2.2; }
+.hs-success h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; font-style: italic; color: #684034; margin: 0 0 0.8rem; }
+.hs-success p { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: rgba(104,64,52,0.7); line-height: 1.7; max-width: 460px; margin: 0 auto; }
+.hs-error { display: none; background: #FDF0EC; color: #9A3520; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; padding: 0.9rem 1rem; border-radius: 4px; margin-bottom: 1.2rem; }
+.hs-section-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: #684034; margin: 2rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid rgba(104,64,52,0.14); }
+.hs-consent-text { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; line-height: 1.75; color: rgba(104,64,52,0.72); margin: 0 0 1rem; }
+.hs-sig-wrap { position: relative; border: 1px solid rgba(104,64,52,0.25); border-radius: 4px; background: #FDFAF5; touch-action: none; }
+.hs-sig-canvas { display: block; width: 100%; height: 160px; touch-action: none; cursor: crosshair; }
+.hs-sig-clear { position: absolute; top: 0.6rem; right: 0.6rem; background: #F5EDE3; border: 1px solid rgba(104,64,52,0.2); color: #684034; font-family: 'DM Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.7rem; border-radius: 3px; cursor: pointer; }
+.hs-sig-hint { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: rgba(104,64,52,0.5); margin: 0.5rem 0 1.5rem; }
+</style>
 
-/* Cards wrapper */
-.dirs-cards { max-width:500px; margin:0 auto; padding:0 14px 52px; display:flex; flex-direction:column; gap:14px; }
-/* Desktop: this section (5 location/info cards) is capped at 500px and
-   single-column at every width (unscoped rule above), leaving most of the
-   viewport empty on desktop. Same photos, same content — reflow into a
-   responsive grid on desktop only. */
-@media (min-width: 981px) {
-  .dirs-cards {
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: stretch;
-    gap: 24px;
+<!-- HERO -->
+<header class="hs-hero">
+  <div class="hs-hero-inner fade-up">
+    <span class="hs-eyebrow" data-fr="Avant votre soin" data-en="Before your treatment">Avant votre soin</span>
+    <h1 data-fr="Votre fiche de consultation Head Spa." data-en="Your Head Spa consultation form.">Votre fiche de consultation Head Spa.</h1>
+    <p data-fr="Quelques minutes avant votre rendez-vous, pour que votre praticienne adapte votre rituel — Focus ou Signature Scalpcial — à votre cuir chevelu." data-en="A few minutes before your appointment, so your practitioner can tailor your ritual — Focus or Signature Scalpcial — to your scalp.">Quelques minutes avant votre rendez-vous, pour que votre praticienne adapte votre rituel — Focus ou Signature Scalpcial — à votre cuir chevelu.</p>
+  </div>
+</header>
+
+<!-- SAFETY CONTEXT -->
+<section class="hs-safety">
+  <p data-fr="Chaque Head Spa est adapté à votre cuir chevelu. Certaines conditions, allergies ou traitements capillaires récents peuvent influencer le massage et les produits utilisés par votre praticienne." data-en="Every Head Spa is tailored to your scalp. Certain conditions, allergies or recent hair treatments can influence the massage and products your practitioner uses.">Chaque Head Spa est adapté à votre cuir chevelu. Certaines conditions, allergies ou traitements capillaires récents peuvent influencer le massage et les produits utilisés par votre praticienne.</p>
+  <p data-fr="Ce n'est pas une formalité — c'est ce qui permet à votre praticienne de personnaliser votre rituel en toute sérénité, pour une détente optimale." data-en="This isn't a formality — it's what lets your practitioner personalize your ritual with confidence, for the deepest possible relaxation.">Ce n'est pas une formalité — c'est ce qui permet à votre praticienne de personnaliser votre rituel en toute sérénité, pour une détente optimale.</p>
+  <details>
+    <summary><span data-fr="Ce qui peut influencer votre soin" data-en="What can influence your treatment">Ce qui peut influencer votre soin</span></summary>
+    <ul>
+      <li data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</li>
+      <li data-fr="Cuir chevelu sensible, irritation ou plaie ouverte" data-en="Sensitive scalp, irritation or open wound">Cuir chevelu sensible, irritation ou plaie ouverte</li>
+      <li data-fr="Psoriasis, eczéma, dermatite ou pellicules sévères" data-en="Psoriasis, eczema, dermatitis or severe dandruff">Psoriasis, eczéma, dermatite ou pellicules sévères</li>
+      <li data-fr="Coloration, permanente, lissage ou traitement chimique récent (moins de 2 semaines)" data-en="Recent coloring, perm, straightening or chemical treatment (under 2 weeks)">Coloration, permanente, lissage ou traitement chimique récent (moins de 2 semaines)</li>
+      <li data-fr="Extensions, tissage ou perruque fixée" data-en="Extensions, weave or fixed wig">Extensions, tissage ou perruque fixée</li>
+      <li data-fr="Hypertension, trouble cardiaque ou migraines fréquentes" data-en="High blood pressure, heart condition or frequent migraines">Hypertension, trouble cardiaque ou migraines fréquentes</li>
+      <li data-fr="Chirurgie ou blessure récente au cuir chevelu ou à la tête" data-en="Recent surgery or injury to the scalp or head">Chirurgie ou blessure récente au cuir chevelu ou à la tête</li>
+    </ul>
+    <p style="margin-top:1.2rem;font-size:0.85rem;font-style:italic;color:rgba(104,64,52,0.55);">
+      <span data-fr="Cette liste n'est pas exhaustive. Si vous avez un doute, " data-en="This list is not exhaustive. If you're unsure, ">Cette liste n'est pas exhaustive. Si vous avez un doute, </span><a href="mailto:Info@skines.ca" style="color:#C9973A;">écrivez-nous</a><span data-fr=" — nous répondrons avec plaisir avant votre réservation." data-en=" — we'll gladly answer before you book."> — nous répondrons avec plaisir avant votre réservation.</span>
+    </p>
+  </details>
+</section>
+
+<!-- FORM -->
+<section class="hs-form-section">
+  <div class="hs-form-card">
+
+    <div class="hs-success" id="hsSuccess">
+      <div class="hs-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h2 data-fr="Merci." data-en="Thank you.">Merci.</h2>
+      <p data-fr="Votre fiche a bien été reçue. Votre praticienne la consultera avant votre rendez-vous pour préparer votre rituel." data-en="Your form has been received. Your practitioner will review it before your appointment to prepare your ritual.">Votre fiche a bien été reçue. Votre praticienne la consultera avant votre rendez-vous pour préparer votre rituel.</p>
+    </div>
+
+    <form id="hsForm" novalidate>
+      <div class="hs-error" id="hsError"></div>
+
+      <!-- honeypot -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <div id="hs-ts-wrap" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden;" aria-hidden="true"></div>
+
+      <div class="hs-field-row">
+        <div class="hs-field">
+          <label data-fr="Prénom *" data-en="First name *">Prénom *</label>
+          <input type="text" name="firstName" required>
+        </div>
+        <div class="hs-field">
+          <label data-fr="Nom *" data-en="Last name *">Nom *</label>
+          <input type="text" name="lastName" required>
+        </div>
+      </div>
+      <div class="hs-field-row">
+        <div class="hs-field">
+          <label data-fr="Courriel *" data-en="Email *">Courriel *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="hs-field">
+          <label data-fr="Téléphone *" data-en="Phone *">Téléphone *</label>
+          <input type="tel" name="phone" required>
+        </div>
+      </div>
+      <div class="hs-field-row">
+        <div class="hs-field">
+          <label data-fr="Soin concerné" data-en="Treatment">Soin concerné</label>
+          <select name="service">
+            <option value="Solo 60 min – Focus Scalpcial">Solo 60 min – Focus Scalpcial</option>
+            <option value="Solo 90 min – Signature Scalpcial">Solo 90 min – Signature Scalpcial</option>
+            <option value="Duo 60 min – Focus Scalpcial">Duo 60 min – Focus Scalpcial</option>
+            <option value="Duo 90 min – Signature Scalpcial">Duo 90 min – Signature Scalpcial</option>
+            <option value="Trio 60 min – Focus Scalpcial">Trio 60 min – Focus Scalpcial</option>
+            <option value="Trio 90 min – Signature Scalpcial">Trio 90 min – Signature Scalpcial</option>
+          </select>
+        </div>
+        <div class="hs-field">
+          <label data-fr="Date de rendez-vous (si connue)" data-en="Appointment date (if known)">Date de rendez-vous (si connue)</label>
+          <input type="date" name="appointmentDate">
+          <p style="margin:0.5rem 0 0;font-family:'DM Sans',sans-serif;font-size:0.76rem;color:rgba(104,64,52,0.5);" data-fr="Pas encore réservé ? Pas grave — nous traiterons votre fiche comme une demande de consultation et vous répondrons sous 72 heures." data-en="Haven't booked yet? No problem — we'll treat your form as a consultation request and get back to you within 72 hours.">Pas encore réservé ? Pas grave — nous traiterons votre fiche comme une demande de consultation et vous répondrons sous 72 heures.</p>
+        </div>
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Êtes-vous enceinte ou allaitez-vous ?" data-en="Are you pregnant or breastfeeding?">Êtes-vous enceinte ou allaitez-vous ?</label>
+        <div class="hs-radio-row">
+          <label><input type="radio" name="pregnancy" value="oui" required> <span data-fr="Oui" data-en="Yes">Oui</span></label>
+          <label><input type="radio" name="pregnancy" value="non" required> <span data-fr="Non" data-en="No">Non</span></label>
+        </div>
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Vos objectifs pour ce Head Spa" data-en="Your goals for this Head Spa">Vos objectifs pour ce Head Spa</label>
+        <div class="hs-checks">
+          <label class="hs-check-row"><input type="checkbox" name="concerns" value="cuirSensible"><span data-fr="Cuir chevelu sensible ou irritable" data-en="Sensitive or irritable scalp">Cuir chevelu sensible ou irritable</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="concerns" value="chuteCheveux"><span data-fr="Chute de cheveux" data-en="Hair loss">Chute de cheveux</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="concerns" value="pellicules"><span data-fr="Pellicules" data-en="Dandruff">Pellicules</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="concerns" value="secheresse"><span data-fr="Cheveux secs / cassants" data-en="Dry / brittle hair">Cheveux secs / cassants</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="concerns" value="tensionsStress"><span data-fr="Tensions, stress, maux de tête" data-en="Tension, stress, headaches">Tensions, stress, maux de tête</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="concerns" value="manqueVolume"><span data-fr="Manque de volume ou de brillance" data-en="Lack of volume or shine">Manque de volume ou de brillance</span></label>
+        </div>
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Traitements capillaires récents" data-en="Recent hair treatments">Traitements capillaires récents</label>
+        <div class="hs-checks">
+          <label class="hs-check-row"><input type="checkbox" name="recentTreatments" value="colorationPermanente"><span data-fr="Coloration, permanente ou lissage récent (moins de 2 semaines)" data-en="Recent coloring, perm or straightening (under 2 weeks)">Coloration, permanente ou lissage récent (moins de 2 semaines)</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="recentTreatments" value="extensions"><span data-fr="Extensions, tissage ou perruque fixée" data-en="Extensions, weave or fixed wig">Extensions, tissage ou perruque fixée</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="recentTreatments" value="keratine"><span data-fr="Traitement à la kératine récent" data-en="Recent keratin treatment">Traitement à la kératine récent</span></label>
+        </div>
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Conditions connues" data-en="Known conditions">Conditions connues</label>
+        <div class="hs-checks">
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="psoriasis"><span data-fr="Psoriasis" data-en="Psoriasis">Psoriasis</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="eczema"><span data-fr="Eczéma" data-en="Eczema">Eczéma</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="dermatite"><span data-fr="Dermatite" data-en="Dermatitis">Dermatite</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="hypertension"><span data-fr="Hypertension ou trouble cardiaque" data-en="High blood pressure or heart condition">Hypertension ou trouble cardiaque</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="migraines"><span data-fr="Migraines fréquentes" data-en="Frequent migraines">Migraines fréquentes</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="chirurgieRecente"><span data-fr="Chirurgie ou blessure récente au cuir chevelu / à la tête" data-en="Recent surgery or injury to the scalp / head">Chirurgie ou blessure récente au cuir chevelu / à la tête</span></label>
+          <label class="hs-check-row"><input type="checkbox" name="scalpConditions" value="injections"><span data-fr="Injections récentes (Botox, fillers) au visage, cou ou cuir chevelu" data-en="Recent injections (Botox, fillers) to the face, neck or scalp">Injections récentes (Botox, fillers) au visage, cou ou cuir chevelu</span></label>
+        </div>
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Allergies connues (huiles essentielles, produits capillaires, parfums)" data-en="Known allergies (essential oils, hair products, fragrance)">Allergies connues (huiles essentielles, produits capillaires, parfums)</label>
+        <input type="text" name="allergies">
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Précisions sur vos objectifs (optionnel)" data-en="Details on your goals (optional)">Précisions sur vos objectifs (optionnel)</label>
+        <textarea name="goals"></textarea>
+      </div>
+
+      <div class="hs-field">
+        <label data-fr="Précisions (optionnel)" data-en="Details (optional)">Précisions (optionnel)</label>
+        <textarea name="notes"></textarea>
+      </div>
+
+      <!-- CONSENT — TODO(clinic): have this wording reviewed by a lawyer before relying on it as a legal consent record. -->
+      <div class="hs-section-title" data-fr="Votre consentement" data-en="Your consent">Votre consentement</div>
+      <p class="hs-consent-text" data-fr="Ce Head Spa est un rituel japonais du cuir chevelu (massage Anma, vapeur, produits capillaires professionnels), selon le soin choisi. Il s'agit d'un service de bien-être — massage, vapeur et soin capillaire adaptés à votre cuir chevelu." data-en="This Head Spa is a Japanese scalp ritual (Anma massage, steam, professional hair products), depending on the treatment chosen. It is a wellness service — massage, steam and hair care tailored to your scalp.">Ce Head Spa est un rituel japonais du cuir chevelu (massage Anma, vapeur, produits capillaires professionnels), selon le soin choisi. Il s'agit d'un service de bien-être — massage, vapeur et soin capillaire adaptés à votre cuir chevelu.</p>
+      <p class="hs-consent-text" data-fr="Une légère sensibilité du cuir chevelu ou une chaleur passagère est possible. Une réaction aux produits reste possible malgré nos précautions — c'est pourquoi vos allergies déclarées ci-dessus sont importantes. Un ajustement de la pression ou l'absence de certaines étapes sont des alternatives possibles." data-en="Mild scalp sensitivity or temporary warmth is possible. A reaction to products remains possible despite our precautions — which is why the allergies you declared above matter. Adjusted pressure or skipping certain steps are possible alternatives.">Une légère sensibilité du cuir chevelu ou une chaleur passagère est possible. Une réaction aux produits reste possible malgré nos précautions — c'est pourquoi vos allergies déclarées ci-dessus sont importantes. Un ajustement de la pression ou l'absence de certaines étapes sont des alternatives possibles.</p>
+
+      <div class="hs-checks">
+        <label class="hs-check-row"><input type="checkbox" name="consentPoints" value="read" required><span data-fr="J'ai lu et compris les informations ci-dessus" data-en="I have read and understood the information above">J'ai lu et compris les informations ci-dessus</span></label>
+        <label class="hs-check-row"><input type="checkbox" name="consentPoints" value="accurate" required><span data-fr="Je confirme l'exactitude des informations de cette fiche, y compris mes allergies" data-en="I confirm this form's information is accurate, including my allergies">Je confirme l'exactitude des informations de cette fiche, y compris mes allergies</span></label>
+        <label class="hs-check-row"><input type="checkbox" name="consentPoints" value="consentToTreatment" required><span data-fr="Je consens à recevoir ce soin de bien-être" data-en="I consent to receiving this wellness service">Je consens à recevoir ce soin de bien-être</span></label>
+        <label class="hs-check-row"><input type="checkbox" name="consentPoints" value="notMedical" required><span data-fr="Je comprends qu'il s'agit d'un service de bien-être et non d'un acte médical" data-en="I understand this is a wellness service, not a medical act">Je comprends qu'il s'agit d'un service de bien-être et non d'un acte médical</span></label>
+      </div>
+
+      <!-- SIGNATURE — touch-friendly canvas, works with a finger on mobile -->
+      <div class="hs-section-title" data-fr="Votre signature" data-en="Your signature">Votre signature</div>
+      <div class="hs-sig-wrap">
+        <canvas id="hsSigCanvas" class="hs-sig-canvas" height="160"></canvas>
+        <button type="button" class="hs-sig-clear" id="hsSigClear" data-fr="Effacer" data-en="Clear">Effacer</button>
+      </div>
+      <p class="hs-sig-hint" data-fr="Signez ci-dessus avec votre doigt (mobile) ou votre souris." data-en="Sign above with your finger (mobile) or your mouse.">Signez ci-dessus avec votre doigt (mobile) ou votre souris.</p>
+
+      <div class="hs-consent">
+        <input type="checkbox" name="consent" required>
+        <span data-fr="Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour adapter mon soin." data-en="I confirm the information provided is accurate and I agree that Skines Head Spa &amp; Wellness may use it to tailor my treatment.">Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour adapter mon soin.</span>
+      </div>
+
+      <button type="submit" class="hs-submit-btn" id="hsSubmitBtn" data-fr="Envoyer ma fiche" data-en="Submit my form">Envoyer ma fiche</button>
+    </form>
+  </div>
+</section>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function() {
+  /* Signature pad — mouse + touch, works with a finger on mobile */
+  var sigCanvas = document.getElementById('hsSigCanvas');
+  var sigCtx = sigCanvas.getContext('2d');
+  var sigDrawing = false;
+  var sigHasStroke = false;
+
+  function sigResize() {
+    var ratio = window.devicePixelRatio || 1;
+    var rect = sigCanvas.getBoundingClientRect();
+    sigCanvas.width = rect.width * ratio;
+    sigCanvas.height = 160 * ratio;
+    sigCtx.scale(ratio, ratio);
+    sigCtx.strokeStyle = '#684034';
+    sigCtx.lineWidth = 2;
+    sigCtx.lineCap = 'round';
+    sigCtx.lineJoin = 'round';
   }
+  sigResize();
+  window.addEventListener('resize', function() {
+    var data = sigHasStroke ? sigCanvas.toDataURL() : null;
+    sigResize();
+    if (data) {
+      var img = new Image();
+      img.onload = function() { sigCtx.drawImage(img, 0, 0, sigCanvas.getBoundingClientRect().width, 160); };
+      img.src = data;
+    }
+  });
+
+  function sigPoint(e) {
+    var rect = sigCanvas.getBoundingClientRect();
+    var t = (e.touches && e.touches[0]) || e;
+    return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+  }
+  function sigStart(e) {
+    e.preventDefault();
+    sigDrawing = true;
+    sigHasStroke = true;
+    var p = sigPoint(e);
+    sigCtx.beginPath();
+    sigCtx.moveTo(p.x, p.y);
+  }
+  function sigMove(e) {
+    if (!sigDrawing) return;
+    e.preventDefault();
+    var p = sigPoint(e);
+    sigCtx.lineTo(p.x, p.y);
+    sigCtx.stroke();
+  }
+  function sigEnd() { sigDrawing = false; }
+
+  sigCanvas.addEventListener('mousedown', sigStart);
+  sigCanvas.addEventListener('mousemove', sigMove);
+  window.addEventListener('mouseup', sigEnd);
+  sigCanvas.addEventListener('touchstart', sigStart, { passive: false });
+  sigCanvas.addEventListener('touchmove', sigMove, { passive: false });
+  sigCanvas.addEventListener('touchend', sigEnd);
+
+  document.getElementById('hsSigClear').addEventListener('click', function() {
+    sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+    sigHasStroke = false;
+  });
+
+  var submitting = false;
+  document.getElementById('hsForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (submitting) return;
+    var form = this;
+    var errorEl = document.getElementById('hsError');
+    errorEl.style.display = 'none';
+    var currentLang = (window.skinesGetLang && window.skinesGetLang()) || document.documentElement.lang || 'fr';
+
+    var firstName = form.firstName.value.trim();
+    var lastName  = form.lastName.value.trim();
+    var email     = form.email.value.trim();
+    var phone     = form.phone.value.trim();
+    var consent   = form.consent.checked;
+    var pregnancyEl = form.querySelector('input[name="pregnancy"]:checked');
+
+    var consentPoints = Array.prototype.slice.call(form.querySelectorAll('input[name="consentPoints"]:checked')).map(function(el) { return el.value; });
+    var allConsentPoints = form.querySelectorAll('input[name="consentPoints"]').length;
+
+    if (!firstName || !lastName || !email || !phone || !consent || !pregnancyEl) {
+      errorEl.textContent = currentLang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (consentPoints.length < allConsentPoints) {
+      errorEl.textContent = currentLang === 'en' ? 'Please check every consent statement.' : 'Veuillez cocher chaque énoncé de consentement.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (!sigHasStroke) {
+      errorEl.textContent = currentLang === 'en' ? 'Please sign the form before submitting.' : 'Veuillez signer le formulaire avant de l\'envoyer.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    var concerns = Array.prototype.slice.call(form.querySelectorAll('input[name="concerns"]:checked')).map(function(el) { return el.value; });
+    var recentTreatments = Array.prototype.slice.call(form.querySelectorAll('input[name="recentTreatments"]:checked')).map(function(el) { return el.value; });
+    var scalpConditions = Array.prototype.slice.call(form.querySelectorAll('input[name="scalpConditions"]:checked')).map(function(el) { return el.value; });
+    var signatureBase64 = sigCanvas.toDataURL('image/png').split(',')[1];
+    var btn = document.getElementById('hsSubmitBtn');
+
+    submitting = true;
+    btn.disabled = true;
+    btn.textContent = currentLang === 'en' ? 'Sending…' : 'Envoi en cours…';
+
+    var payload = {
+      firstName: firstName, lastName: lastName, email: email, phone: phone,
+      service: form.service.value, appointmentDate: form.appointmentDate.value.trim(),
+      pregnancy: pregnancyEl.value,
+      concerns: concerns, recentTreatments: recentTreatments, scalpConditions: scalpConditions,
+      allergies: form.allergies.value.trim(),
+      goals: form.goals.value.trim(), notes: form.notes.value.trim(),
+      consentPoints: consentPoints, signatureBase64: signatureBase64,
+      lang: currentLang,
+      website: form.website.value || '',
+      cfToken: window._hsTsToken || '',
+    };
+
+    fetch('/api/send-headspa-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.success) {
+        form.style.display = 'none';
+        document.getElementById('hsSuccess').style.display = 'block';
+      } else {
+        throw new Error(data.error || 'Erreur');
+      }
+    })
+    .catch(function(err) {
+      errorEl.textContent = err.message || (currentLang === 'en' ? 'Something went wrong — please try again.' : 'Une erreur est survenue — veuillez réessayer.');
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      submitting = false;
+      btn.textContent = currentLang === 'en' ? 'Submit my form' : 'Envoyer ma fiche';
+    });
+  });
+
+  /* Turnstile — invisible widget, same pattern as /tirage */
+  var _hsTsId = null;
+  window._tsInitHeadSpaForm = function() {
+    if (typeof turnstile === 'undefined') return;
+    _hsTsId = turnstile.render('#hs-ts-wrap', {
+      sitekey: window._tsk || '',
+      size: 'invisible',
+      callback: function(token) { window._hsTsToken = token; },
+    });
+    try { turnstile.execute(_hsTsId); } catch (e) {}
+  };
+  if (typeof turnstile !== 'undefined') { window._tsInitHeadSpaForm(); }
+  else { window.addEventListener('load', function() { setTimeout(window._tsInitHeadSpaForm, 300); }); }
+})();
+</script>
+
+
+<style>
+/* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
+.site-footer {
+  background: #684034;
+  font-family: "DM Sans", sans-serif;
+  position: relative;
 }
-
-/* ══ CINEMATIC CARD — base architecture ══ */
-.cin-card { border-radius:20px; overflow:hidden; box-shadow:0 4px 40px rgba(0,0,0,0.55), 0 1px 8px rgba(0,0,0,0.30); }
-
-.cin-hero { position:relative; height:310px; }
-.cin-hero img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; filter:brightness(1.14) contrast(1.05) saturate(1.08); }
-.cin-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom,
-    rgba(6,3,1,0.00) 0%,
-    rgba(6,3,1,0.00) 40%,
-    rgba(6,3,1,0.30) 62%,
-    rgba(6,3,1,0.72) 84%,
-    rgba(6,3,1,0.88) 100%);
+.site-footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,160,96,0.3), transparent);
 }
-.cin-body { position:absolute; bottom:0; left:0; right:0; padding:16px 20px 22px; }
-.cin-icon-row { display:flex; align-items:center; gap:9px; margin-bottom:9px; }
-.cin-dot { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.cin-dot svg { width:12px; height:12px; }
-.cin-label { font-size:0.58rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:rgba(245,237,227,0.70); text-shadow:0 1px 10px rgba(0,0,0,0.7); }
-.cin-title { font-family:"Cormorant Garamond",serif; font-size:2.15rem; font-weight:400; color:rgba(245,237,227,0.99); line-height:1.02; margin-bottom:7px; letter-spacing:-0.01em; text-shadow:0 2px 18px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6); }
-.cin-desc { font-size:0.71rem; font-weight:300; color:rgba(245,237,227,0.68); line-height:1.6; margin-bottom:9px; text-shadow:0 1px 10px rgba(0,0,0,0.75); }
-.cin-walk { display:inline-flex; align-items:center; gap:5px; font-size:0.60rem; font-weight:300; color:rgba(245,237,227,0.70); letter-spacing:0.03em; text-shadow:0 1px 8px rgba(0,0,0,0.7); }
-.cin-walk svg { width:12px; height:12px; stroke:rgba(245,237,227,0.38); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.sf-logo-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.8rem 1.5rem 1.5rem; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sf-logo { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; }
+.sf-stones { width: 88px; height: auto; opacity: 0.88; }
 
-/* Single CTA button */
-.cin-cta { display:flex; align-items:center; justify-content:space-between; padding:15px 20px; text-decoration:none; color:white; transition:opacity 0.2s; }
-.cin-cta:hover { opacity:0.86; }
-.cin-cta-l { display:flex; align-items:center; gap:11px; }
-.cin-cta-ico { width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.cin-cta-ico svg { width:13px; height:13px; stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.cin-cta-name { font-size:0.78rem; font-weight:500; letter-spacing:0.02em; line-height:1.2; }
-.cin-cta-hint { font-size:0.61rem; opacity:0.58; font-weight:300; }
-.cin-cta-arr { display:flex; }
-.cin-cta-arr svg { width:14px; height:14px; stroke:rgba(255,255,255,0.55); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.sf-tagline-sub { font-size: 0.58rem; letter-spacing: 0.26em; color: rgba(245,237,227,0.30); text-transform: uppercase; padding-left: 0.26em; margin-top: 0.1rem; }
+.sf-lang-bar { display: flex; justify-content: center; align-items: center; gap: 0.9rem; padding: 0.9rem 0 0; }
+.sf-lang-btn { background: none; border: none; cursor: pointer; font-family: "DM Sans", sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.28em; color: rgba(245,237,227,0.28); text-transform: uppercase; padding: 0; transition: color 0.2s; }
+.sf-lang-btn.active { color: rgba(245,237,227,0.88); font-weight: 500; }
+.sf-lang-btn:hover { color: rgba(245,237,227,0.55); }
+.sf-lang-sep-bar { color: rgba(245,237,227,0.13); font-size: 0.65rem; letter-spacing: 0; font-weight: 300; }
 
-/* CTA colour variants */
-.cta-gold { background:linear-gradient(135deg,#8C5E1C 0%,#B8841E 60%,#C9973A 100%); }
-.cta-blue { background:#1B5EA3; }
-.cta-espresso { background:#1C0F09; }
-.cta-phone { background:linear-gradient(135deg,#6B3121 0%,#8C4530 100%); }
-
-/* Location card — two-button footer */
-.cin-cta-pair { display:flex; gap:8px; padding:11px 14px; background:#0D0805; }
-.cta-pair-primary { flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:white; padding:10px 13px; border-radius:10px; transition:opacity 0.2s; }
-.cta-pair-primary:hover { opacity:0.86; }
-.cta-pair-primary svg { width:13px; height:13px; stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
-.cta-pair-name { font-size:0.71rem; font-weight:500; line-height:1.2; }
-.cta-pair-hint { font-size:0.59rem; opacity:0.65; }
-.cta-pair-outline { display:flex; align-items:center; gap:7px; background:rgba(245,237,227,0.06); color:rgba(245,237,227,0.70); border:1px solid rgba(245,237,227,0.10); text-decoration:none; padding:10px 13px; border-radius:10px; cursor:pointer; font-family:"DM Sans",sans-serif; transition:all 0.2s; flex-shrink:0; }
-.cta-pair-outline:hover { background:rgba(245,237,227,0.11); }
-.cta-pair-outline svg { width:12px; height:12px; stroke:rgba(245,237,227,0.60); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-.cta-pair-outline span { font-size:0.71rem; white-space:nowrap; }
-#copy-confirm { font-size:0.58rem; color:#C9A060; opacity:0; transition:opacity 0.3s; align-self:center; flex-shrink:0; }
-
-/* Dot colour helpers */
-.dot-gold { background:rgba(201,151,58,0.18); }
-.dot-gold svg { stroke:rgba(201,151,58,0.85); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.dot-blue { background:#1B5EA3; }
-.dot-blue svg { stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.dot-muted { background:rgba(245,237,227,0.07); }
-.dot-muted svg { stroke:rgba(245,237,227,0.62); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-.dot-warm { background:rgba(201,151,58,0.14); }
-.dot-warm svg { stroke:rgba(201,151,58,0.80); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-
-/* Fade-up */
-.fade-up { opacity:0; transform:translateY(22px); transition:opacity 0.65s ease, transform 0.65s ease; }
-.fade-up.visible { opacity:1; transform:translateY(0); }
-
-/* ── Full footer CSS (matches index.html) ── */
-.sf-logo-area { display:flex; flex-direction:column; align-items:center; padding:1.8rem 1.5rem 1.5rem; text-align:center; border-bottom:1px solid rgba(255,255,255,0.05); }
-.sf-logo { display:flex; flex-direction:column; align-items:center; gap:0.4rem; text-decoration:none; }
-.sf-stones { width:88px; height:auto; opacity:0.88; }
-
-.sf-tagline-sub { font-size:0.58rem; letter-spacing:0.26em; color:rgba(245,237,227,0.30); text-transform:uppercase; padding-left:0.26em; margin-top:0.1rem; }
-.sf-nav { padding:0.8rem 0 0; display: flex; flex-direction: column; }
+/* ── Nav sections ── */
+.sf-nav { padding: 0.8rem 0 0; display: flex; flex-direction: column; }
 /* Footer column/stack order (mobile flex + desktop grid): Services · Votre Visite · Tirage · Guides */
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
 .sf-nav #sfGuides { order: 4; }
 .sf-nav #sfFormulaires { order: 5; }
-.sf-nav-label { display:block; font-size:0.60rem; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; padding:0.8rem 1.6rem 0.38rem; }
-.sf-nav-label:not(#_) { color:rgba(201,160,96,0.85) !important; }
-.sf-link { display:flex; align-items:center; justify-content:space-between; padding:0.65rem 1.6rem; border-bottom:1px solid rgba(255,255,255,0.05); color:rgba(245,237,227,0.65); text-decoration:none; transition:background 0.18s, color 0.18s; }
-.sf-link:hover { background:rgba(255,255,255,0.03); color:rgba(245,237,227,0.95); }
-.sf-link-left { display:flex; align-items:center; gap:0.95rem; font-size:0.88rem; font-weight:300; line-height:1; }
-.sf-link-icon { width:18px; height:18px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
-.sf-link-icon svg { width:18px; height:18px; stroke:rgba(201,160,96,0.72); stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.sf-chevron { width:13px; height:13px; flex-shrink:0; stroke:rgba(245,237,227,0.25); stroke-width:2; fill:none; }
-.sf-link:hover .sf-chevron { stroke:rgba(245,237,227,0.60); }
-.sf-social-area { display:flex; flex-direction:column; align-items:center; padding:1.2rem 1.5rem 0.9rem; gap:0.7rem; border-top:1px solid rgba(255,255,255,0.05); }
-.sf-socials { display:flex; gap:1.8rem; }
-.sf-social-btn { color:rgba(245,237,227,0.38); text-decoration:none; transition:color 0.2s; display:flex; }
-.sf-social-btn:hover { color:rgba(245,237,227,0.80); }
-.sf-legal { padding:0 1.5rem 1.2rem; text-align:center; font-size:0.70rem; color:rgba(245,237,227,0.20); display:flex; flex-wrap:wrap; justify-content:center; gap:0.3rem 0.8rem; }
-.sf-legal a { color:rgba(245,237,227,0.28); text-decoration:none; transition:color 0.2s; }
-.sf-legal a:hover { color:rgba(245,237,227,0.55); }
-.sf-legal-sep { opacity:0.3; }
+.sf-nav-group { }
+.sf-nav-label {
+  display: block;
+  font-size: 0.60rem; font-weight: 600; letter-spacing: 0.26em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem 0.38rem;
+}
+.sf-nav-label:not(#_) { color: rgba(201,160,96,0.85) !important; }
+.sf-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 1.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(245,237,227,0.65);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+.sf-link:hover { background: rgba(255,255,255,0.03); color: rgba(245,237,227,0.95); }
+.sf-link-left { display: flex; align-items: center; gap: 0.95rem; font-size: 0.88rem; font-weight: 300; line-height: 1; }
+.sf-link-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.sf-link-icon svg { width: 18px; height: 18px; stroke: rgba(201,160,96,0.72); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.sf-chevron { width: 13px; height: 13px; flex-shrink: 0; stroke: rgba(245,237,227,0.25); stroke-width: 2; fill: none; }
+.sf-link:hover .sf-chevron { stroke: rgba(245,237,227,0.60); }
+
+/* ── Social ── */
+.sf-social-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.2rem 1.5rem 0.9rem; gap: 0.7rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.sf-socials { display: flex; gap: 1.8rem; }
+.sf-social-btn { color: rgba(245,237,227,0.38); text-decoration: none; transition: color 0.2s; display: flex; }
+.sf-social-btn:hover { color: rgba(245,237,227,0.80); }
+
+/* ── Legal ── */
+.sf-legal {
+  padding: 0 1.5rem 1.2rem;
+  text-align: center; font-size: 0.70rem;
+  color: rgba(245,237,227,0.20);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.8rem;
+}
+.sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
+.sf-legal a:hover { color: rgba(245,237,227,0.55); }
+.sf-legal-sep { opacity: 0.3; }
 
 /* ── DESKTOP — footer currently stays mobile-narrow at all widths; give it a centered, multi-column layout ── */
 @media (min-width: 981px) {
@@ -1699,6 +2007,258 @@ html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !impo
 @media (min-width: 981px) {
   .sf-exclusive-card { margin: 0; height: auto; width: 100%; }
 }
+
+/* ── Mobile nav logo fix ── */
+
+.mobile-nav-header { padding: 1.15rem 1.4rem !important; margin-bottom: 0 !important; border-bottom: 1px solid rgba(245,237,227,0.07) !important; position: sticky !important; top: 0 !important; }
+.mobile-nav-close { background: none !important; border: 1px solid rgba(245,237,227,0.2) !important; color: rgba(245,237,227,0.75) !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; cursor: pointer !important; font-size: 1.4rem !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.mobile-nav-links { padding: 0.6rem 1.4rem !important; }
+.mobile-nav-footer { padding: 1.4rem !important; gap: 0.8rem !important; }
+
+/* ══ MOBILE NAV — PREMIUM REDESIGN ══ */
+#mobileNav { background: #684034 !important; }
+#mobileNav .mobile-nav-header {
+  background: #684034 !important;
+  border-bottom: 1px solid rgba(201,160,96,0.18) !important;
+  padding: 1.3rem 1.5rem !important;
+  margin-bottom: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+}
+
+#mobileNav .mobile-nav-header 
+#mobileNav .mobile-nav-header 
+#mobileNav .mobile-nav-close {
+  background: none !important; border: 1px solid rgba(201,160,96,0.25) !important;
+  color: rgba(245,237,227,0.65) !important; width: 42px !important; height: 42px !important;
+  border-radius: 50% !important; font-size: 1.1rem !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+}
+#mobileNav .mobile-nav-links { padding: 0.8rem 1.5rem !important; overflow: visible !important; flex: unset !important; }
+html body div#mobileNav ul.mobile-nav-links li { border-bottom: 1px solid rgba(201,160,96,0.1) !important; border-radius: 0 !important; }
+html body div#mobileNav ul.mobile-nav-links li a,
+html body div#mobileNav ul.mobile-nav-links li a span,
+html body div#mobileNav ul.mobile-nav-links li a *,
+html body div#mobileNav ul.mobile-nav-links li:first-child a,
+html body div#mobileNav ul.mobile-nav-links li:first-child a * {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  color: rgba(245,237,227,0.88) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.20em !important;
+  display: block !important;
+  padding: 0.88rem 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  transition: color 0.25s !important;
+}
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub,
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub span,
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub * {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.74rem !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(245,237,227,0.55) !important;
+  padding: 0.8rem 0 !important;
+}
+html body div#mobileNav ul.mobile-nav-links li a.menu-active,
+html body div#mobileNav ul.mobile-nav-links li a.menu-active span,
+html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
+  color: rgba(201,160,96,0.9) !important;
+  border: none !important;
+  background: transparent !important;
+  display: block !important;
+}
+#mobileNav .mobile-nav-footer { padding: 1.4rem 1.5rem !important; border-top: 1px solid rgba(201,160,96,0.12) !important; gap: 0.9rem !important; }
+#mobileNav .btn-dark {
+  background: rgba(201,160,96,0.12) !important; border: 1px solid rgba(201,160,96,0.32) !important;
+  color: rgba(201,160,96,0.92) !important; font-family: "DM Sans", sans-serif !important;
+  font-size: 0.72rem !important; letter-spacing: 0.25em !important;
+  padding: 1rem !important; text-align: center !important; text-decoration: none !important;
+  display: block !important; border-radius: 0 !important; transition: all 0.25s !important;
+}
+#mobileNav .btn-dark:not(#_) { color: #ffffff !important; }
+#mobileNav .btn-dark span:not(#_) { color: inherit !important; }
+#mobileNav .mobile-contact { color: rgba(245,237,227,0.3) !important; font-size: 0.74rem !important; text-align: center !important; }
+#mobileNav .mobile-contact a { color: rgba(245,237,227,0.5) !important; text-decoration: none !important; font-family: "DM Sans", sans-serif !important; }
+#mobileNav .mobile-lang-btn { color: rgba(245,237,227,0.32) !important; }
+#mobileNav .mobile-lang-btn.active { color: rgba(201,160,96,0.85) !important; }
+#mobileNav .mobile-lang-sep { color: rgba(245,237,227,0.15) !important; }
+#mobileNav .sp-menu-trigger-wrap { padding: 16px 1.5rem 8px !important; }
+#mobileNav .sp-menu-trigger {
+  background: rgb(232,211,163) !important; border: none !important;
+  border-radius: 10px !important; padding: 14px 18px !important; width: 100% !important;
+  display: flex !important; flex-direction: column !important; align-items: center !important; gap: 4px !important;
+}
+#mobileNav .sp-menu-trigger-lotus { display: none !important; }
+#mobileNav .sp-menu-trigger-label {
+  font-family: "DM Sans", sans-serif !important; font-size: 1.05rem !important;
+  letter-spacing: 0.22em !important; text-transform: uppercase !important;
+  color: #684034 !important; font-weight: 600 !important;
+  display: block !important; padding: 0 !important; border: none !important;
+}
+#mobileNav .sp-menu-trigger-sub {
+  font-family: "DM Sans", sans-serif !important; font-size: 0.6rem !important;
+  letter-spacing: 0.2em !important; text-transform: uppercase !important;
+  color: rgba(104,64,52,0.55) !important; font-weight: 400 !important;
+  display: block !important; padding: 0 !important; border: none !important;
+}
+
+/* ══ NAV BAR — CREATIVE REDESIGN ══ */
+@media (max-width: 980px) {
+  /* Grid column swap: search LEFT (col 1), hamburger RIGHT (col 3) */
+  .nav-search-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: flex-start !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .menu-btn {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: flex-end !important;
+  }
+
+    /* Hamburger: stone shape */
+  .menu-btn span {
+    height: 3px !important;
+    background: currentColor !important;
+    border-radius: 4px !important;
+    display: block !important;
+    transition: transform 0.3s, opacity 0.3s, width 0.3s !important;
+  }
+  .menu-btn span:nth-child(1) { width: 16px !important; transform: translateY(-5px) !important; }
+  .menu-btn span:nth-child(2) { width: 22px !important; }
+  .menu-btn span:nth-child(3) { width: 30px !important; transform: translateY(5px) !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(0) rotate(45deg) !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(0) rotate(-45deg) !important; width: 22px !important; }
+
+  /* Search button: cleaner circle */
+  .nav-search-btn {
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Gold accent line on scroll */
+  nav.nav-scrolled::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 5% !important;
+    width: 90% !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(201,160,96,0.35), transparent) !important;
+  }
+
+  /* Mobile nav header: logo LEFT, close RIGHT */
+  .mobile-nav-header {
+    flex-direction: row !important;
+  }
+  .mobile-nav-close {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* ══ NAV UNIVERSEL — COHÉRENCE GLOBALE ══ */
+@media (max-width: 980px) {
+  /* Grid structure */
+  html body nav {
+    display: grid !important;
+    grid-template-columns: 48px 1fr 48px !important;
+    grid-template-rows: 1fr !important;
+    align-items: center !important;
+    padding: 1.1rem 1.5rem !important;
+    gap: 0 !important;
+  }
+
+  /* Logo: absolute center */
+  
+
+  /* Logo text: Cormorant Garamond, same size everywhere */
+  html body nav {}
+
+  /* Logo sub: same small caps */
+  html body nav {}
+
+  /* Search button: column 1, same circle */
+  html body nav .nav-search-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: flex-start !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    cursor: pointer !important;
+    border: 1.5px solid currentColor !important;
+    opacity: 0.6 !important;
+  }
+  html body nav .nav-search-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Hamburger: column 3 */
+  html body nav .menu-btn {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: flex-end !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 5px !important;
+    padding: 0.25rem !important;
+  }
+  html body nav .menu-btn span {
+    display: block !important;
+    height: 3px !important;
+    background: currentColor !important;
+    border-radius: 4px !important;
+    transition: transform 0.3s, opacity 0.3s, width 0.3s !important;
+  }
+  html body nav .menu-btn span:nth-child(1) { width: 16px !important; }
+  html body nav .menu-btn span:nth-child(2) { width: 22px !important; }
+  html body nav .menu-btn span:nth-child(3) { width: 30px !important; }
+  html body nav .menu-btn[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg) !important;
+    width: 22px !important;
+  }
+  html body nav .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
+  html body nav .menu-btn[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg) !important;
+    width: 22px !important;
+  }
+
+  /* Hide desktop-only elements */
+  html body nav ul.nav-links,
+  html body nav a.nav-cta { display: none !important; }
+}
+/* STONE-FINAL */
+html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
+html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #684034 !important; }
+html body nav:not(.nav-scrolled) .menu-btn span { background: #684034 !important; }
+html body nav.nav-scrolled .menu-btn span { background: #684034 !important; }
+html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
+html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
+html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 
 /* ── Skines nav: refined spacing ── */
 #mobileNav {
@@ -1845,179 +2405,6 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   user-select: none !important;
 }
 </style>
-
-<div id="top"></div>
-
-<!-- ══ HEADER ══ -->
-<div class="dirs-header fade-up">
-  <h1><span data-i18n="visitUs.heroTitle">Directions &amp; Accessibility</span></h1>
-  <div class="dirs-divider">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="#C9A060" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="12" cy="12" r="2" fill="#C9A060"/>
-    </svg>
-  </div>
-  <p class="dirs-subtitle" data-en="Everything you need to arrive in comfort — by car, metro, or on foot." data-fr="Tout ce dont vous avez besoin pour arriver confortablement — en voiture, en métro ou à pied.">Everything you need to arrive in comfort — by car, metro, or on foot.</p>
-</div>
-
-<!-- ══ CARDS ══ -->
-<div class="dirs-cards">
-
-  <!-- ─ Card 1: Our Location ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/storefront.webp" alt="Skines Head Spa" loading="eager">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-gold">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <span class="cin-label" data-en="Our Location" data-fr="Notre Adresse">Our Location</span>
-        </div>
-        <h3 class="cin-title">Skines</h3>
-        <p class="cin-desc">19 Avenue Shamrock<br>Montréal, QC H2S 1A3</p>
-      </div>
-    </div>
-    <div class="cin-cta-pair">
-      <a class="cta-pair-primary cta-gold" href="https://maps.google.com/?q=Skines+Med+Spa+19+Av+Shamrock+Montreal" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div>
-          <div class="cta-pair-name" data-en="Open Skines" data-fr="Ouvrir Skines">Open Skines</div>
-          <div class="cta-pair-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </a>
-      <button class="cta-pair-outline" onclick="(function(){navigator.clipboard.writeText('19 Avenue Shamrock, Montréal, QC H2S 1A3');var el=document.getElementById('copy-confirm');el.style.opacity='1';setTimeout(function(){el.style.opacity='0';},2200);})()">
-        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        <span data-en="Copy Address" data-fr="Copier l'adresse">Copy Address</span>
-      </button>
-      <span id="copy-confirm">Copied ✓</span>
-    </div>
-  </div>
-
-  <!-- ─ Card 2: Jean-Talon Metro ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/metro-jean-talon.webp" alt="Jean-Talon Metro Station" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-blue">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.2"/><line x1="12" y1="7" x2="12" y2="17" stroke-width="2"/><polyline points="8 13 12 17 16 13" stroke-width="2"/></svg>
-          </div>
-          <span class="cin-label" data-en="Coming by Metro?" data-fr="En métro ?">Coming by Metro?</span>
-        </div>
-        <h3 class="cin-title">Jean-Talon<br>Metro</h3>
-        <p class="cin-desc" data-en="A short walk from Jean-Talon Station." data-fr="À quelques minutes à pied de la station Jean-Talon.">A short walk from Jean-Talon Station.</p>
-        <div class="cin-walk">
-          <svg viewBox="0 0 24 24"><path d="M13 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5 4l-1.5 4 2 1.5-.5 5h1.5l1-4 2 2v4h1.5v-5l-2-2 .5-4-1.5-1.5z"/></svg>
-          <span data-en="5 min walk" data-fr="5 min à pied">5 min walk</span>
-        </div>
-      </div>
-    </div>
-    <a class="cin-cta cta-blue" href="https://maps.google.com/?q=Jean-Talon+Metro+Station+Montreal" target="_blank" rel="noreferrer">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="17"/><polyline points="8 13 12 17 16 13"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Open Jean-Talon Metro" data-fr="Ouvrir Métro Jean-Talon">Open Jean-Talon Metro</div>
-          <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-  <!-- ─ Card 3: De Castelnau Metro ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/metro-castelnau.webp" alt="De Castelnau Metro Station" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-blue">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.2"/><line x1="12" y1="7" x2="12" y2="17" stroke-width="2"/><polyline points="8 13 12 17 16 13" stroke-width="2"/></svg>
-          </div>
-          <span class="cin-label" data-en="Coming by Metro?" data-fr="En métro ?">Coming by Metro?</span>
-        </div>
-        <h3 class="cin-title">De Castelnau<br>Metro</h3>
-        <p class="cin-desc" data-en="Just a short walk from Skines Head Spa &amp; Wellness." data-fr="À deux pas de Skines Head Spa &amp; Wellness.">Just a short walk from Skines Head Spa &amp; Wellness.</p>
-        <div class="cin-walk">
-          <svg viewBox="0 0 24 24"><path d="M13 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5 4l-1.5 4 2 1.5-.5 5h1.5l1-4 2 2v4h1.5v-5l-2-2 .5-4-1.5-1.5z"/></svg>
-          <span data-en="6–8 min walk" data-fr="6–8 min à pied">6–8 min walk</span>
-        </div>
-      </div>
-    </div>
-    <a class="cin-cta cta-blue" href="https://maps.google.com/?q=Station+De+Castelnau+Metro+Montreal" target="_blank" rel="noreferrer">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="17"/><polyline points="8 13 12 17 16 13"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Open De Castelnau Metro" data-fr="Ouvrir Métro De Castelnau">Open De Castelnau Metro</div>
-          <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-  <!-- ─ Card 4: Private Parking ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/parking-satellite.webp" alt="Private Parking" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-muted">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <span class="cin-label" data-en="Driving to Skines?" data-fr="En voiture ?">Driving to Skines?</span>
-        </div>
-        <h3 class="cin-title">Private<br>Parking</h3>
-        <p class="cin-desc" data-en="A complimentary space reserved exclusively for you, for the entire duration of your appointment." data-fr="Un espace gratuit réservé exclusivement pour vous, pour toute la durée de votre rendez-vous.">A complimentary space reserved exclusively for you, for the entire duration of your appointment.</p>
-      </div>
-    </div>
-    <a class="cin-cta cta-espresso" href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal+QC" target="_blank" rel="noreferrer">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Navigate to Private Parking" data-fr="Naviguer vers le Stationnement">Navigate to Private Parking</div>
-          <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-  <!-- ─ Card 5: Call Skines ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/concierge-bell.webp" alt="Skines concierge" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-warm">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.9 9.69 19.79 19.79 0 0 1 .87 6.05 2 2 0 0 1 2.86 3.87h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 11.1a16 16 0 0 0 6.29 6.29l1.51-1.51a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <span class="cin-label" data-en="Need Assistance?" data-fr="Besoin d'aide ?">Need Assistance?</span>
-        </div>
-        <h3 class="cin-title">We're Here<br>to Help</h3>
-        <p class="cin-desc" data-en="Call us when you arrive and we'll gladly guide you to our entrance." data-fr="Appelez-nous à votre arrivée et nous vous guiderons jusqu'à l'entrée avec plaisir.">Call us when you arrive and we'll gladly guide you to our entrance.</p>
-      </div>
-    </div>
-    <a class="cin-cta cta-phone" href="tel:+14382605660">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.9 9.69 19.79 19.79 0 0 1 .87 6.05 2 2 0 0 1 2.86 3.87h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 11.1a16 16 0 0 0 6.29 6.29l1.51-1.51a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Call Skines" data-fr="Appeler Skines">Call Skines</div>
-          <div class="cin-cta-hint">+1 (438) 260–5660</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-</div><!-- /.dirs-cards -->
-
-
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="/">
@@ -2221,6 +2608,14 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   }, {passive: true});
 })();
 
+/* ── sp-menu-trigger → tirage ── */
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    var trig = document.getElementById('sp-menu-trigger');
+    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
+  });
+})();
+
 /* ── Mobile nav ── */
 (function(){
   const btn = document.getElementById('menuBtn');
@@ -2237,14 +2632,6 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   const btn = document.getElementById('scrollTop');
   window.addEventListener('scroll', function(){ btn.classList.toggle('visible', window.scrollY > 400); }, {passive:true});
   btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-})();
-
-/* ── sp-menu-trigger → tirage ── */
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
-    var trig = document.getElementById('sp-menu-trigger');
-    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
-  });
 })();
 
 /* ── Fade-up on scroll ── */

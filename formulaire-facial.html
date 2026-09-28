@@ -49,17 +49,17 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-<title>Nous Trouver · Skines Head Spa & Wellness Montréal</title>
-<meta name="description" content="Tout ce que vous devez savoir avant votre visite chez Skines — stationnement privé, reçus d'assurance, et ce qui vous attend.">
+<title>Fiche de Consultation Facial · Skines Head Spa & Wellness Montréal</title>
+<meta name="description" content="Fiche de consultation facial à remplir avant votre soin du visage chez Skines Head Spa & Wellness Montréal, pour un soin Dermalogica ou Bela MD+ adapté à votre peau.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nous Trouver · Skines Head Spa Montréal">
-<meta property="og:description" content="Stationnement gratuit, reçus d'assurance, ambiance luxe — découvrez l'expérience Skines avant votre arrivée.">
+<meta property="og:title" content="Fiche de Consultation Facial · Skines Head Spa Montréal">
+<meta property="og:description" content="Une fiche simple avant votre soin du visage, pour un résultat personnalisé chez Skines.">
 <meta property="og:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
-<link rel="canonical" href="https://skines.ca/visit-us">
-<meta property="og:url" content="https://skines.ca/visit-us">
+<link rel="canonical" href="https://skines.ca/formulaire-facial">
+<meta property="og:url" content="https://skines.ca/formulaire-facial">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nous Trouver · Skines Head Spa Montréal">
-<meta name="twitter:description" content="Stationnement gratuit, ambiance luxe — découvrez l'expérience Skines avant votre arrivée. 19 Av. Shamrock, Montréal.">
+<meta name="twitter:title" content="Reçus d'Assurance · Skines Head Spa Montréal">
+<meta name="twitter:description" content="Reçus d'assurance disponibles pour certains soins chez Skines Head Spa Montréal. Renseignez-vous avant votre rendez-vous.">
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -112,14 +112,14 @@ nav.nav-hidden { transform: translateY(-110%); }
 }
 .nav-cta:hover { background: var(--brown); color: var(--cream); }
 /* ── HEADER CLEANUP (same fix applied to index.html / facial.html /
-   head-spa.html / laser.html / insurance.html / parking.html) —
-   assets/css/nav.css loads after this stylesheet with "justify-content:
-   space-between !important" on nav and an unscoped ".logo {
-   position:absolute; left:50% }" that centers the logo at all widths. With
-   unrelated flex items spread by space-between, nav-cta can land under
-   the centered logo. nav.css is shared across pages so we don't edit it —
-   override here with matching+higher specificity (doubled #mainNav ID)
-   instead. */
+   head-spa.html / laser.html) — assets/css/nav.css loads after this
+   stylesheet with "justify-content: space-between !important" on nav and
+   an unscoped ".logo { position:absolute; left:50% }" that centers the
+   logo at all widths. With unrelated flex items spread by space-between,
+   nav-cta can land under the centered logo (confirmed here: nav-cta was
+   rendering at x:752-862, directly inside the logo's 617-823 span at
+   1440px). nav.css is shared across pages so we don't edit it — override
+   here with matching+higher specificity (doubled #mainNav ID) instead. */
 @media (min-width: 981px) {
   #mainNav#mainNav {
     justify-content: flex-start !important;
@@ -129,10 +129,9 @@ nav.nav-hidden { transform: translateY(-110%); }
   #mainNav#mainNav .nav-links {
     gap: clamp(0.55rem, -1.3rem + 3vw, 2.2rem) !important;
   }
-  /* This page has one more nav item (Nous Trouver) than the others the
-     shared hack was tuned for, so at ~1200-1350px the links row runs
-     past its start point and overlaps the centered logo. Shrink the
-     link labels slightly so the whole row stays narrower. */
+  /* This page's nav row runs right up against the centered logo at
+     common desktop widths — shrink the link labels slightly so the
+     whole row stays narrower. */
   #mainNav#mainNav .nav-links a {
     font-size: 0.70rem !important;
     letter-spacing: 0.06em !important;
@@ -248,7 +247,8 @@ nav.nav-hidden { transform: translateY(-110%); }
     color: #E8C078 !important;
   }
 }
-/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type */
+/* 5 nav items (4 links + GUIDES) — narrow desktop band needs tighter type,
+   same as facial.html / head-spa.html / laser.html */
 @media (min-width: 981px) and (max-width: 1150px) {
   #mainNav#mainNav .nav-links a {
     font-size: 0.54rem !important;
@@ -607,7 +607,7 @@ footer {
 /* ── Responsive ── */
 @media (max-width: 860px) {
   nav { padding: 1rem 1.4rem; }
-  .nav-links, .nav-cta, .lang-switcher { display: none; }
+  .nav-links, .nav-cta, .lang-switcher, .nav-search-btn { display: none; }
   .menu-btn { display: flex; }
 
   .visit-section { padding: 4.5rem 1.5rem; }
@@ -654,7 +654,7 @@ footer { background: #684034 !important; }
 .sp-menu-trigger { width: 100%; background: rgb(232,211,163); border: none; border-radius: 14px; padding: 14px 18px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; transition: background 0.25s; }
 .sp-menu-trigger:hover { background: rgb(220,198,148); }
 .sp-menu-trigger-lotus { display: none; }
-.sp-menu-trigger-label { font-family: "DM Sans", sans-serif; font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase; color: #684034; font-weight: 600; }
+.sp-menu-trigger-label { font-family: "Old Standard TT", serif; font-size: 1.05rem; letter-spacing: 0.22em; text-transform: uppercase; color: #684034; font-weight: 600; }
 .sp-menu-trigger-sub { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(104,64,52,0.6); font-weight: 400; }
 
 /* ── nav header: arrow left, logo center ── */
@@ -696,35 +696,8 @@ footer { background: #684034 !important; }
 .nav-dropdown-menu li a:hover, .nav-dropdown-menu li a.gd-active { color: #C9973A !important; }
 .nav-dropdown:hover .nav-dropdown-menu { display: block; }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  "@id": "https://skines.ca/#business",
-  "name": "Skines Head Spa & Wellness",
-  "telephone": "+14382605660",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "19 Av. Shamrock",
-    "addressLocality": "Montréal",
-    "addressRegion": "QC",
-    "postalCode": "H2S 1A3",
-    "addressCountry": "CA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.5344811,
-    "longitude": -73.6167675
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00",
-    "closes": "22:00"
-  }
-}
-</script>
 
+<!-- ── JSON-LD Schema ── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -739,8 +712,52 @@ footer { background: #684034 !important; }
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Nous Trouver",
-      "item": "https://skines.ca/visit-us"
+      "name": "Fiche de consultation facial",
+      "item": "https://skines.ca/formulaire-facial"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Assurances · Skines Head Spa Montréal",
+  "description": "Questions fréquemment posées sur les reçus d'assurance chez Skines",
+  "url": "https://skines.ca/insurance",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Dois-je demander le reçu à l'avance ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, vous pouvez le demander directement au moment du règlement. Cependant, il est préférable de nous le mentionner en début de séance pour éviter tout délai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sous quel format est fourni le reçu ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nous fournissons un reçu officiel sur demande. Pour toute question sur le contenu du reçu, contactez-nous au +1 (438) 260-5660."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon assurance couvre-t-elle les soins Skines ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cela dépend entièrement de votre régime. Contactez votre assureur avant votre visite pour vérifier votre couverture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je obtenir un reçu pour une carte cadeau utilisée ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le reçu est émis au moment de l'utilisation de la carte cadeau, et non lors de son achat. Il sera établi au nom du bénéficiaire du soin."
+      }
     }
   ]
 }
@@ -1384,6 +1401,7 @@ input, textarea, select {
   <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
 </head>
 <body>
+
 <nav id="mainNav">
   <a class="logo" href="/">
     <div class="logo-brand">
@@ -1395,7 +1413,7 @@ input, textarea, select {
     <li><a href="/head-spa">Head Spa</a></li>
     <li><a href="/laser">Laser</a></li>
     <li><a href="/facial">Facial</a></li>
-    <li><a href="/visit-us" class="active">Nous Trouver</a></li>
+    <li><a href="/insurance" class="active">Assurance</a></li>
   
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
@@ -1421,7 +1439,7 @@ input, textarea, select {
   <button class="nav-search-btn" aria-label="Rechercher">
     <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
   </button>
-  <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
@@ -1510,141 +1528,500 @@ input, textarea, select {
     </div>
   </div>
 
+
+<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
+<script>window._tsk = window._tsk || '1x00000000000000000000AA';</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInitFacialForm&render=explicit" async defer></script>
 <style>
-/* ══ CINEMATIC CARD SYSTEM — single unified design ══ */
-section { padding: 0 !important; }
-body { background: #080503; }
+.ff-hero { min-height: 42vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #FDFAF5, #F5EDE3); padding: 7rem 1.5rem 3rem; }
+.ff-hero-inner { max-width: 640px; }
+.ff-eyebrow { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: #C9973A; margin-bottom: 1rem; }
+.ff-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 400; font-style: italic; color: #684034; margin: 0 0 1rem; line-height: 1.2; }
+.ff-hero p { font-family: 'DM Sans', sans-serif; font-size: 0.98rem; color: rgba(104,64,52,0.7); line-height: 1.8; margin: 0; }
 
-/* Nav — dark theme */
-html body nav { background: rgba(8,5,3,0.96) !important; border-bottom: 1px solid rgba(245,237,227,0.06) !important; }
-html body nav {}
-html body nav {}
-html body nav.nav-scrolled { background: rgba(8,5,3,0.98) !important; }
-html body nav:not(.nav-scrolled) .menu-btn span,
-html body nav.nav-scrolled .menu-btn span { background: rgba(245,237,227,0.80) !important; }
-html body nav .nav-search-btn { border-color: rgba(245,237,227,0.22) !important; color: rgba(245,237,227,0.80) !important; }
-html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !important; color: rgba(245,237,227,1) !important; }
+.ff-safety { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
+.ff-safety p { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; line-height: 1.85; color: rgba(104,64,52,0.75); margin: 0 0 1.2rem; }
+.ff-safety details { border-top: 1px solid rgba(104,64,52,0.14); padding-top: 1.2rem; margin-top: 1.4rem; }
+.ff-safety summary { cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #684034; }
+.ff-safety ul { margin: 1.1rem 0 0; padding-left: 1.2rem; color: rgba(104,64,52,0.68); font-size: 0.88rem; line-height: 1.9; }
 
-/* Page header */
-.dirs-header { padding: 108px 24px 32px; text-align: center; }
-.dirs-header h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2rem,8vw,2.8rem); font-weight:400; color:rgba(245,237,227,0.90); letter-spacing:-0.01em; line-height:1.1; margin-bottom:1rem; }
-.dirs-divider { display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
-.dirs-divider svg { width:16px; height:16px; }
-.dirs-subtitle { font-family:"DM Sans",sans-serif; font-size:0.84rem; font-weight:300; color:rgba(245,237,227,0.32); line-height:1.75; max-width:300px; margin:0 auto; }
+.ff-form-section { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
+.ff-form-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.22); border-radius: 6px; padding: 2.5rem 2rem; }
+.ff-field-row { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 1rem; margin-bottom: 1.2rem; }
+.ff-field-row .ff-field:only-child { grid-column: 1 / -1; }
+@media (max-width: 560px) { .ff-field-row { grid-template-columns: 1fr; } }
+.ff-field { margin-bottom: 1.2rem; }
+.ff-field > label { display: block; min-height: 2.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; line-height: 1.35; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.6); margin-bottom: 0.5rem; }
+.ff-field input[type="text"], .ff-field input[type="email"], .ff-field input[type="tel"], .ff-field input[type="date"], .ff-field select, .ff-field textarea {
+  width: 100%; box-sizing: border-box; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: #3A1E14;
+  border: 1px solid rgba(104,64,52,0.22); border-radius: 4px; padding: 0.75rem 0.9rem; background: #FDFAF5;
+}
+.ff-field textarea { min-height: 90px; resize: vertical; }
+.ff-checks { border: 1px solid rgba(104,64,52,0.14); border-radius: 4px; padding: 1.1rem 1.2rem; background: #FDFAF5; }
+.ff-check-row { display: flex; align-items: flex-start; gap: 0.65rem; padding: 0.5rem 0; font-family: 'DM Sans', sans-serif; font-size: 0.86rem; color: rgba(104,64,52,0.8); line-height: 1.5; }
+.ff-check-row input { margin-top: 0.2rem; flex-shrink: 0; }
+.ff-radio-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.ff-radio-row label { display: flex; align-items: center; gap: 0.4rem; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: rgba(104,64,52,0.8); text-transform: none; letter-spacing: 0; }
+.ff-consent { display: flex; align-items: flex-start; gap: 0.65rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: rgba(104,64,52,0.75); line-height: 1.6; margin: 1.4rem 0; }
+.ff-consent input { margin-top: 0.25rem; flex-shrink: 0; }
+.ff-submit-btn { width: 100%; background: #F5EDE3; color: #684034; border: 1.5px solid #F5EDE3; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem; border-radius: 4px; cursor: pointer; margin-top: 0.5rem; transition: all 0.25s; }
+.ff-submit-btn:hover { background: #684034; color: #F5EDE3; }
+.ff-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.ff-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.ff-success-icon { width: 56px; height: 56px; border-radius: 50%; background: #F5EDE3; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+.ff-success-icon svg { width: 26px; height: 26px; stroke: #684034; fill: none; stroke-width: 2.2; }
+.ff-success h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; font-style: italic; color: #684034; margin: 0 0 0.8rem; }
+.ff-success p { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: rgba(104,64,52,0.7); line-height: 1.7; max-width: 460px; margin: 0 auto; }
+.ff-error { display: none; background: #FDF0EC; color: #9A3520; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; padding: 0.9rem 1rem; border-radius: 4px; margin-bottom: 1.2rem; }
+.ff-section-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: #684034; margin: 2rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid rgba(104,64,52,0.14); }
+.ff-consent-text { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; line-height: 1.75; color: rgba(104,64,52,0.72); margin: 0 0 1rem; }
+.ff-sig-wrap { position: relative; border: 1px solid rgba(104,64,52,0.25); border-radius: 4px; background: #FDFAF5; touch-action: none; }
+.ff-sig-canvas { display: block; width: 100%; height: 160px; touch-action: none; cursor: crosshair; }
+.ff-sig-clear { position: absolute; top: 0.6rem; right: 0.6rem; background: #F5EDE3; border: 1px solid rgba(104,64,52,0.2); color: #684034; font-family: 'DM Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.7rem; border-radius: 3px; cursor: pointer; }
+.ff-sig-hint { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: rgba(104,64,52,0.5); margin: 0.5rem 0 1.5rem; }
+</style>
 
-/* Cards wrapper */
-.dirs-cards { max-width:500px; margin:0 auto; padding:0 14px 52px; display:flex; flex-direction:column; gap:14px; }
-/* Desktop: this section (5 location/info cards) is capped at 500px and
-   single-column at every width (unscoped rule above), leaving most of the
-   viewport empty on desktop. Same photos, same content — reflow into a
-   responsive grid on desktop only. */
-@media (min-width: 981px) {
-  .dirs-cards {
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: stretch;
-    gap: 24px;
+<!-- HERO -->
+<header class="ff-hero">
+  <div class="ff-hero-inner fade-up">
+    <span class="ff-eyebrow" data-fr="Avant votre soin" data-en="Before your treatment">Avant votre soin</span>
+    <h1 data-fr="Votre fiche de consultation Facial." data-en="Your Facial consultation form.">Votre fiche de consultation Facial.</h1>
+    <p data-fr="Quelques minutes avant votre rendez-vous, pour que votre esthéticienne adapte votre soin du visage — Dermalogica ou Bela MD+ — à votre peau." data-en="A few minutes before your appointment, so your esthetician can tailor your facial — Dermalogica or Bela MD+ — to your skin.">Quelques minutes avant votre rendez-vous, pour que votre esthéticienne adapte votre soin du visage — Dermalogica ou Bela MD+ — à votre peau.</p>
+  </div>
+</header>
+
+<!-- SAFETY CONTEXT -->
+<section class="ff-safety">
+  <p data-fr="Chaque soin du visage est adapté à votre peau. Certaines conditions cutanées, allergies ou traitements en cours peuvent influencer le choix des produits et la technique utilisée par votre esthéticienne." data-en="Every facial is tailored to your skin. Certain skin conditions, allergies or current treatments can influence the products and technique your esthetician uses.">Chaque soin du visage est adapté à votre peau. Certaines conditions cutanées, allergies ou traitements en cours peuvent influencer le choix des produits et la technique utilisée par votre esthéticienne.</p>
+  <p data-fr="Ce n'est pas une formalité — c'est ce qui permet à votre esthéticienne de personnaliser votre soin en toute sérénité, pour un résultat à la hauteur de vos attentes." data-en="This isn't a formality — it's what lets your esthetician personalize your treatment with confidence, for a result that meets your expectations.">Ce n'est pas une formalité — c'est ce qui permet à votre esthéticienne de personnaliser votre soin en toute sérénité, pour un résultat à la hauteur de vos attentes.</p>
+  <details>
+    <summary><span data-fr="Ce qui peut influencer votre soin" data-en="What can influence your treatment">Ce qui peut influencer votre soin</span></summary>
+    <ul>
+      <li data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</li>
+      <li data-fr="Peau sensible, rosacée, eczéma ou psoriasis" data-en="Sensitive skin, rosacea, eczema or psoriasis">Peau sensible, rosacée, eczéma ou psoriasis</li>
+      <li data-fr="Allergies aux produits, ingrédients ou parfums" data-en="Allergies to products, ingredients or fragrance">Allergies aux produits, ingrédients ou parfums</li>
+      <li data-fr="Utilisation récente de rétinol, vitamine C, AHA/BHA" data-en="Recent use of retinol, vitamin C, AHA/BHA">Utilisation récente de rétinol, vitamine C, AHA/BHA</li>
+      <li data-fr="Peeling ou exfoliation récente" data-en="Recent peel or exfoliation">Peeling ou exfoliation récente</li>
+      <li data-fr="Coup de soleil récent ou peau irritée" data-en="Recent sunburn or irritated skin">Coup de soleil récent ou peau irritée</li>
+    </ul>
+    <p style="margin-top:1.2rem;font-size:0.85rem;font-style:italic;color:rgba(104,64,52,0.55);">
+      <span data-fr="Cette liste n'est pas exhaustive. Si vous avez un doute, " data-en="This list is not exhaustive. If you're unsure, ">Cette liste n'est pas exhaustive. Si vous avez un doute, </span><a href="mailto:Info@skines.ca" style="color:#C9973A;">écrivez-nous</a><span data-fr=" — nous répondrons avec plaisir avant votre réservation." data-en=" — we'll gladly answer before you book."> — nous répondrons avec plaisir avant votre réservation.</span>
+    </p>
+  </details>
+</section>
+
+<!-- FORM -->
+<section class="ff-form-section">
+  <div class="ff-form-card">
+
+    <div class="ff-success" id="ffSuccess">
+      <div class="ff-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h2 data-fr="Merci." data-en="Thank you.">Merci.</h2>
+      <p data-fr="Votre fiche a bien été reçue. Votre esthéticienne la consultera avant votre rendez-vous pour préparer votre soin." data-en="Your form has been received. Your esthetician will review it before your appointment to prepare your treatment.">Votre fiche a bien été reçue. Votre esthéticienne la consultera avant votre rendez-vous pour préparer votre soin.</p>
+    </div>
+
+    <form id="ffForm" novalidate>
+      <div class="ff-error" id="ffError"></div>
+
+      <!-- honeypot -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <div id="ff-ts-wrap" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden;" aria-hidden="true"></div>
+
+      <div class="ff-field-row">
+        <div class="ff-field">
+          <label data-fr="Prénom *" data-en="First name *">Prénom *</label>
+          <input type="text" name="firstName" required>
+        </div>
+        <div class="ff-field">
+          <label data-fr="Nom *" data-en="Last name *">Nom *</label>
+          <input type="text" name="lastName" required>
+        </div>
+      </div>
+      <div class="ff-field-row">
+        <div class="ff-field">
+          <label data-fr="Courriel *" data-en="Email *">Courriel *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="ff-field">
+          <label data-fr="Téléphone *" data-en="Phone *">Téléphone *</label>
+          <input type="tel" name="phone" required>
+        </div>
+      </div>
+      <div class="ff-field-row">
+        <div class="ff-field">
+          <label data-fr="Soin concerné" data-en="Treatment">Soin concerné</label>
+          <select name="service">
+            <option value="Luxury Facial">Luxury Facial</option>
+            <option value="Soin Personnalisé">Soin Personnalisé</option>
+            <option value="HydraDermabrasion Bela MD+">HydraDermabrasion Bela MD+</option>
+            <option value="Peeling Chimique">Peeling Chimique</option>
+            <option value="Soin du Dos">Soin du Dos</option>
+          </select>
+        </div>
+        <div class="ff-field">
+          <label data-fr="Date de rendez-vous (si connue)" data-en="Appointment date (if known)">Date de rendez-vous (si connue)</label>
+          <input type="date" name="appointmentDate">
+          <p style="margin:0.5rem 0 0;font-family:'DM Sans',sans-serif;font-size:0.76rem;color:rgba(104,64,52,0.5);" data-fr="Pas encore réservé ? Pas grave — nous traiterons votre fiche comme une demande de consultation et vous répondrons sous 72 heures." data-en="Haven't booked yet? No problem — we'll treat your form as a consultation request and get back to you within 72 hours.">Pas encore réservé ? Pas grave — nous traiterons votre fiche comme une demande de consultation et vous répondrons sous 72 heures.</p>
+        </div>
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Êtes-vous enceinte ou allaitez-vous ?" data-en="Are you pregnant or breastfeeding?">Êtes-vous enceinte ou allaitez-vous ?</label>
+        <div class="ff-radio-row">
+          <label><input type="radio" name="pregnancy" value="oui" required> <span data-fr="Oui" data-en="Yes">Oui</span></label>
+          <label><input type="radio" name="pregnancy" value="non" required> <span data-fr="Non" data-en="No">Non</span></label>
+        </div>
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Vos principales préoccupations" data-en="Your main skin concerns">Vos principales préoccupations</label>
+        <div class="ff-checks">
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="acne"><span data-fr="Acné / imperfections" data-en="Acne / breakouts">Acné / imperfections</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="wrinkles"><span data-fr="Ridules" data-en="Fine lines">Ridules</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="dryness"><span data-fr="Sécheresse" data-en="Dryness">Sécheresse</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="sensitivity"><span data-fr="Sensibilité / rougeurs" data-en="Sensitivity / redness">Sensibilité / rougeurs</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="pigmentation"><span data-fr="Taches / pigmentation" data-en="Spots / pigmentation">Taches / pigmentation</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="pores"><span data-fr="Pores dilatés" data-en="Enlarged pores">Pores dilatés</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="dullness"><span data-fr="Manque d'éclat" data-en="Dull skin">Manque d'éclat</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="concerns" value="sagging"><span data-fr="Relâchement" data-en="Loss of firmness">Relâchement</span></label>
+        </div>
+      </div>
+
+      <div class="ff-field-row">
+        <div class="ff-field">
+          <label data-fr="Comment décririez-vous votre peau ?" data-en="How would you describe your skin?">Comment décririez-vous votre peau ?</label>
+          <select name="skinType">
+            <option value="Sèche">Sèche</option>
+            <option value="Normale">Normale</option>
+            <option value="Mixte">Mixte</option>
+            <option value="Grasse">Grasse</option>
+            <option value="Sensible">Sensible</option>
+          </select>
+        </div>
+        <div class="ff-field">
+          <label data-fr="Votre peau réagit-elle facilement ?" data-en="Does your skin react easily?">Votre peau réagit-elle facilement ?</label>
+          <select name="reactivity">
+            <option value="Jamais">Jamais</option>
+            <option value="Parfois">Parfois</option>
+            <option value="Souvent">Souvent</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Produits actifs utilisés actuellement" data-en="Active ingredients currently used">Produits actifs utilisés actuellement</label>
+        <div class="ff-checks">
+          <label class="ff-check-row"><input type="checkbox" name="actives" value="retinol"><span data-fr="Rétinol" data-en="Retinol">Rétinol</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="actives" value="vitaminC"><span data-fr="Vitamine C" data-en="Vitamin C">Vitamine C</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="actives" value="ahaBha"><span data-fr="AHA / BHA" data-en="AHA / BHA">AHA / BHA</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="actives" value="benzoyl"><span data-fr="Peroxyde de benzoyle" data-en="Benzoyl peroxide">Peroxyde de benzoyle</span></label>
+        </div>
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Conditions cutanées connues" data-en="Known skin conditions">Conditions cutanées connues</label>
+        <div class="ff-checks">
+          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="eczema"><span data-fr="Eczéma" data-en="Eczema">Eczéma</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="rosacea"><span data-fr="Rosacée" data-en="Rosacea">Rosacée</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="psoriasis"><span data-fr="Psoriasis" data-en="Psoriasis">Psoriasis</span></label>
+          <label class="ff-check-row"><input type="checkbox" name="skinConditions" value="dermatitis"><span data-fr="Dermatite" data-en="Dermatitis">Dermatite</span></label>
+        </div>
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Allergies ou intolérances (produits, ingrédients, parfums)" data-en="Allergies or intolerances (products, ingredients, fragrance)">Allergies ou intolérances (produits, ingrédients, parfums)</label>
+        <input type="text" name="allergies">
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Peelings ou exfoliations récents (optionnel)" data-en="Recent peels or exfoliation (optional)">Peelings ou exfoliations récents (optionnel)</label>
+        <input type="text" name="recentPeels">
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Vos objectifs pour votre peau" data-en="Your skin goals">Vos objectifs pour votre peau</label>
+        <textarea name="goals"></textarea>
+      </div>
+
+      <div class="ff-field">
+        <label data-fr="Précisions (optionnel)" data-en="Details (optional)">Précisions (optionnel)</label>
+        <textarea name="notes"></textarea>
+      </div>
+
+      <!-- CONSENT — TODO(clinic): have this wording reviewed by a lawyer before relying on it as a legal consent record. -->
+      <div class="ff-section-title" data-fr="Votre consentement" data-en="Your consent">Votre consentement</div>
+      <p class="ff-consent-text" data-fr="Ce soin du visage est réalisé avec des produits professionnels Dermalogica ou la technologie Bela MD+, selon le soin choisi. Il s'agit d'un service esthétique — nettoyage, exfoliation, extractions si nécessaire, masque et massage adaptés à votre peau." data-en="This facial is performed with professional Dermalogica products or Bela MD+ technology, depending on the treatment chosen. It is an aesthetic service — cleansing, exfoliation, extractions if needed, mask and massage tailored to your skin.">Ce soin du visage est réalisé avec des produits professionnels Dermalogica ou la technologie Bela MD+, selon le soin choisi. Il s'agit d'un service esthétique — nettoyage, exfoliation, extractions si nécessaire, masque et massage adaptés à votre peau.</p>
+      <p class="ff-consent-text" data-fr="Une légère rougeur ou sensation de chaleur est possible et temporaire. Une réaction aux produits reste possible malgré nos précautions — c'est pourquoi vos allergies déclarées ci-dessus sont importantes. Le rasage, d'autres soins esthétiques ou l'absence de traitement sont des alternatives possibles." data-en="Mild, temporary redness or warmth is possible. A reaction to products remains possible despite our precautions — which is why the allergies you declared above matter. Other aesthetic services or no treatment are possible alternatives.">Une légère rougeur ou sensation de chaleur est possible et temporaire. Une réaction aux produits reste possible malgré nos précautions — c'est pourquoi vos allergies déclarées ci-dessus sont importantes. Le rasage, d'autres soins esthétiques ou l'absence de traitement sont des alternatives possibles.</p>
+
+      <div class="ff-checks">
+        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="read" required><span data-fr="J'ai lu et compris les informations ci-dessus" data-en="I have read and understood the information above">J'ai lu et compris les informations ci-dessus</span></label>
+        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="accurate" required><span data-fr="Je confirme l'exactitude des informations de cette fiche, y compris mes allergies" data-en="I confirm this form's information is accurate, including my allergies">Je confirme l'exactitude des informations de cette fiche, y compris mes allergies</span></label>
+        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="consentToTreatment" required><span data-fr="Je consens à recevoir ce soin esthétique" data-en="I consent to receiving this aesthetic service">Je consens à recevoir ce soin esthétique</span></label>
+        <label class="ff-check-row"><input type="checkbox" name="consentPoints" value="notMedical" required><span data-fr="Je comprends qu'il s'agit d'un service esthétique et non d'un acte médical" data-en="I understand this is an aesthetic service, not a medical act">Je comprends qu'il s'agit d'un service esthétique et non d'un acte médical</span></label>
+      </div>
+
+      <!-- SIGNATURE — touch-friendly canvas, works with a finger on mobile -->
+      <div class="ff-section-title" data-fr="Votre signature" data-en="Your signature">Votre signature</div>
+      <div class="ff-sig-wrap">
+        <canvas id="ffSigCanvas" class="ff-sig-canvas" height="160"></canvas>
+        <button type="button" class="ff-sig-clear" id="ffSigClear" data-fr="Effacer" data-en="Clear">Effacer</button>
+      </div>
+      <p class="ff-sig-hint" data-fr="Signez ci-dessus avec votre doigt (mobile) ou votre souris." data-en="Sign above with your finger (mobile) or your mouse.">Signez ci-dessus avec votre doigt (mobile) ou votre souris.</p>
+
+      <div class="ff-consent">
+        <input type="checkbox" name="consent" required>
+        <span data-fr="Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour adapter mon soin." data-en="I confirm the information provided is accurate and I agree that Skines Head Spa &amp; Wellness may use it to tailor my treatment.">Je confirme que les informations fournies sont exactes et j'accepte que Skines Head Spa &amp; Wellness les utilise pour adapter mon soin.</span>
+      </div>
+
+      <button type="submit" class="ff-submit-btn" id="ffSubmitBtn" data-fr="Envoyer ma fiche" data-en="Submit my form">Envoyer ma fiche</button>
+    </form>
+  </div>
+</section>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function() {
+  /* Signature pad — mouse + touch, works with a finger on mobile */
+  var sigCanvas = document.getElementById('ffSigCanvas');
+  var sigCtx = sigCanvas.getContext('2d');
+  var sigDrawing = false;
+  var sigHasStroke = false;
+
+  function sigResize() {
+    var ratio = window.devicePixelRatio || 1;
+    var rect = sigCanvas.getBoundingClientRect();
+    sigCanvas.width = rect.width * ratio;
+    sigCanvas.height = 160 * ratio;
+    sigCtx.scale(ratio, ratio);
+    sigCtx.strokeStyle = '#684034';
+    sigCtx.lineWidth = 2;
+    sigCtx.lineCap = 'round';
+    sigCtx.lineJoin = 'round';
   }
+  sigResize();
+  window.addEventListener('resize', function() {
+    var data = sigHasStroke ? sigCanvas.toDataURL() : null;
+    sigResize();
+    if (data) {
+      var img = new Image();
+      img.onload = function() { sigCtx.drawImage(img, 0, 0, sigCanvas.getBoundingClientRect().width, 160); };
+      img.src = data;
+    }
+  });
+
+  function sigPoint(e) {
+    var rect = sigCanvas.getBoundingClientRect();
+    var t = (e.touches && e.touches[0]) || e;
+    return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+  }
+  function sigStart(e) {
+    e.preventDefault();
+    sigDrawing = true;
+    sigHasStroke = true;
+    var p = sigPoint(e);
+    sigCtx.beginPath();
+    sigCtx.moveTo(p.x, p.y);
+  }
+  function sigMove(e) {
+    if (!sigDrawing) return;
+    e.preventDefault();
+    var p = sigPoint(e);
+    sigCtx.lineTo(p.x, p.y);
+    sigCtx.stroke();
+  }
+  function sigEnd() { sigDrawing = false; }
+
+  sigCanvas.addEventListener('mousedown', sigStart);
+  sigCanvas.addEventListener('mousemove', sigMove);
+  window.addEventListener('mouseup', sigEnd);
+  sigCanvas.addEventListener('touchstart', sigStart, { passive: false });
+  sigCanvas.addEventListener('touchmove', sigMove, { passive: false });
+  sigCanvas.addEventListener('touchend', sigEnd);
+
+  document.getElementById('ffSigClear').addEventListener('click', function() {
+    sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+    sigHasStroke = false;
+  });
+
+  var submitting = false;
+  document.getElementById('ffForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (submitting) return;
+    var form = this;
+    var errorEl = document.getElementById('ffError');
+    errorEl.style.display = 'none';
+    var currentLang = (window.skinesGetLang && window.skinesGetLang()) || document.documentElement.lang || 'fr';
+
+    var firstName = form.firstName.value.trim();
+    var lastName  = form.lastName.value.trim();
+    var email     = form.email.value.trim();
+    var phone     = form.phone.value.trim();
+    var consent   = form.consent.checked;
+    var pregnancyEl = form.querySelector('input[name="pregnancy"]:checked');
+
+    var consentPoints = Array.prototype.slice.call(form.querySelectorAll('input[name="consentPoints"]:checked')).map(function(el) { return el.value; });
+    var allConsentPoints = form.querySelectorAll('input[name="consentPoints"]').length;
+
+    if (!firstName || !lastName || !email || !phone || !consent || !pregnancyEl) {
+      errorEl.textContent = currentLang === 'en' ? 'Please fill in all required fields.' : 'Veuillez remplir tous les champs obligatoires.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (consentPoints.length < allConsentPoints) {
+      errorEl.textContent = currentLang === 'en' ? 'Please check every consent statement.' : 'Veuillez cocher chaque énoncé de consentement.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (!sigHasStroke) {
+      errorEl.textContent = currentLang === 'en' ? 'Please sign the form before submitting.' : 'Veuillez signer le formulaire avant de l\'envoyer.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    var concerns = Array.prototype.slice.call(form.querySelectorAll('input[name="concerns"]:checked')).map(function(el) { return el.value; });
+    var actives = Array.prototype.slice.call(form.querySelectorAll('input[name="actives"]:checked')).map(function(el) { return el.value; });
+    var skinConditions = Array.prototype.slice.call(form.querySelectorAll('input[name="skinConditions"]:checked')).map(function(el) { return el.value; });
+    var signatureBase64 = sigCanvas.toDataURL('image/png').split(',')[1];
+    var btn = document.getElementById('ffSubmitBtn');
+
+    submitting = true;
+    btn.disabled = true;
+    btn.textContent = currentLang === 'en' ? 'Sending…' : 'Envoi en cours…';
+
+    var payload = {
+      firstName: firstName, lastName: lastName, email: email, phone: phone,
+      service: form.service.value, appointmentDate: form.appointmentDate.value.trim(),
+      pregnancy: pregnancyEl.value,
+      concerns: concerns, skinType: form.skinType.value, reactivity: form.reactivity.value,
+      actives: actives, skinConditions: skinConditions,
+      allergies: form.allergies.value.trim(), recentPeels: form.recentPeels.value.trim(),
+      goals: form.goals.value.trim(), notes: form.notes.value.trim(),
+      consentPoints: consentPoints, signatureBase64: signatureBase64,
+      lang: currentLang,
+      website: form.website.value || '',
+      cfToken: window._ffTsToken || '',
+    };
+
+    fetch('/api/send-facial-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.success) {
+        form.style.display = 'none';
+        document.getElementById('ffSuccess').style.display = 'block';
+      } else {
+        throw new Error(data.error || 'Erreur');
+      }
+    })
+    .catch(function(err) {
+      errorEl.textContent = err.message || (currentLang === 'en' ? 'Something went wrong — please try again.' : 'Une erreur est survenue — veuillez réessayer.');
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      submitting = false;
+      btn.textContent = currentLang === 'en' ? 'Submit my form' : 'Envoyer ma fiche';
+    });
+  });
+
+  /* Turnstile — invisible widget, same pattern as /tirage */
+  var _ffTsId = null;
+  window._tsInitFacialForm = function() {
+    if (typeof turnstile === 'undefined') return;
+    _ffTsId = turnstile.render('#ff-ts-wrap', {
+      sitekey: window._tsk || '',
+      size: 'invisible',
+      callback: function(token) { window._ffTsToken = token; },
+    });
+    try { turnstile.execute(_ffTsId); } catch (e) {}
+  };
+  if (typeof turnstile !== 'undefined') { window._tsInitFacialForm(); }
+  else { window.addEventListener('load', function() { setTimeout(window._tsInitFacialForm, 300); }); }
+})();
+</script>
+
+
+<style>
+/* ════ PREMIUM SITE FOOTER ════════════════════════════════════════════════ */
+.site-footer {
+  background: #684034;
+  font-family: "DM Sans", sans-serif;
+  position: relative;
 }
-
-/* ══ CINEMATIC CARD — base architecture ══ */
-.cin-card { border-radius:20px; overflow:hidden; box-shadow:0 4px 40px rgba(0,0,0,0.55), 0 1px 8px rgba(0,0,0,0.30); }
-
-.cin-hero { position:relative; height:310px; }
-.cin-hero img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; filter:brightness(1.14) contrast(1.05) saturate(1.08); }
-.cin-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom,
-    rgba(6,3,1,0.00) 0%,
-    rgba(6,3,1,0.00) 40%,
-    rgba(6,3,1,0.30) 62%,
-    rgba(6,3,1,0.72) 84%,
-    rgba(6,3,1,0.88) 100%);
+.site-footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,160,96,0.3), transparent);
 }
-.cin-body { position:absolute; bottom:0; left:0; right:0; padding:16px 20px 22px; }
-.cin-icon-row { display:flex; align-items:center; gap:9px; margin-bottom:9px; }
-.cin-dot { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.cin-dot svg { width:12px; height:12px; }
-.cin-label { font-size:0.58rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:rgba(245,237,227,0.70); text-shadow:0 1px 10px rgba(0,0,0,0.7); }
-.cin-title { font-family:"Cormorant Garamond",serif; font-size:2.15rem; font-weight:400; color:rgba(245,237,227,0.99); line-height:1.02; margin-bottom:7px; letter-spacing:-0.01em; text-shadow:0 2px 18px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6); }
-.cin-desc { font-size:0.71rem; font-weight:300; color:rgba(245,237,227,0.68); line-height:1.6; margin-bottom:9px; text-shadow:0 1px 10px rgba(0,0,0,0.75); }
-.cin-walk { display:inline-flex; align-items:center; gap:5px; font-size:0.60rem; font-weight:300; color:rgba(245,237,227,0.70); letter-spacing:0.03em; text-shadow:0 1px 8px rgba(0,0,0,0.7); }
-.cin-walk svg { width:12px; height:12px; stroke:rgba(245,237,227,0.38); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.sf-logo-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.8rem 1.5rem 1.5rem; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sf-logo { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; }
+.sf-stones { width: 88px; height: auto; opacity: 0.88; }
 
-/* Single CTA button */
-.cin-cta { display:flex; align-items:center; justify-content:space-between; padding:15px 20px; text-decoration:none; color:white; transition:opacity 0.2s; }
-.cin-cta:hover { opacity:0.86; }
-.cin-cta-l { display:flex; align-items:center; gap:11px; }
-.cin-cta-ico { width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.cin-cta-ico svg { width:13px; height:13px; stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.cin-cta-name { font-size:0.78rem; font-weight:500; letter-spacing:0.02em; line-height:1.2; }
-.cin-cta-hint { font-size:0.61rem; opacity:0.58; font-weight:300; }
-.cin-cta-arr { display:flex; }
-.cin-cta-arr svg { width:14px; height:14px; stroke:rgba(255,255,255,0.55); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.sf-tagline-sub { font-size: 0.58rem; letter-spacing: 0.26em; color: rgba(245,237,227,0.30); text-transform: uppercase; padding-left: 0.26em; margin-top: 0.1rem; }
+.sf-lang-bar { display: flex; justify-content: center; align-items: center; gap: 0.9rem; padding: 0.9rem 0 0; }
+.sf-lang-btn { background: none; border: none; cursor: pointer; font-family: "DM Sans", sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.28em; color: rgba(245,237,227,0.28); text-transform: uppercase; padding: 0; transition: color 0.2s; }
+.sf-lang-btn.active { color: rgba(245,237,227,0.88); font-weight: 500; }
+.sf-lang-btn:hover { color: rgba(245,237,227,0.55); }
+.sf-lang-sep-bar { color: rgba(245,237,227,0.13); font-size: 0.65rem; letter-spacing: 0; font-weight: 300; }
 
-/* CTA colour variants */
-.cta-gold { background:linear-gradient(135deg,#8C5E1C 0%,#B8841E 60%,#C9973A 100%); }
-.cta-blue { background:#1B5EA3; }
-.cta-espresso { background:#1C0F09; }
-.cta-phone { background:linear-gradient(135deg,#6B3121 0%,#8C4530 100%); }
-
-/* Location card — two-button footer */
-.cin-cta-pair { display:flex; gap:8px; padding:11px 14px; background:#0D0805; }
-.cta-pair-primary { flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:white; padding:10px 13px; border-radius:10px; transition:opacity 0.2s; }
-.cta-pair-primary:hover { opacity:0.86; }
-.cta-pair-primary svg { width:13px; height:13px; stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
-.cta-pair-name { font-size:0.71rem; font-weight:500; line-height:1.2; }
-.cta-pair-hint { font-size:0.59rem; opacity:0.65; }
-.cta-pair-outline { display:flex; align-items:center; gap:7px; background:rgba(245,237,227,0.06); color:rgba(245,237,227,0.70); border:1px solid rgba(245,237,227,0.10); text-decoration:none; padding:10px 13px; border-radius:10px; cursor:pointer; font-family:"DM Sans",sans-serif; transition:all 0.2s; flex-shrink:0; }
-.cta-pair-outline:hover { background:rgba(245,237,227,0.11); }
-.cta-pair-outline svg { width:12px; height:12px; stroke:rgba(245,237,227,0.60); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-.cta-pair-outline span { font-size:0.71rem; white-space:nowrap; }
-#copy-confirm { font-size:0.58rem; color:#C9A060; opacity:0; transition:opacity 0.3s; align-self:center; flex-shrink:0; }
-
-/* Dot colour helpers */
-.dot-gold { background:rgba(201,151,58,0.18); }
-.dot-gold svg { stroke:rgba(201,151,58,0.85); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.dot-blue { background:#1B5EA3; }
-.dot-blue svg { stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.dot-muted { background:rgba(245,237,227,0.07); }
-.dot-muted svg { stroke:rgba(245,237,227,0.62); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-.dot-warm { background:rgba(201,151,58,0.14); }
-.dot-warm svg { stroke:rgba(201,151,58,0.80); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-
-/* Fade-up */
-.fade-up { opacity:0; transform:translateY(22px); transition:opacity 0.65s ease, transform 0.65s ease; }
-.fade-up.visible { opacity:1; transform:translateY(0); }
-
-/* ── Full footer CSS (matches index.html) ── */
-.sf-logo-area { display:flex; flex-direction:column; align-items:center; padding:1.8rem 1.5rem 1.5rem; text-align:center; border-bottom:1px solid rgba(255,255,255,0.05); }
-.sf-logo { display:flex; flex-direction:column; align-items:center; gap:0.4rem; text-decoration:none; }
-.sf-stones { width:88px; height:auto; opacity:0.88; }
-
-.sf-tagline-sub { font-size:0.58rem; letter-spacing:0.26em; color:rgba(245,237,227,0.30); text-transform:uppercase; padding-left:0.26em; margin-top:0.1rem; }
-.sf-nav { padding:0.8rem 0 0; display: flex; flex-direction: column; }
+/* ── Nav sections ── */
+.sf-nav { padding: 0.8rem 0 0; display: flex; flex-direction: column; }
 /* Footer column/stack order (mobile flex + desktop grid): Services · Votre Visite · Tirage · Guides */
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
 .sf-nav #sfGuides { order: 4; }
 .sf-nav #sfFormulaires { order: 5; }
-.sf-nav-label { display:block; font-size:0.60rem; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; padding:0.8rem 1.6rem 0.38rem; }
-.sf-nav-label:not(#_) { color:rgba(201,160,96,0.85) !important; }
-.sf-link { display:flex; align-items:center; justify-content:space-between; padding:0.65rem 1.6rem; border-bottom:1px solid rgba(255,255,255,0.05); color:rgba(245,237,227,0.65); text-decoration:none; transition:background 0.18s, color 0.18s; }
-.sf-link:hover { background:rgba(255,255,255,0.03); color:rgba(245,237,227,0.95); }
-.sf-link-left { display:flex; align-items:center; gap:0.95rem; font-size:0.88rem; font-weight:300; line-height:1; }
-.sf-link-icon { width:18px; height:18px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
-.sf-link-icon svg { width:18px; height:18px; stroke:rgba(201,160,96,0.72); stroke-width:1.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.sf-chevron { width:13px; height:13px; flex-shrink:0; stroke:rgba(245,237,227,0.25); stroke-width:2; fill:none; }
-.sf-link:hover .sf-chevron { stroke:rgba(245,237,227,0.60); }
-.sf-social-area { display:flex; flex-direction:column; align-items:center; padding:1.2rem 1.5rem 0.9rem; gap:0.7rem; border-top:1px solid rgba(255,255,255,0.05); }
-.sf-socials { display:flex; gap:1.8rem; }
-.sf-social-btn { color:rgba(245,237,227,0.38); text-decoration:none; transition:color 0.2s; display:flex; }
-.sf-social-btn:hover { color:rgba(245,237,227,0.80); }
-.sf-legal { padding:0 1.5rem 1.2rem; text-align:center; font-size:0.70rem; color:rgba(245,237,227,0.20); display:flex; flex-wrap:wrap; justify-content:center; gap:0.3rem 0.8rem; }
-.sf-legal a { color:rgba(245,237,227,0.28); text-decoration:none; transition:color 0.2s; }
-.sf-legal a:hover { color:rgba(245,237,227,0.55); }
-.sf-legal-sep { opacity:0.3; }
+.sf-nav-group { }
+.sf-nav-label {
+  display: block;
+  font-size: 0.60rem; font-weight: 600; letter-spacing: 0.26em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem 0.38rem;
+}
+.sf-nav-label:not(#_) { color: rgba(201,160,96,0.85) !important; }
+.sf-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 1.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(245,237,227,0.65);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+.sf-link:hover { background: rgba(255,255,255,0.03); color: rgba(245,237,227,0.95); }
+.sf-link-left { display: flex; align-items: center; gap: 0.95rem; font-size: 0.88rem; font-weight: 300; line-height: 1; }
+.sf-link-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.sf-link-icon svg { width: 18px; height: 18px; stroke: rgba(201,160,96,0.72); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.sf-chevron { width: 13px; height: 13px; flex-shrink: 0; stroke: rgba(245,237,227,0.25); stroke-width: 2; fill: none; }
+.sf-link:hover .sf-chevron { stroke: rgba(245,237,227,0.60); }
+
+/* ── Social ── */
+.sf-social-area {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1.2rem 1.5rem 0.9rem; gap: 0.7rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.sf-socials { display: flex; gap: 1.8rem; }
+.sf-social-btn { color: rgba(245,237,227,0.38); text-decoration: none; transition: color 0.2s; display: flex; }
+.sf-social-btn:hover { color: rgba(245,237,227,0.80); }
+
+/* ── Legal ── */
+.sf-legal {
+  padding: 0 1.5rem 1.2rem;
+  text-align: center; font-size: 0.70rem;
+  color: rgba(245,237,227,0.20);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 0.8rem;
+}
+.sf-legal a { color: rgba(245,237,227,0.28); text-decoration: none; transition: color 0.2s; }
+.sf-legal a:hover { color: rgba(245,237,227,0.55); }
+.sf-legal-sep { opacity: 0.3; }
 
 /* ── DESKTOP — footer currently stays mobile-narrow at all widths; give it a centered, multi-column layout ── */
 @media (min-width: 981px) {
@@ -1699,6 +2076,258 @@ html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !impo
 @media (min-width: 981px) {
   .sf-exclusive-card { margin: 0; height: auto; width: 100%; }
 }
+
+/* ── Mobile nav logo fix ── */
+
+.mobile-nav-header { padding: 1.15rem 1.4rem !important; margin-bottom: 0 !important; border-bottom: 1px solid rgba(245,237,227,0.07) !important; position: sticky !important; top: 0 !important; }
+.mobile-nav-close { background: none !important; border: 1px solid rgba(245,237,227,0.2) !important; color: rgba(245,237,227,0.75) !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; cursor: pointer !important; font-size: 1.4rem !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.mobile-nav-links { padding: 0.6rem 1.4rem !important; }
+.mobile-nav-footer { padding: 1.4rem !important; gap: 0.8rem !important; }
+
+/* ══ MOBILE NAV — PREMIUM REDESIGN ══ */
+#mobileNav { background: #684034 !important; }
+#mobileNav .mobile-nav-header {
+  background: #684034 !important;
+  border-bottom: 1px solid rgba(201,160,96,0.18) !important;
+  padding: 1.3rem 1.5rem !important;
+  margin-bottom: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+}
+
+#mobileNav .mobile-nav-header 
+#mobileNav .mobile-nav-header 
+#mobileNav .mobile-nav-close {
+  background: none !important; border: 1px solid rgba(201,160,96,0.25) !important;
+  color: rgba(245,237,227,0.65) !important; width: 42px !important; height: 42px !important;
+  border-radius: 50% !important; font-size: 1.1rem !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+}
+#mobileNav .mobile-nav-links { padding: 0.8rem 1.5rem !important; overflow: visible !important; flex: unset !important; }
+html body div#mobileNav ul.mobile-nav-links li { border-bottom: 1px solid rgba(201,160,96,0.1) !important; border-radius: 0 !important; }
+html body div#mobileNav ul.mobile-nav-links li a,
+html body div#mobileNav ul.mobile-nav-links li a span,
+html body div#mobileNav ul.mobile-nav-links li a *,
+html body div#mobileNav ul.mobile-nav-links li:first-child a,
+html body div#mobileNav ul.mobile-nav-links li:first-child a * {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  color: rgba(245,237,227,0.88) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.20em !important;
+  display: block !important;
+  padding: 0.88rem 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  transition: color 0.25s !important;
+}
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub,
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub span,
+html body div#mobileNav ul.mobile-nav-links li a.nav-sub * {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 0.74rem !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(245,237,227,0.55) !important;
+  padding: 0.8rem 0 !important;
+}
+html body div#mobileNav ul.mobile-nav-links li a.menu-active,
+html body div#mobileNav ul.mobile-nav-links li a.menu-active span,
+html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
+  color: rgba(201,160,96,0.9) !important;
+  border: none !important;
+  background: transparent !important;
+  display: block !important;
+}
+#mobileNav .mobile-nav-footer { padding: 1.4rem 1.5rem !important; border-top: 1px solid rgba(201,160,96,0.12) !important; gap: 0.9rem !important; }
+#mobileNav .btn-dark {
+  background: rgba(201,160,96,0.12) !important; border: 1px solid rgba(201,160,96,0.32) !important;
+  color: rgba(201,160,96,0.92) !important; font-family: "DM Sans", sans-serif !important;
+  font-size: 0.72rem !important; letter-spacing: 0.25em !important;
+  padding: 1rem !important; text-align: center !important; text-decoration: none !important;
+  display: block !important; border-radius: 0 !important; transition: all 0.25s !important;
+}
+#mobileNav .btn-dark:not(#_) { color: #ffffff !important; }
+#mobileNav .btn-dark span:not(#_) { color: inherit !important; }
+#mobileNav .mobile-contact { color: rgba(245,237,227,0.3) !important; font-size: 0.74rem !important; text-align: center !important; }
+#mobileNav .mobile-contact a { color: rgba(245,237,227,0.5) !important; text-decoration: none !important; font-family: "DM Sans", sans-serif !important; }
+#mobileNav .mobile-lang-btn { color: rgba(245,237,227,0.32) !important; }
+#mobileNav .mobile-lang-btn.active { color: rgba(201,160,96,0.85) !important; }
+#mobileNav .mobile-lang-sep { color: rgba(245,237,227,0.15) !important; }
+#mobileNav .sp-menu-trigger-wrap { padding: 16px 1.5rem 8px !important; }
+#mobileNav .sp-menu-trigger {
+  background: rgb(232,211,163) !important; border: none !important;
+  border-radius: 10px !important; padding: 14px 18px !important; width: 100% !important;
+  display: flex !important; flex-direction: column !important; align-items: center !important; gap: 4px !important;
+}
+#mobileNav .sp-menu-trigger-lotus { display: none !important; }
+#mobileNav .sp-menu-trigger-label {
+  font-family: "DM Sans", sans-serif !important; font-size: 1.05rem !important;
+  letter-spacing: 0.22em !important; text-transform: uppercase !important;
+  color: #684034 !important; font-weight: 600 !important;
+  display: block !important; padding: 0 !important; border: none !important;
+}
+#mobileNav .sp-menu-trigger-sub {
+  font-family: "DM Sans", sans-serif !important; font-size: 0.6rem !important;
+  letter-spacing: 0.2em !important; text-transform: uppercase !important;
+  color: rgba(104,64,52,0.55) !important; font-weight: 400 !important;
+  display: block !important; padding: 0 !important; border: none !important;
+}
+
+/* ══ NAV BAR — CREATIVE REDESIGN ══ */
+@media (max-width: 980px) {
+  /* Grid column swap: search LEFT (col 1), hamburger RIGHT (col 3) */
+  .nav-search-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: flex-start !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .menu-btn {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: flex-end !important;
+  }
+
+    /* Hamburger: stone shape */
+  .menu-btn span {
+    height: 3px !important;
+    background: currentColor !important;
+    border-radius: 4px !important;
+    display: block !important;
+    transition: transform 0.3s, opacity 0.3s, width 0.3s !important;
+  }
+  .menu-btn span:nth-child(1) { width: 16px !important; transform: translateY(-5px) !important; }
+  .menu-btn span:nth-child(2) { width: 22px !important; }
+  .menu-btn span:nth-child(3) { width: 30px !important; transform: translateY(5px) !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(0) rotate(45deg) !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(0) rotate(-45deg) !important; width: 22px !important; }
+
+  /* Search button: cleaner circle */
+  .nav-search-btn {
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Gold accent line on scroll */
+  nav.nav-scrolled::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 5% !important;
+    width: 90% !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(201,160,96,0.35), transparent) !important;
+  }
+
+  /* Mobile nav header: logo LEFT, close RIGHT */
+  .mobile-nav-header {
+    flex-direction: row !important;
+  }
+  .mobile-nav-close {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* ══ NAV UNIVERSEL — COHÉRENCE GLOBALE ══ */
+@media (max-width: 980px) {
+  /* Grid structure */
+  html body nav {
+    display: grid !important;
+    grid-template-columns: 48px 1fr 48px !important;
+    grid-template-rows: 1fr !important;
+    align-items: center !important;
+    padding: 1.1rem 1.5rem !important;
+    gap: 0 !important;
+  }
+
+  /* Logo: absolute center */
+  
+
+  /* Logo text: Cormorant Garamond, same size everywhere */
+  html body nav {}
+
+  /* Logo sub: same small caps */
+  html body nav {}
+
+  /* Search button: column 1, same circle */
+  html body nav .nav-search-btn {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: flex-start !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    cursor: pointer !important;
+    border: 1.5px solid currentColor !important;
+    opacity: 0.6 !important;
+  }
+  html body nav .nav-search-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Hamburger: column 3 */
+  html body nav .menu-btn {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: flex-end !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 5px !important;
+    padding: 0.25rem !important;
+  }
+  html body nav .menu-btn span {
+    display: block !important;
+    height: 3px !important;
+    background: currentColor !important;
+    border-radius: 4px !important;
+    transition: transform 0.3s, opacity 0.3s, width 0.3s !important;
+  }
+  html body nav .menu-btn span:nth-child(1) { width: 16px !important; }
+  html body nav .menu-btn span:nth-child(2) { width: 22px !important; }
+  html body nav .menu-btn span:nth-child(3) { width: 30px !important; }
+  html body nav .menu-btn[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg) !important;
+    width: 22px !important;
+  }
+  html body nav .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0 !important; }
+  html body nav .menu-btn[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg) !important;
+    width: 22px !important;
+  }
+
+  /* Hide desktop-only elements */
+  html body nav ul.nav-links,
+  html body nav a.nav-cta { display: none !important; }
+}
+/* STONE-FINAL */
+html body nav .menu-btn { align-items: center !important; gap: 5px !important; -webkit-appearance: none !important; }
+html body nav .menu-btn span { height: 1.5px !important; border-radius: 1px !important; display: block !important; opacity: 1 !important; visibility: visible !important; transition: transform 0.3s, opacity 0.3s, width 0.3s !important; background: #684034 !important; }
+html body nav:not(.nav-scrolled) .menu-btn span { background: #684034 !important; }
+html body nav.nav-scrolled .menu-btn span { background: #684034 !important; }
+html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
+html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
+html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 
 /* ── Skines nav: refined spacing ── */
 #mobileNav {
@@ -1845,179 +2474,6 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   user-select: none !important;
 }
 </style>
-
-<div id="top"></div>
-
-<!-- ══ HEADER ══ -->
-<div class="dirs-header fade-up">
-  <h1><span data-i18n="visitUs.heroTitle">Directions &amp; Accessibility</span></h1>
-  <div class="dirs-divider">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="#C9A060" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="12" cy="12" r="2" fill="#C9A060"/>
-    </svg>
-  </div>
-  <p class="dirs-subtitle" data-en="Everything you need to arrive in comfort — by car, metro, or on foot." data-fr="Tout ce dont vous avez besoin pour arriver confortablement — en voiture, en métro ou à pied.">Everything you need to arrive in comfort — by car, metro, or on foot.</p>
-</div>
-
-<!-- ══ CARDS ══ -->
-<div class="dirs-cards">
-
-  <!-- ─ Card 1: Our Location ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/storefront.webp" alt="Skines Head Spa" loading="eager">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-gold">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <span class="cin-label" data-en="Our Location" data-fr="Notre Adresse">Our Location</span>
-        </div>
-        <h3 class="cin-title">Skines</h3>
-        <p class="cin-desc">19 Avenue Shamrock<br>Montréal, QC H2S 1A3</p>
-      </div>
-    </div>
-    <div class="cin-cta-pair">
-      <a class="cta-pair-primary cta-gold" href="https://maps.google.com/?q=Skines+Med+Spa+19+Av+Shamrock+Montreal" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div>
-          <div class="cta-pair-name" data-en="Open Skines" data-fr="Ouvrir Skines">Open Skines</div>
-          <div class="cta-pair-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </a>
-      <button class="cta-pair-outline" onclick="(function(){navigator.clipboard.writeText('19 Avenue Shamrock, Montréal, QC H2S 1A3');var el=document.getElementById('copy-confirm');el.style.opacity='1';setTimeout(function(){el.style.opacity='0';},2200);})()">
-        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        <span data-en="Copy Address" data-fr="Copier l'adresse">Copy Address</span>
-      </button>
-      <span id="copy-confirm">Copied ✓</span>
-    </div>
-  </div>
-
-  <!-- ─ Card 2: Jean-Talon Metro ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/metro-jean-talon.webp" alt="Jean-Talon Metro Station" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-blue">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.2"/><line x1="12" y1="7" x2="12" y2="17" stroke-width="2"/><polyline points="8 13 12 17 16 13" stroke-width="2"/></svg>
-          </div>
-          <span class="cin-label" data-en="Coming by Metro?" data-fr="En métro ?">Coming by Metro?</span>
-        </div>
-        <h3 class="cin-title">Jean-Talon<br>Metro</h3>
-        <p class="cin-desc" data-en="A short walk from Jean-Talon Station." data-fr="À quelques minutes à pied de la station Jean-Talon.">A short walk from Jean-Talon Station.</p>
-        <div class="cin-walk">
-          <svg viewBox="0 0 24 24"><path d="M13 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5 4l-1.5 4 2 1.5-.5 5h1.5l1-4 2 2v4h1.5v-5l-2-2 .5-4-1.5-1.5z"/></svg>
-          <span data-en="5 min walk" data-fr="5 min à pied">5 min walk</span>
-        </div>
-      </div>
-    </div>
-    <a class="cin-cta cta-blue" href="https://maps.google.com/?q=Jean-Talon+Metro+Station+Montreal" target="_blank" rel="noreferrer">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="17"/><polyline points="8 13 12 17 16 13"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Open Jean-Talon Metro" data-fr="Ouvrir Métro Jean-Talon">Open Jean-Talon Metro</div>
-          <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-  <!-- ─ Card 3: De Castelnau Metro ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/metro-castelnau.webp" alt="De Castelnau Metro Station" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-blue">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.2"/><line x1="12" y1="7" x2="12" y2="17" stroke-width="2"/><polyline points="8 13 12 17 16 13" stroke-width="2"/></svg>
-          </div>
-          <span class="cin-label" data-en="Coming by Metro?" data-fr="En métro ?">Coming by Metro?</span>
-        </div>
-        <h3 class="cin-title">De Castelnau<br>Metro</h3>
-        <p class="cin-desc" data-en="Just a short walk from Skines Head Spa &amp; Wellness." data-fr="À deux pas de Skines Head Spa &amp; Wellness.">Just a short walk from Skines Head Spa &amp; Wellness.</p>
-        <div class="cin-walk">
-          <svg viewBox="0 0 24 24"><path d="M13 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5 4l-1.5 4 2 1.5-.5 5h1.5l1-4 2 2v4h1.5v-5l-2-2 .5-4-1.5-1.5z"/></svg>
-          <span data-en="6–8 min walk" data-fr="6–8 min à pied">6–8 min walk</span>
-        </div>
-      </div>
-    </div>
-    <a class="cin-cta cta-blue" href="https://maps.google.com/?q=Station+De+Castelnau+Metro+Montreal" target="_blank" rel="noreferrer">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="17"/><polyline points="8 13 12 17 16 13"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Open De Castelnau Metro" data-fr="Ouvrir Métro De Castelnau">Open De Castelnau Metro</div>
-          <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-  <!-- ─ Card 4: Private Parking ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/parking-satellite.webp" alt="Private Parking" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-muted">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <span class="cin-label" data-en="Driving to Skines?" data-fr="En voiture ?">Driving to Skines?</span>
-        </div>
-        <h3 class="cin-title">Private<br>Parking</h3>
-        <p class="cin-desc" data-en="A complimentary space reserved exclusively for you, for the entire duration of your appointment." data-fr="Un espace gratuit réservé exclusivement pour vous, pour toute la durée de votre rendez-vous.">A complimentary space reserved exclusively for you, for the entire duration of your appointment.</p>
-      </div>
-    </div>
-    <a class="cin-cta cta-espresso" href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal+QC" target="_blank" rel="noreferrer">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Navigate to Private Parking" data-fr="Naviguer vers le Stationnement">Navigate to Private Parking</div>
-          <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-  <!-- ─ Card 5: Call Skines ─ -->
-  <div class="cin-card fade-up">
-    <div class="cin-hero">
-      <img src="assets/images/visit-us/concierge-bell.webp" alt="Skines concierge" loading="lazy">
-      <div class="cin-overlay"></div>
-      <div class="cin-body">
-        <div class="cin-icon-row">
-          <div class="cin-dot dot-warm">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.9 9.69 19.79 19.79 0 0 1 .87 6.05 2 2 0 0 1 2.86 3.87h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 11.1a16 16 0 0 0 6.29 6.29l1.51-1.51a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <span class="cin-label" data-en="Need Assistance?" data-fr="Besoin d'aide ?">Need Assistance?</span>
-        </div>
-        <h3 class="cin-title">We're Here<br>to Help</h3>
-        <p class="cin-desc" data-en="Call us when you arrive and we'll gladly guide you to our entrance." data-fr="Appelez-nous à votre arrivée et nous vous guiderons jusqu'à l'entrée avec plaisir.">Call us when you arrive and we'll gladly guide you to our entrance.</p>
-      </div>
-    </div>
-    <a class="cin-cta cta-phone" href="tel:+14382605660">
-      <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.9 9.69 19.79 19.79 0 0 1 .87 6.05 2 2 0 0 1 2.86 3.87h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 11.1a16 16 0 0 0 6.29 6.29l1.51-1.51a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <div>
-          <div class="cin-cta-name" data-en="Call Skines" data-fr="Appeler Skines">Call Skines</div>
-          <div class="cin-cta-hint">+1 (438) 260–5660</div>
-        </div>
-      </div>
-      <div class="cin-cta-arr"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-  </div>
-
-</div><!-- /.dirs-cards -->
-
-
 <footer class="site-footer">
   <div class="sf-logo-area">
     <a class="sf-logo" href="/">
@@ -2221,6 +2677,14 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   }, {passive: true});
 })();
 
+/* ── sp-menu-trigger → tirage ── */
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    var trig = document.getElementById('sp-menu-trigger');
+    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
+  });
+})();
+
 /* ── Mobile nav ── */
 (function(){
   const btn = document.getElementById('menuBtn');
@@ -2237,14 +2701,6 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
   const btn = document.getElementById('scrollTop');
   window.addEventListener('scroll', function(){ btn.classList.toggle('visible', window.scrollY > 400); }, {passive:true});
   btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-})();
-
-/* ── sp-menu-trigger → tirage ── */
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
-    var trig = document.getElementById('sp-menu-trigger');
-    if (trig) trig.addEventListener('click', function(){ window.location.href = '/tirage'; });
-  });
 })();
 
 /* ── Fade-up on scroll ── */
