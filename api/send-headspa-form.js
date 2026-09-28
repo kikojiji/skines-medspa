@@ -65,6 +65,8 @@ const SCALP_CONDITION_LABELS = {
   dermatite: 'Dermatite',
   hypertension: 'Hypertension ou trouble cardiaque',
   migraines: 'Migraines fréquentes',
+  coagulation: 'Troubles de la coagulation ou anticoagulants',
+  chimioRadio: 'Chimiothérapie ou radiothérapie en cours',
   chirurgieRecente: 'Chirurgie ou blessure récente au cuir chevelu / à la tête',
   injections: 'Injections récentes (Botox, fillers) au visage, cou ou cuir chevelu',
 };
@@ -250,7 +252,7 @@ export default async function handler(req, res) {
         <p style="margin:0 0 6px;"><strong>Service :</strong> ${safeService}</p>
         <p style="margin:0 0 14px;"><strong>Date de rendez-vous indiquée :</strong> ${safeAppt}</p>
         ${!hasAppointment ? '<p style="margin:0 0 14px;padding:12px 14px;background:#EEF3FA;border-radius:6px;color:#2E5A8A;"><strong>Demande de consultation</strong> — aucun rendez-vous réservé. La cliente a été informée d\'une réponse sous 72 heures.</p>' : ''}
-        ${isPregnant ? '<p style="margin:0 0 14px;padding:12px 14px;background:#FDF0EC;border-radius:6px;color:#9A3520;"><strong>Grossesse ou allaitement déclaré :</strong> adapter le protocole (pression, positionnement) avant la séance.</p>' : ''}
+        ${isPregnant ? '<p style="margin:0 0 14px;padding:12px 14px;background:#FDF0EC;border-radius:6px;color:#9A3520;"><strong>Grossesse ou allaitement déclaré :</strong> adapter le protocole (pression, positionnement, choix des huiles) avant la séance.</p>' : ''}
         <p style="margin:0 0 6px;"><strong>Objectifs :</strong></p>
         <div style="margin:0 0 14px;">${concernsHtml}</div>
         <p style="margin:0 0 6px;"><strong>Traitements capillaires récents :</strong></p>
