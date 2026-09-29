@@ -1627,6 +1627,11 @@ html body nav .nav-search-btn:hover { border-color: rgba(245,237,227,0.55) !impo
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
 .sf-nav #sfRessources { order: 4; }
+@media (max-width: 980px) {
+  .sf-nav #sfRessources { order: 2; }
+  .sf-nav #sfVisite { order: 3; }
+  .sf-nav .sf-nav-exclusive { order: 4; }
+}
 
 .sf-nav-label { display:block; font-size:0.60rem; font-weight:600; letter-spacing:0.26em; text-transform:uppercase; padding:0.8rem 1.6rem 0.38rem; }
 .sf-nav-label:not(#_) { color:rgba(201,160,96,0.85) !important; }

@@ -8976,10 +8976,16 @@ input, textarea, select {
 
 /* ── Nav sections ── */
 .sf-nav { padding: 0.8rem 0 0; display: flex; flex-direction: column; }
-/* Footer column/stack order (both mobile flex + desktop grid): Services · Votre Visite · Tirage */
+/* Footer column/stack order (desktop grid): Services · Votre Visite · Tirage · Ressources */
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
 .sf-nav #sfRessources { order: 4; }
+/* Mobile/tablet stack order only: Services · Ressources · Votre Visite · Tirage (last) */
+@media (max-width: 980px) {
+  .sf-nav #sfRessources { order: 2; }
+  .sf-nav #sfVisite { order: 3; }
+  .sf-nav .sf-nav-exclusive { order: 4; }
+}
 .sf-nav-group { }
 .sf-nav-label {
   display: block;
