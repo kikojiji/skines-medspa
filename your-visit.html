@@ -1225,6 +1225,23 @@ a.sf-logo {
   }
 }
 
+
+/* Unified mobile-nav theme. Reserver stays brand cream/maroon per permanent
+   booking-button rule (links to Fresha). Cartes Cadeaux / Tirage match the
+   Votre Visite outline style instead of a solid card, per owner feedback. */
+html body #mobileNav .btn-dark:not(#_):not(#__) { background: #F5EDE3 !important; color: #684034 !important; border-color: #F5EDE3 !important; }
+html body #mobileNav .btn-dark span:not(#_):not(#__) { color: #684034 !important; }
+html body #mobileNav .mnav-toplink:not(#_):not(#__) { background: rgba(201,160,96,0.09) !important; border: 1px solid rgba(201,160,96,0.32) !important; border-radius: 10px !important; }
+html body #mobileNav .mnav-toplink .mnav-toplink-label:not(#_):not(#__) { color: rgba(245,237,227,0.92) !important; }
+html body #mobileNav .mnav-toplink .mnav-toplink-sub:not(#_):not(#__) { color: rgba(245,237,227,0.55) !important; }
+html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { background: rgba(201,160,96,0.09) !important; border: 1px solid rgba(201,160,96,0.32) !important; border-radius: 10px !important; }
+html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__) { color: rgba(245,237,227,0.92) !important; }
+html body #mobileNav .sp-menu-trigger-sub:not(#_):not(#__) { color: rgba(245,237,227,0.55) !important; }
+html body #mobileNav .sp-menu-trigger-lotus:not(#_):not(#__) svg { stroke: rgba(245,237,227,0.85) !important; }
+html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { justify-content: center !important; }
+html body #mobileNav .sp-menu-trigger-textwrap:not(#_):not(#__) { align-items: center !important; }
+html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
+html body #mobileNav .sp-menu-trigger-sub:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
 </style>
 <style id="animations-css-inline">
 /* ══ Skines — Unified Animation System ══
@@ -1486,6 +1503,8 @@ input, textarea, select {
           <a href="/visit-us" data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</a>
           <a href="/parking" data-fr="Stationnement" data-en="Private Parking">Stationnement</a>
           <a href="/insurance" data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</a>
+          <a href="/guides" data-fr="Guides Skines" data-en="Skines Guides">Guides Skines</a>
+          <a href="/formulaires" data-fr="Formulaires" data-en="Forms">Formulaires</a>
         </div>
       </div>
       <a class="mnav-toplink" href="/cartes-cadeaux"><span class="mnav-toplink-label" data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span><span class="mnav-toplink-sub" data-fr="Offrez un moment à ceux que vous aimez" data-en="Gift a moment to those you love">Offrez un moment à ceux que vous aimez</span></a>
@@ -1499,28 +1518,6 @@ input, textarea, select {
         </span>
       </button>
     </div>
-      <div class="mnav-acc" id="mnavGuides">
-        <button class="mnav-acc-btn" type="button" aria-expanded="false">
-          <span data-fr="Guide Skines" data-en="Skines Guide">Guide Skines</span>
-          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
-        </button>
-        <div class="mnav-acc-panel">
-          <a href="/head-spa-guide" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a>
-          <a href="/laser-guide" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a>
-          <a href="/facial-guide" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a>
-        </div>
-      </div>
-      <div class="mnav-acc" id="mnavFormulaires">
-        <button class="mnav-acc-btn" type="button" aria-expanded="false">
-          <span data-fr="Formulaires" data-en="Forms">Formulaires</span>
-          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
-        </button>
-        <div class="mnav-acc-panel">
-          <a href="/formulaire-headspa" data-fr="Formulaire Head Spa" data-en="Head Spa Form">Formulaire Head Spa</a>
-          <a href="/formulaire-sante" data-fr="Formulaire de Santé (Laser)" data-en="Health Form (Laser)">Formulaire de Santé (Laser)</a>
-          <a href="/formulaire-facial" data-fr="Fiche de Consultation Facial" data-en="Facial Consultation Form">Fiche de Consultation Facial</a>
-        </div>
-      </div>
     <div class="mobile-nav-footer">
       <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>

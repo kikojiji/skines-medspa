@@ -376,11 +376,12 @@ a.sf-logo {
   padding-top: 1.5rem !important;
 }
 .btn-dark {
-  background: rgba(245,237,227,0.12) !important;
-  color: rgba(245,237,227,0.88) !important;
-  border: 1px solid rgba(245,237,227,0.2) !important;
+  background: #F5EDE3 !important;
+  color: #684034 !important;
+  border: 1.5px solid #F5EDE3 !important;
   padding: 1rem !important;
   font-size: 0.76rem !important;
+  font-weight: 600 !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
   text-align: center !important;
@@ -389,8 +390,8 @@ a.sf-logo {
   transition: all 0.25s !important;
 }
 .btn-dark:hover {
-  background: rgba(245,237,227,0.18) !important;
-  border-color: rgba(245,237,227,0.35) !important;
+  background: rgb(238,227,211) !important;
+  border-color: rgb(238,227,211) !important;
 }
 .mobile-contact {
   font-size: 0.8rem !important;

@@ -7285,8 +7285,8 @@ a.sf-logo {
 }
 .sp-menu-trigger {
   width: 100% !important;
-  background: rgb(232,211,163) !important;
-  border: none !important;
+  background: #F5EDE3 !important;
+  border: 1.5px solid #F5EDE3 !important;
   border-radius: 14px !important;
   padding: 14px 18px !important;
   cursor: pointer !important;
@@ -7296,7 +7296,7 @@ a.sf-logo {
   gap: 3px !important;
   transition: background 0.25s !important;
 }
-.sp-menu-trigger:hover { background: rgb(220,198,148) !important; }
+.sp-menu-trigger:hover { background: rgb(238,227,211) !important; }
 .sp-menu-trigger-lotus { display: none !important; }
 .sp-menu-trigger-label {
   font-family: "DM Sans", sans-serif !important;
@@ -7382,6 +7382,23 @@ a.sf-logo {
   }
 }
 
+
+/* Unified mobile-nav theme. Reserver stays brand cream/maroon per permanent
+   booking-button rule (links to Fresha). Cartes Cadeaux / Tirage match the
+   Votre Visite outline style instead of a solid card, per owner feedback. */
+html body #mobileNav .btn-dark:not(#_):not(#__) { background: #F5EDE3 !important; color: #684034 !important; border-color: #F5EDE3 !important; }
+html body #mobileNav .btn-dark span:not(#_):not(#__) { color: #684034 !important; }
+html body #mobileNav .mnav-toplink:not(#_):not(#__) { background: rgba(201,160,96,0.09) !important; border: 1px solid rgba(201,160,96,0.32) !important; border-radius: 10px !important; }
+html body #mobileNav .mnav-toplink .mnav-toplink-label:not(#_):not(#__) { color: rgba(245,237,227,0.92) !important; }
+html body #mobileNav .mnav-toplink .mnav-toplink-sub:not(#_):not(#__) { color: rgba(245,237,227,0.55) !important; }
+html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { background: rgba(201,160,96,0.09) !important; border: 1px solid rgba(201,160,96,0.32) !important; border-radius: 10px !important; }
+html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__) { color: rgba(245,237,227,0.92) !important; }
+html body #mobileNav .sp-menu-trigger-sub:not(#_):not(#__) { color: rgba(245,237,227,0.55) !important; }
+html body #mobileNav .sp-menu-trigger-lotus:not(#_):not(#__) svg { stroke: rgba(245,237,227,0.85) !important; }
+html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { justify-content: center !important; }
+html body #mobileNav .sp-menu-trigger-textwrap:not(#_):not(#__) { align-items: center !important; }
+html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
+html body #mobileNav .sp-menu-trigger-sub:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
 </style>
 <style id="animations-css-inline">
 /* ══ Skines — Unified Animation System ══
@@ -7702,6 +7719,8 @@ input, textarea, select {
           <a href="/visit-us" data-fr="Contact &amp; Adresse" data-en="Contact &amp; Address">Contact &amp; Adresse</a>
           <a href="/parking" data-fr="Stationnement" data-en="Private Parking">Stationnement</a>
           <a href="/insurance" data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</a>
+          <a href="/guides" data-fr="Guides Skines" data-en="Skines Guides">Guides Skines</a>
+          <a href="/formulaires" data-fr="Formulaires" data-en="Forms">Formulaires</a>
         </div>
       </div>
       <a class="mnav-toplink" href="/cartes-cadeaux"><span class="mnav-toplink-label" data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span><span class="mnav-toplink-sub" data-fr="Offrez un moment à ceux que vous aimez" data-en="Gift a moment to those you love">Offrez un moment à ceux que vous aimez</span></a>
@@ -7715,28 +7734,6 @@ input, textarea, select {
         </span>
       </button>
     </div>
-      <div class="mnav-acc" id="mnavGuides">
-        <button class="mnav-acc-btn" type="button" aria-expanded="false">
-          <span data-fr="Guide Skines" data-en="Skines Guide">Guide Skines</span>
-          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
-        </button>
-        <div class="mnav-acc-panel">
-          <a href="/head-spa-guide" data-fr="Guide Head Spa" data-en="Head Spa Guide">Guide Head Spa</a>
-          <a href="/laser-guide" data-fr="Guide Laser" data-en="Laser Guide">Guide Laser</a>
-          <a href="/facial-guide" data-fr="Guide Facial" data-en="Facial Guide">Guide Facial</a>
-        </div>
-      </div>
-      <div class="mnav-acc" id="mnavFormulaires">
-        <button class="mnav-acc-btn" type="button" aria-expanded="false">
-          <span data-fr="Formulaires" data-en="Forms">Formulaires</span>
-          <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
-        </button>
-        <div class="mnav-acc-panel">
-          <a href="/formulaire-headspa" data-fr="Formulaire Head Spa" data-en="Head Spa Form">Formulaire Head Spa</a>
-          <a href="/formulaire-sante" data-fr="Formulaire de Santé (Laser)" data-en="Health Form (Laser)">Formulaire de Santé (Laser)</a>
-          <a href="/formulaire-facial" data-fr="Fiche de Consultation Facial" data-en="Facial Consultation Form">Fiche de Consultation Facial</a>
-        </div>
-      </div>
     <div class="mobile-nav-footer">
       <a class="btn-dark" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
       <p class="mobile-contact"><a href="tel:+14382605660">+1 (438) 260-5660</a> · <a href="mailto:Info@skines.ca">Info@skines.ca</a></p>
@@ -9772,8 +9769,8 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 }
 .sp-menu-trigger {
   width: 100%;
-  background: rgb(232,211,163);
-  border: none;
+  background: #F5EDE3;
+  border: 1.5px solid #F5EDE3;
   border-radius: 14px;
   padding: 14px 18px;
   cursor: pointer;
@@ -9783,7 +9780,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
 }
 .sp-menu-trigger::before { display: none; }
-.sp-menu-trigger:hover { background: rgb(220,198,148); }
+.sp-menu-trigger:hover { background: rgb(238,227,211); }
 .sp-menu-trigger-lotus { display: none; }
 .sp-menu-trigger-label {
   font-family: "Old Standard TT", serif;
@@ -10002,34 +9999,34 @@ html body .sp-menu-trigger-wrap {
   padding: 10px 24px 6px !important;
 }
 html body .sp-menu-trigger {
-  background: #A07848 !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
+  background: #F5EDE3 !important;
+  border: 1.5px solid #F5EDE3 !important;
   border-radius: 6px !important;
   box-shadow: 0 2px 12px rgba(0,0,0,0.18) !important;
 }
 html body .sp-menu-trigger:hover {
-  background: #B58A56 !important;
+  background: rgb(238,227,211) !important;
 }
 html body .sp-menu-trigger-label {
-  color: #ffffff !important;
+  color: #684034 !important;
   letter-spacing: 0.12em !important;
 }
 html body .sp-menu-trigger-sub {
-  color: rgba(255,255,255,0.70) !important;
+  color: rgba(104,64,52,0.70) !important;
   letter-spacing: 0.06em !important;
 }
 html body .mobile-nav .mobile-nav-footer .btn-dark,
 html body .mobile-nav .mobile-nav-footer a.btn-dark {
-  background: #A07848 !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
-  color: #ffffff !important;
+  background: #F5EDE3 !important;
+  border: 1.5px solid #F5EDE3 !important;
+  color: #684034 !important;
   letter-spacing: 0.14em !important;
 }
 html body .mobile-nav .mobile-nav-footer .btn-dark:hover,
 html body .mobile-nav .mobile-nav-footer a.btn-dark:hover {
-  background: #B58A56 !important;
-  border-color: rgba(255,255,255,0.20) !important;
-  color: #ffffff !important;
+  background: rgb(238,227,211) !important;
+  border-color: rgb(238,227,211) !important;
+  color: #684034 !important;
 }
 html body .mobile-lang-btn {
   background: none !important;
@@ -10952,13 +10949,13 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 }
 #mobileNav .mobile-nav-footer { padding: 1.4rem 1.5rem !important; border-top: 1px solid rgba(201,160,96,0.12) !important; gap: 0.9rem !important; }
 #mobileNav .btn-dark {
-  background: rgba(201,160,96,0.12) !important; border: 1px solid rgba(201,160,96,0.32) !important;
-  color: rgba(201,160,96,0.92) !important; font-family: "DM Sans", sans-serif !important;
+  background: #F5EDE3 !important; border: 1.5px solid #F5EDE3 !important;
+  color: #684034 !important; font-family: "DM Sans", sans-serif !important;
   font-size: 0.72rem !important; letter-spacing: 0.25em !important;
   padding: 1rem !important; text-align: center !important; text-decoration: none !important;
   display: block !important; border-radius: 0 !important; transition: all 0.25s !important;
 }
-#mobileNav .btn-dark:not(#_) { color: #ffffff !important; }
+#mobileNav .btn-dark:not(#_) { color: #684034 !important; }
 #mobileNav .btn-dark span:not(#_) { color: inherit !important; }
 #mobileNav .mobile-contact { color: rgba(245,237,227,0.3) !important; font-size: 0.74rem !important; text-align: center !important; }
 #mobileNav .mobile-contact a { color: rgba(245,237,227,0.5) !important; text-decoration: none !important; font-family: "DM Sans", sans-serif !important; }
@@ -10967,7 +10964,7 @@ html body div#mobileNav ul.mobile-nav-links li a.menu-active * {
 #mobileNav .mobile-lang-sep { color: rgba(245,237,227,0.15) !important; }
 #mobileNav .sp-menu-trigger-wrap { padding: 16px 1.5rem 8px !important; }
 #mobileNav .sp-menu-trigger {
-  background: rgb(232,211,163) !important; border: none !important;
+  background: #F5EDE3 !important; border: 1.5px solid #F5EDE3 !important;
   border-radius: 10px !important; padding: 14px 18px !important; width: 100% !important;
   display: flex !important; flex-direction: column !important; align-items: center !important; gap: 4px !important;
 }
@@ -12209,8 +12206,8 @@ html body .hero-content {
 #mobileNav .mnav-acc-panel a:hover { color: #C9973A !important; }
 #mobileNav .mnav-toplink {
   display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 3px !important;
-  padding: 10px 18px !important; min-height: 57px !important; box-sizing: border-box !important;
-  background: rgb(232,211,163) !important; border: none !important; border-radius: 14px !important;
+  padding: 10px 18px !important; min-height: 50px !important; box-sizing: border-box !important;
+  background: #F5EDE3 !important; border: 1.5px solid #F5EDE3 !important; border-radius: 14px !important;
   text-align: center !important; text-decoration: none !important;
 }
 #mobileNav .mnav-toplink .mnav-toplink-label {
@@ -12221,18 +12218,8 @@ html body .hero-content {
   font-family: "DM Sans", sans-serif !important; font-size: 0.62rem !important; letter-spacing: 0.16em !important; line-height: 1.2 !important;
   text-transform: uppercase !important; color: rgba(104,64,52,0.6) !important; font-weight: 400 !important;
 }
-#mobileNav .mnav-toplink:active { background: rgb(220,198,148) !important; }
-/* Guides — smaller centered pill hugging its label, not a full-width box */
-/* Guides — full width like the other buttons, with a gold accent */
-#mobileNav #mnavGuides { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-#mobileNav #mnavFormulaires { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+#mobileNav .mnav-toplink:active { background: rgb(238,227,211) !important; }
 #mobileNav .sp-menu-trigger-wrap { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-#mobileNav #mnavGuides .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
-#mobileNav #mnavGuides .mnav-acc-btn span { color: #F5C06A !important; }
-#mobileNav #mnavGuides .mnav-acc-chevron { stroke: #F5C06A !important; }
-#mobileNav #mnavFormulaires .mnav-acc-btn { background: rgba(201,160,96,0.14) !important; border-color: rgba(201,160,96,0.48) !important; color: #F5C06A !important; }
-#mobileNav #mnavFormulaires .mnav-acc-btn span { color: #F5C06A !important; }
-#mobileNav #mnavFormulaires .mnav-acc-chevron { stroke: #F5C06A !important; }
 #mobileNav .mnav-toplink:hover { color: #C9973A !important; }
 #mobileNav .mnav-acc-btn span, #mobileNav .mnav-toplink span { color: inherit !important; }
 #mobileNav .mnav-acc-panel a span { color: inherit !important; }
