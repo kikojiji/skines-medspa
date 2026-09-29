@@ -164,7 +164,7 @@
       'font-size:.9rem;cursor:pointer;}',
       '.sk-consent__cat p{margin:6px 0 0;font-size:.78rem;opacity:.85;line-height:1.4;}',
       '.sk-consent__cat input{width:16px;height:16px;accent-color:#684034;}',
-      '@media(max-width:640px){',
+      '@media(max-width:980px){',
       '.sk-consent{padding:12px 16px 14px;}',
       '.sk-consent__wrap{gap:8px;}',
       '.sk-consent__title{font-size:.78rem;}',
