@@ -551,7 +551,7 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 /* Footer column/stack order (mobile flex + desktop grid): Services · Votre Visite · Tirage · Guides */
 .sf-nav #sfVisite { order: 2; }
 .sf-nav .sf-nav-exclusive { order: 3; }
-.sf-nav .sf-nav-book { order: 4; }
+.sf-nav #sfRessources { order: 4; }
 
 .sf-nav-group { }
 .sf-nav-label {
@@ -647,22 +647,8 @@ nav#mainNav.nav-hidden { transform: translateY(-100%); }
 .sf-exclusive-text span { font-size: 0.64rem; }
 .sf-exclusive-text span:not(#_) { color: rgba(245,237,227,0.55) !important; }
 .sf-exclusive-card .sf-chevron { display: none; }
-.sf-nav-book { display: flex; align-items: center; }
-.sf-book-btn {
-  display: block; width: 100%; text-align: center;
-  padding: 1rem 1.1rem; margin: 0.6rem 1.6rem;
-  border-radius: 10px;
-  font-family: "DM Sans", sans-serif; font-size: 0.8rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
-  box-sizing: border-box;
-  transition: background 0.2s, border-color 0.2s;
-}
-html body footer .sf-book-btn:not(#_) { background: #F5EDE3 !important; color: #684034 !important; border: 1.5px solid #F5EDE3 !important; }
-html body footer .sf-book-btn span:not(#_) { color: #684034 !important; }
-html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !important; border-color: rgb(238,227,211) !important; }
 @media (min-width: 981px) {
   .sf-exclusive-card { margin: 0; height: auto; width: 100%; }
-  .sf-book-btn { margin: 0; }
 }
 
 
@@ -2062,27 +2048,6 @@ input, textarea, select {
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a class="sf-link" href="/guides">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
-          <span data-fr="Guides Skines" data-en="Skines Guides">Skines Guides</span>
-        </span>
-        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a class="sf-link" href="/formulaires">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
-          <span data-fr="Formulaires" data-en="Forms">Forms</span>
-        </span>
-        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a class="sf-link" href="/insurance">
-        <span class="sf-link-left">
-          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
-          <span data-fr="Reçus d'assurance" data-en="Insurance Receipts">Insurance Receipts</span>
-        </span>
-        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
     </div>
 
     <div class="sf-nav-group sf-nav-collapsible" id="sfVisite">
@@ -2127,10 +2092,34 @@ input, textarea, select {
       </a>
     </div>
 
-    <div class="sf-nav-group sf-nav-book">
-      <a class="sf-book-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">
-        <span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span>
+    <div class="sf-nav-group sf-nav-collapsible" id="sfRessources">
+      <button class="sf-nav-label sf-nav-toggle" type="button" aria-expanded="false">
+        <span data-fr="Ressources" data-en="Resources">Resources</span>
+        <svg class="sf-nav-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
+      </button>
+      <div class="sf-nav-panel">
+      <a class="sf-link" href="/guides">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+          <span data-fr="Guides Skines" data-en="Skines Guides">Skines Guides</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
+      <a class="sf-link" href="/formulaires">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Formulaires" data-en="Forms">Forms</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="sf-link" href="/insurance">
+        <span class="sf-link-left">
+          <span class="sf-link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+          <span data-fr="Reçus d'assurance" data-en="Insurance Receipts">Insurance Receipts</span>
+        </span>
+        <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      </div>
     </div>
   </div>
 
