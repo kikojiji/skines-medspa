@@ -99,14 +99,15 @@
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    /* 7a. Slide the loupe-badge thumb over the active language in the
-       mobile-nav track, and update the letters shown inside it. */
+    /* 7a. Slide the gold pill behind the active language in the mobile-nav
+       track, sized to that language's button. */
     document.querySelectorAll('.nav-lang-track').forEach(function (track) {
       var activeBtn = track.querySelector('.mobile-lang-btn.active, .nav-lang-btn.active');
-      var thumb = track.querySelector('.nav-lang-thumb');
-      var text = track.querySelector('.nav-lang-thumb-text');
-      if (thumb && activeBtn) thumb.style.left = (activeBtn.offsetLeft + activeBtn.offsetWidth / 2) + 'px';
-      if (text) text.textContent = lang.toUpperCase();
+      var pill = track.querySelector('.nav-lang-pill');
+      if (pill && activeBtn) {
+        pill.style.left = (activeBtn.offsetLeft + activeBtn.offsetWidth / 2) + 'px';
+        pill.style.width = (activeBtn.offsetWidth + 14) + 'px';
+      }
     });
 
     /* 7b. Move the globe glyph next to the active language so it follows the
