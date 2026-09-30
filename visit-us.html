@@ -1471,10 +1471,11 @@ input, textarea, select {
       <span class="nav-lang-sep">|</span>
       <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
     </div>
+    <div class="nav-lang-divider" aria-hidden="true">&#8203;</div>
     <div class="mnav-accordions">
       <div class="mnav-acc mnav-static mnav-open" id="mnavSoins">
         <button class="mnav-acc-btn" type="button" aria-expanded="true" tabindex="-1">
-          <span data-fr="Soins" data-en="Treatments">Soins</span>
+          <span data-fr="Nos Soins" data-en="Treatments">Nos Soins</span>
           <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
         </button>
         <div class="mnav-acc-panel">
@@ -2278,6 +2279,7 @@ html body nav {}
    ══════════════════════════════════════════════════════════════ */
 #mobileNav .mobile-nav-header .logo { display: flex; align-items: center; gap: 0.6rem; }
 #mobileNav .mnav-logo-stones { width: 26px; height: auto; opacity: 0.9; flex-shrink: 0; }
+#mobileNav .nav-lang-divider { width: 150px; max-width: 60%; height: 2px; margin: 0 auto 0.3rem !important; background: rgba(201,160,96,0.55) !important; border-radius: 2px; flex-shrink: 0 !important; }
 #mobileNav .mnav-accordions { padding: 0.3rem 1.5rem 0; display: flex; flex-direction: column; gap: 1rem; flex: 0 0 auto !important; overflow: visible !important; }
 #mobileNav .mnav-acc { }
 #mobileNav .mnav-acc-btn {
@@ -2304,7 +2306,7 @@ html body nav {}
   border-bottom: 1px solid rgba(201,160,96,0.32) !important;
   color: #F5C06A !important; padding: 0.15rem 0.3rem 0.7rem !important;
   justify-content: center !important; text-align: center !important;
-  font-size: 0.95rem !important;
+  font-size: 1.2rem !important;
 }
 #mobileNav .mnav-acc.mnav-static .mnav-acc-panel { max-height: none !important; padding-top: 0.4rem !important; }
 #mobileNav .mnav-acc .mnav-acc-panel a {
