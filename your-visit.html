@@ -1243,13 +1243,13 @@ html body #mobileNav .sp-menu-trigger-textwrap:not(#_):not(#__) { align-items: c
 html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
 html body #mobileNav .sp-menu-trigger-sub:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
 /* Unify card sizing: same padding on Votre Visite / Cartes Cadeaux / Tirage / Réserver, and center Votre Visite's label like the others */
-html body #mobileNav .mnav-acc-btn:not(#_):not(#__) { justify-content: center !important; text-align: center !important; position: relative !important; padding: 0.72rem 2.6rem !important; }
-html body #mobileNav .mnav-acc-btn .mnav-acc-chevron:not(#_):not(#__) { position: absolute !important; right: 1.1rem !important; top: 50% !important; margin: 0 !important; transform: translateY(-50%) !important; }
-html body #mobileNav .mnav-acc.mnav-open .mnav-acc-btn .mnav-acc-chevron:not(#_):not(#__) { transform: translateY(-50%) rotate(180deg) !important; }
+html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__) { justify-content: center !important; text-align: center !important; position: relative !important; padding: 0.72rem 2.6rem !important; }
+html body #mobileNav #mnavVisite .mnav-acc-btn .mnav-acc-chevron:not(#_):not(#__) { position: absolute !important; right: 1.1rem !important; top: 50% !important; margin: 0 !important; transform: translateY(-50%) !important; }
+html body #mobileNav #mnavVisite.mnav-open .mnav-acc-btn .mnav-acc-chevron:not(#_):not(#__) { transform: translateY(-50%) rotate(180deg) !important; }
 html body #mobileNav .mnav-toplink:not(#_):not(#__) { padding: 0.72rem 1.1rem !important; }
 html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { padding: 0.72rem 1.1rem !important; }
 html body #mobileNav .btn-dark:not(#_):not(#__) { padding: 0.72rem 1.1rem !important; }
-html body #mobileNav .mnav-acc-btn span:not(#_):not(#__),
+html body #mobileNav #mnavVisite .mnav-acc-btn span:not(#_):not(#__),
 html body #mobileNav .mnav-toplink-label:not(#_):not(#__),
 html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__),
 html body #mobileNav .btn-dark span:not(#_):not(#__) { font-size: 0.82rem !important; letter-spacing: 0.2em !important; }
@@ -1935,7 +1935,7 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
 #mobileNav { background: #684034 !important; }
 #mobileNav .mobile-nav-header {
   background: #684034 !important;
-  border-bottom: 1px solid rgba(201,160,96,0.18) !important;
+  border-bottom: none !important;
   padding: 1.3rem 1.5rem !important;
   margin-bottom: 0 !important;
   position: sticky !important;
@@ -2565,6 +2565,8 @@ html body nav {}
   background: transparent !important; border: none !important; border-radius: 0 !important;
   border-bottom: 1px solid rgba(201,160,96,0.32) !important;
   color: #F5C06A !important; padding: 0.15rem 0.3rem 0.7rem !important;
+  justify-content: center !important; text-align: center !important;
+  font-size: 0.95rem !important;
 }
 #mobileNav .mnav-acc.mnav-static .mnav-acc-panel { max-height: none !important; padding-top: 0.4rem !important; }
 #mobileNav .mnav-acc .mnav-acc-panel a {
