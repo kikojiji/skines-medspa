@@ -8985,7 +8985,24 @@ input, textarea, select {
   .sf-nav #sfRessources { order: 2; }
   .sf-nav #sfVisite { order: 3; }
   .sf-nav .sf-nav-exclusive { order: 4; }
+  .sf-nav .sf-nav-book { order: 5; display: flex; }
 }
+@media (min-width: 981px) {
+  .sf-nav .sf-nav-book { display: none; }
+}
+.sf-nav-book { align-items: center; }
+.sf-book-btn {
+  display: block; width: 100%; text-align: center;
+  padding: 1rem 1.1rem; margin: 0.6rem 1.6rem;
+  border-radius: 10px;
+  font-family: "DM Sans", sans-serif; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
+  box-sizing: border-box;
+  transition: background 0.2s, border-color 0.2s;
+}
+html body footer .sf-book-btn:not(#_) { background: #F5EDE3 !important; color: #684034 !important; border: 1.5px solid #F5EDE3 !important; }
+html body footer .sf-book-btn span:not(#_) { color: #684034 !important; }
+html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !important; border-color: rgb(238,227,211) !important; }
 .sf-nav-group { }
 .sf-nav-label {
   display: block;
@@ -9195,6 +9212,12 @@ input, textarea, select {
           <span data-fr="Formulaires" data-en="Forms">Forms</span>
         </span>
         <svg class="sf-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="sf-nav-group sf-nav-book">
+      <a class="sf-book-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">
+        <span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span>
       </a>
     </div>
   </div>
