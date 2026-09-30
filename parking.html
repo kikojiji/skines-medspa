@@ -1438,11 +1438,13 @@ input, textarea, select {
       </a>
       <button class="mobile-nav-close" id="menuClose" aria-label="Fermer le menu">&#8594;</button>
     </div>
-        <div class="nav-lang-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-    <div class="nav-lang-bar">
-      <button class="mobile-lang-btn nav-lang-btn" data-lang="fr">FR</button>
-      <span class="nav-lang-sep">|</span>
-      <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
+            <div class="nav-lang-bar">
+      <div class="nav-lang-track">
+        <div class="nav-lang-thumb" aria-hidden="true"><span class="nav-lang-thumb-text">FR</span></div>
+        <button class="mobile-lang-btn nav-lang-btn" data-lang="fr">FR</button>
+        <span class="nav-lang-sep">|</span>
+        <button class="mobile-lang-btn nav-lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
     <div class="nav-lang-divider" aria-hidden="true">&#8203;</div>
     <div class="mnav-accordions">
@@ -2438,9 +2440,25 @@ html body nav {}
    ══════════════════════════════════════════════════════════════ */
 #mobileNav .mobile-nav-header .logo { display: flex; align-items: center; gap: 0.6rem; }
 #mobileNav .mnav-logo-stones { width: 26px; height: auto; opacity: 0.9; flex-shrink: 0; }
-#mobileNav .nav-lang-icon { display: flex !important; justify-content: center !important; padding-top: 0.9rem !important; flex-shrink: 0 !important; }
-#mobileNav .nav-lang-icon svg { width: 15px; height: 15px; stroke: rgba(245,237,227,0.55) !important; }
-#mobileNav .nav-lang-divider { width: 150px; max-width: 60%; height: 2px; margin: 0 auto 0.3rem !important; background: rgba(201,160,96,0.55) !important; border-radius: 2px; flex-shrink: 0 !important; }
+#mobileNav .nav-lang-bar { align-items: center !important; margin-top: 1.2rem !important; }
+#mobileNav .nav-lang-track { position: relative !important; display: flex !important; align-items: center !important; gap: 1.2rem !important; }
+#mobileNav .nav-lang-thumb {
+  position: absolute !important; top: -26px !important; left: 0 !important;
+  transform: translateX(-50%) !important;
+  width: 26px !important; height: 26px !important; border-radius: 50% !important;
+  border: 1.5px solid rgba(201,160,96,0.65) !important;
+  background: rgba(245,237,227,0.06) !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  transition: left 0.35s cubic-bezier(.22,1,.36,1) !important;
+  pointer-events: none !important; flex-shrink: 0 !important;
+}
+#mobileNav .nav-lang-thumb::after {
+  content: ""; position: absolute; width: 7px; height: 1.6px;
+  background: rgba(201,160,96,0.65); border-radius: 1px;
+  bottom: -1px; right: -3px; transform: rotate(45deg);
+}
+#mobileNav .nav-lang-thumb-text { font-size: 0.52rem !important; font-weight: 600 !important; letter-spacing: 0.02em !important; color: rgba(245,237,227,0.85) !important; }
+#mobileNav .nav-lang-divider { width: 150px; max-width: 60%; height: 2px; margin: 0.6rem auto 0.3rem !important; background: rgba(201,160,96,0.55) !important; border-radius: 2px; flex-shrink: 0 !important; }
 #mobileNav .mnav-accordions { padding: 0.3rem 1.5rem 0; display: flex; flex-direction: column; gap: 1rem; flex: 0 0 auto !important; overflow: visible !important; }
 #mobileNav .mnav-acc { }
 #mobileNav .mnav-acc-btn {
