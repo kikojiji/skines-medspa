@@ -6590,6 +6590,17 @@ html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { justify-content: center
 html body #mobileNav .sp-menu-trigger-textwrap:not(#_):not(#__) { align-items: center !important; }
 html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
 html body #mobileNav .sp-menu-trigger-sub:not(#_):not(#__) { display: block !important; width: 100% !important; text-align: center !important; }
+/* Unify card sizing: same padding on Votre Visite / Cartes Cadeaux / Tirage / Réserver, and center Votre Visite's label like the others */
+html body #mobileNav .mnav-acc-btn:not(#_):not(#__) { justify-content: center !important; text-align: center !important; position: relative !important; padding: 0.72rem 2.6rem !important; }
+html body #mobileNav .mnav-acc-btn .mnav-acc-chevron:not(#_):not(#__) { position: absolute !important; right: 1.1rem !important; top: 50% !important; margin: 0 !important; transform: translateY(-50%) !important; }
+html body #mobileNav .mnav-acc.mnav-open .mnav-acc-btn .mnav-acc-chevron:not(#_):not(#__) { transform: translateY(-50%) rotate(180deg) !important; }
+html body #mobileNav .mnav-toplink:not(#_):not(#__) { padding: 0.72rem 1.1rem !important; }
+html body #mobileNav .sp-menu-trigger:not(#_):not(#__) { padding: 0.72rem 1.1rem !important; }
+html body #mobileNav .btn-dark:not(#_):not(#__) { padding: 0.72rem 1.1rem !important; }
+html body #mobileNav .mnav-acc-btn span:not(#_):not(#__),
+html body #mobileNav .mnav-toplink-label:not(#_):not(#__),
+html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__),
+html body #mobileNav .btn-dark span:not(#_):not(#__) { font-size: 0.82rem !important; letter-spacing: 0.2em !important; }
 </style>
 <style id="animations-css-inline">
 /* ══ Skines — Unified Animation System ══
