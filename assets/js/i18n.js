@@ -100,8 +100,11 @@
     });
 
     /* 7b. Move the globe glyph next to the active language so it follows the
-       current choice (🌐 FR | EN  ↔  FR | 🌐 EN) */
-    document.querySelectorAll('.lang-switcher, .nav-lang-bar, .sf-lang-bar').forEach(function (sw) {
+       current choice (🌐 FR | EN  ↔  FR | 🌐 EN). Skipped for .nav-lang-bar
+       (mobile hamburger menu): there the globe moving around made the FR|EN
+       row look off-center depending on which language was active, so it
+       stays fixed in its original spot there instead. */
+    document.querySelectorAll('.lang-switcher, .sf-lang-bar').forEach(function (sw) {
       var globe = sw.querySelector('.lang-globe');
       var active = sw.querySelector('button.active');
       if (globe && active) sw.insertBefore(globe, active);
