@@ -7842,20 +7842,12 @@ input, textarea, select {
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
-    <!-- Shown independently of video load/buffering (not gated behind the
-         video's reveal()), so it appears right away even on a slow
-         connection — holds for 7s, then fades out gradually. -->
+    <!-- Appears a fixed 2s after the mobile video actually starts playing
+         (not tied to how long loading took) — holds for 7s, then fades
+         out gradually. -->
     <div class="hero-intro-badge" id="heroIntroBadge" aria-hidden="true">
       <img src="/assets/best-in-class-2026-fresha.png?v=2" alt="" width="132" height="165" loading="eager" decoding="sync">
     </div>
-    <script>
-      (function () {
-        var badge = document.getElementById('heroIntroBadge');
-        if (!badge) return;
-        badge.classList.add('is-visible');
-        setTimeout(function () { badge.classList.remove('is-visible'); }, 7000);
-      })();
-    </script>
     <script>
       (function () {
         var v = document.getElementById('heroVideo');
@@ -7869,6 +7861,7 @@ input, textarea, select {
         // guarantees what appears always matches the poster frame, so
         // there's never a visible jump/flash on reveal.
         var revealed = false;
+        var badge = document.getElementById('heroIntroBadge');
         function reveal() {
           if (revealed) return; revealed = true;
           try { v.currentTime = 0; } catch (e) {}
@@ -7876,6 +7869,12 @@ input, textarea, select {
           // Kick playback explicitly — autoplay alone is unreliable on mobile.
           var p = v.play && v.play();
           if (p && p.catch) p.catch(function () {});
+          if (badge) {
+            setTimeout(function () {
+              badge.classList.add('is-visible');
+              setTimeout(function () { badge.classList.remove('is-visible'); }, 7000);
+            }, 2000);
+          }
         }
         // Reveal on the FIRST usable event instead of the strict
         // "canplaythrough" (which often never fires on iOS Safari / slow
