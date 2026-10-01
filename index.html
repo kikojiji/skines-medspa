@@ -231,12 +231,13 @@
   /* Best-in-Class badge, shown only over the mobile video's baked-in logo
      intro (see #heroIntroBadge script) — desktop has no such intro. */
   .hero-intro-badge {
-    position: absolute; left: 50%; top: 33%; transform: translate(-50%, -50%);
+    position: absolute; left: 50%; top: 33%;
+    transform: translate(-50%, -50%) scale(1.9);
     z-index: 4; opacity: 0; pointer-events: none;
-    transition: opacity 0.55s ease;
+    transition: opacity 0.45s ease, transform 1.7s cubic-bezier(.33,1,.68,1);
   }
-  .hero-intro-badge.is-visible { opacity: 1; }
-  .hero-intro-badge img { width: 76px; height: auto; display: block; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); }
+  .hero-intro-badge.is-visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .hero-intro-badge img { width: 90px; height: auto; display: block; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); }
   /* Desktop: static photo · Tablet/mobile: original video */
   .hero-bg-mobile { display: none; }
   @media (min-width: 981px) {
