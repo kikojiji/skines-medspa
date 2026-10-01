@@ -234,7 +234,7 @@
     position: absolute; left: 50%; top: 33%;
     transform: translate(-50%, -50%) scale(1.9);
     z-index: 4; opacity: 0; pointer-events: none;
-    transition: opacity 0.45s ease, transform 1.7s cubic-bezier(.33,1,.68,1);
+    transition: opacity 1.2s ease, transform 3.4s cubic-bezier(.33,1,.68,1);
   }
   .hero-intro-badge.is-visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   .hero-intro-badge img { width: 90px; height: auto; display: block; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); }
@@ -7842,8 +7842,9 @@ input, textarea, select {
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
-    <!-- Shown only under the baked-in logo intro at the start of the mobile
-         video clip (~2s), then faded out before the clip cuts to B-roll. -->
+    <!-- Appears under the baked-in logo intro at the start of the mobile
+         video clip, zooms down to resting size, holds through the clip's
+         B-roll for ~9s total, then fades out gradually. -->
     <div class="hero-intro-badge" id="heroIntroBadge" aria-hidden="true">
       <img src="/assets/best-in-class-2026-fresha.png?v=2" alt="" width="132" height="165" loading="eager" decoding="sync">
     </div>
@@ -7870,7 +7871,7 @@ input, textarea, select {
           if (p && p.catch) p.catch(function () {});
           if (badge) {
             badge.classList.add('is-visible');
-            setTimeout(function () { badge.classList.remove('is-visible'); }, 1900);
+            setTimeout(function () { badge.classList.remove('is-visible'); }, 9000);
           }
         }
         // Reveal on the FIRST usable event instead of the strict
