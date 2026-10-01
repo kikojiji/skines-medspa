@@ -7870,10 +7870,8 @@ input, textarea, select {
           var p = v.play && v.play();
           if (p && p.catch) p.catch(function () {});
           if (badge) {
-            setTimeout(function () {
-              badge.classList.add('is-visible');
-              setTimeout(function () { badge.classList.remove('is-visible'); }, 7000);
-            }, 1000);
+            badge.classList.add('is-visible');
+            setTimeout(function () { badge.classList.remove('is-visible'); }, 7000);
           }
         }
         // Reveal on the FIRST usable event instead of the strict
