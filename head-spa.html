@@ -6913,7 +6913,7 @@ input, textarea, select {
       </div>
 <div class="mnav-acc" id="mnavVisite">
         <button class="mnav-acc-btn" type="button" aria-expanded="false">
-          <span data-fr="Votre Visite" data-en="Your Visit">Votre Visite</span>
+          <span class="mnav-acc-label"><svg class="mnav-acc-layers" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span data-fr="Votre Visite" data-en="Your Visit">Votre Visite</span></span>
           <svg class="mnav-acc-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 5 5 9 1"/></svg>
         </button>
         <div class="mnav-acc-panel">
@@ -8325,6 +8325,17 @@ html body nav {}
   align-items: center !important;
   justify-content: center !important;
 }
+#mobileNav .mnav-acc-label { display: flex !important; align-items: center !important; gap: 0.5rem !important; }
+#mobileNav .mnav-acc-layers { flex-shrink: 0 !important; opacity: 0.7 !important; }
+#mobileNav #mnavVisite { position: relative !important; }
+#mobileNav #mnavVisite::before, #mobileNav #mnavVisite::after {
+  content: "" !important; position: absolute !important; left: 50% !important; transform: translateX(-50%) !important;
+  height: 10px !important; border: 1px solid rgba(201,160,96,0.28) !important; border-top: none !important;
+  border-radius: 0 0 9px 9px !important; background: rgba(201,160,96,0.05) !important; z-index: -1 !important;
+}
+#mobileNav #mnavVisite::before { width: 92% !important; bottom: -5px !important; }
+#mobileNav #mnavVisite::after { width: 84% !important; bottom: -9px !important; opacity: 0.6 !important; }
+#mobileNav #mnavVisite.mnav-open::before, #mobileNav #mnavVisite.mnav-open::after { display: none !important; }
 /* ── Sitewide consistency pass: force the mobile-nav FR/EN switcher and
    logo colors to exactly match index.html's values everywhere, regardless
    of whatever older per-page rules exist below. ── */
