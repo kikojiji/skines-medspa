@@ -5126,16 +5126,17 @@ html body nav {}
   align-items: center !important;
   justify-content: center !important;
 }
-#mobileNav .mnav-acc-label { display: flex !important; align-items: center !important; gap: 0.5rem !important; }
-#mobileNav .mnav-acc-layers { flex-shrink: 0 !important; opacity: 0.7 !important; }
+#mobileNav .mnav-acc-label { display: flex !important; align-items: center !important; gap: 0.55rem !important; }
+#mobileNav .mnav-acc-layers { flex-shrink: 0 !important; opacity: 0.75 !important; width: 16px !important; height: 16px !important; }
 #mobileNav #mnavVisite { position: relative !important; }
+html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___) { padding: 0.85rem 1.3rem !important; }
 #mobileNav #mnavVisite::before, #mobileNav #mnavVisite::after {
   content: "" !important; position: absolute !important; left: 50% !important; transform: translateX(-50%) !important;
-  height: 10px !important; border: 1px solid rgba(201,160,96,0.28) !important; border-top: none !important;
-  border-radius: 0 0 9px 9px !important; background: rgba(201,160,96,0.05) !important; z-index: -1 !important;
+  height: 11px !important; border: 1px solid rgba(201,160,96,0.30) !important; border-top: none !important;
+  border-radius: 0 0 9px 9px !important; background: rgba(201,160,96,0.06) !important; z-index: -1 !important;
 }
-#mobileNav #mnavVisite::before { width: 92% !important; bottom: -5px !important; }
-#mobileNav #mnavVisite::after { width: 84% !important; bottom: -9px !important; opacity: 0.6 !important; }
+#mobileNav #mnavVisite::before { width: 90% !important; bottom: -6px !important; }
+#mobileNav #mnavVisite::after { width: 78% !important; bottom: -12px !important; opacity: 0.65 !important; }
 #mobileNav #mnavVisite.mnav-open::before, #mobileNav #mnavVisite.mnav-open::after { display: none !important; }
 /* ── Sitewide consistency pass: force the mobile-nav FR/EN switcher and
    logo colors to exactly match index.html's values everywhere, regardless
