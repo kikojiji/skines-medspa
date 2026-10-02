@@ -238,21 +238,6 @@
   }
   .hero-intro-badge.is-visible { opacity: 1; }
   .hero-intro-badge img { width: 230px; height: auto; display: block; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); }
-  /* One-time diagonal shine sweep, masked to the badge's own silhouette
-     so it never spills past the hexagon edges. */
-  .hero-intro-badge::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.75) 50%, transparent 65%);
-    -webkit-mask-image: url(/assets/best-in-class-2026-fresha.png?v=2);
-    mask-image: url(/assets/best-in-class-2026-fresha.png?v=2);
-    -webkit-mask-size: 230px auto; mask-size: 230px auto;
-    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-    -webkit-mask-position: center; mask-position: center;
-    transform: translateX(-130%);
-    pointer-events: none;
-  }
-  .hero-intro-badge.is-visible::after { animation: heroBadgeShine 1.4s ease-in-out .35s 1; }
-  @keyframes heroBadgeShine { to { transform: translateX(130%); } }
   /* Desktop: static photo · Tablet/mobile: original video */
   .hero-bg-mobile { display: none; }
   @media (min-width: 981px) {
