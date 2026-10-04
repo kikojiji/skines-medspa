@@ -44,34 +44,34 @@
 
   var T = {
     fr: {
-      title: 'Votre vie privée',
-      body: 'Nous utilisons des témoins (cookies) pour mesurer l’audience et améliorer votre expérience. Vous pouvez accepter, refuser ou personnaliser. Les témoins essentiels sont toujours actifs.',
+      title: 'Vos données, votre choix',
+      body: 'Nous utilisons des cookies pour améliorer votre expérience, mesurer l’audience et personnaliser nos offres.',
       accept: 'Tout accepter',
-      reject: 'Refuser le non-essentiel',
-      customize: 'Personnaliser',
+      reject: 'Tout refuser',
+      customize: 'Gérer les cookies',
       save: 'Enregistrer mes choix',
-      necessary: 'Essentiels (toujours actifs)',
-      necessaryDesc: 'Nécessaires au fonctionnement du site.',
-      analytics: 'Analytique',
-      analyticsDesc: 'Mesure d’audience (Google Analytics, Microsoft Clarity).',
-      ads: 'Publicité',
-      adsDesc: 'Mesure des campagnes publicitaires (Meta, TikTok).',
-      policy: 'Politique de témoins'
+      necessary: 'Essentiels',
+      necessaryDesc: 'Nécessaires au fonctionnement du site. Toujours actifs.',
+      analytics: 'Mesure d’audience',
+      analyticsDesc: 'Comprendre l’utilisation du site (Google Analytics, Microsoft Clarity).',
+      ads: 'Marketing',
+      adsDesc: 'Publicités personnalisées (Meta, TikTok).',
+      policy: 'En savoir plus'
     },
     en: {
-      title: 'Your privacy',
-      body: 'We use cookies to measure audience and improve your experience. You can accept, decline, or customize. Essential cookies are always on.',
+      title: 'Your data, your choice',
+      body: 'We use cookies to improve your experience, measure audience and personalize our offers.',
       accept: 'Accept all',
-      reject: 'Reject non-essential',
-      customize: 'Customize',
+      reject: 'Reject all',
+      customize: 'Manage cookies',
       save: 'Save my choices',
-      necessary: 'Essential (always on)',
-      necessaryDesc: 'Required for the site to function.',
-      analytics: 'Analytics',
-      analyticsDesc: 'Audience measurement (Google Analytics, Microsoft Clarity).',
-      ads: 'Advertising',
-      adsDesc: 'Ad-campaign measurement (Meta, TikTok).',
-      policy: 'Cookie policy'
+      necessary: 'Essential',
+      necessaryDesc: 'Required for the site to function. Always on.',
+      analytics: 'Audience measurement',
+      analyticsDesc: 'Understand how the site is used (Google Analytics, Microsoft Clarity).',
+      ads: 'Marketing',
+      adsDesc: 'Personalized ads (Meta, TikTok).',
+      policy: 'Learn more'
     }
   };
 
@@ -137,45 +137,30 @@
     s.id = 'sk-consent-style';
     s.textContent = [
       '.sk-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;',
-      'background:#F5EDE3;color:#684034;font-family:"DM Sans",system-ui,sans-serif;',
-      'box-shadow:0 -4px 14px rgba(104,64,52,.13);padding:8px 14px;}',
+      'background:#fff;color:#2a1c15;font-family:"DM Sans",system-ui,sans-serif;',
+      'box-shadow:0 -14px 50px rgba(0,0,0,.25);border-radius:20px 20px 0 0;padding:22px 22px 18px;}',
       '.sk-consent *{box-sizing:border-box;}',
-      '.sk-consent__wrap{max-width:1100px;margin:0 auto;display:flex;gap:12px;',
-      'align-items:center;flex-wrap:wrap;}',
-      '.sk-consent__txt{flex:1 1 300px;min-width:240px;}',
-      '.sk-consent__title{font-weight:600;font-size:.82rem;margin:0 0 1px;}',
-      '.sk-consent__body{font-size:.7rem;line-height:1.35;margin:0;opacity:.85;}',
-      '.sk-consent__body a{color:#684034;text-decoration:underline;}',
-      '.sk-consent__actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}',
-      '.sk-consent__btn{cursor:pointer;border-radius:999px;padding:9px 16px;',
-      'font-size:.82rem;font-weight:500;border:1.5px solid #684034;background:#684034;',
-      'color:#F5EDE3;transition:opacity .2s;}',
-      '.sk-consent__btn:hover{opacity:.85;}',
-      '.sk-consent__btn--ghost{background:transparent;color:#684034;}',
-      '.sk-consent__btn--big{padding:14px 44px;font-size:1.06rem;font-weight:800;letter-spacing:.01em;}',
-      '.sk-consent__btn--sm{padding:3px 9px;font-size:.6rem;font-weight:400;border-width:1px;opacity:.78;}',
-      '.sk-consent__secondary{display:flex;flex-direction:column;gap:5px;}',
-      '.sk-consent__secondary .sk-consent__btn{width:100%;text-align:center;}',
-      '.sk-consent__panel{flex-basis:100%;margin-top:8px;display:none;gap:14px;flex-wrap:wrap;}',
-      '.sk-consent__panel.is-open{display:flex;}',
-      '.sk-consent__cat{flex:1 1 220px;min-width:200px;border:1px solid rgba(104,64,52,.25);',
-      'border-radius:12px;padding:12px 14px;}',
-      '.sk-consent__cat label{display:flex;align-items:center;gap:8px;font-weight:600;',
-      'font-size:.9rem;cursor:pointer;}',
-      '.sk-consent__cat p{margin:6px 0 0;font-size:.78rem;opacity:.85;line-height:1.4;}',
-      '.sk-consent__cat input{width:16px;height:16px;accent-color:#684034;}',
-      '@media(max-width:980px){',
-      '.sk-consent{padding:12px 16px 14px;}',
-      '.sk-consent__wrap{gap:8px;}',
-      '.sk-consent__title{font-size:.78rem;}',
-      '.sk-consent__body{font-size:.66rem;}',
-      '.sk-consent__actions{width:100%;flex-direction:column-reverse;gap:8px;}',
-      '.sk-consent__btn{flex:1 1 auto;text-align:center;}',
-      '.sk-consent__btn--big{width:100%;padding:11px 20px;font-size:.82rem;}',
-      '.sk-consent__secondary{flex-direction:row;justify-content:center;gap:18px;width:100%;}',
-      '.sk-consent__secondary .sk-consent__btn{width:auto;border:none;background:transparent;',
-      'color:#684034;padding:2px 0;text-decoration:underline;opacity:.85;}',
-      '}'
+      '.sk-consent__wrap{max-width:560px;margin:0 auto;}',
+      '.sk-consent__title{text-align:center;font-family:"Cormorant Garamond",Georgia,serif;',
+      'font-weight:600;font-size:1.5rem;color:#4b2e26;margin:0 0 8px;}',
+      '.sk-consent__body{text-align:center;font-size:.86rem;line-height:1.55;color:#5a4a43;margin:0 0 14px;}',
+      '.sk-consent__body a{color:#684034;font-weight:600;text-decoration:underline;}',
+      '.sk-consent__btn{cursor:pointer;display:block;width:100%;border:none;border-radius:999px;',
+      'padding:15px;background:#684034;color:#F5EDE3;font-weight:700;font-size:.95rem;font-family:inherit;transition:background .2s;}',
+      '.sk-consent__btn:hover{background:#56342a;}',
+      '.sk-consent__link{display:block;width:100%;text-align:center;background:none;border:none;',
+      'color:#9a8980;font-weight:400;font-size:.76rem;text-decoration:underline;text-underline-offset:2px;',
+      'cursor:pointer;margin-top:12px;font-family:inherit;}',
+      '.sk-consent__main.is-hidden{display:none;}',
+      '.sk-consent__panel{display:none;}',
+      '.sk-consent__panel.is-open{display:block;}',
+      '.sk-consent__phead{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}',
+      '.sk-consent__phead span{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.25rem;color:#4b2e26;}',
+      '.sk-consent__back{background:none;border:none;color:#684034;font-weight:600;font-size:.82rem;cursor:pointer;font-family:inherit;}',
+      '.sk-consent__cat{padding:13px 0;border-top:1px solid #eee;}',
+      '.sk-consent__cat label{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.9rem;color:#2a1c15;cursor:pointer;}',
+      '.sk-consent__cat p{margin:3px 0 0 27px;font-size:.76rem;color:#7a6a62;line-height:1.45;}',
+      '.sk-consent__cat input{width:18px;height:18px;accent-color:#684034;flex:0 0 auto;}'
     ].join('');
     document.head.appendChild(s);
   }
@@ -187,39 +172,36 @@
     root.className = 'sk-consent';
     root.setAttribute('role', 'dialog');
     root.setAttribute('aria-label', t.title);
+    var backLabel = lang() === 'en' ? 'Back' : 'Retour';
     root.innerHTML =
       '<div class="sk-consent__wrap">' +
-        '<div class="sk-consent__txt">' +
+        '<div class="sk-consent__main" data-sk="main">' +
           '<p class="sk-consent__title">' + t.title + '</p>' +
-          '<p class="sk-consent__body">' + t.body +
-            ' <a href="/cookie-policy">' + t.policy + '</a></p>' +
-        '</div>' +
-        '<div class="sk-consent__actions">' +
-          '<div class="sk-consent__secondary">' +
-            '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="reject">' + t.reject + '</button>' +
-            '<button type="button" class="sk-consent__btn sk-consent__btn--ghost sk-consent__btn--sm" data-sk="customize">' + t.customize + '</button>' +
-          '</div>' +
-          '<button type="button" class="sk-consent__btn sk-consent__btn--big" data-sk="accept">' + t.accept + '</button>' +
+          '<p class="sk-consent__body">' + t.body + ' <a href="/cookie-policy">' + t.policy + '</a></p>' +
+          '<button type="button" class="sk-consent__btn" data-sk="accept">' + t.accept + '</button>' +
+          '<button type="button" class="sk-consent__link" data-sk="customize">' + t.customize + '</button>' +
         '</div>' +
         '<div class="sk-consent__panel" data-sk="panel">' +
+          '<div class="sk-consent__phead"><span>' + t.customize + '</span>' +
+            '<button type="button" class="sk-consent__back" data-sk="back">‹ ' + backLabel + '</button></div>' +
+          '<div class="sk-consent__cat"><label><input type="checkbox" checked disabled> ' + t.necessary + '</label><p>' + t.necessaryDesc + '</p></div>' +
           cat('analytics', t.analytics, t.analyticsDesc) +
           cat('ads', t.ads, t.adsDesc) +
-          '<div class="sk-consent__cat">' +
-            '<label><input type="checkbox" checked disabled> ' + t.necessary + '</label>' +
-            '<p>' + t.necessaryDesc + '</p>' +
-          '</div>' +
-          '<div style="flex-basis:100%;text-align:right;">' +
-            '<button type="button" class="sk-consent__btn" data-sk="save">' + t.save + '</button>' +
-          '</div>' +
+          '<button type="button" class="sk-consent__btn" style="margin-top:16px;" data-sk="save">' + t.save + '</button>' +
+          '<button type="button" class="sk-consent__link" data-sk="reject">' + t.reject + '</button>' +
         '</div>' +
       '</div>';
 
     root.addEventListener('click', function (e) {
       var act = e.target.getAttribute && e.target.getAttribute('data-sk');
-      if (act === 'accept')    finish({ analytics: true,  ads: true });
+      if (act === 'accept')      finish({ analytics: true,  ads: true });
       else if (act === 'reject') finish({ analytics: false, ads: false });
       else if (act === 'customize') {
-        root.querySelector('[data-sk="panel"]').classList.toggle('is-open');
+        root.querySelector('[data-sk="main"]').classList.add('is-hidden');
+        root.querySelector('[data-sk="panel"]').classList.add('is-open');
+      } else if (act === 'back') {
+        root.querySelector('[data-sk="panel"]').classList.remove('is-open');
+        root.querySelector('[data-sk="main"]').classList.remove('is-hidden');
       } else if (act === 'save') {
         finish({
           analytics: !!root.querySelector('#sk-c-analytics').checked,

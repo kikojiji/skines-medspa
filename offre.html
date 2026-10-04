@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tirage -50% · Skines Head Spa & Wellness Montréal</title>
+<meta name="description" content="Participez gratuitement au tirage du mois chez Skines Head Spa Montréal et tentez de gagner -50% sur une séance.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --maroon:#684034; --maroon-d:#4b2e26; --cream:#F7F0E6; --gold:#b98a3e; --gold-l:#e8bd5c; --ink:#5a4038; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"DM Sans",-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--maroon);color:var(--cream);line-height:1.6;}
+  .wrap{max-width:560px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:40px 22px;}
+  .logo{display:block;max-width:150px;height:auto;margin:0 auto 26px;}
+  .eyebrow{text-align:center;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-l);font-weight:700;}
+  h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;text-align:center;line-height:.98;margin:10px 0 2px;}
+  h1 .off{display:block;font-size:84px;}
+  h1 .sub{display:block;font-style:italic;font-size:30px;color:#efe3d4;}
+  .lead{text-align:center;color:rgba(245,237,227,.86);font-size:16px;max-width:420px;margin:16px auto 28px;}
+  .card{background:var(--cream);border-radius:22px;padding:28px 24px;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+  .card label{display:block;font-size:13px;color:var(--ink);font-weight:600;margin:0 0 7px;}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0;}
+  .card input:not(.hp){width:100%;border:1px solid rgba(104,64,52,.28);border-radius:12px;padding:14px 16px;font-size:16px;color:var(--maroon-d);background:#fff;outline:none;font-family:inherit;}
+  .card input:not(.hp):focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(185,138,62,.18);}
+  .cta{width:100%;margin-top:12px;border:none;border-radius:999px;padding:16px;background:var(--maroon);color:var(--cream);font-weight:700;letter-spacing:.08em;font-size:15px;cursor:pointer;font-family:inherit;transition:background .2s,transform .2s;}
+  .cta:hover{background:#56342a;transform:translateY(-1px);}
+  .cta[disabled]{opacity:.65;cursor:default;transform:none;}
+  .err{color:#b4452f;font-size:13px;margin-top:8px;min-height:16px;text-align:center;}
+  .msg{color:var(--maroon);font-size:16px;text-align:center;padding:18px 6px;}
+  .fine{color:#a2908a;font-size:12px;text-align:center;margin-top:12px;}
+  .perks{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;margin:26px 0 0;color:rgba(245,237,227,.9);font-size:13px;}
+  .perks span{display:inline-flex;align-items:center;gap:6px;}
+  .foot{text-align:center;color:rgba(245,237,227,.6);font-size:12px;margin-top:26px;}
+  .foot a{color:var(--gold-l);text-decoration:none;}
+  @media(max-width:600px){ h1 .off{font-size:66px;} h1 .sub{font-size:26px;} }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="/assets/images/logo-officiel-cropped.PNG" alt="Skines Head Spa & Wellness"
+         onerror="this.style.display='none'">
+    <div class="eyebrow">Tirage du mois · Montréal</div>
+    <h1><span class="off">-50%</span><span class="sub">à gagner sur une séance</span></h1>
+    <p class="lead">Participez <b>gratuitement</b> au <b>tirage du mois</b> et tentez de gagner <b>-50% sur une séance</b>. Un(e) gagnant(e) chaque mois, taggé(e) sur notre story Instagram <b>@skines.spa — Skines Head Spa &amp; Wellness Montréal</b>.</p>
+
+    <div class="card">
+      <div id="formZone">
+        <form id="promoForm" novalidate>
+          <input type="text" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label for="name">Prénom</label>
+          <input type="text" id="name" name="name" placeholder="Votre prénom" required autocomplete="given-name">
+
+          <label for="email" style="margin-top:14px;">Adresse e-mail <span style="color:#a2908a;font-weight:400;">(pour recevoir votre code)</span></label>
+          <input type="email" id="email" name="email" placeholder="vous@exemple.com" required autocomplete="email">
+
+          <label for="phone" style="margin-top:14px;">Téléphone <span style="color:#a2908a;font-weight:400;">(facultatif)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(514) 000-0000" autocomplete="tel">
+
+          <label for="instagram" style="margin-top:14px;">Instagram <span style="color:#a2908a;font-weight:400;">(pour vous taguer si vous gagnez)</span></label>
+          <input type="text" id="instagram" name="instagram" placeholder="@votre_compte" autocomplete="off">
+
+          <button type="submit" class="cta" style="margin-top:18px;">PARTICIPER AU TIRAGE</button>
+          <div class="err" aria-live="polite"></div>
+        </form>
+      </div>
+      <p class="fine">Participation gratuite · 1 gagnant(e) par mois · -50% sur une séance · résultat annoncé sur notre story Instagram @skines.spa.</p>
+    </div>
+
+    <div class="perks">
+      <span>★★★★★ 4,8 Fresha</span><span>·</span><span>★★★★★ 4,7 Google</span><span>·</span><span>Reçus d'assurance</span>
+    </div>
+
+    <div class="foot">
+      Skines Head Spa &amp; Wellness · 19 Av. Shamrock, Montréal · <a href="https://skines.ca">skines.ca</a><br>
+      <a href="https://instagram.com/skines.spa">@skines.spa</a>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      var form=document.getElementById('promoForm'), zone=document.getElementById('formZone');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var err=form.querySelector('.err'), btn=form.querySelector('.cta');
+        var email=(form.email.value||'').trim(), name=(form.name.value||'').trim();
+        err.textContent='';
+        if(!name){ err.textContent='Entrez votre prénom.'; return; }
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Entrez une adresse e-mail valide.'; return; }
+        btn.disabled=true; btn.textContent='…';
+        fetch('/api/send-promo',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||''})})
+          .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+          .then(function(res){
+            if(res.ok){
+              zone.innerHTML='<p class="msg">'+(res.d.already
+                ? 'Vous participez déjà au tirage de ce mois — bonne chance ! 🎉'
+                : 'C\'est fait ! Vous participez au tirage du mois. Résultat annoncé sur @skines.spa 🎉')+'</p>';
+            } else { btn.disabled=false; btn.textContent='PARTICIPER AU TIRAGE';
+              err.textContent=(res.d&&res.d.error)?res.d.error:'Une erreur est survenue. Réessayez.'; }
+          }).catch(function(){ btn.disabled=false; btn.textContent='PARTICIPER AU TIRAGE';
+            err.textContent='Une erreur est survenue. Réessayez.'; });
+      });
+    })();
+  </script>
+</body>
+</html>
