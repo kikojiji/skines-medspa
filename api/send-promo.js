@@ -56,23 +56,20 @@ function getDevice(ua) {
 }
 function safeDecode(v) { try { return decodeURIComponent(v || ''); } catch { return v || ''; } }
 
-const ICONS = { phone: '\u{1F4DE}', email: '\u{2709}\u{FE0F}', insta: '\u{1F4F8}', cal: '\u{1F4C5}' };
-function iconField(emoji, label, value) {
-  if (!value) return `<td width="50%" style="padding:0 0 26px;vertical-align:top;"></td>`;
-  return `<td width="50%" style="padding:0 0 26px;vertical-align:top;">
-  <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-    <td width="42" valign="top" style="padding-right:12px;">
-      <table role="presentation" cellpadding="0" cellspacing="0" bgcolor="#2A1B0E" style="background:#2A1B0E;width:38px;height:38px;border-radius:19px;border:1px solid rgba(201,151,58,0.30);"><tr>
-        <td align="center" valign="middle" width="38" height="38" style="font-size:18px;line-height:38px;">${emoji}</td>
-      </tr></table>
-    </td>
-    <td valign="top">
-      <p style="margin:0 0 5px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(201,167,122,0.80);font-family:Arial,Helvetica,sans-serif;font-weight:700;">${label}</p>
-      <p style="margin:0;font-size:15px;color:#F0E8DF;font-family:Georgia,'Times New Roman',serif;line-height:1.45;word-break:break-all;overflow-wrap:anywhere;">${value}</p>
-    </td>
-  </tr></table>
-</td>`;
+const MONTHS_FR = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function monthLabelFr(key) { const [y, m] = key.split('-'); return `${MONTHS_FR[parseInt(m, 10) - 1]} ${y}`; }
+// Pseudo code-barres décoratif, déterministe à partir du numéro de ticket.
+function barcodeHtml(seed) {
+  let n = 0; for (const ch of String(seed)) n = (n * 31 + ch.charCodeAt(0)) >>> 0;
+  const rnd = () => { n = (n * 1664525 + 1013904223) >>> 0; return n; };
+  let cells = '';
+  for (let i = 0; i < 34; i++) {
+    const bar = 1 + (rnd() % 3), gap = 1 + (rnd() % 2);
+    cells += `<td width="${bar}" bgcolor="#3a241c" style="width:${bar}px;height:38px;background:#3a241c;font-size:0;line-height:0;">&nbsp;</td><td width="${gap}" style="width:${gap}px;font-size:0;line-height:0;">&nbsp;</td>`;
+  }
+  return `<table role="presentation" cellpadding="0" cellspacing="0"><tr>${cells}</tr></table>`;
 }
+
 function submittedAtFr() {
   const d = new Date();
   const f = (o) => d.toLocaleString('en-CA', { timeZone: 'America/Toronto', ...o });
@@ -99,12 +96,14 @@ async function claimEmail(email) {
   } catch { return true; }
 }
 
+// Retourne le nombre de participants du mois (LPUSH renvoie la nouvelle longueur de la liste), ou null.
 async function storeEntry(lead) {
-  if (!redisEnabled) return;
+  if (!redisEnabled) return null;
   try {
     const payload = encodeURIComponent(JSON.stringify({ ...lead, at: new Date().toISOString() }));
-    await redis(`lpush/${encodeURIComponent('promo:entries:' + monthKey())}/${payload}`);
-  } catch (e) { console.error('[promo] redis store error:', e.message); }
+    const d = await redis(`lpush/${encodeURIComponent('promo:entries:' + monthKey())}/${payload}`);
+    return typeof d.result === 'number' ? d.result : null;
+  } catch (e) { console.error('[promo] redis store error:', e.message); return null; }
 }
 
 async function verifyTurnstile(token, ip) {
@@ -122,124 +121,147 @@ async function verifyTurnstile(token, ip) {
   } catch { return false; }
 }
 
-function adminEmailHtml(lead, ctx) {
-  const e = escapeHtml;
-  const initials = ((lead.name || '?').trim().split(/\s+/).slice(0, 2).map(w => w.charAt(0)).join('') || '?').toUpperCase();
-  const insta = lead.instagram ? `@${e(lead.instagram)}` : null;
-  const meta = [ctx.device, ctx.browser, ctx.location].filter(Boolean).map(e).join(' &nbsp;&middot;&nbsp; ');
-  return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
-<body style="margin:0;padding:0;background:#EAE0D5;font-family:Georgia,'Times New Roman',serif;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#EAE0D5" style="background:#EAE0D5;"><tr><td align="center">
-<table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:100%;">
-  <tr><td bgcolor="#EAE0D5" style="background:#EAE0D5;padding:44px 36px 30px;text-align:center;">
-    <p style="margin:0 0 7px;font-size:23px;letter-spacing:0.52em;color:#2C1810;font-family:Georgia,'Times New Roman',serif;font-weight:400;">SKINES</p>
-    <p style="margin:0 0 20px;font-size:7px;letter-spacing:0.30em;text-transform:uppercase;color:rgba(90,60,40,0.40);font-family:Arial,Helvetica,sans-serif;font-weight:700;">HEAD SPA &nbsp;&middot;&nbsp; MONTR&Eacute;AL</p>
-    <table role="presentation" width="130" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;"><tr>
-      <td style="height:1px;background:rgba(182,106,90,0.22);font-size:0;line-height:0;">&nbsp;</td>
-      <td style="padding:0 11px;color:rgba(182,106,90,0.55);font-size:10px;line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
-      <td style="height:1px;background:rgba(182,106,90,0.22);font-size:0;line-height:0;">&nbsp;</td>
-    </tr></table>
-    <p style="margin:0;font-size:8px;letter-spacing:0.30em;text-transform:uppercase;color:#B66A5A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">Nouvelle Inscription &nbsp;&middot;&nbsp; Tirage</p>
-  </td></tr>
-  <tr><td style="padding:0 0 8px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#180E07" style="background:#180E07;border-radius:20px;overflow:hidden;border:1px solid rgba(201,151,58,0.20);">
-    <tr><td style="height:1px;background:linear-gradient(90deg,rgba(201,151,58,0),rgba(201,151,58,0.60),rgba(201,151,58,0));font-size:0;line-height:0;">&nbsp;</td></tr>
-    <tr><td style="padding:28px 36px 0;">
-      <p style="margin:0 0 5px;font-size:7px;letter-spacing:0.34em;text-transform:uppercase;color:rgba(201,167,122,0.35);font-family:Arial,Helvetica,sans-serif;font-weight:700;">Registration ID</p>
-      <p style="margin:0;font-size:27px;letter-spacing:0.08em;color:#C9A77A;font-family:Georgia,'Times New Roman',serif;font-weight:400;">${e(ctx.adminId)}</p>
-    </td></tr>
-    <tr><td style="padding:18px 36px 20px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px;background:rgba(201,151,58,0.12);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
-    <tr><td style="padding:0 36px 20px;">
-      <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
-        <td width="68" valign="middle">
-          <table role="presentation" cellpadding="0" cellspacing="0" bgcolor="#B66A5A" style="background:#B66A5A;width:56px;height:56px;border-radius:28px;border:1px solid rgba(201,151,58,0.28);"><tr>
-            <td align="center" valign="middle" width="56" height="56"><p style="margin:0;font-size:17px;font-weight:700;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;line-height:1;">${e(initials)}</p></td>
-          </tr></table>
-        </td>
-        <td valign="middle" style="padding-left:16px;">
-          <p style="margin:0 0 5px;font-size:7.5px;letter-spacing:0.20em;color:rgba(201,167,122,0.42);font-family:Arial,Helvetica,sans-serif;">Participant &nbsp;&middot;&nbsp; ${e(ctx.adminId)}</p>
-          <p style="margin:0 0 12px;font-size:21px;color:#F0E8DF;font-family:Georgia,'Times New Roman',serif;letter-spacing:0.01em;">${e(lead.name || '—')}</p>
-          <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-            <td style="border:1px solid rgba(201,151,58,0.30);border-radius:40px;padding:5px 14px;">
-              <p style="margin:0;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#C9973A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">&#10022;&nbsp; TIRAGE &nbsp;-50% &nbsp;&middot;&nbsp; ${e(ctx.month)}</p>
-            </td>
-          </tr></table>
-        </td>
-      </tr></table>
-    </td></tr>
-    <tr><td style="padding:0 36px 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td style="height:1px;background:linear-gradient(90deg,rgba(201,151,58,0),rgba(201,151,58,0.20));font-size:0;">&nbsp;</td>
-      <td style="padding:0 13px;font-size:10px;color:rgba(201,151,58,0.35);line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
-      <td style="height:1px;background:linear-gradient(90deg,rgba(201,151,58,0.20),rgba(201,151,58,0));font-size:0;">&nbsp;</td>
-    </tr></table></td></tr>
-    <tr><td style="padding:0 36px 4px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-      <tr>${iconField(ICONS.phone, 'T&eacute;l&eacute;phone', lead.phone ? e(lead.phone) : null)}${iconField(ICONS.email, 'Courriel', e(lead.email))}</tr>
-      <tr>${iconField(ICONS.insta, 'Instagram', insta)}${iconField(ICONS.cal, 'Date d\'inscription', e(ctx.submittedAt))}</tr>
-    </table></td></tr>
-    <tr><td style="padding:14px 36px 18px;border-top:1px solid rgba(201,151,58,0.08);">
-      <p style="margin:0;font-size:9px;color:rgba(201,167,122,0.28);font-family:Arial,Helvetica,sans-serif;letter-spacing:0.06em;">${meta}</p>
-    </td></tr>
-  </table>
-  </td></tr>
-  <tr><td align="center" bgcolor="#EAE0D5" style="background:#EAE0D5;padding:22px 0 48px;">
-    <table role="presentation" width="180" cellpadding="0" cellspacing="0" style="margin:0 auto 14px;"><tr>
-      <td style="height:1px;background:rgba(182,106,90,0.14);font-size:0;">&nbsp;</td>
-      <td style="padding:0 11px;color:rgba(182,106,90,0.22);font-size:9px;line-height:1;white-space:nowrap;font-family:Arial;">&#10022;</td>
-      <td style="height:1px;background:rgba(182,106,90,0.14);font-size:0;">&nbsp;</td>
-    </tr></table>
-    <p style="margin:0;font-size:7.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(90,60,40,0.22);font-family:Arial,Helvetica,sans-serif;">Skines Head Spa &nbsp;&mdash;&nbsp; Syst&egrave;me automatique</p>
-  </td></tr>
-</table></td></tr></table></body></html>`;
-}
-
+// ═════════ E-MAIL PARTICIPANT — « Ticket » doré ═════════
 function customerEmailHtml(lead, ctx) {
   const e = escapeHtml;
   const first = e((lead.name || '').trim().split(/\s+/)[0] || '');
-  return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#F2EBE1;font-family:Georgia,'Times New Roman',serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#F2EBE1;padding:40px 16px 48px;"><tr><td align="center">
-<table width="540" cellpadding="0" cellspacing="0" style="max-width:100%;">
-  <tr><td style="padding:0 0 28px;text-align:center;">
-    <img src="${LOGO}" alt="Skines" width="48" style="width:48px;height:auto;display:block;margin:0 auto 10px;">
-    <p style="margin:0;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(90,70,55,0.52);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES HEAD SPA &amp; WELLNESS</p>
+  const MAROON = '#684034', CREAM = '#F7F0E6', GOLD = '#C9973A', INK = '#3a241c';
+  const notch = (side) => `<td width="16" height="32" bgcolor="${MAROON}" style="width:16px;height:32px;background:${MAROON};border-radius:${side === 'l' ? '0 16px 16px 0' : '16px 0 0 16px'};font-size:0;line-height:0;">&nbsp;</td>`;
+  return `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light only"><title>Votre ticket Skines</title></head>
+<body style="margin:0;padding:0;background:${MAROON};">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:${MAROON};font-size:1px;line-height:1px;">Votre ticket ${e(ctx.customerId)} est validé : -50% à gagner sur une séance Skines.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${MAROON}" style="background:${MAROON};"><tr><td align="center" style="padding:34px 14px 40px;">
+<table role="presentation" width="480" cellpadding="0" cellspacing="0" style="width:480px;max-width:100%;">
+
+  <tr><td align="center" style="padding:0 0 26px;">
+    <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:24px;letter-spacing:.55em;color:${CREAM};padding-left:.55em;">SKINES</p>
+    <p style="margin:6px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:9px;letter-spacing:.34em;color:#e8bd5c;text-transform:uppercase;">Head Spa &middot; Montr&eacute;al</p>
   </td></tr>
-  <tr><td style="background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid rgba(182,106,90,0.13);">
-    <table cellpadding="0" cellspacing="0" width="100%">
-      <tr><td style="height:4px;background:linear-gradient(90deg,#D4B896,#C9973A,#D4B896);font-size:0;line-height:0;">&nbsp;</td></tr>
-      <tr><td style="padding:44px 44px 40px;text-align:center;">
-        <p style="margin:0 0 20px;font-size:7.5px;letter-spacing:0.32em;text-transform:uppercase;color:#C9973A;font-family:Arial,Helvetica,sans-serif;font-weight:700;">&#10022;&nbsp; INSCRIPTION CONFIRM&Eacute;E &nbsp;&#10022;</p>
-        <p style="margin:0 0 20px;font-family:Georgia,'Times New Roman',serif;font-size:34px;color:#2C1810;line-height:1.15;font-weight:400;">Merci${first ? ` <span style="color:#B66A5A;font-style:italic;">${first}.</span>` : '.'}</p>
-        <table width="160" cellpadding="0" cellspacing="0" style="margin:0 auto 24px;"><tr>
-          <td style="height:1px;background:#D4B896;"></td><td style="padding:0 10px;color:#C9973A;font-size:11px;line-height:1;white-space:nowrap;">&#10022;</td><td style="height:1px;background:#D4B896;"></td>
-        </tr></table>
-        <p style="margin:0 0 10px;font-size:15px;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;line-height:1.8;text-align:center;">
-          Votre participation au <em>Tirage du mois</em><br>de <strong>Skines Head Spa</strong> a bien &eacute;t&eacute; enregistr&eacute;e.<br>
-          <strong>-50% sur une s&eacute;ance</strong> &agrave; gagner.
-        </p>
-        <p style="margin:0 0 28px;font-size:13px;color:rgba(90,70,55,0.60);font-family:Arial,Helvetica,sans-serif;line-height:1.7;text-align:center;">
-          Le gagnant ou la gagnante est annonc&eacute;(e) sur notre story Instagram <a href="https://instagram.com/skines.spa" style="color:#B66A5A;text-decoration:none;">@skines.spa</a>.
-        </p>
-        <table cellpadding="0" cellspacing="0" style="margin:0 auto 32px;border:1px solid rgba(182,106,90,0.18);border-radius:8px;"><tr>
-          <td align="center" style="padding:11px 28px;">
-            <p style="margin:0 0 3px;font-size:7px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(90,70,55,0.38);font-family:Arial,Helvetica,sans-serif;">R&eacute;f&eacute;rence</p>
-            <p style="margin:0;font-size:15px;letter-spacing:0.12em;color:#3A1E14;font-family:Georgia,'Times New Roman',serif;">${e(ctx.customerId)}</p>
-          </td>
-        </tr></table>
-        <table cellpadding="0" cellspacing="0" style="margin:0 auto;"><tr>
-          <td align="center" style="border-radius:8px;background:#B66A5A;mso-padding-alt:0;">
-            <a href="https://skines.ca" style="display:inline-block;padding:15px 52px;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#FEFAF7;text-decoration:none;white-space:nowrap;">D&Eacute;COUVRIR NOS SOINS</a>
-          </td>
-        </tr></table>
-      </td></tr>
-      <tr><td style="padding:20px 44px 24px;text-align:center;background:#FAF6F0;border-top:1px solid rgba(182,106,90,0.09);">
-        <p style="margin:0 0 5px;font-size:7.5px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(90,70,55,0.45);font-family:Arial,Helvetica,sans-serif;font-weight:700;">SKINES HEAD SPA &amp; WELLNESS</p>
-        <p style="margin:0;font-size:11px;color:rgba(90,70,55,0.38);font-family:Arial,Helvetica,sans-serif;letter-spacing:0.05em;">Montr&eacute;al, Canada &nbsp;&middot;&nbsp; <a href="https://skines.ca" style="color:rgba(90,70,55,0.38);text-decoration:none;">skines.ca</a></p>
-      </td></tr>
+
+  <tr><td>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${CREAM}" style="background:${CREAM};border-radius:20px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.30);">
+    <tr><td style="height:6px;background:${GOLD};font-size:0;line-height:0;">&nbsp;</td></tr>
+
+    <tr><td align="center" style="padding:36px 30px 26px;">
+      <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;letter-spacing:.32em;color:${GOLD};text-transform:uppercase;">Tirage du mois &middot; ${e(ctx.monthLabel)}</p>
+      <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:96px;line-height:1;color:${INK};letter-spacing:-.02em;">&minus;50<span style="font-size:52px;vertical-align:top;line-height:1.15;">%</span></p>
+      <p style="margin:2px 0 18px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:24px;color:${MAROON};">&agrave; gagner sur une s&eacute;ance</p>
+      <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.65;color:#6b5048;">${first ? `Bravo ${first}, v` : 'V'}otre participation est confirm&eacute;e.<br>Gardez ce ticket : il vous donne une chance de gagner.</p>
+    </td></tr>
+
+    <tr><td>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        ${notch('l')}
+        <td valign="middle" style="font-size:0;line-height:0;"><div style="border-top:2px dashed #d8c7ae;height:0;font-size:0;line-height:0;">&nbsp;</div></td>
+        ${notch('r')}
+      </tr></table>
+    </td></tr>
+
+    <tr><td style="padding:24px 30px 30px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td valign="top">
+          <p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;color:#a8957f;text-transform:uppercase;">Ticket n&deg;</p>
+          <p style="margin:0 0 14px;font-family:'Courier New',Courier,monospace;font-size:28px;font-weight:700;letter-spacing:.08em;color:${INK};">${e(ctx.customerId)}</p>
+          <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#6b5048;">Participant(e) &middot; <strong style="color:${INK};">${e(lead.name || '')}</strong><br>Tirage &middot; <strong style="color:${INK};">${e(ctx.monthLabel)}</strong></p>
+        </td>
+        <td valign="bottom" align="right" style="padding-left:12px;">${barcodeHtml(ctx.customerId)}</td>
+      </tr></table>
+    </td></tr>
+  </table>
+  </td></tr>
+
+  <tr><td style="padding:28px 6px 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="33%" valign="top" align="center" style="padding:0 6px;">
+          <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:22px;color:#e8bd5c;">01</p>
+          <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:${CREAM};">Inscription<br>valid&eacute;e &#10003;</p>
+        </td>
+        <td width="33%" valign="top" align="center" style="padding:0 6px;border-left:1px solid rgba(247,240,230,.22);border-right:1px solid rgba(247,240,230,.22);">
+          <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:22px;color:#e8bd5c;">02</p>
+          <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:${CREAM};">Suivez<br>@skines.spa</p>
+        </td>
+        <td width="33%" valign="top" align="center" style="padding:0 6px;">
+          <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:22px;color:#e8bd5c;">03</p>
+          <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:${CREAM};">Gagnant(e) annonc&eacute;(e)<br>en story</p>
+        </td>
+      </tr>
     </table>
   </td></tr>
-</table></td></tr></table></body></html>`;
+
+  <tr><td align="center" style="padding:28px 0 8px;">
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+      <td bgcolor="#e8bd5c" style="background:#e8bd5c;border-radius:999px;">
+        <a href="https://instagram.com/skines.spa" style="display:inline-block;padding:15px 38px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${INK};text-decoration:none;">Suivre @skines.spa</a>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td align="center" style="padding:22px 10px 0;">
+    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.7;color:rgba(247,240,230,.62);">Skines Head Spa &amp; Wellness &middot; 19 Av. Shamrock, Montr&eacute;al<br><a href="https://skines.ca" style="color:rgba(247,240,230,.62);">skines.ca</a></p>
+  </td></tr>
+
+</table>
+</td></tr></table></body></html>`;
+}
+
+// ═════════ E-MAIL ADMIN — Fiche d'action en un clic ═════════
+function adminEmailHtml(lead, ctx) {
+  const e = escapeHtml;
+  const MAROON = '#684034', GOLD = '#C9973A', INK = '#3a241c';
+  const initials = ((lead.name || '?').trim().split(/\s+/).slice(0, 2).map(w => w.charAt(0)).join('') || '?').toUpperCase();
+  const digits = (lead.phone || '').replace(/\D/g, '');
+  const wa = digits ? `https://wa.me/${digits.length === 10 ? '1' + digits : digits}` : '';
+  const ig = lead.instagram ? `https://instagram.com/${encodeURIComponent(lead.instagram)}` : '';
+  const meta = [ctx.device, ctx.browser, ctx.location].filter(Boolean).map(e).join(' &middot; ');
+  const btn = (href, label, bg, fg) => href ? `<td style="padding:0 6px 10px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="${bg}" style="background:${bg};border-radius:12px;"><a href="${href}" style="display:inline-block;padding:12px 18px;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:${fg};text-decoration:none;">${label}</a></td></tr></table></td>` : '';
+  const row = (label, value) => value ? `<tr><td style="padding:10px 0;border-bottom:1px solid #efe6da;"><p style="margin:0 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;color:#a8957f;text-transform:uppercase;">${label}</p><p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:${INK};word-break:break-all;">${value}</p></td></tr>` : '';
+  return `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><title>Nouvelle participation</title></head>
+<body style="margin:0;padding:0;background:#f1e9df;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;">${e(lead.name || lead.email)} participe au tirage -50% (${e(ctx.monthLabel)}).</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#f1e9df" style="background:#f1e9df;"><tr><td align="center" style="padding:28px 12px 36px;">
+<table role="presentation" width="540" cellpadding="0" cellspacing="0" style="width:540px;max-width:100%;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(104,64,52,.18);">
+
+  <tr><td bgcolor="${MAROON}" style="background:${MAROON};padding:26px 30px 24px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td valign="middle">
+        <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:.3em;color:#e8bd5c;text-transform:uppercase;">Tirage &minus;50% &middot; ${e(ctx.monthLabel)}</p>
+        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:26px;color:#F7F0E6;">Nouvelle participation</p>
+      </td>
+      <td valign="middle" align="right">${ctx.count ? `<table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#e8bd5c" style="background:#e8bd5c;border-radius:16px;padding:10px 18px;"><p style="margin:0;font-family:Georgia,serif;font-size:30px;line-height:1;color:${INK};">${ctx.count}</p><p style="margin:3px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:8px;font-weight:700;letter-spacing:.16em;color:${INK};text-transform:uppercase;">ce mois-ci</p></td></tr></table>` : ''}</td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td bgcolor="#ffffff" style="background:#ffffff;padding:26px 30px 8px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td width="64" valign="middle"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" valign="middle" width="54" height="54" bgcolor="${GOLD}" style="width:54px;height:54px;background:${GOLD};border-radius:27px;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;color:#fff;">${e(initials)}</td></tr></table></td>
+      <td valign="middle" style="padding-left:14px;"><p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:24px;color:${INK};">${e(lead.name || '—')}</p><p style="margin:3px 0 0;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:.1em;color:#a8957f;">${e(ctx.adminId)} &middot; ${e(ctx.submittedAt)}</p></td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td bgcolor="#ffffff" style="background:#ffffff;padding:6px 30px 6px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      ${row('Courriel', `<a href="mailto:${e(lead.email)}" style="color:${INK};text-decoration:none;">${e(lead.email)}</a>`)}
+      ${row('T&eacute;l&eacute;phone', lead.phone ? `<a href="tel:${e(lead.phone)}" style="color:${INK};text-decoration:none;">${e(lead.phone)}</a>` : '')}
+      ${row('Instagram (&agrave; taguer si gagnant)', lead.instagram ? `<a href="${ig}" style="color:${MAROON};font-weight:700;text-decoration:none;">@${e(lead.instagram)}</a>` : '')}
+    </table>
+  </td></tr>
+
+  <tr><td bgcolor="#ffffff" style="background:#ffffff;padding:18px 30px 26px;">
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+      ${btn(ig, 'Voir sur Instagram', MAROON, '#F7F0E6')}
+      ${btn(lead.phone ? 'tel:' + e(lead.phone) : '', 'Appeler', '#F1E3CF', INK)}
+      ${btn(wa, 'WhatsApp', '#1f9d55', '#ffffff')}
+    </tr></table>
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr>${btn('mailto:' + e(lead.email), 'R&eacute;pondre par e-mail', '#F1E3CF', INK)}</tr></table>
+  </td></tr>
+
+  <tr><td bgcolor="#faf5ee" style="background:#faf5ee;padding:12px 30px;border-top:1px solid #efe6da;">
+    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:.06em;color:#b7a791;">${meta}</p>
+  </td></tr>
+
+</table>
+</td></tr></table></body></html>`;
 }
 
 export default async function handler(req, res) {
@@ -278,7 +300,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, already: true });
   }
 
-  await storeEntry(lead);
+  const count = await storeEntry(lead);
 
   const ua = req.headers['user-agent'] || '';
   _fallback++;
@@ -287,6 +309,8 @@ export default async function handler(req, res) {
     customerId: `SK-${String(custSeq ?? (65 + _fallback)).padStart(4, '0')}`,
     adminId:    `SK-${String(adminSeq ?? (19 + _fallback)).padStart(4, '0')}`,
     month: monthKey(),
+    monthLabel: monthLabelFr(monthKey()),
+    count,
     submittedAt: submittedAtFr(),
     device: getDevice(ua),
     browser: getBrowser(ua),
@@ -296,7 +320,7 @@ export default async function handler(req, res) {
   try {
     await sendViaResend({
       from: FROM, to: email,
-      subject: '✦ Votre inscription au Tirage Skines est confirmée',
+      subject: `🎟️ Votre ticket ${ctx.customerId} · -50% à gagner`,
       html: customerEmailHtml(lead, ctx),
     });
   } catch (e) {
@@ -307,7 +331,7 @@ export default async function handler(req, res) {
   try {
     await sendViaResend({
       from: FROM, to: ADMIN, replyTo: email,
-      subject: `✦ ${lead.name || email} — Tirage Skines`,
+      subject: `🎟️ ${ctx.count ? 'N°' + ctx.count + ' · ' : ''}${lead.name || email} — Tirage -50%`,
       html: adminEmailHtml(lead, ctx),
     });
   } catch (e) { console.error('[promo] admin email error:', e.message); }
