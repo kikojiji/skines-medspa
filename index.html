@@ -64,9 +64,11 @@
 <meta name="twitter:title" content="Skines Head Spa • Montréal" />
 <meta name="twitter:description" content="Luxury Japanese Head Spa, advanced facials, and laser treatments for deep relaxation and natural glow." />
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2" />
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Animation libs: fetched in parallel from the start but EXECUTED later (just before their only
+     consumer script near the end of <body>), so they no longer block first paint. -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -9325,6 +9327,9 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
 
   </div>
 </footer>
+<!-- NB: Lenis (smooth scroll) was removed: its CDN URL has been a 404 for a long time, so it never ran. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 /* ══ SITE SEARCH ENGINE ═══════════════════════════════════════════════════ */
 (function() {
