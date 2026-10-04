@@ -104,13 +104,13 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const ip = getClientIp(req);
-  if (!rateLimit(ip, { maxRequests: 5, windowMs: 60_000 }).allowed) {
+  if (!rateLimit(ip, { maxRequests: 5, windowMs: 60_000 }).ok) {
     return res.status(429).json({ error: 'Trop de tentatives, réessayez plus tard.' });
   }
 
-  let body;
-  try { body = await requireJson(req); }
-  catch { return res.status(400).json({ error: 'Invalid request' }); }
+  const ct = requireJson(req);
+  if (!ct.ok) return res.status(ct.status || 415).json({ error: ct.error });
+  const body = req.body && typeof req.body === 'object' ? req.body : {};
 
   if (isHoneypotTriggered(body)) return res.status(200).json({ ok: true }); // piège à bots
 
