@@ -7818,17 +7818,23 @@ input, textarea, select {
          don't match, so a plain native loop shows a hard cut/black pop.
          Fading video A out while video B (restarted from 0) fades in
          hides that seam; only one is ever visibly "live" at a time. -->
-    <video id="heroVideoDesktopA" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" autoplay muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
-      <source src="assets/videos/hero-head-spa.mp4" type="video/mp4">
-    </video>
-    <video id="heroVideoDesktopB" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
-      <source src="assets/videos/hero-head-spa.mp4" type="video/mp4">
-    </video>
+    <!-- NB: no <source> in the markup on purpose. A hidden <video preload="auto">
+         still downloads, which cost phones an extra 4.6 MB. The source is attached
+         by the script below only on desktop (>= 981px, same breakpoint as the CSS). -->
+    <video id="heroVideoDesktopA" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" autoplay muted loop playsinline preload="none" data-src="assets/videos/hero-head-spa.mp4" aria-label="Ambiance spa chaleureuse"></video>
+    <video id="heroVideoDesktopB" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" muted loop playsinline preload="none" data-src="assets/videos/hero-head-spa.mp4" aria-label="Ambiance spa chaleureuse"></video>
     <script>
       (function () {
         var vA = document.getElementById('heroVideoDesktopA');
         var vB = document.getElementById('heroVideoDesktopB');
         if (!vA || !vB) return;
+        // Phones/tablets (<= 980px) use the mobile hero video: never fetch the desktop clip.
+        if (!window.matchMedia('(min-width: 981px)').matches) return;
+        [vA, vB].forEach(function (v) {
+          v.preload = 'auto';
+          v.src = v.getAttribute('data-src');
+          v.load();
+        });
         var CROSSFADE = 0.6; // seconds
         // The incoming clip is always stacked ON TOP and only ever fades
         // 0→1. The outgoing clip is never faded out / never dropped below
