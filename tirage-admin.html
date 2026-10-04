@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Tirage du mois · Admin Skines</title>
+<link rel="icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--maroon:#684034;--maroon-d:#4b2e26;--cream:#F7F0E6;--gold:#e8bd5c;--gold-d:#b98a3e;--ink:#3a241c;--muted:#8a736b;--line:#e9dccb;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"DM Sans",-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--maroon);color:var(--cream);min-height:100vh;line-height:1.55}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(247,240,230,.14)}
+  .top .brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;letter-spacing:.34em;font-weight:600;padding-left:.34em}
+  .top .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  main{max-width:720px;margin:0 auto;padding:28px 18px 70px}
+  h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(2rem,6vw,2.7rem);line-height:1.08;margin-bottom:6px}
+  .sub{color:rgba(247,240,230,.75);margin-bottom:22px}
+  .card{background:var(--cream);color:var(--ink);border-radius:20px;padding:22px;box-shadow:0 18px 44px rgba(0,0,0,.28)}
+  label{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  input[type=password],input[type=text],select{width:100%;border:1px solid #d9c9b4;border-radius:12px;padding:13px 15px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;outline:none}
+  input:focus,select:focus{border-color:var(--gold-d);box-shadow:0 0 0 3px rgba(185,138,62,.2)}
+  .btn{border:none;border-radius:999px;padding:14px 22px;font-family:inherit;font-weight:700;font-size:14px;letter-spacing:.06em;cursor:pointer;background:var(--maroon);color:#fff;transition:transform .15s,background .2s}
+  .btn:hover{background:#56342a;transform:translateY(-1px)}
+  .btn[disabled]{opacity:.55;cursor:default;transform:none}
+  .btn.ghost{background:transparent;color:var(--maroon);border:1.5px solid rgba(104,64,52,.35)}
+  .btn.gold{background:var(--gold);color:var(--ink)}
+  .btn.wa{background:#1f9d55}
+  .full{width:100%}
+  .err{color:#b4452f;font-size:14px;margin-top:10px;min-height:18px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+  .row>*{flex:1 1 160px}
+  .stats{display:flex;gap:12px;margin:18px 0}
+  .stat{flex:1;background:var(--maroon);border-radius:16px;padding:14px 8px;text-align:center}
+  .stat b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;line-height:1;color:var(--gold)}
+  .stat span{display:block;margin-top:4px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,240,230,.85)}
+  .list{margin-top:14px;max-height:340px;overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+  .p{display:flex;gap:12px;align-items:center;padding:11px 14px;border-bottom:1px solid #f3eadc}
+  .p:last-child{border-bottom:none}
+  .p input{width:20px;height:20px;accent-color:var(--maroon);flex:0 0 auto}
+  .p .who{flex:1;min-width:0}
+  .p .nm{font-weight:700;font-size:15px}
+  .p .meta{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+  .p.off{opacity:.45}
+  .empty{padding:26px;text-align:center;color:var(--muted)}
+  .draw{margin-top:22px;text-align:center}
+  .draw .btn{font-size:17px;padding:18px 34px}
+  .stage{margin-top:22px;text-align:center;min-height:30px}
+  .shuffle{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2rem,8vw,3rem);color:var(--gold);min-height:60px;overflow-wrap:anywhere}
+  .winner{margin-top:6px;background:linear-gradient(160deg,#fff7e3,#f6e3b4);color:var(--ink);border-radius:22px;padding:26px 22px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35);border:2px solid var(--gold)}
+  .winner .crown{font-size:34px}
+  .winner .lab{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d)}
+  .winner .name{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.2rem,8vw,3.2rem);line-height:1.05;margin:6px 0 4px;color:var(--maroon-d)}
+  .winner .ig{font-size:19px;font-weight:700;color:var(--maroon)}
+  .winner .det{font-size:14px;color:#6b5048;margin-top:6px;overflow-wrap:anywhere}
+  .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+  .acts a,.acts button{flex:0 1 auto;text-decoration:none;display:inline-block}
+  .saved{margin-top:12px;font-size:12.5px;color:#6b5048}
+  .prev{background:rgba(247,240,230,.1);border:1px solid rgba(247,240,230,.2);border-radius:14px;padding:12px 14px;margin-bottom:16px;font-size:14px}
+  .prev b{color:var(--gold)}
+  .tools{display:flex;gap:8px;margin-top:12px}
+  .tools .btn{flex:1 1 0;min-width:0;padding:11px 4px;font-size:12px;letter-spacing:0;white-space:nowrap}
+  .small{font-size:12px;color:rgba(247,240,230,.6);text-align:center;margin-top:26px}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="top"><span class="brand">SKINES</span><span class="tag">Tirage &middot; Admin</span></div>
+<main>
+
+  <section id="login">
+    <h1>Tirage du mois</h1>
+    <p class="sub">Espace réservé à l'équipe Skines.</p>
+    <div class="card">
+      <label for="pw">Mot de passe</label>
+      <input type="password" id="pw" autocomplete="current-password" placeholder="••••••••">
+      <button class="btn full" id="go" style="margin-top:14px">Entrer</button>
+      <div class="err" id="loginErr" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="app" hidden>
+    <h1>Tirage du mois</h1>
+    <p class="sub">Choisissez le mois, vérifiez la liste, puis tirez au sort.</p>
+
+    <div class="card">
+      <div class="row">
+        <div><label for="monthSel">Mois</label><select id="monthSel"></select></div>
+        <div><label for="search">Rechercher</label><input type="text" id="search" placeholder="Nom, e-mail, Instagram…"></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b id="nTotal">0</b><span>Participants</span></div>
+        <div class="stat"><b id="nSel">0</b><span>Dans le tirage</span></div>
+      </div>
+
+      <div id="prev" class="prev" hidden></div>
+
+      <div class="tools">
+        <button class="btn ghost" id="selAll" type="button">Tout cocher</button>
+        <button class="btn ghost" id="selNone" type="button">Tout décocher</button>
+        <button class="btn ghost" id="csv" type="button">CSV ⬇</button>
+      </div>
+      <div class="list" id="list"></div>
+      <p class="sub" style="color:var(--muted);font-size:12.5px;margin:8px 0 0">Décochez les tests ou les personnes à exclure du tirage.</p>
+    </div>
+
+    <div class="draw"><button class="btn gold" id="drawBtn">🎲 Tirer au sort</button></div>
+    <div class="stage" id="stage"></div>
+  </section>
+
+  <p class="small">Page privée · ne pas partager le mot de passe</p>
+</main>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY_STORE = 'sk_tirage_key';
+  var state = { entries: [], month: '', winner: null, off: {} };
+  var MONTHS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  function monthLabel(k) { var p = k.split('-'); return MONTHS[+p[1] - 1] + ' ' + p[0]; }
+  function getKey() { try { return sessionStorage.getItem(KEY_STORE) || ''; } catch (e) { return ''; } }
+
+  function api(method, qs, body) {
+    return fetch('/api/tirage-admin' + (qs || ''), {
+      method: method,
+      headers: { 'Content-Type': 'application/json', 'x-admin-key': getKey() },
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }); });
+  }
+
+  // ── Connexion ────────────────────────────────────────────────
+  function login() {
+    var v = $('pw').value;
+    if (!v) { $('loginErr').textContent = 'Entrez le mot de passe.'; return; }
+    try { sessionStorage.setItem(KEY_STORE, v); } catch (e) {}
+    $('go').disabled = true; $('loginErr').textContent = '';
+    load('').then(function (ok) { $('go').disabled = false; if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
+  }
+  $('go').addEventListener('click', login);
+  $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') login(); });
+
+  function load(month) {
+    return api('GET', month ? '?month=' + encodeURIComponent(month) : '').then(function (res) {
+      if (!res.ok) { $('loginErr').textContent = res.d.error || 'Erreur.'; return false; }
+      var d = res.d; state.entries = d.entries; state.month = d.month; state.winner = d.winner; state.off = {};
+      $('login').hidden = true; $('app').hidden = false;
+      var sel = $('monthSel'); sel.textContent = '';
+      d.months.forEach(function (m) { var o = document.createElement('option'); o.value = m; o.textContent = monthLabel(m); if (m === d.month) o.selected = true; sel.appendChild(o); });
+      $('stage').textContent = ''; render(); return true;
+    }).catch(function () { $('loginErr').textContent = 'Connexion impossible.'; return false; });
+  }
+  $('monthSel').addEventListener('change', function () { load(this.value); });
+
+  // ── Liste ────────────────────────────────────────────────────
+  function pool() { return state.entries.filter(function (e) { return !state.off[e.email]; }); }
+  function render() {
+    var q = $('search').value.trim().toLowerCase();
+    var list = $('list'); list.textContent = '';
+    var shown = state.entries.filter(function (e) { return !q || (e.name + ' ' + e.email + ' ' + e.instagram).toLowerCase().indexOf(q) > -1; });
+    if (!state.entries.length) { var em = document.createElement('div'); em.className = 'empty'; em.textContent = 'Aucun participant pour ce mois.'; list.appendChild(em); }
+    shown.forEach(function (e) {
+      var row = document.createElement('label'); row.className = 'p' + (state.off[e.email] ? ' off' : ''); row.style.margin = '0'; row.style.textTransform = 'none'; row.style.letterSpacing = '0';
+      var cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = !state.off[e.email];
+      cb.addEventListener('change', function () { if (cb.checked) delete state.off[e.email]; else state.off[e.email] = true; render(); });
+      var who = document.createElement('div'); who.className = 'who';
+      var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = e.name || '(sans nom)';
+      var meta = document.createElement('div'); meta.className = 'meta';
+      meta.textContent = [e.instagram ? '@' + e.instagram : '', e.email, e.phone].filter(Boolean).join(' · ');
+      who.appendChild(nm); who.appendChild(meta); row.appendChild(cb); row.appendChild(who); list.appendChild(row);
+    });
+    $('nTotal').textContent = state.entries.length; $('nSel').textContent = pool().length;
+    $('drawBtn').disabled = pool().length === 0;
+    var prev = $('prev');
+    if (state.winner) {
+      prev.hidden = false; prev.textContent = '';
+      var b = document.createElement('b'); b.textContent = state.winner.name || state.winner.email;
+      prev.appendChild(document.createTextNode('Gagnant(e) déjà tiré(e) pour ' + monthLabel(state.month) + ' : ')); prev.appendChild(b);
+      prev.appendChild(document.createTextNode(' — le ' + new Date(state.winner.drawnAt).toLocaleDateString('fr-CA') + '. Un nouveau tirage remplacera ce résultat.'));
+    } else prev.hidden = true;
+  }
+  $('search').addEventListener('input', render);
+  $('selAll').addEventListener('click', function () { state.off = {}; render(); });
+  $('selNone').addEventListener('click', function () { state.entries.forEach(function (e) { state.off[e.email] = true; }); render(); });
+
+  $('csv').addEventListener('click', function () {
+    var rows = [['Prénom','Courriel','Téléphone','Instagram','Inscrit le']].concat(state.entries.map(function (e) { return [e.name, e.email, e.phone, e.instagram ? '@' + e.instagram : '', e.at]; }));
+    var csv = rows.map(function (r) { return r.map(function (c) { return '"' + String(c || '').replace(/"/g, '""') + '"'; }).join(','); }).join('\n');
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'tirage-' + state.month + '.csv'; document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  // ── Tirage (aléatoire cryptographique) ───────────────────────
+  function randInt(n) {
+    var max = Math.floor(0x100000000 / n) * n, buf = new Uint32Array(1);
+    do { crypto.getRandomValues(buf); } while (buf[0] >= max);
+    return buf[0] % n;
+  }
+  $('drawBtn').addEventListener('click', function () {
+    var p = pool(); if (!p.length) return;
+    if (state.winner && !confirm('Un(e) gagnant(e) a déjà été tiré(e) pour ce mois. Refaire le tirage ?')) return;
+    var winner = p[randInt(p.length)];
+    var stage = $('stage'); stage.textContent = '';
+    var sh = document.createElement('div'); sh.className = 'shuffle'; stage.appendChild(sh);
+    $('drawBtn').disabled = true;
+    var t = 0, delay = 60;
+    (function tick() {
+      t += delay;
+      if (t < 2600) { sh.textContent = p[randInt(p.length)].name || '…'; delay += 6; setTimeout(tick, delay); }
+      else reveal(winner, p.length);
+    })();
+  });
+
+  function digits(s) { return String(s || '').replace(/\D/g, ''); }
+  function reveal(w, poolSize) {
+    var stage = $('stage'); stage.textContent = '';
+    var box = document.createElement('div'); box.className = 'winner';
+    function div(cls, txt) { var d = document.createElement('div'); d.className = cls; d.textContent = txt; return d; }
+    box.appendChild(div('crown', '👑'));
+    box.appendChild(div('lab', 'Gagnant(e) · ' + monthLabel(state.month)));
+    box.appendChild(div('name', w.name || w.email));
+    if (w.instagram) box.appendChild(div('ig', '@' + w.instagram));
+    box.appendChild(div('det', [w.email, w.phone].filter(Boolean).join(' · ')));
+    var acts = document.createElement('div'); acts.className = 'acts';
+    function link(txt, href, cls) { var a = document.createElement('a'); a.className = 'btn ' + (cls || ''); a.textContent = txt; a.href = href; a.target = '_blank'; a.rel = 'noopener'; acts.appendChild(a); }
+    if (w.instagram) link('Instagram', 'https://instagram.com/' + encodeURIComponent(w.instagram));
+    var dg = digits(w.phone);
+    if (dg) { link('WhatsApp', 'https://wa.me/' + (dg.length === 10 ? '1' + dg : dg), 'wa'); link('Appeler', 'tel:' + dg, 'ghost'); }
+    link('E-mail', 'mailto:' + encodeURIComponent(w.email), 'ghost');
+    var cp = document.createElement('button'); cp.className = 'btn gold'; cp.textContent = 'Copier le texte de la story';
+    cp.addEventListener('click', function () {
+      var who = w.instagram ? '@' + w.instagram : (w.name || '');
+      var txt = '🎉 Gagnant(e) du tirage de ' + monthLabel(state.month) + ' : ' + who + ' !\nBravo, vous remportez -50% sur une séance chez Skines Head Spa & Wellness. Écrivez-nous en DM pour réserver 💫';
+      (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { cp.textContent = 'Copié ✓'; }, function () { prompt('Copiez le texte :', txt); });
+    });
+    acts.appendChild(cp); box.appendChild(acts);
+    var saved = div('saved', 'Enregistrement du résultat…'); box.appendChild(saved);
+    stage.appendChild(box);
+    api('POST', '', { month: state.month, email: w.email, poolSize: poolSize }).then(function (res) {
+      if (res.ok) { saved.textContent = 'Résultat enregistré ✓'; state.winner = res.d.winner; render(); $('drawBtn').disabled = false; }
+      else { saved.textContent = 'Non enregistré : ' + (res.d.error || 'erreur'); $('drawBtn').disabled = false; }
+    }).catch(function () { saved.textContent = 'Non enregistré (connexion).'; $('drawBtn').disabled = false; });
+  }
+
+  // Reconnexion automatique si la clé est déjà dans l'onglet
+  if (getKey()) load('').then(function (ok) { if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
+})();
+</script>
+</body>
+</html>
