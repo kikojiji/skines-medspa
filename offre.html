@@ -26,7 +26,15 @@
   .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0;}
   .card input:not(.hp){width:100%;border:1px solid rgba(104,64,52,.28);border-radius:12px;padding:14px 16px;font-size:16px;color:var(--maroon-d);background:#fff;outline:none;font-family:inherit;}
   .card input:not(.hp):focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(185,138,62,.18);}
-  .cta{width:100%;margin-top:12px;border:none;border-radius:999px;padding:16px;background:var(--maroon);color:var(--cream);font-weight:700;letter-spacing:.08em;font-size:15px;cursor:pointer;font-family:inherit;transition:background .2s,transform .2s;}
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 18px;background:rgba(104,64,52,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(245,237,227,.14);}
+  .topbar a{color:var(--cream);text-decoration:none;font-size:13px;}
+  .topbar .back{font-weight:600;white-space:nowrap;}
+  .topbar .brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;letter-spacing:.32em;font-weight:600;color:#fff;}
+  .topbar .book{border:1px solid rgba(245,237,227,.45);border-radius:999px;padding:7px 15px;font-weight:600;white-space:nowrap;}
+  .topbar .book:hover,.topbar .back:hover{color:var(--gold-l);}
+  .cta{width:100%;margin-top:12px;border:none;border-radius:999px;padding:16px;background:var(--maroon);color:#fff;font-weight:700;letter-spacing:.08em;font-size:15px;cursor:pointer;font-family:inherit;transition:background .2s,transform .2s;-webkit-text-fill-color:#fff;}
   .cta:hover{background:#56342a;transform:translateY(-1px);}
   .cta[disabled]{opacity:.65;cursor:default;transform:none;}
   .err{color:#b4452f;font-size:13px;margin-top:8px;min-height:16px;text-align:center;}
@@ -40,6 +48,11 @@
 </style>
 </head>
 <body>
+  <header class="topbar">
+    <a class="back" href="/" aria-label="Retour au site">&#8249; Retour au site</a>
+    <a class="brand" href="/" aria-label="Skines Head Spa &amp; Wellness">SKINES</a>
+    <a class="book" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer">Réserver</a>
+  </header>
   <main class="wrap">
     <img class="logo" src="/assets/images/logo-officiel-cropped.PNG" alt="Skines Head Spa & Wellness"
          onerror="this.style.display='none'">
@@ -55,7 +68,7 @@
           <label for="name">Prénom</label>
           <input type="text" id="name" name="name" placeholder="Votre prénom" required autocomplete="given-name">
 
-          <label for="email" style="margin-top:14px;">Adresse e-mail <span style="color:#a2908a;font-weight:400;">(pour recevoir votre code)</span></label>
+          <label for="email" style="margin-top:14px;">Adresse e-mail <span style="color:#a2908a;font-weight:400;">(pour confirmer votre participation)</span></label>
           <input type="email" id="email" name="email" placeholder="vous@exemple.com" required autocomplete="email">
 
           <label for="phone" style="margin-top:14px;">Téléphone <span style="color:#a2908a;font-weight:400;">(facultatif)</span></label>

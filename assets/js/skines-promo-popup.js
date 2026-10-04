@@ -36,6 +36,10 @@
     + '.sk-pm-cta{display:block;width:100%;border:none;border-radius:999px;padding:16px;background:#684034;color:#F5EDE3;'
     + 'font-weight:700;letter-spacing:.08em;font-size:14px;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s;}'
     + '.sk-pm-cta:hover{background:#56342a;transform:translateY(-1px);}'
+    // Le site force la couleur des liens (html body a:not(...)) : on la bat avec #id + !important.
+    + '#skPromo a.sk-pm-cta,#skPromo a.sk-pm-cta:visited,#skPromo a.sk-pm-cta:hover{color:#FFFFFF !important;text-decoration:none !important;'
+    + 'text-shadow:none !important;-webkit-text-fill-color:#FFFFFF !important;}'
+    + '#skPromo a.sk-pm-cta span{color:#FFFFFF !important;}'
     + '.sk-pm-no{display:inline-block;margin-top:14px;background:none;border:none;color:#9e8c84;font-size:12px;text-decoration:underline;'
     + 'text-underline-offset:2px;cursor:pointer;letter-spacing:.02em;}'
     + '@media(max-width:600px){.sk-pm-off{font-size:54px;}.sk-pm-card{padding:30px 22px 22px;}}';
