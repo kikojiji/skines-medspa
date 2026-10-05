@@ -105,6 +105,8 @@
     --color-text: #ebd7ce;
   }
   html { scroll-behavior: smooth; }
+  html.lenis, html.lenis body { height: auto; }
+  html.lenis { scroll-behavior: auto !important; }
   body {
     font-family: "DM Sans", sans-serif;
     background: var(--bg);
@@ -9331,7 +9333,7 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
 
   </div>
 </footer>
-<!-- NB: Lenis (smooth scroll) was removed: its CDN URL has been a 404 for a long time, so it never ran. -->
+<!-- Lenis smooth scroll: loaded lazily on desktop only (see 'Lenis smooth scroll' in the GSAP block below). -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -9530,22 +9532,54 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 
 /* ── GSAP + LENIS ANIMATIONS ── */
 (function() {
-  // Lenis smooth scroll
-  if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-    });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-
-    // Connect Lenis to GSAP ScrollTrigger if available
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
+  // Lenis smooth scroll — DESKTOP ONLY (mouse + wide screen, motion allowed).
+  // Phones/tablets and reduced-motion users keep the browser's native scrolling untouched.
+  (function () {
+    var desktop = window.matchMedia('(min-width:981px) and (hover:hover) and (pointer:fine)').matches;
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!desktop || calm) return;
+    function start() {
+      if (typeof Lenis === 'undefined') return;
+      var lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+      window.skLenis = lenis;
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
+      } else {
+        (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+      }
+      // Pause smoothing whenever the page locks scroll (search overlay, menus, popups).
+      function sync() {
+        var locked = document.body.style.overflow === 'hidden' || document.documentElement.style.overflow === 'hidden';
+        if (locked) lenis.stop(); else lenis.start();
+      }
+      var mo = new MutationObserver(sync);
+      mo.observe(document.body, { attributes: true, attributeFilter: ['style'] });
+      mo.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+      sync();
+      // Same-page anchor links glide too.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var id = a.getAttribute('href');
+        if (id.length < 2) return;
+        var el = null; try { el = document.querySelector(id); } catch (x) {}
+        if (!el) return;
+        e.preventDefault();
+        var off = -(parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+        lenis.scrollTo(el, { offset: off });
+        if (history.replaceState) history.replaceState(null, '', id);
+      });
     }
-  }
+    function load() {
+      var sc = document.createElement('script');
+      sc.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js';
+      sc.async = true; sc.onload = start;
+      document.head.appendChild(sc);
+    }
+    if (document.readyState === 'complete') load(); else window.addEventListener('load', load, { once: true });
+  })();
 
   // Hero text entrance
   if (typeof gsap !== 'undefined') {
