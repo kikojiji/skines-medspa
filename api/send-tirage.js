@@ -2,6 +2,7 @@
 // POST /api/send-tirage
 
 import { cleanAttribution } from './_lib/attribution.js';
+import { sendLeadToAds } from './_lib/lead-events.js';
 import {
   escapeHtml, sanitizeText, validatePhone, validateEmail, validateRequired,
   isHoneypotTriggered, requireJson, setCorsHeaders,
@@ -527,6 +528,12 @@ export default async function handler(req, res) {
       }),
     ]);
     console.log('[send-tirage] admin:', adminId, 'confirm:', confirmId);
+    try {
+      await sendLeadToAds({
+        ip, ua, url: 'https://skines.ca/tirage', formId: 'tirage',
+        ads: req.body && req.body.ctx && req.body.ctx.ads, email, phone, firstName, lastName,
+      });
+    } catch (e) { console.error('[send-tirage] lead-events error:', e.message); }
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error('[send-tirage] failed:', err.message);

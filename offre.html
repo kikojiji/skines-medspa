@@ -142,12 +142,13 @@
         if(!name){ err.textContent='Entrez votre prénom.'; return; }
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Entrez une adresse e-mail valide.'; return; }
         btn.disabled=true; btn.textContent='…';
+        var ctx=window.skinesLeadContext?window.skinesLeadContext():null;
         fetch('/api/send-promo',{method:'POST',headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||'', ctx:(window.skinesLeadContext?window.skinesLeadContext():null)})})
+          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||'', ctx:ctx})})
           .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
           .then(function(res){
             if(res.ok){
-              if(!res.d.already && window.skinesTrackLead) window.skinesTrackLead('offre');
+              if(!res.d.already && window.skinesTrackLead) window.skinesTrackLead('offre', ctx&&ctx.ads&&ctx.ads.event_id, {server_sent: !!(ctx&&ctx.ads&&ctx.ads.consent)});
               zone.innerHTML='<p class="msg">'+(res.d.already
                 ? 'Vous participez déjà au tirage de ce mois — bonne chance ! 🎉'
                 : 'C\'est fait ! Vous participez au tirage du mois. Résultat annoncé sur @skines.spa 🎉')+'</p>';

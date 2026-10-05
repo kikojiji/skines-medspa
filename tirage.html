@@ -1595,6 +1595,7 @@ var _fp = '';
 
     // Wait up to 2.5 s for Turnstile token, then proceed regardless
     function doSubmit() {
+      var _ctx = window.skinesLeadContext ? window.skinesLeadContext() : null;
       var payload = {
         firstName: first, lastName: last,
         phone: phone, email: email, username: username,
@@ -1602,7 +1603,7 @@ var _fp = '';
         website: document.querySelector('[name="website"]').value || '',
         cfToken: _tsToken,
         fp: _fp,
-        ctx: (window.skinesLeadContext ? window.skinesLeadContext() : null)
+        ctx: _ctx
       };
       fetch('https://api.skines.ca/api/send-tirage', {
         method: 'POST',
@@ -1612,7 +1613,7 @@ var _fp = '';
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data.success) {
-          window.skinesTrackLead('tirage');   // GA4 generate_lead — fires once, only on success
+          window.skinesTrackLead('tirage', _ctx && _ctx.ads && _ctx.ads.event_id, { server_sent: !!(_ctx && _ctx.ads && _ctx.ads.consent) });   // GA4 generate_lead — fires once, only on success
           document.getElementById('t-form').style.display = 'none';
           var successEl = document.getElementById('t-success');
           successEl.style.display = 'block';

@@ -134,10 +134,11 @@
   window.skinesTrack = track;
 
   // ── generate_lead (replaces standalone lead-tracking.js behaviour) ─────────
-  window.skinesTrackLead = function (formKey, eventId) {
+  window.skinesTrackLead = function (formKey, eventId, extra) {
     formKey = formKey || 'default';
-    return track('generate_lead',
-      { form_id: formKey, service_category: serviceCategory(), event_id: eventId },
+    var prm = { form_id: formKey, service_category: serviceCategory(), event_id: eventId };
+    if (extra) for (var k in extra) prm[k] = extra[k];
+    return track('generate_lead', prm,
       { dedupeKey: 'lead:' + formKey });
   };
 
@@ -219,6 +220,14 @@
     }, 1000);
   }
 
+  function readCookie(n) {
+    var m = document.cookie.match('(?:^|; )' + n.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1') + '=([^;]*)');
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  function realAdsConsent() {
+    try { var c = window.skinesConsent && window.skinesConsent.get(); return !!(c && c.ads); } catch (e) { return false; }
+  }
+
   // Context a form sends with its submission (first-party; no personal data).
   window.skinesLeadContext = function () {
     var s = snapshot(), ids = {};
@@ -229,7 +238,15 @@
         first_source: s.first_source, first_campaign: s.first_campaign,
         landing_page: s.landing_page, device: device()
       },
-      click_ids: { fbclid: !!ids.fbclid, ttclid: !!ids.ttclid, gclid: !!ids.gclid }
+      click_ids: { fbclid: !!ids.fbclid, ttclid: !!ids.ttclid, gclid: !!ids.gclid },
+      // Server-side Lead (hashed e-mail/phone) — ONLY if the visitor really accepted advertising
+      // on the cookie banner (reads the stored choice, NOT the temporary bypass).
+      ads: {
+        consent: realAdsConsent(),
+        event_id: newEventId(),
+        fbp: readCookie('_fbp'), fbc: readCookie('_fbc') || ids.fbc || '',
+        ttp: readCookie('_ttp'), ttclid: ids.ttclid_value || readCookie('ttclid') || ''
+      }
     };
   };
 

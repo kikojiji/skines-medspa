@@ -11,6 +11,7 @@
 // Env optionnels : UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, TURNSTILE_SECRET_KEY
 
 import { cleanAttribution } from './_lib/attribution.js';
+import { sendLeadToAds } from './_lib/lead-events.js';
 import {
   escapeHtml, sanitizeText, validateEmail, isHoneypotTriggered, requireJson,
   setCorsHeaders, rateLimit, getClientIp, sendViaResend,
@@ -337,6 +338,14 @@ export default async function handler(req, res) {
       html: adminEmailHtml(lead, ctx),
     });
   } catch (e) { console.error('[promo] admin email error:', e.message); }
+
+  // Lead côté serveur vers Meta/TikTok (haché) — seulement si le visiteur a accepté la publicité.
+  try {
+    await sendLeadToAds({
+      ip, ua, url: 'https://skines.ca/offre', formId: 'offre',
+      ads: body.ctx && body.ctx.ads, email, phone: lead.phone, firstName: lead.name,
+    });
+  } catch (e) { console.error('[promo] lead-events error:', e.message); }
 
   return res.status(200).json({ ok: true });
 }
