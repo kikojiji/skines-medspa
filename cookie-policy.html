@@ -6,11 +6,11 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
+  /* TEMP-BYPASS-LOI25 (jusqu'au 2026-10-07) : remettre 'denied' */ gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
     functionality_storage: 'granted',
     security_storage: 'granted',
     wait_for_update: 500
@@ -25,7 +25,7 @@
   gtag('config', 'G-N46K5NG8TW');
 </script>
 <!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
-<script defer src="/assets/js/skines-consent.js?v=8"></script>
+<script defer src="/assets/js/skines-consent.js?v=9"></script>
 <!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
 <script defer src="/assets/js/skines-attribution.js?v=1"></script>
 <!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
