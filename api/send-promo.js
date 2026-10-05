@@ -19,7 +19,7 @@ import {
   setCorsHeaders, rateLimit, getClientIp, sendViaResend,
 } from './_lib/security.js';
 
-const FROM  = 'Tirage · Skines <noreply@mail.skines.ca>';
+const FROM  = 'Tirage du mois <tirage@mail.skines.ca>';
 const ADMIN = 'skinesca@gmail.com';
 const LOGO  = 'https://skines.ca/assets/images/logo-officiel-cropped.PNG';
 
@@ -201,12 +201,34 @@ function customerEmailHtml(lead, ctx) {
     </tr></table>
   </td></tr>
 
+  <tr><td align="center" style="padding:18px 18px 0;">
+    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11.5px;line-height:1.6;color:rgba(247,240,230,.78);">Ce message est dans &laquo;&nbsp;Promotions&nbsp;&raquo; ? Glissez-le dans <strong style="color:#e8bd5c;">Principal</strong> pour ne pas manquer l'annonce du r&eacute;sultat.</p>
+  </td></tr>
+
   <tr><td align="center" style="padding:22px 10px 0;">
     <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.7;color:rgba(247,240,230,.62);">Skines Head Spa &amp; Wellness &middot; 19 Av. Shamrock, Montr&eacute;al<br><a href="https://skines.ca" style="color:rgba(247,240,230,.62);">skines.ca</a></p>
   </td></tr>
 
 </table>
 </td></tr></table></body></html>`;
+}
+
+
+// Version texte brut (aide la délivrabilité et l'affichage dans les clients mail)
+function customerEmailText(lead, ctx) {
+  return [
+    `Bonjour ${lead.name || ''},`.trim(),
+    '',
+    `Votre participation au tirage du mois (${ctx.monthLabel}) est confirmée.`,
+    `Votre ticket : ${ctx.customerId}`,
+    '',
+    'Le prix : -50 % sur une séance chez Skines Head Spa & Wellness.',
+    'Le/la gagnant(e) sera annoncé(e) dans notre story Instagram @skines.ca (https://instagram.com/skines.ca).',
+    '',
+    "Ce message est dans « Promotions » ? Glissez-le dans « Principal » pour ne pas manquer l'annonce.",
+    '',
+    'Skines Head Spa & Wellness — 19 Av. Shamrock, Montréal — https://skines.ca',
+  ].join('\n');
 }
 
 // ═════════ E-MAIL ADMIN — Fiche d'action en un clic ═════════
@@ -324,9 +346,10 @@ export default async function handler(req, res) {
 
   try {
     await sendViaResend({
-      from: FROM, to: email,
-      subject: `🎟️ Votre ticket ${ctx.customerId} · -50% à gagner`,
+      from: FROM, to: email, replyTo: ADMIN,
+      subject: `Votre participation au tirage du mois est confirmée · ${ctx.customerId}`,
       html: customerEmailHtml(lead, ctx),
+      text: customerEmailText(lead, ctx),
     });
   } catch (e) {
     console.error('[promo] customer email error:', e.message);
