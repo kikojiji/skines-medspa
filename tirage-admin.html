@@ -180,6 +180,7 @@
       <details>
         <summary>➕ Ajouter des participantes (anciens e-mails)</summary>
         <p class="hint">Une personne par ligne : <b>Nom, e-mail, téléphone, instagram</b> (téléphone et instagram facultatifs). Ajoutées au mois et au tirage ouverts ; les e-mails déjà présents sont ignorés.</p>
+        <input type="file" id="impFile" accept=".txt,.csv,text/plain" style="margin:8px 0;font-size:13px">
         <textarea id="impTxt" rows="6" placeholder="Marie Tremblay, marie@gmail.com, 5141234567, @marie"></textarea>
         <button class="btn ghost full" id="impBtn" type="button" style="margin-top:8px">Ajouter à la liste</button>
         <p id="impMsg" class="hint"></p>
@@ -285,12 +286,16 @@
   }
   $('monthSel').addEventListener('change', function () { load(this.value); });
 
+  $('impFile').addEventListener('change', function () {
+    var f = this.files && this.files[0]; if (!f) return;
+    var rd = new FileReader(); rd.onload = function () { $('impTxt').value = String(rd.result || ''); $('impMsg').textContent = $('impTxt').value.split('\n').filter(Boolean).length + ' lignes chargées. Vérifiez puis cliquez « Ajouter à la liste ».'; }; rd.readAsText(f);
+  });
   $('impBtn').addEventListener('click', function () {
     var rows = $('impTxt').value.split('\n').map(function (l) {
       var p = l.split(/[,;\t]/).map(function (x) { return x.trim(); });
       return { name: p[0] || '', email: p[1] || '', phone: p[2] || '', instagram: p[3] || '' };
-    }).filter(function (r) { return r.email; });
-    if (!rows.length) { $('impMsg').textContent = 'Rien à ajouter (format : Nom, e-mail, …).'; return; }
+    }).filter(function (r) { return r.email || r.phone || r.name; });
+    if (!rows.length) { $('impMsg').textContent = 'Rien à ajouter (format : Nom, e-mail, téléphone).'; return; }
     $('impBtn').disabled = true;
     api('POST', '', { action: 'import', month: state.month, rows: rows }).then(function (res) {
       $('impBtn').disabled = false;
@@ -301,6 +306,7 @@
   });
 
   // ── Liste ────────────────────────────────────────────────────
+  function realEmail(m) { return /@sans-email\.skines$/.test(m || '') ? '' : m; }
   function srcLabel(e) {
     var s = e.src; if (!s) return '';
     var parts = [s.source, s.campaign].filter(Boolean).join('/');
@@ -319,7 +325,7 @@
       var who = document.createElement('div'); who.className = 'who';
       var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = e.name || '(sans nom)';
       var meta = document.createElement('div'); meta.className = 'meta';
-      meta.textContent = [e.instagram ? '@' + e.instagram : '', e.email, e.phone, srcLabel(e)].filter(Boolean).join(' · ');
+      meta.textContent = [e.instagram ? '@' + e.instagram : '', realEmail(e.email), e.phone, srcLabel(e)].filter(Boolean).join(' · ');
       who.appendChild(nm); who.appendChild(meta); row.appendChild(cb); row.appendChild(who); list.appendChild(row);
     });
     $('nTotal').textContent = state.entries.length; $('nSel').textContent = pool().length;
@@ -337,7 +343,7 @@
   $('selNone').addEventListener('click', function () { state.entries.forEach(function (e) { state.off[e.email] = true; }); render(); });
 
   $('csv').addEventListener('click', function () {
-    var rows = [['Prénom','Courriel','Téléphone','Instagram','Inscrit le','Source','Campagne']].concat(state.entries.map(function (e) { return [e.name, e.email, e.phone, e.instagram ? '@' + e.instagram : '', e.at, (e.src && e.src.source) || '', (e.src && e.src.campaign) || '']; }));
+    var rows = [['Prénom','Courriel','Téléphone','Instagram','Inscrit le','Source','Campagne']].concat(state.entries.map(function (e) { return [e.name, realEmail(e.email), e.phone, e.instagram ? '@' + e.instagram : '', e.at, (e.src && e.src.source) || '', (e.src && e.src.campaign) || '']; }));
     var csv = rows.map(function (r) { return r.map(function (c) { return '"' + String(c || '').replace(/"/g, '""') + '"'; }).join(','); }).join('\n');
     var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' }));
     a.download = 'tirage-' + state.src + '-' + state.month + '.csv'; document.body.appendChild(a); a.click(); a.remove();
@@ -373,13 +379,13 @@
     box.appendChild(div('lab', 'Gagnant(e) · ' + monthLabel(state.month)));
     box.appendChild(div('name', w.name || w.email));
     if (w.instagram) box.appendChild(div('ig', '@' + w.instagram));
-    box.appendChild(div('det', [w.email, w.phone].filter(Boolean).join(' · ')));
+    box.appendChild(div('det', [realEmail(w.email), w.phone].filter(Boolean).join(' · ')));
     var acts = document.createElement('div'); acts.className = 'acts';
     function link(txt, href, cls) { var a = document.createElement('a'); a.className = 'btn ' + (cls || ''); a.textContent = txt; a.href = href; a.target = '_blank'; a.rel = 'noopener'; acts.appendChild(a); }
     if (w.instagram) link('Instagram', 'https://instagram.com/' + encodeURIComponent(w.instagram), 'ghost');
     var dg = digits(w.phone);
     if (dg) { link('WhatsApp', 'https://wa.me/' + (dg.length === 10 ? '1' + dg : dg), 'wa'); link('Appeler', 'tel:' + dg, 'ghost'); }
-    link('E-mail', 'mailto:' + encodeURIComponent(w.email), 'ghost');
+    if (realEmail(w.email)) link('E-mail', 'mailto:' + encodeURIComponent(w.email), 'ghost');
     var cp = document.createElement('button'); cp.className = 'btn gold'; cp.textContent = 'Copier le texte de la story';
     cp.addEventListener('click', function () {
       var who = w.instagram ? '@' + w.instagram : (w.name || '');

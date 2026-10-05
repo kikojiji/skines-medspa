@@ -102,8 +102,14 @@ export default async function handler(req, res) {
         const clean = v => String(v || '').replace(/[\u0000-\u001f<>]/g, '').trim();
         let added = 0, skipped = 0;
         for (const r of body.rows.slice(0, 500)) {
-          const email = clean(r && r.email).toLowerCase().slice(0, 254);
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || have.has(email)) { skipped++; continue; }
+          let email = clean(r && r.email).toLowerCase().slice(0, 254);
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            // Anciennes inscriptions sans e-mail : clé interne basée sur le téléphone (ou le nom)
+            const dg = clean(r && r.phone).replace(/\D/g, '');
+            const slug = clean(r && r.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40);
+            email = dg.length >= 8 ? `tel${dg}@sans-email.skines` : slug ? `nom-${slug}@sans-email.skines` : '';
+          }
+          if (!email || have.has(email)) { skipped++; continue; }
           have.add(email);
           const rec = JSON.stringify({ name: clean(r.name).slice(0, 120), email, phone: clean(r.phone).slice(0, 30),
             instagram: clean(r.instagram).replace(/^@/, '').slice(0, 60), at: new Date().toISOString(), imported: true });
