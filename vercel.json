@@ -63,6 +63,12 @@
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
         { "key": "Surrogate-Control", "value": "no-store" }
       ]
+    },
+    {
+      "source": "/(tirage-admin|stats-admin)(\\.html)?",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
     }
   ]
 }
