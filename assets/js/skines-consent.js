@@ -93,7 +93,7 @@
   // ── Apply consent: gtag update + Clarity gate + broadcast ─────────────────
   var subscribers = [];
   function apply(c) {
-    // TEMP-BYPASS-LOI25 (jusqu'au 2026-10-07) : tout est forcé à « accordé » — retirer ces 2 lignes
+    // TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : tout est forcé à « accordé » — retirer ces 2 lignes
     c = Object.assign({}, c, { analytics: true, ads: true });
     gtag('consent', 'update', {
       analytics_storage:   c.analytics ? 'granted' : 'denied',
