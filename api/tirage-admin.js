@@ -35,8 +35,10 @@ function lastMonths(n) {
 }
 const MONTH_RE = /^\d{4}-(0[1-9]|1[0-2])$/;
 
-async function readEntries(month) {
-  const d = await redis(`lrange/${encodeURIComponent('promo:entries:' + month)}/0/-1`);
+const SOURCES = { promo: 'promo', tirage: 'tirage' };   // /offre (-50%) ou ancien /tirage
+
+async function readEntries(month, src) {
+  const d = await redis(`lrange/${encodeURIComponent(src + ':entries:' + month)}/0/-1`);
   const raw = Array.isArray(d.result) ? d.result : [];
   const seen = new Set(); const out = [];
   for (const s of raw.reverse()) {            // LPUSH met le plus récent en premier -> on remet l'ordre chronologique
@@ -51,8 +53,8 @@ async function readEntries(month) {
   return out;
 }
 
-async function readWinner(month) {
-  const d = await redis(`get/${encodeURIComponent('promo:winner:' + month)}`);
+async function readWinner(month, src) {
+  const d = await redis(`get/${encodeURIComponent(src + ':winner:' + month)}`);
   if (!d.result) return null;
   try { return JSON.parse(d.result); } catch { return null; }
 }
@@ -77,8 +79,9 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       const month = String((req.query && req.query.month) || currentMonthKey());
       if (!MONTH_RE.test(month)) return res.status(400).json({ error: 'Mois invalide.' });
-      const [entries, winner] = await Promise.all([readEntries(month), readWinner(month)]);
-      return res.status(200).json({ month, months: lastMonths(6), entries, winner });
+      const src = SOURCES[String((req.query && req.query.source) || 'promo')] || 'promo';
+      const [entries, winner] = await Promise.all([readEntries(month, src), readWinner(month, src)]);
+      return res.status(200).json({ month, source: src, months: lastMonths(6), entries, winner });
     }
 
     if (req.method === 'POST') {
@@ -86,13 +89,14 @@ export default async function handler(req, res) {
       const month = String(body.month || '');
       const email = String(body.email || '').toLowerCase();
       if (!MONTH_RE.test(month) || !email) return res.status(400).json({ error: 'Requête invalide.' });
-      const entries = await readEntries(month);
+      const src = SOURCES[String(body.source || 'promo')] || 'promo';
+      const entries = await readEntries(month, src);
       const w = entries.find(e => e.email === email);
       if (!w) return res.status(404).json({ error: "Ce participant n'est pas dans la liste du mois." });
       const record = { ...w, month, drawnAt: new Date().toISOString(), poolSize: Number(body.poolSize) || entries.length };
       const json = encodeURIComponent(JSON.stringify(record));
-      await redis(`set/${encodeURIComponent('promo:winner:' + month)}/${json}`);
-      await redis(`lpush/${encodeURIComponent('promo:draws:' + month)}/${json}`);   // historique de tous les tirages
+      await redis(`set/${encodeURIComponent(src + ':winner:' + month)}/${json}`);
+      await redis(`lpush/${encodeURIComponent(src + ':draws:' + month)}/${json}`);   // historique de tous les tirages
       return res.status(200).json({ ok: true, winner: record });
     }
 

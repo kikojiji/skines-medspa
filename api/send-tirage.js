@@ -216,6 +216,20 @@ export default async function handler(req, res) {
     return res.status(409).json({ error: 'Ce pseudo Instagram/TikTok est déjà inscrit au tirage.' });
   }
 
+  // ── Liste des participantes (pour le tirage au sort /tirage-admin) ───────
+  if (redisEnabled) {
+    try {
+      const d = new Date();
+      const mk = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+      const rec = JSON.stringify({
+        name: `${firstName} ${lastName}`.trim(), email: emailKey, phone,
+        instagram: username.replace(/^@/, ''), at: d.toISOString(),
+      });
+      await fetch(`${_redisUrl}/lpush/${encodeURIComponent('tirage:entries:' + mk)}/${encodeURIComponent(rec)}`,
+        { headers: { Authorization: `Bearer ${_redisToken}` } });
+    } catch (e) { console.error('[tirage] entries store error:', e.message); }
+  }
+
   // ── Device fingerprint tracking ───────────────────────────────────────────
   const fp = sanitizeText(req.body.fp, 64);
   if (fp && fp.length >= 8) {

@@ -86,6 +86,7 @@
 
     <div class="card">
       <div class="row">
+        <div><label for="srcSel">Tirage</label><select id="srcSel"><option value="promo">Offre -50% (/offre)</option><option value="tirage">Ancien tirage (/tirage)</option></select></div>
         <div><label for="monthSel">Mois</label><select id="monthSel"></select></div>
         <div><label for="search">Rechercher</label><input type="text" id="search" placeholder="Nom, e-mail, Instagram…"></div>
       </div>
@@ -123,6 +124,8 @@
   function getKey() { try { return sessionStorage.getItem(KEY_STORE) || ''; } catch (e) { return ''; } }
 
   function api(method, qs, body) {
+    var src = $('srcSel').value;
+    if (method === 'GET') qs = (qs ? qs + '&' : '?') + 'source=' + src; else body = Object.assign({ source: src }, body);
     return fetch('/api/tirage-admin' + (qs || ''), {
       method: method,
       headers: { 'Content-Type': 'application/json', 'x-admin-key': getKey() },
@@ -152,6 +155,7 @@
     }).catch(function () { $('loginErr').textContent = 'Connexion impossible.'; return false; });
   }
   $('monthSel').addEventListener('change', function () { load(this.value); });
+  $('srcSel').addEventListener('change', function () { load(''); });
 
   // ── Liste ────────────────────────────────────────────────────
   function pool() { return state.entries.filter(function (e) { return !state.off[e.email]; }); }
