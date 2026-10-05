@@ -7657,6 +7657,10 @@ input, textarea, select {
   }
 </style>
   <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
+<style id="sk-part-stars">
+/* Aggregate ratings: 4 full stars + partial 5th (4.8 -> 96%, 4.7 -> 94%). Individual 5-star reviews are unchanged. */
+.sk-part{background:linear-gradient(90deg,var(--sk-c,#F7D98A) var(--fill,96%),rgba(150,130,100,.30) var(--fill,96%))!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;color:transparent!important}
+</style>
 </head>
 <body>
 <!-- Error collector — must stay ahead of every other script so it can catch
@@ -7969,7 +7973,7 @@ input, textarea, select {
       @media (max-width:600px){ #heroTrust{margin:9px auto 0;padding:6px 14px;gap:7px;flex-wrap:nowrap;white-space:nowrap;max-width:96vw;} #heroTrust .hero-trust__stars{font-size:.74rem;letter-spacing:.5px;} #heroTrust .hero-trust__txt{font-size:.72rem;letter-spacing:.01em;} }
       </style>
       <div id="heroTrust" aria-label="Avis clients vérifiés">
-        <span class="hero-trust__stars" aria-hidden="true">★★★★★</span>
+        <span class="hero-trust__stars sk-part" style="--fill:96%;--sk-c:#efc463" aria-hidden="true">★★★★★</span>
         <span class="hero-trust__txt"><strong>4,8</strong> Fresha&nbsp;· <strong>4,7</strong> Google&nbsp;· <span class="hero-trust__vf" data-fr="avis vérifiés" data-en="verified reviews">avis vérifiés</span></span>
       </div>
       <div class="hero-actions hero-cta">
@@ -8084,8 +8088,8 @@ input, textarea, select {
       <div class="sk-wr__eyebrow" data-fr="Avis vérifiés · Best in Class 2026" data-en="Verified reviews · Best in Class 2026">Avis vérifiés · Best in Class 2026</div>
       <h2 class="sk-wr__title" data-fr="Ce que disent nos clients" data-en="What our clients say">Ce que disent nos clients</h2>
       <div class="sk-wr__ratings">
-        <span class="sk-wr__pill"><span class="sk-wr__stars">★★★★★</span> <b>4,8</b> <em>Fresha</em></span>
-        <span class="sk-wr__pill"><span class="sk-wr__stars">★★★★★</span> <b>4,7</b> <em>Google</em></span>
+        <span class="sk-wr__pill"><span class="sk-wr__stars sk-part" style="--fill:96%;--sk-c:#c9973a">★★★★★</span> <b>4,8</b> <em>Fresha</em></span>
+        <span class="sk-wr__pill"><span class="sk-wr__stars sk-part" style="--fill:94%;--sk-c:#c9973a">★★★★★</span> <b>4,7</b> <em>Google</em></span>
       </div>
     </div>
     <div class="sk-wr__grid">
@@ -8534,7 +8538,7 @@ input, textarea, select {
       <div class="ivc-fade-r"></div>
       <div class="ivc-side-badge ivc-side-l">
         <img class="ivc-award" src="/assets/google-guaranteed.png?v=2" alt="Google Guaranteed" width="170" height="108" loading="lazy" decoding="async">
-        <div class="ivc-side-starline"><span class="ivc-side-stars">★★★★★</span><span class="ivc-side-rating">4.7</span></div>
+        <div class="ivc-side-starline"><span class="ivc-side-stars sk-part" style="--fill:94%;--sk-c:#F7D98A" role="img" aria-label="4,7 sur 5">★★★★★</span><span class="ivc-side-rating">4.7</span></div>
         <span class="ivc-side-label" data-fr="Google · Guaranteed" data-en="Google · Guaranteed">Google · Guaranteed</span>
         <span class="ivc-side-num">806</span>
         <span class="ivc-side-headline" data-fr="avis clients vérifiés." data-en="verified client reviews.">avis clients vérifiés.</span>
@@ -8545,7 +8549,7 @@ input, textarea, select {
       </div>
       <div class="ivc-side-badge ivc-side-r">
         <img class="ivc-award" src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="170" height="108" loading="lazy" decoding="async">
-        <div class="ivc-side-starline"><span class="ivc-side-stars">★★★★★</span><span class="ivc-side-rating">4.8</span></div>
+        <div class="ivc-side-starline"><span class="ivc-side-stars sk-part" style="--fill:96%;--sk-c:#F7D98A" role="img" aria-label="4,8 sur 5">★★★★★</span><span class="ivc-side-rating">4.8</span></div>
         <span class="ivc-side-label" data-fr="Fresha · Best in Class 2026" data-en="Fresha · Best in Class 2026">Fresha · Best in Class 2026</span>
         <span class="ivc-side-num">860</span>
         <span class="ivc-side-headline" data-fr="expériences 5 étoiles." data-en="five-star experiences.">expériences 5 étoiles.</span>
