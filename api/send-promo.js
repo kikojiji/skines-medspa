@@ -305,7 +305,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, already: true });
   }
 
-  const count = await storeEntry({ ...lead, src });
+  const count = await storeEntry({ ...lead, src, pledge: body.pledge === true });
 
   const ua = req.headers['user-agent'] || '';
   _fallback++;
