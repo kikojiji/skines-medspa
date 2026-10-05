@@ -106,6 +106,19 @@
     return out;
   }
 
+
+  // ── First-party aggregate counters (no cookies, no IDs, no personal data) ──
+  function fp(name, params) {
+    try {
+      var s = snapshot(), body = JSON.stringify({
+        e: name, p: location.pathname, src: s.source, med: s.medium, camp: s.campaign,
+        dev: device(), pct: params && params.percent, form: params && params.form_id, lang: lang()
+      });
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/track', new Blob([body], { type: 'application/json' }));
+      else fetch('/api/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true });
+    } catch (e) {}
+  }
+
   // ── Core dispatcher ────────────────────────────────────────────────────────
   var firedOnce = {};
   function track(name, params, opts) {
@@ -117,6 +130,7 @@
     if (!params.event_id) params.event_id = newEventId();
 
     var payload = ga4Payload(name, params);
+    fp(name, params);
 
     // GA4 (Consent Mode governs storage)
     try { if (typeof window.gtag === 'function') window.gtag('event', name, payload); }
@@ -144,6 +158,8 @@
 
   // ── Auto-instrumentation ───────────────────────────────────────────────────
   function autoInit() {
+    fp('page_view');
+    try { if (!sessionStorage.getItem('sk_sess')) { sessionStorage.setItem('sk_sess', '1'); fp('session_start'); } } catch (e) {}
     // service_view — once per page load on service/guide pages
     var cat = serviceCategory();
     if (cat) track('service_view', { service_category: cat }, { dedupeKey: 'service_view' });

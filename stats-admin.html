@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Statistiques · Admin Skines</title>
+<link rel="icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#E9EEE9;--card:#FFFFFF;--ink:#14221B;--muted:#5F7167;--line:#DCE4DE;--forest:#16392B;--forest2:#0F2A20;--mint:#BFE3CE;--gold:#D8B25A;--gold-d:#9B7A2C;--danger:#B3402B;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Manrope",-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;
+       background-image:radial-gradient(900px 420px at 85% -10%,rgba(191,227,206,.9),transparent 70%),radial-gradient(700px 360px at -10% 105%,rgba(216,178,90,.18),transparent 70%);background-attachment:fixed}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:1040px;margin:0 auto}
+  .brand{font-family:"Instrument Serif",Georgia,serif;font-size:26px}.brand i{color:var(--gold-d)}
+  .pill{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}
+  main{max-width:1040px;margin:0 auto;padding:10px 18px 70px}
+  h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.2rem,6vw,3.3rem);line-height:1.04}
+  h1 em{color:var(--forest)}
+  .lead{color:var(--muted);margin:8px 0 22px;max-width:60ch}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 16px 40px -24px rgba(20,34,27,.35)}
+  h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.5rem;margin-bottom:10px}
+  label.l{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  input[type=password]{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;font-size:16px;font-family:inherit;background:#F8FAF8;outline:none}
+  input:focus{border-color:var(--forest);box-shadow:0 0 0 4px rgba(22,57,43,.12)}
+  .btn{border:none;border-radius:14px;padding:13px 20px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer;background:var(--forest);color:#fff}
+  .btn:hover{background:var(--forest2)}
+  .full{width:100%}.err{color:var(--danger);font-size:14px;margin-top:10px;min-height:18px}
+  [hidden]{display:none!important}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+  .seg{border:1.5px solid var(--line);background:#fff;color:var(--forest);border-radius:999px;padding:8px 15px;font:800 13px inherit;font-family:inherit;cursor:pointer}
+  .seg.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
+  .kpi b{display:block;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:2.4rem;line-height:1;color:var(--forest)}
+  .kpi span{display:block;margin-top:6px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .kpi.g b{color:var(--gold-d)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  .tbl{width:100%;border-collapse:collapse;font-size:14px}
+  .tbl td{padding:8px 4px;border-bottom:1px solid #EEF2EF;vertical-align:middle}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl td.n{text-align:right;font-weight:800;color:var(--forest);white-space:nowrap}
+  .tbl .bg{height:6px;border-radius:6px;background:#E5EEE8;margin-top:5px;overflow:hidden}
+  .tbl .bg i{display:block;height:100%;background:var(--forest);border-radius:6px}
+  .tbl td.k{overflow-wrap:anywhere}
+  .empty{color:var(--muted);font-size:13.5px;padding:8px 0}
+  .fun{display:flex;flex-direction:column;gap:8px}
+  .fun div{position:relative;background:#E5EEE8;border-radius:12px;height:38px;overflow:hidden}
+  .fun i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#9ED3B6,#BFE3CE);border-radius:12px}
+  .fun span{position:absolute;left:12px;right:12px;top:0;bottom:0;display:flex;justify-content:space-between;align-items:center;color:var(--ink);font-weight:800;font-size:13px}
+  .fun span em{font-style:normal;color:var(--ink)}
+  svg text{font-family:Manrope,sans-serif}
+  .note{color:var(--muted);font-size:12.5px;margin-top:10px}
+  .small{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><span class="brand">Skines<i>.</i></span><a class="pill" href="/tirage-admin">‹ Tirages</a></div>
+<main>
+
+  <section id="login">
+    <h1>Statistiques <em>du site</em></h1>
+    <p class="lead">Espace réservé à l'équipe Skines.</p>
+    <div class="card" style="max-width:440px">
+      <label class="l" for="pw">Mot de passe</label>
+      <input type="password" id="pw" autocomplete="current-password" placeholder="••••••••">
+      <button class="btn full" id="go" style="margin-top:14px">Entrer</button>
+      <div class="err" id="loginErr" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="app" hidden>
+    <h1>Statistiques <em>du site</em></h1>
+    <p class="lead">Compteurs du site, sans cookies ni données personnelles. Ils comptent à partir de la mise en ligne de cette page.</p>
+
+    <div class="bar">
+      <button class="seg" data-d="7">7 jours</button>
+      <button class="seg on" data-d="30">30 jours</button>
+      <button class="seg" data-d="90">90 jours</button>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="card"><h3>Sessions et participations par jour</h3><div id="chart"></div></div>
+
+    <div class="grid">
+      <div class="card"><h3>Parcours des visiteurs</h3><div class="fun" id="funnel"></div><p class="note">Part des sessions qui vont plus loin à chaque étape.</p></div>
+      <div class="card"><h3>Participations aux tirages</h3><div id="leads"></div></div>
+      <div class="card"><h3>Sources de trafic</h3><div id="src"></div></div>
+      <div class="card"><h3>Campagnes (UTM)</h3><div id="camp"></div></div>
+      <div class="card"><h3>Pages les plus vues</h3><div id="pages"></div></div>
+      <div class="card"><h3>Pages d'arrivée</h3><div id="land"></div></div>
+      <div class="card"><h3>Actions de contact et réservation</h3><div id="acts"></div></div>
+      <div class="card"><h3>Appareils et pays</h3><div id="dev"></div></div>
+      <div class="card" style="grid-column:1/-1"><h3>Envoi aux plateformes publicitaires</h3><div id="ads"></div>
+        <p class="note">Pour chaque participation : l'e-mail et le téléphone chiffrés (SHA-256) ne sont envoyés à Meta et TikTok que si la personne a accepté la publicité.</p></div>
+    </div>
+  </section>
+
+  <p class="small">Page privée · ne pas partager le mot de passe</p>
+</main>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY_STORE = 'sk_tirage_key', days = 30, data = null;
+  function getKey() { try { return sessionStorage.getItem(KEY_STORE) || ''; } catch (e) { return ''; } }
+  function nf(n) { return Number(n || 0).toLocaleString('fr-CA'); }
+
+  function load() {
+    return fetch('/api/stats-admin?days=' + days, { headers: { 'x-admin-key': getKey() } })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (!res.ok) { $('loginErr').textContent = res.d.error || 'Erreur.'; return false; }
+        data = res.d.days; $('login').hidden = true; $('app').hidden = false; render(); return true;
+      }).catch(function () { $('loginErr').textContent = 'Connexion impossible.'; return false; });
+  }
+  function login() {
+    var v = $('pw').value; if (!v) { $('loginErr').textContent = 'Entrez le mot de passe.'; return; }
+    try { sessionStorage.setItem(KEY_STORE, v); } catch (e) {}
+    $('go').disabled = true; $('loginErr').textContent = '';
+    load().then(function (ok) { $('go').disabled = false; if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
+  }
+  $('go').addEventListener('click', login);
+  $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') login(); });
+  Array.prototype.forEach.call(document.querySelectorAll('.seg'), function (b) {
+    b.addEventListener('click', function () {
+      days = +b.getAttribute('data-d');
+      Array.prototype.forEach.call(document.querySelectorAll('.seg'), function (x) { x.classList.toggle('on', x === b); });
+      load();
+    });
+  });
+
+  // ── agrégation ──────────────────────────────────────────────
+  function total(field) { return data.reduce(function (a, d) { return a + (d.f[field] || 0); }, 0); }
+  function group(prefix) {
+    var m = {};
+    data.forEach(function (d) { for (var k in d.f) if (k.indexOf(prefix) === 0) { var n = k.slice(prefix.length); m[n] = (m[n] || 0) + d.f[k]; } });
+    return Object.keys(m).map(function (k) { return [k, m[k]]; }).sort(function (a, b) { return b[1] - a[1]; });
+  }
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+
+  function table(box, rows, labelFn, limit) {
+    box.textContent = '';
+    if (!rows.length) { box.appendChild(el('div', 'empty', 'Pas encore de données.')); return; }
+    var t = el('table', 'tbl'), max = rows[0][1] || 1;
+    rows.slice(0, limit || 8).forEach(function (r) {
+      var tr = el('tr'), k = el('td', 'k'), n = el('td', 'n', nf(r[1]));
+      k.appendChild(document.createTextNode(labelFn ? labelFn(r[0]) : r[0]));
+      var bg = el('div', 'bg'), i = el('i'); i.style.width = Math.max(3, Math.round(r[1] / max * 100)) + '%'; bg.appendChild(i); k.appendChild(bg);
+      tr.appendChild(k); tr.appendChild(n); t.appendChild(tr);
+    });
+    box.appendChild(t);
+  }
+
+  function render() {
+    var sessions = total('ev:session_start'), views = total('ev:page_view'), leads = total('ev:generate_lead');
+    var wa = total('ev:whatsapp_click'), book = total('ev:booking_intent'), tel = total('ev:phone_click');
+    var k = $('kpis'); k.textContent = '';
+    [['Sessions', sessions, ''], ['Pages vues', views, ''], ['Participations', leads, 'g'], ['Intentions de réservation', book, 'g'], ['Clics WhatsApp', wa, ''], ['Appels', tel, '']].forEach(function (x) {
+      var d = el('div', 'kpi ' + x[2]); d.appendChild(el('b', null, nf(x[1]))); d.appendChild(el('span', null, x[0])); k.appendChild(d);
+    });
+
+    // graphique SVG (sessions + participations)
+    var W = 960, H = 220, pl = 34, pb = 26, pt = 12, n = data.length, maxV = Math.max(5, Math.max.apply(null, data.map(function (d) { return d.f['ev:session_start'] || 0; })));
+    var bw = (W - pl) / n, ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('width', '100%'); svg.setAttribute('role', 'img');
+    function s(tag, a, txt) { var e = document.createElementNS(ns, tag); for (var q in a) e.setAttribute(q, a[q]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+    [0, .5, 1].forEach(function (g) { var y = pt + (H - pt - pb) * (1 - g); s('line', { x1: pl, x2: W, y1: y, y2: y, stroke: '#E5EEE8' }); s('text', { x: pl - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 11, fill: '#5F7167' }, Math.round(maxV * g)); });
+    data.forEach(function (d, i) {
+      var v = d.f['ev:session_start'] || 0, l = d.f['ev:generate_lead'] || 0, h = (H - pt - pb) * v / maxV, x = pl + i * bw + bw * .15, w = bw * .7;
+      s('rect', { x: x, y: H - pb - h, width: w, height: Math.max(h, v ? 2 : 0), rx: 3, fill: '#16392B' });
+      if (l) s('circle', { cx: x + w / 2, cy: H - pb - h - 9, r: 5, fill: '#D8B25A' });
+      if (n <= 8 || i % (n > 31 ? 7 : 3) === 0) s('text', { x: x + w / 2, y: H - 8, 'text-anchor': 'middle', 'font-size': 10, fill: '#5F7167' }, d.date.slice(5));
+    });
+    $('chart').textContent = ''; $('chart').appendChild(svg);
+    var lg = el('p', 'note', '■ Sessions   ● Jour avec au moins une participation'); $('chart').appendChild(lg);
+
+    // entonnoir
+    var scroll50 = total('ev:scroll_depth:50'), eng = total('ev:engaged_60s');
+    var steps = [['Sessions', sessions], ['Ont défilé à 50 %', scroll50], ['Plus de 60 s sur le site', eng], ['Intention de réservation', book], ['Participations aux tirages', leads]];
+    var f = $('funnel'); f.textContent = '';
+    var base = steps[0][1] || 1;
+    steps.forEach(function (st) {
+      var row = el('div'), bar = el('i'); bar.style.width = Math.min(100, Math.round(st[1] / base * 100)) + '%';
+      var sp = el('span'); sp.appendChild(el('b', null, st[0])); sp.appendChild(el('em', null, nf(st[1]) + (sessions ? ' · ' + Math.round(st[1] / base * 100) + ' %' : '')));
+      row.appendChild(bar); row.appendChild(sp); f.appendChild(row);
+    });
+
+    // participations
+    var lb = $('leads'); lb.textContent = '';
+    var lf = group('lead:'), ls = group('leadsrc:');
+    if (!lf.length) lb.appendChild(el('div', 'empty', 'Aucune participation enregistrée pour le moment.'));
+    else {
+      var c1 = el('div'); table(c1, lf, function (x) { return x === 'offre' ? 'Tirage du mois (/offre)' : x === 'tirage' ? 'Tirage principal (/tirage)' : x; }); lb.appendChild(c1);
+      var h = el('p', 'note', 'Par source :'); lb.appendChild(h);
+      var c2 = el('div'); table(c2, ls, function (x) { return x.replace(':', ' ← '); }); lb.appendChild(c2);
+    }
+
+    table($('src'), group('src:'));
+    table($('camp'), group('camp:'));
+    table($('pages'), group('pv:'));
+    table($('land'), group('land:'));
+
+    var acts = [];
+    ['booking_intent', 'whatsapp_click', 'phone_click', 'gift_card_intent'].forEach(function (a) {
+      group(a + '@').forEach(function (r) { acts.push([({booking_intent:'Réserver',whatsapp_click:'WhatsApp',phone_click:'Appel',gift_card_intent:'Carte cadeau'})[a] + ' · ' + r[0], r[1]]); });
+    });
+    acts.sort(function (a, b) { return b[1] - a[1]; });
+    table($('acts'), acts, null, 10);
+
+    var d1 = group('dev:').map(function (r) { return ['Appareil · ' + r[0], r[1]]; }).concat(group('co:').map(function (r) { return ['Pays · ' + r[0].toUpperCase(), r[1]]; }));
+    table($('dev'), d1, null, 10);
+
+    var ab = $('ads'); ab.textContent = '';
+    var sent = total('leadads:sent'), no = total('leadads:noconsent');
+    if (!sent && !no) ab.appendChild(el('div', 'empty', 'Aucun envoi pour le moment.'));
+    else table(ab, [['Envoyées à Meta/TikTok (avec accord)', sent], ['Non envoyées (pas d\'accord publicité)', no], ['Meta · acceptées', total('leadads:meta:ok')], ['Meta · refusées/erreur', total('leadads:meta:rejected') + total('leadads:meta:error')],
+      ['TikTok · acceptées', total('leadads:tiktok:ok')], ['TikTok · refusées/erreur', total('leadads:tiktok:rejected') + total('leadads:tiktok:error')]].filter(function (r) { return r[1] > 0; }), null, 8);
+  }
+
+  if (getKey()) load().then(function (ok) { if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
+})();
+</script>
+</body>
+</html>

@@ -12,6 +12,8 @@
 
 import { cleanAttribution } from './_lib/attribution.js';
 import { sendLeadToAds } from './_lib/lead-events.js';
+import { bump } from './_lib/stats.js';
+const adsStats = (r) => !r || r.skipped ? ['leadads:noconsent'] : ['leadads:sent', r.meta && `leadads:meta:${String(r.meta).split(':')[0]}`, r.tiktok && `leadads:tiktok:${String(r.tiktok).split(':')[0]}`];
 import {
   escapeHtml, sanitizeText, validateEmail, isHoneypotTriggered, requireJson,
   setCorsHeaders, rateLimit, getClientIp, sendViaResend,
@@ -341,10 +343,11 @@ export default async function handler(req, res) {
 
   // Lead côté serveur vers Meta/TikTok (haché) — seulement si le visiteur a accepté la publicité.
   try {
-    await sendLeadToAds({
+    const lr = await sendLeadToAds({
       ip, ua, url: 'https://skines.ca/offre', formId: 'offre',
       ads: body.ctx && body.ctx.ads, email, phone: lead.phone, firstName: lead.name,
     });
+    await bump(adsStats(lr));
   } catch (e) { console.error('[promo] lead-events error:', e.message); }
 
   return res.status(200).json({ ok: true });

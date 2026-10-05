@@ -3,6 +3,8 @@
 
 import { cleanAttribution } from './_lib/attribution.js';
 import { sendLeadToAds } from './_lib/lead-events.js';
+import { bump } from './_lib/stats.js';
+const adsStats = (r) => !r || r.skipped ? ['leadads:noconsent'] : ['leadads:sent', r.meta && `leadads:meta:${String(r.meta).split(':')[0]}`, r.tiktok && `leadads:tiktok:${String(r.tiktok).split(':')[0]}`];
 import {
   escapeHtml, sanitizeText, validatePhone, validateEmail, validateRequired,
   isHoneypotTriggered, requireJson, setCorsHeaders,
@@ -529,10 +531,11 @@ export default async function handler(req, res) {
     ]);
     console.log('[send-tirage] admin:', adminId, 'confirm:', confirmId);
     try {
-      await sendLeadToAds({
+      const lr = await sendLeadToAds({
         ip, ua, url: 'https://skines.ca/tirage', formId: 'tirage',
         ads: req.body && req.body.ctx && req.body.ctx.ads, email, phone, firstName, lastName,
       });
+      await bump(adsStats(lr));
     } catch (e) { console.error('[send-tirage] lead-events error:', e.message); }
     return res.status(200).json({ success: true });
   } catch (err) {
