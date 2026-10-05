@@ -77,6 +77,14 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
+      if (req.query && req.query.history) {
+        const hsrc = SOURCES[String(req.query.source || 'promo')] || 'promo';
+        const history = await Promise.all(lastMonths(12).map(async m => {
+          const [es, w] = await Promise.all([readEntries(m, hsrc), readWinner(m, hsrc)]);
+          return { month: m, count: es.length, winner: w ? { name: w.name || '', email: w.email, instagram: w.instagram || '', drawnAt: w.drawnAt } : null };
+        }));
+        return res.status(200).json({ source: hsrc, history });
+      }
       const month = String((req.query && req.query.month) || currentMonthKey());
       if (!MONTH_RE.test(month)) return res.status(400).json({ error: 'Mois invalide.' });
       const src = SOURCES[String((req.query && req.query.source) || 'promo')] || 'promo';

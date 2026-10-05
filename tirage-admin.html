@@ -99,6 +99,16 @@
   .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:20px}
   .saved{margin-top:14px;font-size:12.5px;opacity:.8}
   .small{font-size:12px;color:var(--muted);text-align:center;margin-top:30px}
+  .hist{margin-top:22px}
+  .hist h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.7rem;margin-bottom:4px}
+  .hrow{display:grid;grid-template-columns:1.2fr .6fr 1.6fr;gap:10px;align-items:center;width:100%;text-align:left;font-family:inherit;font-size:14px;color:var(--ink);background:none;border:none;border-bottom:1px solid #EEF2EF;padding:11px 4px;cursor:pointer}
+  .hrow:last-child{border-bottom:none}
+  .hrow:hover{background:#F4F8F5}
+  .hrow .m{font-weight:800;text-transform:capitalize}
+  .hrow .c{font-family:"Instrument Serif",Georgia,serif;font-size:1.5rem;color:var(--forest)}
+  .hrow .w{color:var(--muted);overflow-wrap:anywhere}
+  .hrow .w b{color:var(--gold-d)}
+  .hrow.cur{background:#F1F7F3}
   @media(max-width:640px){.hub{grid-template-columns:1fr}.tile{min-height:220px}}
 </style>
 </head>
@@ -174,6 +184,11 @@
 
     <div class="draw"><button class="btn gold" id="drawBtn">🎲 Tirer au sort</button></div>
     <div class="stage" id="stage"></div>
+    <div class="card hist" id="histCard">
+      <h3>Historique</h3>
+      <p class="hint" style="margin:0 0 8px">Chaque mois est classé automatiquement : participantes et gagnant(e). Touchez un mois pour l'ouvrir.</p>
+      <div id="histList"></div>
+    </div>
   </section>
 
   <p class="small">Page privée · ne pas partager le mot de passe</p>
@@ -240,8 +255,29 @@
       show('app');
       var sel = $('monthSel'); sel.textContent = '';
       d.months.forEach(function (m) { var o = document.createElement('option'); o.value = m; o.textContent = monthLabel(m); if (m === d.month) o.selected = true; sel.appendChild(o); });
-      $('stage').textContent = ''; render(); return true;
+      $('stage').textContent = ''; render(); loadHistory(); return true;
     }).catch(function () { $('loginErr').textContent = 'Connexion impossible.'; return false; });
+  }
+
+  function loadHistory() {
+    var box = $('histList'); box.textContent = '';
+    api('GET', '?history=1').then(function (res) {
+      if (!res.ok) return;
+      res.d.history.forEach(function (h) {
+        if (!h.count && !h.winner && h.month !== state.month) return;
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'hrow' + (h.month === state.month ? ' cur' : '');
+        var m = document.createElement('span'); m.className = 'm'; m.textContent = monthLabel(h.month);
+        var c = document.createElement('span'); c.className = 'c'; c.textContent = h.count + (h.count > 1 ? ' inscrites' : ' inscrite');
+        c.style.fontSize = '1.1rem';
+        var w = document.createElement('span'); w.className = 'w';
+        if (h.winner) { var bb = document.createElement('b'); bb.textContent = '👑 ' + (h.winner.name || h.winner.email); w.appendChild(bb); }
+        else w.textContent = h.count ? 'Pas encore tiré' : '—';
+        b.appendChild(m); b.appendChild(c); b.appendChild(w);
+        b.addEventListener('click', function () { load(h.month); });
+        box.appendChild(b);
+      });
+      if (!box.children.length) { var e = document.createElement('div'); e.className = 'empty'; e.textContent = 'Aucun historique pour le moment.'; box.appendChild(e); }
+    });
   }
   $('monthSel').addEventListener('change', function () { load(this.value); });
 
