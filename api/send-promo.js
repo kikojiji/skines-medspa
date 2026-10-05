@@ -214,6 +214,25 @@ function customerEmailHtml(lead, ctx) {
 }
 
 
+// ═════════ E-MAIL PARTICIPANT — version sobre (texte simple, sans images ni gros boutons) ═════════
+// Un message qui ressemble à un courriel personnel est plus souvent classé « Principal » par Gmail.
+// Pour revenir au design « ticket doré », mettre SIMPLE_CONFIRMATION à false.
+const SIMPLE_CONFIRMATION = true;
+function customerEmailSimpleHtml(lead, ctx) {
+  const e = escapeHtml;
+  const p = 'margin:0 0 14px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#222;';
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:24px 18px;background:#ffffff;">
+<div style="max-width:560px;">
+<p style="${p}">Bonjour ${e(lead.name || '')},</p>
+<p style="${p}">Merci ! Votre participation au tirage du mois (${e(ctx.monthLabel)}) est bien enregistrée. Votre numéro de ticket : <strong>${e(ctx.customerId)}</strong>.</p>
+<p style="${p}">Le prix : <strong>-50 % sur une séance</strong> chez Skines Head Spa &amp; Wellness.</p>
+<p style="${p}">Prochaine étape : suivez <a href="https://instagram.com/skines.ca" style="color:#684034;">@skines.ca</a> sur Instagram. Le/la gagnant(e) y sera annoncé(e) en story.</p>
+<p style="${p}">Bonne chance !<br>L'équipe Skines</p>
+<p style="margin:22px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#777;">Skines Head Spa &amp; Wellness · 19 Av. Shamrock, Montréal · <a href="https://skines.ca" style="color:#777;">skines.ca</a><br>Ce message est dans « Promotions » ? Glissez-le dans « Principal » pour ne pas manquer l'annonce.</p>
+</div></body></html>`;
+}
+
 // Version texte brut (aide la délivrabilité et l'affichage dans les clients mail)
 function customerEmailText(lead, ctx) {
   return [
@@ -348,7 +367,7 @@ export default async function handler(req, res) {
     await sendViaResend({
       from: FROM, to: email, replyTo: ADMIN,
       subject: `Votre participation au tirage du mois est confirmée · ${ctx.customerId}`,
-      html: customerEmailHtml(lead, ctx),
+      html: SIMPLE_CONFIRMATION ? customerEmailSimpleHtml(lead, ctx) : customerEmailHtml(lead, ctx),
       text: customerEmailText(lead, ctx),
     });
   } catch (e) {
