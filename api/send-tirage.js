@@ -229,6 +229,7 @@ export default async function handler(req, res) {
         name: `${firstName} ${lastName}`.trim(), email: emailKey, phone,
         instagram: username.replace(/^@/, ''), at: d.toISOString(),
         src: cleanAttribution(req.body && req.body.ctx && req.body.ctx.attribution),
+        pledge: !!(req.body && req.body.pledge === true),
       });
       await fetch(`${_redisUrl}/lpush/${encodeURIComponent('tirage:entries:' + mk)}/${encodeURIComponent(rec)}`,
         { headers: { Authorization: `Bearer ${_redisToken}` } });

@@ -349,6 +349,18 @@ nav {
   font-size: 11.5px; color: rgba(106,90,80,0.72); line-height: 1.55; cursor: pointer;
 }
 
+/* Instagram step + social icons */
+.t-step { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:6px 0 4px; padding:12px 14px; border:1px solid rgba(182,106,90,0.28); border-radius:14px; background:rgba(182,106,90,0.06); }
+.t-step-open { flex:0 0 auto; font-size:11.5px; font-weight:700; color:#9A4A3A; text-decoration:none; border:1.5px solid #B66A5A; border-radius:999px; padding:7px 12px; white-space:nowrap; }
+.t-step-open:hover { background:#B66A5A; color:#FDF8F5; }
+.t-step .t-step-chk { display:flex; align-items:center; gap:10px; flex:1 1 200px; margin:0; font-size:12.5px; color:rgba(70,50,42,0.9); line-height:1.4; cursor:pointer; text-transform:none; letter-spacing:0; }
+.t-step .t-step-chk input { width:19px; height:19px; flex:0 0 19px; margin:0; accent-color:var(--terracotta); order:-1; }
+.t-step .t-step-chk em { font-style:normal; color:rgba(106,90,80,0.65); font-size:0.9em; }
+.t-socials { display:flex; justify-content:center; gap:12px; margin:16px 0 4px; }
+.t-socials .t-soc { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; border:1px solid rgba(182,106,90,0.45); color:#9A4A3A; text-decoration:none; transition:background .2s,color .2s,transform .15s; }
+.t-socials .t-soc:hover { background:#B66A5A; color:#FDF8F5; transform:translateY(-2px); }
+.t-socials .t-soc svg { display:block; }
+
 /* CTA */
 #t-cta {
   width: 100%; padding: 16px;
@@ -1444,6 +1456,11 @@ input, textarea, select {
       </div>
 
 
+      <div class="t-step">
+        <a class="t-step-open" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer">Ouvrir Instagram</a>
+        <label class="t-step-chk" for="t-ig-step"><input type="checkbox" id="t-ig-step" name="igstep"><span>J'aime et je suis <strong>@skines.ca</strong> sur Instagram <em>(obligatoire)</em></span></label>
+      </div>
+
       <div class="t-consent">
         <input type="checkbox" id="t-cb" name="consent" required>
         <label for="t-cb">J'accepte de recevoir des offres et communications de Skines Head Spa & Wellness. Vous pouvez vous désabonner à tout moment. Voir notre <a href="/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">politique de confidentialité</a>.</label>
@@ -1464,6 +1481,12 @@ input, textarea, select {
         <a href="/privacy-policy">Politique de confidentialité</a>
         <span style="color:rgba(182,106,90,0.25)">•</span>
         <a href="/terms-and-conditions">Conditions d'utilisation</a>
+      </div>
+      <div class="t-socials" aria-label="Réseaux sociaux">
+        <a class="t-soc" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="t-soc" href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg></a>
+        <a class="t-soc" href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="t-soc" href="https://www.youtube.com/channel/UCfaDRlj07kg2zGlH6AsnFUw" target="_blank" rel="noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg></a>
       </div>
     </form>
   </div>
@@ -1579,6 +1602,13 @@ var _fp = '';
     var consent  = this.querySelector('[name=consent]').checked;
     var btn      = document.getElementById('t-cta');
 
+    if (!this.querySelector('[name=igstep]').checked) {
+      btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
+      btn.textContent = "Cochez l'étape Instagram *";
+      setTimeout(function () { btn.style.background = ''; btn.textContent = "Vivre l'expérience Skines"; }, 2800);
+      return;
+    }
+
     if (!first || !last || !phone || !email || !consent) {
       btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
       btn.textContent = 'Veuillez remplir tous les champs *';
@@ -1603,6 +1633,7 @@ var _fp = '';
         website: document.querySelector('[name="website"]').value || '',
         cfToken: _tsToken,
         fp: _fp,
+        pledge: true,
         ctx: _ctx
       };
       fetch('https://api.skines.ca/api/send-tirage', {
