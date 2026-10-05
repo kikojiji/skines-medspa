@@ -47,7 +47,7 @@ async function readEntries(month, src) {
       const email = String(o.email || '').toLowerCase();
       if (!email || seen.has(email)) continue;  // un seul ticket par e-mail
       seen.add(email);
-      out.push({ name: o.name || '', email, phone: o.phone || '', instagram: o.instagram || '', at: o.at || '' });
+      out.push({ name: o.name || '', email, phone: o.phone || '', instagram: o.instagram || '', at: o.at || '', src: o.src || null });
     } catch { /* ligne illisible : ignorée */ }
   }
   return out;

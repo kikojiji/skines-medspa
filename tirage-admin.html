@@ -297,6 +297,11 @@
   });
 
   // ── Liste ────────────────────────────────────────────────────
+  function srcLabel(e) {
+    var s = e.src; if (!s) return '';
+    var parts = [s.source, s.campaign].filter(Boolean).join('/');
+    return parts ? '📣 ' + parts : '';
+  }
   function pool() { return state.entries.filter(function (e) { return !state.off[e.email]; }); }
   function render() {
     var q = $('search').value.trim().toLowerCase();
@@ -310,7 +315,7 @@
       var who = document.createElement('div'); who.className = 'who';
       var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = e.name || '(sans nom)';
       var meta = document.createElement('div'); meta.className = 'meta';
-      meta.textContent = [e.instagram ? '@' + e.instagram : '', e.email, e.phone].filter(Boolean).join(' · ');
+      meta.textContent = [e.instagram ? '@' + e.instagram : '', e.email, e.phone, srcLabel(e)].filter(Boolean).join(' · ');
       who.appendChild(nm); who.appendChild(meta); row.appendChild(cb); row.appendChild(who); list.appendChild(row);
     });
     $('nTotal').textContent = state.entries.length; $('nSel').textContent = pool().length;
@@ -328,7 +333,7 @@
   $('selNone').addEventListener('click', function () { state.entries.forEach(function (e) { state.off[e.email] = true; }); render(); });
 
   $('csv').addEventListener('click', function () {
-    var rows = [['Prénom','Courriel','Téléphone','Instagram','Inscrit le']].concat(state.entries.map(function (e) { return [e.name, e.email, e.phone, e.instagram ? '@' + e.instagram : '', e.at]; }));
+    var rows = [['Prénom','Courriel','Téléphone','Instagram','Inscrit le','Source','Campagne']].concat(state.entries.map(function (e) { return [e.name, e.email, e.phone, e.instagram ? '@' + e.instagram : '', e.at, (e.src && e.src.source) || '', (e.src && e.src.campaign) || '']; }));
     var csv = rows.map(function (r) { return r.map(function (c) { return '"' + String(c || '').replace(/"/g, '""') + '"'; }).join(','); }).join('\n');
     var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' }));
     a.download = 'tirage-' + state.src + '-' + state.month + '.csv'; document.body.appendChild(a); a.click(); a.remove();

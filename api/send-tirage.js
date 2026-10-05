@@ -1,6 +1,7 @@
 // Vercel Serverless Function — Tirage giveaway registration
 // POST /api/send-tirage
 
+import { cleanAttribution } from './_lib/attribution.js';
 import {
   escapeHtml, sanitizeText, validatePhone, validateEmail, validateRequired,
   isHoneypotTriggered, requireJson, setCorsHeaders,
@@ -224,6 +225,7 @@ export default async function handler(req, res) {
       const rec = JSON.stringify({
         name: `${firstName} ${lastName}`.trim(), email: emailKey, phone,
         instagram: username.replace(/^@/, ''), at: d.toISOString(),
+        src: cleanAttribution(req.body && req.body.ctx && req.body.ctx.attribution),
       });
       await fetch(`${_redisUrl}/lpush/${encodeURIComponent('tirage:entries:' + mk)}/${encodeURIComponent(rec)}`,
         { headers: { Authorization: `Bearer ${_redisToken}` } });

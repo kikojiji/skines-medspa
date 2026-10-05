@@ -46,6 +46,43 @@
   .foot a{color:var(--gold-l);text-decoration:none;}
   @media(max-width:600px){ h1 .off{font-size:66px;} h1 .sub{font-size:26px;} }
 </style>
+<!-- Consent Mode v2 — default DENIED. MUST run before gtag config. Managed by assets/js/skines-consent.js -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  /* TEMP-BYPASS-LOI25 (jusqu'au 2026-10-07) : remettre 'denied' */ gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VFB8SY59FX"></script>
+<script>
+
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VFB8SY59FX');
+  gtag('config', 'G-N46K5NG8TW');
+</script>
+<!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
+<script defer src="/assets/js/skines-consent.js?v=9"></script>
+<!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
+<script defer src="/assets/js/skines-attribution.js?v=1"></script>
+<!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
+<script defer src="/assets/js/skines-tracker.js?v=2"></script>
+<!-- Meta Pixel (browser only, ads-consent gated). -->
+<script defer src="/assets/js/skines-meta-pixel.js?v=3"></script>
+<!-- TikTok Pixel (browser only, ads-consent gated). Set PIXEL_ID inside the file. -->
+<script defer src="/assets/js/skines-tiktok-pixel.js?v=4"></script>
+<!-- Meta CAPI dispatcher (server channel; ads-consent gated; dedup via event_id). -->
+<script defer src="/assets/js/skines-capi.js?v=1"></script>
+<script defer src="/assets/js/skines-tiktok-capi.js?v=1"></script>
 </head>
 <body>
   <header class="topbar">
@@ -106,10 +143,11 @@
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Entrez une adresse e-mail valide.'; return; }
         btn.disabled=true; btn.textContent='…';
         fetch('/api/send-promo',{method:'POST',headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||''})})
+          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||'', ctx:(window.skinesLeadContext?window.skinesLeadContext():null)})})
           .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
           .then(function(res){
             if(res.ok){
+              if(!res.d.already && window.skinesTrackLead) window.skinesTrackLead('offre');
               zone.innerHTML='<p class="msg">'+(res.d.already
                 ? 'Vous participez déjà au tirage de ce mois — bonne chance ! 🎉'
                 : 'C\'est fait ! Vous participez au tirage du mois. Résultat annoncé sur @skines.spa 🎉')+'</p>';

@@ -59,6 +59,12 @@
         return { ev: 'Contact',          data: { contact_method: 'phone' } };
       case 'email_click':
         return { ev: 'Contact',          data: { contact_method: 'email' } };
+      case 'whatsapp_click':
+        return { ev: 'Contact',          data: { contact_method: 'whatsapp' } };
+      case 'scroll_depth':
+        return (p.percent >= 75) ? { ev: 'DeepScroll', custom: true, data: { content_name: 'scroll_' + p.percent } } : null;
+      case 'engaged_60s':
+        return { ev: 'EngagedVisitor', custom: true, data: { content_name: 'engaged_60s' } };
       case 'generate_lead':
         return { ev: 'Lead',             data: { content_name: p.form_id } };
       default:
@@ -109,7 +115,7 @@
     var data = {};
     for (var k in m.data) if (m.data.hasOwnProperty(k) && m.data[k] != null) data[k] = m.data[k];
     try {
-      window.fbq('track', m.ev, data, { eventID: detail.params && detail.params.event_id });
+      window.fbq(m.custom ? 'trackCustom' : 'track', m.ev, data, { eventID: detail.params && detail.params.event_id });
       if (DEV) console.log('[Skines Meta] ' + detail.name + ' -> ' + m.ev, data, detail.params && detail.params.event_id);
     } catch (e) {}
   }

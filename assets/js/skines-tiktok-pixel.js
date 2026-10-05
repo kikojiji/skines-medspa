@@ -57,6 +57,8 @@
         return { ev: 'Contact',          data: { contact_method: 'phone' } };
       case 'email_click':
         return { ev: 'Contact',          data: { contact_method: 'email' } };
+      case 'whatsapp_click':
+        return { ev: 'Contact',          data: { contact_method: 'whatsapp' } };
       case 'generate_lead':
         return { ev: 'SubmitForm',       data: { content_name: p.form_id } };
       default:

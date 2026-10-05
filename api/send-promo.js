@@ -10,6 +10,7 @@
 // Env requis : RESEND_API_KEY
 // Env optionnels : UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, TURNSTILE_SECRET_KEY
 
+import { cleanAttribution } from './_lib/attribution.js';
 import {
   escapeHtml, sanitizeText, validateEmail, isHoneypotTriggered, requireJson,
   setCorsHeaders, rateLimit, getClientIp, sendViaResend,
@@ -289,6 +290,7 @@ export default async function handler(req, res) {
     phone:     sanitizeText(body.phone || '', 30),
     instagram: sanitizeText((body.instagram || '').replace(/^@+/, ''), 40),
   };
+  const src = cleanAttribution(body.ctx && body.ctx.attribution);
 
   if (!(await verifyTurnstile(body.turnstileToken, ip))) {
     return res.status(400).json({ error: 'Vérification anti-robot échouée.' });
@@ -300,7 +302,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, already: true });
   }
 
-  const count = await storeEntry(lead);
+  const count = await storeEntry({ ...lead, src });
 
   const ua = req.headers['user-agent'] || '';
   _fallback++;

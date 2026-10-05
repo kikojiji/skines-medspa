@@ -134,10 +134,10 @@
   window.skinesTrack = track;
 
   // ── generate_lead (replaces standalone lead-tracking.js behaviour) ─────────
-  window.skinesTrackLead = function (formKey) {
+  window.skinesTrackLead = function (formKey, eventId) {
     formKey = formKey || 'default';
     return track('generate_lead',
-      { form_id: formKey, service_category: serviceCategory() },
+      { form_id: formKey, service_category: serviceCategory(), event_id: eventId },
       { dedupeKey: 'lead:' + formKey });
   };
 
@@ -177,9 +177,66 @@
   }
   window.skinesTrack.locationOf = locationOf;   // reused by fresha-tracking.js
 
+  // ── Deeper behaviour events (no personal data) ─────────────────────────────
+  function deeperInit() {
+    // whatsapp_click / social_click — delegated on links
+    document.addEventListener('click', function (e) {
+      var a = e.target;
+      while (a && a !== document.body && a.tagName !== 'A') a = a.parentElement;
+      if (!a || a.tagName !== 'A') return;
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (/^(https?:)?\/\/(wa\.me|api\.whatsapp\.com)|^whatsapp:/.test(href)) {
+        track('whatsapp_click', { link_url: href, button_location: locationOf(a) });
+      } else {
+        var m = href.match(/(instagram|tiktok|facebook|youtube)\.com/);
+        if (m) track('social_click', { network: m[1], button_location: locationOf(a) });
+      }
+    }, true);
+
+    // scroll_depth — 25 / 50 / 75 / 90 %, once each per page view
+    var marks = [25, 50, 75, 90], ticking = false;
+    function onScroll() {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var d = document.documentElement, max = (d.scrollHeight - window.innerHeight);
+        if (max <= 0) return;
+        var pct = Math.round((window.scrollY / max) * 100);
+        for (var i = 0; i < marks.length; i++) {
+          if (pct >= marks[i]) track('scroll_depth', { percent: marks[i] }, { dedupeKey: 'scroll:' + marks[i] });
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // engaged_time — seconds with the tab visible: 30 s and 60 s
+    var secs = 0;
+    setInterval(function () {
+      if (document.visibilityState !== 'visible') return;
+      secs++;
+      if (secs === 30) track('engaged_30s', { seconds: 30 }, { dedupeKey: 'eng30' });
+      if (secs === 60) track('engaged_60s', { seconds: 60 }, { dedupeKey: 'eng60' });
+    }, 1000);
+  }
+
+  // Context a form sends with its submission (first-party; no personal data).
+  window.skinesLeadContext = function () {
+    var s = snapshot(), ids = {};
+    try { ids = window.skinesAttribution.getClickIds() || {}; } catch (e) {}
+    return {
+      attribution: {
+        source: s.source, medium: s.medium, campaign: s.campaign, content: s.content,
+        first_source: s.first_source, first_campaign: s.first_campaign,
+        landing_page: s.landing_page, device: device()
+      },
+      click_ids: { fbclid: !!ids.fbclid, ttclid: !!ids.ttclid, gclid: !!ids.gclid }
+    };
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', autoInit);
   } else {
     autoInit();
   }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', deeperInit); } else { deeperInit(); }
 })();
