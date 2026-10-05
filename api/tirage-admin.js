@@ -87,6 +87,23 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       const body = req.body && typeof req.body === 'object' ? req.body : {};
       const month = String(body.month || '');
+      if (body.action === 'import') {
+        if (!MONTH_RE.test(month) || !Array.isArray(body.rows)) return res.status(400).json({ error: 'Requête invalide.' });
+        const isrc = SOURCES[String(body.source || 'promo')] || 'promo';
+        const have = new Set((await readEntries(month, isrc)).map(e => e.email));
+        const clean = v => String(v || '').replace(/[\u0000-\u001f<>]/g, '').trim();
+        let added = 0, skipped = 0;
+        for (const r of body.rows.slice(0, 500)) {
+          const email = clean(r && r.email).toLowerCase().slice(0, 254);
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || have.has(email)) { skipped++; continue; }
+          have.add(email);
+          const rec = JSON.stringify({ name: clean(r.name).slice(0, 120), email, phone: clean(r.phone).slice(0, 30),
+            instagram: clean(r.instagram).replace(/^@/, '').slice(0, 60), at: new Date().toISOString(), imported: true });
+          await redis(`lpush/${encodeURIComponent(isrc + ':entries:' + month)}/${encodeURIComponent(rec)}`);
+          added++;
+        }
+        return res.status(200).json({ ok: true, added, skipped });
+      }
       const email = String(body.email || '').toLowerCase();
       if (!MONTH_RE.test(month) || !email) return res.status(400).json({ error: 'Requête invalide.' });
       const src = SOURCES[String(body.source || 'promo')] || 'promo';

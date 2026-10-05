@@ -105,6 +105,13 @@
       </div>
       <div class="list" id="list"></div>
       <p class="sub" style="color:var(--muted);font-size:12.5px;margin:8px 0 0">Décochez les tests ou les personnes à exclure du tirage.</p>
+      <details style="margin-top:14px">
+        <summary style="cursor:pointer;font-weight:700;font-size:13px;color:var(--maroon)">➕ Ajouter des participantes (anciens e-mails)</summary>
+        <p class="sub" style="color:var(--muted);font-size:12.5px;margin:8px 0">Une personne par ligne : <b>Nom, e-mail, téléphone, instagram</b> (téléphone et instagram facultatifs). Ajoutées au mois et au tirage sélectionnés ; les e-mails déjà présents sont ignorés.</p>
+        <textarea id="impTxt" rows="6" placeholder="Marie Tremblay, marie@gmail.com, 5141234567, @marie" style="width:100%;box-sizing:border-box;border:1.5px solid rgba(104,64,52,.35);border-radius:12px;padding:10px;font:inherit;font-size:13px"></textarea>
+        <button class="btn ghost" id="impBtn" type="button" style="margin-top:8px;width:100%">Ajouter à la liste</button>
+        <p id="impMsg" class="sub" style="font-size:12.5px;margin:6px 0 0"></p>
+      </details>
     </div>
 
     <div class="draw"><button class="btn gold" id="drawBtn">🎲 Tirer au sort</button></div>
@@ -155,6 +162,20 @@
     }).catch(function () { $('loginErr').textContent = 'Connexion impossible.'; return false; });
   }
   $('monthSel').addEventListener('change', function () { load(this.value); });
+  $('impBtn').addEventListener('click', function () {
+    var rows = $('impTxt').value.split('\n').map(function (l) {
+      var p = l.split(/[,;\t]/).map(function (x) { return x.trim(); });
+      return { name: p[0] || '', email: p[1] || '', phone: p[2] || '', instagram: p[3] || '' };
+    }).filter(function (r) { return r.email; });
+    if (!rows.length) { $('impMsg').textContent = 'Rien à ajouter (format : Nom, e-mail, …).'; return; }
+    $('impBtn').disabled = true;
+    api('POST', '', { action: 'import', month: state.month, rows: rows }).then(function (res) {
+      $('impBtn').disabled = false;
+      if (!res.ok) { $('impMsg').textContent = res.d.error || 'Erreur.'; return; }
+      $('impMsg').textContent = res.d.added + ' ajoutée(s), ' + res.d.skipped + ' ignorée(s).';
+      $('impTxt').value = ''; load(state.month);
+    }).catch(function () { $('impBtn').disabled = false; $('impMsg').textContent = 'Connexion impossible.'; });
+  });
   $('srcSel').addEventListener('change', function () { load(''); });
 
   // ── Liste ────────────────────────────────────────────────────
