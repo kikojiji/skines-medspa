@@ -38,6 +38,9 @@
   .full{width:100%}
   .err{color:var(--danger);font-size:14px;margin-top:10px;min-height:18px}
   [hidden]{display:none!important}
+  body.embed .top,body.embed .small,body.embed #backBtn{display:none!important}
+  body.embed{background:transparent}
+  body.embed main{padding-top:0}
 
   /* Hub */
   .hub{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -394,7 +397,12 @@
   }
 
   // Reconnexion automatique si la clé est déjà dans l'onglet
-  if (getKey()) loadHub().then(function (ok) { if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
+  var qp = new URLSearchParams(location.search);
+  if (qp.get('embed')) document.body.classList.add('embed');
+  if (getKey()) {
+    var first = (qp.get('src') === 'promo' || qp.get('src') === 'tirage') ? (openDraw(qp.get('src')), Promise.resolve(true)) : loadHub();
+    first.then(function (ok) { if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
+  }
 })();
 </script>
 </body>

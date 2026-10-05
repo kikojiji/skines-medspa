@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Espace admin · Skines</title>
+<link rel="icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#E9EEE9;--card:#fff;--ink:#14221B;--muted:#5F7167;--line:#DCE4DE;--forest:#16392B;--forest2:#0F2A20;--gold-d:#9B7A2C;--danger:#B3402B}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Manrope",-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;
+       background-image:radial-gradient(900px 420px at 85% -10%,rgba(191,227,206,.9),transparent 70%),radial-gradient(700px 360px at -10% 105%,rgba(216,178,90,.18),transparent 70%);background-attachment:fixed}
+  header{max-width:1040px;margin:0 auto;padding:16px 18px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{font-family:"Instrument Serif",Georgia,serif;font-size:28px}.brand i{color:var(--gold-d)}
+  .out{font:800 12px inherit;font-family:inherit;color:var(--forest);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+  nav{max-width:1040px;margin:12px auto 0;padding:0 18px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav button{flex:0 0 auto;border:1.5px solid var(--line);background:#fff;color:var(--forest);font:800 14px inherit;font-family:inherit;border-radius:14px;padding:11px 16px;cursor:pointer;white-space:nowrap}
+  nav button.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+  nav button.soon{opacity:.55;border-style:dashed}
+  main{max-width:1040px;margin:0 auto;padding:14px 0 50px}
+  iframe{display:block;width:100%;border:0;min-height:520px;background:transparent}
+  #login{max-width:440px;margin:40px auto;padding:0 18px}
+  h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.2rem,7vw,3.2rem);line-height:1.04;margin-bottom:8px}
+  h1 em{color:var(--forest)}
+  .lead{color:var(--muted);margin-bottom:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 16px 40px -24px rgba(20,34,27,.35)}
+  label{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  input{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;font-size:16px;font-family:inherit;background:#F8FAF8;outline:none}
+  input:focus{border-color:var(--forest);box-shadow:0 0 0 4px rgba(22,57,43,.12)}
+  .btn{width:100%;margin-top:14px;border:none;border-radius:14px;padding:14px;font:800 14px inherit;font-family:inherit;background:var(--forest);color:#fff;cursor:pointer}
+  .err{color:var(--danger);font-size:14px;margin-top:10px;min-height:18px}
+  .small{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<section id="login">
+  <h1>Espace <em>admin</em></h1>
+  <p class="lead">Statistiques et tirages Skines. Réservé à l'équipe.</p>
+  <div class="card">
+    <label for="pw">Mot de passe</label>
+    <input type="password" id="pw" autocomplete="current-password" placeholder="••••••••">
+    <button class="btn" id="go">Entrer</button>
+    <div class="err" id="err" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="app" hidden>
+  <header><span class="brand">Skines<i>.</i> admin</span><button class="out" id="out" type="button">Quitter</button></header>
+  <nav id="tabs">
+    <button data-t="stats" data-u="/stats-admin?embed=1">📊 Statistiques</button>
+    <button data-t="mois" data-u="/tirage-admin?embed=1&src=promo">🎟️ Tirage du mois</button>
+    <button data-t="principal" data-u="/tirage-admin?embed=1&src=tirage">👑 Tirage principal</button>
+  </nav>
+  <main><iframe id="frame" title="Contenu admin"></iframe></main>
+  <p class="small">Page privée · ne pas partager le mot de passe</p>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); }, KEY = 'sk_tirage_key', frame = $('frame'), timer = null;
+  function key() { try { return sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+
+  function enter() {
+    var v = $('pw').value; if (!v) { $('err').textContent = 'Entrez le mot de passe.'; return; }
+    try { sessionStorage.setItem(KEY, v); } catch (e) {}
+    check();
+  }
+  function check() {
+    $('go').disabled = true; $('err').textContent = '';
+    fetch('/api/stats-admin?days=1', { headers: { 'x-admin-key': key() } }).then(function (r) {
+      $('go').disabled = false;
+      if (r.ok) { show(); return; }
+      try { sessionStorage.removeItem(KEY); } catch (e) {}
+      if ($('login').hidden) { location.reload(); return; }
+      $('err').textContent = r.status === 401 ? 'Mot de passe incorrect.' : 'Service indisponible.';
+    }).catch(function () { $('go').disabled = false; $('err').textContent = 'Connexion impossible.'; });
+  }
+  $('go').addEventListener('click', enter);
+  $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') enter(); });
+  $('out').addEventListener('click', function () { try { sessionStorage.removeItem(KEY); } catch (e) {} location.reload(); });
+
+  function select(t) {
+    var btns = $('tabs').children, pick = null;
+    for (var i = 0; i < btns.length; i++) { var on = btns[i].getAttribute('data-t') === t; btns[i].classList.toggle('on', on); if (on) pick = btns[i]; }
+    if (!pick) return select('stats');
+    frame.style.height = '520px'; frame.src = pick.getAttribute('data-u'); history.replaceState(null, '', '#' + t);
+  }
+  $('tabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b && b.getAttribute('data-u')) select(b.getAttribute('data-t')); });
+
+  function fit() {
+    try { var d = frame.contentDocument; if (d && d.body) { var h = Math.max(d.documentElement.scrollHeight, d.body.scrollHeight); if (Math.abs(h - frame.offsetHeight) > 4) frame.style.height = h + 'px'; } } catch (e) {}
+  }
+  function show() { $('login').hidden = true; $('app').hidden = false; select((location.hash || '#stats').slice(1)); if (!timer) timer = setInterval(fit, 400); }
+
+  if (key()) check();
+})();
+</script>
+</body>
+</html>

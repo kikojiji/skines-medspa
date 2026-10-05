@@ -28,6 +28,9 @@
   .btn:hover{background:var(--forest2)}
   .full{width:100%}.err{color:var(--danger);font-size:14px;margin-top:10px;min-height:18px}
   [hidden]{display:none!important}
+  body.embed .top,body.embed .small{display:none!important}
+  body.embed{background:transparent}
+  body.embed main{padding-top:0}
   .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
   .seg{border:1.5px solid var(--line);background:#fff;color:var(--forest);border-radius:999px;padding:8px 15px;font:800 13px inherit;font-family:inherit;cursor:pointer}
   .seg.on{background:var(--forest);color:#fff;border-color:var(--forest)}
@@ -221,6 +224,7 @@
       ['TikTok · acceptées', total('leadads:tiktok:ok')], ['TikTok · refusées/erreur', total('leadads:tiktok:rejected') + total('leadads:tiktok:error')]].filter(function (r) { return r[1] > 0; }), null, 8);
   }
 
+  if (new URLSearchParams(location.search).get('embed')) document.body.classList.add('embed');
   if (getKey()) load().then(function (ok) { if (!ok) { try { sessionStorage.removeItem(KEY_STORE); } catch (e) {} } });
 })();
 </script>
