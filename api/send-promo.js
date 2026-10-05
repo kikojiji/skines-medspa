@@ -135,7 +135,7 @@ function customerEmailHtml(lead, ctx) {
 <body style="margin:0;padding:0;background:${MAROON};">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:${MAROON};font-size:1px;line-height:1px;">Votre ticket ${e(ctx.customerId)} est validé : -50% à gagner sur une séance Skines.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${MAROON}" style="background:${MAROON};"><tr><td align="center" style="padding:34px 14px 40px;">
-<table role="presentation" width="480" cellpadding="0" cellspacing="0" style="width:480px;max-width:100%;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:480px;">
 
   <tr><td align="center" style="padding:0 0 26px;">
     <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:24px;letter-spacing:.55em;color:${CREAM};padding-left:.55em;">SKINES</p>
@@ -154,9 +154,11 @@ function customerEmailHtml(lead, ctx) {
     </td></tr>
 
     <tr><td>
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;table-layout:fixed;"><tr>
         ${notch('l')}
-        <td valign="middle" style="font-size:0;line-height:0;"><div style="border-top:2px dashed #d8c7ae;height:0;font-size:0;line-height:0;">&nbsp;</div></td>
+        <td width="100%" valign="middle" style="width:100%;font-size:0;line-height:0;padding:0 6px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;"><tr><td height="1" style="height:1px;font-size:0;line-height:0;border-top:2px dashed #d8c7ae;">&nbsp;</td></tr></table>
+        </td>
         ${notch('r')}
       </tr></table>
     </td></tr>
@@ -217,7 +219,7 @@ function customerEmailHtml(lead, ctx) {
 // ═════════ E-MAIL PARTICIPANT — version sobre (texte simple, sans images ni gros boutons) ═════════
 // Un message qui ressemble à un courriel personnel est plus souvent classé « Principal » par Gmail.
 // Pour revenir au design « ticket doré », mettre SIMPLE_CONFIRMATION à false.
-const SIMPLE_CONFIRMATION = true;
+const SIMPLE_CONFIRMATION = false;
 function customerEmailSimpleHtml(lead, ctx) {
   const e = escapeHtml;
   const p = 'margin:0 0 14px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#222;';
