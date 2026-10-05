@@ -183,7 +183,7 @@ function customerEmailHtml(lead, ctx) {
         </td>
         <td width="33%" valign="top" align="center" style="padding:0 6px;border-left:1px solid rgba(247,240,230,.22);border-right:1px solid rgba(247,240,230,.22);">
           <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:22px;color:#e8bd5c;">02</p>
-          <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:${CREAM};">Suivez<br>@skines.spa</p>
+          <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:${CREAM};">Suivez<br>@skines.ca</p>
         </td>
         <td width="33%" valign="top" align="center" style="padding:0 6px;">
           <p style="margin:0 0 6px;font-family:Georgia,serif;font-size:22px;color:#e8bd5c;">03</p>
@@ -196,7 +196,7 @@ function customerEmailHtml(lead, ctx) {
   <tr><td align="center" style="padding:28px 0 8px;">
     <table role="presentation" cellpadding="0" cellspacing="0"><tr>
       <td bgcolor="#e8bd5c" style="background:#e8bd5c;border-radius:999px;">
-        <a href="https://instagram.com/skines.spa" style="display:inline-block;padding:15px 38px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${INK};text-decoration:none;">Suivre @skines.spa</a>
+        <a href="https://instagram.com/skines.ca" style="display:inline-block;padding:15px 38px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${INK};text-decoration:none;">Suivre @skines.ca</a>
       </td>
     </tr></table>
   </td></tr>

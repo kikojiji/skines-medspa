@@ -170,7 +170,7 @@ The Skines Head Spa & Wellness website is fully bilingual: French (primary) and 
 ## Brand Notes
 
 - Official brand name: Skines Head Spa & Wellness
-- Instagram/TikTok handle: @skines.spa (third-party platform constraint)
+- Instagram: @skines.ca · TikTok: @skines.headspa (social handles differ from the brand name: third-party platform constraint)
 - Technology used for laser: Clarity II by Lutronic (755nm Alexandrite + 1064nm Nd:YAG)
 - Head Spa protocol name: Scalpcial
 - Location: Petite Italie (Little Italy), 19 Av. Shamrock, Montreal, QC H2S 1A3, Canada — near Jean-Talon Market
