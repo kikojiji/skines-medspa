@@ -11,6 +11,7 @@
     }
   },
   "redirects": [
+    { "source": "/a", "destination": "/admin", "permanent": false },
     {
       "source": "/web",
       "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=bio",
