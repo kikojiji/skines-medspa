@@ -1456,11 +1456,6 @@ input, textarea, select {
       </div>
 
 
-      <div class="t-step">
-        <a class="t-step-open" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer">Ouvrir Instagram</a>
-        <label class="t-step-chk" for="t-ig-step"><input type="checkbox" id="t-ig-step" name="igstep"><span>J'aime et je suis <strong>@skines.ca</strong> sur Instagram <em>(obligatoire)</em></span></label>
-      </div>
-
       <div class="t-consent">
         <input type="checkbox" id="t-cb" name="consent" required>
         <label for="t-cb">J'accepte de recevoir des offres et communications de Skines Head Spa & Wellness. Vous pouvez vous désabonner à tout moment. Voir notre <a href="/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">politique de confidentialité</a>.</label>
@@ -1602,13 +1597,6 @@ var _fp = '';
     var consent  = this.querySelector('[name=consent]').checked;
     var btn      = document.getElementById('t-cta');
 
-    if (!this.querySelector('[name=igstep]').checked) {
-      btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
-      btn.textContent = "Cochez l'étape Instagram *";
-      setTimeout(function () { btn.style.background = ''; btn.textContent = "Vivre l'expérience Skines"; }, 2800);
-      return;
-    }
-
     if (!first || !last || !phone || !email || !consent) {
       btn.style.background = 'linear-gradient(135deg,#9A3520,#7A2A18)';
       btn.textContent = 'Veuillez remplir tous les champs *';
@@ -1633,7 +1621,6 @@ var _fp = '';
         website: document.querySelector('[name="website"]').value || '',
         cfToken: _tsToken,
         fp: _fp,
-        pledge: true,
         ctx: _ctx
       };
       fetch('https://api.skines.ca/api/send-tirage', {

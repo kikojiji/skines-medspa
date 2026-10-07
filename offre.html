@@ -127,18 +127,6 @@
           <label for="instagram" style="margin-top:14px;">Instagram <span style="color:#a2908a;font-weight:400;">(pour vous taguer si vous gagnez)</span></label>
           <input type="text" id="instagram" name="instagram" placeholder="@votre_compte" autocomplete="off">
 
-          <div class="steps" role="group" aria-label="Conditions de participation">
-            <p class="steps-t">Pour participer, 2 petites étapes :</p>
-            <div class="step">
-              <a class="step-open" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer">Ouvrir Instagram</a>
-              <label class="step-chk"><input type="checkbox" id="stIg"><span>J'aime et je suis <b>@skines.ca</b> sur Instagram</span></label>
-            </div>
-            <div class="step">
-              <a class="step-open" href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer">Ouvrir TikTok</a>
-              <label class="step-chk"><input type="checkbox" id="stTt"><span>J'aime et je suis <b>@skines.headspa</b> sur TikTok</span></label>
-            </div>
-          </div>
-
           <button type="submit" class="cta" style="margin-top:18px;">PARTICIPER AU TIRAGE</button>
           <div class="err" aria-live="polite"></div>
         </form>
@@ -171,11 +159,10 @@
         err.textContent='';
         if(!name){ err.textContent='Entrez votre prénom.'; return; }
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Entrez une adresse e-mail valide.'; return; }
-        if(!document.getElementById('stIg').checked || !document.getElementById('stTt').checked){ err.textContent='Cochez les 2 étapes (Instagram et TikTok) pour participer.'; return; }
         btn.disabled=true; btn.textContent='…';
         var ctx=window.skinesLeadContext?window.skinesLeadContext():null;
         fetch('/api/send-promo',{method:'POST',headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||'', pledge:true, ctx:ctx})})
+          body:JSON.stringify({name:name, email:email, phone:(form.phone.value||'').trim(), instagram:(form.instagram.value||'').trim(), website:form.website.value||'', ctx:ctx})})
           .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
           .then(function(res){
             if(res.ok){
