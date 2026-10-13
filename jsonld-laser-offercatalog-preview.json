@@ -1,0 +1,413 @@
+{
+  "@type": "OfferCatalog",
+  "name": "Épilation Laser – Zones et forfaits",
+  "itemListElement": [
+    {
+      "@type": "Offer",
+      "name": "Lèvre Supérieure – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Lèvre Supérieure",
+        "description": "Épilation laser permanente lèvre supérieure. 10 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Menton – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Menton",
+        "description": "Épilation laser permanente menton. 10 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Favoris – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Favoris",
+        "description": "Épilation laser permanente favoris. 10 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Cou – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Cou",
+        "description": "Épilation laser permanente cou. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Nuque – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Nuque",
+        "description": "Épilation laser permanente nuque. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Contour Barbe – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Contour Barbe",
+        "description": "Épilation laser permanente contour barbe. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Demi-Visage – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Demi-Visage",
+        "description": "Épilation laser permanente demi-visage. 10 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Demi-Visage + Cou – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Demi-Visage + Cou",
+        "description": "Épilation laser permanente demi-visage + cou. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Visage Complet – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Visage Complet",
+        "description": "Épilation laser permanente visage complet. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Aisselles – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Aisselles",
+        "description": "Épilation laser permanente aisselles. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Ligne Bikini – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Ligne Bikini",
+        "description": "Épilation laser permanente ligne bikini. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Maillot Intégral – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Maillot Intégral",
+        "description": "Épilation laser permanente maillot intégral. 25 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bras Complets – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Bras Complets",
+        "description": "Épilation laser permanente bras complets. 30 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Demi-Bras – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Demi-Bras",
+        "description": "Épilation laser permanente demi-bras. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Aréoles – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Aréoles",
+        "description": "Épilation laser permanente aréoles. 10 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Poitrine – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Poitrine",
+        "description": "Épilation laser permanente poitrine. 25 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Épaules – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Épaules",
+        "description": "Épilation laser permanente épaules. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Ventre Complet – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Ventre Complet",
+        "description": "Épilation laser permanente ventre complet. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bas du Ventre – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Bas du Ventre",
+        "description": "Épilation laser permanente bas du ventre. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Ligne Nombril – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Ligne Nombril",
+        "description": "Épilation laser permanente ligne nombril. 10 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Dos Complet – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Dos Complet",
+        "description": "Épilation laser permanente dos complet. 25 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bas du Dos – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Bas du Dos",
+        "description": "Épilation laser permanente bas du dos. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Fesses – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Fesses",
+        "description": "Épilation laser permanente fesses. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Jambes Complètes – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Jambes Complètes",
+        "description": "Épilation laser permanente jambes complètes. 35 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Demi-Jambes – Épilation Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Épilation Laser – Demi-Jambes",
+        "description": "Épilation laser permanente demi-jambes. 20 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Corps Complet – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Corps Complet",
+        "description": "Forfait épilation laser corps complet. 1h30."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Dos Complet + Épaules – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Dos Complet + Épaules",
+        "description": "Forfait épilation laser dos complet + épaules. 30 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Dos Complet + Poitrine + Abdomen – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Dos Complet + Poitrine + Abdomen",
+        "description": "Forfait épilation laser dos complet + poitrine + abdomen. 35 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Dos + Poitrine + Contour Barbe + Ligne Nombril – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Dos + Poitrine + Contour Barbe + Ligne Nombril",
+        "description": "Forfait épilation laser dos + poitrine + contour barbe + ligne nombril. 45 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Visage + Aisselles – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Visage + Aisselles",
+        "description": "Forfait épilation laser visage + aisselles. 25 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bikini + Aisselles – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Bikini + Aisselles",
+        "description": "Forfait épilation laser bikini + aisselles. 30 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bikini + Fesses – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Bikini + Fesses",
+        "description": "Forfait épilation laser bikini + fesses. 15 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bikini + Visage + Aisselles – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Bikini + Visage + Aisselles",
+        "description": "Forfait épilation laser bikini + visage + aisselles. 30 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bikini + Aisselles + Jambes Complètes – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Bikini + Aisselles + Jambes Complètes",
+        "description": "Forfait épilation laser bikini + aisselles + jambes complètes. 35 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bikini + Aisselles + Demi-Jambes – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Bikini + Aisselles + Demi-Jambes",
+        "description": "Forfait épilation laser bikini + aisselles + demi-jambes. 30 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Bikini + Fesses + Aisselles – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Bikini + Fesses + Aisselles",
+        "description": "Forfait épilation laser bikini + fesses + aisselles. 30 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    },
+    {
+      "@type": "Offer",
+      "name": "Dos Complet + Poitrine – Forfait Laser",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Forfait Laser – Dos Complet + Poitrine",
+        "description": "Forfait épilation laser dos complet + poitrine. 40 min."
+      },
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    }
+  ]
+}
