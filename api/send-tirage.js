@@ -1,6 +1,10 @@
 // Vercel Serverless Function — Tirage giveaway registration
 // POST /api/send-tirage
 
+import { cleanAttribution } from './_lib/attribution.js';
+import { sendLeadToAds } from './_lib/lead-events.js';
+import { bump } from './_lib/stats.js';
+const adsStats = (r) => !r || r.skipped ? ['leadads:noconsent'] : ['leadads:sent', r.meta && `leadads:meta:${String(r.meta).split(':')[0]}`, r.tiktok && `leadads:tiktok:${String(r.tiktok).split(':')[0]}`];
 import {
   escapeHtml, sanitizeText, validatePhone, validateEmail, validateRequired,
   isHoneypotTriggered, requireJson, setCorsHeaders,
@@ -214,6 +218,22 @@ export default async function handler(req, res) {
     await releaseGuard('email', emailKey);
     await releaseGuard('phone', phoneKey);
     return res.status(409).json({ error: 'Ce pseudo Instagram/TikTok est déjà inscrit au tirage.' });
+  }
+
+  // ── Liste des participantes (pour le tirage au sort /tirage-admin) ───────
+  if (redisEnabled) {
+    try {
+      const d = new Date();
+      const mk = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+      const rec = JSON.stringify({
+        name: `${firstName} ${lastName}`.trim(), email: emailKey, phone,
+        instagram: username.replace(/^@/, ''), at: d.toISOString(),
+        src: cleanAttribution(req.body && req.body.ctx && req.body.ctx.attribution),
+        pledge: !!(req.body && req.body.pledge === true),
+      });
+      await fetch(`${_redisUrl}/lpush/${encodeURIComponent('tirage:entries:' + mk)}/${encodeURIComponent(rec)}`,
+        { headers: { Authorization: `Bearer ${_redisToken}` } });
+    } catch (e) { console.error('[tirage] entries store error:', e.message); }
   }
 
   // ── Device fingerprint tracking ───────────────────────────────────────────
@@ -511,6 +531,13 @@ export default async function handler(req, res) {
       }),
     ]);
     console.log('[send-tirage] admin:', adminId, 'confirm:', confirmId);
+    try {
+      const lr = await sendLeadToAds({
+        ip, ua, url: 'https://skines.ca/tirage', formId: 'tirage',
+        ads: req.body && req.body.ctx && req.body.ctx.ads, email, phone, firstName, lastName,
+      });
+      await bump(adsStats(lr));
+    } catch (e) { console.error('[send-tirage] lead-events error:', e.message); }
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error('[send-tirage] failed:', err.message);

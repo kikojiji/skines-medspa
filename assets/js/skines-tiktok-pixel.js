@@ -36,7 +36,7 @@
   var DEV = (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '');
 
   function adsConsented() {
-    return true;
+    return true; // TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : remettre le test du consentement
   }
   function eventId() {
     try { return window.skinesAttribution ? window.skinesAttribution.newEventId() : ('e' + Date.now()); }
@@ -57,6 +57,8 @@
         return { ev: 'Contact',          data: { contact_method: 'phone' } };
       case 'email_click':
         return { ev: 'Contact',          data: { contact_method: 'email' } };
+      case 'whatsapp_click':
+        return { ev: 'Contact',          data: { contact_method: 'whatsapp' } };
       case 'generate_lead':
         return { ev: 'SubmitForm',       data: { content_name: p.form_id } };
       default:

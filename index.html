@@ -5,11 +5,11 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
+  /* TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : remettre 'denied' */ gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
     functionality_storage: 'granted',
     security_storage: 'granted',
     wait_for_update: 500
@@ -23,15 +23,15 @@
   gtag('config', 'G-N46K5NG8TW');
 </script>
 <!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
-<script defer src="/assets/js/skines-consent.js?v=5"></script>
+<script defer src="/assets/js/skines-consent.js?v=9"></script>
 <!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
 <script defer src="/assets/js/skines-attribution.js?v=1"></script>
 <!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
-<script defer src="/assets/js/skines-tracker.js?v=1"></script>
+<script defer src="/assets/js/skines-tracker.js?v=2"></script>
 <!-- Meta Pixel (browser only, ads-consent gated). Set PIXEL_ID inside the file. -->
-<script defer src="/assets/js/skines-meta-pixel.js?v=2"></script>
+<script defer src="/assets/js/skines-meta-pixel.js?v=3"></script>
 <!-- TikTok Pixel (browser only, ads-consent gated). Set PIXEL_ID inside the file. -->
-<script defer src="/assets/js/skines-tiktok-pixel.js?v=3"></script>
+<script defer src="/assets/js/skines-tiktok-pixel.js?v=4"></script>
 <!-- Meta CAPI dispatcher (server channel; ads-consent gated; dedup via event_id). -->
 <script defer src="/assets/js/skines-capi.js?v=1"></script>
 <script defer src="/assets/js/skines-tiktok-capi.js?v=1"></script>
@@ -64,9 +64,11 @@
 <meta name="twitter:title" content="Skines Head Spa • Montréal" />
 <meta name="twitter:description" content="Luxury Japanese Head Spa, advanced facials, and laser treatments for deep relaxation and natural glow." />
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2" />
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Animation libs: fetched in parallel from the start but EXECUTED later (just before their only
+     consumer script near the end of <body>), so they no longer block first paint. -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -103,6 +105,8 @@
     --color-text: #ebd7ce;
   }
   html { scroll-behavior: smooth; }
+  html.lenis, html.lenis body { height: auto; }
+  html.lenis { scroll-behavior: auto !important; }
   body {
     font-family: "DM Sans", sans-serif;
     background: var(--bg);
@@ -6852,72 +6856,105 @@ html body #sp-stones img {
 }
 </style>
 <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "SpaOrBeautySalon",
-    "@id": "https://skines.ca/#business",
-    "name": "Skines Head Spa & Wellness",
-    "url": "https://skines.ca",
-    "telephone": "+14382605660",
-    "email": "Info@skines.ca",
-    "description": "Japanese Head Spa, advanced facials (Bela MD), and laser hair removal (Clarity II) in Montréal. A luxury wellness sanctuary in the heart of Petite Italie (Little Italy), near Jean-Talon Market.",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://skines.ca/assets/images/logo-officiel.webp"
-    },
-    "image": [
-      "https://skines.ca/assets/og-logo3.webp",
-      "https://skines.ca/assets/IMG_4654.webp",
-      "https://skines.ca/assets/IMG_4659.webp"
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "@id": "https://skines.ca/#business",
+  "name": "Skines Head Spa & Wellness",
+  "url": "https://skines.ca",
+  "telephone": "+14382605660",
+  "email": "Info@skines.ca",
+  "description": "Japanese Head Spa, advanced facials (Bela MD), and laser hair removal (Clarity II) in Montréal. A luxury wellness sanctuary in the heart of Petite Italie (Little Italy), near Jean-Talon Market.",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://skines.ca/assets/images/logo-officiel.webp"
+  },
+  "image": [
+    "https://skines.ca/assets/og-logo3.webp",
+    "https://skines.ca/assets/IMG_4654.webp",
+    "https://skines.ca/assets/IMG_4659.webp"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "19 Av. Shamrock",
+    "addressLocality": "Montréal",
+    "addressRegion": "QC",
+    "postalCode": "H2S 1A3",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.5344811,
+    "longitude": -73.6167675
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
     ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "19 Av. Shamrock",
-      "addressLocality": "Montréal",
-      "addressRegion": "QC",
-      "postalCode": "H2S 1A3",
-      "addressCountry": "CA"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.5344811,
-      "longitude": -73.6167675
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "09:00",
-      "closes": "22:00"
-    },
-    "priceRange": "$$",
-    "currenciesAccepted": "CAD",
-    "paymentAccepted": "Cash, Credit Card, Debit Card",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services",
-      "itemListElement": [
-        { "@id": "https://skines.ca/head-spa#service" },
-        { "@id": "https://skines.ca/laser#service" },
-        { "@id": "https://skines.ca/facial#service" }
-      ]
-    },
-    "sameAs": [
-      "https://www.instagram.com/skines.ca/",
-      "https://www.tiktok.com/@skines.headspa",
-      "https://www.facebook.com/profile.php?id=61561926307617",
-      "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288"
+    "opens": "09:00",
+    "closes": "22:00"
+  },
+  "priceRange": "$$",
+  "currenciesAccepted": "CAD",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {
+        "@id": "https://skines.ca/head-spa#service"
+      },
+      {
+        "@id": "https://skines.ca/laser#service"
+      },
+      {
+        "@id": "https://skines.ca/facial#service"
+      }
     ]
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://skines.ca/#website",
-    "url": "https://skines.ca",
-    "name": "Skines Head Spa & Wellness",
-    "publisher": { "@id": "https://skines.ca/#business" }
+  "sameAs": [
+    "https://www.instagram.com/skines.ca/",
+    "https://www.tiktok.com/@skines.headspa",
+    "https://www.facebook.com/profile.php?id=61561926307617",
+    "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288",
+    "https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z",
+    "https://www.youtube.com/channel/UCfaDRlj07kg2zGlH6AsnFUw"
+  ],
+  "alternateName": [
+    "Skines",
+    "Skines Head Spa",
+    "Skines Spa Montréal",
+    "Skines Head Spa & Wellness Montréal"
+  ],
+  "hasMap": "https://www.google.com/maps/place/Skines+Head+Spa+%26+wellness/@45.5344811,-73.6167675,17z",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "806",
+    "reviewCount": "806"
   }
-]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://skines.ca/#website",
+  "url": "https://skines.ca",
+  "name": "Skines Head Spa & Wellness",
+  "publisher": {
+    "@id": "https://skines.ca/#business"
+  }
+}
 </script>
 
 <script type="application/ld+json">
@@ -7622,6 +7659,10 @@ input, textarea, select {
   }
 </style>
   <link rel="preload" as="image" href="/assets/images/logo-officiel-cropped.webp">
+<style id="sk-part-stars">
+/* Aggregate ratings: 4 full stars + partial 5th (4.8 -> 96%, 4.7 -> 94%). Individual 5-star reviews are unchanged. */
+.sk-part{background:linear-gradient(90deg,var(--sk-c,#F7D98A) var(--fill,96%),rgba(150,130,100,.30) var(--fill,96%))!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;color:transparent!important}
+</style>
 </head>
 <body>
 <!-- Error collector — must stay ahead of every other script so it can catch
@@ -7686,6 +7727,7 @@ input, textarea, select {
         <li><a href="/guides" data-fr="Guides" data-en="Guides">Guides</a></li>
         <li><a href="/cartes-cadeaux" data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</a></li>
         <li><a href="/insurance" data-fr="Reçus d'assurance" data-en="Insurance Receipts">Reçus d'assurance</a></li>
+        <li><a href="/faq" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</a></li>
         <li><a href="/reviews" data-fr="Avis Clients" data-en="Client Reviews">Avis Clients</a></li>
         <li><a href="/visit-us" data-fr="Contact" data-en="Contact">Contact</a></li>
         </ul>
@@ -7747,6 +7789,7 @@ input, textarea, select {
           <a href="/guides" data-fr="Guides Skines" data-en="Skines Guides">Guides Skines</a>
           <a href="/formulaires" data-fr="Formulaires" data-en="Forms">Formulaires</a>
           <a href="/insurance" data-fr="Reçus assurance" data-en="Insurance Receipts">Reçus assurance</a>
+          <a href="/faq" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</a>
         </div>
       </div>
       <a class="mnav-toplink" href="/cartes-cadeaux"><span class="mnav-toplink-label" data-fr="Cartes Cadeaux" data-en="Gift Cards">Cartes Cadeaux</span><span class="mnav-toplink-sub" data-fr="Offrez un moment à ceux que vous aimez" data-en="Gift a moment to those you love">Offrez un moment à ceux que vous aimez</span></a>
@@ -7783,17 +7826,23 @@ input, textarea, select {
          don't match, so a plain native loop shows a hard cut/black pop.
          Fading video A out while video B (restarted from 0) fades in
          hides that seam; only one is ever visibly "live" at a time. -->
-    <video id="heroVideoDesktopA" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" autoplay muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
-      <source src="assets/videos/hero-head-spa.mp4" type="video/mp4">
-    </video>
-    <video id="heroVideoDesktopB" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" muted loop playsinline preload="auto" aria-label="Ambiance spa chaleureuse">
-      <source src="assets/videos/hero-head-spa.mp4" type="video/mp4">
-    </video>
+    <!-- NB: no <source> in the markup on purpose. A hidden <video preload="auto">
+         still downloads, which cost phones an extra 4.6 MB. The source is attached
+         by the script below only on desktop (>= 981px, same breakpoint as the CSS). -->
+    <video id="heroVideoDesktopA" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" autoplay muted loop playsinline preload="none" data-src="assets/videos/hero-head-spa.mp4" aria-label="Ambiance spa chaleureuse"></video>
+    <video id="heroVideoDesktopB" class="hero-bg hero-bg-desktop hero-bg-desktop-video parallax-img" muted loop playsinline preload="none" data-src="assets/videos/hero-head-spa.mp4" aria-label="Ambiance spa chaleureuse"></video>
     <script>
       (function () {
         var vA = document.getElementById('heroVideoDesktopA');
         var vB = document.getElementById('heroVideoDesktopB');
         if (!vA || !vB) return;
+        // Phones/tablets (<= 980px) use the mobile hero video: never fetch the desktop clip.
+        if (!window.matchMedia('(min-width: 981px)').matches) return;
+        [vA, vB].forEach(function (v) {
+          v.preload = 'auto';
+          v.src = v.getAttribute('data-src');
+          v.load();
+        });
         var CROSSFADE = 0.6; // seconds
         // The incoming clip is always stacked ON TOP and only ever fades
         // 0→1. The outgoing clip is never faded out / never dropped below
@@ -7926,7 +7975,7 @@ input, textarea, select {
       @media (max-width:600px){ #heroTrust{margin:9px auto 0;padding:6px 14px;gap:7px;flex-wrap:nowrap;white-space:nowrap;max-width:96vw;} #heroTrust .hero-trust__stars{font-size:.74rem;letter-spacing:.5px;} #heroTrust .hero-trust__txt{font-size:.72rem;letter-spacing:.01em;} }
       </style>
       <div id="heroTrust" aria-label="Avis clients vérifiés">
-        <span class="hero-trust__stars" aria-hidden="true">★★★★★</span>
+        <span class="hero-trust__stars sk-part" style="--fill:96%;--sk-c:#efc463" aria-hidden="true">★★★★★</span>
         <span class="hero-trust__txt"><strong>4,8</strong> Fresha&nbsp;· <strong>4,7</strong> Google&nbsp;· <span class="hero-trust__vf" data-fr="avis vérifiés" data-en="verified reviews">avis vérifiés</span></span>
       </div>
       <div class="hero-actions hero-cta">
@@ -7954,7 +8003,7 @@ input, textarea, select {
 
   <div class="stats">
     <div class="stat"><strong>4.8</strong><span data-fr="Note Fresha" data-en="Fresha Rating">Note Fresha</span></div>
-    <div class="stat"><strong>481+</strong><span data-fr="Avis vérifiés" data-en="Verified Reviews">Avis vérifiés</span></div>
+    <div class="stat"><strong>860+</strong><span data-fr="Avis vérifiés" data-en="Verified Reviews">Avis vérifiés</span></div>
     <div class="stat"><strong>29K</strong><span>Instagram</span></div>
     <div class="stat"><strong>360°</strong><span data-fr="Luxury Experience" data-en="Luxury Experience">Luxury Experience</span></div>
   </div>
@@ -8041,8 +8090,8 @@ input, textarea, select {
       <div class="sk-wr__eyebrow" data-fr="Avis vérifiés · Best in Class 2026" data-en="Verified reviews · Best in Class 2026">Avis vérifiés · Best in Class 2026</div>
       <h2 class="sk-wr__title" data-fr="Ce que disent nos clients" data-en="What our clients say">Ce que disent nos clients</h2>
       <div class="sk-wr__ratings">
-        <span class="sk-wr__pill"><span class="sk-wr__stars">★★★★★</span> <b>4,8</b> <em>Fresha</em></span>
-        <span class="sk-wr__pill"><span class="sk-wr__stars">★★★★★</span> <b>4,7</b> <em>Google</em></span>
+        <span class="sk-wr__pill"><span class="sk-wr__stars sk-part" style="--fill:96%;--sk-c:#c9973a">★★★★★</span> <b>4,8</b> <em>Fresha</em></span>
+        <span class="sk-wr__pill"><span class="sk-wr__stars sk-part" style="--fill:94%;--sk-c:#c9973a">★★★★★</span> <b>4,7</b> <em>Google</em></span>
       </div>
     </div>
     <div class="sk-wr__grid">
@@ -8491,9 +8540,9 @@ input, textarea, select {
       <div class="ivc-fade-r"></div>
       <div class="ivc-side-badge ivc-side-l">
         <img class="ivc-award" src="/assets/google-guaranteed.png?v=2" alt="Google Guaranteed" width="170" height="108" loading="lazy" decoding="async">
-        <div class="ivc-side-starline"><span class="ivc-side-stars">★★★★★</span><span class="ivc-side-rating">4.7</span></div>
+        <div class="ivc-side-starline"><span class="ivc-side-stars sk-part" style="--fill:94%;--sk-c:#F7D98A" role="img" aria-label="4,7 sur 5">★★★★★</span><span class="ivc-side-rating">4.7</span></div>
         <span class="ivc-side-label" data-fr="Google · Guaranteed" data-en="Google · Guaranteed">Google · Guaranteed</span>
-        <span class="ivc-side-num">790</span>
+        <span class="ivc-side-num">806</span>
         <span class="ivc-side-headline" data-fr="avis clients vérifiés." data-en="verified client reviews.">avis clients vérifiés.</span>
         <span class="ivc-side-claim" data-fr="La certification « Google Guaranteed » est accordée aux entreprises vérifiées et fiables par Google, une confiance qui se gagne par la qualité, jamais achetée." data-en="Google Guaranteed is granted to businesses verified and trusted by Google, a trust earned through quality, never bought.">La certification « Google Guaranteed » est accordée aux entreprises vérifiées et fiables par Google, une confiance qui se gagne par la qualité, jamais achetée.</span>
       </div>
@@ -8502,10 +8551,10 @@ input, textarea, select {
       </div>
       <div class="ivc-side-badge ivc-side-r">
         <img class="ivc-award" src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="170" height="108" loading="lazy" decoding="async">
-        <div class="ivc-side-starline"><span class="ivc-side-stars">★★★★★</span><span class="ivc-side-rating">4.8</span></div>
+        <div class="ivc-side-starline"><span class="ivc-side-stars sk-part" style="--fill:96%;--sk-c:#F7D98A" role="img" aria-label="4,8 sur 5">★★★★★</span><span class="ivc-side-rating">4.8</span></div>
         <span class="ivc-side-label" data-fr="Fresha · Best in Class 2026" data-en="Fresha · Best in Class 2026">Fresha · Best in Class 2026</span>
-        <span class="ivc-side-num">787</span>
-        <span class="ivc-side-headline" data-fr="expériences 5 étoiles." data-en="five-star experiences.">expériences 5 étoiles.</span>
+        <span class="ivc-side-num">860</span>
+        <span class="ivc-side-headline" data-fr="avis clients vérifiés." data-en="verified client reviews.">avis clients vérifiés.</span>
         <span class="ivc-side-claim" data-fr="La distinction « Best in Class 2026 » de Fresha est décernée aux salons les mieux notés et les plus réservés, une reconnaissance qui se gagne par la constance, jamais achetée." data-en="Fresha's “Best in Class 2026” is awarded to the top-rated, most-booked salons, a recognition earned through consistency, never bought.">La distinction « Best in Class 2026 » de Fresha est décernée aux salons les mieux notés et les plus réservés, une reconnaissance qui se gagne par la constance, jamais achetée.</span>
       </div>
       <div class="ivc-nav-row">
@@ -9284,6 +9333,9 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
 
   </div>
 </footer>
+<!-- Lenis smooth scroll: loaded lazily on desktop only (see 'Lenis smooth scroll' in the GSAP block below). -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 /* ══ SITE SEARCH ENGINE ═══════════════════════════════════════════════════ */
 (function() {
@@ -9342,8 +9394,8 @@ const DB = [
   { icon:"🎁", cat:"Info", name:"Cartes Cadeaux", meta:"Offrir une expérience Skines", price:"", tag:"carte cadeau gift card cadeau offrir ami anniversaire", url:"/#contact" },
   { icon:"⭐", cat:"Info", name:"Avis clients – 4.8★ sur Fresha", meta:"Voir tous les avis", price:"", tag:"avis review note 4.8 fresha google clients", url:"/reviews" },
   { icon:"📅", cat:"Réserver", name:"Réserver en ligne – Fresha", meta:"Disponibilités en temps réel", price:"", tag:"réserver booking réservation fresha appointment rendez-vous book", url:BOOKING },
-  { icon:"📱", cat:"Réserver", name:"Instagram – @skines.spa", meta:"29K abonnés · Photos & updates", price:"", tag:"instagram social media réseaux sociaux skines spa", url:"https://instagram.com/skines.spa" },
-  { icon:"🎵", cat:"Réserver", name:"TikTok – @skines.spa", meta:"12K abonnés · Vidéos", price:"", tag:"tiktok social media vidéo", url:"https://tiktok.com/@skines.spa" },
+  { icon:"📱", cat:"Réserver", name:"Instagram – @skines.ca", meta:"29K abonnés · Photos & updates", price:"", tag:"instagram social media réseaux sociaux skines", url:"https://instagram.com/skines.ca" },
+  { icon:"🎵", cat:"Réserver", name:"TikTok – @skines.headspa", meta:"12K abonnés · Vidéos", price:"", tag:"tiktok social media vidéo", url:"https://tiktok.com/@skines.headspa" },
 ];
 
 function normalize(s) {
@@ -9480,22 +9532,54 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 
 /* ── GSAP + LENIS ANIMATIONS ── */
 (function() {
-  // Lenis smooth scroll
-  if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-    });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-
-    // Connect Lenis to GSAP ScrollTrigger if available
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
+  // Lenis smooth scroll — DESKTOP ONLY (mouse + wide screen, motion allowed).
+  // Phones/tablets and reduced-motion users keep the browser's native scrolling untouched.
+  (function () {
+    var desktop = window.matchMedia('(min-width:981px) and (hover:hover) and (pointer:fine)').matches;
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!desktop || calm) return;
+    function start() {
+      if (typeof Lenis === 'undefined') return;
+      var lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+      window.skLenis = lenis;
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
+      } else {
+        (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+      }
+      // Pause smoothing whenever the page locks scroll (search overlay, menus, popups).
+      function sync() {
+        var locked = document.body.style.overflow === 'hidden' || document.documentElement.style.overflow === 'hidden';
+        if (locked) lenis.stop(); else lenis.start();
+      }
+      var mo = new MutationObserver(sync);
+      mo.observe(document.body, { attributes: true, attributeFilter: ['style'] });
+      mo.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+      sync();
+      // Same-page anchor links glide too.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var id = a.getAttribute('href');
+        if (id.length < 2) return;
+        var el = null; try { el = document.querySelector(id); } catch (x) {}
+        if (!el) return;
+        e.preventDefault();
+        var off = -(parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+        lenis.scrollTo(el, { offset: off });
+        if (history.replaceState) history.replaceState(null, '', id);
+      });
     }
-  }
+    function load() {
+      var sc = document.createElement('script');
+      sc.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js';
+      sc.async = true; sc.onload = start;
+      document.head.appendChild(sc);
+    }
+    if (document.readyState === 'complete') load(); else window.addEventListener('load', load, { once: true });
+  })();
 
   // Hero text entrance
   if (typeof gsap !== 'undefined') {

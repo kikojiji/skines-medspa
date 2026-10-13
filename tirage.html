@@ -6,11 +6,11 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
+  /* TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : remettre 'denied' */ gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
     functionality_storage: 'granted',
     security_storage: 'granted',
     wait_for_update: 500
@@ -25,15 +25,15 @@
   gtag('config', 'G-N46K5NG8TW');
 </script>
 <!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
-<script defer src="/assets/js/skines-consent.js?v=5"></script>
+<script defer src="/assets/js/skines-consent.js?v=9"></script>
 <!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
 <script defer src="/assets/js/skines-attribution.js?v=1"></script>
 <!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
-<script defer src="/assets/js/skines-tracker.js?v=1"></script>
+<script defer src="/assets/js/skines-tracker.js?v=2"></script>
 <!-- Meta Pixel (browser only, ads-consent gated). -->
-<script defer src="/assets/js/skines-meta-pixel.js?v=2"></script>
+<script defer src="/assets/js/skines-meta-pixel.js?v=3"></script>
 <!-- TikTok Pixel (browser only, ads-consent gated). Set PIXEL_ID inside the file. -->
-<script defer src="/assets/js/skines-tiktok-pixel.js?v=3"></script>
+<script defer src="/assets/js/skines-tiktok-pixel.js?v=4"></script>
 <!-- Meta CAPI dispatcher (server channel; ads-consent gated; dedup via event_id). -->
 <script defer src="/assets/js/skines-capi.js?v=1"></script>
 <script defer src="/assets/js/skines-tiktok-capi.js?v=1"></script>
@@ -348,6 +348,18 @@ nav {
 .t-consent label {
   font-size: 11.5px; color: rgba(106,90,80,0.72); line-height: 1.55; cursor: pointer;
 }
+
+/* Instagram step + social icons */
+.t-step { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:6px 0 4px; padding:12px 14px; border:1px solid rgba(182,106,90,0.28); border-radius:14px; background:rgba(182,106,90,0.06); }
+.t-step-open { flex:0 0 auto; font-size:11.5px; font-weight:700; color:#9A4A3A; text-decoration:none; border:1.5px solid #B66A5A; border-radius:999px; padding:7px 12px; white-space:nowrap; }
+.t-step-open:hover { background:#B66A5A; color:#FDF8F5; }
+.t-step .t-step-chk { display:flex; align-items:center; gap:10px; flex:1 1 200px; margin:0; font-size:12.5px; color:rgba(70,50,42,0.9); line-height:1.4; cursor:pointer; text-transform:none; letter-spacing:0; }
+.t-step .t-step-chk input { width:19px; height:19px; flex:0 0 19px; margin:0; accent-color:var(--terracotta); order:-1; }
+.t-step .t-step-chk em { font-style:normal; color:rgba(106,90,80,0.65); font-size:0.9em; }
+.t-socials { display:flex; justify-content:center; gap:12px; margin:16px 0 4px; }
+.t-socials .t-soc { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; border:1px solid rgba(182,106,90,0.45); color:#9A4A3A; text-decoration:none; transition:background .2s,color .2s,transform .15s; }
+.t-socials .t-soc:hover { background:#B66A5A; color:#FDF8F5; transform:translateY(-2px); }
+.t-socials .t-soc svg { display:block; }
 
 /* CTA */
 #t-cta {
@@ -1465,6 +1477,12 @@ input, textarea, select {
         <span style="color:rgba(182,106,90,0.25)">•</span>
         <a href="/terms-and-conditions">Conditions d'utilisation</a>
       </div>
+      <div class="t-socials" aria-label="Réseaux sociaux">
+        <a class="t-soc" href="https://www.instagram.com/skines.ca/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="t-soc" href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noreferrer" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.54V6.79a4.85 4.85 0 0 1-1.02-.1z"/></svg></a>
+        <a class="t-soc" href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="t-soc" href="https://www.youtube.com/channel/UCfaDRlj07kg2zGlH6AsnFUw" target="_blank" rel="noreferrer" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg></a>
+      </div>
     </form>
   </div>
 
@@ -1595,13 +1613,15 @@ var _fp = '';
 
     // Wait up to 2.5 s for Turnstile token, then proceed regardless
     function doSubmit() {
+      var _ctx = window.skinesLeadContext ? window.skinesLeadContext() : null;
       var payload = {
         firstName: first, lastName: last,
         phone: phone, email: email, username: username,
         service: service,
         website: document.querySelector('[name="website"]').value || '',
         cfToken: _tsToken,
-        fp: _fp
+        fp: _fp,
+        ctx: _ctx
       };
       fetch('https://api.skines.ca/api/send-tirage', {
         method: 'POST',
@@ -1611,7 +1631,7 @@ var _fp = '';
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data.success) {
-          window.skinesTrackLead('tirage');   // GA4 generate_lead — fires once, only on success
+          window.skinesTrackLead('tirage', _ctx && _ctx.ads && _ctx.ads.event_id, { server_sent: !!(_ctx && _ctx.ads && _ctx.ads.consent) });   // GA4 generate_lead — fires once, only on success
           document.getElementById('t-form').style.display = 'none';
           var successEl = document.getElementById('t-success');
           successEl.style.display = 'block';

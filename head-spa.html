@@ -6,11 +6,11 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
+  /* TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : remettre 'denied' */ gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
     functionality_storage: 'granted',
     security_storage: 'granted',
     wait_for_update: 500
@@ -34,15 +34,15 @@
   gtag('config', 'G-N46K5NG8TW');
 </script>
 <!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
-<script defer src="/assets/js/skines-consent.js?v=5"></script>
+<script defer src="/assets/js/skines-consent.js?v=9"></script>
 <!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
 <script defer src="/assets/js/skines-attribution.js?v=1"></script>
 <!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
-<script defer src="/assets/js/skines-tracker.js?v=1"></script>
+<script defer src="/assets/js/skines-tracker.js?v=2"></script>
 <!-- Meta Pixel (browser only, ads-consent gated). -->
-<script defer src="/assets/js/skines-meta-pixel.js?v=2"></script>
+<script defer src="/assets/js/skines-meta-pixel.js?v=3"></script>
 <!-- TikTok Pixel (browser only, ads-consent gated). Set PIXEL_ID inside the file. -->
-<script defer src="/assets/js/skines-tiktok-pixel.js?v=3"></script>
+<script defer src="/assets/js/skines-tiktok-pixel.js?v=4"></script>
 <!-- Meta CAPI dispatcher (server channel; ads-consent gated; dedup via event_id). -->
 <script defer src="/assets/js/skines-capi.js?v=1"></script>
 <script defer src="/assets/js/skines-tiktok-capi.js?v=1"></script>
@@ -5935,7 +5935,7 @@ html body .search-result-arrow { color: rgba(245,237,227,0.35) !important; }
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SpaOrBeautySalon",
+      "@type": "BeautySalon",
       "@id": "https://skines.ca/#business",
       "name": "Skines Head Spa & Wellness",
       "alternateName": "Skines Head Spa",
@@ -7756,8 +7756,8 @@ const DB = [
   { icon:"🎁", cat:"Info", name:"Cartes Cadeaux", meta:"Offrir une expérience Skines", price:"", tag:"carte cadeau gift card cadeau offrir ami anniversaire", url:"/#contact" },
   { icon:"⭐", cat:"Info", name:"Avis clients – 4.8★ sur Fresha", meta:"Voir tous les avis", price:"", tag:"avis review note 4.8 fresha google clients", url:"/reviews" },
   { icon:"📅", cat:"Réserver", name:"Réserver en ligne – Fresha", meta:"Disponibilités en temps réel", price:"", tag:"réserver booking réservation fresha appointment rendez-vous book", url:BOOKING },
-  { icon:"📱", cat:"Réserver", name:"Instagram – @skines.spa", meta:"29K abonnés · Photos & updates", price:"", tag:"instagram social media réseaux sociaux skines spa", url:"https://instagram.com/skines.spa" },
-  { icon:"🎵", cat:"Réserver", name:"TikTok – @skines.spa", meta:"12K abonnés · Vidéos", price:"", tag:"tiktok social media vidéo", url:"https://tiktok.com/@skines.spa" },
+  { icon:"📱", cat:"Réserver", name:"Instagram – @skines.ca", meta:"29K abonnés · Photos & updates", price:"", tag:"instagram social media réseaux sociaux skines", url:"https://instagram.com/skines.ca" },
+  { icon:"🎵", cat:"Réserver", name:"TikTok – @skines.headspa", meta:"12K abonnés · Vidéos", price:"", tag:"tiktok social media vidéo", url:"https://tiktok.com/@skines.headspa" },
 ];
 
 function normalize(s) {

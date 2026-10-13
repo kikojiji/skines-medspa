@@ -106,6 +106,19 @@
     return out;
   }
 
+
+  // ── First-party aggregate counters (no cookies, no IDs, no personal data) ──
+  function fp(name, params) {
+    try {
+      var s = snapshot(), body = JSON.stringify({
+        e: name, p: location.pathname, src: s.source, med: s.medium, camp: s.campaign,
+        dev: device(), pct: params && params.percent, form: params && params.form_id, lang: lang()
+      });
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/track', new Blob([body], { type: 'application/json' }));
+      else fetch('/api/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true });
+    } catch (e) {}
+  }
+
   // ── Core dispatcher ────────────────────────────────────────────────────────
   var firedOnce = {};
   function track(name, params, opts) {
@@ -117,6 +130,7 @@
     if (!params.event_id) params.event_id = newEventId();
 
     var payload = ga4Payload(name, params);
+    fp(name, params);
 
     // GA4 (Consent Mode governs storage)
     try { if (typeof window.gtag === 'function') window.gtag('event', name, payload); }
@@ -134,15 +148,18 @@
   window.skinesTrack = track;
 
   // ── generate_lead (replaces standalone lead-tracking.js behaviour) ─────────
-  window.skinesTrackLead = function (formKey) {
+  window.skinesTrackLead = function (formKey, eventId, extra) {
     formKey = formKey || 'default';
-    return track('generate_lead',
-      { form_id: formKey, service_category: serviceCategory() },
+    var prm = { form_id: formKey, service_category: serviceCategory(), event_id: eventId };
+    if (extra) for (var k in extra) prm[k] = extra[k];
+    return track('generate_lead', prm,
       { dedupeKey: 'lead:' + formKey });
   };
 
   // ── Auto-instrumentation ───────────────────────────────────────────────────
   function autoInit() {
+    fp('page_view');
+    try { if (!sessionStorage.getItem('sk_sess')) { sessionStorage.setItem('sk_sess', '1'); fp('session_start'); } } catch (e) {}
     // service_view — once per page load on service/guide pages
     var cat = serviceCategory();
     if (cat) track('service_view', { service_category: cat }, { dedupeKey: 'service_view' });
@@ -177,9 +194,82 @@
   }
   window.skinesTrack.locationOf = locationOf;   // reused by fresha-tracking.js
 
+  // ── Deeper behaviour events (no personal data) ─────────────────────────────
+  function deeperInit() {
+    // whatsapp_click / social_click — delegated on links
+    document.addEventListener('click', function (e) {
+      var a = e.target;
+      while (a && a !== document.body && a.tagName !== 'A') a = a.parentElement;
+      if (!a || a.tagName !== 'A') return;
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (/^(https?:)?\/\/(wa\.me|api\.whatsapp\.com)|^whatsapp:/.test(href)) {
+        track('whatsapp_click', { link_url: href, button_location: locationOf(a) });
+      } else {
+        var m = href.match(/(instagram|tiktok|facebook|youtube)\.com/);
+        if (m) track('social_click', { network: m[1], button_location: locationOf(a) });
+      }
+    }, true);
+
+    // scroll_depth — 25 / 50 / 75 / 90 %, once each per page view
+    var marks = [25, 50, 75, 90], ticking = false;
+    function onScroll() {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var d = document.documentElement, max = (d.scrollHeight - window.innerHeight);
+        if (max <= 0) return;
+        var pct = Math.round((window.scrollY / max) * 100);
+        for (var i = 0; i < marks.length; i++) {
+          if (pct >= marks[i]) track('scroll_depth', { percent: marks[i] }, { dedupeKey: 'scroll:' + marks[i] });
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // engaged_time — seconds with the tab visible: 30 s and 60 s
+    var secs = 0;
+    setInterval(function () {
+      if (document.visibilityState !== 'visible') return;
+      secs++;
+      if (secs === 30) track('engaged_30s', { seconds: 30 }, { dedupeKey: 'eng30' });
+      if (secs === 60) track('engaged_60s', { seconds: 60 }, { dedupeKey: 'eng60' });
+    }, 1000);
+  }
+
+  function readCookie(n) {
+    var m = document.cookie.match('(?:^|; )' + n.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1') + '=([^;]*)');
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  function realAdsConsent() {
+    try { var c = window.skinesConsent && window.skinesConsent.get(); return !!(c && c.ads); } catch (e) { return false; }
+  }
+
+  // Context a form sends with its submission (first-party; no personal data).
+  window.skinesLeadContext = function () {
+    var s = snapshot(), ids = {};
+    try { ids = window.skinesAttribution.getClickIds() || {}; } catch (e) {}
+    return {
+      attribution: {
+        source: s.source, medium: s.medium, campaign: s.campaign, content: s.content,
+        first_source: s.first_source, first_campaign: s.first_campaign,
+        landing_page: s.landing_page, device: device()
+      },
+      click_ids: { fbclid: !!ids.fbclid, ttclid: !!ids.ttclid, gclid: !!ids.gclid },
+      // Server-side Lead (hashed e-mail/phone) — ONLY if the visitor really accepted advertising
+      // on the cookie banner (reads the stored choice, NOT the temporary bypass).
+      ads: {
+        consent: realAdsConsent(),
+        event_id: newEventId(),
+        fbp: readCookie('_fbp'), fbc: readCookie('_fbc') || ids.fbc || '',
+        ttp: readCookie('_ttp'), ttclid: ids.ttclid_value || readCookie('ttclid') || ''
+      }
+    };
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', autoInit);
   } else {
     autoInit();
   }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', deeperInit); } else { deeperInit(); }
 })();

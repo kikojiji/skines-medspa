@@ -11,6 +11,7 @@
     }
   },
   "redirects": [
+    { "source": "/a", "destination": "/admin", "permanent": false },
     {
       "source": "/web",
       "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=bio",
@@ -62,6 +63,12 @@
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
         { "key": "Surrogate-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/(tirage-admin|stats-admin)(\\.html)?",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
       ]
     }
   ]

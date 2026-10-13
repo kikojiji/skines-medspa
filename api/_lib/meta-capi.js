@@ -18,6 +18,7 @@ const GRAPH_VERSION = 'v21.0';
 // Approved Meta events (must match the browser Pixel mapping exactly for dedup)
 export const ALLOWED_META_EVENTS = new Set([
   'PageView', 'ViewContent', 'InitiateCheckout', 'Contact', 'Lead',
+  'DeepScroll', 'EngagedVisitor',   // custom events for retargeting audiences (no personal data)
 ]);
 
 // The ONLY custom_data keys allowed out. Everything else is dropped.
