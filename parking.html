@@ -1536,6 +1536,7 @@ input, textarea, select {
 .pk-photos-inner { max-width: 680px; margin: 0 auto; }
 .pk-photos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
 .pk-photo-slot {
+  position: relative;
   aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
   background: linear-gradient(135deg, #2C1A0F 0%, #3A2215 100%);
   border: 1px solid rgba(201,160,96,0.18);
@@ -1546,7 +1547,14 @@ input, textarea, select {
 .pk-photo-slot.wide { grid-column: 1 / -1; aspect-ratio: 16/7; }
 .pk-photo-slot:hover { border-color: rgba(201,160,96,0.38); }
 .pk-photo-slot svg { width: 28px; height: 28px; stroke: rgba(201,160,96,0.45); stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.pk-photo-slot span { font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(245,237,227,0.25); text-transform: uppercase; font-weight: 400; }
+.pk-photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pk-photo-slot span {
+  position: relative; z-index: 1; align-self: flex-start; margin: auto 0 0 0;
+  padding: 0.35rem 0.7rem; border-radius: 6px;
+  background: rgba(28,16,10,0.72); backdrop-filter: blur(2px);
+  font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,237,227,0.92); text-transform: uppercase; font-weight: 400;
+}
+.pk-photo-slot:not(:has(img)) span { align-self: center; margin: 0; padding: 0; background: none; color: rgba(245,237,227,0.25); letter-spacing: 0.2em; }
 
 .pk-photos-sub { font-size: 0.9rem; color: var(--stone); line-height: 1.7; margin-bottom: 1.5rem; }
 
@@ -1622,20 +1630,20 @@ input, textarea, select {
 <section class="pk-photos">
   <div class="pk-photos-inner">
     <span class="pk-eyebrow2 fade-up" data-fr="Repères visuels" data-en="Visual Landmarks">Repères visuels</span>
-    <h2 class="pk-title fade-up" data-i18n-html="parking.landmarksTitleHtml">Bientôt : photos<br><em>de repérage.</em></h2>
-    <p class="pk-photos-sub fade-up" data-fr="Des photos de l'entrée, de l'accès et du stationnement seront ajoutées très prochainement pour vous aider à vous orienter dès votre première visite." data-en="Photos of the entrance, access, and parking will be added very soon to help you navigate on your first visit.">Des photos de l'entrée, de l'accès et du stationnement seront ajoutées très prochainement pour vous aider à vous orienter dès votre première visite.</p>
+    <h2 class="pk-title fade-up" data-i18n-html="parking.landmarksTitleHtml">Comment nous<br><em>trouver.</em></h2>
+    <p class="pk-photos-sub fade-up" data-fr="Suivez le trajet jusqu'à notre stationnement privé, situé juste derrière le bâtiment Skines." data-en="Follow the path to our private parking, located just behind the Skines building.">Suivez le trajet jusqu'à notre stationnement privé, situé juste derrière le bâtiment Skines.</p>
     <div class="pk-photos-grid">
       <div class="pk-photo-slot wide fade-up">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span data-fr="Vue de façade · Photo à venir" data-en="Street view · Photo coming soon">Vue de façade · Photo à venir</span>
+        <img src="assets/images/parking-route.webp" alt="Trajet à pied vers le stationnement Skines, vu du ciel" loading="lazy" decoding="async" width="1600" height="1237">
+        <span data-fr="Trajet depuis la rue" data-en="Route from the street">Trajet depuis la rue</span>
       </div>
       <div class="pk-photo-slot fade-up">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span data-fr="Entrée du stationnement · Photo à venir" data-en="Parking entrance · Photo coming soon">Entrée du stationnement · Photo à venir</span>
+        <img src="assets/images/parking-entrance.webp" alt="Entrée du stationnement privé Skines" loading="lazy" decoding="async" width="1600" height="1237">
+        <span data-fr="Entrée du stationnement" data-en="Parking entrance">Entrée du stationnement</span>
       </div>
       <div class="pk-photo-slot fade-up">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span data-fr="Place réservée · Photo à venir" data-en="Reserved spot · Photo coming soon">Place réservée · Photo à venir</span>
+        <img src="assets/images/parking-reserved-spot.webp" alt="Places de stationnement réservées aux clients Skines" loading="lazy" decoding="async" width="1600" height="1237">
+        <span data-fr="Places réservées" data-en="Reserved spots">Places réservées</span>
       </div>
     </div>
   </div>
