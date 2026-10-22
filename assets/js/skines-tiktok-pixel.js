@@ -36,7 +36,8 @@
   var DEV = (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '');
 
   function adsConsented() {
-    return true; // TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : remettre le test du consentement
+    try { var c = window.skinesConsent && window.skinesConsent.get(); return !!(c && c.ads); }
+    catch (e) { return false; }
   }
   function eventId() {
     try { return window.skinesAttribution ? window.skinesAttribution.newEventId() : ('e' + Date.now()); }

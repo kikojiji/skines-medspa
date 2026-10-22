@@ -22,7 +22,6 @@
   var ENDPOINT = '/api/capi';
 
   function adsConsented() {
-    return true; // TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : retirer cette ligne
     try { var c = window.skinesConsent && window.skinesConsent.get(); return !!(c && c.ads); }
     catch (e) { return false; }
   }
