@@ -6,11 +6,11 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  /* TEMP-BYPASS-LOI25 (jusqu'au 2026-10-17) : remettre 'denied' */ gtag('consent', 'default', {
-    ad_storage: 'granted',
-    ad_user_data: 'granted',
-    ad_personalization: 'granted',
-    analytics_storage: 'granted',
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
     functionality_storage: 'granted',
     security_storage: 'granted',
     wait_for_update: 500
@@ -25,18 +25,18 @@
   gtag('config', 'G-N46K5NG8TW');
 </script>
 <!-- Microsoft Clarity (xabkor1h4j) is loaded by skines-consent.js ONLY after Analytics consent (Law 25) -->
-<script defer src="/assets/js/skines-consent.js?v=9"></script>
+<script defer src="/assets/js/skines-consent.js?v=10"></script>
 <!-- First-party attribution (UTM + click IDs + first/last touch). Runs after consent module. -->
 <script defer src="/assets/js/skines-attribution.js?v=1"></script>
 <!-- Core tracking layer (unifies all website events; attaches attribution + event_id). -->
 <script defer src="/assets/js/skines-tracker.js?v=2"></script>
 <!-- Meta Pixel (browser only, ads-consent gated). -->
-<script defer src="/assets/js/skines-meta-pixel.js?v=3"></script>
+<script defer src="/assets/js/skines-meta-pixel.js?v=4"></script>
 <!-- TikTok Pixel (browser only, ads-consent gated). Set PIXEL_ID inside the file. -->
-<script defer src="/assets/js/skines-tiktok-pixel.js?v=4"></script>
+<script defer src="/assets/js/skines-tiktok-pixel.js?v=5"></script>
 <!-- Meta CAPI dispatcher (server channel; ads-consent gated; dedup via event_id). -->
-<script defer src="/assets/js/skines-capi.js?v=1"></script>
-<script defer src="/assets/js/skines-tiktok-capi.js?v=1"></script>
+<script defer src="/assets/js/skines-capi.js?v=2"></script>
+<script defer src="/assets/js/skines-tiktok-capi.js?v=2"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -6386,6 +6386,7 @@ input, textarea, select {
         {s:'assets/videos/avis-glow-line.mp4?v=2',                                 t:'assets/videos/avis-glow-line-thumb.webp?v=1'},
         {s:'assets/videos/avis-google-ads.mp4?v=1',                                 t:'assets/videos/avis-google-ads-thumb.webp?v=1'},
         {s:'assets/videos/avis-tiik.mp4?v=1',                                      t:'assets/videos/avis-tiik-thumb.webp?v=1'},
+        {s:'assets/videos/avis-men.mp4?v=1',                                       t:'assets/videos/avis-men-thumb.webp?v=1'},
         {s:'assets/videos/avis-juillet.mp4',                                           t:'assets/videos/avis-juillet-thumb.webp'},
         {s:'assets/videos/avis-hook.mp4',                                              t:'assets/videos/avis-hook-thumb.webp'},
         {s:'assets/videos/avis-new.mp4?v=2',                                               t:'assets/videos/avis-new-thumb.webp'},
