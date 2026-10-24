@@ -11,6 +11,14 @@
     }
   },
   "redirects": [
+    { "source": "/fr", "destination": "/", "permanent": true },
+    { "source": "/fr/index", "destination": "/", "permanent": true },
+    { "source": "/fr/head-spa", "destination": "/head-spa", "permanent": true },
+    { "source": "/fr/visit-us", "destination": "/visit-us", "permanent": true },
+    { "source": "/fr/insurance", "destination": "/insurance", "permanent": true },
+    { "source": "/fr/cartes-cadeaux", "destination": "/cartes-cadeaux", "permanent": true },
+    { "source": "/fr/terms-and-conditions", "destination": "/terms-and-conditions", "permanent": true },
+    { "source": "/fr/tirage", "destination": "/tirage", "permanent": true },
     { "source": "/fr/home", "destination": "/", "permanent": true },
     { "source": "/fr/index.html", "destination": "/", "permanent": true },
     { "source": "/fr/head-spa.html", "destination": "/head-spa", "permanent": true },
