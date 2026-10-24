@@ -7,7 +7,7 @@
  *
  * CONSENT: nothing is sent unless the browser reports `ads.consent === true`, and the
  * browser computes that from the visitor's REAL choice on the cookie banner
- * ("Tout accepter" / Publicité activée) — never from the temporary tracking bypass.
+ * ("Tout accepter" / Publicité activée).
  *
  * Everything is SHA-256 hashed and normalised (Meta/TikTok spec). The event_id is
  * shared with the browser Pixel so the platforms deduplicate. Best-effort: never

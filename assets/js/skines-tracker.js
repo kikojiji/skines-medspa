@@ -256,7 +256,7 @@
       },
       click_ids: { fbclid: !!ids.fbclid, ttclid: !!ids.ttclid, gclid: !!ids.gclid },
       // Server-side Lead (hashed e-mail/phone) — ONLY if the visitor really accepted advertising
-      // on the cookie banner (reads the stored choice, NOT the temporary bypass).
+      // on the cookie banner (reads the stored choice).
       ads: {
         consent: realAdsConsent(),
         event_id: newEventId(),
