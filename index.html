@@ -242,6 +242,16 @@
   }
   .hero-intro-badge.is-visible { opacity: 1; }
   .hero-intro-badge img { width: 208px; height: auto; display: block; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); }
+  /* Hero ambient-audio toggle — desktop only (see JS guard below) */
+  .hero-audio-toggle { display: none; position: absolute; left: 24px; bottom: 24px; z-index: 6; align-items: center; gap: 10px; background: rgba(245,240,234,.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: none; border-radius: 100px; padding: 8px 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: .68rem; letter-spacing: .1em; color: var(--terracotta-dark); box-shadow: 0 4px 16px rgba(0,0,0,.14); -webkit-tap-highlight-color: transparent; }
+  .hero-audio-dot { width: 7px; height: 7px; border-radius: 50%; background: #9a9a9a; transition: background .25s; flex-shrink: 0; }
+  .hero-audio-toggle[aria-pressed="true"] .hero-audio-dot { background: #3fae5c; }
+  .hero-audio-label { font-weight: 600; }
+  .hero-audio-switch { width: 30px; height: 16px; border-radius: 100px; background: rgba(104,64,52,.25); position: relative; transition: background .25s; flex-shrink: 0; }
+  .hero-audio-toggle[aria-pressed="true"] .hero-audio-switch { background: var(--gold); }
+  .hero-audio-knob { position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform .25s; }
+  .hero-audio-toggle[aria-pressed="true"] .hero-audio-knob { transform: translateX(14px); }
+  @media (min-width: 981px) { .hero-audio-toggle { display: flex; } }
   /* Desktop: static photo · Tablet/mobile: original video */
   .hero-bg-mobile { display: none; }
   @media (min-width: 981px) {
@@ -7883,6 +7893,104 @@ input, textarea, select {
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
+    <!-- Hero ambient audio (desktop only) — a separate sound bed (rain + distant
+         birds/traffic) layered over the muted hero video, independent of the
+         video's own audio. Toggle is hidden on mobile/tablet via CSS. -->
+    <audio id="heroAmbientAudio" loop preload="none">
+      <source src="/assets/audio/hero-ambient.m4a" type="audio/mp4">
+      <source src="/assets/audio/hero-ambient.mp3" type="audio/mpeg">
+    </audio>
+    <button type="button" id="heroAudioToggle" class="hero-audio-toggle" aria-pressed="false" aria-label="Activer le son d'ambiance">
+      <span class="hero-audio-dot" aria-hidden="true"></span>
+      <span class="hero-audio-label">AUDIO</span>
+      <span class="hero-audio-switch" aria-hidden="true"><span class="hero-audio-knob"></span></span>
+    </button>
+    <script>
+    (function(){
+      // Desktop only (matches the site's existing desktop breakpoint) — the
+      // toggle is also hidden on mobile/tablet via CSS.
+      if (window.matchMedia && !window.matchMedia('(min-width: 981px)').matches) return;
+      var btn = document.getElementById('heroAudioToggle');
+      var audio = document.getElementById('heroAmbientAudio');
+      if (!btn || !audio) return;
+
+      var fadeTimer = null;
+      var fadeToken = 0; // bumped on every fadeTo() call; a pending pause() checks it so an OFF→ON right after an OFF click can't be cancelled by the stale OFF's pause
+      var TARGET_VOL = 0.45;
+
+      function fadeTo(vol, duration){
+        if (fadeTimer) { clearInterval(fadeTimer); fadeTimer = null; }
+        var myToken = ++fadeToken;
+        var steps = 20, i = 0, start = audio.volume || 0;
+        fadeTimer = setInterval(function(){
+          if (myToken !== fadeToken) { clearInterval(fadeTimer); fadeTimer = null; return; }
+          i++;
+          audio.volume = Math.max(0, Math.min(1, start + (vol - start) * (i / steps)));
+          if (i >= steps) { clearInterval(fadeTimer); fadeTimer = null; }
+        }, duration / steps);
+        return myToken;
+      }
+
+      // Same scroll-fade style as the hero video's own sound: full volume at
+      // the top, fading out gradually and continuously as you scroll,
+      // reaching 0 exactly at the Contact / Google-map section.
+      function ambientVisibleFraction(){
+        var stop = document.getElementById('contact');
+        var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (!stop) return 1;
+        var vh = window.innerHeight || 1;
+        var stopTop = stop.getBoundingClientRect().top + y;
+        var end = stopTop - vh;
+        if (end <= 0) return 1;
+        var fadeStart = end * 0.6;
+        if (y <= fadeStart) return 1;
+        return Math.max(0, Math.min(1, 1 - (y - fadeStart) / (end - fadeStart)));
+      }
+      function syncAmbientVolume(){
+        if (audio.paused || fadeTimer) return; // don't fight an in-progress fade-in/out
+        try { audio.volume = TARGET_VOL * ambientVisibleFraction(); } catch(e){}
+      }
+      window.addEventListener('scroll', syncAmbientVolume, { passive: true });
+
+      function turnOn(){
+        btn.setAttribute('aria-pressed', 'true');
+        btn.setAttribute('aria-label', "Couper le son d'ambiance");
+        audio.volume = 0;
+        var p;
+        try { p = audio.play(); } catch(e){ btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label', "Activer le son d'ambiance"); return; }
+        if (p && p.catch) p.catch(function(){
+          btn.setAttribute('aria-pressed','false');
+          btn.setAttribute('aria-label', "Activer le son d'ambiance");
+        });
+        fadeTo(TARGET_VOL * ambientVisibleFraction(), 900);
+      }
+      function turnOff(){
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label', "Activer le son d'ambiance");
+        var myToken = fadeTo(0, 250);
+        setTimeout(function(){
+          if (myToken === fadeToken) audio.pause(); // only pause if a newer ON didn't preempt this
+        }, 260);
+      }
+
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        if (audio.paused) turnOn(); else turnOff();
+      });
+
+      // Clicking anywhere empty on the hero (the video itself, not an
+      // actual link/button) toggles the ambient sound on/off — first click
+      // turns it on, a later click on empty space turns it back off. Clicks
+      // on real controls (nav, RÉSERVER, the AUDIO toggle itself, etc.) are
+      // left alone and keep their own behaviour.
+      var hero = document.querySelector('.hero');
+      function onHeroClick(e){
+        if (e.target.closest('a, button, input, select, textarea')) return;
+        if (audio.paused) turnOn(); else turnOff();
+      }
+      if (hero) hero.addEventListener('click', onHeroClick);
+    })();
+    </script>
     <!-- Appears a fixed 2s after the mobile video actually starts playing
          (not tied to how long loading took) — holds for 7s, then fades
          out gradually. -->
@@ -9908,17 +10016,21 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
    slide+fade — no bounce/scale-pop — so it feels like it settled onto
    the page rather than interrupted it. */
 #sp-overlay {
-  position: fixed; inset: 0; z-index: 9999;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
-  background: rgba(8,4,2,0.75);
-  backdrop-filter: blur(16px) saturate(1.15);
-  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  /* Small docked panel, bottom-right — no full-viewport scrim, never
+     blocks the page behind it (see brief above). */
+  position: fixed; inset: auto 24px 24px auto;
+  z-index: 9999;
+  display: block;
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.7s ease;
 }
-#sp-overlay.sp-visible { opacity: 1; pointer-events: all; }
+#sp-overlay.sp-visible { opacity: 1; pointer-events: none; }
+#sp-overlay.sp-visible #sp-card { pointer-events: all; }
 
 /* Mobile + tablet (≤980px): back to the original full-screen editorial
    modal per feedback — the docked-panel treatment above is desktop
@@ -9952,12 +10064,12 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
 
 #sp-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 18px;
   overflow: hidden;
-  width: min(90vw, 420px);
-  height: min(84vh, 640px);
-  box-shadow: 0 48px 120px rgba(6,2,0,0.65), 0 2px 0 rgba(255,255,255,0.04) inset;
-  transform: scale(0.94) translateY(24px);
+  width: min(80vw, 280px);
+  height: min(48vh, 360px);
+  box-shadow: 0 24px 60px rgba(6,2,0,0.42);
+  transform: scale(0.94) translateY(16px);
   transition: transform 0.7s cubic-bezier(.16,.9,.28,1), opacity 0.6s ease;
   opacity: 0;
 }
@@ -11701,9 +11813,10 @@ function closePopup() {
     return;
   }
   var isMobileOrTablet = window.innerWidth <= 980;
-  // Open once the visitor reaches the reviews section ("Ce que disent
-  // nos clients"), on every device.
-  var targetId = 'skReviews';
+  // Open once the visitor reaches the Contact / Google-map section near the
+  // bottom of the page, on every device — much later than before, so it
+  // never interrupts the landing view or the services/reviews browsing.
+  var targetId = 'contact';
   var target = document.getElementById(targetId);
   if (!target) {
     setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);

@@ -1010,6 +1010,17 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
 .ritual-step-desc { font-size: .85rem; line-height: 1.55; color: var(--text-soft); }
 .ritual-step-img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; }
 .lb-img { cursor: zoom-in; }
+
+/* Locked steps — shown greyed-out in Focus to tease the Signature-only extras */
+.ritual-step--locked { opacity: .4; }
+.ritual-step--locked .ritual-step-img { filter: grayscale(1); }
+.ritual-step--locked .ritual-step-title { color: var(--text-soft); }
+.ritual-step-lock { display: flex; align-items: center; justify-content: center; color: var(--text-soft); }
+.ritual-step-locked-badge { display: inline-block; margin-top: 4px; font-family: 'DM Sans', sans-serif; font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+
+.ritual-upsell { text-align: center; padding: 20px 16px; background: rgba(104,64,52,.04); border-top: 1px solid var(--line); border-radius: 0 0 12px 12px; margin-top: -1px; font-size: .9rem; color: var(--text-soft); }
+.ritual-upsell-link { display: inline; background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 600; color: var(--brown); text-decoration: none; border-bottom: 1.5px solid var(--gold); padding: 0 0 2px; margin-left: 6px; }
+.ritual-upsell-link:hover { color: var(--gold); }
 .step-extras { grid-column: 1 / -1; display: flex; gap: 12px; margin-top: 10px; padding-left: 70px; flex-wrap: wrap; }
 .step-extra-img { width: 84px; height: 84px; object-fit: cover; border-radius: 7px; opacity: .92; transition: opacity .2s, box-shadow .2s; }
 .step-extra-img:hover { opacity: 1; box-shadow: 0 0 0 2px var(--gold); }
@@ -1937,7 +1948,7 @@ input, textarea, select {
             <span class="ritual-step-title" data-fr="Préparation du cuir chevelu – Outils doux" data-en="Scalp Preparation – Gentle Tools">Préparation du cuir chevelu – Outils doux</span>
             <span class="ritual-step-desc" data-fr="Des outils doux utilisés à sec pour préparer le cuir chevelu au massage." data-en="Soft, gentle tools are used dry to awaken the scalp and prepare it for your massage.">Des outils doux utilisés à sec pour préparer le cuir chevelu au massage.</span>
           </span>
-          <img class="ritual-step-img lb-img" src="/assets/images/ritual/ritual-03-scalp-prep.webp" alt="" loading="lazy" width="456" height="304">
+          <img class="ritual-step-img lb-img" src="/assets/images/ritual/gallery/gallery-scalp-prep-tool.webp" alt="" loading="lazy" width="456" height="304">
         </li>
         <li class="ritual-step">
           <span class="ritual-step-num">04</span>
@@ -2057,13 +2068,24 @@ input, textarea, select {
           </span>
           <img class="ritual-step-img lb-img" src="/assets/images/ritual/gallery/gallery-feather-blue-room.webp" alt="" loading="lazy" width="456" height="304">
         </li>
+        <li class="ritual-step ritual-step--locked">
+          <span class="ritual-step-num ritual-step-lock" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </span>
+          <span class="ritual-step-text">
+            <span class="ritual-step-title" data-fr="Massage relaxant du visage et du haut du corps" data-en="Relaxing Face and Upper Body Massage">Massage relaxant du visage et du haut du corps</span>
+            <span class="ritual-step-desc" data-fr="Un massage du visage, du décolleté, des épaules et de la nuque pour relâcher les tensions." data-en="A soothing massage of the face, décolleté, shoulders and neck.">Un massage du visage, du décolleté, des épaules et de la nuque pour relâcher les tensions.</span>
+            <span class="ritual-step-locked-badge" data-fr="Signature 90 min uniquement" data-en="Signature 90 min only">Signature 90 min uniquement</span>
+          </span>
+          <img class="ritual-step-img" src="/assets/images/ritual/gallery/gallery-pressure-point-massage.webp" alt="" loading="lazy" width="456" height="304">
+        </li>
         <li class="ritual-step">
           <span class="ritual-step-num">02</span>
           <span class="ritual-step-text">
             <span class="ritual-step-title" data-fr="Préparation du cuir chevelu – Outils doux" data-en="Scalp Preparation – Gentle Tools">Préparation du cuir chevelu – Outils doux</span>
             <span class="ritual-step-desc" data-fr="Des outils doux utilisés à sec pour préparer le cuir chevelu au massage." data-en="Soft, gentle tools are used dry to awaken the scalp and prepare it for your massage.">Des outils doux utilisés à sec pour préparer le cuir chevelu au massage.</span>
           </span>
-          <img class="ritual-step-img lb-img" src="/assets/images/ritual/ritual-03-scalp-prep.webp" alt="" loading="lazy" width="456" height="304">
+          <img class="ritual-step-img lb-img" src="/assets/images/ritual/gallery/gallery-scalp-prep-tool.webp" alt="" loading="lazy" width="456" height="304">
         </li>
         <li class="ritual-step">
           <span class="ritual-step-num">03</span>
@@ -2137,6 +2159,17 @@ input, textarea, select {
           </span>
           <img class="ritual-step-img lb-img" src="/assets/images/ritual/gallery/gallery-singing-bowl-rinse.webp" alt="" loading="lazy" width="456" height="304">
         </li>
+        <li class="ritual-step ritual-step--locked">
+          <span class="ritual-step-num ritual-step-lock" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </span>
+          <span class="ritual-step-text">
+            <span class="ritual-step-title" data-fr="Massage relaxant des bras" data-en="Relaxing Arm Massage">Massage relaxant des bras</span>
+            <span class="ritual-step-desc" data-fr="Un massage doux des bras pour prolonger la détente pendant votre soin capillaire." data-en="A soothing arm massage that carries your relaxation through the rest of your hair treatment.">Un massage doux des bras pour prolonger la détente pendant votre soin capillaire.</span>
+            <span class="ritual-step-locked-badge" data-fr="Signature 90 min uniquement" data-en="Signature 90 min only">Signature 90 min uniquement</span>
+          </span>
+          <img class="ritual-step-img" src="/assets/images/ritual/gallery/gallery-arm-massage.webp" alt="" loading="lazy" width="456" height="304">
+        </li>
         <li class="ritual-step">
           <span class="ritual-step-num">12</span>
           <span class="ritual-step-text">
@@ -2154,6 +2187,10 @@ input, textarea, select {
           <img class="ritual-step-img lb-img" src="/assets/images/ritual/ritual-15-hydrating-mask.webp" alt="" loading="lazy" width="456" height="304">
         </li>
       </ol>
+      <p class="ritual-upsell">
+        <span data-fr="Envie de l'expérience complète&nbsp;?" data-en="Want the complete experience?">Envie de l'expérience complète&nbsp;?</span>
+        <button type="button" class="ritual-upsell-link" data-ritual-tab="signature"><span data-fr="Découvrir le Signature 90 min" data-en="Discover the 90-min Signature">Découvrir le Signature 90 min</span> →</button>
+      </p>
     </section>
 
   </div>
