@@ -11,6 +11,7 @@
     }
   },
   "redirects": [
+    { "source": "/reserver", "destination": "https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288", "permanent": false },
     { "source": "/fr/laser", "destination": "/laser", "permanent": true },
     { "source": "/treatment/laser", "destination": "/laser", "permanent": true },
     { "source": "/fr/treatment/laser-2", "destination": "/laser", "permanent": true },
