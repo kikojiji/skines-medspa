@@ -770,6 +770,14 @@ footer { background: #684034 !important; }
         },
         {
           "@type": "Question",
+          "name": "Est-ce douloureux ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La sensation varie d'une personne et d'une zone à l'autre. Le Clarity II dispose d'un refroidissement intégré, et nous adaptons le protocole à votre confort."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "La séance est-elle confidentielle ?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -778,10 +786,42 @@ footer { background: #684034 !important; }
         },
         {
           "@type": "Question",
-          "name": "Combien de séances faut-il ?",
+          "name": "Combien de séances faut-il, et à quel rythme ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le nombre varie selon la zone, le type de poil et la peau. Les résultats se constatent au fil des séances, et nous vous guidons dès la première visite."
+            "text": "Le nombre varie selon la zone, le type de poil et la peau. Les séances sont espacées de plusieurs semaines, selon le cycle de croissance du poil. Nous établissons un plan avec vous dès la première visite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il éviter le soleil avant et après la séance ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Évitez l'exposition au soleil et les autobronzants avant la séance, et protégez votre peau entre les séances. Un bronzage récent peut retarder le traitement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on faire l'épilation laser pendant la grossesse ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La grossesse et l'allaitement font partie des situations qui peuvent nécessiter une note médicale ou un report. Signalez-le-nous avant votre réservation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Proposez-vous l'épilation laser aux hommes ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Nous traitons les femmes et les hommes, avec plus de 30 zones et forfaits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où voir les tarifs et obtenir un reçu d'assurance ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les tarifs à jour de chaque zone s'affichent lors de la réservation en ligne. Des reçus d'assurance sont disponibles ; la couverture dépend de votre régime."
           }
         },
         {
@@ -1737,9 +1777,67 @@ input, textarea, select {
   .ml-cards, .ml-whys, .ml-rels { grid-template-columns:1fr; }
   .ml-section { padding:3.4rem 1.2rem; }
 }
+/* ── v2 : sections ajoutées ── */
+.ml-facts-band { background:#F5EDE3; border-bottom:1px solid rgba(104,64,52,0.1); }
+.ml-facts { max-width:1080px; margin:0 auto; padding:1.4rem 1.5rem; display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
+.ml-fact { display:flex; flex-direction:column; gap:0.25rem; padding:0 0.4rem; border-left:1px solid rgba(104,64,52,0.18); }
+.ml-fact:first-child { border-left:none; }
+.ml-fact span { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8614A; font-weight:600; }
+.ml-fact strong { font-family:"DM Sans",sans-serif; font-size:0.86rem; font-weight:500; color:#2E2420; line-height:1.4; }
+.ml-body { font-size:1rem; color:#4d3f39; line-height:1.85; margin-bottom:1.2rem; }
+.ml-wave { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:0.4rem 0 1.4rem; }
+.ml-wave div { background:#fff; border:1px solid rgba(104,64,52,0.1); border-radius:12px; padding:1.2rem 1.3rem; display:flex; flex-direction:column; gap:0.35rem; }
+.ml-wave strong { font-family:"Old Standard TT",serif; font-size:1.7rem; font-weight:400; color:#684034; }
+.ml-wave span { font-size:0.88rem; color:#6f5f58; line-height:1.6; }
+.ml-table-wrap { overflow-x:auto; border:1px solid rgba(104,64,52,0.12); border-radius:12px; background:#fff; }
+.ml-table { width:100%; border-collapse:collapse; min-width:640px; }
+.ml-table th, .ml-table td { text-align:left; padding:1rem 1.1rem; font-size:0.9rem; line-height:1.55; color:#4d3f39; border-bottom:1px solid rgba(104,64,52,0.09); vertical-align:top; }
+.ml-table thead th { font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; color:#684034; background:#F9F4EE; }
+.ml-table tbody th { font-weight:500; color:#2E2420; width:20%; }
+.ml-table tr:last-child th, .ml-table tr:last-child td { border-bottom:none; }
+.ml-table .ml-best { background:rgba(104,64,52,0.06); color:#2E2420; font-weight:500; }
+.ml-gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2rem; }
+.ml-gal { margin:0; border-radius:12px; overflow:hidden; position:relative; aspect-ratio:4/3; background:#684034; }
+.ml-gal img { width:100%; height:100%; object-fit:cover; display:block; }
+.ml-gal figcaption { position:absolute; left:0.8rem; bottom:0.8rem; background:rgba(28,16,10,0.7); color:rgba(245,237,227,0.95); font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; padding:0.35rem 0.65rem; border-radius:6px; }
+.ml-two { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+.ml-conds { border:1px solid rgba(104,64,52,0.16); border-radius:12px; background:#fff; padding:0 1.2rem; margin:1.2rem 0 1.4rem; }
+.ml-conds summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; gap:1rem; align-items:center; padding:1.05rem 0; font-family:"DM Sans",sans-serif; font-size:0.92rem; font-weight:500; color:#684034; }
+.ml-conds summary::-webkit-details-marker { display:none; }
+.ml-conds summary svg { width:18px; height:18px; stroke:#684034; stroke-width:1.6; fill:none; transition:transform .25s; flex:0 0 18px; }
+.ml-conds[open] summary svg { transform:rotate(180deg); }
+.ml-conds ul { padding:0 0 0.4rem 1.1rem; display:flex; flex-direction:column; gap:0.55rem; font-size:0.9rem; color:#4d3f39; line-height:1.6; }
+.ml-conds .ml-note { margin:0.6rem 0 1.1rem; }
+.ml-reviews { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:1.6rem; }
+.ml-review { margin:0; background:#fff; border:1px solid rgba(104,64,52,0.1); border-radius:12px; padding:1.3rem 1.2rem; display:flex; flex-direction:column; gap:0.7rem; }
+.ml-stars { color:#C9A060; letter-spacing:0.12em; font-size:0.95rem; }
+.ml-review blockquote { font-family:"Cormorant Garamond",serif; font-size:1.12rem; line-height:1.5; color:#2E2420; margin:0; }
+.ml-review figcaption { font-size:0.72rem; letter-spacing:0.06em; color:#9E8C84; margin-top:auto; }
+.ml-more { background:#F9F4EE; padding:3rem 1.5rem; border-top:1px solid rgba(104,64,52,0.08); }
+.ml-more-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0.8rem; }
+.ml-more-grid a { display:flex; justify-content:space-between; align-items:center; gap:0.6rem; padding:1rem 1.1rem; background:#fff; border:1px solid rgba(104,64,52,0.1); border-radius:12px; text-decoration:none; color:#2E2420; font-size:0.9rem; transition:border-color .2s; }
+.ml-more-grid a:hover { border-color:rgba(104,64,52,0.45); }
+.ml-more-grid i { font-style:normal; color:#A8614A; }
+.ml-sticky { display:none; position:fixed; left:0; right:0; bottom:0; z-index:80; padding:0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom)); background:#684034; box-shadow:0 -6px 22px rgba(0,0,0,0.22); transform:translateY(110%); transition:transform .3s; }
+.ml-sticky.show { transform:translateY(0); }
+.ml-sticky .ml-btn { width:100%; }
+@media (max-width:900px) {
+  .ml-facts { grid-template-columns:repeat(2,1fr); }
+  .ml-fact:nth-child(3) { border-left:none; }
+  .ml-two { grid-template-columns:1fr; gap:2.4rem; }
+  .ml-reviews { grid-template-columns:1fr 1fr; }
+  .ml-more-grid { grid-template-columns:1fr 1fr; }
+  .ml-gallery { grid-template-columns:1fr; }
+  .ml-sticky { display:block; }
+}
+@media (max-width:560px) {
+  .ml-facts { grid-template-columns:1fr; }
+  .ml-fact { border-left:none; padding:0; }
+  .ml-wave, .ml-reviews, .ml-more-grid { grid-template-columns:1fr; }
+}
 </style>
 
-<!-- ═══ DRAFT: épilation laser maillot — page modèle pour les autres zones ═══ -->
+<!-- ═══ DRAFT v2: épilation laser maillot — page modèle pour les autres zones ═══ -->
 <!-- HERO -->
 <header class="ml-hero">
   <div class="ml-hero-grid">
@@ -1759,6 +1857,11 @@ input, textarea, select {
     </figure>
   </div>
 </header>
+
+<!-- EN BREF -->
+<section class="ml-facts-band" aria-label="En bref">
+  <div class="ml-facts"><div class="ml-fact"><span data-fr="Durée" data-en="Duration">Durée</span><strong data-fr="10 à 25 min selon la zone" data-en="10 to 25 min depending on the zone">10 à 25 min selon la zone</strong></div><div class="ml-fact"><span data-fr="Technologie" data-en="Technology">Technologie</span><strong data-fr="Clarity II by Lutronic · 755 + 1064 nm" data-en="Clarity II by Lutronic · 755 + 1064 nm">Clarity II by Lutronic · 755 + 1064 nm</strong></div><div class="ml-fact"><span data-fr="Peaux" data-en="Skin types">Peaux</span><strong data-fr="Phototypes I à VI" data-en="Skin types I to VI">Phototypes I à VI</strong></div><div class="ml-fact"><span data-fr="Lieu" data-en="Location">Lieu</span><strong data-fr="19 av. Shamrock · Petite-Italie" data-en="19 Shamrock Ave · Little Italy">19 av. Shamrock · Petite-Italie</strong></div><div class="ml-fact"><span data-fr="Horaires" data-en="Hours">Horaires</span><strong data-fr="7 j/7 · 9 h à 22 h 30" data-en="7 days · 9 a.m. to 10:30 p.m.">7 j/7 · 9 h à 22 h 30</strong></div></div>
+</section>
 
 <!-- OPTIONS -->
 <section class="ml-section ml-light">
@@ -1791,8 +1894,22 @@ input, textarea, select {
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW THE LASER WORKS -->
 <section class="ml-section ml-cream">
+  <div class="ml-inner ml-narrow">
+    <span class="ml-eyebrow2" data-fr="La technologie" data-en="The technology">La technologie</span>
+    <h2 class="ml-title" data-fr="Comment fonctionne <em>le laser Clarity II</em>" data-en="How the <em>Clarity II laser works</em>">Comment fonctionne <em>le laser Clarity II</em></h2>
+    <p class="ml-body" data-fr="Le laser émet une lumière qui est absorbée par la mélanine du poil. Cette énergie chauffe le follicule et ralentit progressivement la repousse. Comme tous les poils ne sont pas en phase de croissance en même temps, plusieurs séances sont nécessaires pour traiter l'ensemble des poils de la zone." data-en="The laser emits light that is absorbed by the pigment (melanin) in the hair. This energy heats the follicle and gradually slows regrowth. Since not all hairs are in their growth phase at the same time, several sessions are needed to treat every hair in the area.">Le laser émet une lumière qui est absorbée par la mélanine du poil. Cette énergie chauffe le follicule et ralentit progressivement la repousse. Comme tous les poils ne sont pas en phase de croissance en même temps, plusieurs séances sont nécessaires pour traiter l'ensemble des poils de la zone.</p>
+    <div class="ml-wave">
+      <div><strong>755 nm</strong><span data-fr="Alexandrite : particulièrement adaptée aux peaux claires." data-en="Alexandrite: particularly suited to lighter skin.">Alexandrite : particulièrement adaptée aux peaux claires.</span></div>
+      <div><strong>1064 nm</strong><span data-fr="Nd:YAG : particulièrement adapté aux peaux foncées." data-en="Nd:YAG: particularly suited to darker skin.">Nd:YAG : particulièrement adapté aux peaux foncées.</span></div>
+    </div>
+    <p class="ml-body" data-fr="Cette double longueur d'onde, avec le refroidissement intégré de l'appareil, permet d'adapter le traitement à votre phototype tout en soignant votre confort." data-en="This dual wavelength, together with the device's built-in cooling, lets us match the treatment to your skin type while looking after your comfort.">Cette double longueur d'onde, avec le refroidissement intégré de l'appareil, permet d'adapter le traitement à votre phototype tout en soignant votre confort.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (session) -->
+<section class="ml-section ml-light">
   <div class="ml-inner ml-split">
     <figure class="ml-photo">
       <img src="/assets/laser-bikini-w.webp" alt="Séance d'épilation laser dans une chambre privée Skines : cliente allongée sous une serviette, esthéticienne avec l'appareil" width="1152" height="896" loading="lazy" decoding="async">
@@ -1810,6 +1927,21 @@ input, textarea, select {
   </div>
 </section>
 
+<!-- COMPARISON -->
+<section class="ml-section ml-cream">
+  <div class="ml-inner">
+    <span class="ml-eyebrow2" data-fr="Repères généraux" data-en="General guide">Repères généraux</span>
+    <h2 class="ml-title" data-fr="Laser, rasoir ou cire : <em>que choisir ?</em>" data-en="Laser, razor or wax: <em>which to choose?</em>">Laser, rasoir ou cire : <em>que choisir ?</em></h2>
+    <div class="ml-table-wrap">
+      <table class="ml-table">
+        <thead><tr><th></th><th data-fr="Rasoir" data-en="Razor">Rasoir</th><th data-fr="Cire" data-en="Wax">Cire</th><th class="ml-best" data-fr="Laser Clarity II" data-en="Clarity II laser">Laser Clarity II</th></tr></thead>
+        <tbody><tr><th scope="row" data-fr="Repousse" data-en="Regrowth">Repousse</th><td data-fr="En quelques jours" data-en="In a few days">En quelques jours</td><td data-fr="En quelques semaines" data-en="In a few weeks">En quelques semaines</td><td class="ml-best" data-fr="Réduite progressivement au fil des séances" data-en="Gradually reduced over the sessions">Réduite progressivement au fil des séances</td></tr><tr><th scope="row" data-fr="Irritation et poils incarnés" data-en="Irritation and ingrown hairs">Irritation et poils incarnés</th><td data-fr="Fréquents" data-en="Common">Fréquents</td><td data-fr="Possibles" data-en="Possible">Possibles</td><td class="ml-best" data-fr="Souvent réduits avec le temps" data-en="Often reduced over time">Souvent réduits avec le temps</td></tr><tr><th scope="row" data-fr="Geste à répéter" data-en="Upkeep">Geste à répéter</th><td data-fr="Très souvent" data-en="Very often">Très souvent</td><td data-fr="Toutes les quelques semaines" data-en="Every few weeks">Toutes les quelques semaines</td><td class="ml-best" data-fr="Moins souvent, après le programme" data-en="Less often, after the programme">Moins souvent, après le programme</td></tr><tr><th scope="row" data-fr="Confort" data-en="Comfort">Confort</th><td data-fr="Rapide, mais irritant pour certains" data-en="Quick, but irritating for some">Rapide, mais irritant pour certains</td><td data-fr="Désagréable à chaque fois" data-en="Uncomfortable each time">Désagréable à chaque fois</td><td class="ml-best" data-fr="Sensation variable ; refroidissement intégré" data-en="Sensation varies; built-in cooling">Sensation variable ; refroidissement intégré</td></tr></tbody>
+      </table>
+    </div>
+    <p class="ml-note" data-fr="Repères généraux : les résultats varient d'une personne à l'autre." data-en="General guide: results vary from person to person.">Repères généraux : les résultats varient d'une personne à l'autre.</p>
+  </div>
+</section>
+
 <!-- WHY SKINES -->
 <section class="ml-section ml-light">
   <div class="ml-inner">
@@ -1823,22 +1955,57 @@ input, textarea, select {
       <div class="ml-why"><strong><span data-fr="Ouvert 7 jours sur 7" data-en="Open 7 days a week">Ouvert 7 jours sur 7</span></strong><span data-fr="Tous les jours, de 9 h à 22 h 30." data-en="Every day, 9 a.m. to 10:30 p.m.">Tous les jours, de 9 h à 22 h 30.</span></div>
       <div class="ml-why"><strong><span data-fr="Femmes et hommes" data-en="Women and men">Femmes et hommes</span></strong><span data-fr="Plus de 30 zones et forfaits au total." data-en="Over 30 zones and packages in total.">Plus de 30 zones et forfaits au total.</span></div>
     </div>
+    <div class="ml-gallery"><figure class="ml-gal"><img src="/assets/laser-g-woman-bikini-9.webp" alt="Chambre de traitement privée Skines : cliente allongée sous une serviette, esthéticienne avec l'appareil laser" width="1024" height="1024" loading="lazy" decoding="async"><figcaption data-fr="Chambre privée" data-en="Private room">Chambre privée</figcaption></figure><figure class="ml-gal"><img src="/assets/card-laser.webp" alt="Épilation laser pour hommes chez Skines : esthéticienne avec l'appareil Clarity II" width="1537" height="1023" loading="lazy" decoding="async"><figcaption data-fr="Femmes et hommes" data-en="Women and men">Femmes et hommes</figcaption></figure><figure class="ml-gal"><img src="/assets/laser-hero.webp" alt="Épilation laser du visage chez Skines : cliente avec lunettes de protection" width="1024" height="1024" loading="lazy" decoding="async"><figcaption data-fr="Protocole confortable" data-en="Comfortable protocol">Protocole confortable</figcaption></figure></div>
   </div>
 </section>
 
-<!-- PREP -->
+<!-- PROGRAMME + PREP + AFTERCARE -->
 <section class="ml-section ml-cream">
+  <div class="ml-inner ml-two">
+    <div>
+      <span class="ml-eyebrow2" data-fr="Le programme" data-en="The programme">Le programme</span>
+      <h2 class="ml-title" data-fr="Combien de séances, <em>à quel rythme ?</em>" data-en="How many sessions, <em>how far apart?</em>">Combien de séances, <em>à quel rythme ?</em></h2>
+      <p class="ml-body" data-fr="Le nombre de séances varie selon la zone, le type de poil et la peau. Les séances sont espacées de plusieurs semaines, selon le cycle de croissance du poil. À la première visite, nous évaluons votre peau et votre poil et établissons avec vous un plan adapté." data-en="The number of sessions varies with the zone, hair type and skin. Sessions are spaced several weeks apart, following the hair growth cycle. At the first visit, we assess your skin and hair and build a suitable plan with you.">Le nombre de séances varie selon la zone, le type de poil et la peau. Les séances sont espacées de plusieurs semaines, selon le cycle de croissance du poil. À la première visite, nous évaluons votre peau et votre poil et établissons avec vous un plan adapté.</p>
+      <!-- DRAFT: rythme et nombre de séances à faire valider par la direction -->
+      <span class="ml-tobevalidated" data-fr="Brouillon : à valider par la direction" data-en="Draft: to be validated by management">Brouillon : à valider par la direction</span>
+    </div>
+    <div>
+      <span class="ml-eyebrow2" data-fr="Avant et après" data-en="Before and after">Avant et après</span>
+      <h2 class="ml-title" data-fr="Préparer <em>votre séance</em>" data-en="Preparing <em>your session</em>">Préparer <em>votre séance</em></h2>
+      <ul class="ml-list">
+        <li data-fr="Rasez la zone la veille de votre séance." data-en="Shave the area the day before your session.">Rasez la zone la veille de votre séance.</li>
+        <li data-fr="Évitez l'exposition au soleil et les autobronzants avant la séance." data-en="Avoid sun exposure and self-tanners before the session.">Évitez l'exposition au soleil et les autobronzants avant la séance.</li>
+        <li data-fr="Entre les séances, protégez la zone du soleil et hydratez la peau." data-en="Between sessions, protect the area from the sun and moisturise the skin.">Entre les séances, protégez la zone du soleil et hydratez la peau.</li>
+        <li data-fr="Signalez-nous une grossesse, un médicament photosensibilisant ou une condition de santé." data-en="Tell us about pregnancy, photosensitising medication or any health condition.">Signalez-nous une grossesse, un médicament photosensibilisant ou une condition de santé.</li>
+      </ul>
+      <!-- DRAFT: conseils de préparation et de suivi à faire valider par la direction -->
+      <span class="ml-tobevalidated" data-fr="Brouillon : à valider par la direction" data-en="Draft: to be validated by management">Brouillon : à valider par la direction</span>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="ml-section ml-light">
   <div class="ml-inner ml-narrow">
-    <span class="ml-eyebrow2" data-fr="Avant et après" data-en="Before and after">Avant et après</span>
-    <h2 class="ml-title" data-fr="Préparer <em>votre séance</em>" data-en="Preparing <em>your session</em>">Préparer <em>votre séance</em></h2>
-    <ul class="ml-list">
-      <li data-fr="Rasez la zone la veille de votre séance." data-en="Shave the area the day before your session.">Rasez la zone la veille de votre séance.</li>
-      <li data-fr="Évitez l'exposition au soleil et les autobronzants avant la séance." data-en="Avoid sun exposure and self-tanners before the session.">Évitez l'exposition au soleil et les autobronzants avant la séance.</li>
-      <li data-fr="Signalez-nous une grossesse, un médicament photosensibilisant ou une condition de santé." data-en="Tell us about pregnancy, photosensitising medication or any health condition.">Signalez-nous une grossesse, un médicament photosensibilisant ou une condition de santé.</li>
-    </ul>
-    <a class="ml-link" href="/formulaire-sante"><span data-fr="Remplir mon formulaire (optionnel)" data-en="Fill out my form (optional)">Remplir mon formulaire (optionnel)</span></a>
-    <!-- DRAFT: conseils de préparation à faire valider par la direction avant publication -->
-    <span class="ml-tobevalidated" data-fr="Brouillon : à valider par la direction" data-en="Draft: to be validated by management">Brouillon : à valider par la direction</span>
+    <span class="ml-eyebrow2" data-fr="Votre sécurité" data-en="Your safety">Votre sécurité</span>
+    <h2 class="ml-title" data-fr="Votre sécurité, <em>avant tout</em>" data-en="Your safety, <em>before anything else</em>">Votre sécurité, <em>avant tout</em></h2>
+    <p class="ml-body" data-fr="Les traitements au laser agissent en profondeur sur la peau. Certaines conditions de santé ou certains médicaments peuvent modifier la façon dont votre peau réagit à la lumière et guérit. Dans ces cas, nous demandons une courte note de votre médecin confirmant que le traitement vous convient. Ce n'est pas un refus : c'est notre façon de prendre soin de vous." data-en="Laser treatments interact with the skin in depth. Certain health conditions or medications can change how your skin reacts to light and how it heals. When this is the case, we ask for a short note from your doctor confirming the treatment is suitable for you. This isn't a refusal: it's how we care for you.">Les traitements au laser agissent en profondeur sur la peau. Certaines conditions de santé ou certains médicaments peuvent modifier la façon dont votre peau réagit à la lumière et guérit. Dans ces cas, nous demandons une courte note de votre médecin confirmant que le traitement vous convient. Ce n'est pas un refus : c'est notre façon de prendre soin de vous.</p>
+    <details class="ml-conds">
+      <summary><span data-fr="Conditions pouvant nécessiter une note médicale" data-en="Conditions that may require a doctor's note">Conditions pouvant nécessiter une note médicale</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+      <ul><li data-fr="Grossesse ou allaitement" data-en="Pregnancy or breastfeeding">Grossesse ou allaitement</li><li data-fr="Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière" data-en="Autoimmune conditions (e.g. lupus, scleroderma) or light sensitivity">Conditions auto-immunes (ex. lupus, sclérodermie) ou sensibilité à la lumière</li><li data-fr="Isotrétinoïne (Accutane) au cours des 6 à 12 derniers mois, ou médicaments photosensibilisants (certains antibiotiques, rétinoïdes, millepertuis)" data-en="Isotretinoin (Accutane) in the last 6–12 months, or photosensitizing medications (some antibiotics, retinoids, St. John's wort)">Isotrétinoïne (Accutane) au cours des 6 à 12 derniers mois, ou médicaments photosensibilisants (certains antibiotiques, rétinoïdes, millepertuis)</li><li data-fr="Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone traitée" data-en="Active herpes / cold sores, skin infection or open wounds in the area">Herpès actif / feux sauvages, infection cutanée ou plaie ouverte dans la zone traitée</li><li data-fr="Épilepsie ou crises déclenchées par la lumière" data-en="Epilepsy or light-triggered seizures">Épilepsie ou crises déclenchées par la lumière</li><li data-fr="Antécédents de chéloïdes ou de cicatrisation anormale" data-en="History of keloids or abnormal scarring">Antécédents de chéloïdes ou de cicatrisation anormale</li><li data-fr="Cancer de la peau ou grain de beauté suspect dans la zone à traiter" data-en="Skin cancer or suspicious moles in the treatment area">Cancer de la peau ou grain de beauté suspect dans la zone à traiter</li><li data-fr="Diabète non contrôlé, troubles de la coagulation ou anticoagulants" data-en="Uncontrolled diabetes, blood-clotting disorders or anticoagulants">Diabète non contrôlé, troubles de la coagulation ou anticoagulants</li><li data-fr="Vitiligo ou psoriasis" data-en="Vitiligo or psoriasis">Vitiligo ou psoriasis</li><li data-fr="Bronzage récent ou autobronzant" data-en="Recent tanning or self-tanner">Bronzage récent ou autobronzant</li></ul>
+      <p class="ml-note" data-fr="Cette liste n'est pas exhaustive. En cas de doute, écrivez-nous : nous répondrons avant votre réservation." data-en="This list is not exhaustive. If you are unsure, write to us: we will answer before you book.">Cette liste n'est pas exhaustive. En cas de doute, écrivez-nous : nous répondrons avant votre réservation.</p>
+    </details>
+    <a class="ml-link" href="/formulaire-sante"><span data-fr="Remplir mon formulaire de santé (optionnel)" data-en="Fill out my health form (optional)">Remplir mon formulaire de santé (optionnel)</span></a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="ml-section ml-cream">
+  <div class="ml-inner">
+    <span class="ml-eyebrow2" data-fr="Avis clients" data-en="Client reviews">Avis clients</span>
+    <h2 class="ml-title" data-fr="Ce que disent <em>nos clientes</em>" data-en="What <em>our clients say</em>">Ce que disent <em>nos clientes</em></h2>
+    <div class="ml-reviews"><figure class="ml-review"><div class="ml-stars" aria-label="5 étoiles">★★★★★</div><blockquote>« Accueil chaleureux et excellent service avec Amina ! »</blockquote><figcaption>Catherine D. · <span data-fr="Avis Google vérifié" data-en="Verified Google review">Avis Google vérifié</span></figcaption></figure><figure class="ml-review"><div class="ml-stars" aria-label="5 étoiles">★★★★★</div><blockquote>« Très agréable et professionnel !! Wow. »</blockquote><figcaption>Myriam T. · <span data-fr="Avis Google vérifié" data-en="Verified Google review">Avis Google vérifié</span></figcaption></figure><figure class="ml-review"><div class="ml-stars" aria-label="5 étoiles">★★★★★</div><blockquote>« I did both a facial and laser session, and I'm really happy with the results. My skin looks clearer and more radiant. »</blockquote><figcaption>Khouloud A. · <span data-fr="Avis Google vérifié" data-en="Verified Google review">Avis Google vérifié</span></figcaption></figure><figure class="ml-review"><div class="ml-stars" aria-label="5 étoiles">★★★★★</div><blockquote>« Excellente expérience comme toujours. 10/10. »</blockquote><figcaption>Illona S. · <span data-fr="Avis Google vérifié" data-en="Verified Google review">Avis Google vérifié</span></figcaption></figure></div>
+    <a class="ml-link" href="/reviews"><span data-fr="Voir tous les avis" data-en="See all reviews">Voir tous les avis</span></a>
   </div>
 </section>
 
@@ -1857,12 +2024,32 @@ input, textarea, select {
         <p data-fr="Oui. Le Clarity II combine deux longueurs d'onde (755 nm et 1064 nm) et convient aux phototypes I à VI. Votre peau et votre poil sont évalués lors de la première séance." data-en="Yes. Clarity II combines two wavelengths (755 nm and 1064 nm) and suits skin types I to VI. Your skin and hair are assessed at the first session.">Oui. Le Clarity II combine deux longueurs d'onde (755 nm et 1064 nm) et convient aux phototypes I à VI. Votre peau et votre poil sont évalués lors de la première séance.</p>
       </details>
       <details class="ml-faq-item">
+        <summary><span data-fr="Est-ce douloureux ?" data-en="Does it hurt?">Est-ce douloureux ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p data-fr="La sensation varie d'une personne et d'une zone à l'autre. Le Clarity II dispose d'un refroidissement intégré, et nous adaptons le protocole à votre confort." data-en="The sensation varies from person to person and zone to zone. Clarity II has built-in cooling, and we adapt the protocol to your comfort.">La sensation varie d'une personne et d'une zone à l'autre. Le Clarity II dispose d'un refroidissement intégré, et nous adaptons le protocole à votre confort.</p>
+      </details>
+      <details class="ml-faq-item">
         <summary><span data-fr="La séance est-elle confidentielle ?" data-en="Is the session private?">La séance est-elle confidentielle ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <p data-fr="Oui. Chaque séance se déroule dans une chambre entièrement privée, avec un protocole confidentiel et confortable." data-en="Yes. Every session takes place in a fully private room, with a confidential and comfortable protocol.">Oui. Chaque séance se déroule dans une chambre entièrement privée, avec un protocole confidentiel et confortable.</p>
       </details>
       <details class="ml-faq-item">
-        <summary><span data-fr="Combien de séances faut-il ?" data-en="How many sessions do I need?">Combien de séances faut-il ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <p data-fr="Le nombre varie selon la zone, le type de poil et la peau. Les résultats se constatent au fil des séances, et nous vous guidons dès la première visite." data-en="The number varies with the zone, hair type and skin. Results build up over the sessions, and we guide you from the first visit.">Le nombre varie selon la zone, le type de poil et la peau. Les résultats se constatent au fil des séances, et nous vous guidons dès la première visite.</p>
+        <summary><span data-fr="Combien de séances faut-il, et à quel rythme ?" data-en="How many sessions do I need, and how far apart?">Combien de séances faut-il, et à quel rythme ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p data-fr="Le nombre varie selon la zone, le type de poil et la peau. Les séances sont espacées de plusieurs semaines, selon le cycle de croissance du poil. Nous établissons un plan avec vous dès la première visite." data-en="The number varies with the zone, hair type and skin. Sessions are spaced several weeks apart, following the hair growth cycle. We build a plan with you from the first visit.">Le nombre varie selon la zone, le type de poil et la peau. Les séances sont espacées de plusieurs semaines, selon le cycle de croissance du poil. Nous établissons un plan avec vous dès la première visite.</p>
+      </details>
+      <details class="ml-faq-item">
+        <summary><span data-fr="Faut-il éviter le soleil avant et après la séance ?" data-en="Should I avoid the sun before and after the session?">Faut-il éviter le soleil avant et après la séance ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p data-fr="Oui. Évitez l'exposition au soleil et les autobronzants avant la séance, et protégez votre peau entre les séances. Un bronzage récent peut retarder le traitement." data-en="Yes. Avoid sun exposure and self-tanners before the session, and protect your skin between sessions. A recent tan can delay the treatment.">Oui. Évitez l'exposition au soleil et les autobronzants avant la séance, et protégez votre peau entre les séances. Un bronzage récent peut retarder le traitement.</p>
+      </details>
+      <details class="ml-faq-item">
+        <summary><span data-fr="Peut-on faire l'épilation laser pendant la grossesse ?" data-en="Can I have laser hair removal while pregnant?">Peut-on faire l'épilation laser pendant la grossesse ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p data-fr="La grossesse et l'allaitement font partie des situations qui peuvent nécessiter une note médicale ou un report. Signalez-le-nous avant votre réservation." data-en="Pregnancy and breastfeeding are situations that may require a doctor's note or a postponement. Please let us know before you book.">La grossesse et l'allaitement font partie des situations qui peuvent nécessiter une note médicale ou un report. Signalez-le-nous avant votre réservation.</p>
+      </details>
+      <details class="ml-faq-item">
+        <summary><span data-fr="Proposez-vous l'épilation laser aux hommes ?" data-en="Do you offer laser hair removal for men?">Proposez-vous l'épilation laser aux hommes ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p data-fr="Oui. Nous traitons les femmes et les hommes, avec plus de 30 zones et forfaits." data-en="Yes. We treat women and men, with over 30 zones and packages.">Oui. Nous traitons les femmes et les hommes, avec plus de 30 zones et forfaits.</p>
+      </details>
+      <details class="ml-faq-item">
+        <summary><span data-fr="Où voir les tarifs et obtenir un reçu d'assurance ?" data-en="Where can I see prices and get an insurance receipt?">Où voir les tarifs et obtenir un reçu d'assurance ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p data-fr="Les tarifs à jour de chaque zone s'affichent lors de la réservation en ligne. Des reçus d'assurance sont disponibles ; la couverture dépend de votre régime." data-en="Up-to-date prices for each zone are shown when you book online. Insurance receipts are available; coverage depends on your plan.">Les tarifs à jour de chaque zone s'affichent lors de la réservation en ligne. Des reçus d'assurance sont disponibles ; la couverture dépend de votre régime.</p>
       </details>
       <details class="ml-faq-item">
         <summary><span data-fr="Y a-t-il un stationnement ?" data-en="Is there parking?">Y a-t-il un stationnement ?</span><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
@@ -1897,6 +2084,11 @@ input, textarea, select {
   </div>
 </section>
 
+<!-- MORE -->
+<section class="ml-more" aria-label="Pour aller plus loin">
+  <div class="ml-inner"><span class="ml-eyebrow2" data-fr="Pour aller plus loin" data-en="Read more">Pour aller plus loin</span><div class="ml-more-grid"><a href="/laser-guide"><span data-fr="Guide complet de l'épilation laser" data-en="Complete laser hair removal guide">Guide complet de l'épilation laser</span><i aria-hidden="true">→</i></a><a href="/laser"><span data-fr="Toutes les zones d'épilation laser" data-en="All laser hair removal zones">Toutes les zones d'épilation laser</span><i aria-hidden="true">→</i></a><a href="/parking"><span data-fr="Stationnement privé gratuit" data-en="Free private parking">Stationnement privé gratuit</span><i aria-hidden="true">→</i></a><a href="/visit-us"><span data-fr="Comment nous trouver" data-en="How to find us">Comment nous trouver</span><i aria-hidden="true">→</i></a></div></div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="ml-final">
   <div class="ml-final-inner">
@@ -1906,6 +2098,18 @@ input, textarea, select {
     <a class="ml-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
   </div>
 </section>
+
+<!-- Barre de réservation collante (mobile) -->
+<div class="ml-sticky" id="mlSticky" aria-hidden="true">
+  <a class="ml-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer" tabindex="-1"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('mlSticky'); if(!bar) return;
+  function upd(){ var y=window.scrollY||0, nearEnd=(window.innerHeight+y)>(document.body.scrollHeight-700); bar.classList.toggle('show', y>700 && !nearEnd); }
+  window.addEventListener('scroll', upd, {passive:true}); upd();
+})();
+</script>
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
