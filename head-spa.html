@@ -6605,6 +6605,62 @@ html body #mobileNav #mnavVisite .mnav-acc-btn span:not(#_):not(#__),
 html body #mobileNav .mnav-toplink-label:not(#_):not(#__),
 html body #mobileNav .sp-menu-trigger-label:not(#_):not(#__),
 html body #mobileNav .btn-dark span:not(#_):not(#__) { font-size: 0.82rem !important; letter-spacing: 0.2em !important; }
+
+/* ── Desktop étroit (981–1320px) : le logo reste centré, rien ne le chevauche ──
+   À ces largeurs, le logo (≈240px) mordait sur les liens de gauche et cachait
+   le bouton Réserver. On réduit le logo, resserre les liens et empêche le
+   retour à la ligne. Sélecteurs :not(#_):not(#__) = spécificité supérieure aux
+   correctifs par page (#mainNav#mainNav) ; ce fichier charge en dernier. */
+@media (min-width: 981px) and (max-width: 1320px) {
+  html body nav:not(#_):not(#__) {
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+  }
+  html body nav:not(#_):not(#__) .logo-text {
+    font-size: 1.35rem !important;
+    letter-spacing: 0.3em !important;
+    padding-left: 0.3em !important;
+  }
+  html body nav:not(#_):not(#__) .logo-sub {
+    font-size: 0.46rem !important;
+    letter-spacing: 0.24em !important;
+    padding-left: 0.24em !important;
+  }
+  html body nav:not(.nav-scrolled):not(#_):not(#__) .logo-brand {
+    padding: 0.3rem 0.5rem !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links {
+    gap: 1rem !important;
+    flex-wrap: nowrap !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links li {
+    white-space: nowrap !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links a,
+  html body nav:not(#_):not(#__) .nav-dd-label {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap !important;
+  }
+  html body nav:not(#_):not(#__) .nav-cta {
+    margin-left: auto !important;
+    margin-right: 0.5rem !important;
+    padding: 0.55rem 0.8rem !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  html body nav:not(#_):not(#__) .lang-switcher {
+    margin-right: 0.5rem !important;
+    padding: 0.3rem 0.5rem !important;
+    gap: 0.35rem !important;
+  }
+  html body nav:not(#_):not(#__) .nav-dd-trigger {
+    padding: 0.5rem 0.75rem !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links-guide {
+    margin: 0 !important;
+  }
+}
 </style>
 <style id="animations-css-inline">
 /* ══ Skines — Unified Animation System ══
@@ -6791,6 +6847,27 @@ input, textarea, select {
   html body .family-section .family-desc {
     color: #F2E7D4 !important;
     text-shadow: 0 1px 12px rgba(0,0,0,0.7) !important;
+  }
+</style>
+<style id="sk-family-why">
+  /* « Pourquoi Skines » : titre + phrase sur le fond crème, photo seule en pleine largeur, puis une ligne de 4 repères (aucun texte sur l'image, aucun encadré) */
+  html body .family-section:not(#_):not(#__) { position: relative; display: flex; flex-direction: column; min-height: 0; padding: 0; background: #FAF3EB !important; overflow: visible; }
+  html body .family-section:not(#_):not(#__) .family-content { display: contents !important; }
+  html body .family-section:not(#_):not(#__) .family-eyebrow { display: none !important; }
+  html body .family-section:not(#_):not(#__) .family-overlay { display: none !important; }
+  html body .family-section:not(#_):not(#__) .why-main { order: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: clamp(3rem, 6vw, 5rem) clamp(1.4rem, 4vw, 3rem) clamp(1.8rem, 3vw, 2.6rem); box-sizing: border-box; }
+  html body .family-section:not(#_):not(#__) .family-bg { order: 2; position: relative; inset: auto; width: 100%; height: clamp(300px, 46vw, 640px); }
+  html body .family-section:not(#_):not(#__) .family-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; filter: none; }
+  html body .family-section:not(#_):not(#__) .why-points { order: 3; width: 100%; max-width: 1180px; margin: 0 auto; box-sizing: border-box; list-style: none; padding: 1.6rem clamp(1.4rem, 4vw, 3rem) clamp(2.4rem, 5vw, 3.6rem); display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0; }
+  html body .family-section:not(#_):not(#__) .why-points li { padding: 0 1.4rem; border-left: 1px solid rgba(104,64,52,.28); }
+  html body .family-section:not(#_):not(#__) .why-points li:first-child { padding-left: 0; border-left: 0; }
+  html body #skFamilyTitle:not(#_):not(#__) { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 400 !important; font-size: clamp(2rem, 4vw, 3.3rem) !important; line-height: 1.1 !important; color: #3b241d !important; text-shadow: none !important; margin: 0 0 1.1rem !important; text-align: left !important; max-width: 30ch; }
+  html body #skFamilyDesc:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: clamp(1.02rem, 1.4vw, 1.2rem) !important; line-height: 1.7 !important; color: rgba(59,36,29,.85) !important; text-shadow: none !important; max-width: 38rem !important; margin: 0 !important; text-align: left !important; font-style: normal !important; }
+  html body .family-section:not(#_):not(#__) .why-points strong { display: block; font-family: "Old Standard TT", serif; font-weight: 400; font-size: 1.12rem; color: #684034 !important; text-shadow: none !important; }
+  html body .family-section:not(#_):not(#__) .why-points span { display: block; margin-top: .25rem; font-size: .84rem; line-height: 1.5; color: rgba(59,36,29,.75) !important; text-shadow: none !important; }
+  @media (max-width: 900px) {
+    html body .family-section:not(#_):not(#__) .why-points { grid-template-columns: 1fr 1fr; gap: 1.5rem 0; }
+    html body .family-section:not(#_):not(#__) .why-points li:nth-child(odd) { padding-left: 0; border-left: 0; }
   }
 </style>
 <style id="sk-nav-refine">
@@ -6991,11 +7068,11 @@ input, textarea, select {
 /* ── Edit services here ─────────────────────────────────── */
 const SERVICES = [
   { key: "solo-60",  category: "SOLO · 60 MIN",  name: "Solo 60 min Focus Scalpcial",      img: "/assets/60%20min%20SOLO%20ROOM.webp?v=1" },
-  { key: "solo-90",  category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  img: "/assets/90%20min%20solo.webp?v=2" },
   { key: "duo-60",   category: "DUO · 60 MIN",   name: "Duo 60 min Focus Scalpcial",       img: "/assets/DUO%20ROOM.webp?v=1" },
-  { key: "duo-90",   category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   img: "/assets/90min%20duo%20canada.webp?v=1" },
-  { key: "trio-60",  category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      img: "/assets/TRIO%2060%20ROOM.webp?v=1" },
-  { key: "trio-90",  category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  img: "/assets/trio%2090%20min%20.webp?v=1" },
+  { key: "solo-90",  category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  img: "/assets/head-spa-shampoing-haut.webp?v=1" },
+  { key: "duo-90",   category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   img: "/assets/head-spa-serviette-neon.webp?v=1" },
+  { key: "trio-60",  category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      img: "/assets/head-spa-huile-pipette.webp?v=1" },
+  { key: "trio-90",  category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  img: "/assets/head-spa-eau-violet.webp?v=1" },
 ];
 /* ─────────────────────────────────────────────────────────── */
 
@@ -7016,14 +7093,21 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
 
 <div class="family-section">
   <div class="family-bg">
-    <img src="/assets/gratuit.webp?v=1" alt="Family wellness experience at Skines Head Spa">
+    <img src="/assets/head-spa-bol-chantant.webp?v=1" alt="Rituel head spa chez Skines : rinçage du cuir chevelu au bol, Montréal">
   </div>
   <div class="family-overlay"></div>
   <div class="family-content">
-    <div class="family-eyebrow" data-en="Family Ritual" data-fr="Rituel en Famille">Family Ritual</div>
-    <h2 id="skFamilyTitle" class="family-title" data-i18n-html="headSpa.familyTitle">A Full Family<br><em>Wellness Experience</em></h2>
-    <p id="skFamilyDesc" class="family-desc" data-en="Share a calming head spa ritual together in a warm, private, luxury environment." data-fr="Partagez un rituel Head Spa apaisant dans un cadre privé, chaleureux et luxueux.">Share a calming head spa ritual together in a warm, private, luxury environment.</p>
-    <a class="family-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book Now">Réserver</span></a>
+    <div class="family-eyebrow" data-en="Why Skines" data-fr="Pourquoi Skines">Pourquoi Skines</div>
+    <div class="why-main">
+      <h2 id="skFamilyTitle" class="family-title" data-fr="Pourquoi choisir Skines Head Spa &amp; Wellness à Montréal ?" data-en="Why choose Skines Head Spa &amp; Wellness in Montréal?">Pourquoi choisir Skines Head Spa &amp; Wellness à Montréal ?</h2>
+      <p id="skFamilyDesc" class="family-desc" data-fr="Nous avons commencé petit, nous avons grandi, nous avons déménagé en Petite-Italie et élargi nos soins. Et nous continuons." data-en="We started small, we grew, we moved to Little Italy and expanded our treatments. And we are not done.">Nous avons commencé petit, nous avons grandi, nous avons déménagé en Petite-Italie et élargi nos soins. Et nous continuons.</p>
+    </div>
+    <ul class="why-points">
+      <li><strong data-fr="Best in Class 2026" data-en="Best in Class 2026">Best in Class 2026</strong><span data-fr="Distinction Fresha" data-en="Fresha award">Distinction Fresha</span></li>
+      <li><strong data-fr="4,8 Fresha · 4,7 Google" data-en="4.8 Fresha · 4.7 Google">4,8 Fresha · 4,7 Google</strong><span data-fr="Avis vérifiés de nos clients" data-en="Verified client reviews">Avis vérifiés de nos clients</span></li>
+      <li><strong data-fr="Chambres privées" data-en="Private rooms">Chambres privées</strong><span data-fr="En solo, en duo ou en trio" data-en="Solo, duo or trio">En solo, en duo ou en trio</span></li>
+      <li><strong data-fr="Stationnement gratuit" data-en="Free parking">Stationnement gratuit</strong><span data-fr="Ouvert 7 jours sur 7, 9 h – 22 h 30" data-en="Open 7 days, 9 am – 10:30 pm">Ouvert 7 jours sur 7, 9 h – 22 h 30</span></li>
+    </ul>
   </div>
 </div>
 
@@ -7441,15 +7525,79 @@ html body nav .menu-btn > span:nth-child(1) { width: 11px !important; }
 html body nav .menu-btn > span:nth-child(2) { width: 18px !important; }
 html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 </style>
+<style id="sk-faq-layout">
+  /* FAQ : deux colonnes alignées à gauche — titre + action à gauche, questions numérotées à droite */
+  html body section#faq.faq-section:not(#_):not(#__) {
+    max-width: 1180px !important; margin: 0 auto !important;
+    padding: clamp(3.5rem, 7vw, 6rem) clamp(1.4rem, 4vw, 3rem) !important;
+    display: grid !important; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); column-gap: clamp(2rem, 6vw, 6rem); align-items: start;
+    counter-reset: faqn;
+  }
+  #faq .faq-aside { position: sticky; top: 7rem; text-align: left; }
+  #faq .faq-eyebrow { margin: 0 0 1rem !important; font-family: "DM Sans", sans-serif; font-size: .72rem !important; letter-spacing: .28em; text-transform: uppercase; color: #684034 !important; }
+  #faq .faq-title { margin: 0 0 1.1rem !important; font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 400 !important; font-size: clamp(2rem, 3.4vw, 3rem) !important; line-height: 1.08 !important; color: #3b241d !important; text-align: left !important; }
+  #faq .faq-lead { margin: 0 0 2rem; font-size: 1rem; line-height: 1.7; color: rgba(59,36,29,.8) !important; max-width: 30ch; }
+  #faq .faq-cta { text-align: left !important; margin: 0 0 1.6rem !important; }
+  #faq .faq-cta a { box-shadow: 0 10px 24px rgba(104,64,52,.18); border: 1.5px solid #F5EDE3; }
+  #faq .faq-note { text-align: left !important; margin: 0 !important; max-width: 32ch; }
+  #faq .faq-note p { font-size: .84rem !important; line-height: 1.6; color: rgba(59,36,29,.72) !important; }
+  #faq .faq-list { border-top: 1px solid rgba(104,64,52,.25); }
+  #faq .faq-item { counter-increment: faqn; padding: 1.35rem 0 !important; border-bottom: 1px solid rgba(104,64,52,.25) !important; }
+  #faq .faq-q { color: #3b241d !important; font-size: 1.12rem !important; gap: 1.2rem !important; }
+  #faq .faq-q > span:first-child { display: flex; align-items: baseline; gap: 1.3rem; text-align: left; }
+  #faq .faq-q > span:first-child::before { content: counter(faqn, decimal-leading-zero); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; color: #684034; opacity: .75; flex: 0 0 1.8rem; }
+  #faq .faq-q svg { color: #684034; }
+  #faq .faq-q:hover { color: #684034 !important; }
+  #faq .faq-a { padding-left: 3.1rem !important; }
+  html body section#skLinksBand:not(#_):not(#__) { text-align: left !important; padding: 2.4rem max(1.4rem, calc((100% - 1180px) / 2 + 3rem)) !important; }
+  #skLinksBand > div { justify-content: flex-start !important; max-width: none !important; margin: 1rem 0 0 !important; gap: .6rem 2rem !important; }
+  #skLinksBand > p { margin: 0 !important; }
+  /* animation de l'accordéon */
+  #faq .faq-a { display: block !important; max-height: 0; overflow: hidden; opacity: 0; padding-top: 0 !important; transition: max-height .45s cubic-bezier(.22,.61,.36,1), opacity .35s ease; }
+  #faq .faq-a.open { opacity: 1; }
+  #faq .faq-a p { margin: 1rem 0 .2rem; }
+  #faq .faq-q svg { transition: transform .35s ease; }
+  #faq .faq-q.active svg { transform: rotate(180deg); }
+  #faq .faq-q.active { color: #684034 !important; }
+  #faq .faq-q > span:first-child::before { transition: opacity .3s ease, transform .3s ease; }
+  #faq .faq-q.active > span:first-child::before, #faq .faq-q:hover > span:first-child::before { opacity: 1; transform: translateX(3px); }
+  @media (max-width: 900px) {
+    html body section#faq.faq-section:not(#_):not(#__) { grid-template-columns: 1fr; row-gap: 2.2rem; }
+    #faq .faq-aside { position: static; }
+    #faq .faq-lead, #faq .faq-note { max-width: none; }
+    #faq .faq-a { padding-left: 0 !important; }
+  }
+</style>
+<style id="sk-faq-bleed">
+  /* FAQ + bandeau de liens : sable chaud, pleine largeur (plus de bandes crème sur les côtés) */
+  html body section#faq.faq-section:not(#_):not(#__) {
+    background: #EBDCC0 !important;
+    box-shadow: 0 0 0 100vmax #EBDCC0;
+    clip-path: inset(0 -100vmax);
+  }
+  html body section#skLinksBand:not(#_):not(#__) { background: #EBDCC0 !important; border-top-color: rgba(104,64,52,.18) !important; }
+</style>
 <!-- ── FAQ Section ── -->
 <section class="faq-section" id="faq" aria-label="Questions fréquentes Head Spa Montréal" style="background:var(--bg);padding:5rem 2rem 4rem;max-width:860px;margin:0 auto;">
-  <div style="text-align:center;margin-bottom:3rem;">
-    <p style="font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;" data-fr="Questions fréquentes" data-en="Frequently Asked Questions">Questions fréquentes</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--cream);line-height:1.2;" data-fr="Tout savoir sur le Head Spa" data-en="Everything about Head Spa">Tout savoir sur le Head Spa</h2>
+  <div class="faq-aside">
+    <p class="faq-eyebrow" data-fr="Questions fréquentes" data-en="Frequently Asked Questions">Questions fréquentes</p>
+    <h2 class="faq-title" data-fr="Tout savoir sur le Head Spa" data-en="Everything about Head Spa">Tout savoir sur le Head Spa</h2>
+    <p class="faq-lead" data-fr="Tout ce qu'il faut savoir avant votre rituel : durée, déroulement, tarifs et préparation." data-en="Everything to know before your ritual: duration, what to expect, pricing and how to prepare.">Tout ce qu'il faut savoir avant votre rituel : durée, déroulement, tarifs et préparation.</p>
+  <div class="faq-cta">
+    <a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#F5EDE3;color:#684034;text-decoration:none;padding:1rem 2.6rem;text-transform:uppercase;letter-spacing:0.22em;font-size:0.78rem;font-weight:600;border:1.5px solid #F5EDE3;transition:all 0.25s;">
+      <span data-fr="Réserver mon Head Spa" data-en="Book my Head Spa">Réserver mon Head Spa</span>
+    </a>
   </div>
-
+  <div class="faq-note">
+    <p style="margin:0 0 0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;color:rgba(104,64,52,0.6);" data-fr="Une condition de santé, un doute ou une grossesse à nous signaler avant votre rendez-vous ?" data-en="A health condition, a question, or a pregnancy to let us know about before your appointment?">Une condition de santé, un doute ou une grossesse à nous signaler avant votre rendez-vous ?</p>
+    <a href="/formulaire-headspa" style="display:inline-flex;align-items:center;gap:0.5rem;color:#684034;font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;">
+      <span data-fr="Remplir mon formulaire (optionnel)" data-en="Fill out my form (optional)">Remplir mon formulaire (optionnel)</span>
+    </a>
+  </div>
+  </div>
+  <div class="faq-list">
   <div class="faq-item" style="border-bottom:1px solid var(--line);padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="C'est quoi un Head Spa à Montréal ?" data-en="What is a Head Spa in Montreal?">C'est quoi un Head Spa à Montréal ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7457,9 +7605,8 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Un Head Spa est un soin japonais du cuir chevelu combinant massage profond, hydrothérapie capillaire et techniques de relaxation du système nerveux. Chez Skines Head Spa à Montréal, le Head Spa se décline en Scalpcial Focus (60 min) ou Signature (90 min), en formule Solo, Duo ou Trio." data-en="A Head Spa is a Japanese scalp treatment combining deep massage, hair hydrotherapy, and nervous system relaxation techniques. At Skines Head Spa in Montreal, the Head Spa is offered as a Focus Scalpcial (60 min) or Signature (90 min), in Solo, Duo or Trio.">Un Head Spa est un soin japonais du cuir chevelu combinant massage profond, hydrothérapie capillaire et techniques de relaxation du système nerveux. Chez Skines Head Spa à Montréal, le Head Spa se décline en Scalpcial Focus (60 min) ou Signature (90 min), disponible en Solo, Duo ou Trio.</p>
     </div>
   </div>
-
   <div class="faq-item" style="border-bottom:1px solid var(--line);padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="C'est quoi le Scalpcial chez Skines ?" data-en="What is the Scalpcial at Skines?">C'est quoi le Scalpcial chez Skines ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7467,9 +7614,8 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Le Scalpcial est le rituel exclusif de Head Spa de Skines — un mot-valise entre 'scalp' (cuir chevelu) et 'facial'. C'est un soin profond du cuir chevelu inspiré des techniques japonaises, avec massage, application de produits capillaires et détente totale du système nerveux. Disponible en Focus (60 min) ou Signature (90 min)." data-en="The Scalpcial is Skines' exclusive Head Spa ritual — a portmanteau of 'scalp' and 'facial'. It's a deep scalp treatment inspired by Japanese techniques, combining massage, hair product application, and total nervous system relaxation. Available as Focus (60 min) or Signature (90 min).">Le Scalpcial est le rituel exclusif de Head Spa de Skines — un mot-valise entre 'scalp' (cuir chevelu) et 'facial'. C'est un soin profond du cuir chevelu inspiré des techniques japonaises, avec massage, application de produits capillaires et détente totale du système nerveux. Disponible en Focus (60 min) ou Signature (90 min).</p>
     </div>
   </div>
-
   <div class="faq-item" style="border-bottom:1px solid var(--line);padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="Combien coûte un Head Spa à Montréal ?" data-en="How much does a Head Spa cost in Montreal?">Combien coûte un Head Spa à Montréal ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7477,9 +7623,8 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Les tarifs à jour sont indiqués sur notre page de réservation Fresha, où vous pouvez réserver en ligne en quelques secondes." data-en="Up-to-date prices are shown on our Fresha booking page, where you can book online in seconds.">Les tarifs à jour sont indiqués sur notre page de réservation Fresha, où vous pouvez réserver en ligne en quelques secondes.</p>
     </div>
   </div>
-
   <div class="faq-item" style="border-bottom:1px solid var(--line);padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="Quelle est la différence entre Focus et Signature Scalpcial ?" data-en="What's the difference between Focus and Signature Scalpcial?">Quelle est la différence entre Focus et Signature Scalpcial ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7487,9 +7632,8 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage profond, traitement hydratant et détente complète. Le Signature Scalpcial (90 min) inclut tout le protocole Focus, plus un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu'une phase de vapeur et de masque nourrissant prolongée. C'est le rituel le plus complet de Skines." data-en="The Focus Scalpcial (60 min) is a targeted scalp treatment: deep massage, moisturizing treatment, and complete relaxation. The Signature Scalpcial (90 min) includes the full Focus protocol plus a relaxing massage of the face, neck, shoulders, décolleté and arms, as well as a longer steam and nourishing-mask phase. It's Skines' most complete ritual.">Le Focus Scalpcial (60 min) est un soin ciblé du cuir chevelu : massage profond, traitement hydratant et détente complète. Le Signature Scalpcial (90 min) inclut tout le protocole Focus, plus un massage relaxant du visage, du cou, des épaules, du décolleté et des bras, ainsi qu'une phase de vapeur et de masque nourrissant prolongée. C'est le rituel le plus complet de Skines.</p>
     </div>
   </div>
-
   <div class="faq-item" style="border-bottom:1px solid var(--line);padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="Peut-on venir en couple ou en groupe pour un Head Spa ?" data-en="Can we come as a couple or group for a Head Spa?">Peut-on venir en couple ou en groupe pour un Head Spa ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7497,9 +7641,8 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Oui ! Skines propose des salles dédiées pour les formules Duo (2 personnes) et Trio (3 personnes). Idéal pour un rendez-vous en couple, une sortie entre amis, ou un anniversaire. Réservez facilement en ligne sur Fresha en choisissant votre formule Duo ou Trio." data-en="Yes! Skines offers dedicated rooms for Duo (2 people) and Trio (3 people) formats. Perfect for a romantic date, a friends' outing, or a birthday celebration. Book easily online on Fresha by selecting your Duo or Trio format.">Oui ! Skines propose des salles dédiées pour les formules Duo (2 personnes) et Trio (3 personnes). Idéal pour un rendez-vous en couple, une sortie entre amis, ou un anniversaire. Réservez facilement en ligne sur Fresha en choisissant votre formule Duo ou Trio.</p>
     </div>
   </div>
-
   <div class="faq-item" style="border-bottom:1px solid var(--line);padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="Dois-je remplir un formulaire avant mon Head Spa ?" data-en="Do I need to fill out a form before my Head Spa?">Dois-je remplir un formulaire avant mon Head Spa ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7507,9 +7650,8 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Ce n'est pas obligatoire. Si vous avez une condition liée au cuir chevelu, un doute ou une grossesse à nous signaler avant votre rendez-vous, vous pouvez remplir notre fiche en quelques minutes — cela permet à votre praticienne de personnaliser votre rituel en toute sérénité." data-en="It's not mandatory. If you have a scalp condition, a question, or a pregnancy to let us know about before your appointment, you can complete our form in a few minutes — so your practitioner can tailor your ritual with confidence.">Ce n'est pas obligatoire. Si vous avez une condition liée au cuir chevelu, un doute ou une grossesse à nous signaler avant votre rendez-vous, vous pouvez remplir notre fiche en quelques minutes — cela permet à votre praticienne de personnaliser votre rituel en toute sérénité.</p>
     </div>
   </div>
-
   <div class="faq-item" style="padding:1.6rem 0;">
-    <button class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.classList.toggle('active');" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
+    <button class="faq-q" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:400;color:var(--cream);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0;">
       <span data-fr="Comment réserver un Head Spa chez Skines Montréal ?" data-en="How do I book a Head Spa at Skines Montreal?">Comment réserver un Head Spa chez Skines Montréal ?</span>
       <svg style="flex-shrink:0;transition:transform 0.3s;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -7517,20 +7659,34 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
       <p data-fr="Réservez en ligne sur Fresha (disponibilités en temps réel) ou par téléphone au +1 (438) 260-5660. Skines Head Spa est situé au 19 Av. Shamrock, Montréal QC H2S 1A3, ouvert 7j/7 de 9h à 22h30. Stationnement privé gratuit disponible sur place." data-en="Book online on Fresha (real-time availability) or by phone at +1 (438) 260-5660. Skines Head Spa is located at 19 Av. Shamrock, Montréal QC H2S 1A3, open 7 days a week from 9am to 10:30pm. Free private parking available on site.">Réservez en ligne sur Fresha (disponibilités en temps réel) ou par téléphone au +1 (438) 260-5660. Skines Head Spa est situé au 19 Av. Shamrock, Montréal QC H2S 1A3, ouvert 7j/7 de 9h à 22h30. Stationnement privé gratuit disponible sur place.</p>
     </div>
   </div>
-
-  <div style="text-align:center;margin-top:3rem;">
-    <a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#F5EDE3;color:#684034;text-decoration:none;padding:1rem 2.6rem;text-transform:uppercase;letter-spacing:0.22em;font-size:0.78rem;font-weight:600;border:1.5px solid #F5EDE3;transition:all 0.25s;">
-      <span data-fr="Réserver mon Head Spa" data-en="Book my Head Spa">Réserver mon Head Spa</span>
-    </a>
-  </div>
-
-  <div style="text-align:center;margin-top:1.6rem;">
-    <p style="margin:0 0 0.6rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;color:rgba(104,64,52,0.6);" data-fr="Une condition de santé, un doute ou une grossesse à nous signaler avant votre rendez-vous ?" data-en="A health condition, a question, or a pregnancy to let us know about before your appointment?">Une condition de santé, un doute ou une grossesse à nous signaler avant votre rendez-vous ?</p>
-    <a href="/formulaire-headspa" style="display:inline-flex;align-items:center;gap:0.5rem;color:#684034;font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;">
-      <span data-fr="Remplir mon formulaire (optionnel)" data-en="Fill out my form (optional)">Remplir mon formulaire (optionnel)</span>
-    </a>
   </div>
 </section>
+<script>
+/* FAQ accordéon : une seule réponse ouverte à la fois, ouverture/fermeture animées */
+(function(){
+  var items = document.querySelectorAll('#faq .faq-item');
+  function close(it){
+    var q = it.querySelector('.faq-q'), a = it.querySelector('.faq-a');
+    a.style.maxHeight = '0px'; a.classList.remove('open'); q.classList.remove('active'); q.setAttribute('aria-expanded','false');
+  }
+  function open(it){
+    var q = it.querySelector('.faq-q'), a = it.querySelector('.faq-a');
+    a.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; q.classList.add('active'); q.setAttribute('aria-expanded','true');
+    setTimeout(function(){ var t = q.getBoundingClientRect().top; if (t < 110) window.scrollBy({ top: t - 130, behavior: 'smooth' }); }, 380);
+  }
+  items.forEach(function(it){
+    it.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = it.querySelector('.faq-a').classList.contains('open');
+      items.forEach(close);
+      if (!isOpen) open(it);
+    });
+  });
+  window.addEventListener('resize', function(){
+    items.forEach(function(it){ var a = it.querySelector('.faq-a'); if (a.classList.contains('open')) a.style.maxHeight = a.scrollHeight + 'px'; });
+  });
+})();
+</script>
+
 <script>
 (function(){
   document.querySelectorAll('.faq-q').forEach(function(btn){
@@ -7546,7 +7702,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 </script>
 
 <!-- ══ INTERNAL LINKS — HEAD SPA ══ -->
-<section style="background:#F5EDE3;padding:48px 24px;text-align:center;border-top:1px solid rgba(104,64,52,.10)">
+<section id="skLinksBand" style="background:#F5EDE3;padding:48px 24px;text-align:center;border-top:1px solid rgba(104,64,52,.10)">
   <p style="font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#C9973A;margin:0 0 20px">Skines Head Spa &amp; Wellness · Montréal</p>
   <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;max-width:700px;margin:0 auto">
     <a href="/facial" style="font-family:'DM Sans',sans-serif;font-size:.92rem;color:#684034;text-decoration:underline;text-underline-offset:3px">Soins du visage à Montréal</a>
@@ -8689,7 +8845,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
       }
     },
     'solo-90': {
-      images: ['assets/90%20min%20solo.webp?v=2','assets/IMG_4654.webp?v=1'],
+      images: ['assets/head-spa-shampoing-haut.webp?v=1','assets/head-spa-mousse-bleue.webp?v=1','assets/IMG_4654.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · SOLO · 90 MIN',
         title: 'Signature Scalpcial Solo 90 min',
@@ -8779,7 +8935,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
       }
     },
     'duo-90': {
-      images: ['assets/90min%20duo%20canada.webp?v=1','assets/card-head-spa.webp?v=1'],
+      images: ['assets/head-spa-serviette-neon.webp?v=1','assets/card-head-spa.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · DUO · 90 MIN',
         title: 'Signature Scalpcial Duo 90 min',
@@ -8822,7 +8978,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
       }
     },
     'trio-60': {
-      images: ['assets/TRIO%2060%20ROOM.webp?v=1','assets/gratuit.webp?v=1'],
+      images: ['assets/head-spa-huile-pipette.webp?v=1','assets/gratuit.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · TRIO · 60 MIN',
         title: 'Focus Scalpcial Trio 60 min',
@@ -8865,7 +9021,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
       }
     },
     'trio-90': {
-      images: ['assets/trio%2090%20min%20.webp?v=1','assets/gratuit.webp?v=1'],
+      images: ['assets/head-spa-eau-violet.webp?v=1','assets/gratuit.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · TRIO · 90 MIN',
         title: 'Signature Scalpcial Trio 90 min',
