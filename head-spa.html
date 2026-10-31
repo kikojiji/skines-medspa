@@ -6855,18 +6855,19 @@ input, textarea, select {
   html body .family-section:not(#_):not(#__) .family-content { display: contents !important; }
   html body .family-section:not(#_):not(#__) .family-eyebrow { display: none !important; }
   html body .family-section:not(#_):not(#__) .family-overlay { display: none !important; }
-  html body .family-section:not(#_):not(#__) .why-main { order: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: clamp(3rem, 6vw, 5rem) clamp(1.4rem, 4vw, 3rem) clamp(1.8rem, 3vw, 2.6rem); box-sizing: border-box; }
-  html body .family-section:not(#_):not(#__) .family-bg { order: 2; position: relative; inset: auto; width: 100%; height: clamp(300px, 46vw, 640px); }
-  html body .family-section:not(#_):not(#__) .family-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; filter: none; }
-  html body .family-section:not(#_):not(#__) .why-points { order: 3; width: 100%; max-width: 1180px; margin: 0 auto; box-sizing: border-box; list-style: none; padding: 1.6rem clamp(1.4rem, 4vw, 3rem) clamp(2.4rem, 5vw, 3.6rem); display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0; }
+  html body .family-section:not(#_):not(#__) .why-main { order: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: clamp(1.6rem, 3vw, 2.4rem) clamp(1.4rem, 4vw, 3rem) clamp(1rem, 2vw, 1.5rem); box-sizing: border-box; }
+  html body .family-section:not(#_):not(#__) .family-bg { order: 2; position: relative; inset: auto; width: 100%; height: clamp(220px, 33vw, 460px); }
+  html body .family-section:not(#_):not(#__) .family-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; filter: none; }
+  html body .family-section:not(#_):not(#__) .family-bg::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 46% 64% at 56% 50%, rgba(22,10,6,0) 0%, rgba(22,10,6,0) 40%, rgba(22,10,6,.5) 100%); }
+  html body .family-section:not(#_):not(#__) .why-points { order: 3; width: 100%; max-width: 1180px; margin: 0 auto; box-sizing: border-box; list-style: none; padding: .85rem clamp(1.4rem, 4vw, 3rem) .85rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0; }
   html body .family-section:not(#_):not(#__) .why-points li { padding: 0 1.4rem; border-left: 1px solid rgba(104,64,52,.28); }
   html body .family-section:not(#_):not(#__) .why-points li:first-child { padding-left: 0; border-left: 0; }
-  html body #skFamilyTitle:not(#_):not(#__) { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 400 !important; font-size: clamp(2rem, 4vw, 3.3rem) !important; line-height: 1.1 !important; color: #3b241d !important; text-shadow: none !important; margin: 0 0 1.1rem !important; text-align: left !important; max-width: 30ch; }
-  html body #skFamilyDesc:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: clamp(1.02rem, 1.4vw, 1.2rem) !important; line-height: 1.7 !important; color: rgba(59,36,29,.85) !important; text-shadow: none !important; max-width: 38rem !important; margin: 0 !important; text-align: left !important; font-style: normal !important; }
-  html body .family-section:not(#_):not(#__) .why-points strong { display: block; font-family: "Old Standard TT", serif; font-weight: 400; font-size: 1.12rem; color: #684034 !important; text-shadow: none !important; }
-  html body .family-section:not(#_):not(#__) .why-points span { display: block; margin-top: .25rem; font-size: .84rem; line-height: 1.5; color: rgba(59,36,29,.75) !important; text-shadow: none !important; }
+  html body #skFamilyTitle:not(#_):not(#__) { font-family: "Cormorant Garamond", Georgia, serif !important; font-weight: 400 !important; font-size: clamp(1.6rem, 2.6vw, 2.2rem) !important; line-height: 1.15 !important; color: #3b241d !important; text-shadow: none !important; margin: 0 0 .55rem !important; text-align: left !important; max-width: none; }
+  html body #skFamilyDesc:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: clamp(.95rem, 1.15vw, 1.05rem) !important; line-height: 1.6 !important; color: rgba(59,36,29,.85) !important; text-shadow: none !important; max-width: 60rem !important; margin: 0 !important; text-align: left !important; font-style: normal !important; }
+  html body .family-section:not(#_):not(#__) .why-points strong { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 1.02rem; line-height: 1.25; letter-spacing: .01em; font-variant-numeric: lining-nums; color: #684034 !important; text-shadow: none !important; }
+  html body .family-section:not(#_):not(#__) .why-points span { display: block; margin-top: .2rem; font-size: .88rem; font-weight: 500; line-height: 1.4; color: rgba(59,36,29,.92) !important; text-shadow: none !important; }
   @media (max-width: 900px) {
-    html body .family-section:not(#_):not(#__) .why-points { grid-template-columns: 1fr 1fr; gap: 1.5rem 0; }
+    html body .family-section:not(#_):not(#__) .why-points { grid-template-columns: 1fr 1fr; gap: 1rem 0; }
     html body .family-section:not(#_):not(#__) .why-points li:nth-child(odd) { padding-left: 0; border-left: 0; }
   }
 </style>
@@ -7044,9 +7045,12 @@ input, textarea, select {
   </div>
 </header>
 
-<section style="text-align:center;">
+<section style="text-align:center;padding-bottom:clamp(2rem,4vw,3rem) !important;">
 
-  <p style="text-align:center;font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;line-height:1.6;margin:0.5rem 0 1rem;font-family:'Cormorant Garamond',serif;"><span data-fr="Le luxe sans compromis" data-en="Luxury without compromise">Le luxe sans compromis</span><br><em style="font-weight:400;font-size:0.9em;"><span data-fr="L'expérience Head Spa la plus raffinée de Montréal" data-en="Montréal's most refined Head Spa experience">L'expérience Head Spa la plus raffinée de Montréal</span></em></p>
+  <div class="svc-intro">
+    <h2 class="svc-intro-title"><span data-fr="Choisissez votre rituel Head Spa à Montréal" data-en="Choose your Head Spa ritual in Montréal">Choisissez votre rituel Head Spa à Montréal</span></h2>
+    <p class="svc-intro-sub"><span data-fr="Scalpcial Focus (60 min) ou Signature (90 min), en solo, duo ou trio, en Petite-Italie" data-en="Focus (60 min) or Signature (90 min) Scalpcial, solo, duo or trio, in Little Italy">Scalpcial Focus (60 min) ou Signature (90 min), en solo, duo ou trio, en Petite-Italie</span></p>
+  </div>
   <div class="view-toggle-row" style="justify-content:center;align-items:center;">
     <div class="eyebrow" style="margin:0;letter-spacing:0.18em;font-size:0.65rem;" data-fr="Nos Rituels Signature" data-en="Our Signature Rituals">Nos Rituels Signature</div>
     <button class="view-btn active" data-view="grid" aria-label="Vue grille">
@@ -7057,8 +7061,9 @@ input, textarea, select {
     </button>
   </div>
   <div class="services-grid" id="services-grid"></div>
-  <p style="text-align:center;margin-top:1.4rem;">
-    <a href="/head-spa-rituel" style="display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;letter-spacing:0.04em;color:#684034;text-decoration:none;border-bottom:1.5px solid #C9973A;padding-bottom:3px;">
+  <p style="text-align:center;margin:2.2rem 0 0;">
+    <span style="display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.2rem;line-height:1.4;color:#684034;margin-bottom:.8rem;" data-fr="Curieux de savoir comment se déroule votre soin ?" data-en="Curious how your treatment unfolds?">Curieux de savoir comment se déroule votre soin ?</span>
+    <a href="/head-spa-rituel" style="display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#684034;text-decoration:none;border:1.5px solid #684034;border-radius:2px;padding:0.8rem 1.6rem;">
       <span data-fr="Voir le rituel, étape par étape" data-en="See the ritual, step by step">Voir le rituel, étape par étape</span><span aria-hidden="true">→</span>
     </a>
   </p>
@@ -7067,12 +7072,12 @@ input, textarea, select {
 <script>
 /* ── Edit services here ─────────────────────────────────── */
 const SERVICES = [
-  { key: "solo-60",  category: "SOLO · 60 MIN",  name: "Solo 60 min Focus Scalpcial",      img: "/assets/60%20min%20SOLO%20ROOM.webp?v=1" },
-  { key: "duo-60",   category: "DUO · 60 MIN",   name: "Duo 60 min Focus Scalpcial",       img: "/assets/DUO%20ROOM.webp?v=1" },
-  { key: "solo-90",  category: "SOLO · 90 MIN",  name: "Solo 90 min Signature Scalpcial",  img: "/assets/head-spa-shampoing-haut.webp?v=1" },
-  { key: "duo-90",   category: "DUO · 90 MIN",   name: "Duo 90 min Signature Scalpcial",   img: "/assets/head-spa-serviette-neon.webp?v=1" },
-  { key: "trio-60",  category: "TRIO · 60 MIN",  name: "Trio 60 min Focus Scalpcial",      img: "/assets/head-spa-huile-pipette.webp?v=1" },
-  { key: "trio-90",  category: "TRIO · 90 MIN",  name: "Trio 90 min Signature Scalpcial",  img: "/assets/head-spa-eau-violet.webp?v=1" },
+  { key: "solo-60", category: "SOLO · 60 MIN", name: "Solo 60 min Focus Scalpcial", title: "Solo · 60 min", sub: "Focus Scalpcial", detailFr: "Pour une personne. Massage japonais profond, déstressant.", detailEn: "For one person. Deep, de-stressing Japanese massage.", img: "/assets/head-spa-vapeur-bonnet.webp?v=1" },
+  { key: "duo-60", category: "DUO · 60 MIN", name: "Duo 60 min Focus Scalpcial", title: "Duo · 60 min", sub: "Focus Scalpcial", detailFr: "Pour deux personnes, simultanément. Idéal en couple ou entre amis.", detailEn: "For two people at the same time. Ideal as a couple or with friends.", img: "/assets/head-spa-rincage-vert.webp?v=1" },
+  { key: "solo-90", category: "SOLO · 90 MIN", name: "Solo 90 min Signature Scalpcial", title: "Solo · 90 min", sub: "Signature Scalpcial", detailFr: "Pour une personne. Le rituel complet, expérience signature avec soin capillaire avancé.", detailEn: "For one person. The complete ritual, a signature experience with advanced hair care.", img: "/assets/head-spa-shampoing-haut.webp?v=1" },
+  { key: "duo-90", category: "DUO · 90 MIN", name: "Duo 90 min Signature Scalpcial", title: "Duo · 90 min", sub: "Signature Scalpcial", detailFr: "Pour deux personnes. L'expérience duo la plus complète.", detailEn: "For two people. The most complete duo experience.", img: "/assets/head-spa-serviette-neon.webp?v=1" },
+  { key: "trio-60", category: "TRIO · 60 MIN", name: "Trio 60 min Focus Scalpcial", title: "Trio · 60 min", sub: "Focus Scalpcial", detailFr: "Pour trois personnes. Parfait pour un groupe ou une occasion spéciale.", detailEn: "For three people. Perfect for a group or a special occasion.", img: "/assets/head-spa-huile-pipette.webp?v=1" },
+  { key: "trio-90", category: "TRIO · 90 MIN", name: "Trio 90 min Signature Scalpcial", title: "Trio · 90 min", sub: "Signature Scalpcial", detailFr: "Pour trois personnes. L'expérience groupe ultime chez Skines.", detailEn: "For three people. The ultimate group experience at Skines.", img: "/assets/head-spa-eau-violet.webp?v=1" },
 ];
 /* ─────────────────────────────────────────────────────────── */
 
@@ -7082,9 +7087,10 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
   <div class="svc-card" data-svc="${s.key}">
     <div class="svc-img" style="cursor:pointer"><img src="${s.img}" alt="${s.name}" loading="lazy"></div>
     <div class="svc-info">
-      <p class="svc-duration">${s.category}</p>
-      <span class="svc-name">${s.name}</span>
-      <a class="svc-book-btn" href="${BOOKING}" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK">RÉSERVER</span></a>
+      <h3 class="svc-title">${s.title}</h3>
+      <p class="svc-sub">${s.sub}</p>
+      <p class="svc-detail" data-fr="${s.detailFr}" data-en="${s.detailEn}">${s.detailFr}</p>
+      <a class="svc-book-btn" href="${BOOKING}" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER CE RITUEL" data-en="BOOK THIS RITUAL">RÉSERVER CE RITUEL</span></a>
     </div>
   </div>
 `).join("");
@@ -7100,7 +7106,7 @@ document.getElementById("services-grid").innerHTML = SERVICES.map(s => `
     <div class="family-eyebrow" data-en="Why Skines" data-fr="Pourquoi Skines">Pourquoi Skines</div>
     <div class="why-main">
       <h2 id="skFamilyTitle" class="family-title" data-fr="Pourquoi choisir Skines Head Spa &amp; Wellness à Montréal ?" data-en="Why choose Skines Head Spa &amp; Wellness in Montréal?">Pourquoi choisir Skines Head Spa &amp; Wellness à Montréal ?</h2>
-      <p id="skFamilyDesc" class="family-desc" data-fr="Nous avons commencé petit, nous avons grandi, nous avons déménagé en Petite-Italie et élargi nos soins. Et nous continuons." data-en="We started small, we grew, we moved to Little Italy and expanded our treatments. And we are not done.">Nous avons commencé petit, nous avons grandi, nous avons déménagé en Petite-Italie et élargi nos soins. Et nous continuons.</p>
+      <p id="skFamilyDesc" class="family-desc" data-fr="Head Spa japonais à Montréal : rituel Scalpcial, soins du visage et épilation laser, en Petite-Italie, près du marché Jean-Talon." data-en="Japanese Head Spa in Montréal: Scalpcial ritual, facials and laser hair removal, in Little Italy, near Jean-Talon Market.">Head Spa japonais à Montréal : rituel Scalpcial, soins du visage et épilation laser, en Petite-Italie, près du marché Jean-Talon.</p>
     </div>
     <ul class="why-points">
       <li><strong data-fr="Best in Class 2026" data-en="Best in Class 2026">Best in Class 2026</strong><span data-fr="Distinction Fresha" data-en="Fresha award">Distinction Fresha</span></li>
@@ -7529,7 +7535,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
   /* FAQ : deux colonnes alignées à gauche — titre + action à gauche, questions numérotées à droite */
   html body section#faq.faq-section:not(#_):not(#__) {
     max-width: 1180px !important; margin: 0 auto !important;
-    padding: clamp(3.5rem, 7vw, 6rem) clamp(1.4rem, 4vw, 3rem) !important;
+    padding: clamp(2.2rem, 4vw, 3.4rem) clamp(1.4rem, 4vw, 3rem) clamp(1.2rem, 2.2vw, 1.8rem) !important;
     display: grid !important; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); column-gap: clamp(2rem, 6vw, 6rem); align-items: start;
     counter-reset: faqn;
   }
@@ -7549,8 +7555,10 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
   #faq .faq-q svg { color: #684034; }
   #faq .faq-q:hover { color: #684034 !important; }
   #faq .faq-a { padding-left: 3.1rem !important; }
-  html body section#skLinksBand:not(#_):not(#__) { text-align: left !important; padding: 2.4rem max(1.4rem, calc((100% - 1180px) / 2 + 3rem)) !important; }
-  #skLinksBand > div { justify-content: flex-start !important; max-width: none !important; margin: 1rem 0 0 !important; gap: .6rem 2rem !important; }
+  html body section#skLinksBand:not(#_):not(#__) { text-align: left !important; padding: 1.2rem max(1.4rem, calc((100% - 1180px) / 2 + 3rem)) 1.6rem !important; }
+  #skLinksBand > div { display: grid !important; grid-template-columns: repeat(3, max-content) !important; justify-content: start !important; max-width: none !important; margin: .7rem 0 0 !important; gap: .5rem 3rem !important; }
+  @media (max-width: 720px) { #skLinksBand > div { grid-template-columns: 1fr !important; } }
+  #skLinksBand a { font-size: .83rem !important; white-space: nowrap; }
   #skLinksBand > p { margin: 0 !important; }
   /* animation de l'accordéon */
   #faq .faq-a { display: block !important; max-height: 0; overflow: hidden; opacity: 0; padding-top: 0 !important; transition: max-height .45s cubic-bezier(.22,.61,.36,1), opacity .35s ease; }
@@ -7575,7 +7583,7 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
     box-shadow: 0 0 0 100vmax #EBDCC0;
     clip-path: inset(0 -100vmax);
   }
-  html body section#skLinksBand:not(#_):not(#__) { background: #EBDCC0 !important; border-top-color: rgba(104,64,52,.18) !important; }
+  html body section#skLinksBand:not(#_):not(#__) { background: #EBDCC0 !important; border-top-color: transparent !important; }
 </style>
 <!-- ── FAQ Section ── -->
 <section class="faq-section" id="faq" aria-label="Questions fréquentes Head Spa Montréal" style="background:var(--bg);padding:5rem 2rem 4rem;max-width:860px;margin:0 auto;">
@@ -8798,7 +8806,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
 
   var DATA = {
     'solo-60': {
-      images: ['assets/60%20min%20SOLO%20ROOM.webp?v=1','assets/IMG_4654.webp?v=1'],
+      images: ['assets/head-spa-vapeur-bonnet.webp?v=1','assets/IMG_4654.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · SOLO · 60 MIN',
         title: 'Focus Scalpcial Solo 60 min',
@@ -8890,7 +8898,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
       }
     },
     'duo-60': {
-      images: ['assets/DUO%20ROOM.webp?v=1','assets/card-head-spa.webp?v=1'],
+      images: ['assets/head-spa-rincage-vert.webp?v=1','assets/card-head-spa.webp?v=1'],
       fr: {
         eyebrow: 'HEAD SPA · DUO · 60 MIN',
         title: 'Focus Scalpcial Duo 60 min',
@@ -9368,5 +9376,71 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
   }, true);
 })();
 </script>
+<style id="sk-palette">
+/* Head Spa palette — brown #684034 stays; everything else follows one sage-teal family */
+:root { --sk-base: #FAF1EC; --sk-sec: #F0DCD4; --sk-sec2: #E7CCC1; --sk-card: #FFF8F4; --sk-accent: #E0B09B; --sk-accent-soft: #EBC9BC; --sk-ink: #4A2A22; --sk-text: #6A4A41; }
+html:not(#_):not(#__) { background-color: var(--sk-sec) !important; }
+html body:not(#_):not(#__) { background-color: var(--sk-base) !important; }
+html body section[style*="padding-bottom:clamp(2rem"]:not(#_):not(#__) { background-color: var(--sk-sec) !important; }
+html body .family-section:not(#_):not(#__) { background-color: var(--sk-base) !important; }
+html body .svc-card:not(#_):not(#__) { background-color: var(--sk-card) !important; }
+html body .svc-book-btn:not(#_):not(#__) { background-color: var(--sk-accent) !important; background-image: none !important; color: #684034 !important; }
+html body section#faq.faq-section:not(#_):not(#__), html body section#skLinksBand:not(#_):not(#__) { background-color: var(--sk-sec2) !important; }
+html body section#faq.faq-section:not(#_):not(#__) { box-shadow: 0 0 0 100vmax var(--sk-sec2) !important; }
+html body #scrollTop:not(#_):not(#__) { background-color: var(--sk-accent) !important; }
+html body .site-footer svg:not(#_):not(#__) { color: var(--sk-accent-soft) !important; }
+html body .site-footer .sf-nav-label:not(#_):not(#__) { color: var(--sk-accent-soft) !important; }
+html body .mnav-acc-btn:not(#_):not(#__) { color: var(--sk-accent-soft) !important; }
+html body .mobile-nav-close:not(#_):not(#__) { background-color: var(--sk-accent) !important; }
+html body .nav-cta:not(#_):not(#__) { border-color: rgba(235,201,188,.6) !important; }
+html body .nav-lang-pill:not(#_):not(#__) { border-color: rgba(235,201,188,.5) !important; }
+html body .nav-lang-divider:not(#_):not(#__) { background-color: rgba(235,201,188,.55) !important; }
+/* text follows the palette */
+html body section[style*="padding-bottom:clamp(2rem"] > p:not(#_):not(#__), html body section[style*="padding-bottom:clamp(2rem"] > p em:not(#_):not(#__) { color: var(--sk-ink) !important; }
+html body .svc-card .svc-name:not(#_):not(#__), html body .svc-card .svc-cat:not(#_):not(#__), html body .svc-card .svc-body > *:not(a):not(#_):not(#__) { color: var(--sk-ink) !important; }
+html body #skFamilyTitle:not(#_):not(#__) { color: var(--sk-ink) !important; }
+html body #skFamilyDesc:not(#_):not(#__), html body .why-points span:not(#_):not(#__) { color: var(--sk-text) !important; }
+html body .why-points strong:not(#_):not(#__) { color: var(--sk-ink) !important; }
+html body #faq .faq-title:not(#_):not(#__), html body #faq .faq-item *:not(#_):not(#__) { color: var(--sk-ink) !important; }
+html body #faq .faq-lead:not(#_):not(#__), html body #faq .faq-note p:not(#_):not(#__) { color: var(--sk-text) !important; }
+html body #skLinksBand > p:not(#_):not(#__) { color: #9A6552 !important; }
+html body #skLinksBand a:not(#_):not(#__) { color: var(--sk-ink) !important; }
+/* service cards: label + name as one matched pair (DM Sans caps over Cormorant) */
+html body .svc-card .svc-duration:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: .72rem !important; font-weight: 600 !important; letter-spacing: .18em !important; text-transform: uppercase !important; color: #684034 !important; margin-bottom: .35rem !important; }
+html body .svc-card .svc-name:not(#_):not(#__) { font-family: "Cormorant Garamond", Georgia, serif !important; font-size: 1.3rem !important; font-weight: 600 !important; letter-spacing: .005em !important; line-height: 1.2 !important; color: var(--sk-ink) !important; }
+/* new card text: big title + ritual name + short details (DM Sans, lining numbers) */
+html body .svc-card .svc-title:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: 1.55rem !important; font-weight: 600 !important; letter-spacing: -.01em !important; line-height: 1.15 !important; color: var(--sk-ink) !important; margin: 0 0 .3rem !important; font-feature-settings: "lnum" 1; }
+html body .svc-card .svc-sub:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: .72rem !important; font-weight: 600 !important; letter-spacing: .18em !important; text-transform: uppercase !important; color: #9A6552 !important; margin: 0 0 .8rem !important; }
+html body .svc-card .svc-detail:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: .88rem !important; font-weight: 400 !important; line-height: 1.55 !important; color: var(--sk-text) !important; margin: 0 0 1.1rem !important; min-height: 3.2em; text-align: center; }
+/* one typeface family on this page (no old-style numerals) */
+html body #skFamilyTitle:not(#_):not(#__), html body #faq .faq-title:not(#_):not(#__), html body .why-points strong:not(#_):not(#__), html body section[style*="padding-bottom:clamp(2rem"] > p:not(#_):not(#__), html body section[style*="padding-bottom:clamp(2rem"] > p em:not(#_):not(#__), html body section[style*="padding-bottom:clamp(2rem"] > p > span:first-child:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-feature-settings: "lnum" 1; }
+html body #skFamilyTitle:not(#_):not(#__) { font-size: clamp(1.4rem, 2.2vw, 1.9rem) !important; font-weight: 500 !important; letter-spacing: -.015em !important; }
+html body #faq .faq-title:not(#_):not(#__) { font-size: clamp(1.7rem, 2.8vw, 2.4rem) !important; font-weight: 500 !important; letter-spacing: -.02em !important; line-height: 1.12 !important; }
+html body .why-points strong:not(#_):not(#__) { font-size: .98rem !important; font-weight: 600 !important; }
+html body section[style*="padding-bottom:clamp(2rem"] > p:not(#_):not(#__) { font-weight: 500 !important; }
+html body section[style*="padding-bottom:clamp(2rem"] > p em:not(#_):not(#__) { font-style: normal !important; font-weight: 400 !important; }
+html body section[style*="padding-bottom:clamp(2rem"] > p > span:first-child:not(#_):not(#__) { font-style: normal !important; font-size: 1rem !important; font-weight: 500 !important; }
+/* links band: centered title and an even 3×2 grid of links */
+html body section#skLinksBand:not(#_):not(#__) { text-align: center !important; padding: 1.8rem 1.4rem 2.1rem !important; }
+html body #skLinksBand > p:not(#_):not(#__) { text-align: center !important; font-size: .74rem !important; letter-spacing: .24em !important; margin: 0 0 1.1rem !important; }
+html body #skLinksBand > div:not(#_):not(#__) { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; justify-content: center !important; justify-items: center !important; max-width: 920px !important; margin: 0 auto !important; gap: .85rem 2rem !important; }
+html body #skLinksBand a:not(#_):not(#__) { text-align: center; font-size: .9rem !important; text-underline-offset: 4px; text-decoration-thickness: 1px; white-space: normal; }
+@media (max-width: 720px) { html body #skLinksBand > div:not(#_):not(#__) { grid-template-columns: 1fr !important; } }
+@media (max-width: 600px) {
+  html body .svc-card .svc-title:not(#_):not(#__) { font-size: 1.12rem !important; }
+  html body .svc-card .svc-sub:not(#_):not(#__) { font-size: .6rem !important; letter-spacing: .1em !important; margin-bottom: .55rem !important; }
+  html body .svc-card .svc-detail:not(#_):not(#__) { font-size: .78rem !important; line-height: 1.5 !important; min-height: 0 !important; }
+  html body .svc-card .svc-book-btn:not(#_):not(#__) { box-sizing: border-box !important; min-width: 0 !important; max-width: 100% !important; width: 100% !important; padding: .7rem .3rem !important; }
+  html body .svc-card .svc-book-btn span:not(#_):not(#__) { font-size: .64rem !important; letter-spacing: .06em !important; white-space: normal !important; }
+}
+/* intro above the cards */
+html body .svc-intro:not(#_):not(#__) { text-align: center; margin: 0 auto 1.2rem; max-width: 900px; padding: 0 1rem; }
+html body .svc-intro .svc-intro-title:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: clamp(1.7rem, 3.4vw, 2.7rem) !important; font-weight: 600 !important; letter-spacing: -.02em !important; line-height: 1.12 !important; color: var(--sk-ink) !important; margin: .4rem 0 .7rem !important; text-shadow: none !important; font-feature-settings: "lnum" 1; }
+html body .svc-intro .svc-intro-sub:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: clamp(.95rem, 1.4vw, 1.12rem) !important; font-weight: 400 !important; line-height: 1.55 !important; color: var(--sk-text) !important; margin: 0 !important; }
+/* FAQ numbers */
+html body #faq .faq-q > span:first-child:not(#_):not(#__)::before { font-family: "DM Sans", sans-serif !important; font-size: .78rem !important; font-weight: 600 !important; letter-spacing: .12em !important; opacity: 1 !important; color: #684034 !important; font-variant-numeric: lining-nums tabular-nums; }
+/* "Voir le rituel" as a filled box in the pink accent */
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"]:not(#_):not(#__) { background: var(--sk-accent) !important; border-color: var(--sk-accent) !important; color: #684034 !important; border-radius: 2px !important; }
+</style>
 </body>
 </html>
