@@ -9433,6 +9433,13 @@ html body #skLinksBand a:not(#_):not(#__) { text-align: center; font-size: .9rem
   html body .svc-card .svc-book-btn:not(#_):not(#__) { box-sizing: border-box !important; min-width: 0 !important; max-width: 100% !important; width: 100% !important; padding: .7rem .3rem !important; }
   html body .svc-card .svc-book-btn span:not(#_):not(#__) { font-size: .64rem !important; letter-spacing: .06em !important; white-space: normal !important; }
 }
+/* card photos: 20% zoom-in, clipped by the frame */
+html body .svc-card .svc-img:not(#_):not(#__) { overflow: hidden !important; }
+html body .svc-card .svc-img img:not(#_):not(#__) { transform: scale(1.2) !important; transform-origin: center center; }
+/* FAQ booking button: brown to match the nav/footer and stand out on the pink */
+html body #faq .faq-cta a:not(#_):not(#__) { background: #684034 !important; border-color: #684034 !important; color: #F5EDE3 !important; box-shadow: 0 10px 24px rgba(104,64,52,.28) !important; }
+html body #faq .faq-cta a:not(#_):not(#__) span { color: #F5EDE3 !important; }
+html body #faq .faq-cta a:hover:not(#_):not(#__) { background: #7A4B3D !important; border-color: #7A4B3D !important; }
 /* intro above the cards */
 html body .svc-intro:not(#_):not(#__) { text-align: center; margin: 0 auto 1.2rem; max-width: 900px; padding: 0 1rem; }
 html body .svc-intro .svc-intro-title:not(#_):not(#__) { font-family: "DM Sans", sans-serif !important; font-size: clamp(1.7rem, 3.4vw, 2.7rem) !important; font-weight: 600 !important; letter-spacing: -.02em !important; line-height: 1.12 !important; color: var(--sk-ink) !important; margin: .4rem 0 .7rem !important; text-shadow: none !important; font-feature-settings: "lnum" 1; }
@@ -9440,7 +9447,13 @@ html body .svc-intro .svc-intro-sub:not(#_):not(#__) { font-family: "DM Sans", s
 /* FAQ numbers */
 html body #faq .faq-q > span:first-child:not(#_):not(#__)::before { font-family: "DM Sans", sans-serif !important; font-size: .78rem !important; font-weight: 600 !important; letter-spacing: .12em !important; opacity: 1 !important; color: #684034 !important; font-variant-numeric: lining-nums tabular-nums; }
 /* "Voir le rituel" as a filled box in the pink accent */
-html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"]:not(#_):not(#__) { background: var(--sk-accent) !important; border-color: var(--sk-accent) !important; color: #684034 !important; border-radius: 2px !important; }
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"]:not(#_):not(#__) { background: #684034 !important; border-color: #684034 !important; color: #F5EDE3 !important; border-radius: 2px !important; box-shadow: 0 10px 24px rgba(104,64,52,.22) !important; }
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"] span:not(#_):not(#__) { color: #F5EDE3 !important; }
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"]:hover:not(#_):not(#__) { background: #7A4B3D !important; border-color: #7A4B3D !important; }
+/* both big buttons share the pink-copper accent with brown text */
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"]:not(#_):not(#__), html body #faq .faq-cta a:not(#_):not(#__) { background: var(--sk-accent) !important; border-color: var(--sk-accent) !important; color: #684034 !important; box-shadow: 0 8px 20px rgba(104,64,52,.16) !important; }
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"] span:not(#_):not(#__), html body #faq .faq-cta a span:not(#_):not(#__) { color: #684034 !important; }
+html body section[style*="padding-bottom:clamp(2rem"] a[href="/head-spa-rituel"]:hover:not(#_):not(#__), html body #faq .faq-cta a:hover:not(#_):not(#__) { background: #D79F89 !important; border-color: #D79F89 !important; }
 </style>
 </body>
 </html>
