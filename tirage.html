@@ -1116,6 +1116,62 @@ a.sf-logo {
   }
 }
 
+
+/* ── Desktop étroit (981–1320px) : le logo reste centré, rien ne le chevauche ──
+   À ces largeurs, le logo (≈240px) mordait sur les liens de gauche et cachait
+   le bouton Réserver. On réduit le logo, resserre les liens et empêche le
+   retour à la ligne. Sélecteurs :not(#_):not(#__) = spécificité supérieure aux
+   correctifs par page (#mainNav#mainNav) ; ce fichier charge en dernier. */
+@media (min-width: 981px) and (max-width: 1320px) {
+  html body nav:not(#_):not(#__) {
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+  }
+  html body nav:not(#_):not(#__) .logo-text {
+    font-size: 1.35rem !important;
+    letter-spacing: 0.3em !important;
+    padding-left: 0.3em !important;
+  }
+  html body nav:not(#_):not(#__) .logo-sub {
+    font-size: 0.46rem !important;
+    letter-spacing: 0.24em !important;
+    padding-left: 0.24em !important;
+  }
+  html body nav:not(.nav-scrolled):not(#_):not(#__) .logo-brand {
+    padding: 0.3rem 0.5rem !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links {
+    gap: 1rem !important;
+    flex-wrap: nowrap !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links li {
+    white-space: nowrap !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links a,
+  html body nav:not(#_):not(#__) .nav-dd-label {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap !important;
+  }
+  html body nav:not(#_):not(#__) .nav-cta {
+    margin-left: auto !important;
+    margin-right: 0.5rem !important;
+    padding: 0.55rem 0.8rem !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  html body nav:not(#_):not(#__) .lang-switcher {
+    margin-right: 0.5rem !important;
+    padding: 0.3rem 0.5rem !important;
+    gap: 0.35rem !important;
+  }
+  html body nav:not(#_):not(#__) .nav-dd-trigger {
+    padding: 0.5rem 0.75rem !important;
+  }
+  html body nav:not(#_):not(#__) .nav-links-guide {
+    margin: 0 !important;
+  }
+}
 </style>
 <style id="animations-css-inline">
 /* ══ Skines — Unified Animation System ══
@@ -2324,6 +2380,15 @@ html body nav {}
 <style id="sk-font-dmsans">
 /* Typography system: DM Sans in page content, lining numerals. Logo, nav and footer wordmark keep their current serif for now. */
 html body :is(h1,h2,h3,h4,h5,p,a,span,em,i,li,div,button,strong,label,input,textarea,select,td,th,summary,blockquote):not(nav *):not(footer *):not(#mobileNav *):not(#searchOverlay *):not(.logo-text):not(.logo-sub):not(#_):not(#__){font-family:"DM Sans",sans-serif !important;font-style:normal !important;font-variant-numeric:lining-nums !important}
+</style>
+<style id="sk-nav-order">
+@media (min-width: 981px) {
+  html body nav:not(#_):not(#__) .nav-search-btn { order: 0 !important; margin: 0 1.6rem 0 0 !important; }
+  html body nav:not(#_):not(#__) .nav-links:not(.nav-links-guide) { order: 1 !important; }
+  html body nav:not(#_):not(#__) .nav-links-guide { order: 2 !important; margin-left: auto !important; margin-right: 0.5rem !important; }
+  html body nav:not(#_):not(#__) .lang-switcher { order: 3 !important; margin-left: 0 !important; margin-right: 1rem !important; }
+  html body nav:not(#_):not(#__) .nav-cta { order: 4 !important; margin-left: 0 !important; margin-right: 0 !important; }
+}
 </style>
 </body>
 </html>
