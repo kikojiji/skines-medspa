@@ -161,14 +161,14 @@
       // Jean-Talon only appears when the visitor zooms out; the P sign only when zoomed in
       var farEl = badge('M', 'skm-metro', (en ? 'Metro ' : 'Métro ') + METRO_FAR.name, '', METRO_FAR.img);
       new maplibregl.Marker({ element: farEl, anchor: 'center' }).setLngLat(METRO_FAR.pos).addTo(map);
-      var pEl = document.createElement('div'); pEl.className = 'skm-pwrap'; pEl.innerHTML = '<span class="skm-psign"><b>P</b><u>PARKING</u></span><span class="skm-ppost"></span>';
+      var pEl = document.createElement('div'); pEl.className = 'skm-pmark'; pEl.innerHTML = '<div class="skm-pwrap"><span class="skm-psign"><b>P</b><u>PARKING</u></span><span class="skm-ppost"></span></div>'; var pInner = pEl.firstChild;   // the map library controls the opacity of the marker element itself, so the sign fades on an inner box
       new maplibregl.Marker({ element: pEl, anchor: 'bottom' }).setLngLat(PSIGN).addTo(map);
       function syncMarkers() {
         var z = map.getZoom();
         farEl.classList.toggle('skm-hide', z >= (el.clientWidth < 600 ? 13.9 : 15.4));
-        pEl.classList.toggle('skm-hide', z < 17.2);   // the signboard appears only when the visitor zooms in close, together with the painted P's on the bays
+        pInner.classList.toggle('skm-show', z >= 18.1);   // the signboard appears only when the visitor zooms in very close
       }
-      map.on('zoom', syncMarkers); map.on('load', syncMarkers);
+      map.on('zoom', syncMarkers); map.on('zoomend', syncMarkers); map.on('moveend', syncMarkers); map.on('idle', syncMarkers); map.on('load', syncMarkers); syncMarkers();
 
       // opening view: Skines exactly in the centre; the frame is symmetrical around it so the nearest metro stays visible
       var r = Math.max(Math.abs(METRO[0].pos[0] - SHOP[0]), Math.abs(METRO[0].pos[1] - SHOP[1]) * 1.4) * (el.clientWidth < 600 ? 1.55 : 1.02);
@@ -190,7 +190,7 @@
         map.addLayer({ id: 'bays-fill', type: 'fill', source: 'bays', minzoom: 16.2, paint: { 'fill-color': '#E9BCA7', 'fill-opacity': 0.96 } }, firstSymbol);
         map.addLayer({ id: 'bays-line', type: 'line', source: 'bays', minzoom: 16.2, paint: { 'line-color': '#FFFFFF', 'line-width': 1.3 } }, firstSymbol);
         map.addSource('bay-p', { type: 'geojson', data: { type: 'FeatureCollection', features: BAYS.map(function (b) { return { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: b.center } }; }) } });
-        map.addLayer({ id: 'bays-p', type: 'symbol', source: 'bay-p', minzoom: 17.2, layout: { 'text-field': 'P', 'text-font': ['Noto Sans Bold'], 'text-size': ['interpolate', ['linear'], ['zoom'], 17.2, 11, 19, 21], 'text-rotation-alignment': 'map', 'text-pitch-alignment': 'map', 'text-rotate': BAY_TURN, 'text-allow-overlap': true, 'text-ignore-placement': true }, paint: { 'text-color': '#684034', 'text-opacity': 0.9 } });
+        map.addLayer({ id: 'bays-p', type: 'symbol', source: 'bay-p', minzoom: 17.6, layout: { 'text-field': 'P', 'text-font': ['Noto Sans Bold'], 'text-size': ['interpolate', ['linear'], ['zoom'], 17.6, 11, 19, 21], 'text-rotation-alignment': 'map', 'text-pitch-alignment': 'map', 'text-rotate': BAY_TURN, 'text-allow-overlap': true, 'text-ignore-placement': true }, paint: { 'text-color': '#684034', 'text-opacity': 0.9 } });
         // give the Skines building its own colour (found from the map data under the entrance)
         map.once('idle', function () {
           try {
