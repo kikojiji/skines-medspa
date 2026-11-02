@@ -9384,6 +9384,9 @@ html body #facial-grid.list-view .svc-img img{height:100% !important;object-fit:
 html body #facial-grid.list-view .svc-info:not(#_):not(#__):not(#___){padding:1.1rem 1.6rem !important}
 html body #facial-grid.list-view .svc-desc:not(#_):not(#__):not(#___){-webkit-line-clamp:3 !important;font-size:.9rem !important;margin:.3rem 0 .8rem !important}
 }
+html body #facial-grid:not(.list-view){align-items:stretch !important}
+html body #facial-grid:not(.list-view) .svc-card:not(#_):not(#__):not(#___){align-self:stretch !important}
+html body #facial-grid:not(.list-view) .svc-desc:not(#_):not(#__):not(#___){min-height:5.4em !important}
 </style>
 <style id="sk-hint">
 html body .product-card.sk-clickable{transition:transform .25s ease,box-shadow .25s ease}
@@ -9526,5 +9529,21 @@ html body .sk-end a.sk-end-form-btn:not(#_){display:inline-flex;align-items:cent
 html body .sk-end a.sk-end-form-btn:hover{background:#9A6552;color:#FAF1EC !important}
 @media (max-width:600px){html body .sk-end .sk-end-row{flex-direction:column}html body .sk-end a.sk-end-form-btn:not(#_){padding:.9rem 1.6rem}}
 </style>
+<script>
+(function(){
+  var grid=document.getElementById('facial-grid'); if(!grid) return;
+  function eq(){
+    var cards=grid.querySelectorAll('.svc-card'); if(!cards.length) return;
+    for(var i=0;i<cards.length;i++) cards[i].style.minHeight='';
+    if(grid.classList.contains('list-view')) return;
+    var m=0; for(var j=0;j<cards.length;j++) m=Math.max(m,cards[j].getBoundingClientRect().height);
+    for(var k=0;k<cards.length;k++) cards[k].style.minHeight=Math.ceil(m)+'px';
+  }
+  var t; function later(){ clearTimeout(t); t=setTimeout(eq,120); }
+  window.addEventListener('resize',later); window.addEventListener('load',later);
+  document.querySelectorAll('.lang-btn,.view-btn').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(eq,250); }); });
+  setTimeout(eq,400);
+})();
+</script>
 </body>
 </html>
