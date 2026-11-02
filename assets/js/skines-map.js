@@ -161,12 +161,12 @@
       // Jean-Talon only appears when the visitor zooms out; the P sign only when zoomed in
       var farEl = badge('M', 'skm-metro', (en ? 'Metro ' : 'Métro ') + METRO_FAR.name, '', METRO_FAR.img);
       new maplibregl.Marker({ element: farEl, anchor: 'center' }).setLngLat(METRO_FAR.pos).addTo(map);
-      var pEl = document.createElement('div'); pEl.className = 'skm-pwrap'; pEl.innerHTML = '<span class="skm-psign"><b>P</b></span><span class="skm-ppost"></span>';
+      var pEl = document.createElement('div'); pEl.className = 'skm-pwrap'; pEl.innerHTML = '<span class="skm-psign"><b>P</b><u>PARKING</u></span><span class="skm-ppost"></span>';
       new maplibregl.Marker({ element: pEl, anchor: 'bottom' }).setLngLat(PSIGN).addTo(map);
       function syncMarkers() {
         var z = map.getZoom();
         farEl.classList.toggle('skm-hide', z >= (el.clientWidth < 600 ? 13.9 : 15.4));
-        pEl.classList.toggle('skm-hide', z < 16.2 || z >= 17.2);   // close up: the painted P's on the bays; zooming out: the signboard takes over
+        pEl.classList.toggle('skm-hide', z < 17.2);   // the signboard appears only when the visitor zooms in close, together with the painted P's on the bays
       }
       map.on('zoom', syncMarkers); map.on('load', syncMarkers);
 
