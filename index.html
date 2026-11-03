@@ -70,14 +70,15 @@
 <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
 <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
 <meta name="theme-color" content="#684034">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/ShipporiMincho-600-latin.woff2" crossorigin>
 <style id="sk-boot">
 /* No flashes on load: brown canvas from the first paint, content fades in once ready */
 html:not(#_):not(#__){background:#684034 !important}
 html.sk-pre body{opacity:0}
-html:not(.sk-pre) body{animation:skBootIn .55s ease both}
+html:not(.sk-pre) body{animation:skBootIn .4s ease both}
 @keyframes skBootIn{from{opacity:0}to{opacity:1}}
 </style>
-<script>document.documentElement.classList.add('sk-pre');setTimeout(function(){document.documentElement.classList.remove('sk-pre')},1100);</script>
+<script>document.documentElement.classList.add('sk-pre');setTimeout(function(){document.documentElement.classList.remove('sk-pre')},700);</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -7769,6 +7770,18 @@ input, textarea, select {
     window.__skMark && window.__skMark('watchdog-fired');
   }, 8000);
 </script>
+<style id="sk-awu-head">@media (max-width:980px){
+html body nav#mainNav .sk-gift:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){z-index:5;position:absolute;left:78px;top:20px;width:30px;height:30px;border:0;display:flex;align-items:center;justify-content:center;color:#fff;background:transparent}
+html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______)>div:not(.contact-more) .contact-row,html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).sk-fold:not(.open) .contact-intro,html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).sk-fold:not(.open) .contact-place,html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).sk-fold:not(.open) .contact-more{display:none}
+html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).open>div .contact-row,html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).open .contact-intro,html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).open .contact-place,html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______).open .contact-more{display:flex}
+html body section#contact.sk-fold:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){cursor:pointer}
+}
+@media (min-width:981px){.sk-gift{display:none}}</style>
+<script>document.addEventListener('DOMContentLoaded',function(){if(innerWidth>980)return;var n=document.getElementById('mainNav');if(!n)return;
+var g=document.createElement('a');g.className='sk-gift';g.href='/cartes-cadeaux';g.setAttribute('aria-label','Cartes-cadeaux');g.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11.5"/><rect x="2.5" y="6.5" width="19" height="2.5"/><path d="M12 6.5v14M12 6.5C10.5 3 7 3.2 7.6 5.3c.4 1.2 2.7 1.2 4.4 1.2zM12 6.5c1.5-3.5 5-3.3 4.4-1.2-.4 1.2-2.7 1.2-4.4 1.2z"/></svg>';n.appendChild(g);
+
+var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addEventListener('click',function(e){if(e.target.closest('a'))return;c.classList.toggle('open')})}
+document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute('open')})});</script>
 <nav id="mainNav">
     <a class="logo" href="/">
       <div class="logo-brand">
@@ -8246,6 +8259,117 @@ input, textarea, select {
 
 
 
+<style id="sk-awu-sections">
+@media (max-width:980px){
+html body section.sk-xp:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){background:#F9BE96!important;padding:64px 20px 72px;border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:5;text-align:center;color:#4A2A22}
+.sk-xp__k{font:500 .68rem/1 'DM Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;opacity:.7}
+html body h2.sk-xp__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font:500 1.9rem/1.15 'DM Sans',sans-serif!important;margin:14px 0 10px;color:#4A2A22}
+.sk-xp__p{font:400 .95rem/1.6 'DM Sans',sans-serif;max-width:30ch;margin:0 auto 34px;color:#6A4A41}
+.sk-xp__col{position:relative;height:560px;max-width:360px;margin:0 auto}
+.sk-xp__col img{position:absolute;object-fit:cover;border-radius:6px;box-shadow:0 14px 34px rgba(74,42,34,.18)}
+.sk-xp__col img:nth-child(1){left:0;top:0;width:58%;height:250px}
+.sk-xp__col img:nth-child(2){right:0;top:90px;width:50%;height:210px}
+.sk-xp__col img:nth-child(3){left:6%;top:290px;width:46%;height:200px}
+.sk-xp__col img:nth-child(4){right:2%;top:330px;width:52%;height:230px}
+.sk-xp__rv{opacity:.01;transform:translate3d(0,2rem,0);transition:opacity .9s cubic-bezier(0,0,.3,1),transform .9s cubic-bezier(0,0,.3,1)}
+.sk-xp__rv.in{opacity:1;transform:none}
+html body section.sk-brown:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){background:#684034!important;color:#F5EDE3;padding:64px 28px;text-align:center;border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:6}
+html body section.sk-brown p:not(#_):not(#__):not(#___):not(#____):not(#_____){color:#F5EDE3!important;font:500 1.35rem/1.4 'DM Sans',sans-serif!important;max-width:24ch;margin:0 auto 26px}
+html body section.sk-brown a:not(#_):not(#__):not(#___):not(#____):not(#_____),html body section.sk-brown a span:not(#_):not(#__):not(#___):not(#____):not(#_____){color:#684034!important}.sk-brown a{display:inline-block;font:500 .72rem/1 'DM Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#684034;background:#F5EDE3;padding:15px 30px;text-decoration:none}
+}
+@media (min-width:981px){.sk-xp,.sk-brown{display:none}}
+</style>
+<style id="sk-awu-fonts">@media (max-width:980px){html body h2.sk-wr__title:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______),html body h2.reviews-title:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______),html body section#reviews h2:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______),html body section#contact h2:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______),html body section#contact .eyebrow:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______){font-family:'DM Sans',sans-serif!important;font-weight:500!important;letter-spacing:0!important}}</style>
+<style id="sk-brown2">@media (max-width:980px){
+html body section.sk-brown:not(#_):not(#__):not(#___):not(#____):not(#_____){padding:110px 28px 100px!important}
+.sk-brown__k{font:500 .66rem/1 'DM Sans',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#E0B09B;margin-bottom:34px}
+html body section.sk-brown p:not(#_):not(#__):not(#___):not(#____):not(#_____){font:300 2.1rem/1.2 'DM Sans',sans-serif!important;letter-spacing:-.01em;max-width:none!important;margin:0 auto!important}
+.sk-brown__l{display:block;width:1px;height:56px;background:#E0B09B;opacity:.7;margin:38px auto 30px}
+html body section.sk-brown a:not(#_):not(#__):not(#___):not(#____):not(#_____){background:transparent!important;border:1px solid #E0B09B;padding:16px 38px!important}
+html body section.sk-brown a:not(#_):not(#__):not(#___):not(#____):not(#_____),html body section.sk-brown a span:not(#_):not(#__):not(#___):not(#____):not(#_____){color:#F5EDE3!important}
+html body section.sk-brown div.sk-brown__k:not(#_):not(#__):not(#___):not(#____):not(#_____){color:#E0B09B!important}
+html body section#reviews:not(#_):not(#__):not(#___):not(#____):not(#_____){display:none!important}
+}</style>
+<style id="sk-sunset">@media (max-width:980px){
+html body section.sk-brown:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){background:radial-gradient(120% 60% at 50% 100%,#F9BE96 0%,rgba(249,190,150,0) 70%),linear-gradient(180deg,#5a3429 0%,#8a4e3b 38%,#c98160 72%,#E9A77F 100%)!important;padding:96px 24px 84px!important}
+html body section.sk-brown h2.sk-brown__h:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font:400 1.75rem/1.2 'DM Sans',sans-serif!important;color:#F5EDE3!important;margin:0 0 18px!important;letter-spacing:-.01em}
+html body section.sk-brown p.sk-brown__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font:300 .95rem/1.7 'DM Sans',sans-serif!important;color:rgba(245,237,227,.88)!important;max-width:32ch!important;margin:0 auto!important}
+.sk-brown__pics{position:relative;height:400px;max-width:340px;margin:40px auto 34px}
+.sk-brown__pics img{position:absolute;object-fit:cover;border-radius:6px;box-shadow:0 18px 40px rgba(60,28,20,.4)}
+.sk-brown__pics img:nth-child(1){left:0;top:0;width:60%;height:290px}
+.sk-brown__pics img:nth-child(2){right:0;top:120px;width:54%;height:280px}
+html body section.sk-brown p.sk-brown__s:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font:400 .7rem/1.5 'DM Sans',sans-serif!important;letter-spacing:.08em;color:rgba(245,237,227,.8)!important;margin:0 0 26px!important}
+html body section.sk-brown a:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){border-color:#F5EDE3!important}
+}</style>
+<style id="sk-rv-music-blend">@media (max-width:980px){
+html body section.sk-xp:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){padding-bottom:84px!important}
+html body section.sk-brown:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){border-radius:28px 28px 0 0!important;margin-top:-28px!important;padding:84px 20px 110px!important;position:relative;z-index:6;background:#684034!important}
+html body section.sk-vid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){border-radius:28px 28px 0 0!important;margin-top:-28px!important;padding-top:140px!important;background:#FAF1EC!important;position:relative;z-index:7}
+html body section.sk-rv:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){background:#FAF1EC!important;padding-bottom:40px!important;margin-top:0!important}
+html body section#sk-music:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){background:#FAF1EC!important;padding-top:20px!important}
+.sk-hs{position:relative;height:850px;max-width:350px;margin:38px auto 0}
+.sk-hs img{position:absolute;object-fit:cover;border-radius:4px;box-shadow:0 14px 34px rgba(40,18,12,.35)}
+.sk-hs img:nth-child(1){left:0.0%;top:10px;width:67.1%;height:160px}
+.sk-hs img:nth-child(2){left:58.6%;top:120px;width:41.4%;height:210px}
+.sk-hs img:nth-child(3){left:4.3%;top:205px;width:42.9%;height:225px}
+.sk-hs img:nth-child(4){left:42.9%;top:350px;width:57.1%;height:265px}
+.sk-hs img:nth-child(5){left:0.0%;top:470px;width:34.3%;height:160px}
+.sk-hs img:nth-child(6){left:17.1%;top:640px;width:45.7%;height:200px}
+.sk-hs img:nth-child(7){left:64.3%;top:640px;width:35.7%;height:175px}
+.sk-hs + a{margin-top:40px!important;display:inline-block}
+.sk-sun{position:relative;z-index:40;height:0;margin:0}
+.sk-sun svg{position:absolute;left:50%;top:-150px;width:300px;height:300px;margin-left:-150px;pointer-events:none;overflow:visible}
+.sk-sun__r{transform-origin:150px 150px;animation:skSunSpin 70s linear infinite}
+.sk-sun__h{transform-origin:150px 150px;animation:skSunPulse 6s ease-in-out infinite}
+@keyframes skSunSpin{to{transform:rotate(360deg)}}
+@keyframes skSunPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+}
+@media (min-width:981px){.sk-sun{display:none}}
+@media (prefers-reduced-motion:reduce){.sk-sun__r,.sk-sun__h{animation:none}}</style>
+<style id="sk-music-open">@media (max-width:980px){
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){background:none!important;box-shadow:none!important;border-radius:0!important;max-width:none!important;overflow:visible!important}
+html body #sk-music:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){overflow:hidden;position:relative}
+html body #sk-music:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________)::before{content:"";position:absolute;left:0;right:0;top:200px;height:560px;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(249,190,150,.5) 0%,rgba(249,190,150,0) 100%);pointer-events:none;z-index:0}
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-list{background:transparent!important}
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-nt,html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-t,html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-qt,html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-qt span{color:#4A2A22!important}
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-na,html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-a{color:#8a6a5f!important}
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-qt{border-color:#684034!important}
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-qt svg{fill:#684034!important}
+}</style>
+<style id="sk-tablet">@media (min-width:700px) and (max-width:980px){
+.sk-xp__col,.sk-hs,.sk-vid__col{zoom:1.7}
+.sk-vid .sk-rv__head{zoom:1.3}
+.sk-rv__trk{zoom:1.3}
+.sk-xp__p,.sk-vid__p,.sk-brown__p{zoom:1.25}
+html body h2.sk-xp__t,html body h2.sk-brown__h,html body h2.sk-vid__t,html body h2.sk-rv__t{zoom:1.35}
+}</style>
+<style id="sk-nous-trouver">@media (max-width:980px){
+html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .sk-addr{display:block;margin:6px 0 16px;font:400 .95rem/1.5 'DM Sans',sans-serif;color:#684034}
+html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________).sk-fold:not(.open) .contact-more{display:flex!important}
+html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________).sk-fold{cursor:default}
+}
+@media (min-width:981px){.sk-addr{display:none}}</style>
+<section class="sk-xp" aria-label="L'expérience Skines">
+  <div class="sk-xp__k sk-xp__rv" data-fr="Montréal · Petite-Italie" data-en="Montréal · Little Italy">Montréal · Petite-Italie</div>
+  <h2 class="sk-xp__t sk-xp__rv" data-fr="L'expérience Skines" data-en="The Skines experience">L'expérience Skines</h2>
+  <p class="sk-xp__p sk-xp__rv" data-fr="Un lieu calme, des gestes précis, du temps pour vous." data-en="A calm place, precise gestures, time for you.">Un lieu calme, des gestes précis, du temps pour vous.</p>
+  <div class="sk-xp__col">
+    <img class="sk-xp__rv" src="/assets/head-spa-bol-chantant.webp" alt="Bol chantant, Head Spa" loading="lazy" width="400" height="500">
+    <img class="sk-xp__rv" src="/assets/head-spa-vapeur-bonnet.webp" alt="Vapeur et bonnet, Head Spa" loading="lazy" width="400" height="500">
+    <img class="sk-xp__rv" src="/assets/head-spa-rincage-vert.webp" alt="Rinçage, Head Spa" loading="lazy" width="400" height="500">
+    <img class="sk-xp__rv" src="/assets/card-facial.webp" alt="Soin du visage" loading="lazy" width="400" height="500">
+  </div>
+</section>
+<section class="sk-brown">
+  <div class="sk-brown__k sk-xp__rv" data-fr="Head Spa japonais · Petite-Italie" data-en="Japanese Head Spa · Little Italy">Head Spa japonais · Petite-Italie</div>
+  <h2 class="sk-brown__h sk-xp__rv" data-fr="Un rituel inspiré du Japon, au cœur de Montréal" data-en="A ritual inspired by Japan, in the heart of Montréal">Un rituel inspiré du Japon,<br>au cœur de Montréal</h2>
+  <p class="sk-brown__p sk-xp__rv" data-fr="Nettoyage du cuir chevelu, massage profond, vapeur et soins de l'eau : un moment de calme, du début à la fin, dans un studio privé de la Petite-Italie." data-en="Scalp cleansing, deep massage, steam and water care: a moment of calm from start to finish, in a private studio in Little Italy.">Nettoyage du cuir chevelu, massage profond, vapeur et soins de l'eau : un moment de calme, du début à la fin, dans un studio privé de la Petite-Italie.</p>
+  <div class="sk-hs"><img class="sk-xp__rv hw" src="/assets/head-spa-mousse-bleue.webp" alt="Head Spa japonais à Montréal, mousse et massage" loading="lazy" width="600" height="600"><img class="sk-xp__rv hh" src="/assets/head-spa-eau-violet.webp" alt="Soin de l'eau, Head Spa Petite-Italie" loading="lazy" width="600" height="600"><img class="sk-xp__rv hh" src="/assets/head-spa-vapeur-bonnet.webp" alt="Vapeur et bonnet, rituel Head Spa" loading="lazy" width="600" height="600"><img class="sk-xp__rv hl" src="/assets/head-spa-serviette-neon.webp" alt="Head Spa Skines, salle néon à Montréal" loading="lazy" width="600" height="600"><img class="sk-xp__rv ht" src="/assets/head-spa-bol-chantant.webp" alt="Bol chantant, Head Spa" loading="lazy" width="600" height="600"><img class="sk-xp__rv ht" src="/assets/head-spa-rincage-vert.webp" alt="Rinçage, Head Spa" loading="lazy" width="600" height="600"><img class="sk-xp__rv ht" src="/assets/head-spa-huile-pipette.webp" alt="Huile et pipette, Head Spa" loading="lazy" width="600" height="600"></div>
+  <a class="sk-xp__rv" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book now">Réserver</span></a>
+</section>
+
+
+<script>(function(){var e=document.querySelectorAll('.sk-xp__rv');if(!('IntersectionObserver' in window)){e.forEach(function(x){x.classList.add('in')});return}var o=new IntersectionObserver(function(l){l.forEach(function(i){if(i.isIntersecting){setTimeout(function(){i.target.classList.add('in')},(i.target.dataset.d||0));o.unobserve(i.target)}})},{rootMargin:'0px 0px -50px 0px'});e.forEach(function(x,n){x.dataset.d=(n%4)*120;o.observe(x)})})();</script>
   <section class="booking-band">
     <div class="fade-up">
       <h2 style="color:#F5EDE3!important"><span style="color:#F5EDE3!important" data-fr="Réservez votre pause Skines." data-en="Book Your Skines Escape.">Réservez votre pause Skines.</span></h2>
@@ -8258,7 +8382,127 @@ input, textarea, select {
   </section>
 
 
-  <section class="sk-wr" id="skReviews" aria-label="Avis clients">
+  <style id="sk-vids">@media (max-width:980px){
+html body section.sk-vid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){background:linear-gradient(180deg,#FAF1EC 0%,#F6DFD2 22%,#F9BE96 50%,#F6DFD2 80%,#FAF1EC 100%)!important;padding:84px 20px 56px;text-align:center;border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:7;overflow:hidden}
+.sk-vid__k{font:500 .66rem/1 'DM Sans',sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#A86A55}
+html body section.sk-vid h2.sk-vid__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font:500 1.9rem/1.15 'DM Sans',sans-serif!important;color:#4A2A22!important;margin:16px 0 12px!important}
+.sk-vid__p{font:300 .95rem/1.6 'DM Sans',sans-serif;color:#6A4A41;max-width:28ch;margin:0 auto 44px}
+.sk-vid .sk-rv__head{position:relative;z-index:35;margin:-30px auto 0;width:max-content;max-width:calc(100% - 20px);background:#fff;border-radius:999px;padding:10px 24px 10px 16px;box-shadow:0 14px 34px rgba(74,42,34,.2)}
+.sk-vid .sk-rv__head img{width:46px}
+html body section.sk-rv:not(#_):not(#__):not(#___){margin-top:-1px!important;padding-top:34px!important}
+.sk-vid__col{position:relative;height:1780px;max-width:362px;margin:0 auto}
+.sk-vt{border:0;padding:0;background:#3a2018;border-radius:6px;overflow:hidden;box-shadow:0 16px 38px rgba(74,42,34,.25);cursor:pointer;position:absolute;z-index:1;animation:skF 7s ease-in-out infinite alternate;transition:scale .6s cubic-bezier(.32,.72,0,1),translate .6s cubic-bezier(.32,.72,0,1),box-shadow .6s}
+.sk-vt img,.sk-vt video{width:100%;height:100%;object-fit:cover;display:block}
+.sk-vt video{position:absolute;inset:0}
+.sk-vt i{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(245,237,227,.92)}
+.sk-vt i:after{content:"";position:absolute;left:15px;top:12px;border-left:12px solid #684034;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.sk-vt{transform:translateY(var(--py,0px))}
+.sk-vt.on{z-index:30;scale:1.3;animation:none;translate:var(--tx,0px) 0;box-shadow:0 26px 64px rgba(60,28,20,.5)}
+.sk-vt.on i{display:none}
+@keyframes skF{from{translate:0 -7px}to{translate:0 9px}}
+.sk-vid__col .sk-vt:nth-of-type(1){left:0.0%;top:0px;width:52.9%;height:300px;animation-delay:-1s}
+.sk-vid__col .sk-vt:nth-of-type(2){left:58.6%;top:90px;width:41.4%;height:235px;animation-delay:-2s}
+.sk-vid__col .sk-vt:nth-of-type(3){left:11.4%;top:290px;width:42.9%;height:250px;animation-delay:-3s}
+.sk-vid__col .sk-vt:nth-of-type(4){left:54.3%;top:360px;width:45.7%;height:290px;animation-delay:-4s}
+.sk-vid__col .sk-vt:nth-of-type(5){left:0.0%;top:520px;width:35.7%;height:215px;animation-delay:-0s}
+.sk-vid__col .sk-vt:nth-of-type(6){left:27.1%;top:640px;width:48.6%;height:270px;animation-delay:-1s}
+.sk-vid__col .sk-vt:nth-of-type(7){left:71.4%;top:700px;width:28.6%;height:175px;animation-delay:-2s}
+.sk-vid__col .sk-vt:nth-of-type(8){left:2.9%;top:830px;width:42.9%;height:260px;animation-delay:-3s}
+.sk-vid__col .sk-vt:nth-of-type(9){left:48.6%;top:880px;width:51.4%;height:300px;animation-delay:-4s}
+.sk-vid__col .sk-vt:nth-of-type(10){left:0.0%;top:1080px;width:31.4%;height:190px;animation-delay:-0s}
+.sk-vid__col .sk-vt:nth-of-type(11){left:22.9%;top:1110px;width:47.1%;height:285px;animation-delay:-1s}
+.sk-vid__col .sk-vt:nth-of-type(12){left:67.1%;top:1190px;width:32.9%;height:200px;animation-delay:-2s}
+.sk-vid__col .sk-vt:nth-of-type(13){left:5.7%;top:1330px;width:40.0%;height:245px;animation-delay:-3s}
+.sk-vid__col .sk-vt:nth-of-type(14){left:42.9%;top:1390px;width:57.1%;height:330px;animation-delay:-4s}
+.sk-vid__col .sk-vt:nth-of-type(15){left:0.0%;top:1560px;width:34.3%;height:200px;animation-delay:-0s}
+.sk-draw{position:absolute;pointer-events:none}
+.sk-draw--sun{width:96px;right:-6px;top:-34px;animation:skSpin 40s linear infinite}
+@keyframes skSpin{to{transform:rotate(360deg)}}
+html body #skReviews .sk-wr__grid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){display:flex!important;overflow-x:auto!important;gap:14px!important;padding:6px 20px 16px!important;scrollbar-width:none}
+html body #skReviews .sk-wr__grid::-webkit-scrollbar{display:none}
+html body #skReviews .sk-wr__card:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){flex:0 0 78%!important;max-width:300px}
+#skVC{position:fixed;right:20px;bottom:76px;z-index:9000;display:none}
+#skVC.on{display:flex}
+#skVC button{width:44px;height:44px;border-radius:50%;border:0;background:#F9BE96;color:#4A2A22;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(60,28,20,.4);cursor:pointer;padding:0}
+#skVC svg{width:18px;height:18px}
+}
+@media (min-width:981px){.sk-vid,#skVC{display:none}}</style>
+<style id="sk-horizon">@media (max-width:980px){
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-go{color:#4A2A22!important;border-color:#684034!important}
+html body #sk-music .skmu-box:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) .skmu-go *{color:#4A2A22!important;fill:#4A2A22!important;border-left-color:#4A2A22!important}
+.sk-hz{position:relative;z-index:50;height:0;margin:0;pointer-events:none;text-align:center}
+html body .sk-hz b:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){position:absolute;left:0;right:0;top:38px;font:500 1.15rem/1 'DM Sans',sans-serif!important;letter-spacing:.7em;padding-left:.7em;color:#C79A55!important}
+html body .sk-hz b span:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:#C79A55!important}
+.sk-hz b span{display:inline-block;opacity:0;transform:translateY(10px);transition:opacity 1s cubic-bezier(.32,.72,0,1),transform 1s cubic-bezier(.32,.72,0,1);transition-delay:calc(var(--i)*.14s)}
+.sk-hz.in b span{opacity:1;transform:none}
+}
+@media (min-width:981px){.sk-hz{display:none}}
+@media (prefers-reduced-motion:reduce){.sk-hz b span{transition:none;opacity:1;transform:none}}</style>
+<div class="sk-hz" id="skHz" aria-hidden="true"><b><span style="--i:0">S</span><span style="--i:1">K</span><span style="--i:2">I</span><span style="--i:3">N</span><span style="--i:4">E</span><span style="--i:5">S</span></b></div>
+<script>document.addEventListener('DOMContentLoaded',function(){var h=document.getElementById('skHz');if(!h)return;if(!('IntersectionObserver' in window)){h.classList.add('in');return}var o=new IntersectionObserver(function(l){if(l[0].isIntersecting){h.classList.add('in');o.disconnect()}},{rootMargin:'0px 0px -20% 0px'});o.observe(h)})</script>
+<section class="sk-vid" id="skVid" aria-label="Témoignages vidéo">
+
+  <div class="sk-vid__k sk-xp__rv" data-fr="Avis vérifiés" data-en="Verified reviews">Avis vérifiés</div>
+  <h2 class="sk-vid__t sk-xp__rv" data-fr="Ils en parlent mieux que nous" data-en="They say it better than we do">Ils en parlent mieux que nous</h2>
+  <p class="sk-vid__p sk-xp__rv" data-fr="Des visages, des sourires, des mots vrais. Touchez-en un : il se met en avant et se lit sur place." data-en="Faces, smiles, honest words. Tap one: it comes forward and plays right there.">Des visages, des sourires, des mots vrais. Touchez-en un : il se met en avant et se lit sur place.</p>
+  <div class="sk-vid__col sk-xp__rv"><button type="button" class="sk-vt" data-src="/assets/videos/avis-oumymn.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-oumymn-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-v10.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-v10-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-ugc60.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-ugc60-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-duo-glow.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-duo-glow-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-glow-line.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-glow-line-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-final.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-final-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-google-ads.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-google-ads-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-tiik.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-tiik-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-solo.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-solo-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-men.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-men-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-juillet.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-juillet-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-hook.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-hook-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-new.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-new-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-test.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-test-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis6-web.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis6-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button></div><div class="sk-rv__head"><img src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="58" height="72" loading="lazy"><div><b>4,8 Fresha · 4,7 Google</b>Plus de 1 700 avis vérifiés</div></div>
+</section>
+<div id="skVC"><button type="button" id="skVCx" aria-label="Arrêter la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button></div>
+<script>document.addEventListener('DOMContentLoaded',function(){
+var e=document.querySelectorAll('.sk-vid .sk-xp__rv');if('IntersectionObserver' in window){var o=new IntersectionObserver(function(l){l.forEach(function(i){if(i.isIntersecting){var t=i.target;setTimeout(function(){t.classList.add('in')},(t.dataset.d||0));o.unobserve(t)}})},{rootMargin:'0px 0px -50px 0px'});e.forEach(function(x,n){x.dataset.d=n*120;o.observe(x)})}else e.forEach(function(x){x.classList.add('in')});
+var vts=document.querySelectorAll('.sk-vt'),tk=0;function px(){tk=0;var h=innerHeight;vts.forEach(function(t,i){var r=t.getBoundingClientRect();if(r.bottom<-80||r.top>h+80)return;t.style.setProperty('--py',((r.top+r.height/2-h/2)*-.05*(1+i%3*.5)).toFixed(1)+'px')})}addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(px)},{passive:true});px();
+var vc=document.getElementById('skVC'),cur=null,P='<rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/>',Pl='<path d="M8 5l11 7-11 7z"/>';
+function stop(){if(!cur)return;cur.style.removeProperty('--tx');var v=cur.querySelector('video');if(v){v.pause();v.remove()}cur.querySelector('img').style.display='';cur.classList.remove('on');cur=null;vc.classList.remove('on')}
+function sync(v){}
+document.addEventListener('click',function(ev){var b=ev.target.closest('.sk-vt');if(!b)return;if(b===cur){var v=cur.querySelector('video');if(v){v.paused?v.play():v.pause()}return}stop();var v=document.createElement('video');v.src=b.dataset.src;v.playsInline=true;v.setAttribute('playsinline','');v.loop=true;v.addEventListener('play',function(){sync(v)});v.addEventListener('pause',function(){sync(v)});b.appendChild(v);b.querySelector('img').style.display='none';var col=b.parentNode.getBoundingClientRect(),r=b.getBoundingClientRect();b.style.setProperty('--tx',((col.left+col.width/2)-(r.left+r.width/2))*.45+'px');b.classList.add('on');cur=b;vc.classList.add('on');v.play();sync(v)});
+document.getElementById('skVCx').addEventListener('click',stop);
+var g=document.querySelector('#skReviews .sk-wr__grid');if(g){var d=1,pause=0,pos=0;['touchstart','mousedown','wheel'].forEach(function(t){g.addEventListener(t,function(){pause=Date.now()+4000},{passive:true})});g.addEventListener('scroll',function(){if(Date.now()<pause)pos=g.scrollLeft},{passive:true});(function tick(){if(Date.now()>pause&&g.offsetParent){var m=g.scrollWidth-g.clientWidth;pos+=d*.6;if(pos>=m){pos=m;d=-1}else if(pos<=0){pos=0;d=1}g.scrollLeft=pos}requestAnimationFrame(tick)})()}
+});</script>
+<style id="sk-rv-css">@media (max-width:980px){
+html body section#skReviews:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){display:none!important}
+html body section.sk-rv:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){background:#FAF1EC!important;padding:8px 0 48px;text-align:center;position:relative;z-index:7;overflow:hidden}
+.sk-rv__head{display:flex;align-items:center;justify-content:center;gap:14px;padding:0 20px;margin-bottom:18px}
+.sk-rv__head img{width:58px;height:auto;flex:0 0 auto}
+.sk-rv__head div{text-align:left;font:400 .8rem/1.45 'DM Sans',sans-serif;color:#6A4A41}
+.sk-rv__head b{display:block;font:500 .95rem/1.2 'DM Sans',sans-serif;color:#4A2A22}
+html body section.sk-rv h2.sk-rv__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font:500 1.35rem/1.25 'DM Sans',sans-serif!important;color:#4A2A22!important;margin:0 auto 22px!important;max-width:22ch}
+.sk-rv__vp{overflow:hidden;position:relative;touch-action:pan-y;cursor:grab}
+.sk-rv__trk{display:flex;gap:14px;width:max-content;will-change:transform;align-items:flex-start}
+.sk-rv__c{flex:0 0 270px;background:#fff;border-radius:18px;padding:20px 20px 18px;text-align:left;box-shadow:0 8px 24px rgba(74,42,34,.08);margin:0}
+.sk-rv__s{color:#c9973a;letter-spacing:.12em;font-size:.85rem;margin-bottom:10px}
+.sk-rv__c blockquote{margin:0 0 8px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden;font:400 .88rem/1.55 'DM Sans',sans-serif;color:#4A2A22;quotes:none}
+.sk-rv__c.open blockquote{-webkit-line-clamp:unset;display:block}
+.sk-rv__m{background:none;border:0;padding:0;margin:0 0 12px;font:500 .78rem/1 'DM Sans',sans-serif;color:#684034;text-decoration:underline;text-underline-offset:3px;cursor:pointer;display:none}
+.sk-rv__m.show{display:inline-block}
+.sk-rv__c figcaption b{display:block;font:500 .85rem/1.3 'DM Sans',sans-serif;color:#4A2A22}
+.sk-rv__c figcaption span{font:400 .72rem/1.4 'DM Sans',sans-serif;color:#8a6a5f}
+#skRvP{margin:20px auto 0;display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #C9A292;color:#684034;border-radius:999px;padding:9px 18px;font:500 .68rem/1 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.sk-rv__all{display:block;margin-top:16px;font:500 .72rem/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#684034;text-decoration:underline;text-underline-offset:4px}
+}
+@media (min-width:981px){.sk-rv{display:none}}</style>
+<section class="sk-rv" id="skRv" aria-label="Avis clients">
+  
+  <h2 class="sk-rv__t" data-fr="Avis vérifiés : Head Spa, épilation laser et soins du visage à Montréal" data-en="Verified reviews: Head Spa, laser hair removal and facials in Montréal">Avis vérifiés : Head Spa, épilation laser et soins du visage à Montréal</h2>
+  <div class="sk-rv__vp"><div class="sk-rv__trk" id="skRvT"><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>The head spa service was absolutely amazing, so relaxing and impeccably clean. I've had this service done before in Japan, and this was my first time experiencing it outside of Japan. It truly exceeded my expectations. The whole team was wonderful and made the experience extra special. They took care of both myself and my mom, and we couldn't have asked for better care. Highly recommend!</blockquote><figcaption><b>Stefania M.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>I did both a facial and a laser session, and I'm really happy with the results. My skin looks clearer and more radiant.</blockquote><figcaption><b>Sabrina I.</b><span>Facial · Épilation laser · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Got a facial with Shayma, very relaxing, and my skin looks so plump.</blockquote><figcaption><b>Souhir N.</b><span>Soin du visage · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Honestly felt like my brain took a vacation. The relaxing music, the atmosphere, and the head massage together were an unreal experience. And the magical hands of the therapist made everything even more calming and unforgettable. I walked out feeling lighter, calmer, and completely refreshed.</blockquote><figcaption><b>Puzan J.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Absolutely loved my head spa session! Super relaxing, professional service, and my scalp and hair feel incredible. The ambiance was peaceful and the massage was next-level soothing. I'll definitely be back!</blockquote><figcaption><b>Kayla Z.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Accueil chaleureux et excellent service avec Amina !</blockquote><figcaption><b>Catherine D.</b><span>Épilation laser · Avis Google vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Quel moment magique ! J'ai essayé le Signature Scalpcial de 90 minutes, et je le recommande à tout le monde. J'ai pu décompresser comme jamais. L'endroit est beau et propre, tout le monde est super accueillant.</blockquote><figcaption><b>Marie L.</b><span>Head Spa · 90 min · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>For a first time visit at this spa, I am speechless at how clean and well organized it is. I took the 90 minutes head spa, not only was I taken before my appointment time, but it really was a full 90 minutes duration. So worth it for the relaxing feeling, and the shampoo smells so good.</blockquote><figcaption><b>Mc R.</b><span>Head Spa · 90 min · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Très agréable et professionnel !! Wow.</blockquote><figcaption><b>Myriam T.</b><span>Épilation laser · Avis Google vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Le soin est parfait pour la détente. Les différents objets utilisés pour le massage (grattoir, masseur, etc.) créent avec douceur des sensations apaisantes. La musique est bien assortie et les tables confortables. Les produits sentent bon et semblent de grande qualité. Une belle expérience à faire en couple, entre amis ou en famille. Nous allons revenir !</blockquote><figcaption><b>Mylène S.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Excellent head massage au Skines Head Spa. C'était mon tout premier et je n'ai pas été déçu. J'ai tellement relaxé que je ne savais plus où j'étais au moment du réveil. Mes moments préférés : quand l'eau coulait dans le cou, le massage du haut de la poitrine et le brossage des cheveux.</blockquote><figcaption><b>Claire D.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Excellente expérience comme toujours. 10/10.</blockquote><figcaption><b>Illona S.</b><span>Épilation laser · Avis Google vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>J'ai adoré mon expérience chez Skines Head Spa, du début à la fin. La meilleure pause détente à Montréal, avec une équipe superbe et professionnelle, de vraies « mains de fée ». Merci, à bientôt !</blockquote><figcaption><b>Sandra C.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Quelle belle découverte ! Un head spa tout simplement divin ! Des soins exceptionnels prodigués avec douceur, délicatesse et grand professionnalisme. Et les produits sentent bon ! On se sent littéralement revigorée après un tel soin. Merci, à bientôt !</blockquote><figcaption><b>Marjorie L.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>My mom and I came for a duo head spa and it was a wonderful experience! Would highly recommend.</blockquote><figcaption><b>Carine A.</b><span>Head Spa · Duo · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>The head spa service was absolutely amazing, so relaxing and impeccably clean. I've had this service done before in Japan, and this was my first time experiencing it outside of Japan. It truly exceeded my expectations. The whole team was wonderful and made the experience extra special. They took care of both myself and my mom, and we couldn't have asked for better care. Highly recommend!</blockquote><figcaption><b>Stefania M.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>I did both a facial and a laser session, and I'm really happy with the results. My skin looks clearer and more radiant.</blockquote><figcaption><b>Sabrina I.</b><span>Facial · Épilation laser · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Got a facial with Shayma, very relaxing, and my skin looks so plump.</blockquote><figcaption><b>Souhir N.</b><span>Soin du visage · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Honestly felt like my brain took a vacation. The relaxing music, the atmosphere, and the head massage together were an unreal experience. And the magical hands of the therapist made everything even more calming and unforgettable. I walked out feeling lighter, calmer, and completely refreshed.</blockquote><figcaption><b>Puzan J.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Absolutely loved my head spa session! Super relaxing, professional service, and my scalp and hair feel incredible. The ambiance was peaceful and the massage was next-level soothing. I'll definitely be back!</blockquote><figcaption><b>Kayla Z.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Accueil chaleureux et excellent service avec Amina !</blockquote><figcaption><b>Catherine D.</b><span>Épilation laser · Avis Google vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Quel moment magique ! J'ai essayé le Signature Scalpcial de 90 minutes, et je le recommande à tout le monde. J'ai pu décompresser comme jamais. L'endroit est beau et propre, tout le monde est super accueillant.</blockquote><figcaption><b>Marie L.</b><span>Head Spa · 90 min · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>For a first time visit at this spa, I am speechless at how clean and well organized it is. I took the 90 minutes head spa, not only was I taken before my appointment time, but it really was a full 90 minutes duration. So worth it for the relaxing feeling, and the shampoo smells so good.</blockquote><figcaption><b>Mc R.</b><span>Head Spa · 90 min · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Très agréable et professionnel !! Wow.</blockquote><figcaption><b>Myriam T.</b><span>Épilation laser · Avis Google vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Le soin est parfait pour la détente. Les différents objets utilisés pour le massage (grattoir, masseur, etc.) créent avec douceur des sensations apaisantes. La musique est bien assortie et les tables confortables. Les produits sentent bon et semblent de grande qualité. Une belle expérience à faire en couple, entre amis ou en famille. Nous allons revenir !</blockquote><figcaption><b>Mylène S.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Excellent head massage au Skines Head Spa. C'était mon tout premier et je n'ai pas été déçu. J'ai tellement relaxé que je ne savais plus où j'étais au moment du réveil. Mes moments préférés : quand l'eau coulait dans le cou, le massage du haut de la poitrine et le brossage des cheveux.</blockquote><figcaption><b>Claire D.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Excellente expérience comme toujours. 10/10.</blockquote><figcaption><b>Illona S.</b><span>Épilation laser · Avis Google vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>J'ai adoré mon expérience chez Skines Head Spa, du début à la fin. La meilleure pause détente à Montréal, avec une équipe superbe et professionnelle, de vraies « mains de fée ». Merci, à bientôt !</blockquote><figcaption><b>Sandra C.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>Quelle belle découverte ! Un head spa tout simplement divin ! Des soins exceptionnels prodigués avec douceur, délicatesse et grand professionnalisme. Et les produits sentent bon ! On se sent littéralement revigorée après un tel soin. Merci, à bientôt !</blockquote><figcaption><b>Marjorie L.</b><span>Head Spa · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure><figure class="sk-rv__c" aria-hidden="true"><div class="sk-rv__s" aria-label="5 sur 5">★★★★★</div><blockquote>My mom and I came for a duo head spa and it was a wonderful experience! Would highly recommend.</blockquote><figcaption><b>Carine A.</b><span>Head Spa · Duo · Avis vérifié · Petite-Italie, Montréal</span></figcaption></figure></div></div>
+  <a class="sk-rv__all" href="/reviews"><span data-fr="Lire tous les avis" data-en="Read all reviews">Lire tous les avis</span></a>
+</section>
+<script>document.addEventListener('DOMContentLoaded',function(){
+var vp=document.querySelector('.sk-rv__vp'),trk=document.getElementById('skRvT');if(!vp||!trk)return;
+trk.querySelectorAll('.sk-rv__c').forEach(function(c){var q=c.querySelector('blockquote'),btn=document.createElement('button');btn.type='button';btn.className='sk-rv__m';btn.textContent='Afficher plus';q.insertAdjacentElement('afterend',btn);if(q.scrollHeight>q.clientHeight+2)btn.classList.add('show');btn.addEventListener('click',function(){var o=c.classList.toggle('open');btn.textContent=o?'Afficher moins':'Afficher plus'})});
+var x=0,half=0,drag=false,sx=0,x0=0,lx=0,lt=0,v=0,rest=0,last=performance.now(),SP=26;
+function measure(){half=trk.scrollWidth/2}measure();addEventListener('resize',measure);addEventListener('load',measure);
+function wrap(){if(half>0){while(x<=-half)x+=half;while(x>0)x-=half}}
+function holdOpen(){return !!trk.querySelector('.sk-rv__c.open')}
+vp.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;drag=true;sx=e.clientX;x0=x;lx=e.clientX;lt=performance.now();v=0;rest=0;try{vp.setPointerCapture(e.pointerId)}catch(_){}});
+vp.addEventListener('pointermove',function(e){if(!drag)return;var n=performance.now();x=x0+(e.clientX-sx);v=(e.clientX-lx)/Math.max(1,n-lt)*1000;lx=e.clientX;lt=n;wrap();trk.style.transform='translate3d('+x+'px,0,0)'});
+function up(){if(!drag)return;drag=false;rest=performance.now()+1800}
+vp.addEventListener('pointerup',up);vp.addEventListener('pointercancel',up);
+var vis=true;if('IntersectionObserver' in window)new IntersectionObserver(function(l){vis=l[0].isIntersecting}).observe(vp);
+(function tick(t){var dt=Math.min(.05,(t-last)/1000);last=t;
+if(vis&&!drag){if(Math.abs(v)>8){x+=v*dt;v*=Math.pow(.04,dt)}else{v=0;if(t>rest&&!holdOpen())x-=SP*dt}wrap();trk.style.transform='translate3d('+x+'px,0,0)'}
+requestAnimationFrame(tick)})(last);
+});</script>
+<section class="sk-wr" id="skReviews" aria-label="Avis clients">
     <div class="sk-wr__head">
       <img class="sk-wr__badge" src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="132" height="165" loading="lazy" decoding="async">
       <div class="sk-wr__eyebrow" data-fr="Avis vérifiés · Best in Class 2026" data-en="Verified reviews · Best in Class 2026">Avis vérifiés · Best in Class 2026</div>
@@ -9176,45 +9420,7 @@ input, textarea, select {
     }
   </style>
 
-  <section class="contact" id="contact">
-    <div>
-      <div class="eyebrow" data-fr="Nous trouver" data-en="Find Us">Nous trouver</div>
-      <h2 data-fr="Skines Head Spa &amp; Wellness" data-en="Skines Head Spa &amp; Wellness">Skines Head Spa &amp; Wellness</h2>
-      <p class="contact-place" data-fr="Petite-Italie · Montréal" data-en="Little Italy · Montréal">Petite-Italie · Montréal</p>
-      <p class="contact-intro" data-fr="Votre sanctuaire à Montréal. Contactez-nous, passez nous voir, ou réservez en ligne." data-en="Your sanctuary in Montréal. Contact us, come see us, or book online.">Votre sanctuaire à Montréal. Contactez-nous, passez nous voir, ou réservez en ligne.</p>
-      <div class="contact-row">
-        <div class="contact-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        </div>
-        <div><span class="label"><span data-fr="Adresse" data-en="Address">Adresse</span></span><div class="value">19 Av. Shamrock, Montréal, QC H2S 1A3</div></div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
-        <div><span class="label"><span data-fr="Téléphone" data-en="Phone">Téléphone</span></span><div class="value"><a href="tel:+14382605660">+1 (438) 260-5660</a></div></div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        </div>
-        <div><span class="label"><span data-fr="Email" data-en="Email">Email</span></span><div class="value"><a href="mailto:Info@skines.ca">Info@skines.ca</a></div></div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-        </div>
-        <div><span class="label"><span data-fr="Horaires" data-en="Hours">Horaires</span></span><div class="value" data-fr="Tous les jours · 9 h – 22 h 30" data-en="Every day · 9 am – 10:30 pm">Tous les jours · 9 h – 22 h 30</div></div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 17V7h3.2a3 3 0 010 6H9.5"/></svg>
-        </div>
-        <div><span class="label"><span data-fr="Parking" data-en="Parking">Parking</span></span><div class="value" data-fr="Stationnement privé gratuit" data-en="Free private parking">Stationnement privé gratuit</div></div>
-      </div>
-    </div>
-    <div class="contact-more"><a class="contact-more-link" href="/visit-us"><span data-fr="Plan, accès et stationnement" data-en="Map, directions and parking">Plan, accès et stationnement</span><span aria-hidden="true">→</span></a></div>
-  </section>
+  
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
@@ -9412,6 +9618,46 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
     </ol>
   </div>
 </section>
+
+<section class="contact" id="contact">
+    <div>
+      <div class="eyebrow" data-fr="Nous trouver" data-en="Find Us">Nous trouver</div>
+      <h2 data-fr="Skines Head Spa &amp; Wellness" data-en="Skines Head Spa &amp; Wellness">Skines Head Spa &amp; Wellness</h2>
+      <p class="sk-addr" data-fr="19 Av. Shamrock, Montréal · Tous les jours, 9 h – 22 h 30" data-en="19 Shamrock Ave, Montréal · Every day, 9 am – 10:30 pm">19 Av. Shamrock, Montréal · Tous les jours, 9 h – 22 h 30</p><p class="contact-place" data-fr="Petite-Italie · Montréal" data-en="Little Italy · Montréal">Petite-Italie · Montréal</p>
+      <p class="contact-intro" data-fr="Votre sanctuaire à Montréal. Contactez-nous, passez nous voir, ou réservez en ligne." data-en="Your sanctuary in Montréal. Contact us, come see us, or book online.">Votre sanctuaire à Montréal. Contactez-nous, passez nous voir, ou réservez en ligne.</p>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div><span class="label"><span data-fr="Adresse" data-en="Address">Adresse</span></span><div class="value">19 Av. Shamrock, Montréal, QC H2S 1A3</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div><span class="label"><span data-fr="Téléphone" data-en="Phone">Téléphone</span></span><div class="value"><a href="tel:+14382605660">+1 (438) 260-5660</a></div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </div>
+        <div><span class="label"><span data-fr="Email" data-en="Email">Email</span></span><div class="value"><a href="mailto:Info@skines.ca">Info@skines.ca</a></div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div><span class="label"><span data-fr="Horaires" data-en="Hours">Horaires</span></span><div class="value" data-fr="Tous les jours · 9 h – 22 h 30" data-en="Every day · 9 am – 10:30 pm">Tous les jours · 9 h – 22 h 30</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 17V7h3.2a3 3 0 010 6H9.5"/></svg>
+        </div>
+        <div><span class="label"><span data-fr="Parking" data-en="Parking">Parking</span></span><div class="value" data-fr="Stationnement privé gratuit" data-en="Free private parking">Stationnement privé gratuit</div></div>
+      </div>
+    </div>
+    <div class="contact-more"><a class="contact-more-link" href="/visit-us"><span data-fr="Plan, accès et stationnement" data-en="Map, directions and parking">Plan, accès et stationnement</span><span aria-hidden="true">→</span></a></div>
+  </section>
 <style id="sk-music-css">
 html body section#sk-music:not(#_){background:#FAF1EC !important;color:#684034;font-family:'DM Sans',sans-serif;padding:38px 18px 64px !important;text-align:center;height:auto !important;min-height:0 !important;overflow:visible !important}
 html body #sk-music .skmu-eyebrow{font-size:.7rem;letter-spacing:.22em;opacity:.7;margin-bottom:10px;color:#684034}
@@ -14271,9 +14517,9 @@ html body nav#mainNav:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#___
 <style id="sk-foot-pills">
 /* Footer top, AWŪ-style: plain text, one simple outlined field-like button, no pills */
 html body .sk-foot-quick:not(#_):not(#__){display:none !important}
-html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:space-between !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
+html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:center !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
 html body .sk-foot-btn:not(#_):not(#__) span{color:#FAF1EC !important;font-family:'DM Sans',sans-serif !important}
-html body .sk-foot-btn:not(#_):not(#__)::after{content:'\2192';font-size:1.1rem;letter-spacing:0;font-weight:400}
+html body .sk-foot-btn:not(#_):not(#__)::after{content:none !important;display:none !important}
 html body .sk-foot-btn:hover:not(#_):not(#__){background:rgba(250,241,236,.1) !important}
 html body footer.sk-foot .sk-foot-cols > details:nth-child(2) > a:not(.sk-foot-btn):not(#_):not(#__){text-decoration-line:underline !important;text-decoration-color:rgba(250,241,236,.7) !important;text-underline-offset:4px !important;text-decoration-thickness:1px !important}
 </style>
@@ -14296,8 +14542,8 @@ html body section#contact .contact-more-link:hover:not(#_){background:rgba(74,42
 /* Footer draw block, AWŪ "Join our community" style: one email field with an arrow */
 html body footer.sk-foot .sk-join{position:relative;margin:2px 0 0}
 html body footer.sk-foot .sk-join-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 1rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
-html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#EBD3C2 !important;opacity:.9 !important;-webkit-text-fill-color:#EBD3C2 !important}
+html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 .92rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#D8C2B4 !important;opacity:.8 !important;font-size:.92rem !important;-webkit-text-fill-color:#D8C2B4 !important}
 html body footer.sk-foot .sk-join input:focus:not(#_):not(#__){border-color:#FAF1EC !important;box-shadow:0 0 0 3px rgba(250,241,236,.14)}
 html body footer.sk-foot .sk-join.err input:not(#_):not(#__){border-color:#F2B8A2 !important}
 html body footer.sk-foot .sk-join button:not(#_):not(#__){position:absolute;right:0;top:0;width:56px;height:56px;background:none !important;border:0 !important;color:#FAF1EC !important;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
@@ -14323,5 +14569,35 @@ html body footer.sk-foot .sk-join-note a{color:#EBD3C2 !important;text-decoratio
   });
 })();
 </script>
+<style id="sk-hero-type">
+/* Hero text in the same clear voice as the RÉSERVER and CARTE CADEAU buttons: upright, uppercase, tracked, solid white */
+@media (max-width:980px){
+html body header.hero .ht-small:not(#_):not(#__){font-family:'Bodoni Moda',serif !important;font-style:normal !important;font-weight:500 !important;font-size:.74rem !important;letter-spacing:.34em !important;text-transform:uppercase !important;color:#FFFFFF !important}
+html body header.hero .ht-big:not(#_):not(#__){font-family:'Bodoni Moda',serif !important;font-style:normal !important;font-weight:500 !important;color:#FFFFFF !important}
+html body header.hero .ht-script:not(#_):not(#__){font-family:'Bodoni Moda',serif !important;font-style:normal !important;font-weight:500 !important;font-size:3rem !important;line-height:1 !important;letter-spacing:-.01em !important;color:#F6D3BD !important}
+html body header.hero .hero-title-sub:not(#_):not(#__){font-family:'Bodoni Moda',serif !important;font-weight:500 !important;font-size:.7rem !important;letter-spacing:.24em !important;color:#FFFFFF !important}
+html body header.hero .hero-tag-btn:not(#_):not(#__){background:rgba(40,22,17,.36) !important;border-color:rgba(255,255,255,.6) !important}
+html body header.hero .hero-tag-btn span:not(#_):not(#__){font-family:'Bodoni Moda',serif !important;font-style:normal !important;font-weight:500 !important;font-size:.6rem !important;letter-spacing:.05em !important;text-transform:uppercase !important;color:#FFFFFF !important;white-space:nowrap}
+html body header.hero .hero-tag-btn:not(#_):not(#__){padding-left:8px !important;padding-right:8px !important}
+html body header.hero .hero-trust__txt:not(#_):not(#__),html body header.hero .hero-trust__txt strong:not(#_):not(#__){font-family:'Bodoni Moda',serif !important;font-weight:500 !important;font-size:.76rem !important;letter-spacing:.12em !important;text-transform:uppercase !important;color:#FFFFFF !important;font-variant-numeric:lining-nums}
+html body header.hero .hero-trust__vf:not(#_):not(#__){font-weight:500 !important;font-size:.6rem !important;letter-spacing:.22em !important;color:#FFFFFF !important}
+html body header.hero .hero-trust__stars:not(#_):not(#__){color:#F4C95E !important}
+}
+</style>
+<style id="sk-font-mincho">
+/* Shippori Mincho (OFL, self-hosted, Latin subset): the voice of the secondary hero texts */
+@font-face{font-family:'Shippori Mincho';font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/ShipporiMincho-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'Shippori Mincho';font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/ShipporiMincho-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@media (max-width:980px){
+html body header.hero .hero-title-sub:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-weight:600 !important;font-size:.72rem !important;letter-spacing:.2em !important;color:#FFFFFF !important}
+html body header.hero .hero-tag-btn span:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-style:normal !important;font-weight:600 !important;font-size:.56rem !important;letter-spacing:.03em !important;text-transform:uppercase !important;color:#FFFFFF !important;white-space:nowrap}
+html body header.hero .hero-service-tags:not(#_):not(#__){gap:6px !important}
+html body header.hero .hero-tag-btn:not(#_):not(#__){padding-left:6px !important;padding-right:6px !important;min-width:0 !important}
+html body header.hero .hero-tag-btn:nth-child(2):not(#_):not(#__){flex:1.35 1 0 !important}
+html body header.hero .hero-trust__txt:not(#_):not(#__),html body header.hero .hero-trust__txt strong:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-weight:600 !important;font-size:.8rem !important;letter-spacing:.1em !important;text-transform:uppercase !important;color:#FFFFFF !important;font-variant-numeric:lining-nums}
+html body header.hero .hero-trust__vf:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-weight:600 !important;font-size:.62rem !important;letter-spacing:.2em !important;color:#FFFFFF !important}
+html body header.hero .btn-hero-glass span:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-weight:600 !important;font-size:.72rem !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:#FFFFFF !important}
+}
+</style>
 </body>
 </html>
