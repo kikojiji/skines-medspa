@@ -69,6 +69,15 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
 <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+<meta name="theme-color" content="#684034">
+<style id="sk-boot">
+/* No flashes on load: brown canvas from the first paint, content fades in once ready */
+html:not(#_):not(#__){background:#684034 !important}
+html.sk-pre body{opacity:0}
+html:not(.sk-pre) body{animation:skBootIn .55s ease both}
+@keyframes skBootIn{from{opacity:0}to{opacity:1}}
+</style>
+<script>document.documentElement.classList.add('sk-pre');setTimeout(function(){document.documentElement.classList.remove('sk-pre')},1100);</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -9204,19 +9213,7 @@ input, textarea, select {
         <div><span class="label"><span data-fr="Parking" data-en="Parking">Parking</span></span><div class="value" data-fr="Stationnement privé gratuit" data-en="Free private parking">Stationnement privé gratuit</div></div>
       </div>
     </div>
-    <div class="map-wrap"><div class="map">
-      <a class="map-fallback" href="https://maps.google.com/?q=Skines+Head+Spa+19+Av+Shamrock+Montreal" target="_blank" rel="noreferrer">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        <span class="map-fallback-addr">19 Av. Shamrock, Montréal, QC H2S 1A3</span>
-        <span class="map-fallback-btn" data-fr="Ouvrir dans Google Maps" data-en="Open in Google Maps">Ouvrir dans Google Maps</span>
-      </a>
-      <div class="map-live" id="skMap"></div>
-      <img class="map-img" src="assets/map-skines.svg" alt="Carte : Skines Head Spa &amp; Wellness, 19 av. Shamrock, Petite-Italie, Montréal" loading="lazy" width="1200" height="900">
-    </div>
-    <div class="map-foot">
-      <a class="map-cta" href="https://maps.google.com/?q=Skines+Head+Spa+19+Av+Shamrock+Montreal" target="_blank" rel="noopener"><span data-fr="Ouvrir dans Google Maps" data-en="Open in Google Maps">Ouvrir dans Google Maps</span> <span aria-hidden="true">→</span></a>
-    </div>
-    </div>
+    <div class="contact-more"><a class="contact-more-link" href="/visit-us"><span data-fr="Plan, accès et stationnement" data-en="Map, directions and parking">Plan, accès et stationnement</span><span aria-hidden="true">→</span></a></div>
   </section>
 
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
@@ -9378,8 +9375,8 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
 </style>
 <section id="sk-music" aria-label="Musique Skines">
   <div class="skmu-eyebrow" data-fr="BIENVENUE CHEZ SKINES" data-en="WELCOME TO SKINES">BIENVENUE CHEZ SKINES</div>
-  <div class="skmu-title" role="heading" aria-level="2" data-fr="Laissez la musique vous accueillir" data-en="Let the music welcome you">Laissez la musique vous accueillir</div>
-  <p class="skmu-sub" data-fr="La bande sonore de nos rituels. Fermez les yeux, le voyage commence ici." data-en="The soundtrack of our rituals. Close your eyes, the journey begins here.">La bande sonore de nos rituels. Fermez les yeux, le voyage commence ici.</p>
+  <div class="skmu-title" role="heading" aria-level="2" data-fr="Un moment pour vous" data-en="A moment for you">Un moment pour vous</div>
+  <p class="skmu-sub" data-fr="Choisissez un disque et laissez la musique faire le reste." data-en="Choose a record and let the music do the rest.">Choisissez un disque et laissez la musique faire le reste.</p>
   <div class="skmu-box" data-playlist="PLRHRyzAQ6LjA">
     <div class="skmu-stage">
       <div class="skmu-deckwrap" id="skmuWrap"><button type="button" class="skmu-peek skmu-peek-l" id="skmuPrev" aria-label="Piste précédente"><span class="skmu-pv"><span class="skmu-pl" id="skmuPL"></span></span></button><button type="button" class="skmu-peek skmu-peek-r" id="skmuNext" aria-label="Piste suivante"><span class="skmu-pv"><span class="skmu-pl" id="skmuPR"></span></span></button><div class="skmu-deck" id="skmuDeck"><svg class="skmu-veins" viewBox="0 0 292 246" aria-hidden="true"><path d="M10 40 C80 70 120 20 190 60 S270 40 290 90" stroke="#C99A86" stroke-width=".8" fill="none"/><path d="M0 180 C60 150 110 210 180 170 S250 200 292 160" stroke="#C99A86" stroke-width=".6" fill="none"/></svg><span class="skmu-pin" aria-hidden="true"></span><button type="button" class="skmu-switch" id="skmuSwitch" aria-label="Lecture / Pause" aria-pressed="false"><svg viewBox="0 0 80 130" aria-hidden="true"><defs><linearGradient id="skR1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6b3a2e"/><stop offset=".4" stop-color="#F3CDBB"/><stop offset="1" stop-color="#7a4638"/></linearGradient><radialGradient id="skN1" cx=".35" cy=".3"><stop offset="0" stop-color="#F8D9C8"/><stop offset=".6" stop-color="#B66A5A"/><stop offset="1" stop-color="#6b3a2e"/></radialGradient></defs><polygon points="40,93 55,84 55,66 40,57 25,66 25,84" transform="translate(0,-9)" fill="url(#skN1)" stroke="#684034" stroke-width="1.4"/><circle cx="40" cy="66" r="7" fill="#3b2119"/><g class="skmu-lv"><path d="M37 66 L36 24 Q36 15 40 15 Q44 15 44 24 L43 66 Z" fill="url(#skR1)" stroke="#684034" stroke-width="1.1"/><ellipse cx="40" cy="15" rx="7" ry="7.5" fill="url(#skN1)" stroke="#684034" stroke-width="1.1"/><circle cx="38" cy="12.5" r="1.8" fill="#FFF4EC" opacity=".8"/></g><circle cx="40" cy="66" r="4" fill="#3b2119" stroke="#E9BBA6" stroke-width=".9"/></svg></button><button type="button" class="skmu-disc" id="skmuDisc" aria-label="Lecture"><span class="skmu-vinyl" id="skmuVinyl"><span class="skmu-label"><img src="/assets/skines-stones-line.svg?v=2" alt="" width="40" height="50"><span class="skmu-spindle"></span></span></span></button><svg class="skmu-arm" id="skmuArm" viewBox="0 0 110 140" aria-hidden="true"><defs>
@@ -9525,14 +9522,34 @@ html body #sk-music .skmu-list li.on span:nth-child(2){color:#E9BBA6}
     setTimeout(function(){ mark(i); },1100);
     setTimeout(function(){ spin(true); try{ fadeIn(1700); player.playVideoAt(i); }catch(_){} swBusy=false; },2500);
   }
+  var pReady=false, started=false, creating=false;
+  function mkPlayer(onReady){
+    if(player||creating) return; creating=true;
+    load(function(){
+      player=new YT.Player('skmuFrame',{width:'100%',height:'100%',host:'https://www.youtube-nocookie.com',playerVars:{listType:'playlist',list:id,rel:0,playsinline:1,modestbranding:1},events:{onReady:function(e){ pReady=true; if(onReady) onReady(e); },onStateChange:function(e){ try{ mark(e.target.getPlaylistIndex()); }catch(_){} if(e.data===1) spin(true); else if(e.data===2||e.data===0) spin(false); },onError:function(){ spin(false); }}});
+    });
+  }
+  var small=window.matchMedia&&window.matchMedia('(max-width:980px)').matches;
+  function preload(){ if(!ready||!small||player||creating) return; wrap.hidden=false; mkPlayer(); }
+  if(ready&&small){
+    var armed=false; function arm(){ if(armed) return; armed=true; setTimeout(preload,200); }
+    try{ var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ arm(); io.disconnect(); } },{rootMargin:'1400px 0px'}); io.observe(box); }catch(e){ window.addEventListener('scroll',arm,{once:true,passive:true}); }
+    window.addEventListener('touchstart',arm,{once:true,passive:true});
+  }
+  function begin(i){
+    // Runs synchronously inside the tap, so iOS Safari allows playback with sound.
+    started=true; try{ fadeIn(1100); player.playVideoAt(i); }catch(_){} mark(i);
+  }
   function start(i){
     if(!ready) return;
     focusMusic();
-    wrap.hidden=false; setTimeout(function(){ wrap.classList.add('skmu-open'); },30); if(!player){ armReveal(4300); revealDelay=2300; setTimeout(function(){ staticOn(true); },1100); spin(true); } var ps=document.getElementById('skmuPlay'); if(ps) ps.hidden=true;
-    if(player){ switchTo(i); return; }
-    load(function(){
-      player=new YT.Player('skmuFrame',{width:'100%',height:'100%',host:'https://www.youtube-nocookie.com',playerVars:{listType:'playlist',list:id,rel:0,playsinline:1,modestbranding:1},events:{onReady:function(e){ try{ fadeIn(1100); e.target.playVideoAt(i); }catch(_){} mark(i); },onStateChange:function(e){ try{ mark(e.target.getPlaylistIndex()); }catch(_){} if(e.data===1) spin(true); else if(e.data===2||e.data===0) spin(false); },onError:function(){ spin(false); }}});
-    });
+    wrap.hidden=false; setTimeout(function(){ wrap.classList.add('skmu-open'); },30);
+    var first=!started;
+    if(first){ armReveal(4300); revealDelay=2300; setTimeout(function(){ staticOn(true); },1100); spin(true); }
+    var ps=document.getElementById('skmuPlay'); if(ps) ps.hidden=true;
+    if(!first){ switchTo(i); return; }
+    if(player&&pReady){ begin(i); return; }
+    mkPlayer(function(){ begin(i); });
   }
   peekCols(0); updQ(0);
   document.getElementById('skmuPlay').addEventListener('click',function(){ start(0); });
@@ -9541,8 +9558,8 @@ html body #sk-music .skmu-list li.on span:nth-child(2){color:#E9BBA6}
   if(pvb) pvb.addEventListener('click',function(){ go(-1); });
   if(nxb) nxb.addEventListener('click',function(){ go(1); });
   var wr=document.getElementById('skmuWrap'),tx=null; if(wr){ wr.addEventListener('touchstart',function(e){ tx=e.touches[0].clientX; },{passive:true}); wr.addEventListener('touchend',function(e){ if(tx===null) return; var dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>45) go(dx<0?1:-1); },{passive:true}); }
-  var sw=document.getElementById('skmuSwitch'); if(sw) sw.addEventListener('click',function(){ if(!player){ start(0); } else { try{ var st=player.getPlayerState(); if(st===1) player.pauseVideo(); else resume(); }catch(_){} } });
-  var dk=document.getElementById('skmuDisc'); if(dk) dk.addEventListener('click',function(){ if(!player){ start(0); } else { try{ var st=player.getPlayerState(); if(st===1) player.pauseVideo(); else resume(); }catch(_){} } });
+  var sw=document.getElementById('skmuSwitch'); if(sw) sw.addEventListener('click',function(){ if(!started){ start(0); } else { try{ var st=player.getPlayerState(); if(st===1) player.pauseVideo(); else resume(); }catch(_){} } });
+  var dk=document.getElementById('skmuDisc'); if(dk) dk.addEventListener('click',function(){ if(!started){ start(0); } else { try{ var st=player.getPlayerState(); if(st===1) player.pauseVideo(); else resume(); }catch(_){} } });
   box.querySelectorAll('.skmu-list li').forEach(function(li){ li.addEventListener('click',function(){ start(+li.getAttribute('data-i')); }); });
 })();
 </script>
@@ -9831,11 +9848,58 @@ html body #sk-music .skmu-box:not(#_){background:radial-gradient(130% 70% at 50%
 html body #sk-music .skmu-box .skmu-player.skmu-open:not(#_){margin:18px 18px 2px;padding:20px 20px 44px !important}
 }
 </style>
+<style id="sk-music-compact">
+/* Music block: title + TV + turntable + disc queue read as one compact, framed composition on phones */
+@media (max-width:700px){
+html body section#sk-music:not(#_):not(#__){padding:0 14px 14px !important;margin-top:-30px}
+html body #sk-music .skmu-eyebrow:not(#_){margin:0 0 .35rem !important;font-size:.6rem !important}
+html body #sk-music .skmu-title:not(#_){font-size:1.32rem !important;line-height:1.15 !important;margin:0 0 .35rem !important}
+html body #sk-music .skmu-sub:not(#_){font-size:.84rem !important;line-height:1.4 !important;margin:0 auto .8rem !important;max-width:300px}
+html body #sk-music .skmu-box:not(#_){border-radius:22px !important}
+html body #sk-music .skmu-box .skmu-player.skmu-open:not(#_){margin:8px 12px 2px !important;padding:10px 14px 34px !important;border-radius:18px !important}
+html body #sk-music .skmu-box .skmu-player::before{bottom:11px !important;width:46px !important;height:10px !important;margin-left:-23px !important;background:repeating-linear-gradient(180deg,#8a5848 0 2px,transparent 2px 6px) !important}
+html body #sk-music .skmu-box .skmu-player::after{content:'' !important;display:block !important;position:absolute;left:0;right:0;bottom:7px;height:16px;top:auto !important;background:radial-gradient(circle,#BA7150 0 2.6px,#8a5848 3px 4.4px,transparent 4.8px) 24% 50%/14px 14px no-repeat,radial-gradient(circle,#BA7150 0 2.6px,#8a5848 3px 4.4px,transparent 4.8px) 76% 50%/14px 14px no-repeat !important;pointer-events:none}
+html body #sk-music .skmu-box .skmu-static{left:14px !important;right:14px !important;top:10px !important}
+html body #sk-music .skmu-box .skmu-stage:not(#_){padding:6px 10px 2px !important;gap:4px !important}
+html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.6 !important;margin-bottom:0 !important}
+html body #sk-music .skmu-box .skmu-peek:not(#_){width:92px !important;height:92px !important;margin-top:-46px !important}
+html body #sk-music .skmu-box .skmu-peek-l:not(#_){left:-66px !important}
+html body #sk-music .skmu-box .skmu-peek-r:not(#_){right:-66px !important}
+html body #sk-music .skmu-box .skmu-now:not(#_){margin-top:0 !important;gap:1px !important}
+html body #sk-music .skmu-box .skmu-nt:not(#_){font-size:.92rem !important}
+html body #sk-music .skmu-box .skmu-na:not(#_){font-size:.7rem !important}
+html body #sk-music .skmu-box .skmu-go:not(#_){height:36px !important;margin-top:4px !important}
+html body #sk-music .skmu-box .skmu-queue:not(#_){padding:0 0 8px !important}
+html body #sk-music .skmu-box .skmu-qscroll{padding:8px calc(50% - 36px) 0 !important;gap:12px !important}
+html body #sk-music .skmu-box .skmu-q:not(#_){flex:0 0 72px !important;gap:5px !important}
+html body #sk-music .skmu-box .skmu-qd{width:42px !important;height:42px !important}
+html body #sk-music .skmu-box .skmu-q.on .skmu-qd{transform:scale(1.25) !important}
+html body #sk-music .skmu-box .skmu-qn:not(#_){margin-top:3px !important;font-size:.62rem !important}
+html body #sk-music .skmu-box .skmu-q.on .skmu-qn:not(#_){margin-top:8px !important}
+html body #sk-music .skmu-box .skmu-qt:not(#_){font-size:.62rem !important;max-width:72px !important}
+}
+@media (min-width:701px) and (max-width:980px){
+html body section#sk-music:not(#_):not(#__){padding-top:26px !important;margin-top:-20px}
+html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
+}
+</style>
 <footer class="site-footer sk-foot">
   <div class="sk-foot-cols">
+    <details class="sk-foot-col sk-foot-acc sk-foot-join" open><summary><h4 data-fr="Tirage du mois" data-en="Monthly draw">Tirage du mois</h4></summary>
+      <p class="sk-foot-hours" data-fr="Laissez votre courriel et tentez de gagner −50 % sur une séance." data-en="Leave your email and try to win 50% off a session.">Laissez votre courriel et tentez de gagner −50 % sur une séance.</p>
+      <form class="sk-join" novalidate>
+        <label class="sk-join-sr" for="skJoinEmail">Courriel</label>
+        <input id="skJoinEmail" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Courriel" required>
+        <button type="submit" aria-label="Participer au tirage"><span aria-hidden="true">→</span></button>
+      </form>
+      <p class="sk-join-note" data-fr="En participant, vous acceptez les conditions d'utilisation et la politique de confidentialité." data-en="By taking part, you agree to the terms of use and privacy policy.">En participant, vous acceptez les <a href="/terms-and-conditions">conditions d'utilisation</a> et la <a href="/privacy-policy">politique de confidentialité</a>.</p>
+    </details>
     <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Réserver en ligne" data-en="Book online">Réserver en ligne</h4></summary>
       
-      <p data-fr="Disponibilités en temps réel, 7j/7 de 9h à 22h30." data-en="Real-time availability, 7 days 9am–10:30pm.">Disponibilités en temps réel, 7j/7 de 9h à 22h30.</p>
+      <p class="sk-foot-hours" data-fr="Disponibilités en temps réel
+7 jours sur 7 · 9 h – 22 h 30" data-en="Real-time availability
+7 days a week · 9 am – 10:30 pm">Disponibilités en temps réel
+7 jours sur 7 · 9 h – 22 h 30</p>
       <a class="sk-foot-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
     </details>
     <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Nous trouver" data-en="Find us">Nous trouver</h4></summary>
@@ -14187,5 +14251,77 @@ html body #gw-overlay.gw-visible{transition:opacity .7s ease !important}
 html body #gw-card{transform:translateY(26px);transition:transform .9s cubic-bezier(.16,.8,.24,1) !important}
 @media (max-width:700px){html body #gw-overlay{align-items:center !important}html body #gw-card{max-height:calc(100dvh - var(--gw-cb,0px) - 24px) !important}}
 </style>
+<script id="sk-boot-js">
+(function(){
+  var done=false;
+  function go(){ if(done) return; done=true; requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.documentElement.classList.remove('sk-pre'); }); }); }
+  function ready(){ var f=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve(); f.then(function(){ setTimeout(go,120); }); }
+  if(document.readyState==='complete') ready(); else window.addEventListener('load',ready);
+  setTimeout(go,1000);
+})();
+</script>
+<style id="sk-logo-clean">
+/* Mobile logo: plain SKINES wordmark, no glass circle, no blur, no moving shimmer */
+@media (max-width:980px){
+html body nav:not(#_):not(#__) .logo .logo-brand, html body nav:not(.nav-scrolled):not(#_):not(#__) .logo-brand{background:none !important;background-color:transparent !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;padding:0 !important}
+html body nav#mainNav:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______) .logo .logo-text, html body nav:not(.nav-scrolled):not(#_):not(#__) .logo .logo-text{color:#F6E6D4 !important;opacity:1 !important;text-shadow:none !important;filter:none !important;animation:none !important;background:none !important;background-image:none !important;-webkit-background-clip:border-box !important;background-clip:border-box !important;-webkit-text-fill-color:#F6E6D4 !important}
+html body nav#mainNav:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______) .logo .logo-sub, html body nav:not(.nav-scrolled):not(#_):not(#__) .logo .logo-sub{color:#EBD3C2 !important;opacity:1 !important;text-shadow:none !important;filter:none !important;animation:none !important;background:none !important;background-image:none !important;-webkit-background-clip:border-box !important;background-clip:border-box !important;-webkit-text-fill-color:#EBD3C2 !important}
+}
+</style>
+<style id="sk-foot-pills">
+/* Footer top, AWŪ-style: plain text, one simple outlined field-like button, no pills */
+html body .sk-foot-quick:not(#_):not(#__){display:none !important}
+html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:space-between !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
+html body .sk-foot-btn:not(#_):not(#__) span{color:#FAF1EC !important;font-family:'DM Sans',sans-serif !important}
+html body .sk-foot-btn:not(#_):not(#__)::after{content:'\2192';font-size:1.1rem;letter-spacing:0;font-weight:400}
+html body .sk-foot-btn:hover:not(#_):not(#__){background:rgba(250,241,236,.1) !important}
+html body footer.sk-foot .sk-foot-cols > details:nth-child(2) > a:not(.sk-foot-btn):not(#_):not(#__){text-decoration-line:underline !important;text-decoration-color:rgba(250,241,236,.7) !important;text-underline-offset:4px !important;text-decoration-thickness:1px !important}
+</style>
+<style id="sk-foot-lux">
+/* Footer headings and text: small spaced capitals, light weights, hairline accent */
+html body footer.sk-foot .sk-foot-col summary h4:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){font-family:'DM Sans',sans-serif !important;font-size:.78rem !important;font-weight:500 !important;letter-spacing:.32em !important;text-transform:uppercase !important;color:#FAF1EC !important;line-height:1.2 !important}
+html body footer.sk-foot .sk-foot-col summary h4:not(#_)::after{content:'';display:block;width:34px;height:1px;background:#E9BBA6;margin-top:13px}
+html body footer.sk-foot .sk-foot-hours:not(#_):not(#__){white-space:pre-line !important;font-weight:300 !important;font-size:.98rem !important;line-height:1.75 !important;color:#EBD3C2 !important;margin:0 0 1.1rem !important}
+html body footer.sk-foot .sk-foot-acc > a:not(.sk-foot-btn):not(#_):not(#__),html body footer.sk-foot .sk-foot-acc > p:not(.sk-foot-hours):not(#_):not(#__){font-weight:300 !important;color:#EBD3C2 !important}
+</style>
+<style id="sk-contact-slim">
+/* Home contact block: compact and single column; the map and directions live on /visit-us */
+html body section#contact:not(#_):not(#__){display:block !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;padding-bottom:2.4rem !important}
+html body section#contact .contact-more:not(#_){margin-top:1.4rem}
+html body section#contact .contact-more-link:not(#_){display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 1.15rem;border:1px solid rgba(74,42,34,.55);border-radius:8px;color:#4A2A22 !important;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:background .25s}
+html body section#contact .contact-more-link:not(#_) span{color:#4A2A22 !important;font-family:'DM Sans',sans-serif}
+html body section#contact .contact-more-link:hover:not(#_){background:rgba(74,42,34,.07)}
+</style>
+<style id="sk-foot-join">
+/* Footer draw block, AWŪ "Join our community" style: one email field with an arrow */
+html body footer.sk-foot .sk-join{position:relative;margin:2px 0 0}
+html body footer.sk-foot .sk-join-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 1rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#EBD3C2 !important;opacity:.9 !important;-webkit-text-fill-color:#EBD3C2 !important}
+html body footer.sk-foot .sk-join input:focus:not(#_):not(#__){border-color:#FAF1EC !important;box-shadow:0 0 0 3px rgba(250,241,236,.14)}
+html body footer.sk-foot .sk-join.err input:not(#_):not(#__){border-color:#F2B8A2 !important}
+html body footer.sk-foot .sk-join button:not(#_):not(#__){position:absolute;right:0;top:0;width:56px;height:56px;background:none !important;border:0 !important;color:#FAF1EC !important;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+html body footer.sk-foot .sk-join button span{color:#FAF1EC !important;transition:transform .2s}
+html body footer.sk-foot .sk-join button:hover span{transform:translateX(3px)}
+html body footer.sk-foot .sk-join-note:not(#_):not(#__){font-size:.76rem !important;line-height:1.5 !important;color:#EBD3C2 !important;opacity:.85;margin:12px 0 0 !important;font-weight:300 !important}
+html body footer.sk-foot .sk-join-note a{color:#EBD3C2 !important;text-decoration:underline;text-underline-offset:3px}
+</style>
+<script id="sk-foot-join-js">
+(function(){
+  var f=document.querySelector('form.sk-join'); if(!f) return;
+  var i=f.querySelector('input');
+  function lang(){ try{ return ((localStorage.getItem('skines-lang')||document.documentElement.lang||'fr')+'').slice(0,2)==='en'?'en':'fr'; }catch(e){ return 'fr'; } }
+  function ph(){ i.placeholder=lang()==='en'?'Email':'Courriel'; }
+  ph(); new MutationObserver(ph).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  document.querySelectorAll('.lang-btn,.sk-lang-opt').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(ph,120); }); });
+  i.addEventListener('input',function(){ f.classList.remove('err'); });
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); var v=(i.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ f.classList.add('err'); i.focus(); return; }
+    try{ sessionStorage.setItem('sk-tirage-email',v); }catch(x){}
+    window.location.href='/tirage';
+  });
+})();
+</script>
 </body>
 </html>
