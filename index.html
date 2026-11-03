@@ -80,6 +80,11 @@ html:not(#_):not(#__){background:#684034 !important}
 html.sk-pre body{opacity:0}
 @keyframes skBootIn{from{opacity:0}to{opacity:1}}
 </style>
+<script>/* Hold the first paint until the whole document (and its late style blocks) is parsed: stops the layout jump that PageSpeed measured as CLS 0.8. Revealed at DOMContentLoaded, hard cap 1.5 s. */
+document.documentElement.classList.add('sk-pre');
+(function(){function go(){document.documentElement.classList.remove('sk-pre')}
+document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(go)});
+setTimeout(go,1500)})();</script>
 
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
