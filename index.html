@@ -37,7 +37,7 @@
 <script defer src="/assets/js/skines-tiktok-capi.js?v=2"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicons -->
@@ -65,20 +65,20 @@
 <meta name="twitter:description" content="Luxury Japanese Head Spa, advanced facials, and laser treatments for deep relaxation and natural glow." />
 <meta name="twitter:image" content="https://skines.ca/assets/og-logo3.webp?v=2" />
 <!-- Animation libs: fetched in parallel from the start but EXECUTED later (just before their only
-     consumer script near the end of <body>), so they no longer block first paint. -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
-<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+     consumer script near the end of <body>
+<script>document.body.classList.add('sk-hero-go','sk-hero-forced','sk-hero-done');</script>), so they no longer block first paint. -->
+<link rel="preload" as="script" href="/assets/js/gsap.min.js?v=1">
+<link rel="preload" as="script" href="/assets/js/ScrollTrigger.min.js?v=1">
 <meta name="theme-color" content="#684034">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/ShipporiMincho-500-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/ShipporiMincho-600-latin.woff2" crossorigin>
 <style id="sk-boot">
 /* No flashes on load: brown canvas from the first paint, content fades in once ready */
 html:not(#_):not(#__){background:#684034 !important}
 html.sk-pre body{opacity:0}
-html:not(.sk-pre) body{animation:skBootIn .4s ease both}
 @keyframes skBootIn{from{opacity:0}to{opacity:1}}
 </style>
-<script>document.documentElement.classList.add('sk-pre');setTimeout(function(){document.documentElement.classList.remove('sk-pre')},700);</script>
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -7012,7 +7012,7 @@ html body #sp-stones img {
   font-family: 'Cormorant Garamond';
   font-style: normal;
   font-weight: 400;
-  font-display: block;
+  font-display: swap;
   src: url('/assets/fonts/OldStandardTT-Regular.woff2') format('woff2'),
        url('/assets/fonts/OldStandardTT-Regular.ttf') format('truetype');
 }
@@ -7020,7 +7020,7 @@ html body #sp-stones img {
   font-family: 'Cormorant Garamond';
   font-style: italic;
   font-weight: 400;
-  font-display: block;
+  font-display: swap;
   src: url('/assets/fonts/OldStandardTT-Italic.woff2') format('woff2'),
        url('/assets/fonts/OldStandardTT-Italic.ttf') format('truetype');
 }
@@ -7829,7 +7829,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
   <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation mobile" aria-modal="true">
     <div class="mobile-nav-header">
       <a class="logo" href="/">
-        <img src="assets/images/logo-officiel-cropped.webp?v=2" class="mnav-logo-stones" alt="" aria-hidden="true" decoding="sync" fetchpriority="high">
+        <img src="assets/images/logo-officiel-cropped-s.webp?v=2" class="mnav-logo-stones" alt="" aria-hidden="true" decoding="sync" fetchpriority="high">
         <div class="logo-brand">
           <span class="logo-text">SKINES</span>
           <span class="logo-sub">Head Spa · Montréal</span>
@@ -8074,7 +8074,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
          (not tied to how long loading took) — holds for 7s, then fades
          out gradually. -->
     <div class="hero-intro-badge" id="heroIntroBadge" aria-hidden="true">
-      <img src="/assets/best-in-class-2026-fresha.png?v=2" alt="Best in Class 2026 — Fresha" width="132" height="165" loading="eager" decoding="sync">
+      <img src="/assets/best-in-class-2026-fresha.webp?v=3" alt="Best in Class 2026 — Fresha" width="132" height="165" loading="eager" decoding="sync">
     </div>
     <script>
       (function () {
@@ -8154,7 +8154,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
       @media (max-width:600px){ #heroTrust{margin:9px auto 0;padding:6px 14px;gap:7px;flex-wrap:nowrap;white-space:nowrap;max-width:96vw;} #heroTrust .hero-trust__stars{font-size:.74rem;letter-spacing:.5px;} #heroTrust .hero-trust__txt{font-size:.72rem;letter-spacing:.01em;} }
       </style>
       <div id="heroTrust" aria-label="Avis clients vérifiés">
-        <span class="hero-trust__badge-wrap"><img class="hero-trust__badge" src="/assets/best-in-class-2026-fresha-hero.png?v=2" alt="Fresha — Best in Class 2026" width="56" height="64" loading="eager" decoding="async"></span>
+        <span class="hero-trust__badge-wrap"><img class="hero-trust__badge" src="/assets/best-in-class-2026-fresha-hero.webp?v=3" alt="Fresha — Best in Class 2026" width="56" height="64" loading="eager" decoding="async"></span>
         <div class="hero-trust__col">
           <span class="hero-trust__stars sk-part" style="--fill:96%;--sk-c:#efc463" aria-hidden="true">★★★★★</span>
           <div class="hero-trust__row">
@@ -8211,7 +8211,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
     </div>
     <div class="service-grid">
       <a class="service-card" href="/head-spa">
-        <div class="card-img"><img src="assets/card-head-spa.webp" alt="Head Spa Ritual" fetchpriority="high"></div>
+        <div class="card-img"><img src="assets/card-head-spa-m.webp" alt="Head Spa Ritual" fetchpriority="high"></div>
         <div class="card-body">
           <span class="card-eyebrow" data-fr="RITUEL SIGNATURE" data-en="SIGNATURE RITUAL">RITUEL SIGNATURE</span>
           <h3 data-fr="Head Spa" data-en="Head Spa">Head Spa</h3>
@@ -8222,7 +8222,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
         </div>
       </a>
       <a class="service-card" href="/laser">
-        <div class="card-img"><img src="assets/card-laser.webp" alt="Épilation laser" loading="lazy"></div>
+        <div class="card-img"><img src="assets/card-laser-m.webp" alt="Épilation laser" loading="lazy"></div>
         <div class="card-body">
           <span class="card-eyebrow" data-fr="RITUEL SIGNATURE" data-en="SIGNATURE RITUAL">RITUEL SIGNATURE</span>
           <h3 data-fr="Épilation Laser" data-en="Laser Ritual">Épilation Laser</h3>
@@ -8233,7 +8233,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
         </div>
       </a>
       <a class="service-card" href="/facial">
-        <div class="card-img"><img src="assets/card-facial.webp" alt="Soin visage avancé" loading="lazy"></div>
+        <div class="card-img"><img src="assets/card-facial-m.webp" alt="Soin visage avancé" loading="lazy"></div>
         <div class="card-body">
           <span class="card-eyebrow" data-fr="RITUEL SIGNATURE" data-en="SIGNATURE RITUAL">RITUEL SIGNATURE</span>
           <h3 data-fr="Soins Visage Avancés" data-en="Advanced Skin Therapy">Soins Visage Avancés</h3>
@@ -8244,7 +8244,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
         </div>
       </a>
       <a class="service-card card-giftcard" href="/cartes-cadeaux">
-        <div class="card-img"><img src="assets/card-giftcard.webp" alt="Le cadeau bien-être" loading="lazy"></div>
+        <div class="card-img"><img src="assets/card-giftcard-m.webp" alt="Le cadeau bien-être" loading="lazy"></div>
         <div class="card-body">
           <span class="card-eyebrow" data-fr="CADEAU BIEN-ÊTRE" data-en="WELLNESS GIFT">CADEAU BIEN-ÊTRE</span>
           <h3 data-fr="Le Cadeau Bien-être" data-en="The Gift of Wellness">Le Cadeau Bien-être</h3>
@@ -8338,22 +8338,8 @@ html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(
 <style id="sk-scatter">
 .sk-xp__col,.sk-hs,.sk-vid__col{position:relative;width:100%;container-type:inline-size;margin-left:auto;margin-right:auto}
 .sk-xp__col img,.sk-hs img{position:absolute;object-fit:cover;border-radius:4px;box-shadow:0 14px 34px rgba(60,28,20,.28);display:block}
-.sk-xp__col{max-width:350px;aspect-ratio:350/600}
-.sk-hs{max-width:350px;aspect-ratio:350/720;margin-top:38px}
+.sk-xp__col,.sk-hs{max-width:350px}
 .sk-vid__col{max-width:362px;aspect-ratio:350/1780}
-.sk-xp__col img:nth-child(1){left:0.0cqw;top:0.0cqw;width:42.9cqw;height:60.0cqw}
-.sk-xp__col img:nth-child(2){left:54.3cqw;top:11.4cqw;width:45.7cqw;height:34.3cqw}
-.sk-xp__col img:nth-child(3){left:30.0cqw;top:54.3cqw;width:34.3cqw;height:45.7cqw}
-.sk-xp__col img:nth-child(4){left:0.0cqw;top:77.1cqw;width:37.1cqw;height:54.3cqw}
-.sk-xp__col img:nth-child(5){left:62.9cqw;top:71.4cqw;width:37.1cqw;height:62.9cqw}
-.sk-xp__col img:nth-child(6){left:17.1cqw;top:125.7cqw;width:51.4cqw;height:42.9cqw}
-.sk-hs img:nth-child(1){left:0.0cqw;top:0.0cqw;width:57.1cqw;height:40.0cqw}
-.sk-hs img:nth-child(2){left:61.4cqw;top:17.1cqw;width:38.6cqw;height:54.3cqw}
-.sk-hs img:nth-child(3){left:8.6cqw;top:48.6cqw;width:40.0cqw;height:57.1cqw}
-.sk-hs img:nth-child(4){left:45.7cqw;top:82.9cqw;width:54.3cqw;height:74.3cqw}
-.sk-hs img:nth-child(5){left:0.0cqw;top:114.3cqw;width:31.4cqw;height:42.9cqw}
-.sk-hs img:nth-child(6){left:25.7cqw;top:162.9cqw;width:42.9cqw;height:34.3cqw}
-.sk-hs img:nth-child(7){left:72.9cqw;top:162.9cqw;width:27.1cqw;height:40.0cqw}
 .sk-vid__col .sk-vt:nth-of-type(1){left:0.0cqw;top:0.0cqw;width:52.9cqw;height:85.7cqw}
 .sk-vid__col .sk-vt:nth-of-type(2){left:58.6cqw;top:25.7cqw;width:41.4cqw;height:67.1cqw}
 .sk-vid__col .sk-vt:nth-of-type(3){left:11.4cqw;top:82.9cqw;width:42.9cqw;height:71.4cqw}
@@ -8370,36 +8356,23 @@ html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(
 .sk-vid__col .sk-vt:nth-of-type(14){left:42.9cqw;top:397.1cqw;width:57.1cqw;height:94.3cqw}
 .sk-vid__col .sk-vt:nth-of-type(15){left:0.0cqw;top:445.7cqw;width:34.3cqw;height:57.1cqw}
 @media (min-width:700px){
-.sk-xp__col,.sk-hs,.sk-vid__col{max-width:min(92vw,1040px)}
-.sk-xp__col{aspect-ratio:100/60}.sk-hs{aspect-ratio:100/58}.sk-vid__col{aspect-ratio:100/108}
-.sk-xp__col img:nth-child(1){left:3.0cqw;top:4.0cqw;width:22.0cqw;height:30.0cqw}
-.sk-xp__col img:nth-child(2){left:27.0cqw;top:0.0cqw;width:20.0cqw;height:16.0cqw}
-.sk-xp__col img:nth-child(3){left:40.0cqw;top:22.0cqw;width:17.0cqw;height:23.0cqw}
-.sk-xp__col img:nth-child(4){left:60.0cqw;top:5.0cqw;width:18.0cqw;height:27.0cqw}
-.sk-xp__col img:nth-child(5){left:80.0cqw;top:18.0cqw;width:17.0cqw;height:28.0cqw}
-.sk-xp__col img:nth-child(6){left:14.0cqw;top:36.0cqw;width:24.0cqw;height:20.0cqw}
-.sk-hs img:nth-child(1){left:0.0cqw;top:6.0cqw;width:26.0cqw;height:17.0cqw}
-.sk-hs img:nth-child(2){left:24.0cqw;top:0.0cqw;width:15.0cqw;height:22.0cqw}
-.sk-hs img:nth-child(3){left:44.0cqw;top:10.0cqw;width:17.0cqw;height:14.0cqw}
-.sk-hs img:nth-child(4){left:62.0cqw;top:0.0cqw;width:24.0cqw;height:32.0cqw}
-.sk-hs img:nth-child(5){left:10.0cqw;top:30.0cqw;width:14.0cqw;height:19.0cqw}
-.sk-hs img:nth-child(6){left:34.0cqw;top:28.0cqw;width:18.0cqw;height:22.0cqw}
-.sk-hs img:nth-child(7){left:68.0cqw;top:36.0cqw;width:20.0cqw;height:20.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(1){left:2.0cqw;top:4.0cqw;width:17.0cqw;height:30.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(2){left:22.0cqw;top:0.0cqw;width:15.0cqw;height:26.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(3){left:40.0cqw;top:8.0cqw;width:19.0cqw;height:32.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(4){left:62.0cqw;top:2.0cqw;width:16.0cqw;height:27.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(5){left:80.0cqw;top:10.0cqw;width:18.0cqw;height:31.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(6){left:5.0cqw;top:38.0cqw;width:16.0cqw;height:28.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(7){left:24.0cqw;top:34.0cqw;width:19.0cqw;height:33.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(8){left:46.0cqw;top:42.0cqw;width:15.0cqw;height:26.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(9){left:64.0cqw;top:36.0cqw;width:17.0cqw;height:30.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(10){left:83.0cqw;top:44.0cqw;width:15.0cqw;height:26.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(11){left:0.0cqw;top:70.0cqw;width:18.0cqw;height:31.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(12){left:21.0cqw;top:73.0cqw;width:16.0cqw;height:27.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(13){left:41.0cqw;top:72.0cqw;width:19.0cqw;height:32.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(14){left:63.0cqw;top:70.0cqw;width:15.0cqw;height:27.0cqw}
-.sk-vid__col .sk-vt:nth-of-type(15){left:80.0cqw;top:76.0cqw;width:17.0cqw;height:30.0cqw}
+.sk-xp__col,.sk-hs,.sk-vid__col{max-width:min(94vw,1100px)}
+.sk-vid__col{aspect-ratio:100/122}
+.sk-vid__col .sk-vt:nth-of-type(1){left:0.0cqw;top:2.0cqw;width:21.0cqw;height:37.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(2){left:19.0cqw;top:0.0cqw;width:19.0cqw;height:33.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(3){left:36.0cqw;top:6.0cqw;width:22.0cqw;height:38.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(4){left:56.0cqw;top:0.0cqw;width:20.0cqw;height:34.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(5){left:74.0cqw;top:8.0cqw;width:25.0cqw;height:38.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(6){left:3.0cqw;top:34.0cqw;width:20.0cqw;height:36.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(7){left:21.0cqw;top:40.0cqw;width:22.0cqw;height:38.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(8){left:41.0cqw;top:36.0cqw;width:19.0cqw;height:33.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(9){left:58.0cqw;top:42.0cqw;width:21.0cqw;height:37.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(10){left:78.0cqw;top:46.0cqw;width:22.0cqw;height:36.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(11){left:0.0cqw;top:70.0cqw;width:22.0cqw;height:38.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(12){left:20.0cqw;top:76.0cqw;width:19.0cqw;height:34.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(13){left:38.0cqw;top:74.0cqw;width:22.0cqw;height:38.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(14){left:58.0cqw;top:80.0cqw;width:20.0cqw;height:35.0cqw}
+.sk-vid__col .sk-vt:nth-of-type(15){left:77.0cqw;top:84.0cqw;width:23.0cqw;height:38.0cqw}
 }
 </style>
 <style id="sk-desktop-scale">@media (min-width:981px){
@@ -8411,18 +8384,40 @@ html body section.sk-xp,html body section.sk-brown,html body section.sk-vid,html
 .sk-hs{margin-top:60px}
 html body section.sk-vid{padding-bottom:120px!important}
 }</style>
+<style id="sk-fix-sides">html body:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){background-color:#FAF1EC!important}
+@media (max-width:980px){
+html body section#contact:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){max-width:none!important;width:100%!important;margin-left:0!important;margin-right:0!important;background:#FAF1EC!important;border-radius:0!important;box-sizing:border-box}
+}
+html body #sk-music .skmu-eyebrow:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){display:block!important;line-height:1.5!important;margin:0 0 16px!important;padding-top:4px!important;overflow:visible!important;height:auto!important;opacity:.85!important;letter-spacing:.26em!important}
+html body #sk-music .skmu-title:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){margin-top:0!important;line-height:1.2!important}
+</style>
+<style id="sk-captions">
+.sk-int{font:300 1.35rem/1.35 'DM Sans',sans-serif;letter-spacing:.01em;text-align:center;margin:44px auto 0;max-width:22ch;color:#4A2A22;position:relative;z-index:2}
+.sk-int--l{color:#F5EDE3;margin-top:46px}
+.sk-int--b{margin:0 auto;padding:46px 24px;max-width:none;background:#FAF1EC;color:#8a5b43;font-size:1.15rem;letter-spacing:.04em;position:relative;z-index:7}
+html body p.sk-int--b:not(#_):not(#__){background:#FAF1EC!important}
+.sk-cap{position:absolute;margin:0;font:300 4.9cqw/1.25 'DM Sans',sans-serif;letter-spacing:.01em;z-index:2;text-align:left}
+.sk-cap--xp{left:72cqw;top:136cqw;width:27cqw;color:#4A2A22}
+.sk-cap--hs{left:0;top:163cqw;width:26cqw;color:#F5EDE3;font-size:4.2cqw}
+@media (min-width:700px){
+.sk-cap{font-size:2.6cqw}
+.sk-cap--xp{left:50cqw;top:49cqw;width:28cqw}
+.sk-cap--hs{left:50cqw;top:30cqw;width:30cqw;font-size:2.4cqw}
+.sk-int{font-size:2rem;margin-top:60px}
+.sk-int--b{font-size:1.5rem}
+}
+</style>
 <section class="sk-xp" aria-label="L'expérience Skines">
   <div class="sk-xp__k sk-xp__rv" data-fr="Montréal · Petite-Italie" data-en="Montréal · Little Italy">Montréal · Petite-Italie</div>
   <h2 class="sk-xp__t sk-xp__rv" data-fr="L'expérience Skines" data-en="The Skines experience">L'expérience Skines</h2>
   <p class="sk-xp__p sk-xp__rv" data-fr="Un lieu calme, des gestes précis, du temps pour vous." data-en="A calm place, precise gestures, time for you.">Un lieu calme, des gestes précis, du temps pour vous.</p>
-  <div class="sk-xp__col"><img class="sk-xp__rv" src="/assets/head-spa-bol-chantant.webp" alt="Bol chantant, Head Spa" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-vapeur-bonnet.webp" alt="Vapeur et bonnet, Head Spa" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/card-facial.webp" alt="Soin du visage à Montréal" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-rincage-vert.webp" alt="Rinçage, Head Spa" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/card-laser.webp" alt="Épilation laser à Montréal" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/card-head-spa.webp" alt="Head Spa japonais, Petite-Italie" loading="lazy" width="400" height="500"></div>
+  <div class="sk-xp__col ca"><img class="sk-xp__rv" src="/assets/head-spa-bol-chantant-m.webp" alt="Bol chantant, Head Spa à Montréal" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-vapeur-bonnet-m.webp" alt="Vapeur et bonnet, Head Spa" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/card-facial-m.webp" alt="Soin du visage à Montréal" loading="lazy" width="400" height="500"></div><div class="sk-st sk-xp__rv"><p class="sk-st__t">Prenez le temps de respirer</p><p class="sk-st__p">Un lieu calme au cœur de la Petite-Italie, où chaque geste est pensé pour vous faire ralentir.</p></div><div class="sk-xp__col cb"><img class="sk-xp__rv" src="/assets/card-head-spa-m.webp" alt="Head Spa japonais, Petite-Italie" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/card-laser-m.webp" alt="Épilation laser à Montréal" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-rincage-vert-m.webp" alt="Rinçage, Head Spa" loading="lazy" width="400" height="500"></div><div class="sk-st sk-st--r sk-xp__rv"><p class="sk-st__t">Trois savoir-faire, un seul lieu</p><p class="sk-st__p">Head Spa japonais, épilation laser et soins du visage : la même attention, du premier au dernier instant.</p></div>
 </section>
 <section class="sk-brown">
   <div class="sk-brown__k sk-xp__rv" data-fr="Head Spa japonais · Petite-Italie" data-en="Japanese Head Spa · Little Italy">Head Spa japonais · Petite-Italie</div>
   <h2 class="sk-brown__h sk-xp__rv" data-fr="Un rituel inspiré du Japon, au cœur de Montréal" data-en="A ritual inspired by Japan, in the heart of Montréal">Un rituel inspiré du Japon,<br>au cœur de Montréal</h2>
   <p class="sk-brown__p sk-xp__rv" data-fr="Nettoyage du cuir chevelu, massage profond, vapeur et soins de l'eau : un moment de calme, du début à la fin, dans un studio privé de la Petite-Italie." data-en="Scalp cleansing, deep massage, steam and water care: a moment of calm from start to finish, in a private studio in Little Italy.">Nettoyage du cuir chevelu, massage profond, vapeur et soins de l'eau : un moment de calme, du début à la fin, dans un studio privé de la Petite-Italie.</p>
-  <div class="sk-hs"><img class="sk-xp__rv hw" src="/assets/head-spa-mousse-bleue.webp" alt="Head Spa japonais à Montréal, mousse et massage" loading="lazy" width="600" height="600"><img class="sk-xp__rv hh" src="/assets/head-spa-eau-violet.webp" alt="Soin de l'eau, Head Spa Petite-Italie" loading="lazy" width="600" height="600"><img class="sk-xp__rv hh" src="/assets/head-spa-vapeur-bonnet.webp" alt="Vapeur et bonnet, rituel Head Spa" loading="lazy" width="600" height="600"><img class="sk-xp__rv hl" src="/assets/head-spa-serviette-neon.webp" alt="Head Spa Skines, salle néon à Montréal" loading="lazy" width="600" height="600"><img class="sk-xp__rv ht" src="/assets/head-spa-bol-chantant.webp" alt="Bol chantant, Head Spa" loading="lazy" width="600" height="600"><img class="sk-xp__rv ht" src="/assets/head-spa-rincage-vert.webp" alt="Rinçage, Head Spa" loading="lazy" width="600" height="600"><img class="sk-xp__rv ht" src="/assets/head-spa-huile-pipette.webp" alt="Huile et pipette, Head Spa" loading="lazy" width="600" height="600"></div>
-  <a class="sk-xp__rv" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="Réserver" data-en="Book now">Réserver</span></a>
+  <div class="sk-hs cc"><img class="sk-xp__rv" src="/assets/head-spa-mousse-bleue-m.webp" alt="Head Spa japonais à Montréal, mousse et massage" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-eau-violet-m.webp" alt="Soin de l'eau, Head Spa Petite-Italie" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-vapeur-bonnet-m.webp" alt="Vapeur et bonnet, rituel Head Spa" loading="lazy" width="400" height="500"></div><div class="sk-st sk-st--l sk-xp__rv"><p class="sk-st__t">L'eau, la vapeur, le silence</p><p class="sk-st__p">Une pause complète dans un studio privé, où tout est à portée de main.</p></div><div class="sk-hs cd"><img class="sk-xp__rv" src="/assets/head-spa-serviette-neon-m.webp" alt="Head Spa Skines, salle néon à Montréal" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-bol-chantant-m.webp" alt="Bol chantant, Head Spa" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-rincage-vert-m.webp" alt="Rinçage, Head Spa" loading="lazy" width="400" height="500"><img class="sk-xp__rv" src="/assets/head-spa-huile-pipette-m.webp" alt="Huile et pipette, Head Spa" loading="lazy" width="400" height="500"></div><div class="sk-st sk-st--r sk-st--l sk-xp__rv"><p class="sk-st__t">Laissez-vous porter</p><p class="sk-st__p">Du premier massage au dernier rinçage, le temps vous appartient.</p></div>
 </section>
 
 
@@ -8487,7 +8482,7 @@ html body .sk-hz b span:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#_
   <div class="sk-vid__k sk-xp__rv" data-fr="Avis vérifiés" data-en="Verified reviews">Avis vérifiés</div>
   <h2 class="sk-vid__t sk-xp__rv" data-fr="Ils en parlent mieux que nous" data-en="They say it better than we do">Ils en parlent mieux que nous</h2>
   <p class="sk-vid__p sk-xp__rv" data-fr="Des visages, des sourires, des mots vrais. Touchez-en un : il se met en avant et se lit sur place." data-en="Faces, smiles, honest words. Tap one: it comes forward and plays right there.">Des visages, des sourires, des mots vrais. Touchez-en un : il se met en avant et se lit sur place.</p>
-  <div class="sk-vid__col sk-xp__rv"><button type="button" class="sk-vt" data-src="/assets/videos/avis-oumymn.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-oumymn-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-v10.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-v10-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-ugc60.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-ugc60-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-duo-glow.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-duo-glow-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-glow-line.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-glow-line-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-final.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-final-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-google-ads.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-google-ads-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-tiik.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-tiik-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-solo.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-solo-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-men.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-men-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-juillet.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-juillet-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-hook.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-hook-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-new.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-new-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-test.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-test-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis6-web.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis6-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button></div><div class="sk-rv__head"><img src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="58" height="72" loading="lazy"><div><b>4,8 Fresha · 4,7 Google</b>Plus de 1 700 avis vérifiés</div></div>
+  <div class="sk-vid__col sk-xp__rv"><button type="button" class="sk-vt" data-src="/assets/videos/avis-oumymn.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-oumymn-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-v10.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-v10-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-ugc60.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-ugc60-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-duo-glow.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-duo-glow-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-glow-line.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-glow-line-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-final.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-final-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-google-ads.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-google-ads-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-tiik.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-tiik-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-solo.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-solo-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-men.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-men-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-juillet.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-juillet-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-hook.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-hook-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-new.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-new-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis-test.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis-test-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button><button type="button" class="sk-vt" data-src="/assets/videos/avis6-web.mp4" aria-label="Lire le témoignage vidéo"><img src="/assets/videos/avis6-thumb.webp" alt="Témoignage vidéo client Skines" loading="lazy" width="270" height="480"><i></i></button></div><div class="sk-rv__head"><img src="/assets/best-in-class-2026-fresha.webp?v=3" alt="Fresha — Best in Class 2026" width="58" height="72" loading="lazy"><div><b>4,8 Fresha · 4,7 Google</b>Plus de 1 700 avis vérifiés</div></div>
 </section>
 <div id="skVC"><button type="button" id="skVCx" aria-label="Arrêter la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button></div>
 <script>document.addEventListener('DOMContentLoaded',function(){
@@ -8522,6 +8517,7 @@ html body section.sk-rv h2.sk-rv__t:not(#_):not(#__):not(#___):not(#____):not(#_
 .sk-rv__all{display:block;margin-top:16px;font:500 .72rem/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#684034;text-decoration:underline;text-underline-offset:4px}
 }
 </style>
+<p class="sk-int sk-int--b ">Des visages vrais. Des mots vrais.</p>
 <section class="sk-rv" id="skRv" aria-label="Avis clients">
   
   <h2 class="sk-rv__t" data-fr="Avis vérifiés : Head Spa, épilation laser et soins du visage à Montréal" data-en="Verified reviews: Head Spa, laser hair removal and facials in Montréal">Avis vérifiés : Head Spa, épilation laser et soins du visage à Montréal</h2>
@@ -8546,7 +8542,7 @@ requestAnimationFrame(tick)})(last);
 });</script>
 <section class="sk-wr" id="skReviews" aria-label="Avis clients">
     <div class="sk-wr__head">
-      <img class="sk-wr__badge" src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="132" height="165" loading="lazy" decoding="async">
+      <img class="sk-wr__badge" src="/assets/best-in-class-2026-fresha.webp?v=3" alt="Fresha — Best in Class 2026" width="132" height="165" loading="lazy" decoding="async">
       <div class="sk-wr__eyebrow" data-fr="Avis vérifiés · Best in Class 2026" data-en="Verified reviews · Best in Class 2026">Avis vérifiés · Best in Class 2026</div>
       <h2 class="sk-wr__title" data-fr="Ce que disent nos clients" data-en="What our clients say">Ce que disent nos clients</h2>
       <div class="sk-wr__ratings">
@@ -9010,7 +9006,7 @@ requestAnimationFrame(tick)})(last);
         <div class="ivc-track" id="ivc-track"></div>
       </div>
       <div class="ivc-side-badge ivc-side-r">
-        <img class="ivc-award" src="/assets/best-in-class-2026-fresha.png?v=2" alt="Fresha — Best in Class 2026" width="170" height="108" loading="lazy" decoding="async">
+        <img class="ivc-award" src="/assets/best-in-class-2026-fresha.webp?v=3" alt="Fresha — Best in Class 2026" width="170" height="108" loading="lazy" decoding="async">
         <div class="ivc-side-starline"><span class="ivc-side-stars sk-part" style="--fill:96%;--sk-c:#F7D98A" role="img" aria-label="4.8 sur 5">★★★★★</span><span class="ivc-side-rating">4.8</span></div>
         <span class="ivc-side-label" data-fr="Fresha · Best in Class 2026" data-en="Fresha · Best in Class 2026">Fresha · Best in Class 2026</span>
         <span class="ivc-side-num">881</span>
@@ -9621,6 +9617,7 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
   .sf-exclusive-card { margin: 0; height: auto; width: 100%; }
 }
 </style>
+<p class="sk-int sk-int--b">Et maintenant, écoutez.</p>
 <section id="sk-music" aria-label="Musique Skines">
   <div class="skmu-eyebrow" data-fr="BIENVENUE CHEZ SKINES" data-en="WELCOME TO SKINES">BIENVENUE CHEZ SKINES</div>
   <div class="skmu-title" role="heading" aria-level="2" data-fr="Un moment pour vous" data-en="A moment for you">Un moment pour vous</div>
@@ -9661,6 +9658,7 @@ html body footer .sf-book-btn:hover:not(#_) { background: rgb(238,227,211) !impo
   </div>
 </section>
 
+<p class="sk-int sk-int--b">Revenez quand vous voulez.</p>
 <section class="contact" id="contact">
     <div>
       <div class="eyebrow" data-fr="Nous trouver" data-en="Find Us">Nous trouver</div>
@@ -10173,7 +10171,7 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
 </style>
 <footer class="site-footer sk-foot">
   <div class="sk-foot-cols">
-    <details class="sk-foot-col sk-foot-acc sk-foot-join" open><summary><h4 data-fr="Tirage du mois" data-en="Monthly draw">Tirage du mois</h4></summary>
+    <details class="sk-foot-col sk-foot-acc sk-foot-join" open><summary><h4 aria-level="3" data-fr="Tirage du mois" data-en="Monthly draw">Tirage du mois</h4></summary>
       <p class="sk-foot-hours" data-fr="Laissez votre courriel et tentez de gagner −50 % sur une séance." data-en="Leave your email and try to win 50% off a session.">Laissez votre courriel et tentez de gagner −50 % sur une séance.</p>
       <form class="sk-join" novalidate>
         <label class="sk-join-sr" for="skJoinEmail">Courriel</label>
@@ -10182,7 +10180,7 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
       </form>
       <p class="sk-join-note" data-fr="En participant, vous acceptez les conditions d'utilisation et la politique de confidentialité." data-en="By taking part, you agree to the terms of use and privacy policy.">En participant, vous acceptez les <a href="/terms-and-conditions">conditions d'utilisation</a> et la <a href="/privacy-policy">politique de confidentialité</a>.</p>
     </details>
-    <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Réserver en ligne" data-en="Book online">Réserver en ligne</h4></summary>
+    <details class="sk-foot-col sk-foot-acc" open><summary><h4 aria-level="3" data-fr="Réserver en ligne" data-en="Book online">Réserver en ligne</h4></summary>
       
       <p class="sk-foot-hours" data-fr="Disponibilités en temps réel
 7 jours sur 7 · 9 h – 22 h 30" data-en="Real-time availability
@@ -10190,7 +10188,7 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
 7 jours sur 7 · 9 h – 22 h 30</p>
       <a class="sk-foot-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
     </details>
-    <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Nous trouver" data-en="Find us">Nous trouver</h4></summary>
+    <details class="sk-foot-col sk-foot-acc" open><summary><h4 aria-level="3" data-fr="Nous trouver" data-en="Find us">Nous trouver</h4></summary>
       
       <a href="/visit-us">19 av. Shamrock<br>Montréal QC H2S 1A3</a>
       <a href="tel:+14382605660">+1 (438) 260-5660</a>
@@ -10201,7 +10199,7 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
         <a href="mailto:info@skines.ca"><span data-fr="Écrire" data-en="Email">Écrire</span></a>
       </div>
     </details>
-    <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Soins" data-en="Treatments">Soins</h4></summary>
+    <details class="sk-foot-col sk-foot-acc" open><summary><h4 aria-level="3" data-fr="Soins" data-en="Treatments">Soins</h4></summary>
       
       <a href="/head-spa"><span data-fr="Head Spa" data-en="Head Spa">Head Spa</span></a>
       <a href="/facial"><span data-fr="Soins du visage" data-en="Facials">Soins du visage</span></a>
@@ -10209,7 +10207,7 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
       <a href="/cartes-cadeaux"><span data-fr="Cartes-cadeaux" data-en="Gift cards">Cartes-cadeaux</span></a>
       <a href="/insurance"><span data-fr="Reçus d'assurance" data-en="Insurance receipts">Reçus d'assurance</span></a>
     </details>
-    <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Informations" data-en="Information">Informations</h4></summary>
+    <details class="sk-foot-col sk-foot-acc" open><summary><h4 aria-level="3" data-fr="Informations" data-en="Information">Informations</h4></summary>
       
       <a href="/visit-us"><span data-fr="Votre visite" data-en="Your visit">Votre visite</span></a>
       <a href="/parking"><span data-fr="Stationnement privé" data-en="Private parking">Stationnement privé</span></a>
@@ -10219,7 +10217,7 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
       <a href="/tirage"><span data-fr="Tirage au sort" data-en="Giveaway">Tirage au sort</span></a>
     </details>
     <details class="sk-foot-col sk-foot-acc" open>
-      <summary><h4 data-fr="Réseaux sociaux" data-en="Social media">Réseaux sociaux</h4></summary>
+      <summary><h4 aria-level="3" data-fr="Réseaux sociaux" data-en="Social media">Réseaux sociaux</h4></summary>
       <a href="https://www.instagram.com/skines.ca/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://www.tiktok.com/@skines.headspa" target="_blank" rel="noopener noreferrer">TikTok</a>
       <a href="https://www.facebook.com/profile.php?id=61561926307617" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -10239,13 +10237,13 @@ html body #sk-music .skmu-box .skmu-deckwrap:not(#_){--s:.8 !important}
     <span class="sk-foot-sub">HEAD SPA &amp; WELLNESS</span>
   </a>
 <div class="sf-legal">
-    <div class="sk-legal-links"><a style="color:rgba(246,230,212,.38) !important;font-weight:300;transition:filter .2s" href="/privacy-policy" data-i18n="footer.privacy">Privacy</a><a style="color:rgba(246,230,212,.38) !important;font-weight:300;transition:filter .2s" href="/terms-and-conditions" data-i18n="footer.terms">Terms</a><a style="color:rgba(246,230,212,.38) !important;font-weight:300;transition:filter .2s" href="/cookie-policy" data-i18n="footer.cookies">Cookies</a></div>
-    <div class="sk-legal-copy"><span style="color:rgba(246,230,212,.38) !important;font-weight:300">© 2026 Skines Head Spa &amp; Wellness.</span> <a style="color:rgba(246,230,212,.38) !important;font-weight:300;text-decoration:underline !important;text-underline-offset:4px;text-decoration-thickness:1px;transition:filter .2s" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" data-fr="Carte © OpenStreetMap · OpenFreeMap" data-en="Map © OpenStreetMap · OpenFreeMap">Carte © OpenStreetMap · OpenFreeMap</a></div>
+    <div class="sk-legal-links"><a style="color:rgba(246,230,212,.78) !important;font-weight:300;transition:filter .2s" href="/privacy-policy" data-i18n="footer.privacy">Privacy</a><a style="color:rgba(246,230,212,.78) !important;font-weight:300;transition:filter .2s" href="/terms-and-conditions" data-i18n="footer.terms">Terms</a><a style="color:rgba(246,230,212,.78) !important;font-weight:300;transition:filter .2s" href="/cookie-policy" data-i18n="footer.cookies">Cookies</a></div>
+    <div class="sk-legal-copy"><span style="color:rgba(246,230,212,.78) !important;font-weight:300">© 2026 Skines Head Spa &amp; Wellness.</span> <a style="color:rgba(246,230,212,.78) !important;font-weight:300;text-decoration:underline !important;text-underline-offset:4px;text-decoration-thickness:1px;transition:filter .2s" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" data-fr="Carte © OpenStreetMap · OpenFreeMap" data-en="Map © OpenStreetMap · OpenFreeMap">Carte © OpenStreetMap · OpenFreeMap</a></div>
   </div>
 </footer>
 <!-- Lenis smooth scroll: loaded lazily on desktop only (see 'Lenis smooth scroll' in the GSAP block below). -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="/assets/js/gsap.min.js?v=1"></script>
+<script src="/assets/js/ScrollTrigger.min.js?v=1"></script>
 <script>
 /* ══ SITE SEARCH ENGINE ═══════════════════════════════════════════════════ */
 (function() {
@@ -10529,9 +10527,9 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     // snap at the end while the .fromTo tags animated — out of order. Stating
     // both ends keeps all four groups animating in sequence.
     var heroTl = gsap.timeline({ paused: true, onComplete: forceHero })
-      .fromTo(".hero-eyebrow", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.15)
-      .fromTo(".hero-title",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.40)
-      .fromTo(".hero-tag-btn", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.12, ease: "power3.out" }, 0.95)
+      .fromTo(".hero-eyebrow", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.0)
+      .fromTo(".hero-title",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.10)
+      .fromTo(".hero-tag-btn", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power3.out" }, 0.6)
       .fromTo("#heroTrust",    { y: 14, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, 1.5)
       .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 2.0);
 
@@ -10539,7 +10537,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     // (~2s) as the curtain lifts, so hold the text back until that has passed —
     // the entrance then begins on the clean footage. Desktop starts promptly.
     var isPhone = window.innerWidth < 768;
-    var HERO_AFTER_SPLASH_MS = isPhone ? 500 : 300;
+    var HERO_AFTER_SPLASH_MS = isPhone ? 150 : 100;
     var heroReleased = false;
     function releaseHero() {
       if (heroReleased) return; heroReleased = true;
@@ -12546,7 +12544,7 @@ html body #treatments .service-card.card-giftcard .card-img {
 <div id="gw-overlay" role="dialog" aria-modal="true" aria-labelledby="gw-title" aria-hidden="true">
   <div id="gw-card">
     <button type="button" id="gw-close" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <div id="gw-img"><picture><source media="(max-width:700px)" srcset="assets/images/tirage-popup-portrait.webp?v=1"><source srcset="assets/images/tirage-popup-bowl-m.webp?v=3"><img src="assets/images/tirage-popup-bowl.webp?v=1" alt="Skines Head Spa" loading="lazy"></picture></div>
+    <div id="gw-img"><picture><source media="(max-width:700px)" srcset="assets/images/tirage-popup-portrait.webp?v=1"><source srcset="assets/images/tirage-popup-bowl-s.webp?v=3"><img src="assets/images/tirage-popup-bowl-m.webp?v=1" alt="Skines Head Spa" loading="lazy"></picture></div>
     <div id="gw-body">
       <form id="gw-form" novalidate>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -13704,7 +13702,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
   // SAME logo as the splash glides down to cover, then we navigate WITH ?x=1 so
   // the destination knows to skip its intro fade and just lift the splash up.
   // ?x=1 (not only sessionStorage) survives iOS private mode / storage limits.
-  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));" decoding="sync" fetchpriority="high"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3 !important;-webkit-text-fill-color:#F5EDE3 !important;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72) !important;-webkit-text-fill-color:rgba(245,237,227,.72) !important;font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
+  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped-s.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));" decoding="sync" fetchpriority="high"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3 !important;-webkit-text-fill-color:#F5EDE3 !important;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72) !important;-webkit-text-fill-color:rgba(245,237,227,.72) !important;font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
   function withX(u){ return u + (u.indexOf('?')>-1 ? '&' : '?') + 'x=1'; }
   var busy = false;
   function dropThenGo(href){
@@ -14000,7 +13998,7 @@ html body nav#mainNav:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#___
   logo.insertAdjacentElement('afterend',L); L.insertAdjacentElement('afterend',R);
 })();
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
 <style id="sk-logo">
 @media (min-width:981px){
 @keyframes skOpal{0%{background-position:0% 50%}100%{background-position:220% 50%}}
@@ -14071,7 +14069,7 @@ html body #heroTrust:hover{background:rgba(255,255,255,.2) !important;transform:
 html body #heroTrust{transition:background .3s,transform .3s,border-color .3s,box-shadow .3s}
 @keyframes skBadgeFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -3px;rotate:-2deg}}
 html body #heroTrust .hero-trust__badge-wrap{position:relative;display:block;line-height:0;animation:skBadgeFloat 4.6s ease-in-out infinite;will-change:translate,rotate}
-html body #heroTrust .hero-trust__badge-wrap::after{content:'';position:absolute;inset:0;pointer-events:none;background-size:100% 100%;background-repeat:no-repeat;background-image:linear-gradient(176deg,transparent calc(var(--sk-p,-600px) - 30px),rgba(255,255,255,.14) calc(var(--sk-p,-600px) - 15px),rgba(255,255,255,.4) var(--sk-p,-600px),rgba(255,255,255,.14) calc(var(--sk-p,-600px) + 15px),transparent calc(var(--sk-p,-600px) + 30px));-webkit-mask:url(/assets/best-in-class-2026-fresha-hero.png?v=2) center/contain no-repeat;mask:url(/assets/best-in-class-2026-fresha-hero.png?v=2) center/contain no-repeat}
+html body #heroTrust .hero-trust__badge-wrap::after{content:'';position:absolute;inset:0;pointer-events:none;background-size:100% 100%;background-repeat:no-repeat;background-image:linear-gradient(176deg,transparent calc(var(--sk-p,-600px) - 30px),rgba(255,255,255,.14) calc(var(--sk-p,-600px) - 15px),rgba(255,255,255,.4) var(--sk-p,-600px),rgba(255,255,255,.14) calc(var(--sk-p,-600px) + 15px),transparent calc(var(--sk-p,-600px) + 30px));-webkit-mask:url(/assets/best-in-class-2026-fresha-hero.webp?v=3) center/contain no-repeat;mask:url(/assets/best-in-class-2026-fresha-hero.webp?v=3) center/contain no-repeat}
 @media (prefers-reduced-motion:reduce){
 html body .hero .hero-service-tags .hero-tag-btn,html body #heroTrust,html body .hero .hero-cta .btn-hero-glass,html body #heroTrust .hero-trust__badge-wrap{animation:none !important}
 html body .hero .hero-tag-btn::before,html body .hero .hero-cta .btn-hero-glass::before,html body #heroTrust::before,html body #heroTrust .hero-trust__badge-wrap::after{display:none !important}
@@ -14287,12 +14285,12 @@ html body .sk-foot .sf-legal:not(#_):not(#__){gap:4px 18px !important;padding-bo
 <style id="sk-foot-final">
 @media (min-width:981px){html body .sk-foot-cols{grid-template-columns:1.2fr 1fr 1fr 1fr .8fr !important;gap:40px !important}}
 html body .sk-foot .sf-legal:not(#_):not(#__){font-size:.66rem !important;letter-spacing:.06em !important;color:rgba(246,230,212,.34) !important;margin-top:22px !important}
-html body .sk-foot .sf-legal span,html body .sk-foot .sf-legal a:not(#_){color:rgba(246,230,212,.38) !important;font-weight:300 !important}
+html body .sk-foot .sf-legal span,html body .sk-foot .sf-legal a:not(#_){color:rgba(246,230,212,.78) !important;font-weight:300 !important}
 html body .sk-foot .sf-legal a:hover{color:rgba(246,230,212,.8) !important}
 @media (max-width:560px){html body .sk-foot .sf-legal:not(#_):not(#__){font-size:.64rem !important}}
-html body .sk-foot .sf-legal > span:not(#_):not(#__):not(#___){color:rgba(246,230,212,.38) !important;font-weight:300 !important;font-family:'DM Sans',sans-serif !important}
-html body .sk-foot .sf-legal > a:not(#_):not(#__):not(#___){color:rgba(246,230,212,.38) !important}
-html body footer.sk-foot .sf-legal > a:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){color:rgba(246,230,212,.38) !important;font-weight:300 !important}
+html body .sk-foot .sf-legal > span:not(#_):not(#__):not(#___){color:rgba(246,230,212,.78) !important;font-weight:300 !important;font-family:'DM Sans',sans-serif !important}
+html body .sk-foot .sf-legal > a:not(#_):not(#__):not(#___){color:rgba(246,230,212,.78) !important}
+html body footer.sk-foot .sf-legal > a:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______){color:rgba(246,230,212,.78) !important;font-weight:300 !important}
 html body footer.sk-foot .sf-legal > a:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):hover{color:rgba(246,230,212,.8) !important}
 html body footer.sk-foot .sf-legal > a:hover{filter:brightness(2.2)}
 :root body .sk-foot h4:not(#_):not(#__):not(#___),:root body .sk-foot-acc summary h4:not(#_):not(#__):not(#___){font-family:'DM Sans',sans-serif !important;font-weight:400 !important;font-size:1.3rem !important;letter-spacing:0 !important;line-height:1.3 !important;color:#FAF1EC !important}
@@ -14640,6 +14638,74 @@ html body header.hero .hero-trust__txt:not(#_):not(#__),html body header.hero .h
 html body header.hero .hero-trust__vf:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-weight:600 !important;font-size:.62rem !important;letter-spacing:.2em !important;color:#FFFFFF !important}
 html body header.hero .btn-hero-glass span:not(#_):not(#__){font-family:'Shippori Mincho',serif !important;font-weight:600 !important;font-size:.72rem !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:#FFFFFF !important}
 }
+</style>
+<style id="sk-tighten">html body section.sk-vid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){padding-bottom:18px!important}
+html body section.sk-rv:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){padding-top:0!important}
+html body p.sk-int--b:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){padding:26px 24px 30px!important}
+html body .sk-vid .sk-rv__head:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){margin-bottom:0}
+@media (min-width:981px){html body section.sk-vid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){padding-bottom:30px!important}}
+</style>
+<style id="sk-awu-type">
+.sk-xp__col.ca{aspect-ratio:350/335}.sk-xp__col.cb{aspect-ratio:350/370}.sk-hs.cc{aspect-ratio:350/335;margin-top:30px}.sk-hs.cd{aspect-ratio:350/370;margin-top:0}
+.sk-xp__col.ca img:nth-child(1){left:0.0cqw;top:0.0cqw;width:47.1cqw;height:67.1cqw}
+.sk-xp__col.ca img:nth-child(2){left:52.9cqw;top:10.0cqw;width:47.1cqw;height:35.7cqw}
+.sk-xp__col.ca img:nth-child(3){left:40.0cqw;top:54.3cqw;width:44.3cqw;height:40.0cqw}
+.sk-xp__col.cb img:nth-child(1){left:51.4cqw;top:0.0cqw;width:48.6cqw;height:67.1cqw}
+.sk-xp__col.cb img:nth-child(2){left:0.0cqw;top:12.9cqw;width:45.7cqw;height:61.4cqw}
+.sk-xp__col.cb img:nth-child(3){left:31.4cqw;top:68.6cqw;width:52.9cqw;height:35.7cqw}
+.sk-hs.cc img:nth-child(1){left:0.0cqw;top:0.0cqw;width:57.1cqw;height:40.0cqw}
+.sk-hs.cc img:nth-child(2){left:61.4cqw;top:14.3cqw;width:38.6cqw;height:54.3cqw}
+.sk-hs.cc img:nth-child(3){left:11.4cqw;top:37.1cqw;width:40.0cqw;height:57.1cqw}
+.sk-hs.cd img:nth-child(1){left:42.9cqw;top:0.0cqw;width:57.1cqw;height:71.4cqw}
+.sk-hs.cd img:nth-child(2){left:0.0cqw;top:17.1cqw;width:35.7cqw;height:48.6cqw}
+.sk-hs.cd img:nth-child(3){left:14.3cqw;top:64.3cqw;width:42.9cqw;height:32.9cqw}
+.sk-hs.cd img:nth-child(4){left:65.7cqw;top:68.6cqw;width:34.3cqw;height:37.1cqw}
+.sk-st{max-width:350px;margin:44px auto 44px;text-align:left;position:relative;z-index:2}
+.sk-st--r{text-align:right}
+.sk-st__t{font-family:'Shippori Mincho',serif!important;font-weight:500;font-size:2.2rem;line-height:1.08;text-transform:uppercase;letter-spacing:.005em;margin:0 0 14px;color:#4A2A22}
+.sk-st__p{font:400 1rem/1.55 'DM Sans',sans-serif;margin:0;color:#6A4A41;max-width:30ch}
+.sk-st--r .sk-st__p{margin-left:auto}
+html body .sk-brown .sk-st__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:#F5EDE3!important}
+html body .sk-brown .sk-st__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:rgba(245,237,227,.82)!important}
+html body p.sk-int--b:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){font-family:'Shippori Mincho',serif!important;font-weight:500!important;font-size:1.8rem!important;line-height:1.1!important;text-transform:uppercase!important;letter-spacing:0!important;text-align:left!important;color:#684034!important;max-width:350px;margin:0 auto!important;padding:34px 0 36px!important;background:none!important}
+@media (min-width:700px){
+.sk-xp__col,.sk-hs{max-width:min(94vw,1100px)}
+.sk-xp__col.ca,.sk-hs.cc{aspect-ratio:100/44}.sk-xp__col.cb,.sk-hs.cd{aspect-ratio:100/44}
+.sk-xp__col.ca img:nth-child(1){left:0.0cqw;top:3.0cqw;width:32.0cqw;height:36.0cqw}
+.sk-xp__col.ca img:nth-child(2){left:30.0cqw;top:0.0cqw;width:34.0cqw;height:22.0cqw}
+.sk-xp__col.ca img:nth-child(3){left:66.0cqw;top:8.0cqw;width:34.0cqw;height:32.0cqw}
+.sk-xp__col.cb img:nth-child(1){left:0.0cqw;top:6.0cqw;width:36.0cqw;height:30.0cqw}
+.sk-xp__col.cb img:nth-child(2){left:34.0cqw;top:0.0cqw;width:28.0cqw;height:36.0cqw}
+.sk-xp__col.cb img:nth-child(3){left:62.0cqw;top:8.0cqw;width:34.0cqw;height:32.0cqw}
+.sk-hs.cc img:nth-child(1){left:0.0cqw;top:4.0cqw;width:38.0cqw;height:28.0cqw}
+.sk-hs.cc img:nth-child(2){left:34.0cqw;top:0.0cqw;width:22.0cqw;height:34.0cqw}
+.sk-hs.cc img:nth-child(3){left:58.0cqw;top:8.0cqw;width:40.0cqw;height:26.0cqw}
+.sk-hs.cd img:nth-child(1){left:62.0cqw;top:0.0cqw;width:36.0cqw;height:42.0cqw}
+.sk-hs.cd img:nth-child(2){left:0.0cqw;top:6.0cqw;width:24.0cqw;height:32.0cqw}
+.sk-hs.cd img:nth-child(3){left:22.0cqw;top:14.0cqw;width:26.0cqw;height:28.0cqw}
+.sk-hs.cd img:nth-child(4){left:46.0cqw;top:24.0cqw;width:20.0cqw;height:20.0cqw}
+.sk-st{max-width:min(94vw,1100px);margin:60px auto}
+.sk-st__t{font-size:clamp(2.8rem,5vw,4.4rem)}
+.sk-st__p{font-size:1.15rem;max-width:44ch}
+html body p.sk-int--b:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){font-size:2.4rem!important;max-width:min(94vw,1100px)}
+}
+</style>
+<style id="sk-awu-type-fix">html body section.sk-brown p.sk-st__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(#_________){font-family:'Shippori Mincho',serif!important;font-weight:500!important;font-size:2.2rem!important;line-height:1.08!important;text-transform:uppercase!important;letter-spacing:.005em!important;margin:0 0 14px!important;max-width:none!important;color:#F5EDE3!important}
+html body section.sk-brown p.sk-st__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(#_________){font:400 1rem/1.55 'DM Sans',sans-serif!important;margin:0!important;max-width:30ch!important;color:rgba(245,237,227,.82)!important}
+html body section.sk-brown .sk-st--r p.sk-st__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(#_________){margin-left:auto!important}
+@media (min-width:700px){html body section.sk-brown p.sk-st__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(#_________){font-size:clamp(2.8rem,5vw,4.4rem)!important}html body section.sk-brown p.sk-st__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________):not(#_________){font-size:1.15rem!important;max-width:44ch!important}}
+</style>
+<style id="sk-seam-fix">html body section.sk-vid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){padding-bottom:60px!important}
+html body section.sk-vid:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) + p.sk-int--b{padding-top:0!important}
+html body .sk-vid .sk-rv__head:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){box-shadow:0 8px 22px rgba(74,42,34,.16)}
+</style>
+<style id="sk-contrast">
+html body .sk-xp .sk-xp__k:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________),html body .sk-xp .sk-xp__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________),html body .sk-xp .sk-st__p:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________),html body .sk-xp .sk-st__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________),html body .sk-xp .sk-xp__t:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:#3A1F14!important}
+html body .sk-brown .sk-brown__k:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:#F2CDB7!important}
+html body #sk-music .skmu-sub:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){opacity:1!important;color:#4A3A34!important}
+html body #sk-music .skmu-box .skmu-na:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________),html body #sk-music .skmu-box .skmu-a:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:#6A4A41!important}
+html body #sk-music .skmu-qn:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){color:#A15F49!important}
+html body footer.sk-foot .sf-legal a:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________){opacity:1!important}
 </style>
 </body>
 </html>
