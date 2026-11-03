@@ -26,3 +26,4 @@ package-lock.json
 
 # Internal design notes (not for the site)
 docs/DESIGN-SPEC.md
+!assets/videos/hook-mobile-lite-v2.mp4
