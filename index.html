@@ -9629,6 +9629,16 @@ html body #sk-music .skmu-box .skmu-disc.pre-r:not(#_){transform:translateX(150%
 html body #sk-music .skmu-box .skmu-disc.pre-l:not(#_),html body #sk-music .skmu-box .skmu-disc.pre-r:not(#_){transition:none !important}
 html body #sk-music .skmu-box .skmu-disc.out-l:not(#_),html body #sk-music .skmu-box .skmu-disc.out-r:not(#_){transition:transform .52s cubic-bezier(.5,0,.75,.4),opacity .45s ease !important}
 </style>
+<style id="sk-music-peek2">
+html body #sk-music .skmu-box .skmu-peek:not(#_){width:104px;height:104px;margin-top:-52px}
+html body #sk-music .skmu-box .skmu-peek-l:not(#_){left:calc(50% - 146px*var(--s) - 62px)}
+html body #sk-music .skmu-box .skmu-peek-r:not(#_){left:calc(50% + 146px*var(--s) - 42px)}
+html body #sk-music .skmu-box .skmu-pv:not(#_){opacity:.92;box-shadow:0 10px 20px rgba(0,0,0,.55),inset 0 0 0 2.5px #2b221e}
+html body #sk-music .skmu-box .skmu-pv::after{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 18%,rgba(255,255,255,.1) 24%,transparent 32% 68%,rgba(255,255,255,.08) 76%,transparent 84%);pointer-events:none}
+html body #sk-music .skmu-box .skmu-pl:not(#_){inset:30%;background-image:url(/assets/skines-stones-line.svg?v=2);background-repeat:no-repeat;background-position:center;background-size:52% auto;box-shadow:0 0 0 2.5px #15100e}
+html body #sk-music .skmu-box .skmu-pl::after{content:'';position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#d9c9c0 45%,#6a5750);box-shadow:0 0 0 1.5px #120d0b}
+html body #sk-music .skmu-box .skmu-peek:hover .skmu-pv:not(#_){opacity:1}
+</style>
 <footer class="site-footer sk-foot">
   <div class="sk-foot-cols">
     <details class="sk-foot-col sk-foot-acc" open><summary><h4 data-fr="Réserver en ligne" data-en="Book online">Réserver en ligne</h4></summary>
