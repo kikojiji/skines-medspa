@@ -3388,5 +3388,36 @@ html body :is(h1,h2,h3,h4,h5,p,a,span,em,i,li,div,button,strong,label,input,text
   html body nav:not(#_):not(#__) .nav-cta { order: 4 !important; margin-left: 0 !important; margin-right: 0 !important; }
 }
 </style>
+<style id="sk-nav-smart">
+html body .sk-smartnav:not(#_){transition:transform .3s ease-out,background-color .3s ease,box-shadow .3s ease !important}
+html body .sk-smartnav.sk-solid:not(#_){background:#684034 !important;box-shadow:0 4px 18px rgba(0,0,0,.07) !important}
+html body .sk-smartnav.sk-solid:not(#_) a,html body .sk-smartnav.sk-solid:not(#_) button,html body .sk-smartnav.sk-solid:not(#_) .logo-text,html body .sk-smartnav.sk-solid:not(#_) .logo-sub,html body .sk-smartnav.sk-solid:not(#_) span,html body .sk-smartnav.sk-solid:not(#_) svg{color:#F6E6D4 !important}
+html body .sk-smartnav.sk-solid:not(#_) .hamburger span,html body .sk-smartnav.sk-solid:not(#_) .nav-burger span,html body .sk-smartnav.sk-solid:not(#_) [class*="burger"] span{background-color:#F6E6D4 !important}
+html body .sk-smartnav.sk-solid:not(#_) .nav-search-btn{border-color:rgba(246,230,212,.5) !important;background:rgba(246,230,212,.1) !important}
+html body .sk-smartnav.sk-solid:not(#_) .nav-search-btn svg,html body .sk-smartnav.sk-solid:not(#_) .nav-search-btn svg *{stroke:#F6E6D4 !important;color:#F6E6D4 !important}
+html body .sk-smartnav.sk-solid:not(#_) .menu-btn span,html body .sk-smartnav.sk-solid:not(#_) [id*="menu"] span:empty,html body .sk-smartnav.sk-solid:not(#_) [class*="burger"] span:empty{background:#F6E6D4 !important;background-color:#F6E6D4 !important;border-color:#F6E6D4 !important}
+html body .sk-smartnav.nav-hidden:not(.sk-hide):not(#_){transform:none !important}
+html body .sk-smartnav.sk-hide:not(#_){transform:translateY(-100%) !important}
+</style>
+<script id="sk-nav-smart-js">
+(function(){
+  var nav=document.getElementById('mainNav')||document.querySelector('nav'); if(!nav) return;
+  nav.classList.add('sk-smartnav');
+  var last=window.pageYOffset||0, tick=false, light=false;
+  try{ var m=(getComputedStyle(nav).backgroundColor||'').match(/rgba?\(([^)]+)\)/); if(m){ var p=m[1].split(','); light=(p.length<4||parseFloat(p[3])>0.5); } }catch(e){}
+  function menuOpen(){ var mo=document.getElementById('mobileNav'); return !!(mo&&mo.classList.contains('open')); }
+  function update(){
+    tick=false;
+    var y=Math.max(0,window.pageYOffset||0), dy=y-last;
+    if(!light) nav.classList.toggle('sk-solid', y>8);
+    if(menuOpen()||y<=120){ nav.classList.remove('sk-hide'); }
+    else if(dy>4){ nav.classList.add('sk-hide'); }
+    else if(dy<-3){ nav.classList.remove('sk-hide'); }
+    last=y;
+  }
+  window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(update); } },{passive:true});
+  update();
+})();
+</script>
 </body>
 </html>

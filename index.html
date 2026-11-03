@@ -13926,33 +13926,6 @@ html body .gw-no{font-size:.64rem}
 <style id="gw-mobile-img">@media (max-width:700px){html body #gw-img{flex:0 0 50% !important;padding:6px !important}html body #gw-body{flex:1 1 50% !important;padding:12px 4px 8px 10px !important}html body .gw-more{font-size:.56rem;text-wrap:balance}html body #gw-title,html body #gw-done h2{font-size:.88rem !important}}</style>
 <style id="gw-title-fix">@media (max-width:700px){html body #gw-title,html body #gw-done h2{line-height:1.35 !important;padding:2px 0 4px !important;margin:0 0 4px !important;overflow:visible !important}html body #gw-body{padding-top:16px !important}}</style>
 <style id="gw-title-font">@media (max-width:700px){html body #gw-title,html body #gw-done h2{font-family:'DM Sans',sans-serif !important;font-weight:500 !important;letter-spacing:0 !important}}</style>
-<style id="sk-nav-smart">
-@media (max-width:980px){
-html body nav#mainNav:not(#_){transition:transform .3s ease-out,background-color .3s ease,box-shadow .3s ease !important}
-html body nav#mainNav.sk-solid:not(#_){background:#684034 !important;box-shadow:0 4px 18px rgba(0,0,0,.07) !important}
-html body nav#mainNav.sk-hide:not(#_){transform:translateY(-100%) !important}
-}
-</style>
-<script id="sk-nav-smart-js">
-(function(){
-  var nav=document.getElementById('mainNav'); if(!nav||!window.matchMedia) return;
-  var mq=window.matchMedia('(max-width:980px)'), last=window.pageYOffset||0, tick=false;
-  function menuOpen(){ var m=document.getElementById('mobileNav'); return !!(m&&m.classList.contains('open')); }
-  function update(){
-    tick=false;
-    if(!mq.matches){ nav.classList.remove('sk-solid','sk-hide'); last=window.pageYOffset||0; return; }
-    var y=Math.max(0,window.pageYOffset||0), dy=y-last;
-    nav.classList.toggle('sk-solid', y>8);
-    if(menuOpen()||y<=120){ nav.classList.remove('sk-hide'); }
-    else if(dy>4){ nav.classList.add('sk-hide'); }
-    else if(dy<-3){ nav.classList.remove('sk-hide'); }
-    last=y;
-  }
-  window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(update); } },{passive:true});
-  mq.addEventListener&&mq.addEventListener('change',update);
-  update();
-})();
-</script>
 <style id="sk-mute-quiet">
 @media (max-width:980px){
 html body #mobileMuteBtn:not(#_){top:auto !important;left:auto !important;right:14px !important;bottom:12px !important;width:32px !important;height:32px !important;background:rgba(0,0,0,.28) !important;border:1px solid rgba(232,189,92,.5) !important;animation:none !important;box-shadow:none !important;opacity:.72;backdrop-filter:blur(4px)}
@@ -13961,5 +13934,36 @@ html body #mobileMuteBtn.sound-hidden{opacity:0 !important}
 }
 </style>
 <style id="sk-trust-up">@media (max-width:980px){html body #heroTrust:not(#_){top:-100px !important}}</style>
+<style id="sk-nav-smart">
+html body .sk-smartnav:not(#_){transition:transform .3s ease-out,background-color .3s ease,box-shadow .3s ease !important}
+html body .sk-smartnav.sk-solid:not(#_){background:#684034 !important;box-shadow:0 4px 18px rgba(0,0,0,.07) !important}
+html body .sk-smartnav.sk-solid:not(#_) a,html body .sk-smartnav.sk-solid:not(#_) button,html body .sk-smartnav.sk-solid:not(#_) .logo-text,html body .sk-smartnav.sk-solid:not(#_) .logo-sub,html body .sk-smartnav.sk-solid:not(#_) span,html body .sk-smartnav.sk-solid:not(#_) svg{color:#F6E6D4 !important}
+html body .sk-smartnav.sk-solid:not(#_) .hamburger span,html body .sk-smartnav.sk-solid:not(#_) .nav-burger span,html body .sk-smartnav.sk-solid:not(#_) [class*="burger"] span{background-color:#F6E6D4 !important}
+html body .sk-smartnav.sk-solid:not(#_) .nav-search-btn{border-color:rgba(246,230,212,.5) !important;background:rgba(246,230,212,.1) !important}
+html body .sk-smartnav.sk-solid:not(#_) .nav-search-btn svg,html body .sk-smartnav.sk-solid:not(#_) .nav-search-btn svg *{stroke:#F6E6D4 !important;color:#F6E6D4 !important}
+html body .sk-smartnav.sk-solid:not(#_) .menu-btn span,html body .sk-smartnav.sk-solid:not(#_) [id*="menu"] span:empty,html body .sk-smartnav.sk-solid:not(#_) [class*="burger"] span:empty{background:#F6E6D4 !important;background-color:#F6E6D4 !important;border-color:#F6E6D4 !important}
+html body .sk-smartnav.nav-hidden:not(.sk-hide):not(#_){transform:none !important}
+html body .sk-smartnav.sk-hide:not(#_){transform:translateY(-100%) !important}
+</style>
+<script id="sk-nav-smart-js">
+(function(){
+  var nav=document.getElementById('mainNav')||document.querySelector('nav'); if(!nav) return;
+  nav.classList.add('sk-smartnav');
+  var last=window.pageYOffset||0, tick=false, light=false;
+  try{ var m=(getComputedStyle(nav).backgroundColor||'').match(/rgba?\(([^)]+)\)/); if(m){ var p=m[1].split(','); light=(p.length<4||parseFloat(p[3])>0.5); } }catch(e){}
+  function menuOpen(){ var mo=document.getElementById('mobileNav'); return !!(mo&&mo.classList.contains('open')); }
+  function update(){
+    tick=false;
+    var y=Math.max(0,window.pageYOffset||0), dy=y-last;
+    if(!light) nav.classList.toggle('sk-solid', y>8);
+    if(menuOpen()||y<=120){ nav.classList.remove('sk-hide'); }
+    else if(dy>4){ nav.classList.add('sk-hide'); }
+    else if(dy<-3){ nav.classList.remove('sk-hide'); }
+    last=y;
+  }
+  window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(update); } },{passive:true});
+  update();
+})();
+</script>
 </body>
 </html>
