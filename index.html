@@ -7969,7 +7969,7 @@ document.querySelectorAll('.sk-foot-acc').forEach(function(d){d.removeAttribute(
          shows the brand maroon underneath until the first frame paints, so
          there's no static image between the intro splash and the video). -->
     <video id="heroVideo" class="hero-bg hero-bg-mobile hero-bg-mobile-video parallax-img" autoplay muted loop playsinline preload="auto" poster="assets/hero-mobile-poster.webp" aria-label="Ambiance spa chaleureuse">
-      <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+      <source src="/assets/videos/hook-mobile-lite.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
     <!-- Hero ambient audio (desktop only) — a separate sound bed (rain + distant
@@ -12544,7 +12544,7 @@ html body #treatments .service-card.card-giftcard .card-img {
 <div id="gw-overlay" role="dialog" aria-modal="true" aria-labelledby="gw-title" aria-hidden="true">
   <div id="gw-card">
     <button type="button" id="gw-close" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <div id="gw-img"><picture><source media="(max-width:700px)" srcset="assets/images/tirage-popup-portrait.webp?v=1"><source srcset="assets/images/tirage-popup-bowl-s.webp?v=3"><img src="assets/images/tirage-popup-bowl-m.webp?v=1" alt="Skines Head Spa" loading="lazy"></picture></div>
+    <div id="gw-img"><picture><source media="(max-width:700px)" data-srcset="assets/images/tirage-popup-portrait.webp?v=1"><source data-srcset="assets/images/tirage-popup-bowl-s.webp?v=3"><img data-src="assets/images/tirage-popup-bowl-m.webp?v=1" alt="Skines Head Spa" loading="lazy"></picture></div>
     <div id="gw-body">
       <form id="gw-form" novalidate>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -12574,6 +12574,7 @@ html body #treatments .service-card.card-giftcard .card-img {
 
 <script>
 function openPopup() {
+  (function(){var im=document.getElementById('gw-img');if(im&&!im.dataset.ld){im.dataset.ld=1;im.querySelectorAll('source[data-srcset]').forEach(function(x){x.srcset=x.dataset.srcset});var i=im.querySelector('img[data-src]');if(i)i.src=i.dataset.src}})();
   var mn = document.getElementById('mobileNav');
   var mainNav = document.querySelector('nav');
   if (mn && mn.classList.contains('open')) {
@@ -13694,60 +13695,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
 }
 </style>
 <style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }
-#sk-xcurtain{ position:fixed; left:0; top:0; right:0; bottom:0; inset:0; display:flex !important; align-items:center; justify-content:center; background:#684034; z-index:100002; transform:translateY(-100vh); will-change:transform; pointer-events:none; transition:transform .9s cubic-bezier(.65,0,.35,1); }
-#sk-xcurtain.sk-xcurtain-down{ transform:translateY(0); }</style>
-<script id="sk-xtion-js">
-(function(){
-  // One continuous splash on internal navigation: a maroon curtain carrying the
-  // SAME logo as the splash glides down to cover, then we navigate WITH ?x=1 so
-  // the destination knows to skip its intro fade and just lift the splash up.
-  // ?x=1 (not only sessionStorage) survives iOS private mode / storage limits.
-  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped-s.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));" decoding="sync" fetchpriority="high"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3 !important;-webkit-text-fill-color:#F5EDE3 !important;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72) !important;-webkit-text-fill-color:rgba(245,237,227,.72) !important;font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
-  function withX(u){ return u + (u.indexOf('?')>-1 ? '&' : '?') + 'x=1'; }
-  var busy = false;
-  function dropThenGo(href){
-    if(busy) return; busy = true;
-    try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    var target = withX(href);
-    var gone = false; function go(){ if(gone) return; gone = true; window.location.href = target; }
-    var reduced = false; try{ reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-    var c = document.createElement('div');
-    c.id = 'sk-xcurtain';
-    c.innerHTML = LOGO;
-    document.body.appendChild(c); // starts at translateY(-100vh) from CSS
-    if(reduced){
-      c.style.transition = 'none';
-      c.style.transform = 'translateY(0)';
-      setTimeout(go, 80);
-    } else {
-      void c.offsetHeight; // force reflow so the start frame paints before the class flips (iOS Safari)
-      c.classList.add('sk-xcurtain-down');
-      setTimeout(go, 940);
-    }
-  }
-  function slideThenDrop(href, nav){
-    if(busy) return;
-    try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    nav.style.pointerEvents = 'none';
-    nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
-    nav.style.setProperty('transform', 'translateX(100%)', 'important');
-    setTimeout(function(){ dropThenGo(href); }, 560);
-  }
-  document.addEventListener('click', function(ev){
-    var a = ev.target.closest ? ev.target.closest('a[href]') : null;
-    if(!a) return;
-    var href = a.getAttribute('href') || '';
-    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return;
-    if(a.getAttribute('target') === '_blank' || a.hasAttribute('download')) return;
-    if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
-    ev.preventDefault();
-    ev.stopImmediatePropagation();
-    var menu = a.closest('#mobileNav');
-    if(menu && menu.classList.contains('open')) slideThenDrop(href, menu);
-    else dropThenGo(href);
-  }, true);
-})();
-</script>
+</style>
 <style id="sk-home-theme">
 /* Home: same system as the Head Spa page. Brown #684034 stays in nav/footer; light rose-copper sections, DM Sans, one button language. */
 :root { --sk-base:#FAF1EC; --sk-sec:#F0DCD4; --sk-sec2:#E7CCC1; --sk-card:#FFF8F4; --sk-accent:#E0B09B; --sk-ink:#4A2A22; --sk-text:#6A4A41; --sk-copper:#9A6552; }
