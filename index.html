@@ -9448,7 +9448,7 @@ html body #sk-music .skmu-list li.on span:nth-child(2){color:#E9BBA6}
   var curIdx=-1, labelCols=['#684034','#B66A5A','#8a5848'];
   function swapDisc(i,dir){ var dk=document.getElementById('skmuDisc'),lb=box.querySelector('.skmu-label'); if(!dk) return; var d=dir>0?'r':'l', e=dir>0?'l':'r'; dk.classList.add('out-'+d); setTimeout(function(){ if(lb) lb.style.setProperty('background',labelCols[i%labelCols.length],'important'); dk.classList.remove('out-'+d); dk.classList.add('pre-'+e); void dk.offsetWidth; dk.classList.remove('pre-'+e); },700); }
   function peekCols(i){ var pl=document.getElementById('skmuPL'),pr=document.getElementById('skmuPR'),pv=document.getElementById('skmuPrev'),nx=document.getElementById('skmuNext'); var n=box.querySelectorAll('.skmu-list li').length; if(pl) pl.style.backgroundColor=labelCols[(i+2)%3]; if(pr) pr.style.backgroundColor=labelCols[(i+1)%3]; if(pv){ pv.style.opacity=(i<=0)?'0':'1'; pv.style.pointerEvents=(i<=0)?'none':'auto'; } if(nx){ nx.style.opacity=(i>=n-1)?'0':'1'; nx.style.pointerEvents=(i>=n-1)?'none':'auto'; } }
-  function mark(i){ if(curIdx!==-1&&i!==curIdx) swapDisc(i,i>curIdx?1:-1); curIdx=i; peekCols(i); box.querySelectorAll('.skmu-list li').forEach(function(li){ var on=+li.getAttribute('data-i')===i; li.classList.toggle('on',on); if(on){ var t=li.querySelector('.skmu-t'),a=li.querySelector('.skmu-a'); var nt=document.getElementById('skmuNT'),na=document.getElementById('skmuNA'); if(t&&nt) nt.textContent=t.textContent; if(a&&na) na.textContent=a.textContent; } }); }
+  function mark(i){ updQ(i); if(curIdx!==-1&&i!==curIdx) swapDisc(i,i>curIdx?1:-1); curIdx=i; peekCols(i); box.querySelectorAll('.skmu-list li').forEach(function(li){ var on=+li.getAttribute('data-i')===i; li.classList.toggle('on',on); if(on){ var t=li.querySelector('.skmu-t'),a=li.querySelector('.skmu-a'); var nt=document.getElementById('skmuNT'),na=document.getElementById('skmuNA'); if(t&&nt) nt.textContent=t.textContent; if(a&&na) na.textContent=a.textContent; } }); }
   var spinT=null;
   var rot={a:0,v:0,t:0,raf:0,last:0}, volT=null;
   function rotLoop(ts){ var v=document.getElementById('skmuVinyl'); var dt=Math.min(.05,((ts-rot.last)/1000)||0); rot.last=ts; rot.v+=(rot.t-rot.v)*Math.min(1,dt*1.5); rot.a=(rot.a+rot.v*dt)%360; if(v) v.style.transform='rotate('+rot.a+'deg)'; if(rot.t===0&&rot.v<.4){ rot.v=0; rot.raf=0; return; } rot.raf=requestAnimationFrame(rotLoop); }
@@ -9490,6 +9490,33 @@ html body #sk-music .skmu-list li.on span:nth-child(2){color:#E9BBA6}
   var revT=null;
   function armReveal(ms){ pendReveal=true; if(revT) clearTimeout(revT); revT=setTimeout(function(){ if(pendReveal){ pendReveal=false; staticOff(); } },ms); }
   function staticOff(){ if(!stat) return; dotsOut(); if(burstT){ clearTimeout(burstT); burstT=null; } noiseStart(); stat.classList.add('noisy'); setTimeout(function(){ stat.classList.remove('on'); stat.classList.remove('noisy'); setTimeout(function(){ if(!stat.classList.contains('on')) noiseStop(); },500); },420); }
+  var qEl=null, seen={};
+  function buildQ(){
+    if(qEl) return; var list=box.querySelector('.skmu-list'); if(!list) return;
+    qEl=document.createElement('div'); qEl.className='skmu-queue'; qEl.id='skmuQueue';
+    var sc=document.createElement('div'); sc.className='skmu-qscroll'; qEl.appendChild(sc);
+    list.querySelectorAll('li').forEach(function(li,k){ var b=document.createElement('button'); b.type='button'; b.className='skmu-q'; b.setAttribute('data-k',k); var tt=(li.querySelector('.skmu-t')||li).textContent.trim(), ar=(li.querySelector('.skmu-a')||{textContent:''}).textContent.trim(); b.setAttribute('data-t',tt); b.setAttribute('data-a',ar); b.setAttribute('aria-label',tt); b.innerHTML='<span class="skmu-qd"><span class="skmu-ql"></span></span><span class="skmu-qn">'+(k+1<10?'0':'')+(k+1)+'</span><span class="skmu-qt"></span>'; b.addEventListener('click',function(){ start(k); }); sc.appendChild(b); });
+    list.parentNode.insertBefore(qEl,list);
+  }
+  function updQ(i){
+    buildQ(); if(!qEl) return; seen[i]=1; var sc=qEl.querySelector('.skmu-qscroll'), cur=null;
+    qEl.querySelectorAll('.skmu-q').forEach(function(b,k){ var on=k===i, sn=true; b.classList.toggle('on',on); b.classList.toggle('seen',sn); b.classList.toggle('next',k===i+1); b.querySelector('.skmu-qd').style.setProperty('--lc',labelCols[k%3]); b.querySelector('.skmu-qt').textContent=sn?b.getAttribute('data-t'):'?'; if(on) cur=b; });
+    if(cur&&sc){ var x=cur.offsetLeft-(sc.clientWidth-cur.offsetWidth)/2; try{ sc.scrollTo({left:x,behavior:'smooth'}); }catch(e){ sc.scrollLeft=x; } }
+  }
+  function pinDeck(ms){
+    var dk=document.getElementById('skmuDeck'); if(!dk||window.innerWidth>980) return;
+    var y0=dk.getBoundingClientRect().top, t0=performance.now(), stop=false; function cancel(){ stop=true; }
+    window.addEventListener('touchstart',cancel,{once:true,passive:true}); window.addEventListener('wheel',cancel,{once:true,passive:true});
+    (function f(){ if(stop||performance.now()-t0>ms) return; var d=dk.getBoundingClientRect().top-y0; if(Math.abs(d)>.5) window.scrollBy(0,d); requestAnimationFrame(f); })();
+  }
+  function focusMusic(){
+    var tt=box.parentNode.querySelector('.skmu-title')||box; var r=tt.getBoundingClientRect(), pr=wrap.getBoundingClientRect();
+    var tvIn=!wrap.hidden&&pr.height>60&&pr.top>60&&pr.bottom<window.innerHeight-40;
+    if(tvIn) return;
+    var top=Math.max(0,window.pageYOffset+r.top-(window.innerWidth>980?150:128));
+    if(Math.abs(window.pageYOffset-top)<30) return;
+    try{ window.scrollTo({top:top,behavior:'smooth'}); }catch(e){ window.scrollTo(0,top); }
+  }
   var swBusy=false;
   function switchTo(i){
     if(swBusy||i===curIdx) return; swBusy=true; staticOn(false); armReveal(4700); revealDelay=0;
@@ -9500,13 +9527,14 @@ html body #sk-music .skmu-list li.on span:nth-child(2){color:#E9BBA6}
   }
   function start(i){
     if(!ready) return;
-    wrap.hidden=false; setTimeout(function(){ wrap.classList.add('skmu-open'); },30); if(!player){ armReveal(4300); revealDelay=2300; setTimeout(function(){ staticOn(true); },1250); spin(true); } var ps=document.getElementById('skmuPlay'); if(ps) ps.hidden=true;
+    focusMusic();
+    wrap.hidden=false; setTimeout(function(){ wrap.classList.add('skmu-open'); },30); if(!player){ armReveal(4300); revealDelay=2300; setTimeout(function(){ staticOn(true); },1100); spin(true); } var ps=document.getElementById('skmuPlay'); if(ps) ps.hidden=true;
     if(player){ switchTo(i); return; }
     load(function(){
       player=new YT.Player('skmuFrame',{width:'100%',height:'100%',host:'https://www.youtube-nocookie.com',playerVars:{listType:'playlist',list:id,rel:0,playsinline:1,modestbranding:1},events:{onReady:function(e){ try{ fadeIn(1100); e.target.playVideoAt(i); }catch(_){} mark(i); },onStateChange:function(e){ try{ mark(e.target.getPlaylistIndex()); }catch(_){} if(e.data===1) spin(true); else if(e.data===2||e.data===0) spin(false); },onError:function(){ spin(false); }}});
     });
   }
-  peekCols(0);
+  peekCols(0); updQ(0);
   document.getElementById('skmuPlay').addEventListener('click',function(){ start(0); });
   var pvb=document.getElementById('skmuPrev'),nxb=document.getElementById('skmuNext');
   function go(dir){ var n=box.querySelectorAll('.skmu-list li').length; var i=(curIdx<0?0:curIdx)+dir; if(i<0||i>=n) return; start(i); }
@@ -9723,9 +9751,9 @@ html body #sk-music .skmu-box .skmu-player iframe{display:block;border-radius:16
 </style>
 <style id="sk-music-tv">
 @media (max-width:980px){
-html body #sk-music .skmu-box .skmu-player:not(#_){position:relative;display:block !important;margin:0 18px;padding:20px 20px 44px !important;border-radius:20px;background:radial-gradient(120% 90% at 20% 10%,#FBEDE4,#EBCFC0 60%,#E0BBA9);box-shadow:0 18px 32px rgba(0,0,0,.5),inset 0 0 0 1.5px #D9A58F,inset 0 -5px 10px rgba(150,90,70,.18);max-height:0;opacity:0;overflow:hidden;transition:max-height 1.3s cubic-bezier(.4,0,.2,1) .9s,opacity 1.1s ease 1.2s,margin .9s ease .9s}
+html body #sk-music .skmu-box .skmu-player:not(#_){position:relative;display:block !important;margin:0 18px;padding:0 20px !important;border-radius:20px;background:radial-gradient(120% 90% at 20% 10%,#FBEDE4,#EBCFC0 60%,#E0BBA9);box-shadow:0 18px 32px rgba(0,0,0,.5),inset 0 0 0 1.5px #D9A58F,inset 0 -5px 10px rgba(150,90,70,.18);max-height:0;opacity:0;overflow:hidden;transition:max-height 2s cubic-bezier(.22,.61,.36,1) .5s,padding 2s cubic-bezier(.22,.61,.36,1) .5s,opacity 1.3s ease .8s,margin 1.4s cubic-bezier(.22,.61,.36,1) .5s}
 html body #sk-music .skmu-box .skmu-player[hidden]:not(#_){display:none !important}
-html body #sk-music .skmu-box .skmu-player.skmu-open:not(#_){max-height:340px;opacity:1;margin:4px 18px 18px}
+html body #sk-music .skmu-box .skmu-player.skmu-open:not(#_){max-height:340px;opacity:1;margin:4px 18px 18px;padding:20px 20px 44px !important}
 html body #sk-music .skmu-box .skmu-player::before{content:'';position:absolute;left:50%;bottom:15px;width:70px;height:16px;margin-left:-35px;background:repeating-linear-gradient(180deg,#8a5848 0 2px,transparent 2px 6px);border-radius:2px;opacity:.85}
 html body #sk-music .skmu-box .skmu-player::after{content:none}
 html body #sk-music .skmu-box .skmu-player iframe:not(#_){display:block;width:100% !important;height:200px !important;border-radius:12px !important;box-shadow:0 0 0 5px #15100e,0 0 0 7px #8a5848,0 0 0 8px #E9BBA6 !important;background:#000}
@@ -9767,6 +9795,31 @@ html body #sk-music .skmu-box .skmu-label:not(#_){transition:background-color .7
 html body #sk-music .skmu-box .skmu-pl:not(#_){transition:background-color .7s ease}
 html body #sk-music .skmu-box .skmu-peek:not(#_){transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .8s ease !important}
 </style>
+<style id="sk-music-queue">
+html body #sk-music .skmu-box .skmu-queue{display:none}
+@media (max-width:980px){
+html body #sk-music .skmu-box .skmu-list:not(#_){display:none !important}
+html body #sk-music .skmu-box .skmu-queue:not(#_){display:block;order:1;padding:6px 0 22px;position:relative}
+html body #sk-music .skmu-box .skmu-qscroll{display:flex;align-items:flex-start;gap:14px;overflow-x:auto;padding:14px calc(50% - 40px) 4px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+html body #sk-music .skmu-box .skmu-qscroll::-webkit-scrollbar{display:none}
+html body #sk-music .skmu-box .skmu-q:not(#_){flex:0 0 80px;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0;border:none !important;background:none !important;cursor:pointer;color:#FAF1EC}
+html body #sk-music .skmu-box .skmu-qd{position:relative;display:block;width:60px;height:60px;border-radius:50%;background:repeating-radial-gradient(circle,#0f0b0a 0 1.4px,#1f1814 1.4px 2.8px);box-shadow:0 8px 16px rgba(0,0,0,.5),inset 0 0 0 2px #2b211c;opacity:.85;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s ease,box-shadow .6s ease}
+html body #sk-music .skmu-box .skmu-ql{position:absolute;inset:31%;border-radius:50%;background:var(--lc,#B66A5A);display:flex;align-items:center;justify-content:center;color:#FAF1EC;font:500 .8rem 'DM Sans',sans-serif;box-shadow:0 0 0 2px #15100e}
+html body #sk-music .skmu-box .skmu-q:not(.seen):not(.on) .skmu-ql{background:#4a382f}
+html body #sk-music .skmu-box .skmu-q:not(.seen):not(.on) .skmu-ql::after{content:'?'}
+html body #sk-music .skmu-box .skmu-q.seen .skmu-ql,html body #sk-music .skmu-box .skmu-q.on .skmu-ql{background-image:url(/assets/skines-stones-line.svg?v=2);background-repeat:no-repeat;background-position:center;background-size:56% auto}
+html body #sk-music .skmu-box .skmu-q.on .skmu-qd{transform:scale(1.28);opacity:1;box-shadow:0 12px 22px rgba(0,0,0,.6),0 0 0 2px #B66A5A,0 0 26px rgba(182,106,90,.4),inset 0 0 0 2px #2b211c}
+html body #sk-music .skmu-box .skmu-q.next .skmu-qd{opacity:.9;box-shadow:0 8px 16px rgba(0,0,0,.5),0 0 0 1px rgba(233,187,166,.5),0 0 16px rgba(233,187,166,.22),inset 0 0 0 2px #2b211c}
+html body #sk-music .skmu-box .skmu-qn{font-size:.7rem;letter-spacing:.22em;color:#E9BBA6;opacity:.9;margin-top:6px}
+html body #sk-music .skmu-box .skmu-q.on .skmu-qn{margin-top:12px;opacity:1}
+html body #sk-music .skmu-box .skmu-qt{max-width:80px;font-size:.66rem;line-height:1.25;text-align:center;color:#FAF1EC;opacity:.7;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .6s}
+html body #sk-music .skmu-box .skmu-q:not(.seen):not(.on) .skmu-qt{font-size:1rem;opacity:.8;letter-spacing:.2em;color:#E9BBA6}
+html body #sk-music .skmu-box .skmu-q.on .skmu-qt{opacity:.95}
+html body #sk-music .skmu-box .skmu-q .skmu-qn:not(#_){color:#E9BBA6 !important;opacity:.95 !important}
+html body #sk-music .skmu-box .skmu-q .skmu-qt:not(#_){color:#FAF1EC !important;opacity:.78 !important}
+html body #sk-music .skmu-box .skmu-q:not(.seen):not(.on) .skmu-qt:not(#_){color:#E9BBA6 !important;opacity:.85 !important}
+}
+</style>
 <style id="sk-music-tv-above">
 @media (max-width:980px){
 html body #sk-music .skmu-box:not(#_){display:flex !important;flex-direction:column}
@@ -9775,7 +9828,7 @@ html body #sk-music .skmu-box .skmu-stage{order:0}
 html body #sk-music .skmu-box .skmu-list{order:1}
 html body #sk-music .skmu-box .skmu-stage:not(#_){background:none !important}
 html body #sk-music .skmu-box:not(#_){background:radial-gradient(130% 70% at 50% 100%,#3a2a24 0%,#1f1a18 75%) !important}
-html body #sk-music .skmu-box .skmu-player.skmu-open:not(#_){margin:18px 18px 2px}
+html body #sk-music .skmu-box .skmu-player.skmu-open:not(#_){margin:18px 18px 2px;padding:20px 20px 44px !important}
 }
 </style>
 <footer class="site-footer sk-foot">
