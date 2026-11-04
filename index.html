@@ -8864,8 +8864,8 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
     // snap at the end while the .fromTo tags animated — out of order. Stating
     // both ends keeps all four groups animating in sequence.
     var heroTl = gsap.timeline({ paused: true, onComplete: forceHero })
-      .fromTo(".hero-eyebrow", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.0)
-      .fromTo(".hero-title",   { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.10)
+      .fromTo(".hero-eyebrow", { y: 20 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0.0)
+      .fromTo(".hero-title",   { y: 30 }, { y: 0, duration: 0.7, ease: "power3.out" }, 0.10)
       .fromTo(".hero-tag-btn", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power3.out" }, 0.6)
       .fromTo("#heroTrust",    { y: 14, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, 1.5)
       .fromTo(".hero-cta",     { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 2.0);
