@@ -918,10 +918,131 @@ input, textarea, select {
     html body #mainNav .nav-dropdown-guide::after { top: 100%; height: 14px; left: 0; width: max(100%, 240px); }
   }
 </style>
+<style id="sk-awh-css">
+.sk-awh,.sk-awh__scrim,.sk-awh__drawer{display:none}
+@media (min-width:981px){
+html body nav#mainNav:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){display:none !important;visibility:hidden !important;pointer-events:none !important}
+.sk-awh{display:block;position:fixed;left:0;right:0;top:0;z-index:150;background:transparent;color:#F5EDE3;font-family:'DM Sans',sans-serif;transition:background .4s ease,transform .4s ease,box-shadow .4s ease;text-shadow:0 1px 14px rgba(20,10,6,.35)}
+.sk-awh::before{content:"";position:absolute;inset:0 0 -40px 0;background:linear-gradient(rgba(20,10,6,.6),rgba(20,10,6,0));pointer-events:none;opacity:1;transition:opacity .4s;z-index:-1}
+.sk-awh.is-solid,.sk-awh:hover,.sk-awh:focus-within{background:#684034;text-shadow:none}
+.sk-awh.is-solid{box-shadow:0 8px 28px rgba(40,20,14,.28)}
+.sk-awh.is-solid::before,.sk-awh:hover::before,.sk-awh:focus-within::before{opacity:0}
+.sk-awh.is-hidden:not(:hover):not(:focus-within){transform:translateY(-100%)}
+.sk-awh__top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 28px;height:96px}
+.sk-awh__burger{justify-self:start;width:36px;height:36px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:none;border:0;padding:6px;cursor:pointer;color:#F5EDE3}
+.sk-awh__burger span{display:block;height:1.5px;width:100%;background:currentColor;transition:opacity .2s}
+.sk-awh__burger:hover span{opacity:.7}
+.sk-awh__logo{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#F5EDE3;line-height:1}
+.sk-awh__logo-t{font:600 38px/1 'Cormorant Garamond',serif;letter-spacing:.34em;padding-left:.34em}
+.sk-awh__logo-s{margin-top:8px;font:400 10px/1 'DM Sans',sans-serif;letter-spacing:.3em;padding-left:.3em;opacity:.85}
+.sk-awh__tools{justify-self:end;display:flex;align-items:center;gap:22px}
+.sk-awh__icon{background:none;border:0;padding:4px;color:#F5EDE3;cursor:pointer;display:flex;align-items:center;transition:opacity .2s}
+.sk-awh__icon:hover{opacity:.7}
+.sk-awh__lang{position:relative}
+.sk-awh__langbtn{display:flex;align-items:center;gap:8px;background:none;border:0;color:#F5EDE3;font:400 17px 'DM Sans',sans-serif;cursor:pointer;padding:6px 2px}
+.sk-awh__langmenu{position:absolute;right:0;top:calc(100% + 10px);min-width:140px;background:#684034;border:1px solid rgba(245,237,227,.3);padding:8px 0;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s,transform .25s,visibility .25s}
+.sk-awh__lang.open .sk-awh__langmenu{opacity:1;visibility:visible;transform:none}
+.sk-awh__langmenu button{display:block;width:100%;text-align:left;background:none;border:0;color:#F5EDE3;font:400 16px 'DM Sans',sans-serif;padding:10px 18px;cursor:pointer}
+.sk-awh__langmenu button:hover{background:rgba(245,237,227,.1)}
+.sk-awh__links{border-bottom:1px solid transparent}
+.sk-awh__links ul{display:flex;justify-content:center;gap:44px;list-style:none;margin:0;padding:0}
+.sk-awh__links li{position:static}
+.sk-awh__links a,.sk-awh__ddbtn{position:relative;display:inline-flex;align-items:center;gap:10px;height:54px;font:400 16px 'DM Sans',sans-serif;letter-spacing:.02em;text-transform:uppercase;color:#F5EDE3;text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.sk-awh__links a::after,.sk-awh__ddbtn::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.sk-awh__ddbtn::after{right:20px}
+.sk-awh__links a:hover::after,.sk-awh__links a:focus-visible::after,.sk-awh__dd:hover .sk-awh__ddbtn::after,.sk-awh__dd:focus-within .sk-awh__ddbtn::after{transform:scaleX(1)}
+.sk-awh__ddbtn svg{transition:transform .3s}
+.sk-awh__dd:hover .sk-awh__ddbtn svg,.sk-awh__dd:focus-within .sk-awh__ddbtn svg{transform:rotate(180deg)}
+.sk-awh__mega{position:absolute;left:0;right:0;top:100%;background:#684034;border-top:1px solid rgba(245,237,227,.9);display:grid;grid-template-columns:repeat(3,1fr);padding:44px 0 56px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .3s,visibility .3s;box-shadow:0 24px 40px rgba(40,20,14,.35)}
+.sk-awh__dd:hover .sk-awh__mega,.sk-awh__dd:focus-within .sk-awh__mega{opacity:1;visibility:visible;transform:none}
+.sk-awh__col{padding:0 56px;border-left:1px solid rgba(245,237,227,.9);display:flex;flex-direction:column;gap:20px}
+.sk-awh__col:first-child{border-left:0}
+.sk-awh__col .sk-awh__h{margin:0 0 6px;font:400 20px 'DM Sans',sans-serif;letter-spacing:.02em;text-transform:uppercase;color:#F5EDE3}
+.sk-awh__col a{position:relative;display:inline-block;width:fit-content;height:auto;font:400 18px 'DM Sans',sans-serif;text-transform:none;letter-spacing:0;padding:2px 0}
+.sk-awh__col a::after{bottom:-1px}
+.sk-awh__scrim{display:block;position:fixed;inset:0;background:rgba(30,16,12,.5);z-index:300;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.sk-awh__scrim.on{opacity:1;visibility:visible}
+.sk-awh__scrim[hidden]{display:block}
+.sk-awh__drawer{display:block;position:fixed;left:0;top:0;bottom:0;width:min(420px,90vw);z-index:310;background:#5b372c;color:#F5EDE3;padding:28px 40px;transform:translateX(-102%);transition:transform .45s cubic-bezier(.4,0,.2,1);overflow-y:auto;font-family:'DM Sans',sans-serif}
+.sk-awh__drawer.on{transform:none}
+.sk-awh__x{background:none;border:0;color:#F5EDE3;font:300 40px/1 'DM Sans',sans-serif;cursor:pointer;padding:0 6px;margin-bottom:24px}
+.sk-awh__dnav{display:flex;flex-direction:column;gap:6px}
+.sk-awh__drawer a{color:#F5EDE3;text-decoration:none;font:400 24px/1.3 'DM Sans',sans-serif;padding:10px 0;position:relative;width:fit-content}
+.sk-awh__drawer a.sm{font-size:17px;opacity:.9;padding:6px 0}
+.sk-awh__drawer a::after{content:"";position:absolute;left:0;bottom:6px;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.sk-awh__drawer a:hover::after{transform:scaleX(1)}
+.sk-awh__drawer hr{border:0;border-top:1px solid rgba(245,237,227,.3);width:100%;margin:18px 0}
+
+html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) *:not(svg *){color:#F5EDE3 !important}
+html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) .sk-awh__burger span{background:#F5EDE3 !important}
+html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) svg{stroke:currentColor;color:#F5EDE3 !important}
+html body .hero .hero-service-tags:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){display:none !important}
+html body aside#skAwhDrawer:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) *{color:#F5EDE3 !important}
+html body aside#skAwhDrawer:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) a::after{background:#F5EDE3 !important}
+html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) a::after,html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11) .sk-awh__ddbtn::after{background:#F5EDE3 !important}
+}
+</style><style id="sk-awh-solid">@media (min-width:981px){html body header#skAwh.sk-awh--solid:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){position:sticky;background:#684034;text-shadow:none}html body header#skAwh.sk-awh--solid:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11)::before{display:none}html body header#skAwh.sk-awh--solid:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){box-shadow:0 6px 20px rgba(40,20,14,.18)}}</style>
 </head>
 <body>
 
-<nav id="mainNav">
+<header class="sk-awh sk-awh--solid" id="skAwh" aria-label="Navigation principale">
+  <div class="sk-awh__top">
+    <button type="button" class="sk-awh__burger" id="skAwhBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="skAwhDrawer"><span></span><span></span><span></span></button>
+    <a class="sk-awh__logo" href="/" aria-label="Skines Head Spa &amp; Wellness"><span class="sk-awh__logo-t">SKINES</span><span class="sk-awh__logo-s">HEAD SPA &amp; WELLNESS</span></a>
+    <div class="sk-awh__tools">
+      <div class="sk-awh__lang" id="skAwhLang">
+        <button type="button" class="sk-awh__langbtn" aria-haspopup="true" aria-expanded="false"><span id="skAwhLangCur">FR</span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 5 5 9 1"/></svg></button>
+        <div class="sk-awh__langmenu" role="menu"><button type="button" role="menuitem" data-sk-lang="fr">Français</button><button type="button" role="menuitem" data-sk-lang="en">English</button></div>
+      </div>
+      <button type="button" class="sk-awh__icon" id="skAwhSearch" aria-label="Rechercher"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><line x1="21" y1="21" x2="16.7" y2="16.7"/></svg></button>
+      <a class="sk-awh__icon" href="/cartes-cadeaux" aria-label="Cartes-cadeaux"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11.5"/><rect x="2.5" y="6.5" width="19" height="2.5"/><path d="M12 6.5v14M12 6.5C12 4 9.8 3 8.6 3.9c-1.2.9-.6 2.6 3.4 2.6zM12 6.5c0-2.5 2.2-3.5 3.4-2.6 1.2.9.6 2.6-3.4 2.6z"/></svg></a>
+    </div>
+  </div>
+  <div class="sk-awh__links" role="navigation" aria-label="Pages">
+    <ul>
+      <li><a href="/head-spa" data-fr="Head Spa" data-en="Head Spa">Head Spa</a></li>
+      <li><a href="/laser" data-fr="Laser" data-en="Laser">Laser</a></li>
+      <li><a href="/facial" data-fr="Facial" data-en="Facial">Facial</a></li>
+      <li><a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&amp;pId=1273288" target="_blank" rel="noreferrer" data-fr="Réserver" data-en="Book now">Réserver</a></li>
+      <li class="sk-awh__dd">
+        <button type="button" class="sk-awh__ddbtn" aria-haspopup="true" aria-expanded="false"><span data-fr="Visite" data-en="Visit">Visite</span><svg width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 5 5 9 1"/></svg></button>
+        <div class="sk-awh__mega">
+          <div class="sk-awh__col"><p class="sk-awh__h" data-fr="Accès" data-en="Getting here">Accès</p>
+            <a href="/parking" data-fr="Stationnement privé" data-en="Private parking">Stationnement privé</a>
+            <a href="/your-visit" data-fr="Préparer votre visite" data-en="Prepare your visit">Préparer votre visite</a>
+            <a href="/visit-us" data-fr="Nous trouver" data-en="Find us">Nous trouver</a></div>
+          <div class="sk-awh__col"><p class="sk-awh__h" data-fr="Informations" data-en="Information">Informations</p>
+            <a href="/guides" data-fr="Guides" data-en="Guides">Guides</a>
+            <a href="/faq" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</a>
+            <a href="/formulaires" data-fr="Formulaires" data-en="Forms">Formulaires</a>
+            <a href="/insurance" data-fr="Reçus d'assurance" data-en="Insurance receipts">Reçus d'assurance</a></div>
+          <div class="sk-awh__col"><p class="sk-awh__h" data-fr="Skines" data-en="Skines">Skines</p>
+            <a href="/cartes-cadeaux" data-fr="Cartes-cadeaux" data-en="Gift cards">Cartes-cadeaux</a>
+            <a href="/reviews" data-fr="Avis clients" data-en="Client reviews">Avis clients</a>
+            <a href="/tirage" data-fr="Tirage du mois" data-en="Monthly draw">Tirage du mois</a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class="sk-awh__scrim" id="skAwhScrim"><span aria-hidden="true"></span></div>
+<aside class="sk-awh__drawer" id="skAwhDrawer" aria-label="Menu" aria-hidden="true">
+  <button type="button" class="sk-awh__x" id="skAwhClose" aria-label="Fermer">&times;</button>
+  <div class="sk-awh__dnav" role="navigation">
+    <a href="/head-spa" data-fr="Head Spa" data-en="Head Spa">Head Spa</a>
+    <a href="/laser" data-fr="Épilation laser" data-en="Laser hair removal">Épilation laser</a>
+    <a href="/facial" data-fr="Soins du visage" data-en="Facials">Soins du visage</a>
+    <a href="/cartes-cadeaux" data-fr="Cartes-cadeaux" data-en="Gift cards">Cartes-cadeaux</a>
+    <a href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&amp;pId=1273288" target="_blank" rel="noreferrer" data-fr="Réserver en ligne" data-en="Book online">Réserver en ligne</a>
+    <hr>
+    <a class="sm" href="/parking" data-fr="Stationnement privé" data-en="Private parking">Stationnement privé</a>
+    <a class="sm" href="/your-visit" data-fr="Préparer votre visite" data-en="Prepare your visit">Préparer votre visite</a>
+    <a class="sm" href="/visit-us" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
+    <a class="sm" href="/guides" data-fr="Guides" data-en="Guides">Guides</a>
+    <a class="sm" href="/faq" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</a>
+    <a class="sm" href="/reviews" data-fr="Avis clients" data-en="Client reviews">Avis clients</a>
+  </div>
+</aside><nav id="mainNav">
   <a class="logo" href="/">
     <div class="logo-brand">
       <span class="logo-text">SKINES</span>
@@ -1579,5 +1700,24 @@ html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#__
 </style>
 <style id="sk-font-keep">html body .logo-text,html body .logo-sub,html body .sk-foot-word{font-family:"Cormorant Garamond",serif !important}html body h1,html body h2,html body h3,html body h4{font-weight:400 !important;letter-spacing:0 !important;font-style:normal !important}</style>
 <style id="sk-gold-contrast">html body .g-section-eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .g-card-meta:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ritual-step-num:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ritual-note-num:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ml-eyebrow2:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ml-stars:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .doc a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .doc h2:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body main a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ff-wrap a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .hf-clearance-link:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .g-eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#E8C37A !important}html body .ml-eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#E8C37A !important}</style>
+<script>(function(){
+var $=function(s,r){return (r||document).querySelector(s)};
+var h=$('#skAwh');if(!h)return;
+var burger=$('#skAwhBurger'),dr=$('#skAwhDrawer'),sc=$('#skAwhScrim'),x=$('#skAwhClose');
+function open(){dr.classList.add('on');sc.classList.add('on');dr.setAttribute('aria-hidden','false');burger.setAttribute('aria-expanded','true');document.documentElement.style.overflow='hidden'}
+function close(){dr.classList.remove('on');sc.classList.remove('on');dr.setAttribute('aria-hidden','true');burger.setAttribute('aria-expanded','false');document.documentElement.style.overflow=''}
+burger.addEventListener('click',open);x.addEventListener('click',close);sc.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();lang.classList.remove('open')}});
+dr.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+var lastY=window.scrollY||0;function onScroll(){var y=window.scrollY||0;h.classList.toggle('is-solid',y>40);if(y>200&&y>lastY+4)h.classList.add('is-hidden');else if(y<lastY-4||y<=200)h.classList.remove('is-hidden');lastY=y}
+onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+var s=$('#skAwhSearch');s.addEventListener('click',function(){var b=document.getElementById('searchBtn');if(b)b.click()});
+var lang=$('#skAwhLang'),lb=$('.sk-awh__langbtn',lang),cur=$('#skAwhLangCur');
+function setCur(){var l=(document.documentElement.getAttribute('lang')||'fr').slice(0,2).toUpperCase();cur.textContent=l==='EN'?'EN':'FR'}
+setCur();
+lb.addEventListener('click',function(e){e.stopPropagation();var o=lang.classList.toggle('open');lb.setAttribute('aria-expanded',o)});
+document.addEventListener('click',function(e){if(!lang.contains(e.target)){lang.classList.remove('open');lb.setAttribute('aria-expanded','false')}});
+lang.querySelectorAll('[data-sk-lang]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-sk-lang');var old=document.querySelector('#mainNav .lang-btn[data-lang="'+v+'"]')||document.querySelector('.lang-btn[data-lang="'+v+'"]');if(old)old.click();cur.textContent=v.toUpperCase();lang.classList.remove('open')})});
+})();</script><script>(function(){if(!document.getElementById('searchBtn')){var b=document.getElementById('skAwhSearch');if(b)b.style.display='none'}})();</script>
 </body>
 </html>
