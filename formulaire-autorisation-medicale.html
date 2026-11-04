@@ -16,15 +16,15 @@
   .doc-header { text-align: center; margin: 2.5rem 0 2rem; }
   .doc-stones { width: 56px; height: auto; margin: 0 auto 1rem; display: block; opacity: 0.9; }
   .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.14em; margin: 0 0 0.3rem; }
-  .doc-tagline { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(104,64,52,0.5); margin: 0 0 1.8rem; }
+  .doc-tagline { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(104,64,52,.88); margin: 0 0 1.8rem; }
   .doc-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2rem; font-weight: 500; margin: 0 0 0.5rem; }
-  .doc-subtitle { font-size: 0.85rem; color: rgba(104,64,52,0.6); margin: 0; }
+  .doc-subtitle { font-size: 0.85rem; color: rgba(104,64,52,.88); margin: 0; }
   .doc-intro-card { background: #FFFFFF; border: 1px solid rgba(201,151,58,0.25); border-radius: 6px; padding: 1.6rem 1.8rem; margin-bottom: 1rem; }
   .doc-section { border-top: 1px solid rgba(104,64,52,0.15); padding-top: 1.4rem; margin-top: 1.8rem; }
   .doc-section h2 { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 0 0 1rem; }
   .doc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; margin-bottom: 1rem; }
   .doc-field { border-bottom: 1px solid rgba(104,64,52,0.35); padding-bottom: 0.4rem; min-height: 2.2rem; }
-  .doc-field-label { display: block; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(104,64,52,0.55); margin-bottom: 0.3rem; }
+  .doc-field-label { display: block; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(104,64,52,.88); margin-bottom: 0.3rem; }
   .doc-para { font-size: 0.92rem; line-height: 1.85; color: rgba(104,64,52,0.85); margin: 0 0 1rem; }
   .doc-para:last-child { margin-bottom: 0; }
   .doc-blank-line { border-bottom: 1px solid rgba(104,64,52,0.35); min-height: 2.4rem; margin-bottom: 0.8rem; }
@@ -33,8 +33,8 @@
   .print-bar { text-align: center; padding: 1.5rem 0; }
   .print-btn { background: var(--cream); color: var(--maroon); border: 1.5px solid var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 4px; cursor: pointer; }
   .print-btn:hover { background: var(--maroon); color: var(--cream); }
-  .doc-footer { margin-top: 2.8rem; padding-top: 1.5rem; border-top: 1px solid rgba(104,64,52,0.15); text-align: center; font-size: 0.75rem; color: rgba(104,64,52,0.5); line-height: 1.8; }
-  .doc-confidential { text-align: center; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,0.4); margin-top: 0.8rem; }
+  .doc-footer { margin-top: 2.8rem; padding-top: 1.5rem; border-top: 1px solid rgba(104,64,52,0.15); text-align: center; font-size: 0.75rem; color: rgba(104,64,52,.88); line-height: 1.8; }
+  .doc-confidential { text-align: center; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(104,64,52,.88); margin-top: 0.8rem; }
   @media print {
     .print-bar { display: none; }
     body { background: #fff; }
@@ -138,5 +138,6 @@
 /* Typography system: DM Sans in page content, lining numerals. Logo, nav and footer wordmark keep their current serif for now. */
 html body :is(h1,h2,h3,h4,h5,p,a,span,em,i,li,div,button,strong,label,input,textarea,select,td,th,summary,blockquote):not(nav *):not(footer *):not(#mobileNav *):not(#searchOverlay *):not(.logo-text):not(.logo-sub):not(#_):not(#__){font-family:"DM Sans",sans-serif !important;font-style:normal !important;font-variant-numeric:lining-nums !important}
 </style>
+<style id="sk-gold-contrast">html body .g-section-eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .g-card-meta:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ritual-step-num:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ritual-note-num:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ml-eyebrow2:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ml-stars:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .doc a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .doc h2:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body main a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .ff-wrap a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .hf-clearance-link:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8A5A22 !important}html body .g-eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#E8C37A !important}html body .ml-eyebrow:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#E8C37A !important}</style>
 </body>
 </html>

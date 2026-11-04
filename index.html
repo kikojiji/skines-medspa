@@ -8828,6 +8828,7 @@ document.addEventListener("keydown", function(e) { var ov = document.getElementB
   // Hero text entrance
   if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ autoRefreshEvents: 'DOMContentLoaded,load', ignoreMobileResize: true, limitCallbacks: true });
 
     // Runs at every width — phone and desktop get the same staged reveal.
     // Built paused so GSAP renders the "from" state immediately: the hero
@@ -10010,5 +10011,6 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 
 
+<style id="sk-home-contrast2">html body .skmu-qn:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9){color:#8F4F3B !important}</style>
 </body>
 </html>
