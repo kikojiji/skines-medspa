@@ -9887,7 +9887,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   function loadScript(src,cb){ var s=document.createElement('script'); s.src=src; s.async=true; if(cb) s.onload=cb; document.head.appendChild(s); }
   window.gwTsInit=function(){
     if(typeof turnstile==='undefined') return;
-    try{ tsId=turnstile.render('#gw-ts',{sitekey:'1x00000000000000000000AA',size:'invisible',callback:function(t){token=t;},'expired-callback':function(){token='';try{turnstile.reset(tsId);turnstile.execute(tsId);}catch(e){}},'error-callback':function(){token='';}}); turnstile.execute(tsId); }catch(e){}
+    try{ tsId=turnstile.render('#gw-ts',{sitekey:'0x4AAAAAAFz_emR12K6VUc-O',callback:function(t){token=t;},'expired-callback':function(){token='';try{turnstile.reset(tsId);turnstile.execute(tsId);}catch(e){}},'error-callback':function(){token='';}}); turnstile.execute(tsId); }catch(e){}
   };
   function makeFp(){
     try{

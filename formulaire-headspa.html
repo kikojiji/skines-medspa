@@ -1557,8 +1557,8 @@ input, textarea, select {
   </div>
 
 
-<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
-<script>window._tsk = window._tsk || '1x00000000000000000000AA';</script>
+<!-- Turnstile site key (public). Secret key lives in Vercel env TURNSTILE_SECRET_KEY -->
+<script>window._tsk = window._tsk || '0x4AAAAAAFz_emR12K6VUc-O';</script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInitHeadSpaForm&render=explicit" async defer></script>
 <style>
 .hs-hero { min-height: 48vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: linear-gradient(180deg, rgba(43,20,8,0.58), rgba(43,20,8,0.74)), url('/assets/card-head-spa.webp') center/cover no-repeat; padding: 8rem 1.5rem 3.5rem; }
@@ -1942,7 +1942,6 @@ input, textarea, select {
     if (typeof turnstile === 'undefined') return;
     _hsTsId = turnstile.render('#hs-ts-wrap', {
       sitekey: window._tsk || '',
-      size: 'invisible',
       callback: function(token) { window._hsTsToken = token; },
     });
     try { turnstile.execute(_hsTsId); } catch (e) {}

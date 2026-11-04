@@ -61,9 +61,9 @@
 <meta property="og:description" content="Participez au tirage exclusif Skines Head Spa — gagnez une expérience bien-être premium à Montréal.">
 <meta property="og:url" content="https://skines.ca/tirage">
 <!-- Cloudflare Turnstile — invisible bot protection -->
-<!-- 🔑 Replace _tsk with your real site key from dash.cloudflare.com → Turnstile → Add Site (skines.ca) -->
+<!-- Turnstile site key (public). Secret key lives in Vercel env TURNSTILE_SECRET_KEY -->
 <!-- 🔑 Also add TURNSTILE_SECRET_KEY to Vercel environment variables -->
-<script>window._tsk = '1x00000000000000000000AA';</script>
+<script>window._tsk = '0x4AAAAAAFz_emR12K6VUc-O';</script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_tsInit&render=explicit" async defer></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -3382,7 +3382,6 @@ window._tsInit = function () {
   if (typeof turnstile === 'undefined') return;
   _tsId = turnstile.render('#t-ts-wrap', {
     sitekey: window._tsk || '',
-    size: 'invisible',
     callback: function (t) { _tsToken = t; },
     'expired-callback': function () {
       _tsToken = '';
