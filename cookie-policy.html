@@ -1585,9 +1585,9 @@ html body .sk-foot-langpanel .sk-lang-opt[aria-current="true"]{text-decoration:u
 <style id="sk-foot-pills">
 /* Footer top, AWŪ-style: plain text, one simple outlined field-like button, no pills */
 html body .sk-foot-quick:not(#_):not(#__){display:none !important}
-html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:space-between !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
+html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:center !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
 html body .sk-foot-btn:not(#_):not(#__) span{color:#FAF1EC !important;font-family:'DM Sans',sans-serif !important}
-html body .sk-foot-btn:not(#_):not(#__)::after{content:'\2192';font-size:1.1rem;letter-spacing:0;font-weight:400}
+html body .sk-foot-btn:not(#_):not(#__)::after{content:none !important;display:none !important}
 html body .sk-foot-btn:hover:not(#_):not(#__){background:rgba(250,241,236,.1) !important}
 html body footer.sk-foot .sk-foot-cols > details:nth-child(2) > a:not(.sk-foot-btn):not(#_):not(#__){text-decoration-line:underline !important;text-decoration-color:rgba(250,241,236,.7) !important;text-underline-offset:4px !important;text-decoration-thickness:1px !important}
 </style>
@@ -1602,8 +1602,8 @@ html body footer.sk-foot .sk-foot-acc > a:not(.sk-foot-btn):not(#_):not(#__),htm
 /* Footer draw block, AWŪ "Join our community" style: one email field with an arrow */
 html body footer.sk-foot .sk-join{position:relative;margin:2px 0 0}
 html body footer.sk-foot .sk-join-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 1rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
-html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#EBD3C2 !important;opacity:.9 !important;-webkit-text-fill-color:#EBD3C2 !important}
+html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 .92rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#D8C2B4 !important;opacity:.8 !important;font-size:.92rem !important;-webkit-text-fill-color:#D8C2B4 !important}
 html body footer.sk-foot .sk-join input:focus:not(#_):not(#__){border-color:#FAF1EC !important;box-shadow:0 0 0 3px rgba(250,241,236,.14)}
 html body footer.sk-foot .sk-join.err input:not(#_):not(#__){border-color:#F2B8A2 !important}
 html body footer.sk-foot .sk-join button:not(#_):not(#__){position:absolute;right:0;top:0;width:56px;height:56px;background:none !important;border:0 !important;color:#FAF1EC !important;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
@@ -1629,5 +1629,12 @@ html body footer.sk-foot .sk-join-note a{color:#EBD3C2 !important;text-decoratio
   });
 })();
 </script>
+<style id="sk-join-affordance">
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:-webkit-autofill,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:-webkit-autofill:hover,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #7a4c3e inset!important;box-shadow:0 0 0 1000px #7a4c3e inset!important;-webkit-text-fill-color:#FAF1EC!important;caret-color:#FAF1EC!important;border-radius:inherit}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) button{transition:background-color .25s ease,color .25s ease,transform .25s ease,opacity .25s ease}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:not(:placeholder-shown)~button,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:focus~button{background:#FAF1EC!important;color:#684034!important;border-radius:999px!important;width:40px!important;height:40px!important;left:auto!important;right:8px!important;top:8px!important;opacity:1!important;transform:none;box-shadow:0 6px 16px rgba(40,18,12,.28)}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:not(:placeholder-shown)~button span,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:focus~button span{color:#684034!important;font-size:18px!important}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:not(:placeholder-shown){border-color:rgba(250,241,236,.9)!important}
+</style>
 </body>
 </html>

@@ -1480,9 +1480,9 @@ input, textarea, select {
       <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     </button>
   <ul class="nav-links">
-      <li><a href="/head-spa" data-fr="Head Spa" data-en="Head Spa">Head Spa</a></li>
-      <li><a href="/laser" data-fr="Épilation Laser" data-en="Laser">Épilation Laser</a></li>
-      <li><a href="/facial" data-fr="Soins du Visage" data-en="Facial">Soins du Visage</a></li>
+    <li><a href="/head-spa" data-fr="Head Spa" data-en="Head Spa">Head Spa</a></li>
+    <li><a href="/laser" data-fr="Laser" data-en="Laser">Laser</a></li>
+    <li><a href="/facial" data-fr="Facial" data-en="Facial">Facial</a></li>
   </ul>
   <a class="nav-cta" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
   <ul class="nav-links nav-links-guide">
@@ -2734,60 +2734,7 @@ html body #mobileNav #mnavVisite .mnav-acc-btn:not(#_):not(#__):not(#___):not(#_
 }
 </style>
 <style id="sk-xtion-css">html body #mobileNav, html body nav.mobile-nav, .mobile-nav{ transition: transform .72s cubic-bezier(.32,.72,0,1) !important; }
-#sk-xcurtain{ position:fixed; left:0; top:0; right:0; bottom:0; inset:0; display:flex !important; align-items:center; justify-content:center; background:#684034; z-index:100002; transform:translateY(-100vh); will-change:transform; pointer-events:none; transition:transform .9s cubic-bezier(.65,0,.35,1); }
-#sk-xcurtain.sk-xcurtain-down{ transform:translateY(0); }</style>
-<script id="sk-xtion-js">
-(function(){
-  // One continuous splash on internal navigation: a maroon curtain carrying the
-  // SAME logo as the splash glides down to cover, then we navigate WITH ?x=1 so
-  // the destination knows to skip its intro fade and just lift the splash up.
-  // ?x=1 (not only sessionStorage) survives iOS private mode / storage limits.
-  var LOGO = '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;"><img src="/assets/images/logo-officiel-cropped.webp" alt="" style="width:98px;height:auto;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 26px rgba(0,0,0,.35));" decoding="sync" fetchpriority="high"><span style="font-family:&#39;Cormorant Garamond&#39;,serif;color:#F5EDE3 !important;-webkit-text-fill-color:#F5EDE3 !important;font-weight:500;line-height:1;font-size:1.75rem;letter-spacing:.4em;text-indent:.4em;">SKINES</span><span style="margin-top:13px;color:rgba(245,237,227,.72) !important;-webkit-text-fill-color:rgba(245,237,227,.72) !important;font-family:&#39;DM Sans&#39;,sans-serif;font-size:.58rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;">Head&nbsp;Spa&nbsp;&middot;&nbsp;Montr&eacute;al</span></div>';
-  function withX(u){ return u + (u.indexOf('?')>-1 ? '&' : '?') + 'x=1'; }
-  var busy = false;
-  function dropThenGo(href){
-    if(busy) return; busy = true;
-    try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    var target = withX(href);
-    var gone = false; function go(){ if(gone) return; gone = true; window.location.href = target; }
-    var reduced = false; try{ reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
-    var c = document.createElement('div');
-    c.id = 'sk-xcurtain';
-    c.innerHTML = LOGO;
-    document.body.appendChild(c); // starts at translateY(-100vh) from CSS
-    if(reduced){
-      c.style.transition = 'none';
-      c.style.transform = 'translateY(0)';
-      setTimeout(go, 80);
-    } else {
-      void c.offsetHeight; // force reflow so the start frame paints before the class flips (iOS Safari)
-      c.classList.add('sk-xcurtain-down');
-      setTimeout(go, 940);
-    }
-  }
-  function slideThenDrop(href, nav){
-    if(busy) return;
-    try{ sessionStorage.setItem('sk-xtion','1'); }catch(e){}
-    nav.style.pointerEvents = 'none';
-    nav.style.setProperty('transition', 'transform .72s cubic-bezier(.32,.72,0,1)', 'important');
-    nav.style.setProperty('transform', 'translateX(100%)', 'important');
-    setTimeout(function(){ dropThenGo(href); }, 560);
-  }
-  document.addEventListener('click', function(ev){
-    var a = ev.target.closest ? ev.target.closest('a[href]') : null;
-    if(!a) return;
-    var href = a.getAttribute('href') || '';
-    if(href.charAt(0) !== '/' || href.charAt(1) === '/') return;
-    if(a.getAttribute('target') === '_blank' || a.hasAttribute('download')) return;
-    if(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button) return;
-    ev.preventDefault();
-    ev.stopImmediatePropagation();
-    var menu = a.closest('#mobileNav');
-    if(menu && menu.classList.contains('open')) slideThenDrop(href, menu);
-    else dropThenGo(href);
-  }, true);
-})();
-</script>
+</style>
 <style id="sk-font-dmsans">
 /* Typography system: DM Sans in page content, lining numerals. Logo, nav and footer wordmark keep their current serif for now. */
 html body :is(h1,h2,h3,h4,h5,p,a,span,em,i,li,div,button,strong,label,input,textarea,select,td,th,summary,blockquote):not(nav *):not(footer *):not(#mobileNav *):not(#searchOverlay *):not(.logo-text):not(.logo-sub):not(#_):not(#__){font-family:"DM Sans",sans-serif !important;font-style:normal !important;font-variant-numeric:lining-nums !important}
@@ -3132,9 +3079,9 @@ html body .sk-foot-langpanel .sk-lang-opt[aria-current="true"]{text-decoration:u
 <style id="sk-foot-pills">
 /* Footer top, AWŪ-style: plain text, one simple outlined field-like button, no pills */
 html body .sk-foot-quick:not(#_):not(#__){display:none !important}
-html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:space-between !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
+html body .sk-foot-btn:not(#_):not(#__){display:flex !important;align-items:center !important;justify-content:center !important;width:100% !important;box-sizing:border-box !important;min-height:56px !important;padding:0 1.15rem !important;border-radius:8px !important;border:1px solid rgba(250,241,236,.75) !important;background:transparent !important;color:#FAF1EC !important;box-shadow:none !important;transform:none !important;font-family:'DM Sans',sans-serif !important;font-weight:500 !important;font-size:.82rem !important;letter-spacing:.2em !important;transition:background .25s}
 html body .sk-foot-btn:not(#_):not(#__) span{color:#FAF1EC !important;font-family:'DM Sans',sans-serif !important}
-html body .sk-foot-btn:not(#_):not(#__)::after{content:'\2192';font-size:1.1rem;letter-spacing:0;font-weight:400}
+html body .sk-foot-btn:not(#_):not(#__)::after{content:none !important;display:none !important}
 html body .sk-foot-btn:hover:not(#_):not(#__){background:rgba(250,241,236,.1) !important}
 html body footer.sk-foot .sk-foot-cols > details:nth-child(2) > a:not(.sk-foot-btn):not(#_):not(#__){text-decoration-line:underline !important;text-decoration-color:rgba(250,241,236,.7) !important;text-underline-offset:4px !important;text-decoration-thickness:1px !important}
 </style>
@@ -3265,8 +3212,8 @@ html body .skm-psign b:not(#_):not(#__), html body .skm-psign u:not(#_):not(#__)
 /* Footer draw block, AWŪ "Join our community" style: one email field with an arrow */
 html body footer.sk-foot .sk-join{position:relative;margin:2px 0 0}
 html body footer.sk-foot .sk-join-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 1rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
-html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#EBD3C2 !important;opacity:.9 !important;-webkit-text-fill-color:#EBD3C2 !important}
+html body footer.sk-foot .sk-join input:not(#_):not(#__){width:100%;height:56px;box-sizing:border-box;background:transparent !important;border:1px solid rgba(250,241,236,.75) !important;border-radius:8px !important;padding:0 58px 0 18px !important;color:#FAF1EC !important;font:300 .92rem 'DM Sans',sans-serif !important;outline:none;box-shadow:none;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+html body footer.sk-foot .sk-join input:not(#_):not(#__)::placeholder{color:#D8C2B4 !important;opacity:.8 !important;font-size:.92rem !important;-webkit-text-fill-color:#D8C2B4 !important}
 html body footer.sk-foot .sk-join input:focus:not(#_):not(#__){border-color:#FAF1EC !important;box-shadow:0 0 0 3px rgba(250,241,236,.14)}
 html body footer.sk-foot .sk-join.err input:not(#_):not(#__){border-color:#F2B8A2 !important}
 html body footer.sk-foot .sk-join button:not(#_):not(#__){position:absolute;right:0;top:0;width:56px;height:56px;background:none !important;border:0 !important;color:#FAF1EC !important;font-size:1.25rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
@@ -3292,5 +3239,12 @@ html body footer.sk-foot .sk-join-note a{color:#EBD3C2 !important;text-decoratio
   });
 })();
 </script>
+<style id="sk-join-affordance">
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:-webkit-autofill,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:-webkit-autofill:hover,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #7a4c3e inset!important;box-shadow:0 0 0 1000px #7a4c3e inset!important;-webkit-text-fill-color:#FAF1EC!important;caret-color:#FAF1EC!important;border-radius:inherit}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) button{transition:background-color .25s ease,color .25s ease,transform .25s ease,opacity .25s ease}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:not(:placeholder-shown)~button,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:focus~button{background:#FAF1EC!important;color:#684034!important;border-radius:999px!important;width:40px!important;height:40px!important;left:auto!important;right:8px!important;top:8px!important;opacity:1!important;transform:none;box-shadow:0 6px 16px rgba(40,18,12,.28)}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:not(:placeholder-shown)~button span,html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:focus~button span{color:#684034!important;font-size:18px!important}
+html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#______):not(#_______):not(#________) input:not(:placeholder-shown){border-color:rgba(250,241,236,.9)!important}
+</style>
 </body>
 </html>
