@@ -2768,21 +2768,53 @@ html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#__
   <p class="dirs-subtitle" data-en="Everything you need to arrive in comfort — by car, metro, or on foot." data-fr="Tout ce dont vous avez besoin pour arriver confortablement — en voiture, en métro ou à pied.">Everything you need to arrive in comfort — by car, metro, or on foot.</p>
 </div>
 
-<section id="skVisitMap" aria-label="Carte et accès">
-    <div class="map-wrap"><div class="map">
-      <a class="map-fallback" href="https://maps.google.com/?q=Skines+Head+Spa+19+Av+Shamrock+Montreal" target="_blank" rel="noreferrer">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        <span class="map-fallback-addr">19 Av. Shamrock, Montréal, QC H2S 1A3</span>
-        <span class="map-fallback-btn" data-fr="Ouvrir dans Google Maps" data-en="Open in Google Maps">Ouvrir dans Google Maps</span>
-      </a>
-      <div class="map-live" id="skMap"></div>
-      <img class="map-img" src="assets/map-skines.svg" alt="Carte : Skines Head Spa &amp; Wellness, 19 av. Shamrock, Petite-Italie, Montréal" loading="lazy" width="1200" height="900">
+
+    <div class="sk-sat-lb" id="skSatLb" role="dialog" aria-modal="true" aria-label="Plan d'accès agrandi" hidden>
+      <span class="sk-zc" role="group" aria-label="Zoom"><button type="button" class="sk-zc__b" data-zd="1" aria-label="Rapprocher la carte">+</button><button type="button" class="sk-zc__b" data-zd="-1" aria-label="Éloigner la carte">−</button></span><button type="button" class="sk-sat-lb__x" id="skSatClose" aria-label="Fermer">×</button>
+      <div class="sk-sat-lb__pan" id="skSatPan"><div id="skSatBig" class="sk-sat-big"><figure class="sk-plan" data-z="1"><img class="z0" src="assets/images/visit-us/skines-plan-far.webp" alt="" width="788" height="675" loading="lazy" decoding="async"><img class="z1" src="assets/images/visit-us/skines-plan-mid.webp" alt="Plan : Skines au 19 avenue Shamrock et stationnement privé réservé aux clients" width="788" height="675" loading="lazy" decoding="async"><img class="z2" src="assets/images/visit-us/skines-plan-close.webp" alt="" width="788" height="675" loading="lazy" decoding="async"><i class="sk-pulse" aria-hidden="true"></i><svg class="sk-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="73" y1="40" x2="51" y2="49.5" vector-effect="non-scaling-stroke"/></svg><span class="sk-sign" aria-hidden="true"><img src="assets/images/visit-us/skines-sign.webp" alt="" width="380" height="204" loading="lazy"><span class="sk-sign__n"><b>SKINES</b><em>Head Spa &amp; Wellness</em></span></span></figure></div></div>
     </div>
-    <div class="map-foot">
-      <a class="map-cta" href="https://maps.google.com/?q=Skines+Head+Spa+19+Av+Shamrock+Montreal" target="_blank" rel="noopener"><span data-fr="Ouvrir dans Google Maps" data-en="Open in Google Maps">Ouvrir dans Google Maps</span> <span aria-hidden="true">→</span></a>
-    </div>
-    </div>
-</section>
+<style id="sk-plan-css">
+html body section#skVisitMap:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){padding:26px 18px 6px !important;max-width:none !important;background:transparent !important}
+.sk-sat{max-width:440px;margin:0 auto;text-align:center}
+.sk-sat__btn{position:relative;display:block;width:100%;padding:0;border:0;border-radius:16px;overflow:hidden;cursor:zoom-in;background:#F5E9E3;box-shadow:0 14px 34px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
+.sk-planwrap{position:relative}.sk-plan img{filter:none !important}.sk-plan{position:relative;display:block;margin:0;width:100%;container-type:inline-size;line-height:0}
+.sk-plan>img{display:block;width:100%;height:auto;position:absolute;inset:0;opacity:0;transition:opacity .35s ease}.sk-plan>img.z1{position:relative}.sk-plan[data-z="0"]>img.z0,.sk-plan[data-z="1"]>img.z1,.sk-plan[data-z="2"]>img.z2{opacity:1}
+.sk-pulse{position:absolute;left:50.63%;top:49.93%;width:0;height:0;pointer-events:none}
+.sk-pulse::before,.sk-pulse::after{content:"";position:absolute;left:-12cqw;top:-12cqw;width:24cqw;height:24cqw;border-radius:50%;border:2px solid #9A5434;background:rgba(154,84,52,.22);opacity:0;animation:skp 2.6s ease-out infinite}
+.sk-pulse::after{animation-delay:1.3s}
+@keyframes skp{0%{transform:scale(.12);opacity:.95}80%{opacity:0}100%{transform:scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.sk-pulse::before,.sk-pulse::after{animation:none;opacity:.5;transform:scale(.5)}}
+.sk-sign{position:absolute;left:73%;top:12%;width:31cqw;transform:translateX(-50%);display:block;background:#FBF3EC;border-radius:2cqw;overflow:visible;box-shadow:0 1cqw 3cqw rgba(60,30,22,.4);line-height:1}
+.sk-sign>img{display:block;width:100%;height:auto;border-radius:2cqw 2cqw 0 0}
+.sk-sign__n{display:block;padding:1.8cqw 1.6cqw 2cqw;text-align:center;color:#684034}
+.sk-sign__n b{display:block;font:600 4.6cqw/1 'Cormorant Garamond','DM Sans',serif;letter-spacing:.3em;padding-left:.3em;color:#684034}
+.sk-sign__n em{display:block;margin-top:1cqw;font:500 1.9cqw/1.2 'DM Sans',sans-serif;font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:#B07A3A;white-space:nowrap}
+.sk-line{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.sk-line line{stroke:#B07A3A;stroke-width:2;stroke-linecap:round}
+.sk-zc{position:absolute;right:12px;bottom:12px;z-index:3;display:flex;flex-direction:column;gap:6px}
+.sk-zc__b{width:40px;height:40px;border-radius:50%;border:0;background:#FAF1EC;color:#684034;font:400 24px/1 'DM Sans',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;padding:0}
+.sk-zc__b[disabled]{opacity:.4;cursor:default}
+.sk-sat-lb>.sk-zc{position:fixed;right:16px;bottom:22px;z-index:100001}
+.sk-sat__zoom{position:absolute;right:12px;top:12px;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#FAF1EC;color:#684034;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.sk-sat__cap{margin:12px 0 14px;font:400 .8rem/1.4 'DM Sans',sans-serif;letter-spacing:.04em;color:rgba(245,237,227,.72)}
+.sk-pk .cin-hero{height:auto}.sk-pk .cin-overlay{display:none}.sk-pk .cin-body{position:relative;background:#0D0805;padding:20px 20px 20px}
+.sk-sat-lb__pan .sk-sat-big{margin:auto;width:min(100vw,calc(100vh*1.167));transition:width .25s ease;cursor:zoom-in}
+.sk-sat-lb__pan.z .sk-sat-big{width:min(220vw,2000px);cursor:zoom-out}
+</style>
+<style id="sk-sat-css">
+.sk-sat-lb{position:fixed;inset:0;z-index:100000;background:rgba(8,5,3,.94);display:flex;align-items:center;justify-content:center}
+.sk-sat-lb[hidden]{display:none}
+.sk-sat-lb__x{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#FAF1EC;color:#684034;font:300 28px/1 'DM Sans',sans-serif;cursor:pointer}
+.sk-sat-lb__pan{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;display:flex}
+.sk-sat-lb__pan img{margin:auto;width:min(100vw,calc(100vh*1.167));height:auto;max-width:none;cursor:zoom-in;transition:width .25s ease}
+.sk-sat-lb__pan.z img{width:min(220vw,2000px);cursor:zoom-out}
+</style>
+<script>document.addEventListener('DOMContentLoaded',function(){var o=document.getElementById('skSatOpen'),lb=document.getElementById('skSatLb'),pan=document.getElementById('skSatPan'),big=document.getElementById('skSatBig'),x=document.getElementById('skSatClose');if(!o||!lb)return;
+function open(){lb.hidden=false;pan.classList.remove('z');document.documentElement.style.overflow='hidden';x.focus()}
+function close(){lb.hidden=true;document.documentElement.style.overflow='';o.focus()}
+o.addEventListener('click',open);x.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close()});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.sk-zc__b');if(!b)return;e.preventDefault();e.stopPropagation();var root=b.closest('.sk-sat-lb')||b.closest('.cin-hero');var f=root&&root.querySelector('.sk-plan');if(!f)return;var z=Math.max(0,Math.min(2,(+f.getAttribute('data-z')||1)+(+b.getAttribute('data-zd'))));f.setAttribute('data-z',z);root.querySelectorAll('.sk-zc__b').forEach(function(x){var d=+x.getAttribute('data-zd');x.disabled=(d>0&&z===2)||(d<0&&z===0)})},true);pan.addEventListener('click',function(e){if(e.target===pan)close()});
+});</script>
 <!-- ══ CARDS ══ -->
 <div class="dirs-cards">
 
@@ -2818,31 +2850,31 @@ html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#__
     </div>
   </div>
 
-  <!-- ─ Card 2: Jean-Talon Metro ─ -->
-  <div class="cin-card fade-up">
+  <!-- ─ Card 4: Private Parking ─ -->
+  <div class="cin-card fade-up sk-pk">
     <div class="cin-hero">
-      <img src="assets/images/visit-us/metro-jean-talon.webp" alt="Jean-Talon Metro Station" loading="lazy">
+      <div class="sk-planwrap"><button type="button" class="sk-sat__btn" id="skSatOpen" aria-haspopup="dialog" aria-label="Agrandir le plan d'accès">
+      <figure class="sk-plan" data-z="1"><img class="z0" src="assets/images/visit-us/skines-plan-far.webp" alt="" width="788" height="675" loading="lazy" decoding="async"><img class="z1" src="assets/images/visit-us/skines-plan-mid.webp" alt="Plan : Skines au 19 avenue Shamrock et stationnement privé réservé aux clients" width="788" height="675" loading="lazy" decoding="async"><img class="z2" src="assets/images/visit-us/skines-plan-close.webp" alt="" width="788" height="675" loading="lazy" decoding="async"><i class="sk-pulse" aria-hidden="true"></i><svg class="sk-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="73" y1="40" x2="51" y2="49.5" vector-effect="non-scaling-stroke"/></svg><span class="sk-sign" aria-hidden="true"><img src="assets/images/visit-us/skines-sign.webp" alt="" width="380" height="204" loading="lazy"><span class="sk-sign__n"><b>SKINES</b><em>Head Spa &amp; Wellness</em></span></span></figure>
+      <span class="sk-sat__zoom" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+    </button><span class="sk-zc" role="group" aria-label="Zoom"><button type="button" class="sk-zc__b" data-zd="1" aria-label="Rapprocher la carte">+</button><button type="button" class="sk-zc__b" data-zd="-1" aria-label="Éloigner la carte">−</button></span></div>
+      
       <div class="cin-overlay"></div>
       <div class="cin-body">
         <div class="cin-icon-row">
-          <div class="cin-dot dot-blue">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.2"/><line x1="12" y1="7" x2="12" y2="17" stroke-width="2"/><polyline points="8 13 12 17 16 13" stroke-width="2"/></svg>
+          <div class="cin-dot dot-muted">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-          <span class="cin-label" data-en="Coming by Metro?" data-fr="En métro ?">Coming by Metro?</span>
+          <span class="cin-label" data-en="Driving to Skines?" data-fr="En voiture ?">Driving to Skines?</span>
         </div>
-        <h3 aria-level="2" class="cin-title">Jean-Talon<br>Metro</h3>
-        <p class="cin-desc" data-en="A short walk from Jean-Talon Station." data-fr="À quelques minutes à pied de la station Jean-Talon.">A short walk from Jean-Talon Station.</p>
-        <div class="cin-walk">
-          <svg viewBox="0 0 24 24"><path d="M13 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5 4l-1.5 4 2 1.5-.5 5h1.5l1-4 2 2v4h1.5v-5l-2-2 .5-4-1.5-1.5z"/></svg>
-          <span data-en="5 min walk" data-fr="5 min à pied">5 min walk</span>
-        </div>
+        <h3 aria-level="2" class="cin-title">Private<br>Parking</h3>
+        <p class="cin-desc" data-en="A complimentary space reserved exclusively for you, for the entire duration of your appointment." data-fr="Un espace gratuit réservé exclusivement pour vous, pour toute la durée de votre rendez-vous.">A complimentary space reserved exclusively for you, for the entire duration of your appointment.</p>
       </div>
     </div>
-    <a class="cin-cta cta-blue" href="https://maps.google.com/?q=Jean-Talon+Metro+Station+Montreal" target="_blank" rel="noreferrer">
+    <a class="cin-cta cta-espresso" href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal+QC" target="_blank" rel="noreferrer">
       <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="17"/><polyline points="8 13 12 17 16 13"/></svg></div>
+        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
         <div>
-          <div class="cin-cta-name" data-en="Open Jean-Talon Metro" data-fr="Ouvrir Métro Jean-Talon">Open Jean-Talon Metro</div>
+          <div class="cin-cta-name" data-en="Navigate to Private Parking" data-fr="Naviguer vers le Stationnement">Navigate to Private Parking</div>
           <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
         </div>
       </div>
@@ -2882,27 +2914,31 @@ html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#__
     </a>
   </div>
 
-  <!-- ─ Card 4: Private Parking ─ -->
+  <!-- ─ Card 2: Jean-Talon Metro ─ -->
   <div class="cin-card fade-up">
     <div class="cin-hero">
-      <img src="assets/images/visit-us/parking-satellite.webp" alt="Private Parking" loading="lazy">
+      <img src="assets/images/visit-us/metro-jean-talon.webp" alt="Jean-Talon Metro Station" loading="lazy">
       <div class="cin-overlay"></div>
       <div class="cin-body">
         <div class="cin-icon-row">
-          <div class="cin-dot dot-muted">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div class="cin-dot dot-blue">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.2"/><line x1="12" y1="7" x2="12" y2="17" stroke-width="2"/><polyline points="8 13 12 17 16 13" stroke-width="2"/></svg>
           </div>
-          <span class="cin-label" data-en="Driving to Skines?" data-fr="En voiture ?">Driving to Skines?</span>
+          <span class="cin-label" data-en="Coming by Metro?" data-fr="En métro ?">Coming by Metro?</span>
         </div>
-        <h3 aria-level="2" class="cin-title">Private<br>Parking</h3>
-        <p class="cin-desc" data-en="A complimentary space reserved exclusively for you, for the entire duration of your appointment." data-fr="Un espace gratuit réservé exclusivement pour vous, pour toute la durée de votre rendez-vous.">A complimentary space reserved exclusively for you, for the entire duration of your appointment.</p>
+        <h3 aria-level="2" class="cin-title">Jean-Talon<br>Metro</h3>
+        <p class="cin-desc" data-en="A short walk from Jean-Talon Station." data-fr="À quelques minutes à pied de la station Jean-Talon.">A short walk from Jean-Talon Station.</p>
+        <div class="cin-walk">
+          <svg viewBox="0 0 24 24"><path d="M13 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1.5 4l-1.5 4 2 1.5-.5 5h1.5l1-4 2 2v4h1.5v-5l-2-2 .5-4-1.5-1.5z"/></svg>
+          <span data-en="5 min walk" data-fr="5 min à pied">5 min walk</span>
+        </div>
       </div>
     </div>
-    <a class="cin-cta cta-espresso" href="https://maps.google.com/?q=19+Av.+Shamrock+Montreal+QC" target="_blank" rel="noreferrer">
+    <a class="cin-cta cta-blue" href="https://maps.google.com/?q=Jean-Talon+Metro+Station+Montreal" target="_blank" rel="noreferrer">
       <div class="cin-cta-l">
-        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        <div class="cin-cta-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="17"/><polyline points="8 13 12 17 16 13"/></svg></div>
         <div>
-          <div class="cin-cta-name" data-en="Navigate to Private Parking" data-fr="Naviguer vers le Stationnement">Navigate to Private Parking</div>
+          <div class="cin-cta-name" data-en="Open Jean-Talon Metro" data-fr="Ouvrir Métro Jean-Talon">Open Jean-Talon Metro</div>
           <div class="cin-cta-hint" data-en="in Google Maps" data-fr="dans Google Maps">in Google Maps</div>
         </div>
       </div>
@@ -3255,7 +3291,6 @@ html body form.sk-join:not(#_):not(#__):not(#___):not(#____):not(#_____):not(#__
 
 
 
-<script src="assets/js/skines-map.js?v=4" defer></script>
 
 <script id="sk-foot-join-js">
 (function(){
