@@ -8477,6 +8477,32 @@ requestAnimationFrame(tick)})(last);
     <div class="contact-more"><a class="contact-more-link" href="/visit-us"><span data-fr="Plan, accès et stationnement" data-en="Map, directions and parking">Plan, accès et stationnement</span><span aria-hidden="true">→</span></a></div>
   </section>
 
+<script id="sk-tapsound">
+(function(){
+  var hero=document.querySelector('header.hero');if(!hero)return;
+  var M=document.getElementById('heroVideo'),A=document.getElementById('heroVideoDesktopA'),B=document.getElementById('heroVideoDesktopB');
+  var btn=document.getElementById('mobileMuteBtn'),tog=document.querySelector('.sound-toggle');
+  var mq=window.matchMedia('(max-width:980px)');
+  function vids(){return mq.matches?[M]:[A,B]}
+  function isOn(){return vids().some(function(v){return v&&!v.muted})}
+  function frac(){var s=document.getElementById('contact');if(!s)return 1;var y=window.pageYOffset||0,vh=innerHeight||1,end=s.getBoundingClientRect().top+y-vh;if(end<=0)return 1;var f=end*.6;if(y<=f)return 1;return Math.max(0,Math.min(1,1-(y-f)/(end-f)))}
+  function ui(on){if(btn){btn.classList.toggle('unmuted',on);btn.setAttribute('aria-label',on?'Couper le son':'Activer le son')}if(tog)tog.setAttribute('aria-pressed',String(on))}
+  function setSound(on){
+    vids().forEach(function(v){if(!v)return;v.muted=!on;if(on){try{v.volume=frac()}catch(e){}}});
+    ui(on);
+    if(on){var p=vids()[0];if(p&&p.paused){var r=p.play();if(r&&r.catch)r.catch(function(){})}
+      document.querySelectorAll('.review-circle-wrap video').forEach(function(v){try{v.pause();v.muted=true}catch(e){}})}
+  }
+  hero.addEventListener('click',function(e){
+    if(e.target.closest('a,button,input,select,textarea,[role=button]'))return;
+    setSound(!isOn());
+  });
+  addEventListener('scroll',function(){if(isOn())vids().forEach(function(v){if(v&&!v.muted){try{v.volume=frac()}catch(e){}}})},{passive:true});
+  function silenceHero(){if(isOn()){[M,A,B].forEach(function(v){if(v)v.muted=true});ui(false)}}
+  document.addEventListener('play',function(e){var v=e.target;if(v&&v.tagName==='VIDEO'&&v!==M&&v!==A&&v!==B&&!v.muted)silenceHero()},true);
+  document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('#sk-music,.review-circle-wrap,.ivc-wrap,[id^=ivc]'))silenceHero()},true);
+})();
+</script>
 <script id="sk-music-js">
 (function(){
   var box=document.querySelector('#sk-music .skmu-box'); if(!box) return;
