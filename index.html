@@ -270,10 +270,10 @@
     .hero-bg-desktop { display: none; }
     .hero-bg-mobile { display: block; }
     .hero-bg-desktop-video { display: none !important; }
-    /* No poster image on mobile — show the brand maroon under the video so
-       the transition from the intro splash straight into the video is
-       seamless (never a black flash or a static frame). */
-    html body .hero, html body header.hero { background: #684034 !important; }
+    /* Under the video, paint the same tones as the poster/intro video
+       (near-black top -> warm dark brown -> soft cocoa bottom) so the
+       first frames never jump from maroon to black when the video fades in. */
+    html body .hero, html body header.hero { background: #080605 linear-gradient(to bottom, #080605 0%, #2e1c11 55%, #564331 100%) !important; }
   }
   /* Desktop hero video: both copies start invisible (photo shows first,
      instantly). Whichever twin is "is-active" fades to opacity 1 — set
