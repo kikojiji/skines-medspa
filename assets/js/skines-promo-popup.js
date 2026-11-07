@@ -95,7 +95,18 @@
   }
 
   var fired = false;
-  function trigger() { if (fired) return; fired = true; window.removeEventListener('scroll', onScroll); build(); }
+  // Ne jamais chevaucher le bandeau cookies : tant que le visiteur n'a pas répondu
+  // (clé « sk_consent » absente) ou que le bandeau est visible, on attend, puis on affiche.
+  function consentPending() {
+    var banner = document.querySelector('.sk-consent');
+    if (banner && getComputedStyle(banner).display !== 'none') return true;
+    try { var c = JSON.parse(localStorage.getItem('sk_consent') || 'null'); return !(c && c.v); } catch (e) { return false; }
+  }
+  function whenClear(fn) {
+    if (!consentPending()) { setTimeout(fn, 1200); return; }
+    var iv = setInterval(function () { if (!consentPending()) { clearInterval(iv); setTimeout(fn, 1200); } }, 500);
+  }
+  function trigger() { if (fired) return; fired = true; window.removeEventListener('scroll', onScroll); whenClear(build); }
   function onScroll() {
     var sc = window.scrollY || document.documentElement.scrollTop;
     var max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
