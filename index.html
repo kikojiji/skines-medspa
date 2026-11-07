@@ -7265,7 +7265,7 @@ var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addE
   </div>
 </header>
 <div class="sk-awh__scrim" id="skAwhScrim"><span aria-hidden="true"></span></div>
-<aside class="sk-awh__drawer" id="skAwhDrawer" aria-label="Menu" aria-hidden="true">
+<aside class="sk-awh__drawer" id="skAwhDrawer" aria-label="Menu" aria-hidden="true" inert>
   <button type="button" class="sk-awh__x" id="skAwhClose" aria-label="Fermer">&times;</button>
   <div class="sk-awh__dnav" role="navigation">
     <a href="/head-spa" data-fr="Head Spa" data-en="Head Spa">Head Spa</a>
@@ -7397,6 +7397,7 @@ var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addE
     </div>
   </div>
 
+<main id="main-content">
   <header class="hero">
     <!-- Desktop only: static photo shows immediately; the video fades in
          on top once it's actually ready to play, so there's no pop/flash
@@ -8630,6 +8631,7 @@ requestAnimationFrame(tick)})(last);
 
 
 
+</main>
 <footer class="site-footer sk-foot">
   <div class="sk-foot-cols">
     <details class="sk-foot-col sk-foot-acc sk-foot-join" open><summary><h4 aria-level="3" data-fr="Tirage du mois" data-en="Monthly draw">Tirage du mois</h4></summary>
@@ -9250,7 +9252,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </defs>
 </svg>
 
-<div id="gw-overlay" role="dialog" aria-modal="true" aria-labelledby="gw-title" aria-hidden="true">
+<div id="gw-overlay" role="dialog" aria-modal="true" aria-labelledby="gw-title" aria-hidden="true" inert>
   <div id="gw-card">
     <button type="button" id="gw-close" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div id="gw-img"><picture><source media="(max-width:700px)" data-srcset="assets/images/tirage-popup-portrait.webp?v=1"><source data-srcset="assets/images/tirage-popup-bowl-s.webp?v=3"><img data-src="assets/images/tirage-popup-bowl-m.webp?v=1" alt="Skines Head Spa" loading="lazy"></picture></div>
@@ -10161,5 +10163,6 @@ lang.querySelectorAll('[data-sk-lang]').forEach(function(b){b.addEventListener('
 <script>/* a11y: aria-label follows placeholder (FR/EN) */(function(){function s(i){var p=i.getAttribute("placeholder");if(p)i.setAttribute("aria-label",p)}function all(){document.querySelectorAll("input[aria-label][placeholder]").forEach(s)}if(window.MutationObserver){new MutationObserver(function(m){m.forEach(function(x){if(x.target.matches&&x.target.matches("input[aria-label]"))s(x.target)})}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:["placeholder"]})}all();document.addEventListener("DOMContentLoaded",all)})();</script>
 <script>/* stamp lands when it scrolls into view */(function(){var d=document.documentElement,s=document.querySelector(".sk-lieu__stamp");if(!s||!("IntersectionObserver" in window)){return}d.classList.add("sk-stamp-js");var o=new IntersectionObserver(function(l){l.forEach(function(e){if(e.isIntersecting){s.classList.add("in");o.disconnect()}})},{threshold:.55});o.observe(s.parentNode);setTimeout(function(){s.classList.add("in")},9000)})();</script>
 <script>(function(){var s=document.querySelector(".sk-enso");if(!s||!("IntersectionObserver" in window))return;document.documentElement.classList.add("sk-enso-js");var o=new IntersectionObserver(function(l){l.forEach(function(e){if(e.isIntersecting){s.classList.add("in");o.disconnect()}})},{threshold:.35});o.observe(s);setTimeout(function(){s.classList.add("in")},12000)})();</script>
+<script>/* a11y: hidden panels are inert while aria-hidden=true */(function(){["skAwhDrawer","gw-overlay"].forEach(function(id){var e=document.getElementById(id);if(!e||!window.MutationObserver)return;function s(){if(e.getAttribute("aria-hidden")==="true")e.setAttribute("inert","");else e.removeAttribute("inert")}new MutationObserver(s).observe(e,{attributes:true,attributeFilter:["aria-hidden"]});s()})})();</script>
 </body>
 </html>
