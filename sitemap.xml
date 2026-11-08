@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
   <url>
     <loc>https://skines.ca/</loc>
@@ -34,6 +34,142 @@
     <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-oumymn-thumb.webp</video:thumbnail_loc>
+      <video:title>« Come with me to a head spa » : une cliente raconte sa visite</video:title>
+      <video:description>Une cliente nous emmène avec elle vivre un Head Spa chez Skines Head Spa &amp; Wellness, à Montréal, en Petite-Italie.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-oumymn.mp4</video:content_loc>
+      <video:duration>106</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-v10-thumb.webp</video:thumbnail_loc>
+      <video:title>« J'ai passé un moment incroyable » : avis d'une cliente</video:title>
+      <video:description>Une cliente partage son avis après sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-v10.mp4</video:content_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2026-10-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-ugc60-thumb.webp</video:thumbnail_loc>
+      <video:title>Avis d'un client chez Skines Head Spa &amp; Wellness Montréal</video:title>
+      <video:description>Un client raconte son expérience chez Skines Head Spa &amp; Wellness, au 19 av. Shamrock, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-ugc60.mp4</video:content_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2026-10-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-duo-glow-thumb.webp</video:thumbnail_loc>
+      <video:title>Deux clientes racontent leur expérience chez Skines</video:title>
+      <video:description>Deux clientes partagent leurs impressions après leur visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-duo-glow.mp4</video:content_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2026-10-17</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-glow-line-thumb.webp</video:thumbnail_loc>
+      <video:title>« Excellent » : avis d'une cliente chez Skines</video:title>
+      <video:description>Une cliente donne son avis sur sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-glow-line.mp4</video:content_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2026-10-17</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-final-thumb.webp</video:thumbnail_loc>
+      <video:title>Un rituel Head Spa en images chez Skines Montréal</video:title>
+      <video:description>Un aperçu du rituel Head Spa chez Skines Head Spa &amp; Wellness, à Montréal, dans une cabine privée de la Petite-Italie.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-final.mp4</video:content_loc>
+      <video:duration>40</video:duration>
+      <video:publication_date>2026-10-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-google-ads-thumb.webp</video:thumbnail_loc>
+      <video:title>« It was really good » : avis d'une cliente</video:title>
+      <video:description>Une cliente partage son expérience chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-google-ads.mp4</video:content_loc>
+      <video:duration>27</video:duration>
+      <video:publication_date>2026-10-20</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-tiik-thumb.webp</video:thumbnail_loc>
+      <video:title>« J'ai l'impression… » : avis d'une cliente chez Skines</video:title>
+      <video:description>Une cliente raconte ce qu'elle a ressenti après sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-tiik.mp4</video:content_loc>
+      <video:duration>57</video:duration>
+      <video:publication_date>2026-10-21</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-solo-thumb.webp</video:thumbnail_loc>
+      <video:title>« Je me sens relaxée partout » : avis d'une cliente</video:title>
+      <video:description>Une cliente décrit sa détente après sa séance chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-solo.mp4</video:content_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2026-10-29</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-men-thumb.webp</video:thumbnail_loc>
+      <video:title>Avis d'un client sur son expérience chez Skines</video:title>
+      <video:description>Un client partage son avis sur sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-men.mp4</video:content_loc>
+      <video:duration>41</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-juillet-thumb.webp</video:thumbnail_loc>
+      <video:title>Avis d'une cliente après sa séance chez Skines</video:title>
+      <video:description>Une cliente sourit en racontant sa séance chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-juillet.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:publication_date>2026-07-24</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-hook-thumb.webp</video:thumbnail_loc>
+      <video:title>Un moment de Head Spa chez Skines Montréal</video:title>
+      <video:description>Un moment de Head Spa chez Skines Head Spa &amp; Wellness, à Montréal : soin du cuir chevelu dans un décor chaleureux.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-hook.mp4</video:content_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2026-07-05</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-new-thumb.webp</video:thumbnail_loc>
+      <video:title>Avis d'une cliente à la sortie de sa séance</video:title>
+      <video:description>Une cliente partage son expérience à la sortie de sa séance chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-new.mp4</video:content_loc>
+      <video:duration>46</video:duration>
+      <video:publication_date>2026-07-08</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-test-thumb.webp</video:thumbnail_loc>
+      <video:title>Un moment de détente chez Skines Montréal</video:title>
+      <video:description>Un moment de détente en images chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-test.mp4</video:content_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2026-07-05</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis6-thumb.webp</video:thumbnail_loc>
+      <video:title>Avis d'un client chez Skines Head Spa &amp; Wellness</video:title>
+      <video:description>Un client partage son avis sur son passage chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis6-web.mp4</video:content_loc>
+      <video:duration>54</video:duration>
+      <video:publication_date>2026-10-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 
   <url>
