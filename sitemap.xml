@@ -34,52 +34,6 @@
     <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-oumymn-thumb.webp</video:thumbnail_loc>
-      <video:title>« Come with me to a head spa » : une cliente raconte sa visite</video:title>
-      <video:description>Une cliente nous emmène avec elle vivre un Head Spa chez Skines Head Spa &amp; Wellness, à Montréal, en Petite-Italie.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-oumymn.mp4</video:content_loc>
-      <video:duration>106</video:duration>
-      <video:publication_date>2026-10-22</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-v10-thumb.webp</video:thumbnail_loc>
-      <video:title>« J'ai passé un moment incroyable » : avis d'une cliente</video:title>
-      <video:description>Une cliente partage son avis après sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-v10.mp4</video:content_loc>
-      <video:duration>61</video:duration>
-      <video:publication_date>2026-10-14</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-ugc60-thumb.webp</video:thumbnail_loc>
-      <video:title>Avis d'un client chez Skines Head Spa &amp; Wellness Montréal</video:title>
-      <video:description>Un client raconte son expérience chez Skines Head Spa &amp; Wellness, au 19 av. Shamrock, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-ugc60.mp4</video:content_loc>
-      <video:duration>60</video:duration>
-      <video:publication_date>2026-10-14</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-duo-glow-thumb.webp</video:thumbnail_loc>
-      <video:title>Deux clientes racontent leur expérience chez Skines</video:title>
-      <video:description>Deux clientes partagent leurs impressions après leur visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-duo-glow.mp4</video:content_loc>
-      <video:duration>29</video:duration>
-      <video:publication_date>2026-10-17</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-glow-line-thumb.webp</video:thumbnail_loc>
-      <video:title>« Excellent » : avis d'une cliente chez Skines</video:title>
-      <video:description>Une cliente donne son avis sur sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-glow-line.mp4</video:content_loc>
-      <video:duration>47</video:duration>
-      <video:publication_date>2026-10-17</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
     <video:video>
       <video:thumbnail_loc>https://skines.ca/assets/videos/avis-final-thumb.webp</video:thumbnail_loc>
       <video:title>Un rituel Head Spa en images chez Skines Montréal</video:title>
@@ -87,24 +41,6 @@
       <video:content_loc>https://skines.ca/assets/videos/avis-final.mp4</video:content_loc>
       <video:duration>40</video:duration>
       <video:publication_date>2026-10-14</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-google-ads-thumb.webp</video:thumbnail_loc>
-      <video:title>« It was really good » : avis d'une cliente</video:title>
-      <video:description>Une cliente partage son expérience chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-google-ads.mp4</video:content_loc>
-      <video:duration>27</video:duration>
-      <video:publication_date>2026-10-20</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-tiik-thumb.webp</video:thumbnail_loc>
-      <video:title>« J'ai l'impression… » : avis d'une cliente chez Skines</video:title>
-      <video:description>Une cliente raconte ce qu'elle a ressenti après sa visite chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-tiik.mp4</video:content_loc>
-      <video:duration>57</video:duration>
-      <video:publication_date>2026-10-21</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
     <video:video>
@@ -150,15 +86,6 @@
       <video:content_loc>https://skines.ca/assets/videos/avis-new.mp4</video:content_loc>
       <video:duration>46</video:duration>
       <video:publication_date>2026-07-08</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-test-thumb.webp</video:thumbnail_loc>
-      <video:title>Un moment de détente chez Skines Montréal</video:title>
-      <video:description>Un moment de détente en images chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
-      <video:content_loc>https://skines.ca/assets/videos/avis-test.mp4</video:content_loc>
-      <video:duration>20</video:duration>
-      <video:publication_date>2026-07-05</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
     <video:video>
@@ -281,5 +208,325 @@
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-oumymn</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-oumymn-thumb.webp</video:thumbnail_loc>
+      <video:title>« Come with me to a head spa » : avis Head Spa d'une cliente chez Skines</video:title>
+      <video:description>Une cliente partage son expérience Head Spa chez Skines Head Spa &amp; Wellness, à Montréal : « Une petite parenthèse de douceur dont j'avais tellement besoin. Entre les massages et la sensation de détente absolue, j'aurais pu rester là pendant des heures. »</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-oumymn.mp4</video:content_loc>
+      <video:duration>106</video:duration>
+      <video:publication_date>2026-10-17</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-celia-in-montreal</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-v10-thumb.webp</video:thumbnail_loc>
+      <video:title>« J'ai passé un moment incroyable » : cécé teste le Head Spa chez Skines</video:title>
+      <video:description>cécé (@celia_in_montreal) a testé pour la première fois un Head Spa chez Skines Head Spa &amp; Wellness, près de la station Jean-Talon à Montréal, et partage son expérience.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-v10.mp4</video:content_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-alex-marsolais</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-ugc60-thumb.webp</video:thumbnail_loc>
+      <video:title>Alex Marsolais teste le Head Spa japonais chez Skines Montréal</video:title>
+      <video:description>Alex Marsolais (@alex_marso) raconte son expérience du Head Spa chez Skines Head Spa &amp; Wellness, à Montréal : massages, bienfaits de l'eau et relaxation profonde. Vidéo tournée par North Point Studio.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-ugc60.mp4</video:content_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2026-10-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-montreal-bites</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-duo-glow-thumb.webp</video:thumbnail_loc>
+      <video:title>Montréal Bites passe une journée de self-care chez Skines Montréal</video:title>
+      <video:description>Le compte Montréal Bites (@montrealbites) partage sa journée de self-care chez Skines Head Spa &amp; Wellness, à Montréal, en Petite-Italie.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-duo-glow.mp4</video:content_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2026-10-29</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-farah</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-glow-line-thumb.webp</video:thumbnail_loc>
+      <video:title>« I need this feeling on repeat » : Farah raconte son soin de 90 minutes chez Skines</video:title>
+      <video:description>Farah (@farahsleiman_), créatrice de contenu, raconte son soin de 90 minutes chez Skines Head Spa &amp; Wellness, à Montréal : une relaxation profonde et des cheveux doux et parfumés pendant des jours. Expérience offerte par Skines.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-glow-line.mp4</video:content_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2026-10-26</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-jules</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-google-ads-thumb.webp</video:thumbnail_loc>
+      <video:title>« It was really good » : Jules teste le Head Spa chez Skines Montréal</video:title>
+      <video:description>Jules (@curated.byjules), créatrice de contenu, raconte son Head Spa chez Skines Head Spa &amp; Wellness, à Montréal : un cuir chevelu frais et un massage qui donne la sensation de flotter sur des nuages.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-google-ads.mp4</video:content_loc>
+      <video:duration>27</video:duration>
+      <video:publication_date>2026-09-28</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-margot</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-tiik-thumb.webp</video:thumbnail_loc>
+      <video:title>« J'ai l'impression… » : Margot teste le Head Spa japonais chez Skines</video:title>
+      <video:description>Margot (@margottedd) a testé le Head Spa japonais chez Skines Head Spa &amp; Wellness, à Montréal, et partage son expérience en vidéo.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-tiik.mp4</video:content_loc>
+      <video:duration>57</video:duration>
+      <video:publication_date>2026-09-18</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-angela</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-angela-thumb.webp</video:thumbnail_loc>
+      <video:title>« This is your sign to book a head spa in Montréal » : Angela chez Skines</video:title>
+      <video:description>Angela (@a.finechinaa), créatrice de contenu, raconte son Head Spa chez Skines Head Spa &amp; Wellness, à Montréal : massage du cuir chevelu, massage du visage relaxant et petites touches de plumes.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-angela.mp4</video:content_loc>
+      <video:duration>33</video:duration>
+      <video:publication_date>2026-10-21</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-ruzie</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-ruzie-thumb.webp</video:thumbnail_loc>
+      <video:title>« I felt like a princess » : Ruzie teste le Signature Scalpcial de 90 minutes chez Skines</video:title>
+      <video:description>Ruzie (@xoxoruzie), créatrice de contenu, raconte le Signature Scalpcial de 90 minutes chez Skines Head Spa &amp; Wellness, à Montréal : gommage du cuir chevelu, rinçage cascade, massage du visage et vapeur. Expérience offerte par Skines.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-ruzie.mp4</video:content_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2026-10-16</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-javeria</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-javeria-thumb.webp</video:thumbnail_loc>
+      <video:title>Javeria découvre le Head Spa chez Skines Montréal</video:title>
+      <video:description>Javeria (@speakeasywithjaveria) présente le Head Spa de Skines Head Spa &amp; Wellness, à Montréal, et renvoie vers la page de Skines pour plus de détails.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-javeria.mp4</video:content_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2026-10-13</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-farzy</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-farzy-thumb.webp</video:thumbnail_loc>
+      <video:title>« A little pause from the busy days » : Farzy Fine Dines chez Skines</video:title>
+      <video:description>Farzy Fine Dines (@farzyfinedines), créatrice de contenu, raconte sa visite chez Skines Head Spa &amp; Wellness, à Montréal : une heure pour ralentir, être chouchoutée et ressortir détendue et éclatante.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-farzy.mp4</video:content_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2026-09-21</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-anna</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-anna-thumb.webp</video:thumbnail_loc>
+      <video:title>« Happy as a baby » : Anna Haghdoust chez Skines Montréal</video:title>
+      <video:description>Anna Haghdoust (@anna_hdst) partage sa sortie spa chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-anna.mp4</video:content_loc>
+      <video:duration>28</video:duration>
+      <video:publication_date>2026-07-21</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-girl-in-mtl</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-theo-thumb.webp</video:thumbnail_loc>
+      <video:title>Head Spa dans le Mile End : Theo (Girl in Montreal) chez Skines</video:title>
+      <video:description>Theo (@girl.in.mtl), créatrice de contenu, présente son Head Spa chez Skines Head Spa &amp; Wellness, au 19 avenue Shamrock à Montréal. Prestation offerte par Skines.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-theo.mp4</video:content_loc>
+      <video:duration>41</video:duration>
+      <video:publication_date>2026-04-19</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-justine-ledoux</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-justineledoux-mezzo-thumb.webp</video:thumbnail_loc>
+      <video:title>« Come with me for a scalp treatment » : Justine Ledoux chez Skines Montréal</video:title>
+      <video:description>Justine Ledoux (@justineledoux.mezzo), mezzo-soprano, vous emmène avec elle pour un soin du cuir chevelu chez Skines Head Spa &amp; Wellness, à Montréal.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-justineledoux-mezzo.mp4</video:content_loc>
+      <video:duration>124</video:duration>
+      <video:publication_date>2026-04-13</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-fanny</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-fannyhome-thumb.webp</video:thumbnail_loc>
+      <video:title>« Mon nouveau rituel bien-être » : Fanny découvre le Head Spa chez Skines</video:title>
+      <video:description>Fanny (@fannyhome_), créatrice de contenu, découvre le Head Spa chez Skines Head Spa &amp; Wellness, à Montréal : massages du cuir chevelu, ambiance cocooning et lâcher-prise total. Collaboration commerciale.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-fannyhome.mp4</video:content_loc>
+      <video:duration>39</video:duration>
+      <video:publication_date>2026-03-16</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/collaboration-ele-lagace</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-test-thumb.webp</video:thumbnail_loc>
+      <video:title>Concours Head Spa TRIO de 90 minutes : Élé Lagacé x Skines Montréal</video:title>
+      <video:description>Élé Lagacé (@eleonorelagace) a offert, en collaboration avec Skines Head Spa &amp; Wellness, une expérience Head Spa TRIO de 90 minutes à partager entre amies, famille ou proches. Concours terminé le 28 février 2026.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-test.mp4</video:content_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2026-02-13</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-cyrine</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-cyrinelarbi-thumb.webp</video:thumbnail_loc>
+      <video:title>« Date night version détente » : Cyrine en duo chez Skines Montréal</video:title>
+      <video:description>Cyrine (@cyrinelarbi), créatrice de contenu, vit un moment à deux chez Skines Head Spa &amp; Wellness, à Montréal : massage, relaxation et déconnexion totale.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-cyrinelarbi.mp4</video:content_loc>
+      <video:duration>59</video:duration>
+      <video:publication_date>2026-01-20</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-yasmine</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-yasminemediaco-thumb.webp</video:thumbnail_loc>
+      <video:title>« A calm space, a full reset » : Yasmine chez Skines Montréal</video:title>
+      <video:description>Yasmine (@yasminemediaco), créatrice de contenu, partage sa visite chez Skines Head Spa &amp; Wellness, à Montréal : un espace calme, une vraie remise à zéro.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-yasminemediaco.mp4</video:content_loc>
+      <video:duration>9</video:duration>
+      <video:publication_date>2026-01-12</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-danika</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-danikastcyrr-thumb.webp</video:thumbnail_loc>
+      <video:title>« The best scalp spa in Montréal » : Danika chez Skines</video:title>
+      <video:description>Danika (@danikastcyrr), créatrice de contenu lifestyle, présente son scalp spa chez Skines Head Spa &amp; Wellness, au 19 avenue Shamrock à Montréal, comme un moment de self-care à vivre.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-danikastcyrr.mp4</video:content_loc>
+      <video:duration>26</video:duration>
+      <video:publication_date>2026-11-05</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://skines.ca/temoignage-ruslana</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://skines.ca/assets/videos/avis-ruslana-v-thumb.webp</video:thumbnail_loc>
+      <video:title>« Your next self-care experience in Montreal » : Ruslana chez Skines</video:title>
+      <video:description>Ruslana (@ruslana__v), créatrice de contenu, présente le Head Spa japonais de Skines Head Spa &amp; Wellness, à Montréal : massages des mains, du visage, de la nuque et du cuir chevelu.</video:description>
+      <video:content_loc>https://skines.ca/assets/videos/avis-ruslana-v.mp4</video:content_loc>
+      <video:duration>14</video:duration>
+      <video:publication_date>2026-10-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>
