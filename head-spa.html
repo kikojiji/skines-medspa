@@ -7181,55 +7181,44 @@ html body header.hero .headspa-hero-actions a.headspa-formulas:not(#_a):not(#_b)
   </div>
 
 <header class="hero">
-  <!-- Old home hero video moved here (with its sound feature):
-       desktop = Head Spa clip + ambient audio toggle; mobile/tablet = original montage + mute button -->
-  <video class="hero-bg hs-old hs-old-desk" id="hsOldDesk" muted loop playsinline autoplay preload="auto" poster="/assets/hero-head-spa-poster.webp" aria-label="Head Spa Japonais Skines"><source src="/assets/videos/hero-head-spa.mp4" type="video/mp4"></video>
-  <video class="hero-bg hs-old hs-old-mob" id="hsOldMob" muted loop playsinline autoplay preload="auto" poster="/assets/hero-mobile-poster-v2.webp" aria-label="Head Spa Japonais Skines"><source src="/assets/videos/hook-mobile-lite-a2.mp4" type="video/mp4"></video>
-  <audio id="hsAmbient" loop preload="none"><source src="/assets/audio/hero-ambient.m4a" type="audio/mp4"><source src="/assets/audio/hero-ambient.mp3" type="audio/mpeg"></audio>
-  <button type="button" id="hsAudioBtn" class="hs-audio" aria-pressed="false" aria-label="Activer le son d'ambiance"><i class="d"></i><span>AUDIO</span><b class="sw"><u></u></b></button>
+  <video class="hero-bg" id="heroVideoHeadSpa" autoplay muted loop playsinline preload="auto" aria-label="Head Spa Japonais Skines">
+    <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/head-spa-hero.mp4" type="video/mp4">
+  </video>
+  <!-- Mobile/tablet only (<=980px): the old home hero montage, with its sound and a mute button.
+       Desktop keeps the original video above, untouched. Nothing below is loaded on desktop. -->
+  <video class="hero-bg hs-old-mob" id="hsOldMob" muted loop playsinline preload="none" poster="/assets/hero-mobile-poster-v2.webp" data-src="/assets/videos/hook-mobile-lite-a2.mp4" aria-label="Head Spa Japonais Skines"></video>
   <button type="button" id="hsMuteBtn" class="hs-mute" aria-pressed="false" aria-label="Activer le son">
     <svg class="im" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
     <svg class="iu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
   </button>
   <style>
-  .hs-old-mob{display:none}
-  @media (max-width:980px){ .hs-old-desk{display:none !important} .hs-old-mob{display:block !important} #hsAudioBtn{display:none !important} }
-  @media (min-width:981px){ .hs-old-mob{display:none !important} #hsMuteBtn{display:none !important} }
-  .hs-audio{position:absolute;left:24px;bottom:24px;z-index:6;display:flex;align-items:center;gap:10px;background:rgba(245,240,234,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:0;border-radius:100px;padding:8px 14px;cursor:pointer;font:600 .68rem 'DM Sans',sans-serif;letter-spacing:.1em;color:#684034;box-shadow:0 4px 16px rgba(0,0,0,.14)}
-  .hs-audio .d{width:7px;height:7px;border-radius:50%;background:#9a9a9a;transition:background .25s}
-  .hs-audio[aria-pressed="true"] .d{background:#3fae5c}
-  .hs-audio .sw{width:30px;height:16px;border-radius:100px;background:rgba(104,64,52,.25);position:relative;transition:background .25s}
-  .hs-audio[aria-pressed="true"] .sw{background:#C9973A}
-  .hs-audio .sw u{position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#fff;transition:transform .25s}
-  .hs-audio[aria-pressed="true"] .sw u{transform:translateX(14px)}
-  .hs-mute{position:absolute;right:16px;bottom:18px;z-index:6;width:44px;height:44px;border-radius:50%;border:1px solid rgba(250,246,240,.7);background:rgba(250,246,240,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#FAF6F0;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .hs-mute svg{width:20px;height:20px}
-  .hs-mute .iu{display:none}.hs-mute[aria-pressed="true"] .iu{display:block}.hs-mute[aria-pressed="true"] .im{display:none}
+  .hs-old-mob,.hs-mute{display:none}
+  @media (max-width:980px){
+    #heroVideoHeadSpa{display:none !important}
+    .hs-old-mob{display:block}
+    .hs-mute{position:absolute;right:16px;bottom:18px;z-index:6;width:44px;height:44px;border-radius:50%;border:1px solid rgba(250,246,240,.7);background:rgba(250,246,240,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#FAF6F0;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .hs-mute svg{width:20px;height:20px}
+    .hs-mute .iu{display:none}.hs-mute[aria-pressed="true"] .iu{display:block}.hs-mute[aria-pressed="true"] .im{display:none}
+  }
   </style>
   <script>
   (function(){
-    var desk=document.getElementById('hsOldDesk'), mob=document.getElementById('hsOldMob'), aud=document.getElementById('hsAmbient');
-    var ab=document.getElementById('hsAudioBtn'), mb=document.getElementById('hsMuteBtn'), hero=document.querySelector('header.hero');
-    var isDesk=function(){ return window.matchMedia('(min-width:981px)').matches; };
-    // load only the clip that matches the device
-    if(isDesk()){ try{ mob.pause(); mob.removeAttribute('autoplay'); mob.querySelectorAll('source').forEach(function(x){x.remove();}); mob.load(); }catch(e){} }
-    else { try{ desk.pause(); desk.removeAttribute('autoplay'); desk.querySelectorAll('source').forEach(function(x){x.remove();}); desk.load(); }catch(e){} }
+    if(!window.matchMedia('(max-width:980px)').matches) return; // desktop: nothing runs
+    var mob=document.getElementById('hsOldMob'), mb=document.getElementById('hsMuteBtn'), hero=document.querySelector('header.hero'), old=document.getElementById('heroVideoHeadSpa');
+    // the original Head Spa clip is not needed on phones/tablets
+    if(old){ try{ old.pause(); old.removeAttribute('autoplay'); old.querySelectorAll('source').forEach(function(x){x.remove();}); old.load(); }catch(e){} }
+    mob.preload='auto'; mob.src=mob.getAttribute('data-src'); mob.addEventListener('canplay',function(){ var p=mob.play(); if(p&&p.catch) p.catch(function(){}); },{once:true});
     var fadeT=null;
     function fade(el,to,ms,done){ clearInterval(fadeT); var from=el.volume, t0=Date.now(); fadeT=setInterval(function(){ var k=Math.min(1,(Date.now()-t0)/ms); el.volume=Math.max(0,Math.min(1,from+(to-from)*k)); if(k>=1){ clearInterval(fadeT); if(done) done(); } },40); }
-    var wantSound=false, inView=true;
-    // Desktop: ambient birds toggle
-    function audioOn(){ wantSound=true; ab.setAttribute('aria-pressed','true'); aud.volume=0; var p=aud.play(); if(p&&p.catch) p.catch(function(){}); fade(aud,.6,900); }
-    function audioOff(){ wantSound=false; ab.setAttribute('aria-pressed','false'); fade(aud,0,600,function(){ aud.pause(); }); }
-    ab.addEventListener('click',function(e){ e.stopPropagation(); if(aud.paused) audioOn(); else audioOff(); });
-    // Mobile/tablet: the montage's own soundtrack
-    function mobOn(){ wantSound=true; mb.setAttribute('aria-pressed','true'); mb.setAttribute('aria-label','Couper le son'); mob.volume=0; mob.muted=false; var p=mob.play(); if(p&&p.catch) p.catch(function(){}); fade(mob,1,700); }
-    function mobOff(){ wantSound=false; mb.setAttribute('aria-pressed','false'); mb.setAttribute('aria-label','Activer le son'); fade(mob,0,400,function(){ mob.muted=true; }); }
-    mb.addEventListener('click',function(e){ e.stopPropagation(); if(mob.muted) mobOn(); else mobOff(); });
-    // Sound only while the hero is on screen; it comes back when the visitor scrolls back up
+    var wantSound=false;
+    function on(){ wantSound=true; mb.setAttribute('aria-pressed','true'); mb.setAttribute('aria-label','Couper le son'); mob.volume=0; mob.muted=false; var p=mob.play(); if(p&&p.catch) p.catch(function(){}); fade(mob,1,700); }
+    function off(){ wantSound=false; mb.setAttribute('aria-pressed','false'); mb.setAttribute('aria-label','Activer le son'); fade(mob,0,400,function(){ mob.muted=true; }); }
+    mb.addEventListener('click',function(e){ e.stopPropagation(); if(mob.muted) on(); else off(); });
+    // sound only while the hero is on screen; returns when the visitor scrolls back up
     if('IntersectionObserver' in window){
-      new IntersectionObserver(function(en){ inView=en[0].isIntersecting;
-        if(isDesk()){ if(!inView && !aud.paused){ fade(aud,0,500,function(){ aud.pause(); }); } else if(inView && wantSound && aud.paused){ var p=aud.play(); if(p&&p.catch) p.catch(function(){}); fade(aud,.6,700); } }
-        else { if(!inView && !mob.muted){ fade(mob,0,400,function(){ mob.muted=true; }); } else if(inView && wantSound && mob.muted){ mob.muted=false; mob.volume=0; fade(mob,1,600); } }
+      new IntersectionObserver(function(en){ var inView=en[0].isIntersecting;
+        if(!inView && !mob.muted){ fade(mob,0,400,function(){ mob.muted=true; }); }
+        else if(inView && wantSound && mob.muted){ mob.muted=false; mob.volume=0; fade(mob,1,600); }
       },{threshold:.15}).observe(hero);
     }
   })();
