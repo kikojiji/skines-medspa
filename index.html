@@ -9400,8 +9400,9 @@ function closePopup() {
   // Open once the visitor reaches the Contact / Google-map section near the
   // bottom of the page, on every device — much later than before, so it
   // never interrupts the landing view or the services/reviews browsing.
-  var targetId = 'contact';
-  var target = document.getElementById(targetId);
+  // Now: right under the three service images (Head Spa / Laser / Facial),
+  // at the "Choisissez votre soin" row.
+  var target = document.querySelector('.sk-tre') || document.getElementById('contact');
   if (!target) {
     setTimeout(openPopup, window.innerWidth < 768 ? 18000 : 10000);
     return;

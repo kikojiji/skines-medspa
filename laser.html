@@ -11354,5 +11354,162 @@ function toTop(){if(el.parentNode!==box)return;if(ph&&ph.parentNode){ph.parentNo
 function sync(){mq.matches?toBottom():toTop()}
 sync();(mq.addEventListener?mq.addEventListener('change',sync):mq.addListener(sync));
 })();</script>
+<!-- Giveaway popup (same as home): opens after ~2 screens of scrolling, once per 7 days -->
+<style id="gw-css">html body #gw-overlay{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(58,36,30,.5);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility 0s linear .35s}html body #gw-overlay.gw-visible{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s ease}html body #gw-card{position:relative;display:flex;flex-direction:row-reverse;width:min(880px,100%);max-height:calc(100dvh - 40px);background:#FAF1EC;border-radius:14px;overflow:hidden;box-shadow:0 24px 70px rgba(40,22,17,.35);transform:translateY(14px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}html body #gw-overlay.gw-visible #gw-card{transform:none}html body #gw-img{flex:0 0 46%;position:relative;min-height:420px}html body #gw-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}html body #gw-body{flex:1 1 54%;padding:38px 34px 26px;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;font-family:"DM Sans",sans-serif;color:#684034}html body #gw-form{display:flex;flex-direction:column;gap:12px;position:relative}html body #gw-title,html body #gw-done h2{font-family:"DM Sans",sans-serif !important;font-weight:400 !important;font-size:1.75rem !important;line-height:1.15 !important;color:#684034 !important;margin:0 0 2px !important;text-align:left;text-transform:none !important;letter-spacing:0 !important}html body .gw-desc,html body #gw-done p{font-size:.92rem;line-height:1.5;margin:0 0 6px;color:#684034;opacity:.85}html body .gw-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}html body #gw-form input[type=text],html body #gw-form input[type=email],html body #gw-form input[type=tel]{width:100%;box-sizing:border-box;height:46px;padding:0 14px;border:1.5px solid #E3C3B3;border-radius:6px;background:#FFF9F5;color:#684034;font:400 .95rem "DM Sans",sans-serif;outline:none}html body #gw-form input:focus{border-color:#B66A5A}html body #gw-form input::placeholder{color:#684034;opacity:.5}html body .gw-consent{display:flex;gap:10px;align-items:flex-start;font-size:.74rem;line-height:1.45;margin:2px 0 0;cursor:pointer}html body .gw-consent input{flex:none;margin-top:2px;accent-color:#B66A5A;width:16px;height:16px}html body .gw-consent a{color:#684034;text-decoration:underline}html body .gw-err{color:#9A3520;font-size:.8rem;margin:0}html body #gw-card #gw-submit,html body #gw-card #gw-done-close{height:48px;border:none !important;border-radius:6px !important;background:#B66A5A !important;color:#FFF9F5 !important;opacity:1 !important;font:500 .82rem "DM Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;padding:0 22px;transition:background .2s}html body #gw-card #gw-submit:hover,html body #gw-card #gw-done-close:hover{background:#9F5848 !important}html body #gw-card #gw-submit:disabled{opacity:.6 !important;cursor:default}html body .gw-more{align-self:center;font-size:.82rem;color:#684034;text-decoration:underline;text-underline-offset:4px}html body .gw-no{align-self:center;background:none;border:none;color:#684034;opacity:.55;font:400 .78rem "DM Sans",sans-serif;cursor:pointer;padding:2px 8px}html body #gw-close{position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border-radius:50%;border:none;background:#FFE0A3;color:#684034;display:flex;align-items:center;justify-content:center;cursor:pointer}html body #gw-close svg{width:18px;height:18px}html body #gw-done[hidden],html body #gw-form[hidden]{display:none}html body #gw-done{display:flex;flex-direction:column;gap:14px;align-items:flex-start}@media (max-width:700px){html body #gw-overlay{padding:14px;align-items:center}html body #gw-card{flex-direction:column;max-height:calc(100dvh - 28px);overflow-y:auto}html body #gw-img{flex:none;min-height:0;height:150px}html body #gw-body{padding:22px 20px 20px;overflow:visible;flex:none}html body #gw-title,html body #gw-done h2{font-size:1.5rem !important}}</style>
+<style id="gw-frame">html body #gw-card{padding:0}html body #gw-img{padding:12px;box-sizing:border-box}html body #gw-img img{position:static;border-radius:10px;width:100%;height:100%;object-fit:cover;object-position:46% 50%}@media (max-width:700px){html body #gw-img{height:190px;padding:10px 10px 0}html body #gw-img img{object-position:48% 45%}}</style>
+<style id="gw-mobile">@media (max-width:700px){html body #gw-img{height:auto;padding:10px 10px 0}html body #gw-img picture{display:block}html body #gw-img img{height:auto;aspect-ratio:710/490;max-height:170px;object-position:50% 50%;border-radius:10px}html body #gw-body{padding:14px 18px 14px}html body #gw-form{gap:8px;align-items:center;text-align:center}html body #gw-title,html body #gw-done h2{font-size:1.35rem !important;text-align:center !important;margin:0 !important}html body .gw-desc{font-size:.8rem;line-height:1.4;margin:0 0 2px;text-align:center}html body .gw-row{width:100%;gap:8px}html body #gw-form input[type=text],html body #gw-form input[type=email],html body #gw-form input[type=tel]{height:42px;font-size:.9rem;text-align:center}html body #gw-form input:not([type=checkbox]){width:100%}html body .gw-consent{font-size:.68rem;line-height:1.35;text-align:left;margin:0}html body #gw-card #gw-submit{height:44px;width:100%}html body .gw-more{font-size:.76rem}html body .gw-no{font-size:.72rem;padding:0 8px}html body #gw-done{align-items:center;text-align:center}html body #gw-close{top:16px;right:16px;width:34px;height:34px}}</style>
+<style id="gw-scale">html body #gw-card{scale:.8;transform-origin:center center}</style>
+<style id="gw-zoom">html body #gw-img img{object-position:38% 50%}@media (max-width:700px){html body #gw-img img{aspect-ratio:738/575;max-height:190px;object-position:50% 50%}}</style>
+<style id="gw-mobile-row">@media (max-width:700px){html body #gw-overlay{padding:10px}html body #gw-card{flex-direction:row-reverse !important;width:100% !important;scale:.9;max-height:calc(100dvh - 20px);overflow:hidden}html body #gw-img{flex:0 0 36% !important;height:auto !important;padding:8px !important;min-height:0 !important}html body #gw-img picture{display:block;height:100%}html body #gw-img img{height:100% !important;max-height:none !important;aspect-ratio:auto !important;width:100% !important;object-fit:cover;object-position:12% 50%;border-radius:8px}html body #gw-body{flex:1 1 64% !important;padding:16px 8px 12px 14px !important;overflow-y:auto}html body #gw-form{gap:7px}html body #gw-title,html body #gw-done h2{font-size:1.05rem !important;line-height:1.2 !important}html body .gw-desc{font-size:.7rem;line-height:1.35}html body .gw-row{grid-template-columns:1fr !important;gap:7px}html body #gw-form input[type=text],html body #gw-form input[type=email],html body #gw-form input[type=tel]{height:38px;font-size:.82rem}html body .gw-consent{font-size:.6rem;line-height:1.3}html body #gw-card #gw-submit{height:40px;font-size:.7rem;letter-spacing:.1em;padding:0 8px}html body .gw-more{font-size:.68rem}html body #gw-close{top:12px;right:12px;width:30px;height:30px}}</style>
+<style id="gw-mobile-tune">@media (max-width:700px){html body #gw-img{flex:0 0 45% !important}html body #gw-body{flex:1 1 55% !important;padding:14px 6px 10px 12px !important}html body #gw-form{gap:6px}html body #gw-title,html body #gw-done h2{font-size:.95rem !important}html body .gw-desc{font-size:.62rem}html body #gw-form input[type=text],html body #gw-form input[type=email],html body #gw-form input[type=tel]{height:32px;font-size:.74rem;padding:0 8px}html body .gw-consent{font-size:.54rem;gap:6px}html body .gw-consent input{width:13px !important;height:13px}html body #gw-card #gw-submit{height:34px;font-size:.62rem;letter-spacing:.08em}html body .gw-more{font-size:.62rem}html body .gw-no{font-size:.64rem}}</style>
+<style id="gw-mobile-img">@media (max-width:700px){html body #gw-img{flex:0 0 50% !important;padding:6px !important}html body #gw-body{flex:1 1 50% !important;padding:12px 4px 8px 10px !important}html body .gw-more{font-size:.56rem;text-wrap:balance}html body #gw-title,html body #gw-done h2{font-size:.88rem !important}}</style>
+<style id="gw-title-fix">@media (max-width:700px){html body #gw-title,html body #gw-done h2{line-height:1.35 !important;padding:2px 0 4px !important;margin:0 0 4px !important;overflow:visible !important}html body #gw-body{padding-top:16px !important}}</style>
+<style id="gw-title-font">@media (max-width:700px){html body #gw-title,html body #gw-done h2{font-family:"DM Sans",sans-serif !important;font-weight:500 !important;letter-spacing:0 !important}}</style>
+<style id="gw-soft">html body #gw-overlay{z-index:100000 !important;inset:0 0 var(--gw-cb,0px) 0 !important}html body #gw-overlay{transition:opacity .7s ease,visibility 0s linear .7s !important;background:rgba(58,36,30,.38) !important}html body #gw-overlay.gw-visible{transition:opacity .7s ease !important}html body #gw-card{transform:translateY(26px);transition:transform .9s cubic-bezier(.16,.8,.24,1) !important}@media (max-width:700px){html body #gw-overlay{align-items:center !important}html body #gw-card{max-height:calc(100dvh - var(--gw-cb,0px) - 24px) !important}}</style>
+<div id="gw-overlay" role="dialog" aria-modal="true" aria-labelledby="gw-title" aria-hidden="true">
+  <div id="gw-card">
+    <button type="button" id="gw-close" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div id="gw-img"><picture><source media="(max-width:700px)" data-srcset="/assets/images/tirage-popup-portrait.webp?v=1"><source data-srcset="/assets/images/tirage-popup-bowl-s.webp?v=3"><img data-src="/assets/images/tirage-popup-bowl-m.webp?v=1" alt="Skines Head Spa" loading="lazy"></picture></div>
+    <div id="gw-body">
+      <form id="gw-form" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div id="gw-ts" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden" aria-hidden="true"></div>
+        <h2 id="gw-title" data-fr="Gagnez une expérience Skines" data-en="Win a Skines experience">Gagnez une expérience Skines</h2>
+        <p class="gw-desc" data-fr="Head Spa · Facial médical · Soins avancés. Participez en quelques secondes." data-en="Head Spa · Medical facials · Advanced treatments. Enter in a few seconds.">Head Spa · Facial médical · Soins avancés. Participez en quelques secondes.</p>
+        <div class="gw-row">
+          <input type="text" aria-label="Prénom" name="firstname" autocomplete="given-name" data-ph-fr="Prénom" data-ph-en="First name" placeholder="Prénom" required>
+          <input type="text" aria-label="Nom" name="lastname" autocomplete="family-name" data-ph-fr="Nom" data-ph-en="Last name" placeholder="Nom" required>
+        </div>
+        <input type="email" aria-label="Courriel" name="email" autocomplete="email" data-ph-fr="Courriel" data-ph-en="Email" placeholder="Courriel" required>
+        <input type="tel" aria-label="Téléphone" name="phone" autocomplete="tel" data-ph-fr="Téléphone" data-ph-en="Phone" placeholder="Téléphone" required>
+        <label class="gw-consent"><input type="checkbox" name="consent" required><span class="gw-consent-txt" data-gw-fr="J’accepte de recevoir des offres de Skines Head Spa &amp; Wellness. Désabonnement possible à tout moment. Voir la <a href='/privacy-policy' target='_blank' rel='noopener'>politique de confidentialité</a>." data-gw-en="I agree to receive offers from Skines Head Spa &amp; Wellness. Unsubscribe at any time. See the <a href='/privacy-policy' target='_blank' rel='noopener'>privacy policy</a>.">J’accepte de recevoir des offres de Skines Head Spa &amp; Wellness. Désabonnement possible à tout moment. Voir la <a href="/privacy-policy" target="_blank" rel="noopener">politique de confidentialité</a>.</span></label>
+        <p class="gw-err" id="gw-err" role="alert" hidden></p>
+        <button type="submit" id="gw-submit" style="background:#B66A5A !important;color:#FFF9F5 !important;border:none !important;opacity:1 !important" data-fr="Participer au tirage" data-en="Enter the draw">Participer au tirage</button>
+        <a href="/tirage" class="gw-more" data-fr="Choisir mon soin et participer en détail →" data-en="Choose my treatment and enter in detail →">Choisir mon soin et participer en détail →</a>
+        <button type="button" class="gw-no" id="gw-no" data-fr="Non merci" data-en="No thanks">Non merci</button>
+      </form>
+      <div id="gw-done" hidden>
+        <h2 data-fr="Merci, vous participez !" data-en="Thank you, you’re in!">Merci, vous participez !</h2>
+        <p data-fr="Votre inscription au tirage est confirmée. Nous vous contacterons personnellement si vous gagnez." data-en="Your entry is confirmed. We will contact you personally if you win.">Votre inscription au tirage est confirmée. Nous vous contacterons personnellement si vous gagnez.</p>
+        <button type="button" id="gw-done-close" style="background:#B66A5A !important;color:#FFF9F5 !important;border:none !important;opacity:1 !important" data-fr="Fermer" data-en="Close">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function openPopup() {
+  (function(){var im=document.getElementById('gw-img');if(im&&!im.dataset.ld){im.dataset.ld=1;im.querySelectorAll('source[data-srcset]').forEach(function(x){x.srcset=x.dataset.srcset});var i=im.querySelector('img[data-src]');if(i)i.src=i.dataset.src}})();
+  var mn = document.getElementById('mobileNav');
+  var mainNav = document.querySelector('nav');
+  if (mn && mn.classList.contains('open')) {
+    mn.classList.remove('open');
+    document.body.style.overflow = '';
+    // restore nav visibility that openMenu() hid
+    if (mainNav) mainNav.style.display = '';
+  }
+  // No display toggling here on purpose — the panel is a small fixed
+  // dock (not a full-screen modal), so opacity/pointer-events alone
+  // fully cover shown/hidden state; forcing display would fight the
+  // CSS's own mobile-vs-desktop display values.
+  var o = document.getElementById('gw-overlay');
+  if (!o) return;
+  try{ var cb=document.querySelector('.sk-consent'); var h=(cb&&getComputedStyle(cb).display!=='none'&&cb.getBoundingClientRect().height>0)?Math.round(window.innerHeight-cb.getBoundingClientRect().top):0; o.style.setProperty('--gw-cb',Math.max(0,h)+'px'); }catch(e){}
+  o.setAttribute('aria-hidden','false');
+  if (window.gwPrepare) window.gwPrepare();
+  requestAnimationFrame(function() { requestAnimationFrame(function() { o.classList.add('gw-visible'); }); });
+}
+function closePopup() {
+  var o = document.getElementById('gw-overlay');
+  if (!o) return;
+  o.classList.remove('gw-visible');
+  o.setAttribute('aria-hidden','true');
+
+  setTimeout(function() {
+    // always restore scroll
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    var nav = document.querySelector('nav');
+    if (nav) {
+      nav.classList.remove('nav-hidden');
+      nav.style.display = '';
+      nav.style.visibility = '';
+      nav.style.opacity = '';
+      nav.style.transform = '';
+      nav.style.pointerEvents = '';
+    }
+  }, 520);
+}
+document.getElementById('gw-close').addEventListener('click', closePopup);
+document.getElementById('gw-no').addEventListener('click', closePopup);
+document.getElementById('gw-done-close').addEventListener('click', closePopup);
+document.getElementById('gw-overlay').addEventListener('click', function(e){ if (e.target === this) closePopup(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closePopup(); });
+(function(){
+  var ov=document.getElementById('gw-overlay'); if(!ov) return;
+  function seen(){ try{ if(sessionStorage.getItem('skines-gw-done')||localStorage.getItem('skines-gw-done')) return true; var v=localStorage.getItem('skines-gw-seen'); return !!v && (Date.now()-(+v))<7*864e5; }catch(e){ return false; } }
+  if(seen()) return;
+  var t0=Date.now(), scrolled=false, shown=false;
+  ['wheel','touchmove','keydown'].forEach(function(ev){ window.addEventListener(ev,function(){ if(Date.now()-t0>1200) scrolled=true; },{passive:true}); });
+  function check(){ if(shown||document.hidden) return; if(scrolled && Date.now()-t0>3000 && (window.pageYOffset||document.documentElement.scrollTop)>=2*window.innerHeight){ shown=true; try{ localStorage.setItem('skines-gw-seen',''+Date.now()); }catch(e){} openPopup(); } }
+  window.addEventListener('scroll',check,{passive:true});
+})();
+</script>
+<script>
+(function(){
+  var ov=document.getElementById('gw-overlay'); if(!ov) return;
+  var form=document.getElementById('gw-form'), done=document.getElementById('gw-done'), err=document.getElementById('gw-err'), btn=document.getElementById('gw-submit');
+  var token='', tsId=null, fp='', prepared=false, busy=false;
+  function lang(){ return ((document.documentElement.lang||localStorage.getItem('skines-lang')||'fr')+'').slice(0,2)==='en'?'en':'fr'; }
+  function L(){
+    var l=lang();
+    form.querySelectorAll('[data-ph-fr]').forEach(function(i){ i.placeholder=i.getAttribute('data-ph-'+l)||i.placeholder; });
+    var c=form.querySelector('.gw-consent-txt'); if(c) c.innerHTML=c.getAttribute('data-gw-'+l)||c.innerHTML;
+  }
+  new MutationObserver(L).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  document.querySelectorAll('.lang-btn,.mobile-lang-btn').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(L,80); }); });
+  L();
+  function loadScript(src,cb){ var s=document.createElement('script'); s.src=src; s.async=true; if(cb) s.onload=cb; document.head.appendChild(s); }
+  window.gwTsInit=function(){
+    if(typeof turnstile==='undefined') return;
+    try{ tsId=turnstile.render('#gw-ts',{sitekey:'0x4AAAAAAFz_emR12K6VUc-O',callback:function(t){token=t;},'expired-callback':function(){token='';try{turnstile.reset(tsId);turnstile.execute(tsId);}catch(e){}},'error-callback':function(){token='';}}); turnstile.execute(tsId); }catch(e){}
+  };
+  function makeFp(){
+    try{
+      var raw=[navigator.userAgent,screen.width+'x'+screen.height+'x'+screen.colorDepth,(Intl.DateTimeFormat().resolvedOptions().timeZone||''),navigator.language,(navigator.hardwareConcurrency|0)+','+(navigator.maxTouchPoints|0)].join('|||');
+      if(crypto&&crypto.subtle){ crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)).then(function(b){ fp=Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('').slice(0,32); }); }
+    }catch(e){}
+  }
+  window.gwPrepare=function(){
+    if(prepared) return; prepared=true; makeFp();
+    loadScript('https://challenges.cloudflare.com/turnstile/v0/api.js?onload=gwTsInit&render=explicit');
+    if(!window.skinesTrackLead) loadScript('/assets/js/lead-tracking.js?v=1');
+  };
+  function show(msg){ err.textContent=msg; err.hidden=!msg; }
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); if(busy) return;
+    var v=function(n){ return form.querySelector('[name='+n+']').value.trim(); };
+    var first=v('firstname'), last=v('lastname'), email=v('email'), phone=v('phone');
+    var ok=form.querySelector('[name=consent]').checked;
+    var en=lang()==='en';
+    if(!first||!last||!email||!phone){ show(en?'Please fill in all fields.':'Veuillez remplir tous les champs.'); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ show(en?'Enter a valid email.':'Entrez un courriel valide.'); return; }
+    if(!ok){ show(en?'Please accept to continue.':'Veuillez accepter pour continuer.'); return; }
+    show(''); busy=true; btn.disabled=true; var label=btn.textContent; btn.textContent=en?'Sending…':'Envoi en cours…';
+    function send(){
+      var ctx=window.skinesLeadContext?window.skinesLeadContext():null;
+      fetch('https://api.skines.ca/api/send-tirage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({firstName:first,lastName:last,phone:phone,email:email,username:'',service:'',website:form.querySelector('[name=website]').value||'',cfToken:token,fp:fp,ctx:ctx})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d.success) throw new Error(d.error||'Erreur');
+        try{ window.skinesTrackLead&&window.skinesTrackLead('tirage',ctx&&ctx.ads&&ctx.ads.event_id,{server_sent:!!(ctx&&ctx.ads&&ctx.ads.consent)}); }catch(_){}
+        try{ sessionStorage.setItem('skines-gw-done','1'); localStorage.setItem('skines-gw-done','1'); }catch(_){}
+        form.hidden=true; done.hidden=false;
+      })
+      .catch(function(x){ show(x.message||(en?'Error, please try again.':'Erreur, réessayez.')); btn.disabled=false; btn.textContent=label; busy=false; });
+    }
+    if(token) send(); else { var w=0,iv=setInterval(function(){ w+=150; if(token||w>=2500){ clearInterval(iv); send(); } },150); }
+  });
+})();
+</script>
 </body>
 </html>
