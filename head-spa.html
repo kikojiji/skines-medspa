@@ -7186,7 +7186,7 @@ html body header.hero .headspa-hero-actions a.headspa-formulas:not(#_a):not(#_b)
   </video>
   <!-- Mobile/tablet only (<=980px): the old home hero montage, with its sound and a mute button.
        Desktop keeps the original video above, untouched. Nothing below is loaded on desktop. -->
-  <video class="hero-bg hs-old-mob" id="hsOldMob" muted loop playsinline preload="none" poster="/assets/hero-mobile-poster-v2.webp" data-src="/assets/videos/hook-mobile-lite-a2.mp4" aria-label="Head Spa Japonais Skines"></video>
+  <video class="hero-bg hs-old-mob" id="hsOldMob" muted loop playsinline webkit-playsinline preload="none" poster="/assets/hero-mobile-poster-v2.webp" data-src="/assets/videos/hook-mobile-lite-a2.mp4" aria-label="Head Spa Japonais Skines"></video>
   <button type="button" id="hsMuteBtn" class="hs-mute" aria-pressed="false" aria-label="Activer le son">
     <svg class="im" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
     <svg class="iu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -7207,7 +7207,11 @@ html body header.hero .headspa-hero-actions a.headspa-formulas:not(#_a):not(#_b)
     var mob=document.getElementById('hsOldMob'), mb=document.getElementById('hsMuteBtn'), hero=document.querySelector('header.hero'), old=document.getElementById('heroVideoHeadSpa');
     // the original Head Spa clip is not needed on phones/tablets
     if(old){ try{ old.pause(); old.removeAttribute('autoplay'); old.querySelectorAll('source').forEach(function(x){x.remove();}); old.load(); }catch(e){} }
-    mob.preload='auto'; mob.src=mob.getAttribute('data-src'); mob.addEventListener('canplay',function(){ var p=mob.play(); if(p&&p.catch) p.catch(function(){}); },{once:true});
+    mob.preload='auto'; mob.muted=true; mob.defaultMuted=true; mob.setAttribute('muted',''); mob.setAttribute('autoplay',''); mob.src=mob.getAttribute('data-src');
+    var go=function(){ if(!mob.paused) return; var p=mob.play(); if(p&&p.catch) p.catch(function(){}); };
+    go(); ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(ev){ mob.addEventListener(ev,go); });
+    ['touchstart','pointerdown','scroll','click','keydown'].forEach(function(ev){ window.addEventListener(ev,go,{passive:true,once:true}); });
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) go(); });
     var fadeT=null;
     function fade(el,to,ms,done){ clearInterval(fadeT); var from=el.volume, t0=Date.now(); fadeT=setInterval(function(){ var k=Math.min(1,(Date.now()-t0)/ms); el.volume=Math.max(0,Math.min(1,from+(to-from)*k)); if(k>=1){ clearInterval(fadeT); if(done) done(); } },40); }
     var wantSound=false;

@@ -7410,9 +7410,9 @@ var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addE
     <!-- Mobile only (<=980px): three split videos, each a link to its service page.
          Desktop hero is unchanged. -->
     <div class="ht-tri" id="htTri" aria-label="Nos trois soins">
-      <a class="ht-pan ht-p1" href="/head-spa" aria-label="Head Spa"><video muted loop playsinline preload="none" data-src="/assets/videos/home-head-spa.mp4" data-start="0" data-off="0" data-rate="1"></video><span class="ht-lab"><b>Head Spa</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
-      <a class="ht-pan ht-p3" href="/facial" aria-label="Facial"><video muted loop playsinline preload="none" data-src="/assets/videos/home-facial.mp4" data-start="0" data-off=".68" data-rate="1.04"></video><span class="ht-lab"><b>Facial</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
-      <a class="ht-pan ht-p2" href="/laser" aria-label="Laser"><video muted loop playsinline preload="none" data-src="/assets/videos/home-laser.mp4" data-start="0" data-off=".37" data-rate=".96"></video><span class="ht-lab"><b>Laser</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
+      <a class="ht-pan ht-p1" href="/head-spa" aria-label="Head Spa"><video muted loop playsinline webkit-playsinline preload="none" poster="/assets/home-head-spa-poster.webp" data-src="/assets/videos/home-head-spa.mp4" data-start="0" data-off="0" data-rate="1"></video><span class="ht-lab"><b>Head Spa</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
+      <a class="ht-pan ht-p3" href="/facial" aria-label="Facial"><video muted loop playsinline webkit-playsinline preload="none" poster="/assets/home-facial-poster.webp" data-src="/assets/videos/home-facial.mp4" data-start="0" data-off=".68" data-rate="1.04"></video><span class="ht-lab"><b>Facial</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
+      <a class="ht-pan ht-p2" href="/laser" aria-label="Laser"><video muted loop playsinline webkit-playsinline preload="none" poster="/assets/home-laser-poster.webp" data-src="/assets/videos/home-laser.mp4" data-start="0" data-off=".37" data-rate=".96"></video><span class="ht-lab"><b>Laser</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
     </div>
     <div class="ht-title" id="htTitle" aria-hidden="true"><span class="ht-s">Skines</span><span class="ht-l">Head Spa</span><span class="ht-a">&amp;</span><span class="ht-r">Wellness</span></div>
     <style id="ht-css">
@@ -7451,9 +7451,15 @@ var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addE
         // different clip lengths + offsets + tiny speed differences => loops never restart together
         v.addEventListener('loadedmetadata',function(){ try{ v.currentTime=Math.max(start,(v.duration||0)*off); }catch(e){} v.playbackRate=rate; },{once:true});
         if(start){ v.loop=false; v.addEventListener('timeupdate',function(){ if(v.duration&&v.currentTime>=v.duration-0.12){ v.currentTime=start; v.play().catch(function(){}); } }); v.addEventListener('ended',function(){ v.currentTime=start; v.play().catch(function(){}); }); }
-        var go=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
-        v.addEventListener('canplay',go,{once:true});
+        v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.setAttribute('autoplay','');
+        var go=function(){ if(!v.paused) return; var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+        // iOS/Safari never fires canplay without an explicit play(): ask right away and on every loading step
+        go(); ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(ev){ v.addEventListener(ev,go); });
       });
+      // last resort (low-power mode / strict autoplay): the first touch, scroll or click starts them
+      var unlock=function(){ document.querySelectorAll('#htTri video').forEach(function(v){ if(v.paused){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } }); };
+      ['touchstart','pointerdown','scroll','click','keydown'].forEach(function(ev){ window.addEventListener(ev,unlock,{passive:true,once:true}); });
+      document.addEventListener('visibilitychange',function(){ if(!document.hidden) unlock(); });
     })();
     (function(){
       // Mobile/tablet: the old hero montage video (with its music) is replaced by the three silent videos.
