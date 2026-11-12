@@ -7407,97 +7407,6 @@ var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addE
 
 <main id="main-content">
   <header class="hero">
-    <!-- Mobile only (<=980px): three split videos, each a link to its service page.
-         Desktop hero is unchanged. -->
-    <div class="ht-tri" id="htTri" aria-label="Nos trois soins">
-      <a class="ht-pan ht-p1" href="/head-spa" aria-label="Head Spa"><video muted loop playsinline webkit-playsinline preload="none" poster="/assets/home-head-spa-poster.webp" data-src="/assets/videos/home-head-spa.mp4" data-start="0" data-off="0" data-rate="1"></video><span class="ht-lab"><b>Head Spa</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
-      <a class="ht-pan ht-p3" href="/facial" aria-label="Facial"><video muted loop playsinline webkit-playsinline preload="none" poster="/assets/home-facial-poster.webp" data-src="/assets/videos/home-facial.mp4" data-start="0" data-off=".68" data-rate="1.04"></video><span class="ht-lab"><b>Facial</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
-      <a class="ht-pan ht-p2" href="/laser" aria-label="Laser"><video muted loop playsinline webkit-playsinline preload="none" poster="/assets/home-laser-poster.webp" data-src="/assets/videos/home-laser.mp4" data-start="0" data-off=".37" data-rate=".96"></video><span class="ht-lab"><b>Laser</b><small class="ht-btn">Explorer <i aria-hidden="true">&rarr;</i></small></span></a>
-    </div>
-    <div class="ht-title" id="htTitle" aria-hidden="true"><span class="ht-s">Skines</span><span class="ht-l">Head Spa</span><span class="ht-a">&amp;</span><span class="ht-r">Wellness</span></div>
-    <style id="ht-css">
-    .ht-tri,.ht-title{display:none}
-    @media (max-width:980px){
-      html body header.hero .hero-bg-mobile,html body header.hero #heroVideo{display:none !important}
-      html body #mobileMuteBtn,html body .sound-toggle,html body .hero-audio-toggle{display:none !important}
-      html body .ht-tri{display:grid;position:absolute;inset:0;z-index:1;gap:3px;grid-template-columns:1.45fr 1fr;grid-template-rows:1fr 1fr;background:#3A1E14}
-      .ht-pan{position:relative;display:block;overflow:hidden;color:#FAF6F0;text-decoration:none;background:linear-gradient(160deg,#8a5a45,#3e2118)}
-      .ht-p1{grid-column:1;grid-row:1/3}.ht-p3{grid-column:2;grid-row:1}.ht-p2{grid-column:2;grid-row:2}
-      .ht-pan video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-      html body .ht-p1 video{object-position:80% 50%}
-      html body .ht-tri::after{content:"";position:absolute;left:0;right:0;top:0;height:150px;z-index:2;background:linear-gradient(180deg,rgba(24,11,7,.62),rgba(24,11,7,.28) 55%,rgba(24,11,7,0));pointer-events:none}
-      .ht-pan::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,20,14,.25),rgba(40,20,14,0) 30%,rgba(40,20,14,0) 55%,rgba(40,20,14,.7));pointer-events:none}
-      .ht-lab{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 8px 118px;text-align:center}
-      .ht-p3 .ht-lab{padding-bottom:20px}
-      .ht-lab b{display:block;font:500 clamp(13px,3.6vw,18px)/1.2 'DM Sans',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase}
-      .ht-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 14px;border:1px solid rgba(250,246,240,.75);border-radius:999px;background:rgba(250,246,240,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font:500 10px 'DM Sans',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 6px 18px rgba(30,14,8,.25)}
-      .ht-btn i{font-style:normal;font-size:12px;letter-spacing:0}
-      .ht-pan:active .ht-btn{background:#FAF6F0;color:#3A1E14}
-      /* "HEAD SPA" over the Head Spa video, "&" on the seam, "WELLNESS" over the other two; SKINES stays centred in the nav */
-      html body .ht-title{display:block;position:absolute;left:0;right:0;top:56px;z-index:3;height:12px;pointer-events:none;color:#F5EDE3;text-transform:uppercase;white-space:nowrap;text-shadow:0 1px 10px rgba(20,10,6,.55)}
-      html body .ht-title span{position:absolute;top:0;line-height:1;color:#FAF6F0 !important;opacity:1 !important;text-shadow:0 1px 6px rgba(20,10,6,.6)}
-      html body.ht-top nav#mainNav .logo-brand{visibility:hidden}
-      /* the full-size hero content layer must not swallow taps meant for the three panels */
-      html body header.hero .hero-content{pointer-events:none}
-      html body header.hero .hero-content a,html body header.hero .hero-content button{pointer-events:auto}
-    }
-    </style>
-    <script>
-    (function(){
-      if(!window.matchMedia('(max-width:980px)').matches) return;
-      document.querySelectorAll('#htTri video').forEach(function(v){
-        var off=parseFloat(v.dataset.off)||0, rate=parseFloat(v.dataset.rate)||1, start=parseFloat(v.dataset.start)||0;
-        v.preload='auto'; v.src=v.dataset.src;
-        // different clip lengths + offsets + tiny speed differences => loops never restart together
-        v.addEventListener('loadedmetadata',function(){ try{ v.currentTime=Math.max(start,(v.duration||0)*off); }catch(e){} v.playbackRate=rate; },{once:true});
-        if(start){ v.loop=false; v.addEventListener('timeupdate',function(){ if(v.duration&&v.currentTime>=v.duration-0.12){ v.currentTime=start; v.play().catch(function(){}); } }); v.addEventListener('ended',function(){ v.currentTime=start; v.play().catch(function(){}); }); }
-        v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.setAttribute('autoplay','');
-        var go=function(){ if(!v.paused) return; var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
-        // iOS/Safari never fires canplay without an explicit play(): ask right away and on every loading step
-        go(); ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(ev){ v.addEventListener(ev,go); });
-      });
-      // last resort (low-power mode / strict autoplay): the first touch, scroll or click starts them
-      var unlock=function(){ document.querySelectorAll('#htTri video').forEach(function(v){ if(v.paused){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } }); };
-      ['touchstart','pointerdown','scroll','click','keydown'].forEach(function(ev){ window.addEventListener(ev,unlock,{passive:true,once:true}); });
-      document.addEventListener('visibilitychange',function(){ if(!document.hidden) unlock(); });
-    })();
-    (function(){
-      // Mobile/tablet: the old hero montage video (with its music) is replaced by the three silent videos.
-      function killOld(){ var ov=document.getElementById('heroVideo'); if(ov){ ov.muted=true; ov.volume=0; ov.pause(); try{ ov.removeAttribute('src'); ov.querySelectorAll('source').forEach(function(x){ x.remove(); }); ov.load(); }catch(e){} } var ha=document.getElementById('heroAmbientAudio'); if(ha){ ha.pause(); } }
-      if(window.matchMedia('(max-width:980px)').matches){ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',killOld); else killOld(); window.addEventListener('load',killOld); var kn=0,ki=setInterval(function(){ killOld(); if(++kn>16) clearInterval(ki); },500); }
-    })();
-    (function(){
-      var mq=window.matchMedia('(max-width:980px)');
-      var t=document.getElementById('htTitle'), tri=document.getElementById('htTri');
-      if(!t||!tri) return;
-      var L=t.querySelector('.ht-l'), A=t.querySelector('.ht-a'), R=t.querySelector('.ht-r');
-      var S=t.querySelector('.ht-s');
-      function place(){
-        if(!mq.matches){ document.body.classList.remove('ht-top'); return; }
-        var txt=document.querySelector('#mainNav .logo-text'), sub=document.querySelector('#mainNav .logo-sub'), p1=tri.querySelector('.ht-p1');
-        if(!txt||!sub||!p1) return;
-        var y=window.scrollY||0, rt=txt.getBoundingClientRect(), r=sub.getBoundingClientRect(), ct=getComputedStyle(txt), cs=getComputedStyle(sub);
-        var seam=p1.getBoundingClientRect().right+1.5, gap=12, W=window.innerWidth;
-        t.style.top='0'; t.style.fontFamily=cs.fontFamily;
-        // SKINES: drawn here, centred exactly on the seam, same type as the nav logo
-        S.style.top=(rt.top+y)+'px'; S.style.left=seam+'px'; S.style.transform='translateX(-50%)';
-        S.style.fontFamily=ct.fontFamily; S.style.fontSize=ct.fontSize; S.style.letterSpacing=ct.letterSpacing; S.style.fontWeight=ct.fontWeight; S.style.paddingLeft=ct.letterSpacing; S.style.textTransform='uppercase';
-        // HEAD SPA | & | WELLNESS on the sub-line
-        var fs=Math.max(10.5,parseFloat(cs.fontSize))+'px';
-        [L,A,R].forEach(function(n){ n.style.top=(r.top+y-2)+'px'; n.style.fontFamily=cs.fontFamily; n.style.fontSize=fs; n.style.letterSpacing=cs.letterSpacing; n.style.fontWeight=cs.fontWeight; });
-        [L,A,R,S].forEach(function(n){ n.style.setProperty('color','#FAF6F0','important'); n.style.setProperty('opacity','1','important'); });
-        L.style.left='0'; L.style.width=(seam-gap)+'px'; L.style.textAlign='right';
-        A.style.left=(seam-10)+'px'; A.style.width='20px'; A.style.textAlign='center';
-        R.style.left=(seam+gap)+'px'; R.style.width=(W-seam-gap)+'px'; R.style.textAlign='left';
-      }
-      function top(){ var on=mq.matches && (window.scrollY||0)<24; document.body.classList.toggle('ht-top', on); }
-      place(); top();
-      window.addEventListener('resize',function(){ place(); top(); });
-      window.addEventListener('scroll',top,{passive:true});
-      if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ place(); top(); });
-      window.addEventListener('load',function(){ place(); top(); });
-    })();
-    </script>
     <!-- Desktop only: static photo shows immediately; the video fades in
          on top once it's actually ready to play, so there's no pop/flash
          while it loads — the photo is the instant, guaranteed frame. -->
@@ -7573,7 +7482,7 @@ var c=document.getElementById('contact');if(c){c.classList.add('sk-fold');c.addE
       <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/hook.mp4" type="video/mp4">
     </video>
     <script>/* Start the hero video after the page has loaded (or on the first touch): keeps its 2 MB out of the critical path so the hero text paints first. */
-    (function(){var v=document.getElementById('heroVideo');if(!v)return;if(window.matchMedia&&matchMedia('(min-width:981px)').matches)return;if(document.getElementById('htTri'))return;var done=0;function go(){if(done)return;done=1;try{v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}catch(e){}}
+    (function(){var v=document.getElementById('heroVideo');if(!v)return;if(window.matchMedia&&matchMedia('(min-width:981px)').matches)return;var done=0;function go(){if(done)return;done=1;try{v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}catch(e){}}
     if(document.readyState==='complete')setTimeout(go,150);else addEventListener('load',function(){setTimeout(go,150)});
     ['touchstart','pointerdown','scroll','keydown'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});})();
     </script>

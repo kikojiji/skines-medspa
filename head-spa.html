@@ -7184,49 +7184,6 @@ html body header.hero .headspa-hero-actions a.headspa-formulas:not(#_a):not(#_b)
   <video class="hero-bg" id="heroVideoHeadSpa" autoplay muted loop playsinline preload="auto" aria-label="Head Spa Japonais Skines">
     <source src="https://pub-d6e38d7bb4f542c895e6ab27796ee053.r2.dev/head-spa-hero.mp4" type="video/mp4">
   </video>
-  <!-- Mobile/tablet only (<=980px): the old home hero montage, with its sound and a mute button.
-       Desktop keeps the original video above, untouched. Nothing below is loaded on desktop. -->
-  <video class="hero-bg hs-old-mob" id="hsOldMob" muted loop playsinline webkit-playsinline preload="none" poster="/assets/hero-mobile-poster-v2.webp" data-src="/assets/videos/hook-mobile-lite-a2.mp4" aria-label="Head Spa Japonais Skines"></video>
-  <button type="button" id="hsMuteBtn" class="hs-mute" aria-pressed="false" aria-label="Activer le son">
-    <svg class="im" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-    <svg class="iu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-  </button>
-  <style>
-  .hs-old-mob,.hs-mute{display:none}
-  @media (max-width:980px){
-    #heroVideoHeadSpa{display:none !important}
-    .hs-old-mob{display:block}
-    .hs-mute{position:absolute;right:16px;bottom:18px;z-index:6;width:44px;height:44px;border-radius:50%;border:1px solid rgba(250,246,240,.7);background:rgba(250,246,240,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#FAF6F0;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .hs-mute svg{width:20px;height:20px}
-    .hs-mute .iu{display:none}.hs-mute[aria-pressed="true"] .iu{display:block}.hs-mute[aria-pressed="true"] .im{display:none}
-  }
-  </style>
-  <script>
-  (function(){
-    if(!window.matchMedia('(max-width:980px)').matches) return; // desktop: nothing runs
-    var mob=document.getElementById('hsOldMob'), mb=document.getElementById('hsMuteBtn'), hero=document.querySelector('header.hero'), old=document.getElementById('heroVideoHeadSpa');
-    // the original Head Spa clip is not needed on phones/tablets
-    if(old){ try{ old.pause(); old.removeAttribute('autoplay'); old.querySelectorAll('source').forEach(function(x){x.remove();}); old.load(); }catch(e){} }
-    mob.preload='auto'; mob.muted=true; mob.defaultMuted=true; mob.setAttribute('muted',''); mob.setAttribute('autoplay',''); mob.src=mob.getAttribute('data-src');
-    var go=function(){ if(!mob.paused) return; var p=mob.play(); if(p&&p.catch) p.catch(function(){}); };
-    go(); ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(ev){ mob.addEventListener(ev,go); });
-    ['touchstart','pointerdown','scroll','click','keydown'].forEach(function(ev){ window.addEventListener(ev,go,{passive:true,once:true}); });
-    document.addEventListener('visibilitychange',function(){ if(!document.hidden) go(); });
-    var fadeT=null;
-    function fade(el,to,ms,done){ clearInterval(fadeT); var from=el.volume, t0=Date.now(); fadeT=setInterval(function(){ var k=Math.min(1,(Date.now()-t0)/ms); el.volume=Math.max(0,Math.min(1,from+(to-from)*k)); if(k>=1){ clearInterval(fadeT); if(done) done(); } },40); }
-    var wantSound=false;
-    function on(){ wantSound=true; mb.setAttribute('aria-pressed','true'); mb.setAttribute('aria-label','Couper le son'); mob.volume=0; mob.muted=false; var p=mob.play(); if(p&&p.catch) p.catch(function(){}); fade(mob,1,700); }
-    function off(){ wantSound=false; mb.setAttribute('aria-pressed','false'); mb.setAttribute('aria-label','Activer le son'); fade(mob,0,400,function(){ mob.muted=true; }); }
-    mb.addEventListener('click',function(e){ e.stopPropagation(); if(mob.muted) on(); else off(); });
-    // sound only while the hero is on screen; returns when the visitor scrolls back up
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(en){ var inView=en[0].isIntersecting;
-        if(!inView && !mob.muted){ fade(mob,0,400,function(){ mob.muted=true; }); }
-        else if(inView && wantSound && mob.muted){ mob.muted=false; mob.volume=0; fade(mob,1,600); }
-      },{threshold:.15}).observe(hero);
-    }
-  })();
-  </script>
   <div class="hero-copy headspa-hero-copy">
     <div class="eyebrow headspa-hero-eyebrow" data-fr="Rituel Japonais · Head Spa" data-en="Japanese Ritual · Head Spa">Rituel Japonais · Head Spa</div>
     <h1 class="headspa-hero-h1">HEAD SPA</h1>
