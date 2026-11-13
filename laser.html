@@ -7632,7 +7632,18 @@ html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not
 }
 </style>
 <style id="sk-laser-hero">@media (min-width:981px){html body header.hero:not(#_a):not(#_b):not(#_c):not(#_d):not(#_e):not(#_f):not(#_g):not(#_h):not(#_i):not(#_j):not(#_k):not(#_l):not(#_m):not(#_n):not(#_o):not(#_p){min-height:100svh !important;height:100svh !important}html body header.hero .laser-hero-copy:not(#_a):not(#_b):not(#_c):not(#_d):not(#_e):not(#_f):not(#_g):not(#_h):not(#_i):not(#_j):not(#_k):not(#_l):not(#_m):not(#_n):not(#_o):not(#_p){position:absolute !important;top:0 !important;bottom:0 !important;left:50% !important;transform:translateX(-50%) !important;height:auto !important;width:1000px !important;max-width:100% !important;margin:0 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;text-align:center !important;padding:196px 40px 0 !important}html body header.hero .laser-hero-h1:not(#_a):not(#_b):not(#_c):not(#_d):not(#_e):not(#_f):not(#_g):not(#_h):not(#_i):not(#_j):not(#_k):not(#_l):not(#_m):not(#_n):not(#_o):not(#_p){font-size:102.4px !important;font-weight:400 !important;letter-spacing:2.048px !important;text-align:center !important;margin:0 !important;white-space:nowrap !important}html body header.hero .laser-hero-lead:not(#_a):not(#_b):not(#_c):not(#_d):not(#_e):not(#_f):not(#_g):not(#_h):not(#_i):not(#_j):not(#_k):not(#_l):not(#_m):not(#_n):not(#_o):not(#_p){font-size:16.8px !important;font-weight:400 !important;letter-spacing:.168px !important;margin:8px 0 0 !important;text-align:center !important;max-width:none !important}html body header.hero .laser-hero-actions:not(#_a):not(#_b):not(#_c):not(#_d):not(#_e):not(#_f):not(#_g):not(#_h):not(#_i):not(#_j):not(#_k):not(#_l):not(#_m):not(#_n):not(#_o):not(#_p){margin:auto 0 0 !important;padding-bottom:39px !important;width:100% !important;display:flex !important;justify-content:center !important}html body header.hero .laser-hero-actions:not(#_a):not(#_b):not(#_c):not(#_d):not(#_e):not(#_f):not(#_g):not(#_h):not(#_i):not(#_j):not(#_k):not(#_l):not(#_m):not(#_n):not(#_o):not(#_p) > *{margin-left:auto !important;margin-right:auto !important}}</style>
-</head>
+<style id="lz-m2">@media (max-width:600px){
+html body .price-cards-grid:not(.list-view):not(#_):not(#__){display:flex !important;flex-wrap:wrap !important;gap:.7rem !important;justify-content:space-between !important}
+html body .price-cards-grid:not(.list-view) .price-card:not(#_):not(#__):not(#___){flex:0 0 calc(50% - .35rem) !important;max-width:calc(50% - .35rem) !important;width:calc(50% - .35rem) !important;padding:0 !important;overflow:hidden;border-radius:14px !important}
+html body .price-cards-grid:not(.list-view) .price-card-img:not(#_):not(#__):not(#___){width:100% !important;aspect-ratio:4/5 !important;height:auto !important}
+html body .price-cards-grid:not(.list-view) .price-card-img img:not(#_):not(#__){width:100% !important;height:100% !important;object-fit:cover !important}
+html body .price-cards-grid:not(.list-view) .price-card-body:not(#_):not(#__):not(#___){padding:.6rem .7rem .8rem !important;gap:.25rem !important}
+html body .price-cards-grid:not(.list-view) .price-card-cat:not(#_):not(#__){font-size:.55rem !important;letter-spacing:.12em !important}
+html body .price-cards-grid:not(.list-view) .price-card-name:not(#_):not(#__){font-size:.84rem !important;line-height:1.2 !important;overflow-wrap:anywhere}
+html body .price-cards-grid:not(.list-view) .price-card-body:not(#_):not(#__):not(#___){min-width:0 !important;box-sizing:border-box !important}
+html body .price-cards-grid:not(.list-view) .price-card-desc:not(#_):not(#__){display:-webkit-box !important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.72rem !important;line-height:1.35 !important}
+html body .price-cards-grid:not(.list-view) a.price-card-cta:not(#_):not(#__):not(#___){padding:.5rem .6rem !important;font-size:.66rem !important;letter-spacing:.06em !important;width:auto !important;min-width:0 !important;align-self:stretch !important;max-width:100% !important;box-sizing:border-box !important;margin:.3rem 0 0 !important;text-align:center !important;white-space:normal !important}
+}</style></head>
 <body>
 
 <header class="sk-awh" id="skAwh" aria-label="Navigation principale">
@@ -7923,146 +7934,7 @@ function measure(){half=tr.scrollWidth/2}
 function tick(t){if(!on){last=0;return}if(!last)last=t;var dt=Math.min(t-last,50)/1000;last=t;x+=speed*dt;if(x>=half)x-=half;tr.style.transform='translate3d('+(-x).toFixed(2)+'px,0,0)';requestAnimationFrame(tick)}
 measure();window.addEventListener('resize',measure);
 new IntersectionObserver(function(es){es.forEach(function(e){var now=e.isIntersecting;if(now&&!on&&!reduce){on=true;measure();last=0;requestAnimationFrame(tick)}else if(!now){on=false}})},{threshold:.1}).observe(st);})();</script>
-<section class="laser-fullslider">
-  <div class="lfs-track" id="lfsTrack">
-    <div class="lfs-slide"><img src="assets/laser-hero.webp?v=1" alt="Clarity II" fetchpriority="high"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-1.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-2.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-bikini-w.webp?v=1" alt="Maillot" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-3.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-full-zones.webp?v=1" alt="Corps complet" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-4.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-legs-w.webp?v=1" alt="Jambes" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-5.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-neck-m.webp?v=1" alt="Cou" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-6.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-lips.webp?v=1" alt="Lèvres" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-7.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-upper-lip.webp?v=1" alt="Visage" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-8.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-back-men.webp?v=1" alt="Dos" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-9.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-1.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-10.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-2.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-slider-white.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-3.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-4.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-5.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-6.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-7.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-8.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-9.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-10.webp?v=1" alt="" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-underarm1.webp" alt="Épilation laser des aisselles — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-shoulder1.webp" alt="Épilation laser des épaules — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-jaw1.webp" alt="Épilation laser de la mâchoire — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manface1.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manface3.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manneck1.webp" alt="Épilation laser du cou, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-arm1.webp" alt="Épilation laser des bras — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-chest1.webp" alt="Épilation laser de la poitrine — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-abdomen1.webp" alt="Épilation laser de l'abdomen — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manback1.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manchest1.webp" alt="Épilation laser du torse, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manchest2.webp" alt="Épilation laser du torse, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-bikini1.webp" alt="Épilation laser du maillot — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-leg3.webp" alt="Épilation laser des jambes — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-leg4.webp" alt="Épilation laser des jambes — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-arm8.webp" alt="Épilation laser des bras — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-shoulder2.webp" alt="Épilation laser des épaules — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-underarm2.webp" alt="Épilation laser des aisselles — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-back8.webp" alt="Épilation laser du dos — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-manface14.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-leg12.webp" alt="Épilation laser des jambes — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-device-closeup-1.webp" alt="Appareil laser Clarity II, gros plan — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-back-2.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-back-3.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-back-4.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-back-5.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-10.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-11.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-12.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-13.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-15.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-2.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-8.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-man-face-9.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-3.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-6.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-7.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-8.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-9.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-2.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-3.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-4.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-5.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-6.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-7.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-1.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-10.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-11.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-13.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-14.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-15.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-16.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-18.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-19.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-2.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-20.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-21.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-3.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-4.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-5.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-6.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-7.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-back-9.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-10.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-11.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-13.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-15.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-18.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-19.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-2.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-20.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-21.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-22.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-23.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-3.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-4.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-8.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-9.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-chest-3.webp" alt="Épilation laser de la poitrine, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-1.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-10.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-11.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-12.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-13.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-2.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-3.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-4.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-5.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-7.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-8.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-face-9.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-1.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-11.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-6.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-9.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-1.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-2.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-3.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-4.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-5.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-6.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
-    <div class="lfs-slide"><img src="assets/laser-g-woman-underarm-3.webp" alt="Épilation laser des aisselles, femme — Skines Montréal" loading="lazy"></div>
-  </div>
-  <div class="lfs-controls">
-    <button class="lfs-btn" id="lfsPrev">&#8249;</button>
-    <span class="lfs-count" id="lfsCount">1 / 19</span>
-    <button class="lfs-btn" id="lfsNext">&#8250;</button>
-  </div>
-</section>
+
 
   <!-- Tab navigation -->
   <div class="price-tab-nav" role="tablist">
@@ -9109,6 +8981,147 @@ html body nav .menu-btn > span:nth-child(3) { width: 30px !important; }
 </section>
 
 <!-- ══ INTERNAL LINKS — LASER ══ -->
+<!-- Bandeau photos : déplacé en bas de page -->
+<section class="laser-fullslider">
+  <div class="lfs-track" id="lfsTrack">
+    <div class="lfs-slide"><img src="assets/laser-hero.webp?v=1" alt="Clarity II" fetchpriority="high"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-1.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-2.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-bikini-w.webp?v=1" alt="Maillot" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-3.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-full-zones.webp?v=1" alt="Corps complet" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-4.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-legs-w.webp?v=1" alt="Jambes" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-5.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-neck-m.webp?v=1" alt="Cou" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-6.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-lips.webp?v=1" alt="Lèvres" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-7.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-upper-lip.webp?v=1" alt="Visage" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-8.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-back-men.webp?v=1" alt="Dos" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-9.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-1.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-10.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-2.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-slider-white.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-3.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-4.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-5.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-6.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-7.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-8.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-9.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-10.webp?v=1" alt="" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-underarm1.webp" alt="Épilation laser des aisselles — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-shoulder1.webp" alt="Épilation laser des épaules — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-jaw1.webp" alt="Épilation laser de la mâchoire — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manface1.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manface3.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manneck1.webp" alt="Épilation laser du cou, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-arm1.webp" alt="Épilation laser des bras — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-chest1.webp" alt="Épilation laser de la poitrine — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-abdomen1.webp" alt="Épilation laser de l'abdomen — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manback1.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manchest1.webp" alt="Épilation laser du torse, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manchest2.webp" alt="Épilation laser du torse, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-bikini1.webp" alt="Épilation laser du maillot — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-leg3.webp" alt="Épilation laser des jambes — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-leg4.webp" alt="Épilation laser des jambes — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-arm8.webp" alt="Épilation laser des bras — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-shoulder2.webp" alt="Épilation laser des épaules — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-underarm2.webp" alt="Épilation laser des aisselles — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-back8.webp" alt="Épilation laser du dos — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-manface14.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-leg12.webp" alt="Épilation laser des jambes — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-device-closeup-1.webp" alt="Appareil laser Clarity II, gros plan — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-back-2.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-back-3.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-back-4.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-back-5.webp" alt="Épilation laser du dos, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-10.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-11.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-12.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-13.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-15.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-2.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-8.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-man-face-9.webp" alt="Épilation laser du visage, homme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-3.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-6.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-7.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-8.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-abdomen-9.webp" alt="Épilation laser de l'abdomen, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-2.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-3.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-4.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-5.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-6.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-arm-7.webp" alt="Épilation laser des bras, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-1.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-10.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-11.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-13.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-14.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-15.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-16.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-18.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-19.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-2.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-20.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-21.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-3.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-4.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-5.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-6.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-7.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-back-9.webp" alt="Épilation laser du dos, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-10.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-11.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-13.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-15.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-18.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-19.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-2.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-20.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-21.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-22.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-23.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-3.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-4.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-8.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-bikini-9.webp" alt="Épilation laser du maillot, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-chest-3.webp" alt="Épilation laser de la poitrine, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-1.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-10.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-11.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-12.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-13.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-2.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-3.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-4.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-5.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-7.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-8.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-face-9.webp" alt="Épilation laser du visage, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-1.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-11.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-6.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-leg-9.webp" alt="Épilation laser des jambes, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-1.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-2.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-3.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-4.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-5.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-neck-6.webp" alt="Épilation laser du cou, femme — Skines Montréal" loading="lazy"></div>
+    <div class="lfs-slide"><img src="assets/laser-g-woman-underarm-3.webp" alt="Épilation laser des aisselles, femme — Skines Montréal" loading="lazy"></div>
+  </div>
+  <div class="lfs-controls">
+    <button class="lfs-btn" id="lfsPrev">&#8249;</button>
+    <span class="lfs-count" id="lfsCount">1 / 19</span>
+    <button class="lfs-btn" id="lfsNext">&#8250;</button>
+  </div>
+</section>
 <section class="sk-more"><p>Skines Head Spa &amp; Wellness · Montréal</p><div><a href="/head-spa" data-fr="Head Spa japonais Montréal" data-en="Japanese Head Spa Montréal">Head Spa japonais Montréal</a><a href="/facial" data-fr="Soins du visage Montréal" data-en="Facials Montréal">Soins du visage Montréal</a><a href="/reviews" data-fr="Avis clients" data-en="Client reviews">Avis clients</a><a href="/cartes-cadeaux" data-fr="Cartes-cadeaux" data-en="Gift cards">Cartes-cadeaux</a><a href="/your-visit" data-fr="Préparer votre visite" data-en="Prepare your visit">Préparer votre visite</a><a href="/formulaire-sante" data-fr="Formulaire de santé" data-en="Health form">Formulaire de santé</a></div></section>
 <!-- ══ END INTERNAL LINKS ══ -->
 
