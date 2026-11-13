@@ -3022,5 +3022,40 @@ lg.firstElementChild.addEventListener('click',function(){var o=lg.classList.togg
 lg.querySelectorAll('[data-l]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-l');var old=document.querySelector('.mobile-lang-btn[data-lang="'+v+'"]')||document.querySelector('.lang-btn[data-lang="'+v+'"]');if(old)old.click();cur.textContent=v.toUpperCase();lg.classList.remove('open')})});
 mq.addEventListener&&mq.addEventListener('change',function(){if(!mq.matches)close()});
 })();</script><!--SKM-END-->
+<!--SKMUSIC-START--><style id="skmu-css">
+.skmu-btn{display:flex;position:absolute;right:20px;bottom:20px;z-index:6;align-items:center;gap:10px;background:rgba(245,240,234,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:0;border-radius:999px;padding:11px 18px;cursor:pointer;font:500 11px/1 'DM Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4A2A22;box-shadow:0 6px 22px rgba(30,14,10,.25);transition:transform .3s ease}
+.skmu-btn:hover{transform:translateY(-2px)}
+.skmu-bars{display:flex;align-items:flex-end;gap:2px;height:12px}
+.skmu-bars i{display:block;width:2px;height:3px;background:#BA7150;border-radius:1px}
+.skmu-btn.on .skmu-bars i{animation:skmuB .9s ease-in-out infinite}
+.skmu-bars i:nth-child(2){animation-delay:.2s}
+.skmu-bars i:nth-child(3){animation-delay:.4s}
+@keyframes skmuB{0%,100%{height:3px}50%{height:12px}}
+.skmu-pane{position:absolute;right:20px;bottom:72px;z-index:7;width:min(300px,calc(100vw - 40px));background:#F5F0EA;border-radius:14px;padding:8px;box-shadow:0 14px 40px rgba(30,14,10,.35);display:none}
+.skmu-pane.on{display:block}
+.skmu-pane .skmu-ar{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+.skmu-pane iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.skmu-pane .skmu-ft{display:flex;justify-content:space-between;align-items:center;padding:8px 6px 2px;font:500 10px/1 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#4A2A22}
+.skmu-pane a{color:#BA7150;text-decoration:none}
+@media (prefers-reduced-motion:reduce){.skmu-bars i{animation:none !important}}
+</style>
+<script id="skmu-js">(function(){
+var hero=document.querySelector('.cr-hero,header.pk-hero,header.hero,.hero');if(!hero)return;
+if(getComputedStyle(hero).position==='static')hero.style.position='relative';
+var en=(document.documentElement.lang||'fr').slice(0,2)==='en';
+var LIST='PLRHRyzAQ6LjA';
+var b=document.createElement('button');b.type='button';b.className='skmu-btn';b.setAttribute('aria-label',en?'Play Skines music':'Écouter la musique Skines');
+b.innerHTML='<span class="skmu-bars" aria-hidden="true"><i></i><i></i><i></i></span><span>Musique</span>';
+var pane=document.createElement('div');pane.className='skmu-pane';
+pane.innerHTML='<div class="skmu-ar"></div><div class="skmu-ft"><span>'+(en?'Skines playlist':'Playlist Skines')+'</span><a href="/#sk-music">'+(en?'Record player':'Platine')+' →</a></div>';
+hero.appendChild(pane);hero.appendChild(b);
+var ar=pane.querySelector('.skmu-ar');
+b.addEventListener('click',function(){
+ var open=pane.classList.toggle('on');b.classList.toggle('on',open);
+ if(open){var f=document.createElement('iframe');f.allow='autoplay; encrypted-media';f.setAttribute('allowfullscreen','');f.title='Skines';
+  f.src='https://www.youtube-nocookie.com/embed/videoseries?list='+LIST+'&autoplay=1&playsinline=1&rel=0';ar.appendChild(f);}
+ else ar.innerHTML='';
+});
+})();</script><!--SKMUSIC-END-->
 </body>
 </html>
