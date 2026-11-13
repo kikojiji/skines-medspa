@@ -3871,5 +3871,109 @@ lang.querySelectorAll('[data-sk-lang]').forEach(function(b){b.addEventListener('
 })();</script><script>(function(){if(!document.getElementById('searchBtn')){var b=document.getElementById('skAwhSearch');if(b)b.style.display='none'}})();</script>
 <style id="sk-logo-canon">html body nav .logo-text:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body nav .logo-sub:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body #mobileNav .logo-text:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body #mobileNav .logo-sub:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body header#skAwh .sk-awh__logo-t:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body header#skAwh .sk-awh__logo-s:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){font-family:'Old Standard TT',serif !important}</style>
 <script src="/assets/js/skines-promo-popup.js?v=6" defer></script>
+<!--SKM-START--><style id="skm-css">
+#skm,#skmScrim{display:none}
+@media (max-width:980px){
+#skmScrim{display:block;position:fixed;inset:0;z-index:998;background:rgba(24,12,8,.55);opacity:0;visibility:hidden;transition:opacity .45s ease-in-out,visibility .45s ease-in-out}
+#skmScrim.on{opacity:1;visibility:visible}
+#skm{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:min(334px,88vw);z-index:999;background:#684034;color:#F5EDE3;font-family:'DM Sans',sans-serif;transform:translateX(104%);visibility:hidden;transition:transform .55s cubic-bezier(.28,.28,.23,1),visibility 0s linear .55s;box-shadow:-12px 0 40px rgba(0,0,0,.35);overflow-y:auto;-webkit-overflow-scrolling:touch}
+#skm.on{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.28,.28,.23,1),visibility 0s}
+#skm a,#skm button{font-family:inherit;color:#F5EDE3;text-decoration:none;-webkit-tap-highlight-color:transparent}
+#skm .skm-hd{display:flex;justify-content:space-between;align-items:center;padding:20px 24px 16px;border-bottom:.5px solid rgba(245,237,227,.35);flex:0 0 auto}
+#skm .skm-lg{display:block;line-height:1}
+#skm .skm-lg b{display:block;font:400 20px/1 'Old Standard TT',serif;letter-spacing:.4em}
+#skm .skm-lg i{display:block;font:400 7.5px/1 'Old Standard TT',serif;font-style:normal;letter-spacing:.3em;margin-top:6px;opacity:.8}
+#skm .skm-x{background:none;border:0;font:200 34px/1 'DM Sans',sans-serif;padding:0 2px;cursor:pointer}
+#skm .skm-th{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px 20px 4px;flex:0 0 auto}
+#skm .skm-th a{position:relative;display:block;height:148px;border-radius:12px;background-size:cover;background-position:center;overflow:hidden}
+#skm .skm-th a:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,14,10,0) 45%,rgba(30,14,10,.78))}
+#skm .skm-th span{position:absolute;left:0;right:0;bottom:10px;text-align:center;font:400 12px/1 'DM Sans',sans-serif;letter-spacing:.06em}
+#skm .skm-nav{flex:1 1 auto;max-height:330px;display:flex;flex-direction:column;justify-content:space-evenly;padding:4px 0}
+#skm .skm-it,#skm .skm-acc>button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:0 24px;min-height:49px;background:none;border:0;font:400 15.5px/1 'DM Sans',sans-serif;letter-spacing:.07em;text-transform:uppercase;text-align:left;cursor:pointer}
+#skm .skm-p{font:200 24px/1 'DM Sans',sans-serif;display:inline-block;transition:transform .45s cubic-bezier(.28,.28,.23,1)}
+#skm .skm-acc.open .skm-p{transform:rotate(45deg)}
+#skm .skm-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.28,.28,.23,1)}
+#skm .skm-acc.open .skm-sub{grid-template-rows:1fr}
+#skm .skm-sub>div{overflow:hidden;padding:0 24px 0 42px}
+#skm .skm-acc.open .skm-sub>div{padding-bottom:14px}
+#skm .skm-nav:has(.skm-acc.open){max-height:none;flex:0 0 auto;justify-content:flex-start;gap:6px}
+#skm .skm-nav{gap:4px}
+#skm .skm-sub a{display:block;font:400 14px/1 'DM Sans',sans-serif;padding:9px 0;letter-spacing:.02em}
+#skm .skm-gift{position:relative;display:flex;flex-direction:column;justify-content:flex-end;margin:auto 20px 0;height:150px;border-radius:14px;overflow:hidden;padding:16px 18px;background:url(/assets/card-giftcard.webp) 100% 90%/260% auto no-repeat;flex:0 0 auto}
+#skm .skm-gift:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,28,20,1) 30%,rgba(60,28,20,.35))}
+#skm .skm-gift *{position:relative}
+#skm .skm-gift b{font:300 22px/1.1 'DM Sans',sans-serif}
+#skm .skm-gift span{font:400 11.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;color:#F9BE96;margin-top:8px}
+#skm .skm-ft{padding:16px 20px 22px;margin-top:0;flex:0 0 auto}
+#skm .skm-lang{position:relative;padding:0 4px 12px}
+#skm .skm-lang>button{background:none;border:0;font:400 14px/1 'DM Sans',sans-serif;letter-spacing:.08em;cursor:pointer;padding:4px 0}
+#skm .skm-lang .skm-lm{display:none;position:absolute;left:0;bottom:100%;background:#4a2a22;border-radius:8px;padding:6px 0;min-width:90px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#skm .skm-lang.open .skm-lm{display:block}
+#skm .skm-lm button{display:block;width:100%;background:none;border:0;text-align:left;font:400 14px 'DM Sans',sans-serif;padding:9px 16px;cursor:pointer}
+#skm .skm-btn{display:block;text-align:center;background:#F9BE96;color:#4A2A22 !important;font:500 13px/1 'DM Sans',sans-serif;letter-spacing:.24em;padding:17px;border-radius:9px}
+#skm .skm-rv{opacity:0;transform:translateY(14px);transition:opacity .5s cubic-bezier(0,0,.3,1),transform .5s cubic-bezier(0,0,.3,1)}
+#skm.on .skm-rv{opacity:1;transform:none;transition-delay:calc(.2s + var(--i,0) * .055s)}
+html body nav#mainNav,html body .sk-smartnav{transition:transform .3s ease-out,background-color .3s ease,box-shadow .3s ease}
+html.skm-open body nav#mainNav:not(#_0):not(#_1):not(#_2):not(#_3){transform:translateY(-100%) !important}
+html.skm-open,html.skm-open body{overflow:hidden !important}
+html body #mobileNav{display:none !important}
+html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9),html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) *{color:#F5EDE3 !important;text-shadow:none !important}
+html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) .skm-gift span{color:#F9BE96 !important}
+html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) a.skm-btn,html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) a.skm-btn *{color:#4A2A22 !important}
+html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) .skm-lm{background:#4a2a22 !important}
+}
+@media (prefers-reduced-motion:reduce){#skm,#skm *{transition-duration:.01s !important;transition-delay:0s !important}}
+</style>
+<div id="skmScrim"></div>
+<aside id="skm" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="skm-hd"><a class="skm-lg" href="/"><b>SKINES</b><i>HEAD SPA &amp; WELLNESS</i></a><button type="button" class="skm-x" id="skmX" aria-label="Fermer le menu">&times;</button></div>
+  <div class="skm-th skm-rv" style="--i:0">
+    <a href="/head-spa" style="background-image:url(/assets/card-head-spa-m.webp)"><span>Head Spa</span></a>
+    <a href="/facial" style="background-image:url(/assets/card-facial-m.webp)"><span>Facial</span></a>
+    <a href="/laser" style="background-image:url(/assets/card-laser-m.webp)"><span>Laser</span></a>
+  </div>
+  <div class="skm-nav">
+    <a class="skm-it skm-rv" style="--i:1" href="/" data-fr="Accueil" data-en="Home">Accueil</a>
+    <div class="skm-acc skm-rv" style="--i:2"><button type="button" aria-expanded="false"><span data-fr="Visite" data-en="Visit">Visite</span><span class="skm-p" aria-hidden="true">+</span></button>
+      <div class="skm-sub"><div>
+        <a href="/parking" data-fr="Stationnement privé" data-en="Private parking">Stationnement privé</a>
+        <a href="/your-visit" data-fr="Préparer votre visite" data-en="Prepare your visit">Préparer votre visite</a>
+        <a href="/visit-us" data-fr="Nous trouver" data-en="Find us">Nous trouver</a>
+        <a href="/notre-histoire" data-fr="Notre histoire" data-en="Our story">Notre histoire</a>
+        <a href="/reviews" data-fr="Avis clients" data-en="Client reviews">Avis clients</a>
+      </div></div></div>
+    <div class="skm-acc skm-rv" style="--i:3"><button type="button" aria-expanded="false"><span data-fr="À savoir" data-en="Good to know">À savoir</span><span class="skm-p" aria-hidden="true">+</span></button>
+      <div class="skm-sub"><div>
+        <a href="/guides" data-fr="Guides" data-en="Guides">Guides</a>
+        <a href="/formulaires" data-fr="Formulaires" data-en="Forms">Formulaires</a>
+        <a href="/insurance" data-fr="Reçus d'assurance" data-en="Insurance receipts">Reçus d'assurance</a>
+        <a href="/faq" data-fr="Questions fréquentes" data-en="FAQ">Questions fréquentes</a>
+        <a href="/carrieres" data-fr="Carrières" data-en="Careers">Carrières</a>
+      </div></div></div>
+    <a class="skm-it skm-rv" style="--i:4" href="#" id="skmDraw" data-fr="Tirage au sort" data-en="Giveaway">Tirage au sort</a>
+  </div>
+  <a class="skm-gift skm-rv" style="--i:5" href="/cartes-cadeaux"><b data-fr="Offrez un moment" data-en="Give a moment">Offrez un moment</b><span data-fr="CARTES-CADEAUX →" data-en="GIFT CARDS →">CARTES-CADEAUX →</span></a>
+  <div class="skm-ft skm-rv" style="--i:6">
+    <div class="skm-lang" id="skmLang"><button type="button" aria-expanded="false"><span id="skmLangCur">FR</span> &#8964;</button><div class="skm-lm"><button type="button" data-l="fr">Français</button><button type="button" data-l="en">English</button></div></div>
+    <a class="skm-btn" href="https://www.fresha.com/book-now/glowch-bod1k4s2/all-offer?share=true&amp;pId=1273288" target="_blank" rel="noreferrer"><span data-fr="RÉSERVER" data-en="BOOK NOW">RÉSERVER</span></a>
+  </div>
+</aside>
+<script id="skm-js">(function(){
+var m=document.getElementById('skm'),sc=document.getElementById('skmScrim');if(!m)return;
+var root=document.documentElement,mq=window.matchMedia('(max-width:980px)');
+function open(){m.classList.add('on');sc.classList.add('on');root.classList.add('skm-open');m.setAttribute('aria-hidden','false');var b=document.getElementById('menuBtn');if(b)b.setAttribute('aria-expanded','true')}
+function close(){m.classList.remove('on');sc.classList.remove('on');root.classList.remove('skm-open');m.setAttribute('aria-hidden','true');var b=document.getElementById('menuBtn');if(b)b.setAttribute('aria-expanded','false');m.querySelectorAll('.skm-acc.open').forEach(function(a){a.classList.remove('open')});document.getElementById('skmLang').classList.remove('open')}
+document.addEventListener('click',function(e){if(mq.matches&&e.target.closest&&e.target.closest('#menuBtn')){e.preventDefault();e.stopImmediatePropagation();open()}},true);
+document.getElementById('skmX').addEventListener('click',close);sc.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+m.querySelectorAll('.skm-acc>button').forEach(function(b){b.addEventListener('click',function(){var a=b.parentNode,o=!a.classList.contains('open');m.querySelectorAll('.skm-acc').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')});if(o){a.classList.add('open');b.setAttribute('aria-expanded','true')}})});
+m.querySelectorAll('a[href]:not(#skmDraw)').forEach(function(a){a.addEventListener('click',close)});
+document.getElementById('skmDraw').addEventListener('click',function(e){e.preventDefault();close();var t=document.getElementById('sp-menu-trigger');if(t)setTimeout(function(){t.click()},350)});
+var lg=document.getElementById('skmLang'),cur=document.getElementById('skmLangCur');
+function setCur(){cur.textContent=(document.documentElement.getAttribute('lang')||'fr').slice(0,2).toUpperCase()==='EN'?'EN':'FR'}setCur();
+lg.firstElementChild.addEventListener('click',function(){var o=lg.classList.toggle('open');this.setAttribute('aria-expanded',o)});
+lg.querySelectorAll('[data-l]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-l');var old=document.querySelector('.mobile-lang-btn[data-lang="'+v+'"]')||document.querySelector('.lang-btn[data-lang="'+v+'"]');if(old)old.click();cur.textContent=v.toUpperCase();lg.classList.remove('open')})});
+mq.addEventListener&&mq.addEventListener('change',function(){if(!mq.matches)close()});
+})();</script><!--SKM-END-->
 </body>
 </html>
