@@ -1507,7 +1507,13 @@ html body .pk-photos-grid .pk-photo-slot:not(#_):not(#__){grid-column:auto !impo
 html body .pk-photos-grid .pk-photo-slot.wide:not(#_):not(#__){grid-column:auto !important;aspect-ratio:4/5 !important}
 html body .pk-photos-grid .pk-photo-slot img:not(#_):not(#__){filter:contrast(1.12) saturate(.78) sepia(.16) brightness(.9) hue-rotate(-8deg)}
 html body .pk-photos-grid .pk-photo-slot:not(#_):not(#__)::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 45%,rgba(20,10,6,.5) 100%),linear-gradient(180deg,rgba(24,60,70,.18),rgba(190,110,50,.16));mix-blend-mode:multiply}
-html body .pk-photos-grid .pk-photo-slot span:not(#_):not(#__){font-size:.5rem !important;letter-spacing:.1em !important;padding:.35rem .5rem !important;z-index:2}</style></head>
+html body .pk-photos-grid .pk-photo-slot span:not(#_):not(#__){font-size:.5rem !important;letter-spacing:.1em !important;padding:.35rem .5rem !important;z-index:2}</style><style id="pk-herovid">html body .pk-hero:not(#_):not(#__){min-height:78vh;background:#3a2218}
+.pk-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;z-index:0}
+.pk-hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(40,22,16,.55) 0%,rgba(40,22,16,.15) 38%,rgba(40,22,16,.72) 100%)}
+html body .pk-hero:not(#_):not(#__)::before{z-index:1}
+html body .pk-hero .pk-hero-inner:not(#_):not(#__){z-index:2}
+@media(min-width:900px){.pk-hero-shade{background:linear-gradient(90deg,rgba(40,22,16,.82) 0%,rgba(40,22,16,.5) 50%,rgba(40,22,16,.18) 100%),linear-gradient(180deg,rgba(40,22,16,.35),rgba(40,22,16,.6))}}
+@media(prefers-reduced-motion:reduce){.pk-hero-bg{display:none}}</style></head>
 <body>
 
 <header class="sk-awh sk-awh--solid" id="skAwh" aria-label="Navigation principale">
@@ -1765,6 +1771,8 @@ html body .pk-photos-grid .pk-photo-slot span:not(#_):not(#__){font-size:.5rem !
 <!-- HERO -->
 <main id="main-content">
 <header class="pk-hero">
+  <video class="pk-hero-bg" src="/assets/video/parking-route-loop.mp4" poster="/assets/images/parking-route-poster.webp" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+  <div class="pk-hero-shade" aria-hidden="true"></div>
   <div class="pk-hero-inner fade-up">
     <span class="pk-eyebrow" data-fr="Skines Head Spa · Inclus pour tous les clients" data-en="Skines Head Spa · Included for All Clients">Skines Head Spa · Inclus pour tous les clients</span>
     <h1 data-i18n-html="parking.heroTitleHtml">Stationnement<br><em>privé.</em></h1>
