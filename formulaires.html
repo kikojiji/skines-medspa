@@ -1493,6 +1493,7 @@ html body header#skAwh:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not
 }
 </style>
 <style id="sk-awh-solid">@media (min-width:981px){html body header#skAwh.sk-awh--solid:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){position:sticky;background:#684034;text-shadow:none}html body header#skAwh.sk-awh--solid:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11)::before{display:none}html body header#skAwh.sk-awh--solid:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){box-shadow:0 6px 20px rgba(40,20,14,.18)}}</style>
+<style id="sk-foot-logo">html body footer.sk-foot .sk-foot-brand img:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){width:clamp(86px,24vw,112px) !important;height:auto !important;margin-bottom:14px !important;filter:drop-shadow(0 8px 16px rgba(20,8,4,.45)) drop-shadow(0 0 22px rgba(245,214,190,.28))}</style>
 </head>
 <body>
 <header class="sk-awh sk-awh--solid" id="skAwh" aria-label="Navigation principale">
@@ -2437,7 +2438,7 @@ html body div#mobileNav ul.mobile-nav-links li a.nav-sub {
     <button type="button" class="sk-foot-langtoggle" aria-haspopup="true" aria-expanded="false"><span class="sk-lang-label">FR</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
   </div>
   <a class="sk-foot-brand" href="/" aria-label="Skines Head Spa &amp; Wellness">
-    <img src="/assets/skines-stones-line.svg?v=2" alt="" width="48" height="60" loading="lazy">
+    <img src="/assets/images/logo-officiel-cropped.webp?v=2" alt="" width="112" height="124" loading="lazy">
     <span class="sk-foot-word">SKINES</span>
     <span class="sk-foot-sub">HEAD SPA &amp; WELLNESS</span>
   </a>
@@ -3420,11 +3421,10 @@ lang.querySelectorAll('[data-sk-lang]').forEach(function(b){b.addEventListener('
 #skm .skm-nav:has(.skm-acc.open){max-height:none;flex:0 0 auto;justify-content:flex-start;gap:6px}
 #skm .skm-nav{gap:4px}
 #skm .skm-sub a{display:block;font:400 14px/1 'DM Sans',sans-serif;padding:9px 0;letter-spacing:.02em}
-#skm .skm-gift{position:relative;display:flex;flex-direction:column;justify-content:flex-end;margin:auto 20px 0;height:150px;border-radius:14px;overflow:hidden;padding:16px 18px;background:url(/assets/card-giftcard.webp) 100% 90%/260% auto no-repeat;flex:0 0 auto}
-#skm .skm-gift:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,28,20,1) 30%,rgba(60,28,20,.35))}
-#skm .skm-gift *{position:relative}
-#skm .skm-gift b{font:300 22px/1.1 'DM Sans',sans-serif}
-#skm .skm-gift span{font:400 11.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;color:#F9BE96;margin-top:8px}
+#skm .skm-gift{position:relative;display:block;margin:auto 20px 0;height:128px;border-radius:16px;overflow:hidden;padding:0;background:#2c1810 url(/assets/images/gift-cards/gift-hero-3.webp) 58% 55%/cover no-repeat;flex:0 0 auto;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+#skm .skm-gift:before{content:"";position:absolute;inset:6px;border:1px solid rgba(232,207,160,.75);border-radius:11px;z-index:2;pointer-events:none}
+#skm .skm-gift:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,12,8,.45),rgba(26,12,8,0) 45%);z-index:1;pointer-events:none}
+#skm .skm-gift b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 #skm .skm-ft{padding:16px 20px 22px;margin-top:0;flex:0 0 auto}
 #skm .skm-lang{position:relative;padding:0 4px 12px}
 #skm .skm-lang>button{background:none;border:0;font:400 14px/1 'DM Sans',sans-serif;letter-spacing:.08em;cursor:pointer;padding:4px 0}
@@ -3439,11 +3439,14 @@ html.skm-open body nav#mainNav:not(#_0):not(#_1):not(#_2):not(#_3){transform:tra
 html.skm-open,html.skm-open body{overflow:hidden !important}
 html body #mobileNav{display:none !important}
 html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9),html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) *{color:#F5EDE3 !important;text-shadow:none !important}
-html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) .skm-gift span{color:#F9BE96 !important}
+
 html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) a.skm-btn,html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) a.skm-btn *{color:#4A2A22 !important}
 html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) .skm-lm{background:#4a2a22 !important}
 }
 @media (prefers-reduced-motion:reduce){#skm,#skm *{transition-duration:.01s !important;transition-delay:0s !important}}
+
+html body aside#skm:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9) .skm-gift span{position:absolute !important;right:12px;top:12px;z-index:3;margin:0 !important;padding:8px 13px;border-radius:999px;background:#E8CFA0 !important;color:#3b2119 !important;font:500 10px/1 'DM Sans',sans-serif !important;letter-spacing:.14em !important;box-shadow:0 5px 14px rgba(0,0,0,.35)}
+html body #skmScrim:not(#_):not(#__){display:block !important;position:fixed !important;inset:0 !important;cursor:pointer;-webkit-tap-highlight-color:transparent}
 </style>
 <div id="skmScrim"></div>
 <aside id="skm" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
@@ -3488,7 +3491,7 @@ document.addEventListener('click',function(e){if(mq.matches&&e.target.closest&&e
 document.getElementById('skmX').addEventListener('click',close);sc.addEventListener('click',close);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 m.querySelectorAll('.skm-acc>button').forEach(function(b){b.addEventListener('click',function(){var a=b.parentNode,o=!a.classList.contains('open');m.querySelectorAll('.skm-acc').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')});if(o){a.classList.add('open');b.setAttribute('aria-expanded','true')}})});
-m.querySelectorAll('a[href]:not(#skmDraw)').forEach(function(a){a.addEventListener('click',close)});
+var norm=function(p){return p.replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\/+$/,'')||'/'};m.querySelectorAll('a[href]:not(#skmDraw)').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href')||'';if(e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.button>0||a.target==='_blank'||/^(mailto:|tel:)/.test(h)){close();return}var u;try{u=new URL(a.href,location.href)}catch(_){close();return}if(u.origin!==location.origin){close();return}if(norm(u.pathname)===norm(location.pathname)){e.preventDefault();close();if(!u.hash)setTimeout(function(){window.scrollTo({top:0,behavior:'smooth'})},180);else setTimeout(function(){location.hash=u.hash},320);return}e.preventDefault();close();setTimeout(function(){location.href=a.href},300)})});
 document.getElementById('skmDraw').addEventListener('click',function(e){e.preventDefault();close();var t=document.getElementById('sp-menu-trigger');if(t)setTimeout(function(){t.click()},350)});
 var lg=document.getElementById('skmLang'),cur=document.getElementById('skmLangCur');
 function setCur(){cur.textContent=(document.documentElement.getAttribute('lang')||'fr').slice(0,2).toUpperCase()==='EN'?'EN':'FR'}setCur();
