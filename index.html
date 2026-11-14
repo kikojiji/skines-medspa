@@ -10373,9 +10373,9 @@ function buildDots(){
   for(var yy=0;yy<dH;yy+=st)for(var xx=0;xx<dW;xx+=st){if(im[(yy*dW+xx)*4+3]>140){dots.push({tx:xx+(Math.random()-.5)*st*.5,ty:yy+(Math.random()-.5)*st*.5,v:1+(Math.random()-.5)*.16,wb:(Math.random()-.5)*dW*.05,r:(.8+Math.random()*.7)*k*.82,t0:(yy<dH*.42?1.6:(yy<dH*.66?3.05:4.5))})}}
 }
 function drawDots(ts){
-  var t=(ts-dStart)/1000,c=dcv.getContext('2d');c.clearRect(0,0,dW,dH);var V=dH*.42,live=false;
+  var t=(ts-dStart)/1000,c=dcv.getContext('2d');c.clearRect(0,0,dW,dH);var V=dH*.36,live=false;
   var fo=dForce>=0?Math.max(0,1-((t-dForce)/.3)):1;
-  for(var i=0;i<dots.length;i++){var d=dots[i],T0=d.t0,u=t-T0,hh=u*Math.abs(u)/(Math.abs(u)+.5);var y=d.ty+d.v*V*hh,x=d.tx+d.wb*hh*hh;
+  for(var i=0;i<dots.length;i++){var d=dots[i],T0=d.t0,hh=t-T0;var y=d.ty+d.v*V*hh,x=d.tx+d.wb*hh*hh;
     if(y<-4||y>dH+4)continue;live=true;
     var edge=Math.min(1,Math.min(y,dH-y)/(dH*.14));var a=Math.max(0,edge)*fo;if(a<=.01)continue;
     c.fillStyle='rgba(243,217,203,'+(a*.22)+')';c.fillRect(x-.5,y-dH*.06,1.2,dH*.06);
