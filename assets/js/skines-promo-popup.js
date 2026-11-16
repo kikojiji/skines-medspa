@@ -1,6 +1,6 @@
 /* Skines — Popup tirage du mois -50% (Head Spa / Laser / Facial)
    Même langage visuel que la fenêtre de l'accueil : carte crème, photo, bouton terre cuite.
-   Apparaît après 6 s OU à 35% de défilement. Invite à participer -> /offre.
+   Apparaît après ~2,5 écrans de défilement (mi-page sur page courte). Invite à participer -> /offre.
    Mémoire (v3) : a cliqué « JE PARTICIPE » -> 30 jours ; a fermé -> 3 jours. */
 (function () {
   'use strict';
@@ -110,9 +110,11 @@
   function onScroll() {
     var sc = window.scrollY || document.documentElement.scrollTop;
     var max = (document.documentElement.scrollHeight - window.innerHeight) || 1;
-    if (sc / max > 0.35) trigger();
+    // Première fenêtre : apparaît quand le visiteur a défilé d'environ 2,5 écrans
+    // (ou à mi-page sur une page courte). Jamais sur un simple minuteur.
+    if (sc >= Math.min(2.5 * window.innerHeight, max * 0.5)) trigger();
   }
-  function arm() { setTimeout(trigger, 6000); window.addEventListener('scroll', onScroll, { passive: true }); }
+  function arm() { window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
   if (document.readyState === 'complete' || document.readyState === 'interactive') arm();
   else window.addEventListener('DOMContentLoaded', arm);
 })();

@@ -1,0 +1,33 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif}
+.w{max-width:620px;margin:0 auto;padding:44px 20px 48px;text-align:center}
+.eb{font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;margin-bottom:12px}
+h2{font-weight:400;font-size:28px;line-height:1.12;margin-bottom:8px}
+.sub{font-size:14px;line-height:1.5;margin:0 auto 26px;max-width:30ch}
+svg{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+body{background:#F6ECE5;color:#4a2a22}
+.eb{color:#BA7150}.sub{color:#6b4a3f}
+.stage{position:relative;height:300px;margin:0 auto 18px;max-width:420px}
+.sl{position:absolute;top:30px;width:178px;height:178px}
+.sl .cv{position:absolute;inset:0;border-radius:6px;background:var(--bg);box-shadow:0 16px 34px rgba(74,42,34,.28);color:rgba(255,246,238,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.sl .cv em{font-style:normal;font-size:11px;letter-spacing:.28em}
+.sl .vr{position:absolute;top:8px;left:30px;width:162px;height:162px;border-radius:50%;background:repeating-radial-gradient(circle,#150d09 0 1.5px,#241610 1.5px 3px);box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.sl .vr:after{content:"";position:absolute;left:50%;top:50%;width:32%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:#B66A5A}
+.s1{left:0;transform:scale(.8) rotate(-7deg);opacity:.9}.s2{right:0;transform:scale(.8) rotate(7deg);opacity:.9}
+.s3{left:50%;margin-left:-100px;top:8px;width:200px;height:200px;z-index:3}.s3 .vr{width:182px;height:182px;left:42px;top:9px;animation:spin 12s linear infinite}
+.t{margin-top:-8px}.t b{display:block;font-weight:400;font-size:24px}.t span{display:block;font-size:13px;color:#8a6a5c;margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:10px;margin:20px 0 26px;padding:14px 30px;border-radius:999px;background:#684034;color:#F5EDE3;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.ls{text-align:left;border-top:1px solid rgba(104,64,52,.2)}
+.ls div{display:flex;align-items:baseline;gap:14px;padding:13px 4px;border-bottom:1px solid rgba(104,64,52,.14)}
+.ls i{font-style:normal;font-size:11px;letter-spacing:.14em;color:#BA7150;width:20px}.ls b{font-weight:400;font-size:15px;flex:1}.ls small{font-size:11px;color:#9a7a6c}.ls .on b{color:#BA7150;font-weight:500}
+</style></head><body><div class="w"><div class="eb">Bienvenue chez Skines</div><h2>Un moment pour vous</h2><p class="sub">Choisissez un disque et laissez la musique faire le reste.</p>
+<div class="stage"><div class="sl s1" style="--bg:linear-gradient(135deg,#E2A58F,#C98160)"><div class="vr"></div><div class="cv"><span><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="20" cy="29" rx="11" ry="5.5"/><ellipse cx="20" cy="20" rx="8" ry="4.2"/><ellipse cx="20" cy="12.5" rx="5" ry="3"/></svg></span><em>02</em></div></div><div class="sl s2" style="--bg:linear-gradient(135deg,#C9A96E,#8a6a3a)"><div class="vr"></div><div class="cv"><span><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="20" cy="29" rx="11" ry="5.5"/><ellipse cx="20" cy="20" rx="8" ry="4.2"/><ellipse cx="20" cy="12.5" rx="5" ry="3"/></svg></span><em>03</em></div></div><div class="sl s3" style="--bg:linear-gradient(135deg,#B66A5A,#8a4a3b)"><div class="vr"></div><div class="cv"><span><svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="20" cy="29" rx="11" ry="5.5"/><ellipse cx="20" cy="20" rx="8" ry="4.2"/><ellipse cx="20" cy="12.5" rx="5" ry="3"/></svg></span><em>01</em></div></div></div>
+<div class="t"><b>Om Gam Mantra</b><span>Chantress Seba</span></div>
+<span class="btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Écouter</span>
+<div class="ls"><div class="on"><i>01</i><b>Om Gam Mantra</b><small>Chantress Seba</small></div><div><i>02</i><b>Angelic Frequency</b><small>Mei-lan</small></div><div><i>03</i><b>Cortisol Reset · 432 Hz</b><small>Healing Raga</small></div><div><i>04</i><b>You Are Healing</b><small>Chantress Seba</small></div></div>
+</div></body></html>

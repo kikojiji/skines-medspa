@@ -1,0 +1,69 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#2a1a14;font-family:'DM Sans',sans-serif;padding:20px;display:flex;gap:22px;align-items:flex-start;width:max-content}
+.col{width:375px}
+.lab{color:#E2A58F;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 10px;font-weight:500}
+.phone{width:375px;height:812px;overflow:hidden;background:#EBD3C5;border-radius:22px;padding:24px 16px;position:relative}
+h2{font-weight:400;font-size:23px;line-height:1.15;color:#4a2a22;text-align:center;margin-bottom:6px}
+.sub{font-size:13px;line-height:1.45;color:#6b4a3f;text-align:center;margin-bottom:14px}
+a{text-decoration:none;color:inherit;display:block}
+.card{position:relative;border-radius:18px;overflow:hidden;background:#3a2a24;box-shadow:0 10px 24px rgba(74,42,34,.18)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(26,12,8,.84))}
+.tx{position:absolute;left:15px;right:15px;bottom:12px;z-index:2;color:#fff6ee}
+.tx small{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#f0c6b3;margin-bottom:4px}
+.tx b{display:block;font-weight:500;font-size:20px;line-height:1.1}
+.tx span{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#f3e6dc;margin-top:5px}
+.gift{display:flex;align-items:center;gap:13px;background:#FDF6F0;border-radius:16px;padding:10px 14px 10px 10px;margin-top:12px;box-shadow:0 8px 20px rgba(74,42,34,.12)}
+.gift img{width:64px;height:64px;border-radius:11px;object-fit:cover;flex:0 0 64px}
+.gift small{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#BA7150;display:block}
+.gift b{font-weight:500;font-size:16px;color:#3a1f14;display:block;margin:2px 0}
+.gift p{font-size:12.5px;color:#6b4a3f}
+.gift .go{margin-left:auto;color:#684034;font-size:18px}
+/* 1: three stacked, shorter */
+.P1 .card{aspect-ratio:16/7.6;margin-bottom:11px}
+/* 2: one big + two half */
+.P2 .big{aspect-ratio:16/9.4;margin-bottom:11px}
+.P2 .two{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.P2 .two .card{aspect-ratio:1/1.12}
+.P2 .two .tx b{font-size:17px}
+.P2 .two .tx small{font-size:9px;letter-spacing:.18em}
+/* 3: slim banners */
+.P3 .card{height:108px;margin-bottom:10px}
+.P3 .tx{bottom:0;top:0;display:flex;flex-direction:column;justify-content:center}
+.P3 .tx b{font-size:22px}
+.P3 .ar{position:absolute;right:16px;top:50%;transform:translateY(-50%);z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(255,246,238,.92);color:#684034;display:flex;align-items:center;justify-content:center;font-size:16px}
+.P3 .card:after{background:linear-gradient(90deg,rgba(26,12,8,.78),rgba(26,12,8,.12) 80%)}
+</style></head><body>
+
+<div class="col"><div class="lab">1 · ثلاث بطاقات مضغوطة</div><div class="phone P1">
+<h2>Head Spa, soins du visage et épilation laser à Montréal</h2>
+<p class="sub">Trois expertises réunies dans un seul lieu, en Petite-Italie.</p>
+<a class="card"><img src="/assets/card-head-spa-m.webp"><div class="tx"><small>Rituel japonais</small><b>Head Spa</b><span>Un rituel de restauration profonde <i>→</i></span></div></a>
+<a class="card"><img src="/assets/card-laser-m.webp" style="object-position:50% 35%"><div class="tx"><small>Technologie Clarity II</small><b>Épilation Laser</b><span>Des résultats durables <i>→</i></span></div></a>
+<a class="card"><img src="/assets/card-facial-m.webp"><div class="tx"><small>Bela MD+</small><b>Soins Visage Avancés</b><span>Des soins sur mesure <i>→</i></span></div></a>
+<a class="gift"><img src="/assets/images/gift-cards/gift-hero-3-m.webp" style="object-position:50% 60%"><div><small>Cadeau bien-être</small><b>Carte cadeau</b><p>Offrez un moment de grâce.</p></div><span class="go">→</span></a>
+</div></div>
+
+<div class="col"><div class="lab">2 · بطاقة كبيرة + بطاقتان</div><div class="phone P2">
+<h2>Head Spa, soins du visage et épilation laser à Montréal</h2>
+<p class="sub">Trois expertises réunies dans un seul lieu, en Petite-Italie.</p>
+<a class="card big"><img src="/assets/card-head-spa-m.webp"><div class="tx"><small>Rituel japonais</small><b>Head Spa</b><span>Un rituel de restauration profonde <i>→</i></span></div></a>
+<div class="two">
+<a class="card"><img src="/assets/card-laser-m.webp" style="object-position:55% 40%"><div class="tx"><small>Clarity II</small><b>Épilation Laser</b></div></a>
+<a class="card"><img src="/assets/card-facial-m.webp" style="object-position:60% 50%"><div class="tx"><small>Bela MD+</small><b>Soins Visage</b></div></a>
+</div>
+<a class="gift"><img src="/assets/images/gift-cards/gift-hero-3-m.webp" style="object-position:50% 60%"><div><small>Cadeau bien-être</small><b>Carte cadeau</b><p>Offrez un moment de grâce.</p></div><span class="go">→</span></a>
+</div></div>
+
+<div class="col"><div class="lab">3 · لافتات رفيعة</div><div class="phone P3">
+<h2>Head Spa, soins du visage et épilation laser à Montréal</h2>
+<p class="sub">Trois expertises réunies dans un seul lieu, en Petite-Italie.</p>
+<a class="card"><img src="/assets/card-head-spa-m.webp" style="object-position:50% 40%"><div class="tx"><small>Rituel japonais</small><b>Head Spa</b></div><i class="ar">→</i></a>
+<a class="card"><img src="/assets/card-laser-m.webp" style="object-position:50% 30%"><div class="tx"><small>Clarity II</small><b>Épilation Laser</b></div><i class="ar">→</i></a>
+<a class="card"><img src="/assets/card-facial-m.webp" style="object-position:50% 60%"><div class="tx"><small>Bela MD+</small><b>Soins Visage</b></div><i class="ar">→</i></a>
+<a class="gift"><img src="/assets/images/gift-cards/gift-hero-3-m.webp" style="object-position:50% 60%"><div><small>Cadeau bien-être</small><b>Carte cadeau</b><p>Offrez un moment de grâce.</p></div><span class="go">→</span></a>
+</div></div>
+</body></html>

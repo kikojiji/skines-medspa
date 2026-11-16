@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><style>
+body{margin:0;background:#5b372c;color:#F5EDE3;font-family:'DM Sans',Arial,sans-serif;padding:24px 28px;width:900px}
+.o{margin-bottom:34px}.l{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.bar{display:flex;align-items:center;justify-content:flex-end;gap:18px;background:#684034;padding:16px 26px;border-radius:12px;height:44px}
+.b{display:inline-flex;align-items:center;gap:9px;height:42px;padding:0 22px;border-radius:999px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(235,201,188,.75);color:#F5EDE3;white-space:nowrap}
+.fill{background:#EBC9BC;color:#684034;border-color:#EBC9BC;font-weight:500}
+.ghost{border-color:rgba(245,237,227,.35)}
+.round{width:42px;padding:0;justify-content:center;border-color:rgba(235,201,188,.75)}
+.seg{display:inline-flex;border:1px solid rgba(235,201,188,.75);border-radius:999px;height:42px;overflow:hidden}
+.seg span{display:inline-flex;align-items:center;gap:9px;padding:0 22px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase}
+.seg span+span{border-left:1px solid rgba(235,201,188,.5);background:rgba(235,201,188,.1)}
+.fr{font-size:16px}svg{display:block}
+</style>
+<script>
+const card='<svg width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="22" height="15" rx="2.5"/><path d="M3 12h22"/><path d="M8 17.5h5"/><circle cx="20" cy="17.5" r="1.6"/></svg>';
+const s='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7.5"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>';
+const tail='<span class="fr">FR ⌄</span>'+s;
+const O=[
+['1 · Deux boutons : Réserver plein + Cartes-cadeaux contour','<span class="b fill">Book now</span><span class="b">'+card+'Gift cards</span>'],
+['2 · Réserver (contour) + bouton rond carte cadeau','<span class="b">Book now</span><span class="b round">'+card+'</span>'],
+['3 · Bouton unique en deux parties (segmenté)','<div class="seg"><span>Book now</span><span>'+card+'Gift</span></div>']];
+document.write(O.map(([t,h])=>'<div class="o"><div class="l">'+t+'</div><div class="bar">'+h+tail+'</div></div>').join(''));
+</script>
