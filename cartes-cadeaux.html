@@ -5807,9 +5807,12 @@ html body .gcx-hero .gcx-tags{position:absolute !important;left:0;right:0;bottom
 </section>
 
 <style>
-html body .gcx-note{margin:34px 0 0;padding:20px 24px;border:1px solid rgba(169,116,95,.35);border-left:3px solid #A9745F;border-radius:12px;background:rgba(255,252,248,.55);text-align:left}
-html body .gcx-note b{display:block;font:600 .74rem/1 "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#A9745F;margin:0 0 10px}
-html body .gcx-note p{margin:0;font:400 .95rem/1.65 "DM Sans",sans-serif;color:#4A2A22}
+html body .gcx-note{position:relative;margin:44px auto 0;max-width:620px;padding:38px 30px 34px;border-radius:22px;background:linear-gradient(180deg,#FFFCF8,#F8EFE5);border:1px solid rgba(169,116,95,.28);box-shadow:0 22px 50px -34px rgba(74,42,34,.5);text-align:center}
+html body .gcx-note::before{content:"";position:absolute;inset:7px;border:1px solid rgba(169,116,95,.16);border-radius:16px;pointer-events:none}
+html body .gcx-note b{display:block;font:500 .72rem/1 "DM Sans",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#A9745F;margin:0 0 16px}
+html body .gcx-note b::after{content:"";display:block;width:36px;height:1px;background:#A9745F;margin:16px auto 0;opacity:.7}
+html body .gcx-note .gcx-n1{margin:0 0 14px;font:500 clamp(1.15rem,4.4vw,1.4rem)/1.4 "DM Sans",sans-serif;color:#4A2A22;letter-spacing:-.005em}
+html body .gcx-note .gcx-n2{margin:0;font:400 .92rem/1.7 "DM Sans",sans-serif;color:rgba(74,42,34,.72)}
 </style>
 <!-- GCX DETAILS -->
 <div class="gcx-det" id="gcx">
@@ -5828,7 +5831,7 @@ html body .gcx-note p{margin:0;font:400 .95rem/1.65 "DM Sans",sans-serif;color:#
       <li><b data-fr="Un mot de votre part" data-en="A note from you">Un mot de votre part</b><span data-fr="Ajoutez le prénom du destinataire et un message personnalisé." data-en="Add the recipient's name and a personal message.">Ajoutez le prénom du destinataire et un message personnalisé.</span></li>
       <li><b data-fr="Transférable" data-en="Transferable">Transférable</b><span data-fr="Elle peut être offerte à une autre personne." data-en="It can be passed on to someone else.">Elle peut être offerte à une autre personne.</span></li>
     </ul>
-    <div class="gcx-note" role="note"><b data-fr="Bon à savoir" data-en="Good to know">Bon à savoir</b><p data-fr="Une carte cadeau représente une valeur en dollars, pas une séance précise. Le prix d'un soin, taxes incluses, peut ne pas correspondre exactement au montant de la carte (50 $, 100 $, 200 $…). Si le soin choisi coûte plus cher que la valeur de la carte, la différence est à régler au moment du paiement." data-en="A gift card is a dollar value, not a specific session. The price of a treatment, taxes included, may not match the card amount exactly ($50, $100, $200…). If the treatment you choose costs more than the card's value, the difference is paid at checkout.">Une carte cadeau représente une valeur en dollars, pas une séance précise. Le prix d'un soin, taxes incluses, peut ne pas correspondre exactement au montant de la carte (50 $, 100 $, 200 $…). Si le soin choisi coûte plus cher que la valeur de la carte, la différence est à régler au moment du paiement.</p></div>
+    <div class="gcx-note" role="note"><b data-fr="Bon à savoir" data-en="Good to know">Bon à savoir</b><p class="gcx-n1" data-fr="Une carte cadeau représente une valeur en dollars, pas une séance précise." data-en="A gift card is a dollar value, not a specific session.">Une carte cadeau représente une valeur en dollars, pas une séance précise.</p><p class="gcx-n2" data-fr="Le prix d'un soin, taxes incluses, peut ne pas correspondre exactement au montant de la carte (50 $, 100 $, 200 $…). Si le soin choisi coûte plus cher que la valeur de la carte, la différence est à régler au moment du paiement." data-en="The price of a treatment, taxes included, may not match the card amount exactly ($50, $100, $200…). If the treatment you choose costs more than the card's value, the difference is paid at checkout.">Le prix d'un soin, taxes incluses, peut ne pas correspondre exactement au montant de la carte (50 $, 100 $, 200 $…). Si le soin choisi coûte plus cher que la valeur de la carte, la différence est à régler au moment du paiement.</p></div>
     <div class="gcx-cta"><a href="https://www.fresha.com/book-now/glowch-bod1k4s2/gift-cards?share=true&amp;pId=1273288" target="_blank" rel="noreferrer" data-fr="Acheter une carte cadeau" data-en="Buy a gift card">Acheter une carte cadeau</a></div>
   </div>
 </div>
