@@ -2950,6 +2950,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.sk-zc__b');if(!b)return;e.preventDefault();e.stopPropagation();var root=b.closest('.sk-sat-lb')||b.closest('.cin-hero');var f=root&&root.querySelector('.sk-plan');if(!f)return;var z=Math.max(0,Math.min(2,(+f.getAttribute('data-z')||1)+(+b.getAttribute('data-zd'))));f.setAttribute('data-z',z);root.querySelectorAll('.sk-zc__b').forEach(function(x){var d=+x.getAttribute('data-zd');x.disabled=(d>0&&z===2)||(d<0&&z===0)})},true);pan.addEventListener('click',function(e){if(e.target===pan)close()});
 });</script>
 <!-- ══ CARDS ══ -->
+<section class="vu-ess">
+<div class="vu-glass">
+<p><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.500"/><path d="M12 7.500V12l3 2"/></svg><span data-fr="7 jours sur 7 · 9 h – 22 h 30" data-en="7 days a week · 9 am – 10:30 pm">7 jours sur 7 · 9 h – 22 h 30</span></p>
+<a href="/parking"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16V11l1.800-4.500h10.400L19 11v5M5 16h14M5 16v2.500M19 16v2.500M8 13h.01M16 13h.01"/></svg><span data-fr="Stationnement privé et gratuit" data-en="Free private parking">Stationnement privé et gratuit</span><i aria-hidden="true">→</i></a>
+<a href="tel:+14382605660"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h3l1.500 4-2 1.300a11 11 0 0 0 5.200 5.200L15 12.500l4 1.500v3a2 2 0 0 1-2 2A13 13 0 0 1 4 6a2 2 0 0 1 2-2z"/></svg><span>+1 (438) 260-5660</span><i aria-hidden="true">→</i></a>
+</div>
+<div class="vu-pols"><figure class="vu-pol vu-p1"><span class="vu-pol-ph"><img src="assets/lieu-nuit-b.webp" alt="Façade de Skines au 19, avenue Shamrock, le soir" loading="lazy" decoding="async" width="640" height="853"></span><span class="vu-pol-k">N° 1</span><span class="vu-pol-t"><span data-fr="Façade" data-en="Façade">Façade</span></span></figure><figure class="vu-pol vu-p2"><span class="vu-pol-ph"><img src="assets/lieu-porte-b.webp" alt="Une cliente pousse la porte de Skines" loading="lazy" decoding="async" width="480" height="480"></span><span class="vu-pol-k">N° 2</span><span class="vu-pol-t"><span data-fr="Entrée" data-en="Entrance">Entrée</span></span></figure><figure class="vu-pol vu-p3"><span class="vu-pol-ph"><img src="assets/lieu-arbre-d.webp" alt="Skines à l'ombre des arbres de la Petite-Italie" loading="lazy" decoding="async" width="480" height="600"></span><span class="vu-pol-k">N° 3</span><span class="vu-pol-t"><span data-fr="Petite-Italie" data-en="Little Italy">Petite-Italie</span></span></figure></div>
+<a class="vu-link" href="/your-visit"><span data-fr="Préparer votre visite" data-en="Prepare your visit">Préparer votre visite</span><i aria-hidden="true">→</i></a>
+</section>
 <div class="dirs-cards">
 
   <!-- ─ Card 1: Our Location ─ -->
@@ -3586,6 +3595,26 @@ html body:not(#_):not(#__){background:#2e1c16 !important}
 .vu-hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,28,22,.55) 0%,rgba(46,28,22,.05) 30%,rgba(46,28,22,.35) 65%,#2e1c16 100%)}
 html body .vu-hero-cap:not(#_){position:absolute;left:0;right:0;bottom:62px;margin:0;text-align:center;font:500 .72rem 'DM Sans',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#F5EDE3 !important;text-shadow:0 2px 14px rgba(20,10,6,.6)}
 @media (max-width:980px){html body nav#mainNav:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){background:#684034 !important}}
+.vu-ess{max-width:640px;margin:0 auto;padding:0 14px 46px;text-align:center}
+.vu-glass{display:flex;flex-direction:column;gap:4px;padding:8px 18px;border-radius:22px;background:rgba(245,237,227,.07);border:1px solid rgba(201,161,90,.32);margin:0 0 30px}
+html body .vu-glass p:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5),html body .vu-glass a:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){display:flex;align-items:center;gap:14px;margin:0;padding:14px 0;color:#F5EDE3 !important;text-decoration:none;font:400 .95rem/1.35 'DM Sans',sans-serif;text-align:left}
+html body .vu-glass p+a:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5),html body .vu-glass a+a:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){border-top:1px solid rgba(245,237,227,.12)}
+html body .vu-glass svg{flex:0 0 20px;color:#C9A15A}
+html body .vu-glass span:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){color:inherit !important}
+html body .vu-glass i:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){margin-left:auto;font-style:normal;color:#C9A15A !important}
+.vu-pols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:380px;margin:0 auto 26px}
+html body .vu-pol:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;margin:0;padding:8px 8px 10px;background:#FAF1EC;box-shadow:0 10px 20px rgba(0,0,0,.4)}
+.vu-pol::before{content:"";position:absolute;inset:0;border:5px dotted #F9BE96;pointer-events:none;z-index:2}
+.vu-pol-ph{display:block;width:100%;aspect-ratio:4/5;overflow:hidden;position:relative}
+.vu-pol-ph img{display:block;width:100%;height:100%;object-fit:cover}
+html body .vu-pol-k:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){font:600 .56rem 'DM Sans',sans-serif;letter-spacing:.2em;color:#B66A5A !important;margin-top:2px}
+html body .vu-pol-t:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){font:600 .64rem/1.1 'DM Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#684034 !important;text-align:center}
+html body .vu-pol-t span:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){color:inherit !important}
+.vu-p1{transform:rotate(-3deg)}.vu-p2{transform:rotate(2deg) translateY(8px)}.vu-p3{transform:rotate(-2deg)}
+html body .vu-link:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){display:inline-flex;align-items:center;gap:12px;color:#F5EDE3 !important;text-decoration:none;font:500 .78rem 'DM Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid rgba(201,161,90,.6)}
+html body .vu-link span:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){color:inherit !important}
+html body .vu-link i:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){font-style:normal;color:#C9A15A !important}
+@media (min-width:700px){.vu-hero{height:min(58svh,620px)}.vu-ess{max-width:720px}.vu-pols{max-width:520px;gap:18px}html body .dirs-cards:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5){max-width:720px;margin-left:auto !important;margin-right:auto !important}}
 </style>
 </body>
 </html>
