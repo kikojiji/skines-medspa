@@ -2,7 +2,7 @@
 @media (max-width:980px){
 html body nav#mainNav .sk-gift:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){z-index:5;position:absolute;left:78px;top:20px;width:30px;height:30px;border:0;display:flex;align-items:center;justify-content:center;color:#EEE6DC;background:transparent}
 html body nav#mainNav .sk-gift svg:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8),html body nav#mainNav .sk-gift svg *:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){stroke:#EEE6DC !important}
-html body nav#mainNav .menu-btn:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){align-items:flex-end !important}
+html body nav#mainNav .menu-btn:not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){align-items:center !important}
 html body nav#mainNav .menu-btn span:nth-child(1):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){width:11px !important}
 html body nav#mainNav .menu-btn span:nth-child(2):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){width:18px !important}
 html body nav#mainNav .menu-btn span:nth-child(3):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8){width:30px !important}
