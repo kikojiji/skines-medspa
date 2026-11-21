@@ -8,3 +8,10 @@ html body footer.sk-foot .sk-foot-cols a:not(#_0):not(#_1):not(#_2):not(#_3):not
 html body footer.sk-foot .sk-foot-hours:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){white-space:pre-line !important}
 html body footer.sk-foot .sk-foot-cols a:not(.sk-foot-btn):not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){color:#EBD3C2 !important}
 }
+@media (min-width:981px){
+html body footer.sk-foot .sk-foot-cols > details:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){padding-top:0 !important;padding-bottom:0 !important}
+html body footer.sk-foot .sk-foot-cols > details:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body footer.sk-foot .sk-foot-cols > details > summary:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body footer.sk-foot form:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body footer.sk-foot form label:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11),html body footer.sk-foot .sk-foot-lang2:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){color:rgb(246,230,212) !important}
+html body footer.sk-foot form label:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){font-weight:300 !important}
+html body footer.sk-foot form button:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){line-height:17.6px !important}
+html body footer.sk-foot form button:nth-child(2):not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){font-weight:600 !important}
+}
