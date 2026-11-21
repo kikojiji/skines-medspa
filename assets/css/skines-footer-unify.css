@@ -15,3 +15,8 @@ html body footer.sk-foot form label:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4)
 html body footer.sk-foot form button:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){line-height:17.6px !important}
 html body footer.sk-foot form button:nth-child(2):not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){font-weight:600 !important}
 }
+@media (min-width:981px){
+html body footer.sk-foot .sk-foot-cols > details > summary:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){padding:0 !important;margin-top:0 !important;margin-bottom:0 !important;font-weight:300 !important;font-size:16px !important;line-height:27.2px !important;text-transform:none !important;letter-spacing:normal !important;border:0 !important;background:none !important}
+html body footer.sk-foot .sk-foot-cols > details > div > a:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){text-decoration-line:none !important}
+html body footer.sk-foot .sk-foot-lang2 button:not(#_0):not(#_1):not(#_2):not(#_3):not(#_4):not(#_5):not(#_6):not(#_7):not(#_8):not(#_9):not(#_10):not(#_11){font-weight:400 !important}
+}
