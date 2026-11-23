@@ -49,3 +49,6 @@ docs/DESIGN-SPEC.md
 !assets/video/parking-guide-2026b.mp4
 !assets/videos/avis-justine.mp4
 !assets/videos/hs/*.mp4
+
+# Scratch/preview pages must never be deployed
+_*.html
